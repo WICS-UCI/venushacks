@@ -3,4 +3,99 @@
 .Home {
   text-align: center;
   min-height: 100vh;
+
+  .stripes {
+    display: grid;
+    grid-template-rows: repeat(5, 20vh);
+    grid-template-columns: repeat(5, 20vw);
+    width: 100vw;
+    height: 100vh;
+    transform: skewY(-12deg);
+    transform-origin: 0;
+    position: absolute;
+    background: linear-gradient(150deg,$leftGradient 15%, $rightGradient 70%);
+  
+    .div {
+      position: absolute;
+    }
+  }
+
+  .inner0 {
+    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);
+    grid-area: 5 / 5 / 5 / 6;
+  }
+  
+  .inner1 {
+    background-image: linear-gradient(to right, $rightOffGradient, $leftGradient);  grid-area: 1 / 1 / 1 / 4;
+  }
+  
+  .inner2 {
+    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);  grid-area: 2 / 2 / 2 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .inner3 {
+    background-image: linear-gradient(to right, $leftGradient, $rightOffGradient);  grid-area: 5 / 1 / 5 / 3;
+  }
+
+  #intro {
+    height: 90vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+
+    div {
+      width: 60vw;
+    }
+
+    h1 {
+      margin-bottom: .1em !important;
+    }
+  }
+
+  #info {
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      text-align: left;
+      width: 60vw;
+
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
+  #numbers {
+    margin-top: 10vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $lightGray;
+
+    & > h2 {
+      margin-top: 10vh;
+    }
+
+    & > div {
+      margin-top: 5vh;
+      margin-bottom: 10vh;
+      width: 80vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }

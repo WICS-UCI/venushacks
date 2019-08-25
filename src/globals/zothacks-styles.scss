@@ -6,6 +6,11 @@ When graphics gives us their style guidelines we can look here.
 
 **/
 
+// PX Sizing for Media queries
+$break-small: 320px;
+$break-medium: 836px;
+$break-large: 1200px;
+
 
 // Temporary Appwide Style Variables
 $fontColor: #2e2e2e;
@@ -18,3 +23,11 @@ $lightBackground: #fcfcfc;
 $coloredLightBackground: #99d9ff;
 $tealBackground: #92dee2;
 $purpleBackground: #cba3fe;
+
+// Gradients
+$leftGradient: #74ebd5;
+$rightGradient: #ACB6E5;
+$rightOffGradient: #9ca7db;
+
+// Colors 
+$lightGray: #e8e8e8;
