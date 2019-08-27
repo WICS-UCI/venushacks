@@ -1,5 +1,19 @@
 .numbers-group {
   display: flex;
   flex-direction: column;
-  margin: 5%;
+  background-color: white;
+  color: rgb(46, 46, 46);
+  width: 25vw;
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  border-radius: 20px;
+
+  div {
+    margin-top: 3.5em !important;
+    margin: 2em;
+  }
+
+  i {
+    font-size: 5em;
+    margin-bottom: .5em;
+  }
 }

@@ -6,7 +6,9 @@ import { Button } from 'react-bootstrap';
 function NumbersGroup(props) {
   return (
     <div className='numbers-group'>
-      {props.children}
+      <div>
+        {props.children}
+      </div>
     </div>
   );
 }

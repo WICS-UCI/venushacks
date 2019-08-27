@@ -4,6 +4,10 @@
   text-align: center;
   min-height: 100vh;
 
+  h1 {
+    font-weight: 600;
+  }
+
   .stripes {
     display: grid;
     grid-template-rows: repeat(5, 20vh);
@@ -12,8 +16,8 @@
     height: 100vh;
     transform: skewY(-12deg);
     transform-origin: 0;
-    position: absolute;
     background: linear-gradient(150deg,$leftGradient 15%, $rightGradient 70%);
+    position: absolute;
   
     .div {
       position: absolute;
@@ -26,18 +30,18 @@
   }
   
   .inner1 {
-    background-image: linear-gradient(to right, $rightOffGradient, $leftGradient);  grid-area: 1 / 1 / 1 / 4;
+    background-image: linear-gradient(to right, $rightOffGradient, $leftGradient);  
+    grid-area: 1 / 1 / 1 / 4;
   }
   
   .inner2 {
-    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);  grid-area: 2 / 2 / 2 / 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);  
+    grid-area: 2 / 3 / 2 / 6;
   }
   
   .inner3 {
-    background-image: linear-gradient(to right, $leftGradient, $rightOffGradient);  grid-area: 5 / 1 / 5 / 3;
+    background-image: linear-gradient(to right, $leftGradient, $rightOffGradient);  
+    grid-area: 5 / 1 / 5 / 3;
   }
 
   #intro {
@@ -50,8 +54,26 @@
     text-align: left;
     color: white;
 
-    div {
+    & > div {
+      display: flex;
+      flex-direction: row;
       width: 60vw;
+  
+      img {
+        width: 250px;
+        height: 250px;
+        margin-right: 2em;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        button {
+          width: 100px;
+        }
+      }
     }
 
     h1 {
@@ -83,19 +105,37 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: $lightGray;
+    background: linear-gradient(150deg,$rightGradient 35%, $leftGradient 70%);
+    color: white;
+    // background-color: $lightGray;
 
     & > h2 {
       margin-top: 10vh;
     }
 
-    & > div {
+    .numbers-cards {
       margin-top: 5vh;
       margin-bottom: 10vh;
       width: 80vw;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      & > div {
+        margin: 20px;
+      }
+
+      @media screen and (max-width: $break-medium) {
+        flex-direction: column;
+      }
     }
+  }
+
+  #credits {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
