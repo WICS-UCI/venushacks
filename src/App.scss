@@ -8,8 +8,18 @@
   font-family: $hackUCIFont;
   overflow-y: auto;
 
+  button {
+    border-radius: 50px;
+  }
+
   p {
     font-size: 20px;
+  }
+
+  h4 {
+    font-size: 30px;
+    margin-bottom: .5em;
+    font-weight: 600;
   }
 
   h3 {

@@ -2,9 +2,12 @@ import React from "react";
 import './Home.scss';
 
 import { Button } from 'react-bootstrap';
+import Fade from 'react-reveal/Fade';
+import { Link } from 'react-router-dom';
+
 import { NumbersGroup } from 'app/containers';
 import logo from 'assets/images/zothacks-logo.png';
-import Fade from 'react-reveal/Fade';
+
 
 function Home() {
   return (
@@ -16,8 +19,21 @@ function Home() {
         <div className='inner3'></div>
       </div>
       <section id='intro'>
-        <div>
-          <Fade duration={2000}>
+        <div className="schedule-nav">
+          <a>
+            <h5>
+              Contact
+            </h5>
+          </a>
+          <Link to="/schedule">
+            <Button className="schedule-button" variant="light">
+              Schedule
+            </Button>
+          </Link>
+        </div>
+          
+        <div className="title-info">
+          <Fade duration={3000}>
             <img src={logo}></img>
             <div>
               <h1>
@@ -58,7 +74,7 @@ function Home() {
               <div>
                 <NumbersGroup>
                   <i className="fa fa-line-chart"></i>
-                  <h3>0 to 100</h3>
+                  <h4>0 to 100</h4>
                   <p>
                   A majority of ZotHacks 2019 participants started with no experience but still learned something!
                   </p>
@@ -67,7 +83,7 @@ function Home() {
               <div>
                 <NumbersGroup>
                   <i className="fa fa-check"></i>
-                  <h3>Project Completion</h3>
+                  <h4>Completion</h4>
                   <p>
                     95.425% of participants completed a project by the end of the 10 hour hacking period.
                   </p>
@@ -76,7 +92,7 @@ function Home() {
               <div>
                 <NumbersGroup>
                   <i className="fa fa-smile-o"></i>
-                  <h3>Fun!</h3>
+                  <h4>Fun!</h4>
                   <p>
                     Lasse personally tracked down and asked every participant if they had fun. They said yes!
                   </p>
