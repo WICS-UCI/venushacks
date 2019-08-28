@@ -1,0 +1,183 @@
+@import "globals/zothacks-styles.scss";
+
+.Schedule {
+  text-align: center;
+  min-height: 100vh;
+
+  h1 {
+    font-weight: 600;
+  }
+
+  .stripes {
+    display: grid;
+    grid-template-rows: repeat(5, 14vh);
+    grid-template-columns: repeat(5, 20vw);
+    width: 100vw;
+    height: 70vh;
+    transform: skewY(-12deg);
+    transform-origin: 0;
+    background: linear-gradient(150deg,$leftGradient 15%, $rightGradient 70%);
+    position: absolute;
+
+  
+    .div {
+      position: absolute;
+    }
+  }
+
+  .inner0 {
+    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);
+    grid-area: 5 / 5 / 5 / 6;
+  }
+  
+  .inner1 {
+    background-image: linear-gradient(to right, $rightOffGradient, $leftGradient);  
+    grid-area: 1 / 1 / 1 / 4;
+  }
+  
+  .inner2 {
+    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);  
+    grid-area: 2 / 3 / 2 / 6;
+  }
+  
+  .inner3 {
+    background-image: linear-gradient(to right, $leftGradient, $rightOffGradient);  
+    grid-area: 5 / 1 / 5 / 3;
+  }
+
+  #intro {
+    height: 90vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+
+    .schedule-nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        margin-right: 0 !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        h5 {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .schedule-button {
+      margin: 2em;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .title-info {
+      display: flex;
+      flex-direction: row;
+      width: 60vw;
+
+      @media screen and (max-width: $break-medium) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        button {
+          align-self: center;
+        }
+        
+        img {
+          margin-right: 0 !important;
+        }
+
+        h1 {
+          font-size: 60px;
+        }
+      }
+  
+      img {
+        width: 250px;
+        height: 250px;
+        margin-right: 2em;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        button {
+          width: 100px;
+        }
+      }
+
+      h1 {
+        margin-bottom: .1em !important;
+      }
+    }
+  }
+
+  #schedule-nav {
+    width: 100vh;
+    position: relative;
+  }
+
+  #schedule-block {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .schedule-countdown {
+      height: 30vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: left;
+      flex-direction: column;
+      
+      .schedule-countdown-border {
+        width: 160px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: white;
+      }
+
+      div {
+        width: 70vh;
+        display: grid;
+        grid-template-columns: 40% 30% 30%;
+      }
+    }
+
+    .schedule-card {
+      border-radius: 20px;
+      z-index: 50;
+      height: 100%;
+      width: 80vw;
+      background-color: #2e2e2e;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+      color: $leftGradient;
+    }
+  }
+
+  #credits {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -4,7 +4,8 @@ import history from './history';
 import './App.scss';
 
 import {
-  Home
+  Home,
+  Schedule
 } from 'app/views';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Router history={history}>
         <Switch>
           <Route exact path='/' component={Home}/>
+          <Route exact path='/schedule' component={Schedule}/>
         </Switch>
       </Router>
     </div>

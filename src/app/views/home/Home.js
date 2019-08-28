@@ -13,10 +13,12 @@ function Home() {
   return (
     <div className="Home">
       <div className="stripes">
-        <div className='inner0'></div>
-        <div className='inner1'></div>
-        <div className='inner2'></div>
-        <div className='inner3'></div>
+        <Fade>
+          <div className='inner0'></div>
+          <div className='inner1'></div>
+          <div className='inner2'></div>
+          <div className='inner3'></div>
+        </Fade>
       </div>
       <section id='intro'>
         <div className="schedule-nav">
