@@ -1,0 +1,11 @@
+@import "globals/zothacks-styles.scss";
+
+.nav {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  position: absolute;
+  background-color: $light
+  top: 0;
+  left: 0;
+}

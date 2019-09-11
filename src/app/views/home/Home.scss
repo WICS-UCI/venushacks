@@ -14,12 +14,10 @@
     grid-template-columns: repeat(5, 20vw);
     width: 100vw;
     height: 100vh;
-    transform: skewY(-12deg);
     transform-origin: 0;
-    background: linear-gradient(150deg,$leftGradient 15%, $rightGradient 70%);
     position: absolute;
-    box-shadow: inset 0px 8px 15px -10px rgba(0, 0, 0, 0.9);
-
+    background-image: url('./../../../assets/images/clouds-background.jpg');
+    background-size: contain;
   
     .div {
       position: absolute;
@@ -46,8 +44,15 @@
     grid-area: 5 / 1 / 5 / 3;
   }
 
+  #background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0
+  }
+
   #intro {
-    height: 90vh;
+    height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -71,6 +76,8 @@
 
         h5 {
           margin-bottom: 0;
+          margin-left: 30px;
+
         }
       }
     }
@@ -83,7 +90,6 @@
     .title-info {
       display: flex;
       flex-direction: row;
-      width: 60vw;
 
       @media screen and (max-width: $break-medium) {
         flex-direction: column;
@@ -159,7 +165,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(150deg,$rightGradient 35%, $leftGradient 70%);
+    // background: linear-gradient(150deg,$rightGradient 35%, $leftGradient 70%);
+    background-color: $coloredLightBackground;
     box-shadow: inset 0px 8px 15px rgba(0, 0, 0, 0.1);
     color: white;
     // background-color: $lightGray;

@@ -9,16 +9,11 @@
   }
 
   .stripes {
-    display: grid;
-    grid-template-rows: repeat(5, 14vh);
-    grid-template-columns: repeat(5, 20vw);
     width: 100vw;
     height: 70vh;
-    transform: skewY(-12deg);
     transform-origin: 0;
-    background: linear-gradient(150deg,$leftGradient 15%, $rightGradient 70%);
+    background-color: $coloredLightBackground;
     position: absolute;
-
   
     .div {
       position: absolute;
@@ -147,7 +142,12 @@
       color: white;
       text-align: left;
       flex-direction: column;
-      
+
+      .hat-left {
+        width: 40px;
+        height: 40px;
+      }
+        
       .schedule-countdown-border {
         width: 160px;
         height: 4px;
@@ -155,10 +155,17 @@
         background-color: white;
       }
 
-      div {
-        width: 70vh;
+      & > div {
+        width: 50vw;
         display: grid;
-        grid-template-columns: 40% 30% 30%;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        text-align: center;
+        
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
 

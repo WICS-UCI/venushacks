@@ -2,6 +2,7 @@ import React from "react";
 import './Schedule.scss';
 
 import Fade from 'react-reveal/Fade';
+import { FloatingHat } from 'app/components';
 
 function Schedule() {
   return (
@@ -17,8 +18,11 @@ function Schedule() {
       <section id="schedule-block">
         <div className="schedule-countdown">
           <div>
+            <div>
+              <FloatingHat offset={0}></FloatingHat>
+            </div>
             <h3>
-              00 HOURS
+              00 HRS
             </h3>
             <h3>
               00 MIN
@@ -26,6 +30,9 @@ function Schedule() {
             <h3>
               00 SEC
             </h3>
+            <div>
+              <FloatingHat offset={2}></FloatingHat>
+            </div>
           </div>
           <div className="schedule-countdown-border"></div>
         </div>

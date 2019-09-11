@@ -7,33 +7,34 @@ import { Link } from 'react-router-dom';
 
 import { NumbersGroup } from 'app/containers';
 import logo from 'assets/images/zothacks-logo.png';
+import background from 'assets/images/clouds-background.jpg';
 
 
 function Home() {
   return (
     <div className="Home">
-      <div className="stripes">
-        <Fade>
-          <div className='inner0'></div>
-          <div className='inner1'></div>
-          <div className='inner2'></div>
-          <div className='inner3'></div>
-        </Fade>
-      </div>
+      <img id='background' src={background}></img>
       <section id='intro'>
         <div className="schedule-nav">
+          <div>
+            
+          </div>
           <a>
             <h5>
               Contact
             </h5>
           </a>
-          <Link to="/schedule">
+          <a>
+            <h5>
+              Devpost
+            </h5>
+          </a>
+          <Link to="/schedule" style={{'marginLeft': '0px !important'}}>
             <Button className="schedule-button" variant="light">
               Schedule
             </Button>
           </Link>
-        </div>
-          
+        </div>        
         <div className="title-info">
           <Fade duration={3000}>
             <img src={logo}></img>
@@ -44,7 +45,7 @@ function Home() {
               <p>
                 A beginner-oriented hackathon for UCI anteaters.
               </p>
-              <Button variant='outline-light' style={{'borderRadius': '50px'}}>
+              <Button variant='light' style={{'borderRadius': '50px'}}>
                 Apply
               </Button>
             </div>
