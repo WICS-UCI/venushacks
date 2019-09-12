@@ -7,14 +7,7 @@ import { FloatingHat } from 'app/components';
 function Schedule() {
   return (
     <div className="Schedule">
-      <div className="stripes">
-        <Fade cascade duration={1000}>
-          <div className='inner0'></div>
-          <div className='inner1'></div>
-          <div className='inner2'></div>
-          <div className='inner3'></div>
-        </Fade>
-      </div>
+      <div className="stripes"></div>
       <section id="schedule-block">
         <div className="schedule-countdown">
           <div>

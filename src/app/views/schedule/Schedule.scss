@@ -10,9 +10,10 @@
 
   .stripes {
     width: 100vw;
-    height: 70vh;
+    height: 80vh;
     transform-origin: 0;
-    background-color: $coloredLightBackground;
+    background-image: url('./../../../assets/images/clouds-background.jpg');
+    background-size: cover;
     position: absolute;
   
     .div {
@@ -134,6 +135,7 @@
     flex-direction: column;
 
     .schedule-countdown {
+      margin-top: 70px;
       height: 30vh;
       width: 100vw;
       display: flex;

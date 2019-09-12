@@ -15,26 +15,6 @@ function Home() {
     <div className="Home">
       <img id='background' src={background}></img>
       <section id='intro'>
-        <div className="schedule-nav">
-          <div>
-            
-          </div>
-          <a>
-            <h5>
-              Contact
-            </h5>
-          </a>
-          <a>
-            <h5>
-              Devpost
-            </h5>
-          </a>
-          <Link to="/schedule" style={{'marginLeft': '0px !important'}}>
-            <Button className="schedule-button" variant="light">
-              Schedule
-            </Button>
-          </Link>
-        </div>        
         <div className="title-info">
           <Fade duration={3000}>
             <img src={logo}></img>

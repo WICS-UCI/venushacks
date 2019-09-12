@@ -8,10 +8,10 @@ import hat from 'assets/images/hat.png';
 const Container = Keyframes.Spring(async next => {
   while (true) {
     let prev = 0;
-    let prevDegree = -10;
+    let prevDegree = -3;
     for (let i = 0; i < 10; i++) {
       let randomHeight = Math.floor(Math.random() * 20) 
-      let randomDegree = i % 3 === 0 ? prevDegree * -1 : prevDegree;
+      let randomDegree = i % 1 === 0 ? prevDegree * -1 : prevDegree;
       await next({
         from: { height: prev, degree: prevDegree},
         to: { height: i === 9 ? 0 : randomHeight, degree: randomDegree} 
