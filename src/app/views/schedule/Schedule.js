@@ -1,8 +1,8 @@
 import React from "react";
 import './Schedule.scss';
 
-import Fade from 'react-reveal/Fade';
-import { FloatingHat } from 'app/components';
+
+import { FloatingHat, ScheduleCard } from 'app/components';
 
 function Schedule() {
   return (
@@ -29,9 +29,7 @@ function Schedule() {
           </div>
           <div className="schedule-countdown-border"></div>
         </div>
-        <div className="schedule-card">
-         
-        </div>
+        <ScheduleCard/>
       </section>
       <section id="credits">
         <p>Made with <a href="https://en.wikipedia.org/wiki/Anteater">&hearts;</a> in Irvine, CA</p>

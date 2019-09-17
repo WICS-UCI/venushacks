@@ -25,19 +25,26 @@ function Nav({history}) {
     setHomepage(location.pathname === '/');
   });
 
+  function test(change) {
+    console.log(resourceHover, 'changing to', change);
+    setResourceHover(change);
+  }
+
   return (
     <div className="nav">
       <div className="nav-left">
-        <img src={logo} alt="Zothacks Logo"></img>
+        <Link to="/">
+          <img src={logo} alt="Zothacks Logo"></img>
+        </Link>
       </div>
       <div className="nav-right">
         <Link to="/">
-          <p>
+          <p className="home-button-hide">
             Home
           </p>
         </Link>
-        <div onMouseOver={() => setResourceHover(true)} onMouseOut={() => setResourceHover(false)}>
-          <p>
+        <div onMouseLeave={() => test(false)}>
+          <p onMouseOver={() => test(true)}>
             Resources 
             <i className="fa fa-angle-down"></i>
           </p>

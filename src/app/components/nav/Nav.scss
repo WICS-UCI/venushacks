@@ -12,6 +12,12 @@
   top: 0;
   left: 0;
 
+  @media screen and (max-width: 440px) {
+    .home-button-hide {
+      display: none;
+    }
+  }
+
   a {
     text-decoration: none;
   }
@@ -47,12 +53,11 @@
     margin-top: 30px;
     display: flex;
     flex-direction: row;
-
   }
 
   .nav-resource-dropdown {
     width: 15em;
-    height: 216px;
+    height: 212px;
     background-color: white;
     position: absolute;
     border-radius: 10px;
@@ -103,11 +108,9 @@
     }
 
     .nav-resource-border {
-      width: 60%;
-      margin-left: 20%;
+      width: 100%;
       background-color: lightgray;
-      height: 3px;
-      border-radius: 2px;
+      height: 1px;
     }
   }
 }
