@@ -8,12 +8,13 @@ import { Link } from 'react-router-dom';
 import { NumbersGroup } from 'app/containers';
 import logo from 'assets/images/zothacks-logo.png';
 import background from 'assets/images/clouds-background.jpg';
-
+import mobileBackground from 'assets/images/clouds-mobile-background.png';
 
 function Home() {
   return (
     <div className="Home">
       <img id='background' src={background}></img>
+      <img id="mobile-background" src={mobileBackground}></img>
       <section id='intro'>
         <div className="title-info">
           <Fade duration={3000}>
@@ -22,7 +23,10 @@ function Home() {
               <h1>
                 ZotHacks
               </h1>
-              <p>
+              <h4>
+               November 9-10th
+              </h4>
+              <p className="title-info-description">
                 A beginner-oriented hackathon for UCI anteaters.
               </p>
               <Button variant='light' style={{'borderRadius': '50px'}}>
@@ -84,6 +88,32 @@ function Home() {
             </div>
           </Fade>
         </div>
+      </section>
+      <section id='faq'>
+        <Fade duration={1000}>
+          <h2>
+            FAQ
+          </h2>
+          <div className="faq-grid">
+            <div id="faq-left">
+              <h3>
+                What is a hackathon?
+              </h3>
+              <p>
+                A hackathon is a place where the only thing limiting what you build is your own creativity - we'll provide the rest. Stay up for 36 hours with the smartest people you'll ever meet. building the coolest things you have created, and chugging more of your favorite energy drink than you ever thought possible.
+              </p>
+            </div>
+            <div/>
+            <div id="faq-right">
+              <h3>
+                What is a hackathon?
+              </h3>
+              <p>
+                A hackathon is a place where the only thing limiting what you build is your own creativity - we'll provide the rest. Stay up for 36 hours with the smartest people you'll ever meet. building the coolest things you have created, and chugging more of your favorite energy drink than you ever thought possible.
+              </p>
+            </div>
+          </div>
+        </Fade>
       </section>
       <section id="credits">
         <p>Made with <a href="https://en.wikipedia.org/wiki/Anteater">&hearts;</a> in Irvine, CA</p>

@@ -26,9 +26,8 @@ function FloatingHat({offset}) {
   const image = ({height, degree}) => (
     <animated.img 
       src={hat} 
+      className="floating-hat"
       style={{ 
-        width: '50px', 
-        height: '60px', 
         transform: interpolate([height, degree], (h, d) => `translateY(${h - 10}px) rotate(${d}deg)`),
         transformOrigin: 'top center'
       }}

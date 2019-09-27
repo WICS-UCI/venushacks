@@ -7,7 +7,6 @@ import { FloatingHat, ScheduleCard } from 'app/components';
 function Schedule() {
   return (
     <div className="Schedule">
-      <div className="stripes"></div>
       <section id="schedule-block">
         <div className="schedule-countdown">
           <div>

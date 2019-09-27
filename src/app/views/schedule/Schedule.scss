@@ -3,6 +3,7 @@
 .Schedule {
   text-align: center;
   min-height: 100vh;
+  background-color: $coloredLightBackground;
 
   h1 {
     font-weight: 600;
@@ -126,17 +127,14 @@
   }
 
   #schedule-block {
-    height: 100vh;
-    width: 100vw;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 
     .schedule-countdown {
       margin-top: 70px;
-      height: 30vh;
+      height: 25vh;
       width: 100vw;
       display: flex;
       justify-content: center;
@@ -144,11 +142,6 @@
       color: white;
       text-align: left;
       flex-direction: column;
-
-      @media screen and (max-width: 800px) {
-        padding-top: 350px;
-        padding-bottom: 58px;
-      }
 
       .hat-left {
         width: 40px;
@@ -172,7 +165,7 @@
           width: 80vw;
 
           h3 {
-            font-size: 32px;
+            font-size: 25px;
           }
         }
         
@@ -186,10 +179,15 @@
   }
 
   #credits {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    background-color: white;
+    height: 15vh;
+    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    p {
+      margin: 0;
+    }
   }
 }

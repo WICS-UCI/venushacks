@@ -8,48 +8,28 @@
     font-weight: 600;
   }
 
-  .stripes {
-    display: grid;
-    grid-template-rows: repeat(5, 20vh);
-    grid-template-columns: repeat(5, 20vw);
-    width: 100vw;
-    height: 100vh;
-    transform-origin: 0;
-    position: absolute;
-    background-image: url('./../../../assets/images/clouds-background.jpg');
-    background-size: contain;
-  
-    .div {
-      position: absolute;
-    }
-  }
-
-  .inner0 {
-    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);
-    grid-area: 5 / 5 / 5 / 6;
-  }
-  
-  .inner1 {
-    background-image: linear-gradient(to right, $rightOffGradient, $leftGradient);  
-    grid-area: 1 / 1 / 1 / 4;
-  }
-  
-  .inner2 {
-    background-image: linear-gradient(to left, $leftGradient, $rightOffGradient);  
-    grid-area: 2 / 3 / 2 / 6;
-  }
-  
-  .inner3 {
-    background-image: linear-gradient(to right, $leftGradient, $rightOffGradient);  
-    grid-area: 5 / 1 / 5 / 3;
-  }
-
   #background {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    left: 0
+    left: 0;
+
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
   }
+
+  #mobile-background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
+  }
+
 
   #intro {
     height: 100vh;
@@ -60,6 +40,11 @@
     flex-direction: column;
     text-align: left;
     color: white;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
+
+    // @media screen and (max-width: $break-medium) {
+    //   background-color: $coloredLightBackground;
+    // }
 
     .schedule-nav {
       position: absolute;
@@ -77,7 +62,6 @@
         h5 {
           margin-bottom: 0;
           margin-left: 30px;
-
         }
       }
     }
@@ -109,6 +93,10 @@
 
         h1 {
           font-size: 60px;
+        }
+
+        .title-info-description {
+          width: 70vw;
         }
       }
   
@@ -147,6 +135,11 @@
       text-align: left;
       width: 60vw;
 
+      @media screen and (max-width: $break-small) {
+        width: 80vw;
+        text-align: center;
+      }
+
       h2 {
         text-align: center;
         // width: 80vw;
@@ -165,11 +158,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    // background: linear-gradient(150deg,$rightGradient 35%, $leftGradient 70%);
     background-color: $coloredLightBackground;
-    box-shadow: inset 0px 8px 15px rgba(0, 0, 0, 0.1);
     color: white;
-    // background-color: $lightGray;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
 
     & > h2 {
       margin-top: 10vh;
@@ -194,11 +185,47 @@
     }
   }
 
+  #faq {
+    // min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & > h2 {
+      margin-top: 10vh;
+      width: 80vw;
+    }
+
+    & > div {
+      width: 80vw;
+    }
+
+    .faq-grid {
+      margin-bottom: 10vh;
+      display: grid !important;
+      grid-template-columns: 45% 10% 45%;
+
+      h3 {
+        margin-top: 30px;
+      }
+
+      @media screen and (max-width: $break-medium) {
+        grid-template-columns: 100%;
+      }
+    }
+  }
+
   #credits {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    background-color: $coloredLightBackground;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
+
+    p {
+      margin: 0;
+    }
   }
 }

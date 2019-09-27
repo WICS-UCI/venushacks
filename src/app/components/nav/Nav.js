@@ -43,7 +43,7 @@ function Nav({history}) {
             Home
           </p>
         </Link>
-        <div onMouseLeave={() => test(false)}>
+        <div className="resource-button-hide" onMouseLeave={() => test(false)}>
           <p onMouseOver={() => test(true)}>
             Resources 
             <i className="fa fa-angle-down"></i>
