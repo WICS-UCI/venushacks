@@ -1,0 +1,4 @@
+/*    /index.html   200
+
+# Redirect default Netlify subdomain to primary domain
+https://zothacks-develop.netlify.com/* https://www.zothacks.com/:splat 301!

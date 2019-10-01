@@ -43,7 +43,7 @@ function Nav({history}) {
             Home
           </p>
         </Link>
-        <div className="resource-button-hide" onMouseLeave={() => test(false)}>
+        {/* <div className="resource-button-hide" onMouseLeave={() => test(false)}>
           <p onMouseOver={() => test(true)}>
             Resources 
             <i className="fa fa-angle-down"></i>
@@ -70,7 +70,7 @@ function Nav({history}) {
               </div>
             )}
           </Spring>
-        </div>
+        </div> */}
         {
           isHomepage ? 
           <Link to="/schedule">
@@ -78,11 +78,11 @@ function Nav({history}) {
               Schedule
             </Button>
           </Link> :
-          <Link to="/ahhh">
+          <a href="https://tinyurl.com/zothacks2019">
             <Button variant="light">
               Apply
             </Button>
-          </Link>
+          </a>
         }
       </div>
     </div>
