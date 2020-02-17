@@ -34,7 +34,7 @@ function Nav({history}) {
     <div className="nav">
       <div className="nav-left">
         <Link to="/">
-          <img src={logo} alt="Zothacks Logo"></img>
+          {/* <img src={logo} alt="Zothacks Logo"></img> */}
         </Link>
       </div>
       <div className="nav-right">
@@ -71,7 +71,7 @@ function Nav({history}) {
             )}
           </Spring>
         </div> */}
-        {
+        {/* {
           isHomepage ? 
           <Link to="/schedule">
             <Button variant="light">
@@ -83,7 +83,7 @@ function Nav({history}) {
               Apply
             </Button>
           </a>
-        }
+        } */}
       </div>
     </div>
   )

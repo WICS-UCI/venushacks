@@ -6,54 +6,66 @@ import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';
 
 import { NumbersGroup } from 'app/containers';
-import logo from 'assets/images/zothacks-logo.png';
-import background from 'assets/images/clouds-background.jpg';
-import mobileBackground from 'assets/images/clouds-mobile-background.png';
+// import logo from 'assets/images/zothacks-logo.png';
+import logo from 'assets/images/logo_solid.png';
+import astronaut from 'assets/images/astronaut_with_laptop.png';
+// import background from 'assets/images/clouds-background.jpg';
+import background_2 from 'assets/images/hat.png';
+import mobileBackground from 'assets/images/background.png';
+
+import periwinkle_planet from 'assets/images/periwinkleplanet.png';
+import about from 'assets/images/about.png';
+import faq from 'assets/images/faq.png';
+import spponsors_pic from 'assets/images/sponsors.png';
+
 
 function Home() {
   return (
     <div className="Home">
-      <img id='background' src={background}></img>
+      <img id='background' src={background_2}></img>
       <img id="mobile-background" src={mobileBackground}></img>
       <section id='intro'>
         <div className="title-info">
           <Fade duration={3000}>
-            <img src={logo}></img>
+            <img id= "left-image" src={astronaut}></img>
             <div>
               <h1>
-                ZotHacks
+                VENUSHACKS
               </h1>
               <h4>
-               November 9-10th
+               May 23-24, 2020
               </h4>
               <p className="title-info-description">
-                A beginner-oriented hackathon for UCI anteaters.
+                UCI's first women-centric / non-binary hackathon
               </p>
-              <a href="https://tinyurl.com/zothacks2019">
-              <Button variant='light' style={{'borderRadius': '50px', width: '100px'}}>
-                Apply
+              {/* <a href="https://tinyurl.com/zothacks2019"> */}
+              <a>
+              <Button variant='light' style={{'borderRadius': '50px', width: '200px'}}>
+                Applications open March 23, 2020
               </Button>
               </a>
             </div>
+            <img id= "right-image" src={logo}></img>
           </Fade>
         </div>
       </section>
       <section id='info'>
         <div>
           <Fade duration={1000}>
-            <h2>
-              Why ZotHacks?
-            </h2>
+          <img src={about}></img>
+            {/* <h2>
+              What is VenusHacks?
+            </h2> */}
             <p>
-              We at Hack are excited to announce ZotHacks, our beginner-focused mini-hackathon, which will be taking place on November 9th and 10th 2019.
+            Planned in collaboration with WICS and Hack, VenusHacks will be taking place from May 23-24, 2020 and will UCI’s first women-centric hackathon.
             </p>
             <p>
-              ZotHacks is a beginner-friendly hackathon where students with minimal computer science experience will learn to build and build a full-stack web application. Through ZotHacks, we introduce these students to the world of hackathons and web development by providing technical workshops, strong mentorship, and free food!
+            Our mission is to empower underrepresented groups by providing an inclusive community to foster growth and creativity in computing. VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community. Join us as we welcome over 200 high school (18+) and UCI students to participate in our 24-hour event that includes networking, fun activities, educational workshops, and lots of coding!
             </p>
           </Fade>
         </div>
       </section>
-      <section id='numbers'>
+      {/* <section id='numbers'>
         <h2>
           ZotHacks by the Numbers
         </h2>
@@ -90,70 +102,94 @@ function Home() {
             </div>
           </Fade>
         </div>
-      </section>
+      </section> */}
       <section id='faq'>
         <Fade duration={1000}>
-          <h2>
+        <img src={faq}></img>
+          {/* <h2>
             FAQ
-          </h2>
+          </h2> */}
           <div className="faq-grid">
             <div/>
             <div id="faq-left">
               <h3>
-                What is ZotHacks              
+                What is a hackathon?              
               </h3>
               <p>
-                ZotHacks is a place where the only thing limiting what you build is your own creativity – we'll provide the rest. We give you the resources, training, mentorship, and food you need in order for you to build a full web application with a team.
+                A hackathon is a 24 hour event where students of different backgrounds come together to collaborate on a project. Teams of up to 4 work together on brainstorming an idea and bringing the technology to life, and may present the project to possibly win some awesome prizes! You can also attend workshops, hear from inspiring speakers, and network with company representatives and fellow hackers.
+              </p>
+              <h3>
+                Can high schoolers attend? 
+              </h3>
+              <p>
+                Yes! However, you must be at least 18 years old at the time of the hackathon to attend. 
               </p>
               <h3>
                 What should I bring?            
               </h3>
               <p>
-                Yourself, an idea, a photo ID, your laptop, and chargers. We also have a list of the required software to download on laptops prior to the hackathon that we will send out later as the hackathon draws near.
+                An open mind, laptop, charger, government-issued ID, toiletries, sleeping bag, and anything else you would need to hack! Note: There will be no showers at the event.
               </p>
               <h3>
-                How will team formations work for admitted students?         
+                Do I sign up as an individual or as a team?
               </h3>
               <p>
-                We will be helping with team formations prior to the event and creating a Slack channel for communicating. Teams will be up to 4 people with an assigned mentor.
-              </p>
+                Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during team formation at the start of the hackathon!               </p>
               <h3>
-                What if I have no prior experience in programming, coding, or hackathons?       
+                When are applications released and when are they due?
               </h3>
               <p>
-                We don’t expect hackers to have any prior experience. We will be providing starter packs and workshops to help new hackers get started on projects and learn new technologies.
+                We will release hacker applications on March 23rd, 2020 and they will be due on April 19, 2020. Volunteer and mentor applications will be released on April 27th, 2020. 
               </p>
             </div>
             <div/>
             <div id="faq-right">
               <h3>
-                Who should attend
+                Who can participate?
               </h3>
               <p>
-                If you do not know much or anything about web development but are interested in learning how to build web apps, you are the ideal candidate for ZotHacks. This year, we would like only first and second years of UCI to be attendees; for those who are transfers or third years and up, consider applying to be a mentor!
+                We hope this event inspires and highlights those identifying as women or non-binary to hack, and we encourage our allies to participate as mentors and volunteers to support! At this time, we are only accepting UCI undergraduate or graduate students and high school students 18 years old and up.
               </p>
               <h3>
-                Do I sign up as a team or individual?
+                Does this event cost money to attend?
               </h3>
               <p>
-                You will apply as an individual. We will be personally reviewing each application and accepting on an individual basis.
+                No, the event is free! We will also be providing food and snacks throughout the weekend, as well as swag.
               </p>
               <h3>
-                Are there swag and food? sponsors, swag, and food?          
+                What if I have no experience?
               </h3>
               <p>
-                Of course! Get hyped!
+                Perfect! We welcome hackers of all experience levels and backgrounds. We will be providing resources and workshops to help new hackers get started on projects and learn new technologies. There will also be mentors at the event to help guide you!
               </p>
               <h3>
-                Am I allowed to come with a project pre-built or will I be building the project from scratch?
+                Can I come with a project pre-built or will I have to build from scratch?
               </h3>
               <p>
-                You will be building projects from scratch, although we will be offering starter packs to help you get started. You are encouraged to come with ideas of what you want to build.
+                You will be building your project from scratch. However, feel free to come with ideas of what you want to build!
+              </p>
+              <h3>
+                Are there travel reimbursements?
+              </h3>
+              <p>
+                i think so but kayla can't remember lol
+              </p>
+              <h3>
+                How do I get hyped?
+              </h3>
+              <p>
+                Follow our Facebook page: @venushacksUCI and our Instagram: venushacks_uci for important updates!
               </p>
               
             </div>
             <div/>
           </div>
+        </Fade>
+      </section>
+      <section id="sponsors">
+        <Fade duration={1000}>
+          <img src={spponsors_pic}></img>
+          <h3>to be worked on</h3>
         </Fade>
       </section>
       <section id="credits">
