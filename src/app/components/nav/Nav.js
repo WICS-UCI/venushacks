@@ -71,11 +71,11 @@ function Nav({history}) {
             )}
           </Spring>
         </div> */}
-        {/* {
+        {
           isHomepage ? 
           <Link to="/schedule">
-            <Button variant="light">
-              Schedule
+            <Button disabled style={{lineHeight: 0.8}} variant="light">
+              Schedule <br/><small>Coming Soon</small>
             </Button>
           </Link> :
           <a href="https://tinyurl.com/zothacks2019">
@@ -83,10 +83,11 @@ function Nav({history}) {
               Apply
             </Button>
           </a>
-        } */}
+        }
       </div>
     </div>
   )
 }
 
 export default Nav;
+

@@ -40,7 +40,7 @@ function Home() {
               </p>
               {/* <a href="https://tinyurl.com/zothacks2019"> */}
               <a>
-              <Button variant='light' style={{'borderRadius': '50px', width: '200px'}}>
+              <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
                 Applications open March 23, 2020
               </Button>
               </a>
