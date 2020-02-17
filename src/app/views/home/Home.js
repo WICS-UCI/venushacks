@@ -16,14 +16,21 @@ import mobileBackground from 'assets/images/background.png';
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
 import about from 'assets/images/about.png';
 import faq from 'assets/images/faq.png';
-import spponsors_pic from 'assets/images/sponsors.png';
 
+// SPONSORS
+import spponsors_pic from 'assets/images/sponsors.png';
+import ucibren from 'assets/images/sponsors/ucibren.png';
+import disney from 'assets/images/sponsors/disney.png';
+import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
+import informatics from 'assets/images/sponsors/informatics.png';
+import google from 'assets/images/sponsors/google.png';
+import oracle from 'assets/images/sponsors/oracle.png';
 
 function Home() {
   return (
     <div className="Home">
-      <img id='background' src={background_2}></img>
-      <img id="mobile-background" src={mobileBackground}></img>
+      {/* <img id='background' src={background_2}></img> */}
+      {/* <img id="mobile-background" src={mobileBackground}></img> */}
       <section id='intro'>
         <div className="title-info">
           <Fade duration={3000}>
@@ -168,12 +175,12 @@ function Home() {
               <p>
                 You will be building your project from scratch. However, feel free to come with ideas of what you want to build!
               </p>
-              <h3>
+              {/* <h3>
                 Are there travel reimbursements?
               </h3>
               <p>
                 i think so but kayla can't remember lol
-              </p>
+              </p> */}
               <h3>
                 How do I get hyped?
               </h3>
@@ -189,11 +196,18 @@ function Home() {
       <section id="sponsors">
         <Fade duration={1000}>
           <img src={spponsors_pic}></img>
-          <h3>to be worked on</h3>
+          <div id="sponsors-grid">
+            <img src={ucibren}></img>
+            <img src={disney}></img>
+            <img style={{background: '#002143', padding: '15px 8px'}} src={informatics}></img>
+            <img src={crowdstrike}></img>
+            <img style={{width: '300px'}} src={google}></img>
+            <img src={oracle}></img>
+          </div>
         </Fade>
       </section>
       <section id="credits">
-        <p>Made with <a href="https://en.wikipedia.org/wiki/Anteater">&hearts;</a> in Irvine, CA</p>
+        {/* <p>Made with <a href="https://en.wikipedia.org/wiki/Anteater">&hearts;</a> in Irvine, CA</p> */}
       </section>
     </div>
   );
