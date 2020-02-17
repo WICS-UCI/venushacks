@@ -14,9 +14,9 @@
     position: absolute;
     left: 0;
 
-    @media screen and (max-width: 1200px) {
-      display: none;
-    }
+    // @media screen and (max-width: 1200px) {
+    //   display: none;
+    // }
   }
 
   #mobile-background {
@@ -25,9 +25,9 @@
     position: absolute;
     left: 0;
 
-    @media screen and (min-width: 1200px) {
-      display: none;
-    }
+    // @media screen and (min-width: 1200px) {
+    //   display: none;
+    // }
   }
 
 
