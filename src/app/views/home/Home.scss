@@ -97,14 +97,14 @@
         //   height: 150px !important;
         // }
 
-        // #left-image {
+        // #astronaut-img {
         //   margin-right: 0 !important;
         //   margin-top: 20px;
         //   width: 200px !important;
         //   height: 100px !important;
         // }
 
-        // #right-image {
+        // #venushacks-logo {
         //   margin-right: 0 !important;
         //   margin-top: 20px;
         //   width: 150px !important;
@@ -142,7 +142,7 @@
         }
       }
 
-      #left-image {
+      #astronaut-img {
         // margin-right: 0 !important;
         margin: 20px 0 0 50px;
         width: 300px !important;
@@ -157,7 +157,7 @@
         }
       }
 
-      #right-image {
+      #venushacks-logo {
         // margin-right: 50px !important;
         margin: 20px 50px 0 0;
         width: 250px;
@@ -300,46 +300,43 @@
   }
 
   // ACCORDION STYLING
-  .accordion {
-    text-align: left;
-  }
-  .accordion>.card .card-header, .card-body {
-    background: none;
-  }
-  .accordion>.card {
-    border: none;
-    background: none;
-  }
-  div.card-header {
-    font-size: 25px;
-    border: none;
-    font-weight: bold;
-    @media screen and (max-width: 830px) {
-      font-size: 22px;
-    }
-  }
-  div.card-header:hover {
-    cursor: pointer;
-    color: #f2bfcb;
-    transition: 1s;
-  }
-  div.card-body {
-    font-size: 20px;
-    border-bottom: solid;
-    padding-top: 0;
-    @media screen and (max-width: 830px) {
-      font-size: 18px;
-    }
-  }
+  // .accordion {
+  //   text-align: left;
+  //   border-bottom: solid 2px white;
+  // }
+  // .accordion>.card .card-header, .card-body {
+  //   background: none;
+  // }
+  // .accordion>.card {
+  //   border: none;
+  //   background: none;
+  // }
+  // div.card-header {
+  //   font-size: 25px;
+  //   border: none;
+  //   font-weight: bold;
+  //   @media screen and (max-width: 830px) {
+  //     font-size: 22px;
+  //   }
+  // }
+  // div.card-header:hover {
+  //   cursor: pointer;
+  //   color: #f2bfcb;
+  //   transition: 1s;
+  // }
+  // div.card-body {
+  //   font-size: 20px;
+  //   padding-top: 0;
+  //   @media screen and (max-width: 830px) {
+  //     font-size: 18px;
+  //   }
+  // }
 
   #faq {
-    // min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    // background-color: navy; // temporary
     color: white;
-
 
     img {
       width: 300px;
@@ -354,21 +351,6 @@
     & > div {
       width: 80vw;
     }
-
-    .faq-grid {
-      margin-bottom: 10vh;
-      display: grid !important;
-      grid-template-columns: 10% 35% 10% 35% 10%;
-
-      h3 {
-        margin-top: 30px;
-        font-size: 30px;
-      }
-
-      @media screen and (max-width: $break-medium) {
-        grid-template-columns: 100%;
-      }
-    }
   }
 
   #sponsors {
@@ -380,15 +362,14 @@
 
     #sponsors-wrapper {
       background: white;
-      margin: 60px;
+      margin: 0 60px 60px;
       border-radius: 10px;
       color: #4767b1;
       padding-bottom: 15px;
 
       @media screen and (max-width: 440px) {
-        margin: 30px;
+        margin: 0 30px 30px;
       }
-      
     }
 
     #sponsors-grid {
@@ -397,7 +378,6 @@
       grid-column-gap: 25px;
       grid-row-gap: 10px;
       margin: auto auto 20px;
-      // max-width: 1150px;
       padding: 20px 10px;
   
       @media screen and (max-width: 1200px) {
@@ -422,11 +402,7 @@
       max-height: 125px;
       margin: auto;
   
-      @media screen and (max-width: 440px) {
-        max-width: 270px;
-      }
-
-      @media screen and (max-width: 376px) {
+      @media screen and (max-width: 460px) {
         max-width: 250px;
       }
     }
@@ -438,6 +414,7 @@
 
     .more-to-come-text .plus {
       font-size: 45px;
+      margin: 0 10px 0 0;
       vertical-align: sub;
       color: #f2becb;
       font-weight: bold;

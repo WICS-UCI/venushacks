@@ -1,0 +1,46 @@
+@import "globals/zothacks-styles.scss";
+
+#faq-accordion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+
+  @media screen and (max-width: 830px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+  // ACCORDION STYLING
+  .accordion {
+    text-align: left;
+    border-bottom: solid 1px white;
+  }
+  .accordion>.card .card-header, .card-body {
+    background: none;
+  }
+  .accordion>.card {
+    border: none;
+    background: none;
+  }
+  div.card-header {
+    font-size: 25px;
+    border: none;
+    font-weight: bold;
+    padding: 15px 0;
+
+    @media screen and (max-width: 830px) {
+      font-size: 22px;
+    }
+  }
+  div.card-header:hover {
+    cursor: pointer;
+    color: #f2bfcb;
+    transition: 1s;
+  }
+  div.card-body {
+    font-size: 20px;
+    padding: 0 0 10px;
+    @media screen and (max-width: 830px) {
+      font-size: 18px;
+    }
+  }
