@@ -72,17 +72,14 @@ function Nav({history}) {
           </Spring>
         </div> */}
         {
-          isHomepage ? 
-          <Link to="/schedule">
+        // <Link to="">
             <Button disabled style={{lineHeight: 0.8}} variant="light">
               Schedule <br/><small>Coming Soon</small>
             </Button>
-          </Link> :
-          <a href="https://tinyurl.com/zothacks2019">
-            <Button variant="light">
-              Apply
-            </Button>
-          </a>
+          // </Link> 
+            // <Button variant="light">
+            //   Apply
+            // </Button>
         }
       </div>
     </div>

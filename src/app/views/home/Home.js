@@ -34,7 +34,10 @@ function Home() {
       <section id='intro'>
         <div className="title-info">
           <Fade duration={3000}>
-            <img id= "left-image" src={astronaut}></img>
+            <div id="astronaut">
+              <img id="left-image" src={astronaut}></img>
+            </div>
+            
             <div>
               <h1>
                 VENUSHACKS
@@ -43,8 +46,9 @@ function Home() {
                May 23-24, 2020
               </h4>
               <p className="title-info-description">
-                UCI's first women-centric / non-binary hackathon
+                UC Irvine's first women-centric* hackathon
               </p>
+
               {/* <a href="https://tinyurl.com/zothacks2019"> */}
               <a>
               <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
@@ -64,11 +68,12 @@ function Home() {
               What is VenusHacks?
             </h2> */}
             <p>
-            Planned in collaboration with WICS and Hack, VenusHacks will be taking place from May 23-24, 2020 and will UCI’s first women-centric hackathon.
+            Planned in collaboration with <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and <a href="https://www.hackuci.com/" target="_blank">Hack</a>, VenusHacks will be taking place from May 23-24, 2020 and is UCI’s first women-centric* hackathon.
             </p>
             <p>
             Our mission is to empower underrepresented groups by providing an inclusive community to foster growth and creativity in computing. VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community. Join us as we welcome over 200 high school (18+) and UCI students to participate in our 24-hour event that includes networking, fun activities, educational workshops, and lots of coding!
             </p>
+            <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
           </Fade>
         </div>
       </section>
@@ -185,7 +190,7 @@ function Home() {
                 How do I get hyped?
               </h3>
               <p>
-                Follow our Facebook page: @venushacksUCI and our Instagram: venushacks_uci for important updates!
+                Follow our Facebook page: @venushacksUCI and our Instagram: @venushacks_uci for important updates!
               </p>
               
             </div>
@@ -204,6 +209,8 @@ function Home() {
             <img style={{width: '300px'}} src={google}></img>
             <img src={oracle}></img>
           </div>
+          <p style={{fontSize: '30px'}}>+ more to come!</p>
+          <p style={{marginBottom: '100px'}}>Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">here</a>.</p>
         </Fade>
       </section>
       <section id="credits">
