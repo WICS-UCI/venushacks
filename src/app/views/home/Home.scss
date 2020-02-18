@@ -150,11 +150,10 @@
         // margin-right: 50px !important;
         margin: 20px 50px 0 0;
         width: 250px;
-        // height: 250px !important;
         height: auto;
 
         @media screen and (max-width: $break-small) {
-          margin: auto auto 60px auto;
+          margin: 36px auto 60px auto;
           width: 200px;
         }
       }
@@ -175,7 +174,7 @@
           margin: 20px 0 0 0;
 
           @media screen and (max-width: $break-small) {
-            margin: 20px auto 15px auto;
+            // margin: 20px auto 15px auto;
           }
         }
       }
