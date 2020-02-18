@@ -1,7 +1,8 @@
 import React from "react";
 import './Home.scss';
 
-import { Button } from 'react-bootstrap';
+
+import { Button, Card, Accordion } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +19,7 @@ import about from 'assets/images/about.png';
 import faq from 'assets/images/faq.png';
 
 // SPONSORS
-import spponsors_pic from 'assets/images/sponsors.png';
+import sponsors_title from 'assets/images/sponsors.png';
 import ucibren from 'assets/images/sponsors/ucibren.png';
 import disney from 'assets/images/sponsors/disney.png';
 import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
@@ -29,17 +30,15 @@ import oracle from 'assets/images/sponsors/oracle.png';
 function Home() {
   return (
     <div className="Home">
-      {/* <img id='background' src={background_2}></img> */}
-      {/* <img id="mobile-background" src={mobileBackground}></img> */}
       <section id='intro'>
         <div className="title-info">
           <Fade duration={3000}>
             <div id="astronaut">
-              <img id="left-image" src={astronaut}></img>
+              <img id="left-image" src={astronaut} />
             </div>
             
             <div>
-              <h1>
+              <h1 id="venushacks-title">
                 VENUSHACKS
               </h1>
               <h4>
@@ -51,7 +50,7 @@ function Home() {
 
               {/* <a href="https://tinyurl.com/zothacks2019"> */}
               <a>
-              <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
+              <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px', marginTop: '20px'}}>
                 Applications open March 23, 2020
               </Button>
               </a>
@@ -64,9 +63,6 @@ function Home() {
         <div>
           <Fade duration={1000}>
           <img src={about}></img>
-            {/* <h2>
-              What is VenusHacks?
-            </h2> */}
             <p>
             Planned in collaboration with <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and <a href="https://www.hackuci.com/" target="_blank">Hack</a>, VenusHacks will be taking place from May 23-24, 2020 and is UCI’s first women-centric* hackathon.
             </p>
@@ -118,9 +114,108 @@ function Home() {
       <section id='faq'>
         <Fade duration={1000}>
         <img src={faq}></img>
+
+        <div id="faq-accordion-grid">
+          <Accordion>
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="0">
+                What is a hackathon?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>A hackathon is a 24 hour event where students of different backgrounds come together to collaborate on a project. Teams of up to 4 work together on brainstorming an idea and bringing the technology to life, and may present the project to possibly win some awesome prizes! You can also attend workshops, hear from inspiring speakers, and network with company representatives and fellow hackers.</Card.Body>
+              </Accordion.Collapse>
+            </Card>
+
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="1">
+              Can high schoolers attend?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="1">
+                <Card.Body>Yes! However, you must be at least 18 years old at the time of the hackathon to attend.</Card.Body>
+              </Accordion.Collapse>
+            </Card>
+
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="2">
+              What should I bring?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="2">
+                <Card.Body>An open mind, laptop, charger, government-issued ID, toiletries, sleeping bag, and anything else you would need to hack! Note: There will be no showers at the event.</Card.Body>
+              </Accordion.Collapse>
+            </Card>
+
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="3">
+              Do I sign up as an individual or as a team?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="3">
+                <Card.Body>Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during team formation at the start of the hackathon!</Card.Body>
+              </Accordion.Collapse>
+            </Card>
+
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="4">
+              When are applications released and when are they due?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="4">
+                <Card.Body>We will release hacker applications on March 23rd, 2020 and they will be due on April 19, 2020. Volunteer and mentor applications will be released on April 27th, 2020.</Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+
+
+          <Accordion>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="0">
+              Who can participate?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>We hope this event inspires and highlights those identifying as women or non-binary to hack, and we encourage our allies to participate as mentors and volunteers to support! At this time, we are only accepting UCI undergraduate or graduate students and high school students 18 years old and up.</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="1">
+              Does this event cost money to attend?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>No, the event is free! We will also be providing food and snacks throughout the weekend, as well as swag.</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="2">
+              What if I have no experience?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="2">
+              <Card.Body>Perfect! We welcome hackers of all experience levels and backgrounds. We will be providing resources and workshops to help new hackers get started on projects and learn new technologies. There will also be mentors at the event to help guide you!</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="3">
+              Can I come with a project pre-built or will I have to build from scratch?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="3">
+              <Card.Body>You will be building your project from scratch. However, feel free to come with ideas of what you want to build!</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="4">
+              How do I get hyped?
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="4">
+              <Card.Body>Follow our Facebook page: @venushacksUCI and our Instagram: @venushacks_uci for important updates!</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+        </div>
+
+
           {/* <h2>
             FAQ
-          </h2> */}
+          </h2>
           <div className="faq-grid">
             <div/>
             <div id="faq-left">
@@ -180,12 +275,12 @@ function Home() {
               <p>
                 You will be building your project from scratch. However, feel free to come with ideas of what you want to build!
               </p>
-              {/* <h3>
+              <h3>
                 Are there travel reimbursements?
               </h3>
               <p>
                 i think so but kayla can't remember lol
-              </p> */}
+              </p> 
               <h3>
                 How do I get hyped?
               </h3>
@@ -195,24 +290,35 @@ function Home() {
               
             </div>
             <div/>
-          </div>
+          </div>*/}
         </Fade>
       </section>
+
+
       <section id="sponsors">
         <Fade duration={1000}>
-          <img src={spponsors_pic}></img>
-          <div id="sponsors-grid">
-            <img src={ucibren}></img>
-            <img src={disney}></img>
-            <img style={{background: '#002143', padding: '15px 8px'}} src={informatics}></img>
-            <img src={crowdstrike}></img>
-            <img style={{width: '300px'}} src={google}></img>
-            <img src={oracle}></img>
+          <img src={sponsors_title}></img>
+          <div id="sponsors-wrapper">
+
+            <div id="sponsors-grid">
+              <img src={ucibren}/>
+              <img src={disney}/>
+              <img style={{background: '#002143', padding: '15px 8px'}} src={informatics}/>
+              <img src={crowdstrike}/>
+              <img style={{width: '300px'}} src={google}/>
+              <img src={oracle}/>
+            </div>
+            <div className="more-to-come-text">
+              <span className="plus">+</span> <span style={{verticalAlign: "text-top"}}>more to come!</span>
+            </div>
           </div>
-          <p style={{fontSize: '30px'}}>+ more to come!</p>
-          <p style={{marginBottom: '100px'}}>Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">here</a>.</p>
+          <p style={{color: 'white', fontSize: '30px', marginBottom: '100px'}}>Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">here</a>.</p>
         </Fade>
       </section>
+
+
+
+
       <section id="credits">
         {/* <p>Made with <a href="https://en.wikipedia.org/wiki/Anteater">&hearts;</a> in Irvine, CA</p> */}
       </section>
