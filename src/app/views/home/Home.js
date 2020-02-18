@@ -140,7 +140,7 @@ function Home() {
               What should I bring?
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="2">
-                <Card.Body>An open mind, laptop, charger, government-issued ID, toiletries, sleeping bag, and anything else you would need to hack! Note: There will be no showers at the event.</Card.Body>
+                <Card.Body>An open mind, laptop, charger, government-issued ID, student ID, toiletries, optional sleeping bag, and anything else you would need to hack! Note: There will be no showers at the event.</Card.Body>
               </Accordion.Collapse>
             </Card>
 
@@ -158,7 +158,7 @@ function Home() {
               When are applications released and when are they due?
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="4">
-                <Card.Body>We will release hacker applications on March 23rd, 2020 and they will be due on April 19, 2020. Volunteer and mentor applications will be released on April 27th, 2020.</Card.Body>
+                <Card.Body>Hacker applications will be released on March 23rd, 2020 and due on April 19th, 2020. Volunteer and mentor applications will be released on April 27th, 2020.</Card.Body>
               </Accordion.Collapse>
             </Card>
           </Accordion>
@@ -179,7 +179,7 @@ function Home() {
               Does this event cost money to attend?
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1">
-              <Card.Body>No, the event is free! We will also be providing food and snacks throughout the weekend, as well as swag.</Card.Body>
+              <Card.Body>No, the event is free! We will also be providing food, drinks, and snacks throughout the weekend, as well as swag.</Card.Body>
             </Accordion.Collapse>
           </Card>
 
@@ -305,7 +305,7 @@ function Home() {
               <img src={disney}/>
               <img style={{background: '#002143', padding: '15px 8px'}} src={informatics}/>
               <img src={crowdstrike}/>
-              <img style={{width: '300px'}} src={google}/>
+              <img style={{width: '250px', height:'75px'}} src={google}/>
               <img src={oracle}/>
             </div>
             <div className="more-to-come-text">
