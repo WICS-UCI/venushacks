@@ -74,6 +74,9 @@ function Home() {
         <Fade duration={1000}>
           <img src={faq_title}></img>
           <FAQs></FAQs>
+          <p style={{color: 'white', fontSize: '25px', marginTop: '50px'}}>
+            Additional questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">here</a>.
+          </p>
         </Fade>
       </section>
 
