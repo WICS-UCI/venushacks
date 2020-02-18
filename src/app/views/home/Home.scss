@@ -136,27 +136,24 @@
         }
       }
 
-      #astronaut {
-        // animation: float 6s ease-in-out infinite;
+      #left-image {
+        margin-right: 0 !important;
+        margin-top: 20px;
+        width: 300px !important;
+        // height: 250px !important;
+        height: auto;
 
         @media screen and (max-width: $break-small) {
           margin-top: 80px;
         }
       }
 
-      #left-image {
-        margin-right: 0 !important;
-        margin-top: 20px;
-        width: 300px !important;
-        height: 250px !important;
-        
-      }
-
       #right-image {
         margin-right: 50px !important;
         margin-top: 20px;
         width: 250px !important;
-        height: 250px !important;
+        // height: 250px !important;
+        height: auto;
 
         @media screen and (max-width: $break-small) {
           margin: auto auto 50px;

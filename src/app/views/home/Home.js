@@ -33,9 +33,8 @@ function Home() {
       <section id='intro'>
         <div className="title-info">
           <Fade duration={3000}>
-            <div id="astronaut">
-              <img id="left-image" src={astronaut} />
-            </div>
+            
+            <img id="left-image" src={astronaut} />
             
             <div>
               <h1 id="venushacks-title">
