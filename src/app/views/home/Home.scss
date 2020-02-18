@@ -3,6 +3,7 @@
 .Home {
   text-align: center;
   min-height: 100vh;
+  background-image: linear-gradient(#122649, #496ab5);
 
   h1 {
     font-weight: 600;
@@ -20,10 +21,11 @@
   }
 
   #mobile-background {
-    width: 100vw;
-    height: 600vh;
-    position: absolute;
-    left: 0;
+    // width: 100vw;
+    // height: 700vh;
+    // position: absolute;
+    // left: 0;
+    background-image: linear-gradient(#122649, #496ab5)
 
     // @media screen and (min-width: 1200px) {
     //   display: none;
@@ -107,8 +109,38 @@
           font-size: 60px;
         }
 
+        #venushacks-title {
+          @media screen and (max-width: $break-small) {
+            font-size: 50px;
+          }
+        }
+
         .title-info-description {
           width: 70vw;
+          margin: auto;
+        }
+      }
+
+      @keyframes float {
+        0% {
+          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+          transform: translatey(0px);
+        }
+        50% {
+          box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+          transform: translatey(-20px);
+        }
+        100% {
+          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+          transform: translatey(0px);
+        }
+      }
+
+      #astronaut {
+        // animation: float 6s ease-in-out infinite;
+
+        @media screen and (max-width: $break-small) {
+          margin-top: 80px;
         }
       }
 
@@ -117,6 +149,7 @@
         margin-top: 20px;
         width: 300px !important;
         height: 250px !important;
+        
       }
 
       #right-image {
@@ -124,6 +157,10 @@
         margin-top: 20px;
         width: 250px !important;
         height: 250px !important;
+
+        @media screen and (max-width: $break-small) {
+          margin: auto auto 50px;
+        }
       }
   
       // img {
@@ -160,10 +197,27 @@
     // background-color: navy; // temporary
     color: white;
 
+    a {
+      color: #f2becb;
+      font-weight: bold;
+      text-decoration: underline;
+      background-color: transparent;
+    }
+
 
     img {
       width: 300px;
       height: 175px;
+    }
+
+    .asterisk-inclusive {
+      font-weight: bolder;
+      font-size: 30px;
+      color: #f2bfcb;
+
+      @media screen and (max-width: $break-small) {
+        font-size: 25px;
+      }
     }
 
     div {
@@ -220,6 +274,48 @@
     }
   }
 
+  #faq-accordion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: 830px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ACCORDION STYLING
+  .accordion {
+    text-align: left;
+  }
+  .accordion>.card .card-header, .card-body {
+    background: none;
+  }
+  .accordion>.card {
+    border: none;
+    background: none;
+  }
+  div.card-header {
+    font-size: 25px;
+    border: none;
+    font-weight: bold;
+    @media screen and (max-width: 830px) {
+      font-size: 22px;
+    }
+  }
+  div.card-header:hover {
+    cursor: pointer;
+    color: #f2bfcb;
+    transition: 1s;
+  }
+  div.card-body {
+    font-size: 20px;
+    border-bottom: solid;
+    padding-top: 0;
+    @media screen and (max-width: 830px) {
+      font-size: 18px;
+    }
+  }
+
   #faq {
     // min-height: 100vh;
     display: flex;
@@ -260,17 +356,87 @@
   }
 
   #sponsors {
-    // background-color: navy; // temporary
-    color: white;
 
     img {
       width: 350px;
       height: 175px;
     }
+
+    #sponsors-wrapper {
+      background: white;
+      margin: 60px;
+      border-radius: 10px;
+      color: #4767b1;
+      padding-bottom: 15px;
+
+      @media screen and (max-width: 440px) {
+        margin: 30px;
+      }
+      
+    }
+
+    #sponsors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 25px;
+      grid-row-gap: 10px;
+      margin: auto auto 20px;
+      // max-width: 1150px;
+      padding: 20px 10px;
+  
+      @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 25px;
+        grid-row-gap: 10px;
+        max-width: 850px;
+      }
+  
+      @media screen and (max-width: 870px) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 25px;
+        grid-row-gap: 10px;
+        max-width: 400px;
+      }
+  
+    }
+    #sponsors-grid img {
+      width: auto;
+      height: auto;
+      max-width: 330px;
+      max-height: 125px;
+      margin: auto;
+  
+      @media screen and (max-width: 440px) {
+        max-width: 270px;
+      }
+
+      @media screen and (max-width: 376px) {
+        max-width: 250px;
+      }
+    }
+
+    .more-to-come-text {
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+
+    .more-to-come-text .plus {
+      font-size: 45px;
+      vertical-align: sub;
+      color: #f2becb;
+      font-weight: bold;
+    }
+
+    a {
+      color: #f2becb;
+      font-weight: bold;
+      text-decoration: underline;
+      background-color: transparent;
+    }
   }
 
   #credits {
-    height: 15vh;
+    //height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
