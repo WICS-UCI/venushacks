@@ -9,6 +9,7 @@ export default class Team extends React.Component {
             {photo: 'archita', name: "Archita Ganesh"},
             {photo: 'areeta', name: "Areeta Wong"},
             {photo: 'chey', name: "Chey Chavez"},
+            {photo: 'christian', name: "Christian Chun"},
             {photo: 'danielle', name: "Danielle Muhlenberg"},
             {photo: 'deepal', name: "Deepal Sanghrajka"},
             {photo: 'jp', name: "JP Nguyen"},
@@ -22,6 +23,7 @@ export default class Team extends React.Component {
             {photo: 'sharon', name: "Sharon Hsu"},
             {photo: 'shreyas', name: "Shreyas Hukkeri"},
             {photo: 'tedrick', name: "Tedrick Wong"},
+            {photo: 'tiffany', name: "Tiffany Liang"},
         ];
 
         const images = organizers.map(organizer =>
