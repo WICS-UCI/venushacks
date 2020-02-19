@@ -26,7 +26,9 @@ export default class Team extends React.Component {
 
         const images = organizers.map(organizer =>
             <div style={{display:"inline-block" }}>
-                <img src = {require('assets/images/organizer-photos/'+organizer.photo+'.jpeg')}/>
+                <div className="organizer-img-wrapper">
+                    <img src = {require('assets/images/organizer-photos/'+organizer.photo+'.jpeg')}/>
+                </div>
                 <p>{organizer.name}</p>
             </div>
         );

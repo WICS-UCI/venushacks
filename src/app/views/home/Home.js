@@ -75,8 +75,8 @@ function Home() {
         <Fade duration={1000}>
           <img src={faq_title}></img>
           <FAQs></FAQs>
-          <p style={{color: 'white', fontSize: '25px', marginTop: '50px'}}>
-            Additional questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
+          <p style={{color: 'white', fontSize: '20px', margin: '30px 0 65px 0'}}>
+            Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
           </p>
         </Fade>
       </section>
@@ -102,7 +102,7 @@ function Home() {
               </span>
             </div>
           </div>
-          <p style={{color: 'white', fontSize: '30px', marginBottom: '100px'}}>
+          <p style={{color: 'white', fontSize: '30px', marginBottom: '160px'}}>
             Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
           </p>
         </Fade>
