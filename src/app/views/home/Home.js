@@ -13,6 +13,7 @@ import astronaut from 'assets/images/astronaut_with_laptop.png';
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
 import about_title from 'assets/images/about.png';
 import faq_title from 'assets/images/faq.png';
+import meet_team_title from 'assets/images/meettheteam.png';
 
 // SPONSORS
 import sponsors_title from 'assets/images/sponsors.png';
@@ -111,8 +112,7 @@ function Home() {
       {/* MEET THE TEAM ********************/}
       <section id="meet-team">
         {/* <Fade duration={1000}> */}
-          <h1>MEET THE TEAM: TEMP</h1> 
-          {/* <img id= "team-title" src={team_pic}></img> */}
+          <img src={meet_team_title}></img>
           <Team></Team>
         {/* </Fade> */}
       </section>
