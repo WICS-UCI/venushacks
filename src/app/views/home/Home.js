@@ -110,11 +110,11 @@ function Home() {
 
       {/* MEET THE TEAM ********************/}
       <section id="meet-team">
-        <Fade duration={1000}>
+        {/* <Fade duration={1000}> */}
           <h1>MEET THE TEAM: TEMP</h1> 
           {/* <img id= "team-title" src={team_pic}></img> */}
           <Team></Team>
-        </Fade>
+        {/* </Fade> */}
       </section>
 
       <section id="credits">
