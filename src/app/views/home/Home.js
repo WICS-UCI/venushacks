@@ -13,7 +13,7 @@ import astronaut from 'assets/images/astronaut_with_laptop.png';
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
 import about_title from 'assets/images/about.png';
 import faq_title from 'assets/images/faq.png';
-import meet_team_title from 'assets/images/meettheteam.png';
+import meet_team_title from 'assets/images/meettheteam-cropped.png';
 
 // SPONSORS
 import sponsors_title from 'assets/images/sponsors.png';
@@ -76,7 +76,7 @@ function Home() {
         <Fade duration={1000}>
           <img src={faq_title}></img>
           <FAQs></FAQs>
-          <p style={{color: 'white', fontSize: '20px', margin: '30px 0 65px 0'}}>
+          <p className="faq-contact-us">
             Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
           </p>
         </Fade>
@@ -103,7 +103,7 @@ function Home() {
               </span>
             </div>
           </div>
-          <p style={{color: 'white', fontSize: '30px', marginBottom: '160px'}}>
+          <p className="sponsor-contact-us">
             Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
           </p>
         </Fade>

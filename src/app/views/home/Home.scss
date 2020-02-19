@@ -229,6 +229,7 @@
     .asterisk-inclusive {
       font-weight: bolder;
       font-size: 30px;
+      margin-bottom: 60px;
       color: #f2bfcb;
 
       @media screen and (max-width: $break-small) {
@@ -299,39 +300,6 @@
     }
   }
 
-  // ACCORDION STYLING
-  // .accordion {
-  //   text-align: left;
-  //   border-bottom: solid 2px white;
-  // }
-  // .accordion>.card .card-header, .card-body {
-  //   background: none;
-  // }
-  // .accordion>.card {
-  //   border: none;
-  //   background: none;
-  // }
-  // div.card-header {
-  //   font-size: 25px;
-  //   border: none;
-  //   font-weight: bold;
-  //   @media screen and (max-width: 830px) {
-  //     font-size: 22px;
-  //   }
-  // }
-  // div.card-header:hover {
-  //   cursor: pointer;
-  //   color: #f2bfcb;
-  //   transition: 1s;
-  // }
-  // div.card-body {
-  //   font-size: 20px;
-  //   padding-top: 0;
-  //   @media screen and (max-width: 830px) {
-  //     font-size: 18px;
-  //   }
-  // }
-
   #faq {
     display: flex;
     align-items: center;
@@ -357,6 +325,16 @@
       font-weight: bold;
       text-decoration: underline;
       background-color: transparent;
+    }
+
+    .faq-contact-us {
+      color: white;
+      font-size: 20px;
+      margin: 30px 0 65px 0;
+
+      @media screen and (max-width: $break-small) {
+        font-size: 18px;
+      }
     }
   }
 
@@ -433,11 +411,22 @@
       text-decoration: underline;
       background-color: transparent;
     }
+
+    .sponsor-contact-us {
+      color: white;
+      font-size: 30px; 
+      margin-bottom: 160px;
+      
+      @media screen and (max-width: $break-small) {
+        font-size: 20px;
+        margin-bottom: 100px;
+      }
+    }
   }
 
   #meet-team {
     img {
-      width: 750px;
+      width: 550px;
       max-width: 100%;
       height: auto;
     }
