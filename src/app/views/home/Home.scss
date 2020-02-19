@@ -90,27 +90,6 @@
 
         grid-template-columns: 1fr;
 
-        // img {
-        //   margin-right: 0 !important;
-        //   margin-top: 20px;
-        //   width: 150px !important;
-        //   height: 150px !important;
-        // }
-
-        // #astronaut-img {
-        //   margin-right: 0 !important;
-        //   margin-top: 20px;
-        //   width: 200px !important;
-        //   height: 100px !important;
-        // }
-
-        // #venushacks-logo {
-        //   margin-right: 0 !important;
-        //   margin-top: 20px;
-        //   width: 150px !important;
-        //   height: 150px !important;
-        // }
-
         h1 {
           font-size: 60px;
         }
@@ -147,6 +126,7 @@
         margin: 20px 0 0 50px;
         width: 300px !important;
         height: auto;
+        animation: float 6s ease-in-out infinite;
 
         @media screen and (max-width: $break-medium) {
           margin: auto;
@@ -289,48 +269,6 @@
       }
     }
   }
-
-  #faq-accordion-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    @media screen and (max-width: 830px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  // ACCORDION STYLING
-  // .accordion {
-  //   text-align: left;
-  //   border-bottom: solid 2px white;
-  // }
-  // .accordion>.card .card-header, .card-body {
-  //   background: none;
-  // }
-  // .accordion>.card {
-  //   border: none;
-  //   background: none;
-  // }
-  // div.card-header {
-  //   font-size: 25px;
-  //   border: none;
-  //   font-weight: bold;
-  //   @media screen and (max-width: 830px) {
-  //     font-size: 22px;
-  //   }
-  // }
-  // div.card-header:hover {
-  //   cursor: pointer;
-  //   color: #f2bfcb;
-  //   transition: 1s;
-  // }
-  // div.card-body {
-  //   font-size: 20px;
-  //   padding-top: 0;
-  //   @media screen and (max-width: 830px) {
-  //     font-size: 18px;
-  //   }
-  // }
 
   #faq {
     display: flex;
