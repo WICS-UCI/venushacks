@@ -17,6 +17,7 @@ import laptop from 'assets/images/laptop.png';
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
 import about_title from 'assets/images/about.png';
 import faq_title from 'assets/images/faq.png';
+import meet_team_title from 'assets/images/meettheteam-cropped.png';
 
 // SPONSORS
 import sponsors_title from 'assets/images/sponsors.png';
@@ -32,30 +33,79 @@ const trans1 = (x, y) => `translate3d(${x / 20}px,${y / 20}px,0)`
 const trans2 = (x, y) => `translate3d(${x / 25 + 15}px,${y / 25 - 0}px,0)`
 const trans3 = (x, y) => `translate3d(${x / 30 - 25}px,${y / 20 - 0}px,0)`
 
+const interp = i => r => `translate3d(0, ${10 * Math.sin(r + (i * 1.5 * Math.PI) / 1.6)}px, 0)`
+
 function Home() {
   const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+  const { radians } = useSpring({
+    to: async next => {
+      while (1) await next({ radians: 2 * Math.PI })
+    },
+    from: { radians: 0 },
+    config: { duration: 3500 },
+    reset: true,
+  })
 
   return (
     <div className="Home">
-      <div>
-        <div class="container" style={{marginLeft: "0", paddingTop: "100px"}}
+      {/* <div>
+        <div class="container" style={{marginLeft: "0", paddingTop: "120px"}}
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
 
           <div className="Left" style={{width: "50%"}}>
-            <animated.div className="image1" style={{ transform: props.xy.interpolate(trans1) }} >
+            <animated.div className="image1" 
+              style={{ transform: radians.interpolate(interp(0)) }} 
+            // style={{ transform: props.xy.interpolate(trans1) }} 
+            >
               <img src={astronaut} style={{width: "300px"}} />
             </animated.div>
-            <animated.div className=" image2" style={{ transform: props.xy.interpolate(trans3) }}>
-              <img src={laptop} style={{width: "350px", margin: "-80px 0 0 326px"}}/>
+            <animated.div className=" image2" style={{ transform: radians.interpolate(interp(1))}} >
+              <img src={laptop} style={{width: "350px", margin: "-120px 0 0 400px"}}/>
             </animated.div>
           </div>
-
+s
         </div>
-      </div>
+      </div> */}
 
       {/* INTRO **********************/}
       <section id='intro'>
-        <div className="title-info">
+        <div style={{display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
+          <div className="container" style={{marginLeft: "80px", paddingTop: "20px"}}
+            onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+
+            <div className="Left" style={{width: "50%"}}>
+              <animated.div className="image1" 
+                style={{ transform: radians.interpolate(interp(0)) }} 
+              // style={{ transform: props.xy.interpolate(trans1) }} 
+              >
+                <img src={astronaut} style={{width: "300px"}} />
+              </animated.div>
+              <animated.div className=" image2" style={{ transform: radians.interpolate(interp(1))}} >
+                <img src={laptop} style={{width: "350px", margin: "-120px 0 0 280px"}}/>
+              </animated.div>
+            </div>
+          </div>
+          <div>
+            <div style={{margin: '136px auto'}}>
+                <h1 id="venushacks-title">
+                  VENUSHACKS
+                </h1>
+                <h4>
+                May 23-24, 2020
+                </h4>
+                <p className="title-info-description">
+                  UC Irvine's first women-centric* hackathon
+                </p>
+                <a>
+                <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
+                  Applications open March 23, 2020
+                </Button>
+                </a>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="title-info">
           <Fade duration={3000}>
             <img id="astronaut-img" src={astronaut_laptop} />
             
@@ -77,7 +127,8 @@ function Home() {
             </div>
             <img id= "venushacks-logo" src={venushacks_logo}></img>
           </Fade>
-        </div>
+        </div> */}
+
       </section>
 
       {/* ABOUT ***********************/}
@@ -100,8 +151,8 @@ function Home() {
       <section id='faq'>
         <Fade duration={1000}>
           <img src={faq_title}></img>
-          <FAQs/>
-          <p style={{color: 'white', fontSize: '20px', margin: '30px 0 65px 0'}}>
+          <FAQs></FAQs>
+          <p className="faq-contact-us">
             Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
           </p>
         </Fade>
@@ -128,7 +179,7 @@ function Home() {
               </span>
             </div>
           </div>
-          <p style={{color: 'white', fontSize: '30px', marginBottom: '160px'}}>
+          <p className="sponsor-contact-us">
             Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
           </p>
         </Fade>
@@ -136,11 +187,10 @@ function Home() {
 
       {/* MEET THE TEAM ********************/}
       <section id="meet-team">
-        <Fade duration={1000}>
-          <h1>MEET THE TEAM: TEMP</h1> 
-          {/* <img id= "team-title" src={team_pic}></img> */}
+        {/* <Fade duration={1000}> */}
+          <img src={meet_team_title}></img>
           <Team></Team>
-        </Fade>
+        {/* </Fade> */}
       </section>
 
       <section id="credits">

@@ -209,6 +209,7 @@
     .asterisk-inclusive {
       font-weight: bolder;
       font-size: 30px;
+      margin-bottom: 60px;
       color: #f2bfcb;
 
       @media screen and (max-width: $break-small) {
@@ -270,6 +271,15 @@
     }
   }
 
+  #faq-accordion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: 830px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
   #faq {
     display: flex;
     align-items: center;
@@ -296,67 +306,16 @@
       text-decoration: underline;
       background-color: transparent;
     }
-  }
 
-  #team {
-    margin-top:50px;
+    .faq-contact-us {
+      color: white;
+      font-size: 20px;
+      margin: 30px 0 65px 0;
 
-    h1{
-      color:white;
-
+      @media screen and (max-width: $break-small) {
+        font-size: 18px;
+      }
     }
-
-    // img {
-    //   width: 300px;
-    //   height: 175px;
-    // }
-
-    // #team-wrapper {
-    //   background: white;
-    //   margin: 0 60px 60px;
-    //   border-radius: 10px;
-    //   color: #4767b1;
-    //   padding-bottom: 15px;
-
-    //   @media screen and (max-width: 440px) {
-    //     margin: 0 30px 30px;
-    //   }
-    // }
-
-    // #team-grid {
-    //   display: grid;
-    //   grid-template-columns: 1fr 1fr 1fr;
-    //   grid-column-gap: 10px;
-    //   grid-row-gap: 10px;
-    //   margin: auto auto 20px;
-    //   padding: 20px 10px;
-  
-    //   @media screen and (max-width: 1200px) {
-    //     grid-template-columns: 1fr 1fr;
-    //     grid-column-gap: 25px;
-    //     grid-row-gap: 10px;
-    //     max-width: 850px;
-    //   }
-  
-    //   @media screen and (max-width: 870px) {
-    //     grid-template-columns: 1fr;
-    //     grid-column-gap: 25px;
-    //     grid-row-gap: 10px;
-    //     max-width: 400px;
-    //   }
-  
-    // }
-    // #team-grid img {
-    //   width: auto;
-    //   height: auto;
-    //   max-width: 330px;
-    //   max-height: 125px;
-    //   margin: auto;
-  
-    //   @media screen and (max-width: 460px) {
-    //     max-width: 250px;
-    //   }
-    // }
   }
 
   #sponsors {
@@ -431,6 +390,25 @@
       font-weight: bold;
       text-decoration: underline;
       background-color: transparent;
+    }
+
+    .sponsor-contact-us {
+      color: white;
+      font-size: 30px; 
+      margin-bottom: 160px;
+      
+      @media screen and (max-width: $break-small) {
+        font-size: 20px;
+        margin-bottom: 100px;
+      }
+    }
+  }
+
+  #meet-team {
+    img {
+      width: 550px;
+      max-width: 100%;
+      height: auto;
     }
   }
 
