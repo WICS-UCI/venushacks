@@ -1,0 +1,22 @@
+@import "globals/zothacks-styles.scss";
+
+#organizer-photos{
+  padding: 50px;
+  
+  .organizer-img-wrapper img {
+    width: 190px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px;
+    // height: auto;
+    // padding: 20px;
+  }
+
+  p{
+    color:white;
+    // color: #f2becb;
+
+  }
+
+}

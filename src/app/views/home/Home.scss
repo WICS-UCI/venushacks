@@ -351,6 +351,74 @@
     & > div {
       width: 80vw;
     }
+
+    a {
+      color: #f2becb;
+      font-weight: bold;
+      text-decoration: underline;
+      background-color: transparent;
+    }
+  }
+
+  #team {
+    margin-top:50px;
+
+    h1{
+      color:white;
+
+    }
+
+    // img {
+    //   width: 300px;
+    //   height: 175px;
+    // }
+
+    // #team-wrapper {
+    //   background: white;
+    //   margin: 0 60px 60px;
+    //   border-radius: 10px;
+    //   color: #4767b1;
+    //   padding-bottom: 15px;
+
+    //   @media screen and (max-width: 440px) {
+    //     margin: 0 30px 30px;
+    //   }
+    // }
+
+    // #team-grid {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr 1fr;
+    //   grid-column-gap: 10px;
+    //   grid-row-gap: 10px;
+    //   margin: auto auto 20px;
+    //   padding: 20px 10px;
+  
+    //   @media screen and (max-width: 1200px) {
+    //     grid-template-columns: 1fr 1fr;
+    //     grid-column-gap: 25px;
+    //     grid-row-gap: 10px;
+    //     max-width: 850px;
+    //   }
+  
+    //   @media screen and (max-width: 870px) {
+    //     grid-template-columns: 1fr;
+    //     grid-column-gap: 25px;
+    //     grid-row-gap: 10px;
+    //     max-width: 400px;
+    //   }
+  
+    // }
+    // #team-grid img {
+    //   width: auto;
+    //   height: auto;
+    //   max-width: 330px;
+    //   max-height: 125px;
+    //   margin: auto;
+  
+    //   @media screen and (max-width: 460px) {
+    //     max-width: 250px;
+    //   }
+    // }
   }
 
   #sponsors {
@@ -362,7 +430,7 @@
 
     #sponsors-wrapper {
       background: white;
-      margin: 0 60px 60px;
+      margin: 0 60px 30px;
       border-radius: 10px;
       color: #4767b1;
       padding-bottom: 15px;

@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 
 import FAQs from '../../components/faqs/FAQs';
+import Team from '../../components/meet-team/team';
 
 import venushacks_logo from 'assets/images/logo_solid.png';
 import astronaut from 'assets/images/astronaut_with_laptop.png';
@@ -74,6 +75,9 @@ function Home() {
         <Fade duration={1000}>
           <img src={faq_title}></img>
           <FAQs></FAQs>
+          <p style={{color: 'white', fontSize: '20px', margin: '30px 0 65px 0'}}>
+            Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
+          </p>
         </Fade>
       </section>
 
@@ -98,9 +102,18 @@ function Home() {
               </span>
             </div>
           </div>
-          <p style={{color: 'white', fontSize: '30px', marginBottom: '100px'}}>
-            Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">here</a>.
+          <p style={{color: 'white', fontSize: '30px', marginBottom: '160px'}}>
+            Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
           </p>
+        </Fade>
+      </section>
+
+      {/* MEET THE TEAM ********************/}
+      <section id="meet-team">
+        <Fade duration={1000}>
+          <h1>MEET THE TEAM: TEMP</h1> 
+          {/* <img id= "team-title" src={team_pic}></img> */}
+          <Team></Team>
         </Fade>
       </section>
 
