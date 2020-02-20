@@ -39,15 +39,35 @@ const url = (name, wrap = false) =>
 
 export default class Home extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { width: 0, height: 0 };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  updateWindowDimensions() {
+    console.log(window.innerWidth)
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
   render() {
     return (
       <div className="Home">
 
-        <Parallax ref={ref => (this.parallax = ref)} pages={7}>
+        <Parallax ref={ref => (this.parallax = ref)} pages={this.state.width <= 500 ? 8 : 7}>
 
           {/* <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#253237' }} /> */}
           <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
-          <ParallaxLayer offset={6} speed={0} factor={2} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
+          <ParallaxLayer offset={4} speed={0} factor={2} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
 
           {/* INTRO **********************/}
           <ParallaxLayer id="intro" offset={0} speed={0.1}
@@ -126,6 +146,7 @@ export default class Home extends React.Component {
           <ParallaxLayer
             id="faq"
             offset={2}
+            pages={this.state.width <= 500 ? 1.5 : 1}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(3)}
           >
@@ -142,7 +163,7 @@ export default class Home extends React.Component {
           {/* SPONSORS **********************/}
           <ParallaxLayer
             id="sponsors"
-            offset={3}
+            offset={this.state.width <= 500 ? 3.35 : 3}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(4)}
           >
@@ -174,7 +195,7 @@ export default class Home extends React.Component {
           {/* MEET THE TEAM ******************/}
           <ParallaxLayer
             id="meet-team"
-            offset={4}
+            offset={this.state.width <= 500 ? 4.5 : 4}
             factor={2}
             speed={0.1}
             style={{height: 'auto'}}

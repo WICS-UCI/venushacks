@@ -134,6 +134,10 @@
       max-width: 400px;
       height: auto;
       margin: 20px auto;
+
+      @media screen and (max-width: $break-small) {
+        width: 240px;
+      }
     }
 
     #about-wrapper {
@@ -169,7 +173,7 @@
     flex-direction: column;
 
     img {
-      width: 80%;
+      width: 34%;
       max-width: 400px;
       height: auto;
       margin: 30px auto;
