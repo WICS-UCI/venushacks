@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 
-import logo from 'assets/images/zothacks-logo.png';
+// import logo from 'assets/images/zothacks-logo.png';
 import { Spring, Trail } from 'react-spring/renderprops';
 import { Button } from 'react-bootstrap';
 

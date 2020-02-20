@@ -1,11 +1,7 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import { useSpring, animated } from 'react-spring';
+import { Button } from 'react-bootstrap';
 import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons'
 import './Home.scss';
-
-import { Button } from 'react-bootstrap';
-import Fade from 'react-reveal/Fade';
 
 import FAQs from '../../components/faqs/FAQs';
 import Team from '../../components/meet-team/team';
@@ -15,19 +11,22 @@ import astronaut_laptop from 'assets/images/astronaut_with_laptop.png';
 import astronaut from 'assets/images/astronaut_solid.png';
 import laptop from 'assets/images/laptop.png';
 
+// TITLES
+import vh_title from 'assets/images/titles/vh-title-cropped.png';
+import about_title from 'assets/images/titles/about-cropped.png';
+import faq_title from 'assets/images/titles/faq-cropped.png';
+import sponsors_title from 'assets/images/titles/sponsors-cropped.png';
+import meet_team_title from 'assets/images/titles/meettheteam-cropped.png';
+
+// PARALLAX ASSETS
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
 import pink_planet from 'assets/images/pinkplanet.png';
-import about_title from 'assets/images/about-cropped.png';
-import faq_title from 'assets/images/faq-cropped.png';
-import meet_team_title from 'assets/images/meettheteam-cropped.png';
-
 import constellation1 from 'assets/images/constellation1.png';
 import constellation2 from 'assets/images/constellation2.png';
 import constellation3 from 'assets/images/constellation3.png';
 import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
-import sponsors_title from 'assets/images/sponsors-cropped.png';
 import ucibren from 'assets/images/sponsors/ucibren.png';
 import disney from 'assets/images/sponsors/disney.png';
 import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
@@ -55,13 +54,14 @@ export default class Home extends React.Component {
             onClick={() => this.parallax.scrollTo(1)}
           >
             <div id="intro-grid">
-              <div className="container" style={{margin: "auto", maxWidth: "600px"}}>
+              <div id="astronaut-wrapper">
                   <img id="astronaut" src={astronaut}/>
                   <img id="laptop" src={laptop}/>
               </div>
 
                 <div id="intro-info-wrapper">
-                    <h1 id="venushacks-title">VENUSHACKS</h1>
+                    {/* <h1 id="venushacks-title">VENUSHACKS</h1> */}
+                    <img src={vh_title} style={{width: "100%", marginBottom: "15px"}}></img>
                     <h4 id="date">May 23-24, 2020</h4>
                     <p id="tagline">UC Irvine's first women-centric* hackathon</p>
                     <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
@@ -100,19 +100,29 @@ export default class Home extends React.Component {
           <ParallaxLayer id='about' offset={1} speed={0.1}
             onClick={() => this.parallax.scrollTo(2)}
           >
-            <div>
-              <img src={about_title}></img>
-                <p>
-                Planned in collaboration with <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and <a href="https://www.hackuci.com/" target="_blank">Hack</a>, VenusHacks will be taking place from May 23-24, 2020 and is UCI’s first women-centric* hackathon.
-                </p>
-                <p>
-                Our mission is to empower underrepresented groups by providing an inclusive community to foster growth and creativity in computing. VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community. Join us as we welcome over 200 high school (18+) and UCI students to participate in our 24-hour event that includes networking, fun activities, educational workshops, and lots of coding!
-                </p>
-                <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
+            <img src={about_title}></img>
+            <div id="about-wrapper">
+              <p>
+                Planned in collaboration with&nbsp;
+                <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and&nbsp;
+                <a href="https://www.hackuci.com/" target="_blank">Hack</a>,&nbsp;
+                VenusHacks will be taking place from May 23-24, 2020 and is UCI’s 
+                first women-centric* hackathon.
+              </p>
+              <p>
+                Our mission is to empower underrepresented groups by providing an 
+                inclusive community to foster growth and creativity in computing. 
+                VenusHacks will be open to participants of all experience levels, as 
+                we aim to increase diversity in tech through support, exposure, and 
+                community. Join us as we welcome over 200 high school (18+) and UCI 
+                students to participate in our 24-hour event that includes networking, 
+                fun activities, educational workshops, and lots of coding!
+              </p>
+              <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
             </div>
           </ParallaxLayer>
 
-          {/* FAQ **********************/}
+          {/* FAQ ************************/}
           <ParallaxLayer
             id="faq"
             offset={2}
@@ -122,7 +132,10 @@ export default class Home extends React.Component {
             <img src={faq_title}></img>
             <FAQs></FAQs>
             <p className="faq-contact-us">
-              Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
+              Additional logistic questions? Contact us&nbsp;
+              <a href="mailto:venushacks.uci@gmail.com" target="_top">
+                venushacks.uci@gmail.com
+              </a>.
             </p>
           </ParallaxLayer>
 
@@ -134,8 +147,7 @@ export default class Home extends React.Component {
             onClick={() => this.parallax.scrollTo(4)}
           >
               <img src={sponsors_title}></img>
-              <div id="sponsors-wrapper">
-
+              <div id="sponsors-white-box">
                 <div id="sponsors-grid">
                   <img src={ucibren}/>
                   <img src={disney}/>
@@ -152,11 +164,14 @@ export default class Home extends React.Component {
                 </div>
               </div>
               <p className="sponsor-contact-us">
-                Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
+                Join our movement, contact us&nbsp;
+                <a href="mailto:venushacks.corporate@gmail.com" target="_top">
+                  venushacks.corporate@gmail.com
+                </a>.
               </p>
           </ParallaxLayer>
 
-          {/* MEET THE TEAM **********************/}
+          {/* MEET THE TEAM ******************/}
           <ParallaxLayer
             id="meet-team"
             offset={4}
