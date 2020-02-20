@@ -21,6 +21,12 @@
     background-image: linear-gradient(#122649, #496ab5)
   }
 
+  .parallax-asset {
+    @media screen and (max-width: $break-small) {
+      display: none;
+    }
+  }
+
 
   #intro {
     height: 100vh;
