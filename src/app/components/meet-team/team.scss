@@ -2,6 +2,10 @@
 
 #organizer-photos{
   padding: 10px 50px;
+
+  @media screen and (max-width: $break-small) {
+    padding: 0;
+  }
   
   .organizer-img-wrapper img {
     width: 190px;
@@ -11,12 +15,21 @@
     margin: 20px;
     // height: auto;
     // padding: 20px;
+
+    @media screen and (max-width: $break-small) {
+      width: 120px;
+      height: 134px;
+      margin: 14px 20px;
+    }
   }
 
-  p{
+  p {
     color:white;
-    // color: #f2becb;
 
+    @media screen and (max-width: $break-small) {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
   }
 
 }

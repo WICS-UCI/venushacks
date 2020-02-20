@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import { useSpring, animated } from 'react-spring';
+import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons'
 import './Home.scss';
 
 import { Button } from 'react-bootstrap';
@@ -15,12 +16,18 @@ import astronaut from 'assets/images/astronaut_solid.png';
 import laptop from 'assets/images/laptop.png';
 
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
-import about_title from 'assets/images/about.png';
-import faq_title from 'assets/images/faq.png';
+import pink_planet from 'assets/images/pinkplanet.png';
+import about_title from 'assets/images/about-cropped.png';
+import faq_title from 'assets/images/faq-cropped.png';
 import meet_team_title from 'assets/images/meettheteam-cropped.png';
 
+import constellation1 from 'assets/images/constellation1.png';
+import constellation2 from 'assets/images/constellation2.png';
+import constellation3 from 'assets/images/constellation3.png';
+import constellation4 from 'assets/images/constellation4.png';
+
 // SPONSORS
-import sponsors_title from 'assets/images/sponsors.png';
+import sponsors_title from 'assets/images/sponsors-cropped.png';
 import ucibren from 'assets/images/sponsors/ucibren.png';
 import disney from 'assets/images/sponsors/disney.png';
 import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
@@ -28,176 +35,142 @@ import informatics from 'assets/images/sponsors/informatics.png';
 import google from 'assets/images/sponsors/google.png';
 import oracle from 'assets/images/sponsors/oracle.png';
 
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans1 = (x, y) => `translate3d(${x / 20}px,${y / 20}px,0)`
-const trans2 = (x, y) => `translate3d(${x / 25 + 15}px,${y / 25 - 0}px,0)`
-const trans3 = (x, y) => `translate3d(${x / 30 - 25}px,${y / 20 - 0}px,0)`
+const url = (name, wrap = false) => 
+`${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
 
-const interp = i => r => `translate3d(0, ${10 * Math.sin(r + (i * 1.5 * Math.PI) / 1.6)}px, 0)`
+export default class Home extends React.Component {
 
-function Home() {
-  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
-  const { radians } = useSpring({
-    to: async next => {
-      while (1) await next({ radians: 2 * Math.PI })
-    },
-    from: { radians: 0 },
-    config: { duration: 3500 },
-    reset: true,
-  })
+  render() {
+    return (
+      <div className="Home">
 
-  return (
-    <div className="Home">
-      {/* <div>
-        <div class="container" style={{marginLeft: "0", paddingTop: "120px"}}
-          onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+        <Parallax ref={ref => (this.parallax = ref)} pages={7}>
 
-          <div className="Left" style={{width: "50%"}}>
-            <animated.div className="image1" 
-              style={{ transform: radians.interpolate(interp(0)) }} 
-            // style={{ transform: props.xy.interpolate(trans1) }} 
-            >
-              <img src={astronaut} style={{width: "300px"}} />
-            </animated.div>
-            <animated.div className=" image2" style={{ transform: radians.interpolate(interp(1))}} >
-              <img src={laptop} style={{width: "350px", margin: "-120px 0 0 400px"}}/>
-            </animated.div>
-          </div>
-s
-        </div>
-      </div> */}
+          {/* <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#253237' }} /> */}
+          <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
+          <ParallaxLayer offset={6} speed={0} factor={2} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
 
-      {/* INTRO **********************/}
-      <section id='intro'>
-        <div style={{display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
-          <div className="container" style={{marginLeft: "80px", paddingTop: "20px"}}
-            onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+          {/* INTRO **********************/}
+          <ParallaxLayer id="intro" offset={0} speed={0.1}
+            onClick={() => this.parallax.scrollTo(1)}
+          >
+            <div id="intro-grid">
+              <div className="container" style={{margin: "auto", maxWidth: "600px"}}>
+                  <img id="astronaut" src={astronaut}/>
+                  <img id="laptop" src={laptop}/>
+              </div>
 
-            <div className="Left" style={{width: "50%"}}>
-              <animated.div className="image1" 
-                style={{ transform: radians.interpolate(interp(0)) }} 
-              // style={{ transform: props.xy.interpolate(trans1) }} 
-              >
-                <img src={astronaut} style={{width: "300px"}} />
-              </animated.div>
-              <animated.div className=" image2" style={{ transform: radians.interpolate(interp(1))}} >
-                <img src={laptop} style={{width: "350px", margin: "-120px 0 0 280px"}}/>
-              </animated.div>
+                <div id="intro-info-wrapper">
+                    <h1 id="venushacks-title">VENUSHACKS</h1>
+                    <h4 id="date">May 23-24, 2020</h4>
+                    <p id="tagline">UC Irvine's first women-centric* hackathon</p>
+                    <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
+                      Applications open March 23, 2020
+                    </Button>
+                </div>
             </div>
-          </div>
-          <div>
-            <div style={{margin: '136px auto'}}>
-                <h1 id="venushacks-title">
-                  VENUSHACKS
-                </h1>
-                <h4>
-                May 23-24, 2020
-                </h4>
-                <p className="title-info-description">
-                  UC Irvine's first women-centric* hackathon
-                </p>
-                <a>
-                <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
-                  Applications open March 23, 2020
-                </Button>
-                </a>
-            </div>
-          </div>
-        </div>
+          </ParallaxLayer>
 
-        {/* <div className="title-info">
-          <Fade duration={3000}>
-            <img id="astronaut-img" src={astronaut_laptop} />
-            
+          {/* LEFT CONSTELLATION */}
+          <ParallaxLayer offset={1.3} speed={-0.1} style={{ pointerEvents: 'none' }}>
+            <img src={constellation3} style={{ width: '22%', height: 'auto', marginRight: '80%' }} />
+          </ParallaxLayer>
+
+          {/* UPPER-RIGHT CONSTELLATION */}
+          <ParallaxLayer offset={1.2} speed={-0.1} style={{ pointerEvents: 'none' }}>
+            <img src={constellation1} style={{ width: '25%', height: 'auto', marginLeft: '80%' }} />
+          </ParallaxLayer>
+
+          {/* LOWER-RIGHT CONSTELLATION */}
+          <ParallaxLayer offset={1.6} speed={-0.2} style={{ pointerEvents: 'none' }}>
+            <img src={constellation2} style={{ width: '20%', height: 'auto', marginLeft: '80%' }} />
+          </ParallaxLayer>
+
+          {/* UPPER-LEFT PLANET */}
+          <ParallaxLayer offset={2.05} speed={-0.1} style={{ pointerEvents: 'none' }}>
+            <img src={pink_planet} style={{ width: '10%', height: 'auto', marginRight: '80%' }} />
+          </ParallaxLayer>
+
+          {/* LOWER-RIGHT PLANET */}
+          <ParallaxLayer offset={2.65} speed={-0.1} style={{ pointerEvents: 'none' }}>
+            <img src={periwinkle_planet} style={{ width: '10%', height: 'auto', marginLeft: '80%' }} />
+          </ParallaxLayer>
+
+          {/* ABOUT **********************/}
+          <ParallaxLayer id='about' offset={1} speed={0.1}
+            onClick={() => this.parallax.scrollTo(2)}
+          >
             <div>
-              <h1 id="venushacks-title">
-                VENUSHACKS
-              </h1>
-              <h4>
-               May 23-24, 2020
-              </h4>
-              <p className="title-info-description">
-                UC Irvine's first women-centric* hackathon
+              <img src={about_title}></img>
+                <p>
+                Planned in collaboration with <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and <a href="https://www.hackuci.com/" target="_blank">Hack</a>, VenusHacks will be taking place from May 23-24, 2020 and is UCI’s first women-centric* hackathon.
+                </p>
+                <p>
+                Our mission is to empower underrepresented groups by providing an inclusive community to foster growth and creativity in computing. VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community. Join us as we welcome over 200 high school (18+) and UCI students to participate in our 24-hour event that includes networking, fun activities, educational workshops, and lots of coding!
+                </p>
+                <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
+            </div>
+          </ParallaxLayer>
+
+          {/* FAQ **********************/}
+          <ParallaxLayer
+            id="faq"
+            offset={2}
+            speed={0.1}
+            onClick={() => this.parallax.scrollTo(3)}
+          >
+            <img src={faq_title}></img>
+            <FAQs></FAQs>
+            <p className="faq-contact-us">
+              Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
+            </p>
+          </ParallaxLayer>
+
+          {/* SPONSORS **********************/}
+          <ParallaxLayer
+            id="sponsors"
+            offset={3}
+            speed={0.1}
+            onClick={() => this.parallax.scrollTo(4)}
+          >
+              <img src={sponsors_title}></img>
+              <div id="sponsors-wrapper">
+
+                <div id="sponsors-grid">
+                  <img src={ucibren}/>
+                  <img src={disney}/>
+                  <img src={informatics} style={{background: '#002143', padding: '15px 8px'}} />
+                  <img src={crowdstrike}/>
+                  <img src={google} style={{width: '250px', height:'75px'}} />
+                  <img src={oracle}/>
+                </div>
+                <div className="more-to-come-text">
+                  <span className="plus">+</span>
+                  <span style={{verticalAlign: "text-top"}}>
+                    more to come!
+                  </span>
+                </div>
+              </div>
+              <p className="sponsor-contact-us">
+                Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
               </p>
-              <a>
-              <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
-                Applications open March 23, 2020
-              </Button>
-              </a>
-            </div>
-            <img id= "venushacks-logo" src={venushacks_logo}></img>
-          </Fade>
-        </div> */}
+          </ParallaxLayer>
 
-      </section>
+          {/* MEET THE TEAM **********************/}
+          <ParallaxLayer
+            id="meet-team"
+            offset={4}
+            factor={2}
+            speed={0.1}
+            style={{height: 'auto'}}
+            onClick={() => this.parallax.scrollTo(0)}
+          >
+            <img src={meet_team_title}></img>
+            <Team></Team>
+          </ParallaxLayer>
 
-      {/* ABOUT ***********************/}
-      <section id='info'>
-        <div>
-          <Fade duration={1000}>
-          <img src={about_title}></img>
-            <p>
-            Planned in collaboration with <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and <a href="https://www.hackuci.com/" target="_blank">Hack</a>, VenusHacks will be taking place from May 23-24, 2020 and is UCI’s first women-centric* hackathon.
-            </p>
-            <p>
-            Our mission is to empower underrepresented groups by providing an inclusive community to foster growth and creativity in computing. VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community. Join us as we welcome over 200 high school (18+) and UCI students to participate in our 24-hour event that includes networking, fun activities, educational workshops, and lots of coding!
-            </p>
-            <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
-          </Fade>
-        </div>
-      </section>
-
-      {/* FAQS ************************/}
-      <section id='faq'>
-        <Fade duration={1000}>
-          <img src={faq_title}></img>
-          <FAQs></FAQs>
-          <p className="faq-contact-us">
-            Additional logistic questions? Contact us <a href="mailto:venushacks.uci@gmail.com" target="_top">venushacks.uci@gmail.com</a>.
-          </p>
-        </Fade>
-      </section>
-
-      {/* SPONSORS ********************/}
-      <section id="sponsors">
-        <Fade duration={1000}>
-          <img src={sponsors_title}></img>
-          <div id="sponsors-wrapper">
-
-            <div id="sponsors-grid">
-              <img src={ucibren}/>
-              <img src={disney}/>
-              <img src={informatics} style={{background: '#002143', padding: '15px 8px'}} />
-              <img src={crowdstrike}/>
-              <img src={google} style={{width: '250px', height:'75px'}} />
-              <img src={oracle}/>
-            </div>
-            <div className="more-to-come-text">
-              <span className="plus">+</span>
-              <span style={{verticalAlign: "text-top"}}>
-                more to come!
-              </span>
-            </div>
-          </div>
-          <p className="sponsor-contact-us">
-            Join our movement, contact us <a href="mailto:venushacks.corporate@gmail.com" target="_top">venushacks.corporate@gmail.com</a>.
-          </p>
-        </Fade>
-      </section>
-
-      {/* MEET THE TEAM ********************/}
-      <section id="meet-team">
-        {/* <Fade duration={1000}> */}
-          <img src={meet_team_title}></img>
-          <Team></Team>
-        {/* </Fade> */}
-      </section>
-
-      <section id="credits">
-        {/* <p>Made with <a href="https://en.wikipedia.org/wiki/Anteater">&hearts;</a> in Irvine, CA</p> */}
-      </section>
-    </div>
-  );
+        </Parallax>
+      </div>
+    )
+  }
 }
-
-export default Home;

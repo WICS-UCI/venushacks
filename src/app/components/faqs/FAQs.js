@@ -18,28 +18,32 @@ const OneFAQ = ({data}) => (
 
 export default class FAQs extends React.Component {
 
-  render() {
-      var leftside = faq_data.filter(function(faq, index) {
-        return (index % 2 === 0);
-      });
+    handleClick(e) {
+        e.stopPropagation();
+    }
 
-      var rightside = faq_data.filter(function(faq, index) {
-        return (index % 2 != 0);
-      });
+    render() {
+        var leftside = faq_data.filter(function(faq, index) {
+            return (index % 2 === 0);
+        });
 
-      return (
-        <div id="faq-accordion-grid">
-            <div>
-                {leftside.map((faq, i) => (
-                    <OneFAQ key={i} data={faq} />
-                ))}
+        var rightside = faq_data.filter(function(faq, index) {
+            return (index % 2 !== 0);
+        });
+
+        return (
+            <div id="faq-accordion-grid" onClick={this.handleClick}>
+                <div>
+                    {leftside.map((faq, i) => (
+                        <OneFAQ key={i} data={faq} />
+                    ))}
+                </div>
+                <div>
+                    {rightside.map((faq, i) => (
+                        <OneFAQ key={i} data={faq} />
+                    ))}
+                </div>
             </div>
-            <div>
-                {rightside.map((faq, i) => (
-                    <OneFAQ key={i} data={faq} />
-                ))}
-            </div>
-        </div>
-      );
+        );
     }
 }

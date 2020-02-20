@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './FloatingHat.scss';
 
+
 import { Keyframes, animated, interpolate } from 'react-spring/renderprops'
 
 import hat from 'assets/images/hat.png';

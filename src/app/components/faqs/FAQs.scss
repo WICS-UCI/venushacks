@@ -1,10 +1,13 @@
 @import "globals/zothacks-styles.scss";
 
 #faq-accordion-grid {
+  color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
-
+  width: 80vw;
+  text-align: left;
+  
   @media screen and (max-width: 830px) {
     grid-template-columns: 1fr;
   }
@@ -23,14 +26,19 @@
     background: none;
   }
   div.card-header {
+    text-align: left;
     font-size: 25px;
     border: none;
     font-weight: bold;
     padding: 15px 0;
 
     @media screen and (max-width: 830px) {
-      font-size: 22px;
+      font-size: 18px;
+      padding: 10px 0;
     }
+  }
+  div.card-body {
+    text-align: left;
   }
   div.card-header:hover {
     cursor: pointer;
@@ -41,6 +49,6 @@
     font-size: 20px;
     padding: 0 0 10px;
     @media screen and (max-width: 830px) {
-      font-size: 18px;
+      font-size: 16px;
     }
   }

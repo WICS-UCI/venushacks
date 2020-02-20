@@ -1,5 +1,6 @@
 @import "globals/zothacks-styles.scss";
 
+
 .Home {
   text-align: center;
   min-height: 100vh;
@@ -14,22 +15,10 @@
     height: 600vh;
     position: absolute;
     left: 0;
-
-    // @media screen and (max-width: 1200px) {
-    //   display: none;
-    // }
   }
 
   #mobile-background {
-    // width: 100vw;
-    // height: 700vh;
-    // position: absolute;
-    // left: 0;
     background-image: linear-gradient(#122649, #496ab5)
-
-    // @media screen and (min-width: 1200px) {
-    //   display: none;
-    // }
   }
 
 
@@ -42,148 +31,112 @@
     flex-direction: column;
     text-align: center;
     color: white;
-    // below sets line in between section
-    // box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
 
-    // @media screen and (max-width: $break-medium) {
-    //   background-color: $coloredLightBackground;
-    // }
-
-    .schedule-nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: flex;
-      justify-content: flex-end;
-
-      a {
-        margin: 0;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-
-        h5 {
-          margin: 0 0 0 30px;
-        }
-      }
-    }
-
-    .schedule-button {
-      margin: 2em;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .title-info {
-      // display: flex;
-      // flex-direction: row;
-
+    #intro-grid {
       display: grid;
-      grid-template-columns: 320px 2fr 320px;
-      // max-width: 1110px;
-      margin: auto 40px;
-
-      @media screen and (max-width: $break-medium) {
-        // flex-direction: column;
-        // align-items: center;
-        text-align: center;
-        // justify-content: center;
-
+      grid-template-columns: 50% 50%;
+      margin: 0 50px;
+      
+      @media screen and (max-width: $break-small) {
         grid-template-columns: 1fr;
-
-        h1 {
-          font-size: 60px;
-        }
-
-        #venushacks-title {
-          @media screen and (max-width: $break-small) {
-            font-size: 50px;
-          }
-        }
-
-        .title-info-description {
-          width: 70vw;
-          margin: auto;
-        }
+        grid-template-rows: 60% 40%;
+        height: 90%;
       }
+    }
 
-      @keyframes float {
-        0% {
-          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-          transform: translatey(0px);
-        }
-        50% {
-          box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-          transform: translatey(-20px);
-        }
-        100% {
-          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-          transform: translatey(0px);
-        }
+    #venushacks-title {
+      font-size: 7vw;
+      margin-bottom: 0;
+
+      @media screen and (min-width: 1100px) {
+        font-size: 80px;
       }
-
-      #astronaut-img {
-        // margin-right: 0 !important;
-        margin: 20px 0 0 50px;
-        width: 300px !important;
-        height: auto;
-        animation: float 6s ease-in-out infinite;
-
-        @media screen and (max-width: $break-medium) {
-          margin: auto;
-        }
-
-        @media screen and (max-width: $break-small) {
-          margin: 90px auto auto;
-        }
+      @media screen and (max-width: $break-small) {
+        font-size: 50px;
       }
+    }
 
-      #venushacks-logo {
-        // margin-right: 50px !important;
-        margin: 20px 50px 0 0;
-        width: 250px;
-        height: auto;
+    #date {
+      font-size: 3vw;
+      @media screen and (min-width: 1100px) {
+        font-size: 30px;
+      }
+      @media screen and (max-width: $break-small) {
+        font-size: 20px;
+      }
+    }
 
-        @media screen and (max-width: $break-medium) {
-          margin: auto;
-        }
+    #tagline {
+      font-size: 2.5vw;
+      @media screen and (min-width: 1100px) {
+        font-size: 20px;
+      }
+      @media screen and (max-width: $break-small) {
+        font-size: 18px;
+      }
+    }
 
-
-        @media screen and (max-width: $break-small) {
-          margin: 15px auto 80px auto;
-          width: 200px;
-        }
+    @media screen and (max-width: 900) {
+      #venushacks-title {
+        font-size: 80px;
       }
   
-      // img {
-      //   width: 250px;
-      //   height: 250px;
-      //   margin-right: 2em;
-      // }
-
-      div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        button {
-          width: 100px;
-          margin: 20px 0 0 0;
-
-          @media screen and (max-width: $break-small) {
-            // margin: 20px auto 15px auto;
-          }
-        }
+      #date {
+        font-size: 30px;
       }
-
-      h1 {
-        margin: auto auto .1em auto;
+  
+      #tagline {
+        font-size: 20px;
       }
     }
 
-    
-  }
+    @keyframes floatAstronaut {
+      0% { transform: translatey(0px); }
+      50% { transform: translatey(-20px); }
+      100% { transform: translatey(0px); }
+    }
 
-  #info {
+    @keyframes floatLaptop {
+      0% { transform: translatey(0px); }
+      50% { transform: translatey(20px); }
+      100% { transform: translatey(0px); }
+    }
+
+    #astronaut {
+      width: 23vw;
+      max-width: 300px;
+      height: auto;
+      float: left;
+      animation: floatAstronaut 4s ease-in-out infinite;
+
+      @media screen and (max-width: $break-small) {
+        width: 200px;
+      }
+    }
+
+    #laptop {
+      width: 30vw;
+      max-width: 360px;
+      height: auto;
+      margin: -30% 0 0;
+      float: right;
+      animation: floatLaptop 4s ease-in-out infinite;
+
+      @media screen and (max-width: $break-small) {
+        width: 220px;
+      }
+    }
+
+    #intro-info-wrapper {
+      margin: 136px auto;
+      @media screen and (max-width: $break-small) {
+        margin: auto;
+      }
+    }
+}
+
+
+  #about {
     // margin-top: 15vh; //padding in between intro and info
     position: relative;
     display: flex;
@@ -193,6 +146,12 @@
     // background-color: navy; // temporary
     color: white;
 
+    @media screen and (max-width: $break-small) {
+      p {
+        font-size: 16px;
+      }
+    }
+
     a {
       color: #f2becb;
       font-weight: bold;
@@ -200,10 +159,11 @@
       background-color: transparent;
     }
 
-
     img {
-      width: 300px;
-      height: 175px;
+      width: 80%;
+      max-width: 400px;
+      height: auto;
+      margin: 20px auto;
     }
 
     .asterisk-inclusive {
@@ -271,15 +231,6 @@
     }
   }
 
-  #faq-accordion-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    @media screen and (max-width: 830px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
   #faq {
     display: flex;
     align-items: center;
@@ -287,8 +238,15 @@
     color: white;
 
     img {
-      width: 300px;
-      height: 175px;
+      width: 80%;
+      max-width: 400px;
+      height: auto;
+      margin: 30px auto;
+
+      @media screen and (max-width: $break-medium) {
+        width: 220px;
+        margin: 10px auto;
+      }
     }
 
     & > h2 {
@@ -313,16 +271,23 @@
       margin: 30px 0 65px 0;
 
       @media screen and (max-width: $break-small) {
-        font-size: 18px;
+        font-size: 15px;
+        margin: 10px 0 65px 0;
       }
     }
   }
 
   #sponsors {
-
     img {
-      width: 350px;
-      height: 175px;
+      width: 80%;
+      max-width: 400px;
+      height: auto;
+      margin: 40px auto;
+
+      @media screen and (max-width: $break-medium) {
+        width: 280px;
+        margin: 30px auto 20px;
+      }
     }
 
     #sponsors-wrapper {
@@ -333,7 +298,7 @@
       padding-bottom: 15px;
 
       @media screen and (max-width: 440px) {
-        margin: 0 30px 30px;
+        margin: 0 30px 10px;
       }
     }
 
@@ -358,6 +323,10 @@
         grid-row-gap: 10px;
         max-width: 400px;
       }
+
+      @media screen and (max-width: $break-small) {
+        margin: auto auto 0;
+      }
   
     }
     #sponsors-grid img {
@@ -367,14 +336,18 @@
       max-height: 125px;
       margin: auto;
   
-      @media screen and (max-width: 460px) {
-        max-width: 250px;
+      @media screen and (max-width: $break-small) {
+        max-width: 200px;
       }
     }
 
     .more-to-come-text {
       font-size: 30px;
       letter-spacing: 1px;
+      
+      @media screen and (max-width: $break-small) {
+        font-size: 18px;
+      }
     }
 
     .more-to-come-text .plus {
@@ -383,6 +356,10 @@
       vertical-align: sub;
       color: #f2becb;
       font-weight: bold;
+
+      @media screen and (max-width: $break-small) {
+        font-size: 25px;
+      }
     }
 
     a {
@@ -398,8 +375,7 @@
       margin-bottom: 160px;
       
       @media screen and (max-width: $break-small) {
-        font-size: 20px;
-        margin-bottom: 100px;
+        font-size: 18px;
       }
     }
   }

@@ -1,0 +1,11 @@
+@import "globals/zothacks-styles.scss";
+
+.floating-hat {
+  width: 50px;
+  height: 60px;
+
+  @media screen and (max-width: $break-small) {
+    width: 35px;
+    height: 48px;
+  }
+}

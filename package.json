@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/addons": "^9.0.0-beta.33",
     "bootstrap": "^4.4.1",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
