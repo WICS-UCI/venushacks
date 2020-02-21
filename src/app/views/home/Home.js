@@ -65,7 +65,7 @@ export default class Home extends React.Component {
 
         <Parallax 
           ref={ref => (this.parallax = ref)} 
-          pages={this.state.width <= 500 ? 8 : (this.state.width > 1300 ? 6.5 : 7.2)}
+          pages={this.state.width <= 500 ? 8.2 : (this.state.width > 1300 ? 6.5 : 7.2)}
         >
 
           {/* <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#253237' }} /> */}
@@ -74,7 +74,7 @@ export default class Home extends React.Component {
 
           {/* INTRO **********************/}
           <ParallaxLayer id="intro" offset={0} speed={0.1}
-            onClick={() => this.parallax.scrollTo(1)}
+            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(1))}
           >
             <div id="intro-grid">
               <div id="astronaut-wrapper">
@@ -121,7 +121,7 @@ export default class Home extends React.Component {
 
           {/* ABOUT **********************/}
           <ParallaxLayer id='about' offset={1} speed={0.1}
-            onClick={() => this.parallax.scrollTo(2)}
+            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(2))}
           >
             <img src={about_title}></img>
             <div id="about-wrapper">
@@ -151,7 +151,7 @@ export default class Home extends React.Component {
             offset={2}
             factor={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
-            onClick={() => this.parallax.scrollTo(3)}
+            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(3))}
           >
             <img src={faq_title}></img>
             <FAQs></FAQs>
@@ -167,8 +167,9 @@ export default class Home extends React.Component {
           <ParallaxLayer
             id="sponsors"
             offset={this.state.width <= 650 ? 3.35 : 3}
+            factor={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
-            onClick={() => this.parallax.scrollTo(4)}
+            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(4))}
           >
               <img src={sponsors_title}></img>
               <div id="sponsors-white-box">
@@ -202,7 +203,7 @@ export default class Home extends React.Component {
             factor={2}
             speed={0.1}
             style={{height: 'auto'}}
-            onClick={() => this.parallax.scrollTo(0)}
+            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(0))}
           >
             <img src={meet_team_title}></img>
             <Team></Team>
