@@ -63,11 +63,14 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
 
-        <Parallax ref={ref => (this.parallax = ref)} pages={this.state.width <= 500 ? 8 : 7}>
+        <Parallax 
+          ref={ref => (this.parallax = ref)} 
+          pages={this.state.width <= 500 ? 8 : (this.state.width > 1300 ? 6.5 : 7.2)}
+        >
 
           {/* <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#253237' }} /> */}
           <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
-          <ParallaxLayer offset={4} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
+          <ParallaxLayer offset={4} speed={0} factor={4} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
 
           {/* INTRO **********************/}
           <ParallaxLayer id="intro" offset={0} speed={0.1}
@@ -146,7 +149,7 @@ export default class Home extends React.Component {
           <ParallaxLayer
             id="faq"
             offset={2}
-            pages={this.state.width <= 500 ? 1.5 : 1}
+            pages={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(3)}
           >
@@ -163,7 +166,7 @@ export default class Home extends React.Component {
           {/* SPONSORS **********************/}
           <ParallaxLayer
             id="sponsors"
-            offset={this.state.width <= 500 ? 3.35 : 3}
+            offset={this.state.width <= 650 ? 3.35 : 3}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(4)}
           >
@@ -195,7 +198,7 @@ export default class Home extends React.Component {
           {/* MEET THE TEAM ******************/}
           <ParallaxLayer
             id="meet-team"
-            offset={this.state.width <= 500 ? 4.5 : 4}
+            offset={this.state.width <= 650 ? 4.5 : 4}
             factor={2}
             speed={0.1}
             style={{height: 'auto'}}

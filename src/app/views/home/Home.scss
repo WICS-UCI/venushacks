@@ -7,7 +7,7 @@
   color: white;
 
   .parallax-asset {
-    @media screen and (max-width: $break-small) {
+    @media screen and (max-width: $break-medium) {
       display: none;
     }
   }
@@ -142,18 +142,6 @@
     align-items: center;
     flex-direction: column;
 
-    @media screen and (max-width: $break-small) {
-      p {
-        font-size: 16px;
-      }
-    }
-
-    @media screen and (max-width: 320px) {
-      p {
-        font-size: 14px;
-      }
-    }
-
     img {
       width: 80%;
       max-width: 400px;
@@ -174,6 +162,19 @@
 
       @media screen and (max-width: $break-small) {
         width: 80vw;
+      }
+
+      p {
+        font-size: 24px;
+        @media screen and (max-width: $break-large) {
+          font-size: 20px;
+        }
+        @media screen and (max-width: $break-medium) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 320px) {
+            font-size: 14px;
+        }
       }
 
       a {
@@ -274,13 +275,11 @@
           grid-template-columns: 1fr 1fr;
           max-width: 850px;
         }
-    
         @media screen and (max-width: 870px) {
-          grid-template-columns: 1fr;
-          max-width: 400px;
+          grid-template-columns: 1fr 1fr;
         }
-  
-        @media screen and (max-width: $break-small) {
+        @media screen and (max-width: 650px) {
+          grid-template-columns: 1fr;
           margin: auto auto 0;
         }
 
@@ -290,7 +289,10 @@
           max-width: 330px;
           max-height: 125px;
           margin: auto;
-      
+
+          @media screen and (max-width: $break-medium) {
+            width: 220px;
+          }
           @media screen and (max-width: $break-small) {
             max-width: 200px;
           }
@@ -300,7 +302,10 @@
       .more-to-come-text {
         font-size: 30px;
         letter-spacing: 1px;
-        
+
+        @media screen and (max-width: $break-medium) {
+          font-size: 22px;
+        }
         @media screen and (max-width: $break-small) {
           font-size: 18px;
         }
@@ -311,7 +316,10 @@
           vertical-align: sub;
           color: #f2becb;
           font-weight: bold;
-    
+
+          @media screen and (max-width: $break-medium) {
+            font-size: 30px;
+          }
           @media screen and (max-width: $break-small) {
             font-size: 25px;
           }
@@ -322,7 +330,10 @@
     .sponsor-contact-us {
       font-size: 30px; 
       margin-bottom: 160px;
-      
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 22px;
+      }
       @media screen and (max-width: $break-small) {
         font-size: 18px;
       }

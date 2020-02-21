@@ -16,7 +16,7 @@
     // height: auto;
     // padding: 20px;
 
-    @media screen and (max-width: $break-small) {
+    @media screen and (max-width: 560px) {
       width: 120px;
       height: 134px;
       margin: 14px 20px;
@@ -26,7 +26,7 @@
   p {
     color:white;
 
-    @media screen and (max-width: $break-small) {
+    @media screen and (max-width: $break-medium) {
       font-size: 15px;
       margin-bottom: 0;
     }
