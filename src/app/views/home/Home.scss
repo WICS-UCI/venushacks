@@ -58,6 +58,9 @@
         @media screen and (max-width: $break-small) {
           width: 200px;
         }
+        @media screen and (max-width: 320px) {
+          width: 150px;
+        }
       }
   
       #laptop {
@@ -70,6 +73,9 @@
   
         @media screen and (max-width: $break-small) {
           width: 220px;
+        }
+        @media screen and (max-width: $break-small) {
+          width: 190px;
         }
       }
     }
@@ -112,6 +118,19 @@
         @media screen and (max-width: $break-small) {
           font-size: 18px;
         }
+        @media screen and (max-width: 320px) {
+          font-size: 16px;
+        }
+      }
+
+      #applications-btn {
+        border-radius: 50px;
+        width: 200px;
+
+        @media screen and (max-width: 320px) {
+          width: 190px;
+          font-size: 15px;
+        }
       }
     }
   } // END INTRO
@@ -129,6 +148,12 @@
       }
     }
 
+    @media screen and (max-width: 320px) {
+      p {
+        font-size: 14px;
+      }
+    }
+
     img {
       width: 80%;
       max-width: 400px;
@@ -137,6 +162,10 @@
 
       @media screen and (max-width: $break-small) {
         width: 240px;
+      }
+      @media screen and (max-width: 320px) {
+        width: 220px;
+        margin: 20px auto;
       }
     }
 
@@ -163,6 +192,9 @@
         @media screen and (max-width: $break-small) {
           font-size: 25px;
         }
+        @media screen and (max-width: 320px) {
+          font-size: 20px;
+        }
       }
     }
   } // END ABOUT
@@ -181,6 +213,9 @@
       @media screen and (max-width: $break-medium) {
         width: 220px;
         margin: 10px auto;
+      }
+      @media screen and (max-width: 320px) {
+        width: 200px;
       }
     }
 
@@ -290,6 +325,9 @@
       
       @media screen and (max-width: $break-small) {
         font-size: 18px;
+      }
+      @media screen and (max-width: 320px) {
+        font-size: 16px;
       }
 
       a {

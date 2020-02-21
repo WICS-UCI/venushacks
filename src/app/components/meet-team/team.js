@@ -16,13 +16,14 @@ export default class Team extends React.Component {
             {photo: 'kayla', name: "Kayla Tran"},
             {photo: 'karen', name: "Karen Vu"},
             {photo: 'megha', name: "Megha Kak"},
-            {photo: 'mohra', name: "Mohra Asala"},
+            {photo: 'mohra', name: "Mohra Arsala"},
             {photo: 'nehal', name: "Nehal Desai"},
             {photo: 'sandy', name: "Sandy Pan"},
             {photo: 'shannon', name: "Shannon Hoang"},
             {photo: 'sharon', name: "Sharon Hsu"},
             {photo: 'shreyas', name: "Shreyas Hukkeri"},
             {photo: 'tedrick', name: "Tedrick Wong"},
+            {photo: 'theja', name: "Theja Krishna"},
             {photo: 'tiffany', name: "Tiffany Liang"},
         ];
 

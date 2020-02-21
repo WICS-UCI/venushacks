@@ -67,7 +67,7 @@ export default class Home extends React.Component {
 
           {/* <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#253237' }} /> */}
           <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
-          <ParallaxLayer offset={4} speed={0} factor={2} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
+          <ParallaxLayer offset={4} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
 
           {/* INTRO **********************/}
           <ParallaxLayer id="intro" offset={0} speed={0.1}
@@ -84,7 +84,7 @@ export default class Home extends React.Component {
                     <img src={vh_title} style={{width: "100%", marginBottom: "15px"}}></img>
                     <h4 id="date">May 23-24, 2020</h4>
                     <p id="tagline">UC Irvine's first women-centric* hackathon</p>
-                    <Button disabled variant='light' style={{'borderRadius': '50px', width: '200px'}}>
+                    <Button id="applications-btn" disabled variant='light'>
                       Applications open March 23, 2020
                     </Button>
                 </div>

@@ -73,7 +73,7 @@ function Nav({history}) {
         </div> */}
         {
         // <Link to="">
-            <Button disabled style={{lineHeight: 0.8}} variant="light">
+            <Button className="home-button-hide" disabled style={{lineHeight: 0.8}} variant="light">
               Schedule <br/><small>Coming Soon</small>
             </Button>
           // </Link> 
