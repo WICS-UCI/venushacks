@@ -55,7 +55,6 @@ export default class Home extends React.Component {
   }
   
   updateWindowDimensions() {
-    console.log(window.innerWidth)
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 

@@ -77,6 +77,7 @@
         animation: floatLaptop 4s ease-in-out infinite;
   
         @media screen and (max-width: $break-small) {
+          margin: -40% 0 0;
           width: 200px;
         }
         @media screen and (max-width: 320px) {
