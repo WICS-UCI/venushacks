@@ -149,7 +149,7 @@ export default class Home extends React.Component {
           <ParallaxLayer
             id="faq"
             offset={2}
-            pages={this.state.width <= 650 ? 1.5 : 1}
+            factor={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(3)}
           >

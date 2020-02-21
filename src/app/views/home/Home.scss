@@ -22,7 +22,7 @@
 
     #intro-grid {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 40% 60%;
       margin: 0 50px;
       
       @media screen and (max-width: $break-small) {
@@ -35,6 +35,7 @@
     #astronaut-wrapper {
       margin: auto; 
       max-width: 600px;
+      padding-left: 50px;
 
       @keyframes floatAstronaut {
         0% { transform: translatey(0px); }
@@ -49,14 +50,14 @@
       }
 
       #astronaut {
-        width: 23vw;
-        max-width: 300px;
+        width: 18vw;
+        max-width: 290px;
         height: auto;
         float: left;
         animation: floatAstronaut 4s ease-in-out infinite;
   
         @media screen and (max-width: $break-small) {
-          width: 200px;
+          width: 170px;
         }
         @media screen and (max-width: 320px) {
           width: 150px;
@@ -64,7 +65,7 @@
       }
   
       #laptop {
-        width: 30vw;
+        width: 25vw;
         max-width: 360px;
         height: auto;
         margin: -30% 0 0;
@@ -74,7 +75,7 @@
         @media screen and (max-width: $break-small) {
           width: 220px;
         }
-        @media screen and (max-width: $break-small) {
+        @media screen and (max-width: 320px) {
           width: 190px;
         }
       }

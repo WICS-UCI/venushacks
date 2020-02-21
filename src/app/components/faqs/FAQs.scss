@@ -32,7 +32,7 @@
     font-weight: bold;
     padding: 15px 0;
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 1200px) {
       font-size: 17px;
       padding: 10px 0;
     }
@@ -51,7 +51,7 @@
   div.card-body {
     font-size: 20px;
     padding: 0 0 10px;
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 1200px) {
       font-size: 16px;
     }
     @media screen and (max-width: 320px) {
