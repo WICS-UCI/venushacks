@@ -12,7 +12,7 @@ import astronaut from 'assets/images/astronaut_solid.png';
 import laptop from 'assets/images/laptop.png';
 
 // TITLES
-import vh_title from 'assets/images/titles/vh-title-cropped.png';
+import vh_title from 'assets/images/titles/vh_title.png';
 import about_title from 'assets/images/titles/about-cropped.png';
 import faq_title from 'assets/images/titles/faq-cropped.png';
 import sponsors_title from 'assets/images/titles/sponsors-cropped.png';
@@ -84,7 +84,7 @@ export default class Home extends React.Component {
 
                 <div id="intro-info-wrapper">
                     {/* <h1 id="venushacks-title">VENUSHACKS</h1> */}
-                    <img src={vh_title} style={{width: "100%", marginBottom: "15px"}}></img>
+                    <img src={vh_title} style={{width: "95%", marginBottom: "15px"}}></img>
                     <h4 id="date">May 23-24, 2020</h4>
                     <p id="tagline">UC Irvine's first women-centric* hackathon</p>
                     <Button id="applications-btn" disabled variant='light'>
