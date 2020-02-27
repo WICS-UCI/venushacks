@@ -72,9 +72,7 @@ export default class Home extends React.Component {
           <ParallaxLayer offset={4} speed={0} factor={4} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
 
           {/* INTRO **********************/}
-          <ParallaxLayer id="intro" offset={0} speed={0.1}
-            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(1))}
-          >
+          <ParallaxLayer id="intro" offset={0} speed={0.1}>
             <div id="intro-grid">
               <div id="astronaut-wrapper">
                   <img id="astronaut" src={astronaut}/>
@@ -119,9 +117,7 @@ export default class Home extends React.Component {
           </ParallaxLayer>
 
           {/* ABOUT **********************/}
-          <ParallaxLayer id='about' offset={1} speed={0.1}
-            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(2))}
-          >
+          <ParallaxLayer id='about' offset={1} speed={0.1}>
             <img src={about_title}></img>
             <div id="about-wrapper">
               <p>
@@ -150,7 +146,6 @@ export default class Home extends React.Component {
             offset={2}
             factor={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
-            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(3))}
           >
             <img src={faq_title}></img>
             <FAQs></FAQs>
@@ -168,7 +163,6 @@ export default class Home extends React.Component {
             offset={this.state.width <= 650 ? 3.35 : 3}
             factor={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
-            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(4))}
           >
               <img src={sponsors_title}></img>
               <div id="sponsors-white-box">
@@ -202,7 +196,6 @@ export default class Home extends React.Component {
             factor={2}
             speed={0.1}
             style={{height: 'auto'}}
-            onClick={() => (this.state.width <= 800 ? null : this.parallax.scrollTo(0))}
           >
             <img src={meet_team_title}></img>
             <Team></Team>
