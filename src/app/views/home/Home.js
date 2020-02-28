@@ -33,6 +33,7 @@ import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
 import informatics from 'assets/images/sponsors/informatics.png';
 import google from 'assets/images/sponsors/google.png';
 import oracle from 'assets/images/sponsors/oracle.png';
+import balsamiq from 'assets/images/sponsors/balsamiq1.png'
 
 const url = (name, wrap = false) => 
 `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
@@ -122,8 +123,8 @@ export default class Home extends React.Component {
             <div id="about-wrapper">
               <p>
                 Planned in collaboration with&nbsp;
-                <a href="https://wics.ics.uci.edu/" target="_blank">WICS</a> and&nbsp;
-                <a href="https://www.hackuci.com/" target="_blank">Hack</a>,&nbsp;
+                <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
+                <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
                 VenusHacks will be taking place from May 23-24, 2020 and is UCI’s 
                 first women-centric* hackathon.
               </p>
@@ -164,15 +165,32 @@ export default class Home extends React.Component {
             factor={this.state.width <= 650 ? 1.5 : 1}
             speed={0.1}
           >
-              <img src={sponsors_title}></img>
+              <img className="title" src={sponsors_title}></img>
               <div id="sponsors-white-box">
-                <div id="sponsors-grid">
-                  <img src={ucibren}/>
-                  <img src={disney}/>
-                  <img src={informatics} style={{background: '#002143', padding: '15px 8px'}} />
-                  <img src={crowdstrike}/>
-                  <img src={google} style={{width: '250px', height:'75px'}} />
-                  <img src={oracle}/>
+                <div className="logo large">
+                  <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer">
+                    <img src={ucibren}/>
+                  </a>
+                  <a href="https://jobs.disneycareers.com/technology" target="_blank" rel="noopener noreferrer">
+                    <img src={disney}/>
+                  </a>
+                  <a href="https://www.informatics.uci.edu/" target="_blank" rel="noopener noreferrer">
+                    <img src={informatics} style={{background: '#002143', padding: '15px 8px'}} />
+                  </a>
+                </div>
+                <div className="logo medium">
+                  <a href="https://balsamiq.com/" target="_blank" rel="noopener noreferrer">
+                    <img src={balsamiq}/>
+                  </a>
+                  <a href="https://www.crowdstrike.com/careers/university-interns/" target="_blank" rel="noopener noreferrer">
+                    <img src={crowdstrike} />
+                  </a>
+                  <a href="https://www.oracle.com/corporate/careers/students-grads/" target="_blank" rel="noopener noreferrer">
+                    <img src={oracle}/>
+                  </a>
+                  <a href="https://careers.google.com/students/" target="_blank" rel="noopener noreferrer">
+                    <img src={google} style={{height: '70px'}} />
+                  </a>
                 </div>
                 <div className="more-to-come-text">
                   <span className="plus">+</span>

@@ -245,71 +245,77 @@
   } // END FAQ
 
   #sponsors {
-    img {
+    img.title {
       width: 80%;
       max-width: 400px;
       height: auto;
-      margin: 40px auto;
 
       @media screen and (max-width: $break-medium) {
         width: 280px;
-        margin: 30px auto 20px;
       }
     }
 
     #sponsors-white-box {
       background: white;
-      margin: 0 60px 30px;
+      margin: 20px 60px 30px;
+      padding: 15px 20px 15px;
       border-radius: 10px;
       color: #4767b1;
-      padding-bottom: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
 
-      @media screen and (max-width: 440px) {
-        margin: 0 30px 10px;
+      @media screen and (max-width: $break-small) {
+        margin: 10px 30px 10px;
+        padding: 5px 20px 15px;
       }
 
-      #sponsors-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 25px;
-        grid-row-gap: 10px;
-        margin: auto auto 20px;
-        padding: 20px 10px;
-    
-        @media screen and (max-width: 1200px) {
-          grid-template-columns: 1fr 1fr;
-          max-width: 850px;
-        }
-        @media screen and (max-width: 870px) {
-          grid-template-columns: 1fr 1fr;
-        }
-        @media screen and (max-width: 650px) {
-          grid-template-columns: 1fr;
-          margin: auto auto 0;
-        }
+      .logo img {
+        margin: 30px 30px 0;
+        width: auto;
+        height: auto;
+        transition: all .2s ease;
 
-        img {
-          width: auto;
-          height: auto;
-          max-width: 330px;
-          max-height: 125px;
-          margin: auto;
+        @media screen and (max-width: $break-medium) {
+          margin: 15px 20px 0;
+        }
+      }
 
-          @media screen and (max-width: $break-medium) {
-            width: 220px;
-          }
-          @media screen and (max-width: $break-small) {
-            max-width: 200px;
-          }
+      .logo a img:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+        height: auto;
+      }
+
+      .logo.large img {
+        max-width: 355px;
+        max-height: 125px;
+
+        @media screen and (max-width: $break-small) {
+          max-width: 60vw;
+          max-height: 22vw;
+        }
+      }
+      .logo.medium img {
+        max-width: 280px;
+        max-height: 85px;
+        @media screen and (max-width: $break-small) {
+          max-width: 45vw;
+          max-height: 12vw;
         }
       }
 
       .more-to-come-text {
+        width: 100%;
+        margin-top: 40px;
         font-size: 30px;
         letter-spacing: 1px;
 
         @media screen and (max-width: $break-medium) {
           font-size: 22px;
+          margin-top: 20px;
         }
         @media screen and (max-width: $break-small) {
           font-size: 18px;
@@ -333,8 +339,9 @@
     }
 
     .sponsor-contact-us {
-      font-size: 30px; 
-      margin-bottom: 160px;
+      max-width: 85%;
+      margin: auto;
+      font-size: 30px;      
 
       @media screen and (max-width: $break-medium) {
         font-size: 22px;
