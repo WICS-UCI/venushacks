@@ -3,24 +3,20 @@ import faq_data from './FAQs.json';
 import { Card, Accordion } from 'react-bootstrap';
 import './FAQs.scss';
 
-const OneFAQ = ({data}) => (
-    <Accordion>
-        <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="0">
+const OneFAQ = ({index, data}) => (
+    // <div className="card-wrapper">
+         <Card className="card-wrapper">
+            <Accordion.Toggle as={Card.Header} eventKey={index}>
                 {data.question}
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
+            <Accordion.Collapse eventKey={index}>
             <Card.Body>{data.answer}</Card.Body>
             </Accordion.Collapse>
-        </Card>
-    </Accordion>    
+        </Card>     
+    // </div> 
 ); 
 
 export default class FAQs extends React.Component {
-
-    handleClick(e) {
-        e.stopPropagation();
-    }
 
     render() {
         var leftside = faq_data.filter(function(faq, index) {
@@ -32,18 +28,30 @@ export default class FAQs extends React.Component {
         });
 
         return (
-            <div id="faq-accordion-grid" onClick={this.handleClick}>
-                <div>
-                    {leftside.map((faq, i) => (
-                        <OneFAQ key={i} data={faq} />
-                    ))}
+            <div id="faq-accordion-wrapper">
+                {/* Two accordions, one on each side can be open at a time */}
+                <div id="faq-accordion-grid">
+                    <Accordion>
+                        {leftside.map((faq, i) => (
+                            <OneFAQ key={i} data={faq} index={i}/>
+                        ))}
+                    </Accordion>
+                    <Accordion>
+                        {rightside.map((faq, i) => (
+                            <OneFAQ key={i} data={faq} index={i}/>
+                        ))}
+                    </Accordion>
                 </div>
-                <div>
-                    {rightside.map((faq, i) => (
-                        <OneFAQ key={i} data={faq} />
-                    ))}
+
+                {/* One accordion, one can be open at a time */}
+                <div id="faq-accordion-mobile">
+                    <Accordion>
+                        {faq_data.map((faq, i) => (
+                            <OneFAQ key={i} data={faq} index={i}/>
+                        ))}
+                    </Accordion>
                 </div>
-            </div>
+            </div>            
         );
     }
 }
