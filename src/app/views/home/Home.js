@@ -189,7 +189,7 @@ export default class Home extends React.Component {
                   <a href="https://www.oracle.com/corporate/careers/students-grads/" target="_blank" rel="noopener noreferrer">
                     <img src={oracle}/>
                   </a>
-                  <a href="https://balsamiq.com/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.corelogic.com/about-us/internships.aspx" target="_blank" rel="noopener noreferrer">
                     <img id="corelogic" src={corelogic} />
                   </a>
                   <a href="https://careers.google.com/students/" target="_blank" rel="noopener noreferrer">
