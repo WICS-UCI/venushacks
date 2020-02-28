@@ -307,6 +307,20 @@
         }
       }
 
+      .logo img#corelogic {
+        max-height: 100px;
+        @media screen and (max-width: $break-small) {
+          max-height: 20vw;
+        }
+      }
+
+      .logo img#google {
+        max-height: 70px;
+        @media screen and (max-width: $break-small) {
+          max-height: 10vw;
+        }
+      }
+
       .more-to-come-text {
         width: 100%;
         margin-top: 40px;

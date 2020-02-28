@@ -33,7 +33,8 @@ import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
 import informatics from 'assets/images/sponsors/informatics.png';
 import google from 'assets/images/sponsors/google.png';
 import oracle from 'assets/images/sponsors/oracle.png';
-import balsamiq from 'assets/images/sponsors/balsamiq1.png'
+import balsamiq from 'assets/images/sponsors/balsamiq1.png';
+import corelogic from 'assets/images/sponsors/corelogic.jpg';
 
 const url = (name, wrap = false) => 
 `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
@@ -188,8 +189,11 @@ export default class Home extends React.Component {
                   <a href="https://www.oracle.com/corporate/careers/students-grads/" target="_blank" rel="noopener noreferrer">
                     <img src={oracle}/>
                   </a>
+                  <a href="https://balsamiq.com/" target="_blank" rel="noopener noreferrer">
+                    <img id="corelogic" src={corelogic} />
+                  </a>
                   <a href="https://careers.google.com/students/" target="_blank" rel="noopener noreferrer">
-                    <img src={google} style={{height: '70px'}} />
+                    <img id="google" src={google} />
                   </a>
                 </div>
                 <div className="more-to-come-text">
