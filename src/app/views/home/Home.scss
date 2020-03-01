@@ -209,6 +209,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-height: 100vh;
 
     img {
       width: 34%;
@@ -245,6 +246,13 @@
   } // END FAQ
 
   #sponsors {
+    margin-top: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
     img.title {
       width: 80%;
       max-width: 400px;
@@ -354,8 +362,7 @@
 
     .sponsor-contact-us {
       max-width: 85%;
-      margin: auto;
-      font-size: 30px;      
+      font-size: 30px;    
 
       @media screen and (max-width: $break-medium) {
         font-size: 22px;
@@ -377,6 +384,8 @@
   } // END SPONSORS
 
   #meet-team {
+    margin-top: 60px;
+
     img {
       width: 550px;
       max-width: 100%;
