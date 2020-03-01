@@ -1,22 +1,32 @@
 @import "globals/zothacks-styles.scss";
 
-#faq-accordion-grid {
+#faq-accordion-wrapper {
   color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
   width: 80vw;
   text-align: left;
-  
-  @media screen and (max-width: 830px) {
-    grid-template-columns: 1fr;
+
+  #faq-accordion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    
+    @media screen and (max-width: 830px) {
+      display: none;
+    }
+  }
+
+  #faq-accordion-mobile {
+    display: none;
+    
+    @media screen and (max-width: 830px) {
+      display: block;
+    }
   }
 }
 
   // ACCORDION STYLING
   .accordion {
     text-align: left;
-    border-bottom: solid 1px white;
   }
   .accordion>.card .card-header, .card-body {
     background: none;
@@ -24,13 +34,16 @@
   .accordion>.card {
     border: none;
     background: none;
+    border-bottom: solid 1px white !important;
+    border-radius: 0 !important;
   }
   div.card-header {
     text-align: left;
-    font-size: 25px;
+    font-size: 1.4em;
     border: none;
     font-weight: bold;
     padding: 15px 0;
+    transition: 0.3s;
 
     @media screen and (max-width: 1200px) {
       font-size: 17px;
@@ -46,10 +59,9 @@
   div.card-header:hover {
     cursor: pointer;
     color: #f2bfcb;
-    transition: 1s;
   }
   div.card-body {
-    font-size: 20px;
+    font-size: 1.2em;
     padding: 0 0 10px;
     @media screen and (max-width: 1200px) {
       font-size: 16px;
