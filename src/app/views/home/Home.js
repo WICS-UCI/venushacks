@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { Button } from 'react-bootstrap';
 import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons'
 import './Home.scss';
 
 import FAQs from '../../components/faqs/FAQs';
+import Footer from '../../components/footer/Footer';
 import Team from '../../components/meet-team/team';
 
 import astronaut from 'assets/images/astronaut_solid.png';
@@ -41,7 +41,7 @@ export default class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { width: 0, height: 0 };
+    this.state = { contentHeight: 8 };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
@@ -50,7 +50,7 @@ export default class Home extends React.Component {
 
     setTimeout(() => {
       this.updateWindowDimensions()
-    }, 100);
+    }, 400);
   }
   
   componentWillUnmount() {
@@ -58,11 +58,10 @@ export default class Home extends React.Component {
   }
   
   updateWindowDimensions() {
-    let contentHeight = 0
     if (this._element && this._element.clientHeight) {
-      contentHeight = this._element.clientHeight/window.innerHeight
+      let contentHeight = this._element.clientHeight/window.innerHeight
+      this.setState({ contentHeight: contentHeight });
     }
-    this.setState({ contentHeight: contentHeight });
   }
 
   render() {
@@ -71,11 +70,9 @@ export default class Home extends React.Component {
 
         <Parallax 
           ref={ref => (this.parallax = ref)}
-          pages={this.state.contentHeight? 2+this.state.contentHeight:8}
+          pages={2+this.state.contentHeight}
+          style={{ backgroundImage: `url(${starsBackground})`, backgroundSize: 'cover'}}
         >
-
-          <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: `url(${starsBackground})`, backgroundSize: 'cover' }} />
-          <ParallaxLayer offset={4} speed={0} factor={4} style={{ backgroundImage: `url(${starsBackground})`, backgroundSize: 'cover' }} />
 
           {/* INTRO **********************/}
           <ParallaxLayer id="intro" offset={0} speed={0.1}>
@@ -145,10 +142,7 @@ export default class Home extends React.Component {
             </div>
           </ParallaxLayer>
 
-          <ParallaxLayer
-            offset={2}
-            speed={0.1}
-          >
+          <ParallaxLayer offset={2}>
             <div ref={ref => {this._element = ref}}>
               {/* FAQ ************************/}
               <div id="faq">
@@ -210,10 +204,12 @@ export default class Home extends React.Component {
               </div>
 
               {/* MEET THE TEAM ******************/}
-              <div id="meet-team" style={{height: 'auto'}}>
+              <div id="meet-team">
                 <img src={meet_team_title}></img>
-                <Team></Team>
+                <Team/>
               </div>
+              <Footer/>
+              
             </div>
           </ParallaxLayer>
         </Parallax>
