@@ -9,10 +9,10 @@ import Team from '../../components/meet-team/team';
 
 // TITLES
 import vh_title from 'assets/images/titles/vh_title.png';
-import about_title from 'assets/images/titles/about-cropped.png';
-import faq_title from 'assets/images/titles/faq-cropped.png';
-import sponsors_title from 'assets/images/titles/sponsors-cropped.png';
-import meet_team_title from 'assets/images/titles/meettheteam-cropped.png';
+import about_title from 'assets/images/titles/about.png';
+import faq_title from 'assets/images/titles/faq.png';
+import sponsors_title from 'assets/images/titles/sponsors.png';
+import meet_team_title from 'assets/images/titles/meettheteam.png';
 
 // PARALLAX ASSETS
 import starsBackground from 'assets/images/stars-background.svg';
@@ -30,7 +30,7 @@ import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
 import informatics from 'assets/images/sponsors/informatics.png';
 import google from 'assets/images/sponsors/google.png';
 import oracle from 'assets/images/sponsors/oracle.png';
-import balsamiq from 'assets/images/sponsors/balsamiq1.png';
+import balsamiq from 'assets/images/sponsors/balsamiq.png';
 import corelogic from 'assets/images/sponsors/corelogic.jpg';
 
 
