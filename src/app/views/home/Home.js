@@ -7,9 +7,6 @@ import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
 import Team from '../../components/meet-team/team';
 
-import astronaut from 'assets/images/astronaut_solid.png';
-import laptop from 'assets/images/laptop.png';
-
 // TITLES
 import vh_title from 'assets/images/titles/vh_title.png';
 import about_title from 'assets/images/titles/about-cropped.png';
@@ -78,18 +75,18 @@ export default class Home extends React.Component {
           <ParallaxLayer id="intro" offset={0} speed={0.1}>
             <div id="intro-grid">
               <div id="astronaut-wrapper">
-                  <img id="astronaut" src={astronaut}/>
-                  <img id="laptop" src={laptop}/>
+                <div id="astronaut" />
+                <div id="laptop" />
               </div>
 
-                <div id="intro-info-wrapper">
-                    <img src={vh_title} style={{width: "95%", marginBottom: "15px"}}></img>
-                    <h4 id="date">May 23-24, 2020</h4>
-                    <p id="tagline">UC Irvine's first women-centric* hackathon</p>
-                    <Button id="applications-btn" disabled variant='light'>
-                      Applications open March 23, 2020
-                    </Button>
-                </div>
+              <div id="intro-info-wrapper">
+                <img id="venushacks-title" src={vh_title} />
+                <h4 id="date">May 23-24, 2020</h4>
+                <p id="tagline">UC Irvine's first women-centric* hackathon</p>
+                <Button id="applications-btn" disabled variant='light'>
+                  Applications open March 23, 2020
+                </Button>
+              </div>
             </div>
           </ParallaxLayer>
 

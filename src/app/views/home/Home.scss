@@ -1,5 +1,8 @@
 @import "globals/zothacks-styles.scss";
 
+$astronaut: "./../../../assets/images/astronaut_solid.png";
+$laptop: "./../../../assets/images/laptop.png";
+
 .Home {
   text-align: center;
   // min-height: 100vh;
@@ -37,6 +40,10 @@
       max-width: 600px;
       padding-left: 50px;
 
+      @media screen and (max-width: $break-medium) {
+        max-width: 342px;
+      }
+
       @media screen and (max-width: $break-small) {
         padding-left: 0;
       }
@@ -55,33 +62,41 @@
 
       #astronaut {
         width: 18vw;
+        height: 18vw;
         max-width: 290px;
-        height: auto;
         float: left;
         animation: floatAstronaut 4s ease-in-out infinite;
+        background: url($astronaut);
+        background-size: contain;
   
         @media screen and (max-width: $break-small) {
           width: 150px;
+          height: 150px;
         }
         @media screen and (max-width: 320px) {
           width: 130px;
+          height: 130px;
         }
       }
   
       #laptop {
         width: 25vw;
+        height: 25vw;
         max-width: 360px;
-        height: auto;
         margin: -30% 0 0;
         float: right;
         animation: floatLaptop 4s ease-in-out infinite;
+        background: url($laptop);
+        background-size: contain;
   
         @media screen and (max-width: $break-small) {
           margin: -40% 0 0;
           width: 200px;
+          height: 200px;
         }
         @media screen and (max-width: 320px) {
           width: 160px;
+          height: 160px;
         }
       }
     }
@@ -94,15 +109,8 @@
       }
 
       #venushacks-title {
-        width: 98%;
-        margin-bottom: 0;
-  
-        @media screen and (min-width: 1100px) {
-          font-size: 80px;
-        }
-        @media screen and (max-width: $break-small) {
-          font-size: 50px;
-        }
+        width: 95%;
+        margin-bottom: 15px;
       }
   
       #date {
@@ -153,7 +161,7 @@
       height: auto;
       margin: 20px auto;
 
-      @media screen and (max-width: $break-small) {
+      @media screen and (max-width: $break-medium) {
         width: 240px;
       }
       @media screen and (max-width: 320px) {
@@ -194,9 +202,12 @@
         font-size: 30px;
         margin-bottom: 60px;
         color: #f2bfcb;
-  
-        @media screen and (max-width: $break-small) {
+
+        @media screen and (max-width: $break-medium) {
           font-size: 25px;
+        }
+        @media screen and (max-width: $break-small) {
+          font-size: 22px;
         }
         @media screen and (max-width: 320px) {
           font-size: 20px;
