@@ -1,0 +1,27 @@
+#footer-wrapper {
+    position: relative;
+    height: 100%;
+    padding-bottom: 175px;
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+        height: 125px;
+        background-color: #35508c;
+        width: 100vw;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            color: white;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #f3bdcb;
+        }
+    }
+}
