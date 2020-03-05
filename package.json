@@ -1,17 +1,17 @@
 {
-  "name": "zothacks",
+  "name": "venushacks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@react-spring/addons": "^9.0.0-beta.33",
     "bootstrap": "^4.4.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.9.0",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.4.0",
     "react-spring": "^8.0.27"
   },
   "scripts": {
