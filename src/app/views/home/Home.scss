@@ -68,6 +68,7 @@ $laptop: "./../../../assets/images/laptop.png";
         animation: floatAstronaut 4s ease-in-out infinite;
         background: url($astronaut);
         background-size: contain;
+        background-repeat: no-repeat;
   
         @media screen and (max-width: $break-small) {
           width: 150px;
@@ -88,6 +89,7 @@ $laptop: "./../../../assets/images/laptop.png";
         animation: floatLaptop 4s ease-in-out infinite;
         background: url($laptop);
         background-size: contain;
+        background-repeat: no-repeat;
   
         @media screen and (max-width: $break-small) {
           margin: -40% 0 0;
