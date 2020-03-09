@@ -131,8 +131,8 @@ export default class Home extends React.Component {
                 inclusive community to foster growth and creativity in computing. 
                 VenusHacks will be open to participants of all experience levels, as 
                 we aim to increase diversity in tech through support, exposure, and 
-                community. Join us as we welcome over 200 high school (18+) and UCI 
-                students to participate in our 24-hour event that includes networking, 
+                community. Join us as we welcome over 200 high school (18+), undergraduate, and 
+                graduate students to participate in our 24-hour event that includes networking, 
                 fun activities, educational workshops, and lots of coding!
               </p>
               <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
