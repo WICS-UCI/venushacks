@@ -81,10 +81,10 @@ export default class Home extends React.Component {
 
               <div id="intro-info-wrapper">
                 <img id="venushacks-title" src={vh_title} />
-                <h4 id="date">May 23-24, 2020</h4>
+                <h4 id="date">Date To Be Determined</h4>
                 <p id="tagline">UC Irvine's first women-centric* hackathon</p>
                 <Button id="applications-btn" disabled variant='light'>
-                  Applications open March 23, 2020
+                  Applications open TBD
                 </Button>
               </div>
             </div>
@@ -119,11 +119,15 @@ export default class Home extends React.Component {
           <ParallaxLayer id='about' offset={1} speed={0.1}>
             <img src={about_title}></img>
             <div id="about-wrapper">
+              <p id="psa">
+              ***Due to COVID-19, VenusHacks will be postponed to a new date (still TBD) during the 2020-2021 school year. 
+              We will release updates as more information becomes available. Thank you for your understanding. ***
+              </p>
               <p>
                 Planned in collaboration with&nbsp;
                 <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
                 <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
-                VenusHacks will be taking place from May 23-24, 2020 and is UCI’s 
+                VenusHacks will be UCI’s 
                 first women-centric* hackathon.
               </p>
               <p>
