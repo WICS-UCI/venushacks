@@ -3,7 +3,6 @@ import './Footer.scss';
 
 function Footer() {
     return (
-        <div id="footer-wrapper">
         <footer id="footer">
             <a href="mailto:venushacks.uci@gmail.com" target="_top">
                 <i className="fa fa-envelope"></i>
@@ -15,7 +14,6 @@ function Footer() {
                 <i className="fa fa-instagram"></i>
             </a>
         </footer>
-        </div>
     )
 }
 

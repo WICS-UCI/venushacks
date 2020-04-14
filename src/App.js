@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
 import history from './history';
+import Footer from './app/components/footer/Footer';
 import './App.scss';
+import starsBackground from './assets/images/stars-background.svg';
 
 import {
   Home,
@@ -14,7 +16,9 @@ import {
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App'
+    // style={{ backgroundImage: `url(${starsBackground})`, backgroundSize: 'cover'}}
+    >
       <Router history={history}>
         <Nav history={history}></Nav>
         <Switch>
@@ -22,6 +26,7 @@ function App() {
           <Route exact path='/schedule' component={Schedule}/>
         </Switch>
       </Router>
+      {/* <Footer/> */}
     </div>
   );
 }

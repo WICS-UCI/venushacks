@@ -13,11 +13,12 @@ $break-large: 1250px;
 
 
 // Temporary Appwide Style Variables
-$fontColor: #2e2e2e;
+$fontColor: white;
 $errorColor: #a31e1e;
 $hackUCIFont: Rubik;
 
 // Backgrounds
+$gradientBackground: linear-gradient(#122649, #496ab5);
 $darkBackground: #2e2e2e;
 $lightBackground: #fcfcfc;
 $coloredLightBackground: #AFE3F9;
@@ -32,6 +33,8 @@ $rightOffGradient: rgb(226, 131, 128);
 
 // Colors 
 $lightGray: #e8e8e8;
+$lightPink: #f2becb;
+$darkerPink: #f1a8a8;
 
 .flex-center {
   display: flex;

@@ -40,7 +40,7 @@ export default class Team extends React.Component {
             </div>
         );
         return ( 
-            <div id = "organizer-photos" >
+            <div id = "organizer-photos">
                 {images}
             </div>
 

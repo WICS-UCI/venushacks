@@ -15,7 +15,7 @@ import sponsors_title from 'assets/images/titles/sponsors.png';
 import meet_team_title from 'assets/images/titles/meettheteam.png';
 
 // PARALLAX ASSETS
-import starsBackground from 'assets/images/stars-background.svg';
+import stars_background from 'assets/images/stars-background.svg';
 import periwinkle_planet from 'assets/images/periwinkleplanet.png';
 import pink_planet from 'assets/images/pinkplanet.png';
 import constellation1 from 'assets/images/constellation1.png';
@@ -28,66 +28,118 @@ import ucibren from 'assets/images/sponsors/ucibren.png';
 import disney from 'assets/images/sponsors/disney.png';
 import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
 import informatics from 'assets/images/sponsors/informatics.png';
-import google from 'assets/images/sponsors/google.png';
 import oracle from 'assets/images/sponsors/oracle.png';
 import balsamiq from 'assets/images/sponsors/balsamiq.png';
 import corelogic from 'assets/images/sponsors/corelogic.jpg';
-
+import linode from 'assets/images/sponsors/linode.png';
+import google from 'assets/images/sponsors/google.png';
 
 export default class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { contentHeight: 8 };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.state = { 
+      /* Number of "pages" needed to contain all content under 
+         the about section (faqs, sponsors, meet team, etc).
+         This number is calculated in updateParallaxLayerHeight().
+      */
+      contentHeight: 8
+    };
+    this.updateParallaxLayerHeight = this.updateParallaxLayerHeight.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateWindowDimensions);
-
-    setTimeout(() => {
-      this.updateWindowDimensions()
-    }, 400);
+    window.addEventListener('resize', this.updateParallaxLayerHeight);
   }
   
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
+    window.removeEventListener('resize', this.updateParallaxLayerHeight);
   }
   
-  updateWindowDimensions() {
+  /**
+   * Calculates number of pages that all content under 
+   * the about section (faqs, sponsors, meet team, etc) 
+   * needs and updates this parallax layer
+   */
+  updateParallaxLayerHeight() {
     if (this._element && this._element.clientHeight) {
       let contentHeight = this._element.clientHeight/window.innerHeight
       this.setState({ contentHeight: contentHeight });
     }
   }
 
+  /**
+   * Used to remove floating effect of hero & about 
+   * sections on smaller screens
+   */
+  isMobileScreen() {
+    return window.innerWidth <= 500;
+  }
+
+  /**
+   * Renders sponsor logo that links to sponsor page
+   * @param {*} imgId id of image used for custom css styles
+   * @param {*} imgSrc source of image import
+   * @param {*} url link to sponsor page
+   */
+  renderSponsorLink(imgId, imgSrc, url) {
+    return (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <img 
+          id={imgId} 
+          className="logo"
+          src={imgSrc} 
+          
+          // needed to resize parallax layer as each image loads
+          onLoad={this.updateParallaxLayerHeight}
+        />
+      </a>
+    )
+  }
+
   render() {
+    /**
+     * There are 3 main parallax layers: 
+     * (1) hero section
+     * (2) about section
+     * (3) all other sections
+     * 
+     * (1) and (2) take up one "page" each, where each page
+     * is equal to 100vh. All other sections are put into
+     * 1 parallax layer since each sections' number of pages vary
+     * depending on screen size and if faqs are open. Putting (3)
+     * into 1 parallax layer also prevents sections from overlapping.
+     */
     return (
       <div className="Home">
 
         <Parallax 
           ref={ref => (this.parallax = ref)}
           pages={2+this.state.contentHeight}
-          style={{ backgroundImage: `url(${starsBackground})`, backgroundSize: 'cover'}}
+          style={{ backgroundImage: `url(${stars_background})`, backgroundSize: 'cover'}}
         >
 
-          {/* INTRO **********************/}
-          <ParallaxLayer id="intro" offset={0} speed={0.1}>
-            <div id="intro-grid">
-              <div id="astronaut-wrapper">
-                <div id="astronaut" />
-                <div id="laptop" />
-              </div>
+          {/* HERO **********************/}
+          <ParallaxLayer offset={0} speed={this.isMobileScreen() ? null : 0.1}>
+            <section id="hero">
 
-              <div id="intro-info-wrapper">
-                <img id="venushacks-title" src={vh_title} />
-                <h4 id="date">Date To Be Determined</h4>
-                <p id="tagline">UC Irvine's first women-centric* hackathon</p>
-                <Button id="applications-btn" disabled variant='light'>
-                  Applications open TBD
-                </Button>
-              </div>
-            </div>
+                <div id="astronaut-animation">
+                  {/* These assets are a background of a div instead of imgs to prevent 
+                      them from being able to be saved to camera roll on iOS */}
+                  <div id="astronaut" />
+                  <div id="laptop" />
+                </div>
+
+                <div id="hero-right">
+                  <img id="venushacks-title" src={vh_title} />
+                  <h4 id="date">Date To Be Determined</h4>
+                  <p id="tagline">UC Irvine's first women-centric* hackathon</p>
+                  <Button id="apply-btn" disabled variant='light'>
+                    Applications open TBD
+                  </Button>
+                </div>
+
+            </section>
           </ParallaxLayer>
 
           {/* LEFT CONSTELLATION */}
@@ -106,7 +158,7 @@ export default class Home extends React.Component {
           </ParallaxLayer>
 
           {/* UPPER-LEFT PLANET */}
-          <ParallaxLayer className="parallax-asset" offset={2.05} speed={-0.1} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer className="parallax-asset" offset={2.02} speed={-0.1} style={{ pointerEvents: 'none' }}>
             <img src={pink_planet} style={{ width: '10%', height: 'auto', marginRight: '80%' }} />
           </ParallaxLayer>
 
@@ -116,81 +168,72 @@ export default class Home extends React.Component {
           </ParallaxLayer>
 
           {/* ABOUT **********************/}
-          <ParallaxLayer id='about' offset={1} speed={0.1}>
-            <img src={about_title}></img>
-            <div id="about-wrapper">
-              <p id="psa">
-              ***Due to COVID-19, VenusHacks will be postponed to a new date (still TBD) during the 2020-2021 school year. 
-              We will release updates as more information becomes available. Thank you for your understanding. ***
-              </p>
-              <p>
-                Planned in collaboration with&nbsp;
-                <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
-                <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
-                VenusHacks will be UCI’s 
-                first women-centric* hackathon.
-              </p>
-              <p>
-                Our mission is to empower underrepresented groups by providing an 
-                inclusive community to foster growth and creativity in computing. 
-                VenusHacks will be open to participants of all experience levels, as 
-                we aim to increase diversity in tech through support, exposure, and 
-                community. Join us as we welcome over 200 high school (18+), undergraduate, and 
-                graduate students to participate in our 24-hour event that includes networking, 
-                fun activities, educational workshops, and lots of coding!
-              </p>
-              <p className="asterisk-inclusive">*trans and non-binary inclusive</p>
-            </div>
+          <ParallaxLayer offset={1} 
+            speed={this.isMobileScreen() ? null : 0.1}
+          >
+            <section id="about">
+              <img className="section-title" src={about_title} />
+              <div id="about-text-container">
+                <p id="psa">
+                  ***Due to COVID-19, VenusHacks will be postponed to a new date (still TBD) during the 2020-2021 school year. 
+                  We will release updates as more information becomes available. Thank you for your understanding. ***
+                </p>
+                <p>
+                  Planned in collaboration with&nbsp;
+                  <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
+                  <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
+                  VenusHacks will be UCI’s 
+                  first women-centric* hackathon.
+                </p>
+                <p>
+                  Our mission is to empower underrepresented groups by providing an 
+                  inclusive community to foster growth and creativity in computing. 
+                  VenusHacks will be open to participants of all experience levels, as 
+                  we aim to increase diversity in tech through support, exposure, and 
+                  community. Join us as we welcome over 200 high school (18+), undergraduate, and 
+                  graduate students to participate in our 24-hour event that includes networking, 
+                  fun activities, educational workshops, and lots of coding!
+                </p>
+                <h4 id="asterisk-inclusive">*trans and non-binary inclusive</h4>
+              </div>
+            </section>
           </ParallaxLayer>
 
           <ParallaxLayer offset={2}>
             <div ref={ref => {this._element = ref}}>
+
               {/* FAQ ************************/}
-              <div id="faq">
-                <img src={faq_title}></img>
-                <FAQs></FAQs>
-                <p className="faq-contact-us">
+              <section id="faq">
+                <img className="section-title" src={faq_title} />
+                <FAQs/>
+                <p id="faq-contact-us">
                   Additional logistic questions? Contact us&nbsp;
                   <a href="mailto:venushacks.uci@gmail.com" target="_top">
                     venushacks.uci@gmail.com
                   </a>.
                 </p>
-              </div>
+              </section>
 
               {/* SPONSORS **********************/}
-              <div id="sponsors">
-                  <img className="title" src={sponsors_title}></img>
-                  <div id="sponsors-white-box">
-                    <div className="logo large">
-                      <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer">
-                        <img src={ucibren}/>
-                      </a>
-                      <a href="https://jobs.disneycareers.com/technology" target="_blank" rel="noopener noreferrer">
-                        <img src={disney}/>
-                      </a>
-                      <a href="https://www.informatics.uci.edu/" target="_blank" rel="noopener noreferrer">
-                        <img src={informatics} style={{background: '#002143', padding: '15px 8px'}} />
-                      </a>
+              <section id="sponsors">
+                  <img className="section-title" src={sponsors_title} />
+                  <div id="sponsors-container">
+                    <div className="logo-wrapper large">
+                      {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
+                      {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
+                      {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")}
                     </div>
-                    <div className="logo medium">
-                      <a href="https://balsamiq.com/" target="_blank" rel="noopener noreferrer">
-                        <img src={balsamiq}/>
-                      </a>
-                      <a href="https://www.crowdstrike.com/careers/university-interns/" target="_blank" rel="noopener noreferrer">
-                        <img src={crowdstrike} />
-                      </a>
-                      <a href="https://www.oracle.com/corporate/careers/students-grads/" target="_blank" rel="noopener noreferrer">
-                        <img src={oracle}/>
-                      </a>
-                      <a href="https://www.corelogic.com/about-us/internships.aspx" target="_blank" rel="noopener noreferrer">
-                        <img id="corelogic" src={corelogic} />
-                      </a>
-                      <a href="https://careers.google.com/students/" target="_blank" rel="noopener noreferrer">
-                        <img id="google" src={google} />
-                      </a>
+                    <div className="logo-wrapper medium">
+                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/")}
+                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
+                      {this.renderSponsorLink("oracle", oracle, "https://www.oracle.com/corporate/careers/students-grads/")}
+                      {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
+                      {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
+                      {this.renderSponsorLink("google", google, "https://careers.google.com/students/")}
                     </div>
-                    <div className="more-to-come-text">
-                      <span className="plus">+</span>
+
+                    <div id="sponsors-more-to-come">
+                      <span className="plus-icon">+</span>
                       <span style={{verticalAlign: "text-top"}}>
                         more to come!
                       </span>
@@ -202,18 +245,23 @@ export default class Home extends React.Component {
                       venushacks.corporate@gmail.com
                     </a>.
                   </p>
-              </div>
+              </section>
 
               {/* MEET THE TEAM ******************/}
-              <div id="meet-team">
-                <img src={meet_team_title}></img>
+              <section id="meet-team">
+                <img className="section-title" src={meet_team_title} />
                 <Team/>
-              </div>
-              <Footer/>
+              </section>
               
             </div>
           </ParallaxLayer>
+        
+          {/* FOOTER ******************/}
+          <Footer/>
+          
         </Parallax>
+
+        
       </div>
     )
   }
