@@ -1,27 +1,22 @@
-#footer-wrapper {
-    position: relative;
-    height: 100%;
-    padding-bottom: 175px;
+@import "globals/zothacks-styles.scss";
 
-    #footer {
-        position: absolute;
-        bottom: 0;
-        height: 125px;
-        background-color: #35508c;
-        width: 100vw;
-        font-size: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 125px;
+    background-color: #35508c;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        a {
-            color: white;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
+    a {
+        color: $fontColor;
+        margin: 0 15px;
+    }
 
-        a:hover {
-            color: #f3bdcb;
-        }
+    a:hover {
+        color: $lightPink;
     }
 }

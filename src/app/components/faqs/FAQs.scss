@@ -1,7 +1,6 @@
 @import "globals/zothacks-styles.scss";
 
 #faq-accordion-wrapper {
-  color: white;
   width: 80vw;
   text-align: left;
 
@@ -24,49 +23,43 @@
   }
 }
 
-  // ACCORDION STYLING
-  .accordion {
-    text-align: left;
-  }
-  .accordion>.card .card-header, .card-body {
-    background: none;
-  }
-  .accordion>.card {
-    border: none;
-    background: none;
-    border-bottom: solid 1px white !important;
-    border-radius: 0 !important;
-  }
-  div.card-header {
-    text-align: left;
-    font-size: 1.4em;
-    border: none;
-    font-weight: bold;
-    padding: 15px 0;
-    transition: 0.3s;
+// BOOTSTRAP ACCORDION STYLING
+.accordion {
+  text-align: left;
+}
+.accordion>.card .card-header, .card-body {
+  background: none;
+}
+.accordion>.card {
+  border: none;
+  background: none;
+  border-bottom: solid 1px white !important;
+  border-radius: 0 !important;
+}
+div.card-header {
+  text-align: left;
+  font-size: 1.4em;
+  border: none;
+  font-weight: bold;
+  padding: 15px 0;
+  transition: 0.3s;
 
-    @media screen and (max-width: 1200px) {
-      font-size: 17px;
-      padding: 10px 0;
-    }
-    @media screen and (max-width: 320px) {
-      font-size: 15px;
-    }
+  @media screen and (max-width: $break-medium) {
+    font-size: 17px;
+    padding: 10px 0;
   }
-  div.card-body {
-    text-align: left;
+}
+div.card-body {
+  text-align: left;
+}
+div.card-header:hover {
+  cursor: pointer;
+  color: #f2bfcb;
+}
+div.card-body {
+  font-size: 1.2em;
+  padding: 0 0 10px;
+  @media screen and (max-width: $break-medium) {
+    font-size: 15px;
   }
-  div.card-header:hover {
-    cursor: pointer;
-    color: #f2bfcb;
-  }
-  div.card-body {
-    font-size: 1.2em;
-    padding: 0 0 10px;
-    @media screen and (max-width: 1200px) {
-      font-size: 16px;
-    }
-    @media screen and (max-width: 320px) {
-      font-size: 14px;
-    }
-  }
+}
