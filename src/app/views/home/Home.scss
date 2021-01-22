@@ -149,6 +149,7 @@ $laptop: "./../../../assets/images/laptop.png";
 
     #about-text-container {
       width: 60vw;
+      max-width: 1500px;
 
       @media screen and (max-width: $break-medium) {
         width: 80vw;
@@ -161,12 +162,6 @@ $laptop: "./../../../assets/images/laptop.png";
         @media screen and (max-width: $break-small) {
           font-size: 14px; // This line can prob be removed
                            // when we take out the psa
-        }
-      }
-
-      #psa {
-        @media screen and (max-width: $break-small) {
-          font-size: 13px;
         }
       }
   

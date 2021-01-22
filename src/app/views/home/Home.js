@@ -132,7 +132,7 @@ export default class Home extends React.Component {
 
                 <div id="hero-right">
                   <img id="venushacks-title" src={vh_title} />
-                  <h4 id="date">Date To Be Determined</h4>
+                  <h4 id="date">April 24 - 25, 2021</h4>
                   <p id="tagline">UC Irvine's first women-centric* hackathon</p>
                   <Button id="apply-btn" disabled variant='light'>
                     Applications open TBD
@@ -174,23 +174,19 @@ export default class Home extends React.Component {
             <section id="about">
               <img className="section-title" src={about_title} />
               <div id="about-text-container">
-                <p id="psa">
-                  ***Due to COVID-19, VenusHacks will be postponed to a new date (still TBD) during the 2020-2021 school year. 
-                  We will release updates as more information becomes available. Thank you for your understanding. ***
-                </p>
                 <p>
                   Planned in collaboration with&nbsp;
                   <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
                   <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
                   VenusHacks will be UCI’s 
-                  first women-centric* hackathon.
+                  first women-centric* hackathon and will take place all online! 
                 </p>
                 <p>
                   Our mission is to empower underrepresented groups by providing an 
                   inclusive community to foster growth and creativity in computing. 
                   VenusHacks will be open to participants of all experience levels, as 
                   we aim to increase diversity in tech through support, exposure, and 
-                  community. Join us as we welcome over 200 high school (18+), undergraduate, and 
+                  community. Join us as we welcome high school (18+), undergraduate, and 
                   graduate students to participate in our 24-hour event that includes networking, 
                   fun activities, educational workshops, and lots of coding!
                 </p>
