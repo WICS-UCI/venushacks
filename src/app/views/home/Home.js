@@ -177,7 +177,7 @@ export default class Home extends React.Component {
                 <p>
                   Planned in collaboration with&nbsp;
                   <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
-                  <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
+                  <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
                   VenusHacks will be UCI’s 
                   first women-centric* hackathon and will take place all online! 
                 </p>
