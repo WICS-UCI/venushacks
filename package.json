@@ -5,7 +5,7 @@
   "dependencies": {
     "@react-spring/addons": "^9.0.0-beta.33",
     "bootstrap": "^4.4.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.0",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.9.0",
