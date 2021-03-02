@@ -135,12 +135,12 @@ export default class Home extends React.Component {
                   <h4 id="date">April 24 - 25, 2021</h4>
                   <p id="tagline">UC Irvine's first women-centric* hackathon</p>
                     <Button id="apply-btn" disabled variant='light'>
-                      <a href="https://airtable.com/shrCdPWeLmyfxrKvT">
+                      <a href="https://airtable.com/shrCdPWeLmyfxrKvT" style={{ color: "#99a6e5"}}>
                         HACKER APP
                       </a>
                     </Button>
                     <Button id="apply-btn" disabled variant='light'>
-                      <a href="https://airtable.com/shrleZ2rcEiyrnE0f">
+                      <a href="https://airtable.com/shrleZ2rcEiyrnE0f" style={{ color: "#b299e5" }}>
                         MENTOR APP
                       </a>
                     </Button>
@@ -221,7 +221,7 @@ export default class Home extends React.Component {
               <section id="sponsors">
                   <img className="section-title" src={sponsors_title} />
                   <div id="sponsors-container">
-                    <div className="logo-wrapper large">
+                    {/* <div className="logo-wrapper large">
                       {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
                       {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
                       {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")}
@@ -233,12 +233,12 @@ export default class Home extends React.Component {
                       {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
                       {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
                       {this.renderSponsorLink("google", google, "https://careers.google.com/students/")}
-                    </div>
+                    </div> */}
 
                     <div id="sponsors-more-to-come">
-                      <span className="plus-icon">+</span>
+                      {/* <span className="plus-icon">+</span> */}
                       <span style={{verticalAlign: "text-top"}}>
-                        more to come!
+                        coming soon!
                       </span>
                     </div>
                   </div>
