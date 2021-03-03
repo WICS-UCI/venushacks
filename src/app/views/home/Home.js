@@ -223,7 +223,7 @@ export default class Home extends React.Component {
                   <div id="sponsors-container">
                     <div className="logo-wrapper large">
                       {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
-                      {/* {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")} */}
+                      {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
                       {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")}
                     </div>
                     <div className="logo-wrapper medium">
