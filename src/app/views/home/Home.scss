@@ -135,6 +135,8 @@ $laptop: "./../../../assets/images/laptop.png";
         font-size: 1.3vw;
         margin-right: 10px;
         margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         @media screen and (max-width: $break-medium) {
           font-size: 16px;
         }
