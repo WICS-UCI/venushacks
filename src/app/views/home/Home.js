@@ -134,16 +134,9 @@ export default class Home extends React.Component {
                   <img id="venushacks-title" src={vh_title} />
                   <h4 id="date">April 24 - 25, 2021</h4>
                   <p id="tagline">UC Irvine's first women-centric* hackathon</p>
-                    <Button id="apply-btn" disabled variant='light'>
-                      <a href="https://airtable.com/shrCdPWeLmyfxrKvT">
-                        HACKER APP
-                      </a>
-                    </Button>
-                    <Button id="apply-btn" disabled variant='light'>
-                      <a href="https://airtable.com/shrleZ2rcEiyrnE0f">
-                        MENTOR APP
-                      </a>
-                    </Button>
+                  <Button id="apply-btn" disabled variant='light'>
+                    Applications open TBD
+                  </Button>
                 </div>
 
             </section>
@@ -184,7 +177,7 @@ export default class Home extends React.Component {
                 <p>
                   Planned in collaboration with&nbsp;
                   <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
-                  <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
+                  <a href="https://www.hackuci.com/" target="_blank" rel="noopener noreferrer">Hack</a>,&nbsp;
                   VenusHacks will be UCI’s 
                   first women-centric* hackathon and will take place all online! 
                 </p>
