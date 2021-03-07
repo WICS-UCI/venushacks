@@ -104,6 +104,7 @@ export default class Home extends React.Component {
      * (2) about section
      * (3) all other sections
      * 
+     * 
      * (1) and (2) take up one "page" each, where each page
      * is equal to 100vh. All other sections are put into
      * 1 parallax layer since each sections' number of pages vary
