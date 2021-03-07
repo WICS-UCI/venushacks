@@ -34,10 +34,7 @@ export default class Team extends React.Component {
         const images = organizers.map((organizer, i) =>
             <div key={i} style={{display:"inline-block" }}>
                 <div className="organizer-img-wrapper">
-                    <img src = {require('assets/images/organizer-photos/'+organizer.photo+'.jpeg')}
-                        onMouseOver={e => (e.currentTarget.src = require('assets/images/organizer-photos-funny/'+organizer.photo+'-funny.jpeg'))}
-                        onMouseOut={e => (e.currentTarget.src = require('assets/images/organizer-photos/'+organizer.photo+'.jpeg'))}
-                    />
+                    <img src = {require('assets/images/organizer-photos/'+organizer.photo+'.jpeg')}/>
                 </div>
                 <p>{organizer.name}</p>
             </div>

@@ -134,16 +134,9 @@ export default class Home extends React.Component {
                   <img id="venushacks-title" src={vh_title} />
                   <h4 id="date">April 24 - 25, 2021</h4>
                   <p id="tagline">UC Irvine's first women-centric* hackathon</p>
-                    <Button id="apply-btn" disabled variant='light'>
-                      <a href="https://airtable.com/shrCdPWeLmyfxrKvT" style={{ color: "#99a6e5"}}>
-                        HACKER APP
-                      </a>
-                    </Button>
-                    <Button id="apply-btn" disabled variant='light'>
-                      <a href="https://airtable.com/shrleZ2rcEiyrnE0f" style={{ color: "#b299e5" }}>
-                        MENTOR APP
-                      </a>
-                    </Button>
+                  <Button id="apply-btn" disabled variant='light'>
+                    Applications open TBD
+                  </Button>
                 </div>
 
             </section>
@@ -227,12 +220,12 @@ export default class Home extends React.Component {
                       {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")}
                     </div>
                     <div className="logo-wrapper medium">
-                      {/* {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/")} */}
+                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/")}
                       {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                      {/* {this.renderSponsorLink("oracle", oracle, "https://www.oracle.com/corporate/careers/students-grads/")}
+                      {this.renderSponsorLink("oracle", oracle, "https://www.oracle.com/corporate/careers/students-grads/")}
                       {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
                       {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
-                      {this.renderSponsorLink("google", google, "https://careers.google.com/students/")} */}
+                      {this.renderSponsorLink("google", google, "https://careers.google.com/students/")}
                     </div>
 
                     <div id="sponsors-more-to-come">
