@@ -12,21 +12,8 @@ export default class Team extends React.Component {
             {photo: 'christian', name: "Christian Chun"},
             {photo: 'danielle', name: "Danielle Muhlenberg"},
             {photo: 'deepal', name: "Deepal Sanghrajka"},
-<<<<<<< HEAD
-<<<<<<< HEAD
             {photo: 'jp', name: "JP Nguyen"},
             {photo: 'kaeley', name: "Kaeley Lenard"},
-=======
-            {photo: 'elise', name: "Elise Jang"},
-            {photo: 'ellen', name: "Ellen Kim"},
-            {photo: 'ellise', name: "Ellise Limjoco"},
-            {photo: 'karen', name: "Karen Vu"},
-            {photo: 'kasey', name: "Kasey Chuang"},
->>>>>>> parent of b979899... Update team.js
-=======
-            {photo: 'jp', name: "JP Nguyen"},
-            {photo: 'kaeley', name: "Kaeley Lenard"},
->>>>>>> parent of b0424ff... hack at uci + org photos
             {photo: 'kayla', name: "Kayla Tran"},
             {photo: 'karen', name: "Karen Vu"},
             {photo: 'megha', name: "Megha Kak"},
