@@ -15,6 +15,7 @@ export default class Team extends React.Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             {photo: 'jp', name: "JP Nguyen"},
             {photo: 'kaeley', name: "Kaeley Lenard"},
 =======
@@ -24,6 +25,10 @@ export default class Team extends React.Component {
             {photo: 'karen', name: "Karen Vu"},
             {photo: 'kasey', name: "Kasey Chuang"},
 >>>>>>> parent of b979899... Update team.js
+=======
+            {photo: 'jp', name: "JP Nguyen"},
+            {photo: 'kaeley', name: "Kaeley Lenard"},
+>>>>>>> parent of b0424ff... hack at uci + org photos
 =======
             {photo: 'jp', name: "JP Nguyen"},
             {photo: 'kaeley', name: "Kaeley Lenard"},
