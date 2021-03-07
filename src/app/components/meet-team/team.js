@@ -5,25 +5,30 @@ export default class Team extends React.Component {
     render() {
         let organizers = [
             {photo: "alice", name: "Alice Phan"},
-            {photo: "ameya", name: "Ameya Mandalik"},
-            {photo: 'april', name: "April Lee"},
+            {photo: "alyssa", name: "Alyssa Darjuan"},
+            {photo: 'archita', name: "Archita Ganesh"},
             {photo: 'areeta', name: "Areeta Wong"},
-            {photo: 'bhavani', name: "Bhavani Panda"},
-            {photo: 'chase', name: "Chase Carnaroli"},
-            {photo: 'crystal', name: "Crystal Lee"},
+            {photo: 'chey', name: "Chey Chavez"},
+            {photo: 'christian', name: "Christian Chun"},
+            {photo: 'danielle', name: "Danielle Muhlenberg"},
             {photo: 'deepal', name: "Deepal Sanghrajka"},
-            {photo: 'elise', name: "Elise Jang"},
-            {photo: 'ellen', name: "Ellen Kim"},
-            {photo: 'ellise', name: "Ellise Limjoco"},
-            {photo: 'kasey', name: "Kasey Chuang"},
+            {photo: 'jp', name: "JP Nguyen"},
+            {photo: 'kaeley', name: "Kaeley Lenard"},
             {photo: 'kayla', name: "Kayla Tran"},
-            {photo: 'khushi', name: "Khushi Valia"},
-            {photo: 'kingsley', name: "Kingsley Szeto"},
+            {photo: 'karen', name: "Karen Vu"},
             {photo: 'megha', name: "Megha Kak"},
-            {photo: 'nicole', name: "Nicole Pham"},
-            {photo: 'rieko', name: "Rieko Konishi"},
-            {photo: 'riley', name: "Riley Champion"},
+            {photo: 'mohra', name: "Mohra Arsala"},
+            {photo: 'nehal', name: "Nehal Desai"},
+            {photo: 'paul', name: "Paul Yang"},
+            {photo: 'sahil', name: "Sahil Railkar"},
+            {photo: 'sandy', name: "Sandy Pan"},
             {photo: 'shannon', name: "Shannon Hoang"},
+            {photo: 'sharon', name: "Sharon Hsu"},
+            {photo: 'shreyas', name: "Shreyas Hukkeri"},
+            {photo: 'tedrick', name: "Tedrick Wong"},
+            {photo: 'theja', name: "Theja Krishna"},
+            {photo: 'tiffany', name: "Tiffany Liang"},
+            {photo: 'zach', name: "Zach Pinto"},
         ];
 
         const images = organizers.map((organizer, i) =>
@@ -41,7 +46,6 @@ export default class Team extends React.Component {
             <div id = "organizer-photos">
                 {images}
             </div>
-
       );
     }
 }

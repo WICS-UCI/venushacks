@@ -140,10 +140,6 @@ $laptop: "./../../../assets/images/laptop.png";
         @media screen and (max-width: $break-medium) {
           font-size: 16px;
         }
-        a:hover, a:visited, a:link, a:active
-        {
-            text-decoration: none;
-        }
       }
     } // END #hero-right
 
