@@ -223,15 +223,15 @@ export default class Home extends React.Component {
                     <div className="logo-wrapper large">
                       {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
                       {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
-                      {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")}
+                      {/* {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")} */}
                     </div>
                     <div className="logo-wrapper medium">
-                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/")}
+                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}
                       {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                      {this.renderSponsorLink("oracle", oracle, "https://www.oracle.com/corporate/careers/students-grads/")}
+                      {/* {this.renderSponsorLink("oracle", oracle, "https://www.oracle.com/corporate/careers/students-grads/")}
                       {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
                       {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
-                      {this.renderSponsorLink("google", google, "https://careers.google.com/students/")}
+                      {this.renderSponsorLink("google", google, "https://careers.google.com/students/")} */}
                     </div>
 
                     <div id="sponsors-more-to-come">
