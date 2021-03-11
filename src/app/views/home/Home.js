@@ -133,7 +133,7 @@ export default class Home extends React.Component {
                 <div id="hero-right">
                   <img id="venushacks-title" src={vh_title} />
                   <h4 id="date">April 24 - 25, 2021</h4>
-                  <p id="tagline">UC Irvine's first women-centric* hackathon</p>
+                  <p id="tagline">UC Irvine's first women-centric hackathon</p>
                     <Button id="apply-btn" disabled variant='light'>
                       <a href="https://airtable.com/shrCdPWeLmyfxrKvT" style={{ color: "#99a6e5"}}>
                         HACKER APP
@@ -186,7 +186,7 @@ export default class Home extends React.Component {
                   <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
                   <a href="https://hack.ics.uci.edu/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
                   VenusHacks will be UCI’s 
-                  first women-centric* hackathon and will take place all online! 
+                  first women-centric hackathon and will take place all online! 
                 </p>
                 <p>
                   Our mission is to empower underrepresented groups by providing an 
@@ -197,7 +197,6 @@ export default class Home extends React.Component {
                   graduate students to participate in our 24-hour event that includes networking, 
                   fun activities, educational workshops, and lots of coding!
                 </p>
-                <h4 id="asterisk-inclusive">*trans and non-binary inclusive</h4>
               </div>
             </section>
           </ParallaxLayer>
