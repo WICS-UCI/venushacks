@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
 import history from './history';
-import Footer from './app/components/footer/Footer';
 import './App.scss';
-import starsBackground from './assets/images/stars-background.svg';
 
 import {
   Home,
