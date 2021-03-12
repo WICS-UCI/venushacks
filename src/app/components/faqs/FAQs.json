@@ -13,7 +13,7 @@
     },
     {
         "question": "Does this event cost money to attend?",
-        "answer": "No, admission to the event is free! We will also be providing workshops and snacks throughout the weekend, as well as swag!"
+        "answer": "No, admission to the event is free! We will also be providing workshops and activities throughout the weekend, as well as virtual swag!"
     },
     {
         "question": "What do I need?",
@@ -25,11 +25,16 @@
     },
     {
         "question": "Do I sign up as an individual or as a team?",
-        "answer": "Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during team formation at the start of the hackathon!"
+        "answer": "Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during team formation at the start of the hackathon. To be officially considered a team, all of your teammates must be signed up for the hackathon's Devpost and must join your team's project submission. Details about the Devpost will be given at the event!"
     },
     {
         "question": "Can I come with a project pre-built or will I have to build from scratch?",
         "answer": "You will be building your project from scratch. However, feel free to come with ideas of what you want to build!"
+    },
+    {
+        "question": "What rules are in placed?",
+        "answer": "We follow MLH's Code of Conduct.",
+        "link": "https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
     },
     {
         "question": "When are applications released and when are they due?",
