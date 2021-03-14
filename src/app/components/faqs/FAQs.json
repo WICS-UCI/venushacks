@@ -32,9 +32,12 @@
         "answer": "You will be building your project from scratch. However, feel free to come with ideas of what you want to build!"
     },
     {
-        "question": "What rules are in placed?",
-        "answer": "We follow MLH's Code of Conduct.",
-        "link": "https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
+        "question": "How many people can be on a team?",
+        "answer": "Up to 4 hackers can be on a team."
+    },
+    {
+        "question": "What rules are in place?",
+        "answer": "We follow <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf' target='_blank'>MLH's Code of Conduct</a>."
     },
     {
         "question": "When are applications released and when are they due?",
@@ -42,6 +45,6 @@
     },
     {
         "question": "How do I get hyped?",
-        "answer": "Follow our Facebook page: @venushacksUCI and our Instagram: @venushacks_uci for important updates!"
+        "answer": "Follow our Facebook page: <a href='https://www.facebook.com/venushacksUCI/' target='_blank'>@venushacksUCI</a> and our Instagram: <a href='https://www.instagram.com/venushacks_uci/' target='_blank'>@venushacks_uci</a> for important updates!"
     }
 ]
