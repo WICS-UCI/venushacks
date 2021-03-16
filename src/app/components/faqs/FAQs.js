@@ -9,9 +9,7 @@ const SingleFAQ = ({index, data}) => (
             {data.question}
         </Accordion.Toggle>
         <Accordion.Collapse eventKey={index}>
-            <Card.Body>
-            {data.link ? <div>We follow {<a href={data.link}>MLH's Code of Conduct</a>}.</div> : data.answer}
-            </Card.Body>
+            <Card.Body dangerouslySetInnerHTML={ {__html: data.answer} } />
         </Accordion.Collapse>
     </Card>
 ); 
