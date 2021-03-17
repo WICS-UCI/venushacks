@@ -10,7 +10,7 @@
   z-index: 100000;
   background-color: transparent;
   top: 0;
-  left: 0;
+  right: 150px;
 
   @media screen and (max-width: $break-small) {
     .home-button-hide {
