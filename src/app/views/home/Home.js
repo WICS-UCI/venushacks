@@ -134,12 +134,12 @@ export default class Home extends React.Component {
                   <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
                   <h4 id="date">April 24 - 25, 2021</h4>
                   <p id="tagline">UC Irvine's first women-centric hackathon</p>
-                    <Button id="apply-btn" disabled variant='light'>
+                    <Button id="apply-btn">
                       <a href="https://airtable.com/shrCdPWeLmyfxrKvT" style={{ color: "#99a6e5"}}>
                         HACKER APP
                       </a>
                     </Button>
-                    <Button id="apply-btn" disabled variant='light'>
+                    <Button id="apply-btn">
                       <a href="https://airtable.com/shrleZ2rcEiyrnE0f" style={{ color: "#b299e5" }}>
                         MENTOR APP
                       </a>
