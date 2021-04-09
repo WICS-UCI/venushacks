@@ -24,15 +24,22 @@ import constellation3 from 'assets/images/constellation3.png';
 // import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
-import ucibren from 'assets/images/sponsors/ucibren.png';
-import disney from 'assets/images/sponsors/disney.png';
-import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
 import balsamiq from 'assets/images/sponsors/balsamiq.png';
-// import informatics from 'assets/images/sponsors/informatics.png';
-// import oracle from 'assets/images/sponsors/oracle.png';
-// import corelogic from 'assets/images/sponsors/corelogic.jpg';
-// import linode from 'assets/images/sponsors/linode.png';
-// import google from 'assets/images/sponsors/google.png';
+import blackberry from 'assets/images/sponsors/blackberry.png';
+import corelogic from 'assets/images/sponsors/corelogic.jpg';
+import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
+import disney from 'assets/images/sponsors/disney.png';
+import uciinformatics from 'assets/images/sponsors/uciinformatics.png';
+import linode from 'assets/images/sponsors/linode.png';
+import matlab from 'assets/images/sponsors/matlab.png';
+import oai from 'assets/images/sponsors/oai.png';
+import postman from 'assets/images/sponsors/postman.png';
+import robinhood from 'assets/images/sponsors/robinhood.png';
+import ucibren from 'assets/images/sponsors/ucibren.png';
+import wayup from 'assets/images/sponsors/wayup.png';
+import zybooks from 'assets/images/sponsors/zybooks.png';
+import zillow from 'assets/images/sponsors/zillow.png';
+
 
 export default class Home extends React.Component {
 
@@ -221,25 +228,31 @@ export default class Home extends React.Component {
                   <img className="section-title" src={sponsors_title} alt="Sponsor" />
                   <div id="sponsors-container">
                     <div className="logo-wrapper large">
+                      {this.renderSponsorLink("blackberry", blackberry, "https://www.blackberry.com/us/en/company/careers/students")}
                       {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
-                      {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
-                      {/* {this.renderSponsorLink("informatics", informatics, "https://www.informatics.uci.edu/")} */}
                     </div>
                     <div className="logo-wrapper medium">
                       {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}
-                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                      {/* {this.renderSponsorLink("oracle", oracle, "https://www.oracle.com/corporate/careers/students-grads/")}
                       {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
+                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
+                      {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
+                      {this.renderSponsorLink("uciinformatics", uciinformatics, "https://www.informatics.uci.edu/")}
                       {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
-                      {this.renderSponsorLink("google", google, "https://careers.google.com/students/")} */}
+                      {this.renderSponsorLink("matlab", matlab, "https://www.mathworks.com/company/jobs/students.html")}
+                      {this.renderSponsorLink("oai", oai, "https://oai.tech.uci.edu/")}
+                      {this.renderSponsorLink("postman", postman, "https://www.postman.com/company/careers/")}
+                      {this.renderSponsorLink("robinhood", robinhood, "https://robinhood.com/us/en/careers/")}
+                      {this.renderSponsorLink("wayup", wayup, "https://www.wayup.com/")}
+                      {this.renderSponsorLink("zillow", zillow, "https://www.zillow.com/careers/university/")}
+                      {this.renderSponsorLink("zybooks", zybooks, "https://www.zybooks.com/careers/")}
                     </div>
 
-                    <div id="sponsors-more-to-come">
+                    {/* <div id="sponsors-more-to-come">
                       <span className="plus-icon">+</span>
                       <span style={{verticalAlign: "text-top"}}>
                         more to come!
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   <p className="sponsor-contact-us">
                     Join our movement, contact us&nbsp;
