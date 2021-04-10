@@ -2,7 +2,7 @@
   "name": "venushacks",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://WICS-UCI.github.io/venushacks",
+  "homepage": "https://www.venushacks.com/",
   "dependencies": {
     "@react-spring/addons": "^9.0.0-beta.33",
     "bootstrap": "^4.4.1",
