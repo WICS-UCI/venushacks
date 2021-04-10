@@ -130,17 +130,22 @@ $laptop: "./../../../assets/images/laptop.png";
       }
 
       #apply-btn {
-        border-radius: 50px;
+        border-color: #FFFFFF;
         padding: 12px 20px;
         font-size: 1.3vw;
         margin-right: 10px;
         margin-left: 10px;
         margin-top: 10px;
         margin-bottom: 10px;
+        background-color: #FFFFFF;
         @media screen and (max-width: $break-medium) {
           font-size: 16px;
         }
-        a:hover, a:visited, a:link, a:active
+        a:hover
+        {
+          font-size:20px;
+        }
+        a:visited, a:link, a:active
         {
             text-decoration: none;
         }

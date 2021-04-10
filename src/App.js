@@ -21,7 +21,6 @@ function App() {
         <Nav history={history}></Nav>
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route exact path='/schedule' component={Schedule}/>
         </Switch>
       </Router>
       {/* <Footer/> */}
