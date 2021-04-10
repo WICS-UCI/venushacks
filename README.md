@@ -17,7 +17,7 @@ VenusHacks will be open to participants of all experience levels, as we aim to i
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Deploying
-We use GitHub Pages to deploy our site. 
+We use GitHub Pages to deploy our site. Make sure you are on the latest version of `master` before running the deploy command.
 - `git checkout master`
 - `git pull`
 - `npm run deploy`
