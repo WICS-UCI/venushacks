@@ -18,8 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "if [[ $(git rev-parse --abbrev-ref HEAD) != \"master\" ]]; then echo \"\\033[0;31mERROR: \\033[0mYou be on the master branch to deploy.\nPlease checkout and pull the latest version of master before deploying.\"; exit 0; fi; npm run build && gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
