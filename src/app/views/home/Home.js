@@ -146,11 +146,6 @@ export default class Home extends React.Component {
                         HACKER APP
                       </a>
                     </Button>
-                    <Button id="apply-btn">
-                      <a href="https://airtable.com/shrleZ2rcEiyrnE0f" style={{ color: "#b299e5" }}>
-                        MENTOR APP
-                      </a>
-                    </Button>
                 </div>
 
             </section>
