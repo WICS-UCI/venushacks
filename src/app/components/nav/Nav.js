@@ -40,6 +40,11 @@ function Nav({history}) {
             Home
           </p>
         </Link>
+        <Link to="/starter-packs">
+          <p className="home-button-hide">
+            Starter Packs
+          </p>
+        </Link>
         {/* <div className="resource-button-hide" onMouseLeave={() => test(false)}>
           <p onMouseOver={() => test(true)}>
             Resources 
