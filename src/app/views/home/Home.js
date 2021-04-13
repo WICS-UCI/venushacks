@@ -12,6 +12,8 @@ import vh_title from 'assets/images/titles/vh_title.png';
 import about_title from 'assets/images/titles/about.png';
 import faq_title from 'assets/images/titles/faq.png';
 import sponsors_title from 'assets/images/titles/sponsors.png';
+import partners_title from 'assets/images/titles/partners.png';
+import speakers_title from 'assets/images/titles/speakers.png';
 import meet_team_title from 'assets/images/titles/meettheteam.png';
 
 // PARALLAX ASSETS
@@ -30,6 +32,7 @@ import corelogic from 'assets/images/sponsors/corelogic.jpg';
 import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
 import disney from 'assets/images/sponsors/disney.png';
 import uciinformatics from 'assets/images/sponsors/uciinformatics.png';
+import google_cloud from 'assets/images/sponsors/google_cloud.png';
 import linode from 'assets/images/sponsors/linode.png';
 import matlab from 'assets/images/sponsors/matlab.png';
 import oai from 'assets/images/sponsors/oai.png';
@@ -39,6 +42,17 @@ import ucibren from 'assets/images/sponsors/ucibren.png';
 import wayup from 'assets/images/sponsors/wayup.png';
 import zybooks from 'assets/images/sponsors/zybooks.png';
 import zillow from 'assets/images/sponsors/zillow.png';
+
+// PARTNERS
+import ai from 'assets/images/partners/ai.png';
+import codepath from 'assets/images/partners/codepath.png';
+import design from 'assets/images/partners/design.png';
+import icssc from 'assets/images/partners/icssc.png';
+import maiss from 'assets/images/partners/maiss.png';
+import mlh from 'assets/images/partners/mlh.png';
+import swe from 'assets/images/partners/swe.png';
+import vgdc from 'assets/images/partners/vgdc.jpeg';
+
 
 
 export default class Home extends React.Component {
@@ -232,6 +246,7 @@ export default class Home extends React.Component {
                       {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
                       {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
                       {this.renderSponsorLink("uciinformatics", uciinformatics, "https://www.informatics.uci.edu/")}
+                      {this.renderSponsorLink("google_cloud", google_cloud, "https://cloud.google.com/")}
                       {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
                       {this.renderSponsorLink("matlab", matlab, "https://www.mathworks.com/company/jobs/students.html")}
                       {this.renderSponsorLink("oai", oai, "https://oai.tech.uci.edu/")}
@@ -255,6 +270,23 @@ export default class Home extends React.Component {
                       venushacks.corporate@gmail.com
                     </a>.
                   </p>
+              </section>
+
+                {/* PARTNERS **********************/}
+              <section id="partners">
+                  <img className="section-title" src={partners_title} alt="Partners" />
+                  <div id="partners-container">
+                    <div className="logo-wrapper medium">
+                      {this.renderSponsorLink("ai", ai, "https://aiclub.ics.uci.edu/")}
+                      {this.renderSponsorLink("codepath", codepath, "https://codepath.org/")}
+                      {this.renderSponsorLink("design", design, "https://designatuci.com/")}
+                      {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
+                      {this.renderSponsorLink("maiss", maiss, "http://www.maissuci.com/")}
+                      {this.renderSponsorLink("mlh", mlh, "https://mlh.io/")}
+                      {this.renderSponsorLink("swe", swe, "https://sites.uci.edu/societywomenengineers/")}
+                      {this.renderSponsorLink("vgdc", vgdc, "https://sites.google.com/uci.edu/vgdcuci/home")}
+                    </div>
+                  </div>
               </section>
 
               {/* MEET THE TEAM ******************/}
