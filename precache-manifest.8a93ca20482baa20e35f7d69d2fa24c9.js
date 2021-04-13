@@ -1,31 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f7eb54ca6c9581dd92f4e3d5d25b84ae",
+    "revision": "80a1adc912ba02094008a1e1a5264207",
     "url": "/index.html"
   },
   {
-    "revision": "e6babadc8bb06f3dd4e1",
-    "url": "/static/css/main.dd3c9016.chunk.css"
+    "revision": "a447cf81589c044377c7",
+    "url": "/static/css/main.422c755e.chunk.css"
   },
   {
-    "revision": "379e378e9cf967536ab3",
-    "url": "/static/js/2.b2817271.chunk.js"
+    "revision": "5707c6cdd73ef5f9af9b",
+    "url": "/static/js/2.981c50ed.chunk.js"
   },
   {
-    "revision": "b21c0b070fbf389a149e773557d68a8a",
-    "url": "/static/js/2.b2817271.chunk.js.LICENSE.txt"
+    "revision": "41c90c3168cce7d1118a0f766db09920",
+    "url": "/static/js/2.981c50ed.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e6babadc8bb06f3dd4e1",
-    "url": "/static/js/main.5c682f97.chunk.js"
+    "revision": "a447cf81589c044377c7",
+    "url": "/static/js/main.1f76ad18.chunk.js"
   },
   {
-    "revision": "a458db9cf47d37543d73",
-    "url": "/static/js/runtime-main.3756f0eb.js"
+    "revision": "73d9ffea70b711f8c769",
+    "url": "/static/js/runtime-main.f4b0be27.js"
   },
   {
     "revision": "f5289833576fe82dfe67785d9d2c4908",
     "url": "/static/media/about.f5289833.png"
+  },
+  {
+    "revision": "0839f26952ed5c2eb2b18b4570d18e6c",
+    "url": "/static/media/ai.0839f269.png"
   },
   {
     "revision": "61b0923081f95095c8a5eb64d780caac",
@@ -84,6 +88,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/chase.ad964a0f.jpeg"
   },
   {
+    "revision": "7f6460ac6eb19eb076ed1954647684d9",
+    "url": "/static/media/codepath.7f6460ac.png"
+  },
+  {
     "revision": "978de9ef6c641ebb0999f8a86ea90771",
     "url": "/static/media/constellation1.978de9ef.png"
   },
@@ -116,6 +124,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/deepal.8177ecea.jpeg"
   },
   {
+    "revision": "cf737e842b567ec07f7691d5fafa6de9",
+    "url": "/static/media/design.cf737e84.png"
+  },
+  {
     "revision": "fbc32deb313ee98be321174039bdf5fd",
     "url": "/static/media/disney.fbc32deb.png"
   },
@@ -146,6 +158,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "462210699627f64aecac3608e63c69c5",
     "url": "/static/media/faq.46221069.png"
+  },
+  {
+    "revision": "8c699d13ca46649eb2322c96b48828aa",
+    "url": "/static/media/google_cloud.8c699d13.png"
   },
   {
     "revision": "2f310a6418c15b9a1e3c773d768d0580",
@@ -188,6 +204,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/linode.c117b4d3.png"
   },
   {
+    "revision": "39b3f14996f66e282e232f8c15df1cbd",
+    "url": "/static/media/maiss.39b3f149.png"
+  },
+  {
     "revision": "4b313016241ea171b338ebcc53a86bae",
     "url": "/static/media/matlab.4b313016.png"
   },
@@ -214,6 +234,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9d778e07d850392b96ef04ada44df99b",
     "url": "/static/media/oai.9d778e07.png"
+  },
+  {
+    "revision": "c5709ce78d6c81ad2815f2ee53d6406a",
+    "url": "/static/media/partners.c5709ce7.png"
   },
   {
     "revision": "9295ac53fdc894af2bc309e9a36fa618",
@@ -256,6 +280,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/shannon.b6fe3653.jpeg"
   },
   {
+    "revision": "1b62d010b7ad7416b1a79c222d561182",
+    "url": "/static/media/speakers.1b62d010.png"
+  },
+  {
     "revision": "9f2f04badd4793cc73e6ee2c35d0fcd7",
     "url": "/static/media/sponsors.9f2f04ba.png"
   },
@@ -264,12 +292,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/stars-background.5546c7c6.svg"
   },
   {
+    "revision": "cea0d86937eacc15996f697522f721d0",
+    "url": "/static/media/swe.cea0d869.png"
+  },
+  {
     "revision": "020ead76135fc54a67f17f6531bcfcb4",
     "url": "/static/media/ucibren.020ead76.png"
   },
   {
     "revision": "42c586f3555633c190147bd50225891f",
     "url": "/static/media/uciinformatics.42c586f3.png"
+  },
+  {
+    "revision": "18d4b08b5a928b636bd5dedeb14ec00a",
+    "url": "/static/media/vgdc.18d4b08b.jpeg"
   },
   {
     "revision": "1953de57cd5b409329fde6583ea3cf06",
