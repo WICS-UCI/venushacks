@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.422c755e.chunk.css",
-    "main.js": "/static/js/main.1f76ad18.chunk.js",
-    "main.js.map": "/static/js/main.1f76ad18.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f4b0be27.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f4b0be27.js.map",
-    "static/js/2.981c50ed.chunk.js": "/static/js/2.981c50ed.chunk.js",
-    "static/js/2.981c50ed.chunk.js.map": "/static/js/2.981c50ed.chunk.js.map",
+    "main.css": "/static/css/main.61e49e9b.chunk.css",
+    "main.js": "/static/js/main.105bc515.chunk.js",
+    "main.js.map": "/static/js/main.105bc515.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3756f0eb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3756f0eb.js.map",
+    "static/js/2.2c23b156.chunk.js": "/static/js/2.2c23b156.chunk.js",
+    "static/js/2.2c23b156.chunk.js.map": "/static/js/2.2c23b156.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8a93ca20482baa20e35f7d69d2fa24c9.js": "/precache-manifest.8a93ca20482baa20e35f7d69d2fa24c9.js",
+    "precache-manifest.855c0825e38da690727550e9367ff09c.js": "/precache-manifest.855c0825e38da690727550e9367ff09c.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.422c755e.chunk.css.map": "/static/css/main.422c755e.chunk.css.map",
-    "static/js/2.981c50ed.chunk.js.LICENSE.txt": "/static/js/2.981c50ed.chunk.js.LICENSE.txt",
+    "static/css/main.61e49e9b.chunk.css.map": "/static/css/main.61e49e9b.chunk.css.map",
+    "static/js/2.2c23b156.chunk.js.LICENSE.txt": "/static/js/2.2c23b156.chunk.js.LICENSE.txt",
     "static/media/about.png": "/static/media/about.f5289833.png",
     "static/media/ai.png": "/static/media/ai.0839f269.png",
     "static/media/alice-funny.jpeg": "/static/media/alice-funny.61b09230.jpeg",
@@ -33,6 +33,7 @@
     "static/media/constellation2.png": "/static/media/constellation2.4468e555.png",
     "static/media/constellation3.png": "/static/media/constellation3.400765d2.png",
     "static/media/corelogic.jpg": "/static/media/corelogic.c42f74ff.jpg",
+    "static/media/crowdstrike.png": "/static/media/crowdstrike.4cae3672.png",
     "static/media/crystal-funny.jpeg": "/static/media/crystal-funny.a0ff394f.jpeg",
     "static/media/crystal.jpeg": "/static/media/crystal.203bc350.jpeg",
     "static/media/deepal-funny.jpeg": "/static/media/deepal-funny.dcb9e563.jpeg",
@@ -87,9 +88,9 @@
     "static/media/zillow.png": "/static/media/zillow.3f8f7d9e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.f4b0be27.js",
-    "static/js/2.981c50ed.chunk.js",
-    "static/css/main.422c755e.chunk.css",
-    "static/js/main.1f76ad18.chunk.js"
+    "static/js/runtime-main.3756f0eb.js",
+    "static/js/2.2c23b156.chunk.js",
+    "static/css/main.61e49e9b.chunk.css",
+    "static/js/main.105bc515.chunk.js"
   ]
 }
