@@ -2,6 +2,42 @@ import React from "react";
 
 let starterPackData = [
   {
+    name: "MLH ",
+    description: "Starter kits from MLH!",
+    packs: [
+      {
+        name: "Flask Python",
+        link: "https://github.com/MLH/mlh-hackathon-flask-starter",
+        tooltip:
+          "Microframework for building web applications in Python. Great for hackers familiar with Python"
+      },
+      {
+        name: "Node.js JavaScript",
+        link: "https://github.com/MLH/mlh-hackathon-nodejs-starter",
+        tooltip:
+          "This is great for hackers familiar with JavaScript and want to dig into server code"
+      },
+      {
+        name: "DataStax",
+        link: "https://stories.mlh.io/getting-started-with-datastax-astra-9bc2ef9ccf04",
+        tooltip:
+          "Mastering Apache Cassandra, a widely used open-source database technology known for its expansive scalability"
+      },
+      {
+        name: "Radar",
+        link: "https://radar.io/blog/radar-student-hackathon-playbook",
+        tooltip:
+          "Developer-friendly, privacy-first SDKs and APIs for location-aware hacks"
+      },
+      {
+        name: "CockroachDB",
+        link: "https://stories.mlh.io/making-your-first-query-with-cockroachdb-7163ac607e7c",
+        tooltip:
+          "Consistent and scalable SQL database. Integrate easily with Node.js, Python, and more"
+      },
+    ]
+  },
+  {
     name: "User Interface",
     description: "Build a frontend you can interact with!",
     packs: [

@@ -35,7 +35,7 @@
     width: 80vw;
     min-height: 10rem;
     border-radius: 25px;
-    background-color: $darkBackground;
+    background-color: #0C1444;
     color: white;
     display: flex;
     align-items: center;
@@ -45,6 +45,7 @@
     display: flex;
     flex-direction: row;
     min-height: auto;
+    opacity: 0.8;
 
     @media screen and (max-width: $break-medium) {
       flex-direction: column;
