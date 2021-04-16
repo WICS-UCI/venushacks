@@ -253,6 +253,15 @@ $laptop: "./../../../assets/images/laptop.png";
         height: auto;
       }
 
+      .logo-wrapper.largest .logo {
+        max-width: 500px;
+        max-height: 325px;
+        @media screen and (max-width: $break-small) {
+          max-width: 200vw;
+          max-height: 60vw;
+        }
+      }
+
       .logo-wrapper.large .logo {
         max-width: 355px;
         max-height: 125px;
