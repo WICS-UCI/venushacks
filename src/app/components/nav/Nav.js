@@ -40,6 +40,11 @@ function Nav({history}) {
             Home
           </p>
         </Link>
+        <Link to="/schedule">
+          <p className="home-button-hide">
+            Schedule
+          </p>
+        </Link>
         <Link to="/starter-packs">
           <p className="home-button-hide">
             Starter Packs
@@ -75,9 +80,9 @@ function Nav({history}) {
         </div> */}
         {
         // <Link to="">
-            <Button className="home-button-hide" disabled style={{lineHeight: 0.8}} variant="light">
-              Schedule <br/><small>Coming Soon</small>
-            </Button>
+            // <Button className="home-button-hide" disabled style={{lineHeight: 0.8}} variant="light">
+            //   Schedule <br/><small>Coming Soon</small>
+            // </Button>
           // </Link> 
             // <Button variant="light">
             //   Apply

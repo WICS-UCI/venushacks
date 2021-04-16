@@ -20,6 +20,7 @@ function App() {
         <Nav history={history}></Nav>
         <Switch>
           <Route exact path='/' component={Home}/>
+          <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/starter-packs' component={StarterPacks}/>
         </Switch>
       </Router>
