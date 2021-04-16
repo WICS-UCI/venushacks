@@ -2,7 +2,85 @@ import React from "react";
 
 let starterPackData = [
   {
-    name: "MLH ",
+    name: "CodePath iOS",
+    description: "Pre-work",
+    packs: [
+      {
+        name: "Mac",
+        link: "/",
+        tooltip:
+          "You will need a Mac for this workshop"
+      },
+      {
+        name: "Download XCode",
+        link: "https://developer.apple.com/xcode/resources/",
+        tooltip:
+          "Link to Download"
+      },
+      {
+        name: "Yelp Developer Account",
+        link: "https://www.yelp.com/login?return_url=%2Fdevelopers%2Fv3%2Fmanage_app",
+        tooltip:
+          "Create a Yelp Developer Account"
+      },
+      {
+        name: "Get a Yelp API Key",
+        link: "https://www.youtube.com/watch?v=GFhGN36Wf7Q&ab_channel=WidgetPack",
+        tooltip:
+          "Link to Youtube Tutorial"
+      },
+    ]
+  },
+  {
+    name: "CodePath Android",
+    description: "Pre-work",
+    packs: [
+      {
+        name: "Android Studio",
+        link: "https://developer.android.com/studio/?gclid=Cj0KCQjwyN-DBhCDARIsAFOELTk6p95lbnMqdTVzN9hIxb4Wom4JX-vPgO6wfQfUT2egFgDfhOF1Y-YaAhE_EALw_wcB&gclsrc=aw.ds",
+        tooltip:
+          "Download Android Studio on you computer"
+      },
+      {
+        name: "Clone the Github repository",
+        link: "https://github.com/powerserg23/SimpleTodo/blob/master/README.md",
+        tooltip:
+          "Steps for how to clone the Github repository"
+      }
+    ]
+  },
+  {
+    name: "WICS Intro to Web Dev",
+    description: "Pre-work",
+    packs: [
+      {
+        name: "Clone the Github repository",
+        link: "https://github.com/kaseychuang/venushacks-web-dev-workshop",
+        tooltip:
+          "Link to repository"
+      },
+      {
+        name: "ReadMe",
+        link: "https://github.com/kaseychuang/venushacks-web-dev-workshop/blob/main/README.md",
+        tooltip:
+          "Follow setup instructions on the ReadMe"
+      }
+    ]
+  },
+  {
+    name: "VGDC Unity Game Engine",
+    description: "Pre-work",
+    packs: [
+      {
+        name: "Download Unity",
+        link: "https://unity.com/products",
+        tooltip:
+          "Link to Unity"
+      },
+    ]
+  },
+  {
+    name: "MLH",
     description: "Starter kits from MLH!",
     packs: [
       {
@@ -166,35 +244,6 @@ let starterPackData = [
         link: "/starter-packs/voiceflow",
         tooltip:
           "Utilize a no-code voice assistant platform for Amazon Alexa and Google Assistant!",
-        content: (
-          <>
-            <h2>Voiceflow</h2>
-            <p>
-              Want to incorporate Amazon Alexa or Google Voice Assistant into
-              your project? With Voiceflow, that is easy to do using their
-              no-code voice assistant platform.{" "}
-              <a href="https://www.voiceflow.com/hackathon/hackuci2021">
-                {" "}
-                Get 6 months of Voiceflow Pro plan for free!
-              </a>
-            </p>
-            <p>
-              Checkout the tutorials below to get started with Voiceflow!
-              Remember, winners of the best incorporation of Voiceflow track
-              will win a prize!
-            </p>
-            <p>
-              <a href="https://www.loom.com/share/8d90f9a5c6b6453492e849bd767337bc">
-                Part One
-              </a>
-            </p>
-            <p>
-              <a href="https://www.loom.com/share/1980b9cfcbfc459498bb0f73ac0bbda1">
-                Part Two
-              </a>
-            </p>
-          </>
-        )
       },
       {
         name: "Free Public APIs",
@@ -273,24 +322,6 @@ let starterPackData = [
         link: "/starter-packs/replit",
         tooltip:
           "Collaborative in-browser IDE that makes it easy to get hacking!",
-        content: (
-          <>
-            <h2>Replit</h2>
-            <p>
-              Replit is a collaborative in-browser IDE that requires zero
-              additional setup and supports over 50 programming languages, such
-              as Python, C++, HTML, and CSS. Similar to Google Docs, you can
-              collaborate with others on code in real time. Replit is providing
-              all HackUCI 2021 attendees with 3 months free access to their
-              “Hacker” plan, which includes private projects, 10x the storage,
-              4x the memory, 4x the speed, and more. Sign up for your account{" "}
-              <a href="https://repl.it/login?goto=/claim?code=HackUCI2021">
-                here
-              </a>
-              !
-            </p>
-          </>
-        )
       }
     ]
   }
