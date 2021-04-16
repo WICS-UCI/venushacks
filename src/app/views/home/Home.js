@@ -236,25 +236,27 @@ export default class Home extends React.Component {
               <section id="sponsors">
                   <img className="section-title" src={sponsors_title} alt="Sponsor" />
                   <div id="sponsors-container">
-                    <div className="logo-wrapper large">
+                    <div className="logo-wrapper largest">
                       {this.renderSponsorLink("blackberry", blackberry, "https://www.blackberry.com/us/en/company/careers/students")}
+                    </div>
+                    <div className="logo-wrapper large">
                       {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
                     </div>
                     <div className="logo-wrapper medium">
-                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}
-                      {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
-                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
                       {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
+                      {this.renderSponsorLink("zillow", zillow, "https://www.zillow.com/careers/university/")}
+                      {this.renderSponsorLink("oai", oai, "https://oai.tech.uci.edu/")}
                       {this.renderSponsorLink("uciinformatics", uciinformatics, "https://www.informatics.uci.edu/")}
                       {this.renderSponsorLink("google_cloud", google_cloud, "https://cloud.google.com/")}
+                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
+                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}
                       {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
-                      {this.renderSponsorLink("matlab", matlab, "https://www.mathworks.com/company/jobs/students.html")}
-                      {this.renderSponsorLink("oai", oai, "https://oai.tech.uci.edu/")}
-                      {this.renderSponsorLink("postman", postman, "https://www.postman.com/company/careers/")}
                       {this.renderSponsorLink("robinhood", robinhood, "https://robinhood.com/us/en/careers/")}
+                      {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
                       {this.renderSponsorLink("wayup", wayup, "https://www.wayup.com/")}
-                      {this.renderSponsorLink("zillow", zillow, "https://www.zillow.com/careers/university/")}
+                      {this.renderSponsorLink("matlab", matlab, "https://www.mathworks.com/company/jobs/students.html")}
                       {this.renderSponsorLink("zybooks", zybooks, "https://www.zybooks.com/careers/")}
+                      {this.renderSponsorLink("postman", postman, "https://www.postman.com/company/careers/")}
                     </div>
 
                     {/* <div id="sponsors-more-to-come">
