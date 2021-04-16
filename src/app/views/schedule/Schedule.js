@@ -24,7 +24,8 @@ function Schedule() {
         </div>
         <ScheduleCard/>
       </section>
-    </div>
+      <iframe class="airtable-embed" src="https://airtable.com/embed/shrd1SNSkbUcd6Yeq?backgroundColor=purple&viewControls=on" frameborder="0" onmousewheel="" width="80%" height="633" style={{marginBottom: '100px', background: 'transparent', border: '1px solid #ccc'}}></iframe>    
+      </div>
   );
 }
 
