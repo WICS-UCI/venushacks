@@ -4,7 +4,7 @@
   padding: 10px 50px 175px;
   margin-left: 185px;
   @media screen and (max-width: $break-small) {
-    padding: 0 0 175px 0;
+    padding: 0 0 100px 0;
   }
 
   .row {
@@ -23,8 +23,8 @@
 
     @media screen and (max-width: 560px) {
       width: 120px;
-      height: 134px;
-      margin: 14px 20px;
+      height: 120px;
+      margin-bottom: 100px;
     }
   }
 
@@ -39,10 +39,18 @@
   .text {
     position: relative;
     right: 36%;
+    @media screen and (max-width: $break-medium) {
+      right: 30%;
+    }
   }
 
   h4 {
     width: 350px;
+    @media screen and (max-width: $break-medium) {
+      width: 200px;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
   }
 
   p {
@@ -50,6 +58,7 @@
     height: 350px;
     
     @media screen and (max-width: $break-medium) {
+      width: 200px;
       font-size: 15px;
       margin-bottom: 0;
     }
