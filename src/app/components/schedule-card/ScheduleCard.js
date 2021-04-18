@@ -104,12 +104,12 @@ const sunSchedule = [
   {
     name: 'Diversity in Tech Panel',
     description: 'Linode, Darktrace, Procure Technologies',
-    time: '2:00AM-3:00PM'
+    time: '2:00PM-3:00PM'
   },
   {
     name: 'Drawphone',
     description: 'Let\'s have some fun!',
-    time: '5:30AM-6:00PM'
+    time: '5:30PM-6:00PM'
   },
   {
     name: 'Closing Ceremony',
