@@ -1,16 +1,25 @@
 @import "globals/zothacks-styles.scss";
 
-#organizer-photos{
+#panelist-photos{
   padding: 10px 50px 175px;
+  margin-right: 40px;
 
   @media screen and (max-width: $break-small) {
     padding: 0 0 175px 0;
   }
+  .row {
+    display: flex; 
+  }
 
-  .organizer-img-wrapper {
+  .col {
+    flex: 1; 
+    padding: 1em;
+  }
+
+  .panelist-img-wrapper {
     width: 200px;
     height: 200px;
-    margin: 15px;
+    margin: 10px;
 
     @media screen and (max-width: 560px) {
       width: 120px;
@@ -18,15 +27,29 @@
       margin: 14px 20px;
     }
   }
+
   
-  .organizer-img-wrapper img {
+  .panelist-img-wrapper img {
     width: 100%;
     height: 100%;
+    margin-bottom: 10%;
     object-fit: cover;
     border-radius: 50%;
   }
 
+  .text {
+    position: relative;
+    right: 36%;
+  }
+
+  h4 {
+    width: 350px;
+  }
+
   p {
+    width: 350px;
+    height: 350px;
+
     @media screen and (max-width: $break-medium) {
       font-size: 15px;
       margin-bottom: 0;

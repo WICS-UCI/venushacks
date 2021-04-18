@@ -341,12 +341,13 @@ $laptop: "./../../../assets/images/laptop.png";
     margin-top: 50px;
 
     .section-title {
-      height: 190px;
+      height: 200px;
       @media screen and (max-width: $break-medium) {
-        height: 12vw;
-        max-height: 70px;
+        height: 25vw;
+        max-height: 150px;
       }
     }
+
     #partners-container {
       display: flex;
       flex-wrap: wrap;
@@ -398,12 +399,40 @@ $laptop: "./../../../assets/images/laptop.png";
     }
   } // END PARTNERS
 
+  #speakers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .section-title {
+      height: 200px;
+      @media screen and (max-width: $break-medium) {
+        height: 25vw;
+        max-height: 150px;
+      }
+    }
+    
+    .subheader {
+      max-width: 85%;
+      font-size: 50px;  
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 22px;
+      }
+      @media screen and (max-width: $break-small) {
+        font-size: 16px;
+      }
+    }
+  }
+
   #meet-team {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 100px;
 
     .section-title {
       height: 90px;

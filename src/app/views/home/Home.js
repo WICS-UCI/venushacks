@@ -6,6 +6,10 @@ import './Home.scss';
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
 import Team from '../../components/meet-team/team';
+import Keynote from '../../components/speakers/keynote';
+import PanelistFirstRow from '../../components/speakers/panelistfirstrow';
+import PanelistSecondRow from '../../components/speakers/panelistsecondrow';
+
 
 // TITLES
 import vh_title from 'assets/images/titles/vh_title.png';
@@ -50,7 +54,7 @@ import design from 'assets/images/partners/design.png';
 import icssc from 'assets/images/partners/icssc.png';
 import maiss from 'assets/images/partners/maiss.png';
 import mlh from 'assets/images/partners/mlh.png';
-import swe from 'assets/images/partners/swe.png';
+import swe from 'assets/images/partners/swe.jpg';
 import vgdc from 'assets/images/partners/vgdc.jpeg';
 
 
@@ -287,6 +291,20 @@ export default class Home extends React.Component {
                       {this.renderSponsorLink("vgdc", vgdc, "https://sites.google.com/uci.edu/vgdcuci/home")}
                     </div>
                   </div>
+              </section>
+
+              {/* SPEAKERS ******************/}
+              <section id="speakers">
+                <img className="section-title" src={speakers_title} alt="Speakers" />
+                <p className="subheader">
+                    Keynote
+                </p>
+                <Keynote/>
+                <p className="subheader">
+                    Panelists
+                </p>
+                <PanelistFirstRow/>
+                <PanelistSecondRow/>
               </section>
 
               {/* MEET THE TEAM ******************/}
