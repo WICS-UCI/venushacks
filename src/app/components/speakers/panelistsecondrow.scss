@@ -5,15 +5,22 @@
   margin-left: 45px;
 
   @media screen and (max-width: $break-small) {
-    padding: 0 0 175px 0;
+    padding: 0 0 15px 0;
   }
   .row {
     display: flex; 
+    @media screen and (max-width: $break-small) {
+      margin-bottom: 0px;
+    }
   }
 
   .col {
     flex: 1; 
     padding: 1em;
+    @media screen and (max-width: $break-small) {
+      margin-bottom: 50px;
+      margin-left: 10px;
+    }
   }
 
   .panelist-img-wrapper {
@@ -23,8 +30,7 @@
 
     @media screen and (max-width: 560px) {
       width: 120px;
-      height: 134px;
-      margin: 14px 20px;
+      height: 120px;
     }
   }
 
@@ -35,24 +41,30 @@
     margin-bottom: 10%;
     object-fit: cover;
     border-radius: 50%;
+    @media screen and (max-width: $break-medium) {
+      margin-top: 10px;
+    }
   }
 
   .text {
     position: relative;
     left: 5px;
+    margin-bottom: 10px;
   }
 
   h4 {
     width: 200px;
+    @media screen and (max-width: $break-medium) {
+      width: 200px;
+      font-size: 18px;
+    }
   }
 
   p {
     width: 200px;
-    height: 350px;
 
     @media screen and (max-width: $break-medium) {
       font-size: 15px;
-      margin-bottom: 0;
     }
   }
 
