@@ -4,9 +4,9 @@
   border-radius: 20px;
   z-index: 50;
   width: 85vw;
-  background-color: #2e2e2e;
+  background-color: #42384473;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  color: $coloredLightBackground;
+  color: #F6D4D4;
   display: grid;
   grid-template-columns: 49% 2% 49%;
   grid-auto-flow: row;
@@ -29,7 +29,7 @@
       height: 80%;
       width: 4px;
       border-radius: 5px;
-      background-color: $coloredLightBackground;
+      background-color: #F6D4D4;
     }
   }
 
@@ -47,7 +47,7 @@
       height: 4px;
       width: 80%;
       border-radius: 5px;
-      background-color: $coloredLightBackground;
+      background-color: #F6D4D4;
     }
   }
 

@@ -3,72 +3,118 @@ import './ScheduleCard.scss';
 
 const satSchedule = [
   {
-    name: 'Breakfast + Networking',
-    description: 'Meet fellow anteaters!',
-    time: '8:00AM-10:00AM'
+    name: 'Team Formation',
+    link: 'https://uci.zoom.us/j/92221155593',
+    description: 'Meet fellow hackers!',
+    time: '9:00AM-10:00AM'
   },
   {
     name: 'Opening Ceremony',
     description: 'Getting started',
-    time: '9:00AM-9:15AM'
+    time: '10:00AM-11:00AM'
   },
   {
-    name: 'Workshop 1 (Frontend/Backend)',
-    description: 'First round of workshops',
-    time: '10:00AM-12:30PM'
+    name: 'Tech for Good Panel',
+    description: 'Change.org, LaunchCode, Nina Space',
+    time: '11:00AM-12:00PM'
   },
   {
-    name: 'Lunch',
-    description: 'Food!',
-    time: '12:30PM-1:30PM'
+    name: 'Hacking Begins',
+    description: 'Blast-off!',
+    time: '12:00PM'
   },
   {
-    name: 'Activities',
-    description: 'There\'s so much room for them!',
-    time: '1:30PM-2:00PM'
+    name: 'Intro to Web Dev',
+    description: 'WICS',
+    time: '12:00PM-1:00PM'
   },
   {
-    name: 'Workshop 2 (Frontend/Backend)',
-    description: 'Round two baby',
-    time: '2:00PM-4:00PM'
+    name: 'iOS Development',
+    description: 'CodePath',
+    time: '12:00PM-1:00PM'
   },
   {
-    name: 'Closing Ceremony',
-    description: 'See you tomorrow!',
-    time: '4:00PM-4:30PM'
+    name: 'Intro to UI/UX Design',
+    description: 'Design at UCI',
+    time: '1:00PM-2:00PM'
   },
   {
-    name: 'Activity 2',
-    description: 'Still room!',
-    time: '4:30PM-6:00PM'
+    name: 'Disney Tech Talk',
+    description: 'Disney',
+    time: '2:00PM-3:00PM'
+  },
+  {
+    name: 'Android Development',
+    description: 'CodePath',
+    time: '3:00PM-4:00PM'
+  },
+  {
+    name: 'APIs 101 Workshop',
+    description: 'Postman',
+    time: '4:00PM-5:00PM'
+  },
+  {
+    name: 'The Unity Game Engine',
+    description: 'VGDC',
+    time: '5:00PM-6:00PM'
+  },
+  {
+    name: 'Cyber Security Challenge',
+    description: 'MLH',
+    time: '5:30PM-6:00PM'
+  },
+  {
+    name: 'GraphQL Workshop',
+    description: 'ICSSC',
+    time: '6:00PM-7:00PM'
+  },
+  {
+    name: 'Supervised Learning with Online Datasets Workshop',
+    description: 'AI@UCI',
+    time: '7:00PM-8:00PM'
+  },
+  {
+    name: 'Bob Ross Painting Event',
+    description: 'Let\'s get creative!',
+    time: '7:30PM-8:00PM'
+  },
+  {
+    name: 'Imposter Syndrome',
+    description: 'SWE',
+    time: '8:00PM-9:00PM'
+  },
+  {
+    name: 'binarysearch',
+    description: 'Let\'s do some coding!',
+    time: '9:00PM-10:00PM'
+  },
+  {
+    name: 'How to Pitch Your Hackathon Project',
+    description: 'MAISS',
+    time: '10:00PM-11:00PM'
   },
 ]
 
 const sunSchedule = [
   {
-    name: 'Opening Ceremony',
-    description: 'Getting started again',
-    time: '8:00AM-8:30AM'
-  },
-  {
-    name: 'Hacking',
-    description: 'Let\'s get down to business',
-    time: '8:30AM-4:30PM'
-  },
-  {
-    name: 'Breakfast',
-    description: 'Hungry hungry',
-    time: '9:00AM'
-  },
-  {
-    name: 'Lunch',
-    description: 'Still hungry',
+    name: 'Hacking Ends',
+    description: 'Landing!',
     time: '12:00PM'
   },
   {
+    name: 'Diversity in Tech Panel',
+    description: 'Linode, Darktrace, Procure Technologies',
+    time: '2:00AM-3:00PM'
+  },
+  {
+    name: 'Drawphone',
+    description: 'Let\'s have some fun!',
+    time: '5:30AM-6:00PM'
+  },
+  {
     name: 'Closing Ceremony',
-    description: 'Cya later anteater-gators!',
-    time: '5:00PM-6:00PM'
+    description: 'See you next year!',
+    time: '6:00PM-7:00PM'
   },
   
 ]
@@ -83,7 +129,7 @@ function ScheduleCard() {
             return(
               <div className="schedule-card-time-slot" key={index}>
                 <div>
-                  <h5>{event.name}</h5>
+                  <h5 href={event.link}> {event.name}</h5>
                   <p>{event.description}</p>
                 </div>
                 <div style={{'textAlign': 'right'}}>

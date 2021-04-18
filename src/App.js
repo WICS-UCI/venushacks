@@ -5,7 +5,8 @@ import './App.scss';
 
 import {
   Home,
-  Schedule
+  Schedule,
+  StarterPacks
 } from 'app/views';
 
 import {
@@ -14,16 +15,15 @@ import {
 
 function App() {
   return (
-    <div className='App'
-    // style={{ backgroundImage: `url(${starsBackground})`, backgroundSize: 'cover'}}
-    >
+    <div className='App'>
       <Router history={history}>
         <Nav history={history}></Nav>
         <Switch>
           <Route exact path='/' component={Home}/>
+          <Route exact path='/schedule' component={Schedule}/>
+          <Route exact path='/starter-packs' component={StarterPacks}/>
         </Switch>
       </Router>
-      {/* <Footer/> */}
     </div>
   );
 }

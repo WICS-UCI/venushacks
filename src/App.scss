@@ -9,6 +9,7 @@
   font-family: $hackUCIFont;
   overflow-y: auto;
   background-image: $gradientBackground;
+  background-attachment: fixed;
 
   button {
     border-radius: 50px;
