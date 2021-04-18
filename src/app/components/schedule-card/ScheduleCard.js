@@ -4,6 +4,7 @@ import './ScheduleCard.scss';
 const satSchedule = [
   {
     name: 'Team Formation',
+    link: 'https://uci.zoom.us/j/92221155593',
     description: 'Meet fellow hackers!',
     time: '9:00AM-10:00AM'
   },
@@ -128,7 +129,7 @@ function ScheduleCard() {
             return(
               <div className="schedule-card-time-slot" key={index}>
                 <div>
-                  <h5>{event.name}</h5>
+                  <h5 href={event.link}> {event.name}</h5>
                   <p>{event.description}</p>
                 </div>
                 <div style={{'textAlign': 'right'}}>
