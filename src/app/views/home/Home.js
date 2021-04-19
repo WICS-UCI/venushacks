@@ -262,13 +262,6 @@ export default class Home extends React.Component {
                       {this.renderSponsorLink("zybooks", zybooks, "https://www.zybooks.com/careers/")}
                       {this.renderSponsorLink("postman", postman, "https://www.postman.com/company/careers/")}
                     </div>
-
-                    {/* <div id="sponsors-more-to-come">
-                      <span className="plus-icon">+</span>
-                      <span style={{verticalAlign: "text-top"}}>
-                        more to come!
-                      </span>
-                    </div> */}
                   </div>
                   <p className="sponsor-contact-us">
                     Join our movement, contact us&nbsp;
