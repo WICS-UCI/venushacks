@@ -149,18 +149,10 @@
       align-items: center;
       color: white;
       text-align: left;
-      flex-direction: column;
 
       .hat-left {
         width: 40px;
         height: 40px;
-      }
-        
-      .schedule-countdown-border {
-        width: 160px;
-        height: 4px;
-        border-radius: 2px;
-        background-color: white;
       }
 
       & > div {

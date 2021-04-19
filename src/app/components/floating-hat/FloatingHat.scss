@@ -2,10 +2,10 @@
 
 .floating-hat {
   width: 60px;
+  margin-right: 45px;
   height: 60px;
 
   @media screen and (max-width: $break-small) {
-    width: 45px;
-    height: 48px;
+    display: none;
   }
 }
