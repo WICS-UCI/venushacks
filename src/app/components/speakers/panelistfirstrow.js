@@ -12,7 +12,7 @@ export default class PanelistFirstRow extends React.Component {
         ];
 
         const images = panelists.map((panelist, i) =>
-            <div className="col" key={i} style={{display:"inline-block" }}>
+            <div className="col" key={i}>
                 <div className="panelist-img-wrapper">
                     <img 
                         src = {require('assets/images/speaker-photos/'+panelist.photo+'.jpeg')}
