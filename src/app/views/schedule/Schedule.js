@@ -15,6 +15,8 @@ function Schedule() {
           </h2>
             <FloatingHat offset={2}></FloatingHat>
         </div>
+        <h4> All times are in PST </h4>
+        <h4 style={{'marginBottom': '50px'}}> Click the event name to join meeting </h4>
         <ScheduleCard/>
       </section>
     </div>
