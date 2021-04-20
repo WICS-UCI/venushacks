@@ -1,93 +1,54 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Nav.scss';
 import { Button } from 'react-bootstrap';
 
-function Nav({history}) {
+import './Nav.scss';
 
-  const [isHomepage, setHomepage] = useState(history.location.pathname === '/');
-  const [resourceHover, setResourceHover] = useState(false);
+function Nav() {
+  const [showDropMenu, setShowDropMenu] = useState(false);
 
-  const resources = [
-    {
-      label: 'Starter Packs'
-    }, {
-      label: 'Devpost'
-    }, {
-      label: 'Slack'
+  const toggleDropDownMenu = () => {
+    setShowDropMenu(!showDropMenu);
+  }
+
+  // hideDropDownMenu is the onclick function for the nav
+  // If the menu is shown and the user clicks somewhere on
+  // the screen, the menu will be hidden.
+  const hideDropDownMenu = () => {
+    if (showDropMenu) {
+      setShowDropMenu(false);
     }
-  ];
-
-  history.listen((location) => {
-    setHomepage(location.pathname === '/');
-  });
-
-  function test(change) {
-    console.log(resourceHover, 'changing to', change);
-    setResourceHover(change);
   }
 
   return (
-    <div className="nav">
-      <div className="nav-left">
+    <div 
+      className={"nav" + (showDropMenu ? " show-menu" : "")}
+      onClick={hideDropDownMenu}
+    >
+      <Button onClick={toggleDropDownMenu} className="menu-button btn-secondary">
+        {showDropMenu ? 'x' : '≡'}
+      </Button>
+      <div className={"nav-left" + (showDropMenu ? " show" : "")}>
         <Link to="/">
-          {/* <img src={logo} alt="Zothacks Logo"></img> */}
-        </Link>
-      </div>
-      <div className="nav-right">
-        <Link to="/">
-          <p className="home-button-hide">
+          <p>
             Home
           </p>
         </Link>
         <Link to="/schedule">
-          <p className="home-button-hide">
+          <p>
             Schedule
           </p>
         </Link>
         <Link to="/starter-packs">
-          <p className="home-button-hide">
+          <p>
             Starter Packs
           </p>
         </Link>
-        {/* <div className="resource-button-hide" onMouseLeave={() => test(false)}>
-          <p onMouseOver={() => test(true)}>
-            Resources 
-            <i className="fa fa-angle-down"></i>
-          </p>
-          <Spring to={{ opacity: resourceHover ? 1 : 0 }}>
-            {(props) => (
-              <div className="nav-resource-dropdown" style={props}>
-                <div className="nav-resource-hover-buffer"></div>
-                <div className="nav-resource-dropdown-tag"/>
-                {resources.map(function(resource, index) {
-                    return (
-                      <div>
-                        <div className="nav-resource-dropdown-item">
-                          <p>
-                            {resource.label}
-                          </p>
-                        </div>
-                        { index < resources.length - 1 ?
-                          <div className="nav-resource-border"></div> : null
-                        }
-                      </div>
-                    )
-                  })}
-              </div>
-            )}
-          </Spring>
-        </div> */}
-        {
-        // <Link to="">
-            // <Button className="home-button-hide" disabled style={{lineHeight: 0.8}} variant="light">
-            //   Schedule <br/><small>Coming Soon</small>
-            // </Button>
-          // </Link> 
-            // <Button variant="light">
-            //   Apply
-            // </Button>
-        }
+      </div>
+      <div className="nav-right">
+        <a id="mlh-trust-badge" href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white" target="_blank" rel="noopener noreferrer">
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-white.svg" alt="Major League Hacking 2021 Hackathon Season" />
+        </a>
       </div>
     </div>
   )
