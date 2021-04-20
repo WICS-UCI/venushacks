@@ -5,10 +5,10 @@ import './FAQs.scss';
 
 const SingleFAQ = ({index, data}) => (
     <Card className="card-wrapper">
-        <Accordion.Toggle as={Card.Header} eventKey={index}>
+        <Accordion.Toggle as={Card.Header} eventKey={index+1}>
             {data.question}
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey={index}>
+        <Accordion.Collapse eventKey={index+1}>
             <Card.Body dangerouslySetInnerHTML={ {__html: data.answer} } />
         </Accordion.Collapse>
     </Card>
