@@ -6,9 +6,7 @@ import './Home.scss';
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
 import Team from '../../components/meet-team/team';
-import Keynote from '../../components/speakers/keynote';
-import PanelistFirstRow from '../../components/speakers/panelistfirstrow';
-import PanelistSecondRow from '../../components/speakers/panelistsecondrow';
+import Speakers from "../../components/speakers/speakers";
 
 
 // TITLES
@@ -291,15 +289,7 @@ export default class Home extends React.Component {
               {/* SPEAKERS ******************/}
               <section id="speakers">
                 <img className="section-title" src={speakers_title} alt="Speakers" />
-                <p className="subheader">
-                    Keynote
-                </p>
-                <Keynote/>
-                <p className="subheader">
-                    Panelists
-                </p>
-                <PanelistFirstRow/>
-                <PanelistSecondRow/>
+                <Speakers/>
               </section>
 
               {/* MEET THE TEAM ******************/}

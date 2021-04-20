@@ -343,10 +343,7 @@ $laptop: "./../../../assets/images/laptop.png";
       font-size: 50px;  
 
       @media screen and (max-width: $break-medium) {
-        font-size: 22px;
-      }
-      @media screen and (max-width: $break-small) {
-        font-size: 22px;
+        font-size: 30px;
       }
     }
   }
