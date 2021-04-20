@@ -3,6 +3,8 @@
 #keynote-photos{
   padding: 10px 50px 175px;
   margin-left: 185px;
+  margin-bottom: 50px;
+
   @media screen and (max-width: $break-small) {
     padding: 0 0 100px 0;
   }
