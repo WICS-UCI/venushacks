@@ -240,6 +240,12 @@ let starterPackData = [
           "A complete tutorial on how to get started with Git, a version-control system"
       },
       {
+        name: "Mathworks",
+        link: "https://drive.google.com/file/d/1oAwNYdwTFOV0gE-0XDptBmiH96yqsIfW/view?usp=sharing",
+        tooltip:
+          "Mathworks Resources"
+      },
+      {
         name: "Ngrok",
         link: "https://ngrok.io",
         tooltip:
