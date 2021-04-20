@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.156e2398.chunk.css",
-    "main.js": "/static/js/main.1ae8b53b.chunk.js",
-    "main.js.map": "/static/js/main.1ae8b53b.chunk.js.map",
+    "main.css": "/static/css/main.a8527f09.chunk.css",
+    "main.js": "/static/js/main.c61cae45.chunk.js",
+    "main.js.map": "/static/js/main.c61cae45.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f4b0be27.js",
     "runtime-main.js.map": "/static/js/runtime-main.f4b0be27.js.map",
-    "static/js/2.60f53120.chunk.js": "/static/js/2.60f53120.chunk.js",
-    "static/js/2.60f53120.chunk.js.map": "/static/js/2.60f53120.chunk.js.map",
+    "static/js/2.4c430f73.chunk.js": "/static/js/2.4c430f73.chunk.js",
+    "static/js/2.4c430f73.chunk.js.map": "/static/js/2.4c430f73.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.0414303eec3ad4a1f034f63836a9bdd3.js": "/precache-manifest.0414303eec3ad4a1f034f63836a9bdd3.js",
+    "precache-manifest.6e2579b3314ef1c8091e793024e78b11.js": "/precache-manifest.6e2579b3314ef1c8091e793024e78b11.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.156e2398.chunk.css.map": "/static/css/main.156e2398.chunk.css.map",
-    "static/js/2.60f53120.chunk.js.LICENSE.txt": "/static/js/2.60f53120.chunk.js.LICENSE.txt",
+    "static/css/main.a8527f09.chunk.css.map": "/static/css/main.a8527f09.chunk.css.map",
+    "static/js/2.4c430f73.chunk.js.LICENSE.txt": "/static/js/2.4c430f73.chunk.js.LICENSE.txt",
     "static/media/about.png": "/static/media/about.f5289833.png",
     "static/media/ai.png": "/static/media/ai.0839f269.png",
     "static/media/alice-funny.jpeg": "/static/media/alice-funny.61b09230.jpeg",
@@ -29,7 +29,7 @@
     "static/media/blackberry.png": "/static/media/blackberry.4cb840ce.png",
     "static/media/chase-funny.jpeg": "/static/media/chase-funny.e3073d38.jpeg",
     "static/media/chase.jpeg": "/static/media/chase.ad964a0f.jpeg",
-    "static/media/codepath.png": "/static/media/codepath.7f6460ac.png",
+    "static/media/codepath.png": "/static/media/codepath.08b94afb.png",
     "static/media/constellation1.png": "/static/media/constellation1.978de9ef.png",
     "static/media/constellation2.png": "/static/media/constellation2.4468e555.png",
     "static/media/constellation3.png": "/static/media/constellation3.400765d2.png",
@@ -99,8 +99,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f4b0be27.js",
-    "static/js/2.60f53120.chunk.js",
-    "static/css/main.156e2398.chunk.css",
-    "static/js/main.1ae8b53b.chunk.js"
+    "static/js/2.4c430f73.chunk.js",
+    "static/css/main.a8527f09.chunk.css",
+    "static/js/main.c61cae45.chunk.js"
   ]
 }
