@@ -5,6 +5,8 @@ import { satScheduleData } from "assets/data/sat-schedule-info.js";
 import { sunScheduleData } from "assets/data/sun-schedule-info.js";
 
 function ScheduleCard() {
+  const {satSchedule, sunSchedule} = scheduleData;
+
   return (
     <div className="schedule-card">
       <div className="schedule-card-section">

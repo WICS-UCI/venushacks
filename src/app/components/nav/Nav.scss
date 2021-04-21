@@ -5,7 +5,7 @@
   height: 100px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   z-index: 100000;
   background-image: linear-gradient(rgb(15,23,51), rgba(18,32,66,0));
   top: 0;
@@ -33,6 +33,7 @@
     margin-right: 30px;
     margin-bottom: 0px;
     line-height: 38px;
+    width: 100%;
   }
 
   p:hover {
@@ -82,6 +83,8 @@
     .nav-left {
       display: none;
 
+      margin-left: 0;
+      width: 100%;
       flex-direction: column;
       align-items: center;
     }
