@@ -46,7 +46,10 @@ function ScheduleCard() {
                   <a href={event.link}  style={{'text-decoration': 'none'}}> 
                     <h5> {event.name}</h5>
                   </a>
-                  <p>{event.description}</p>
+                  <div class="schedule-card-tooltip">
+                    <p>{event.description}</p>
+                    <span class="schedule-card-tooltiptext">{event.tooltip}</span>
+                  </div>
                 </div>
                 <div style={{'textAlign': 'right'}}>
                   <h5>{event.time}</h5>
