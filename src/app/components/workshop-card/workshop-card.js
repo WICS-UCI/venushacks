@@ -2,7 +2,7 @@ import React from 'react'
 import './workshop-card.scss'
 
 function WorkshopCard(workshop) {
-    const {title, description, prereqs, recording} = workshop;
+    const {title, description, prereqs, recording, host} = workshop;
     var preqs = [];
     if (prereqs) {
         preqs.push(<h5>Prequisites:</h5>);
@@ -30,6 +30,9 @@ function WorkshopCard(workshop) {
                     </a>
                 }
             </div>
+            <h5>
+                Hosted by <a href={host.link} target="_blank" rel="noopener noreferrer">{host.name}</a>
+            </h5>
             {description}
             <div className="workshop-card-prereqs">
                 {preqs}
