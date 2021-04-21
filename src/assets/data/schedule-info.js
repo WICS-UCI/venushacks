@@ -1,9 +1,18 @@
 let scheduleData = {
+  friSchedule: [
+    {
+      name: 'Hackathon 101 and Team Formation',
+      link: 'https://uci.zoom.us/j/95369921050',
+      description: 'Guide to hackathons + Meet fellow hackers!',
+      tooltip: "Tune into our team formation event to get a head-start on finding teammates to create a cool project together this weekend! We will also be hosting a Hackathon 101 workshop at the beginning where we will discuss what a hackathon is and how to approach VenusHacks, especially as a beginner.",
+      time: '8:00PM-9:00PM'
+    }
+  ],
   satSchedule: [
     {
       name: 'Team Formation',
       link: 'https://uci.zoom.us/j/92221155593',
-      description: 'Meet fellow hackers!',
+      description: 'Team up hackers!',
       tooltip: "Didn't make it to yesterday's team formation event? No worries! We are hosting another team formation event right before hacking to help you find members for your ultimate dream team!",
       time: '9:00AM-10:00AM'
     },
