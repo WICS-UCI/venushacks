@@ -2,7 +2,7 @@ import React from "react";
 import './Schedule.scss';
 
 
-import { FloatingHat, ScheduleCard } from 'app/components';
+import { FloatingHat, ScheduleCard, Footer } from 'app/components';
 
 function Schedule() {
   return (
@@ -19,6 +19,7 @@ function Schedule() {
         <h4 style={{'marginBottom': '50px'}}> Click the event name to join meeting </h4>
         <ScheduleCard/>
       </section>
+      <Footer/>
     </div>
   );
 }
