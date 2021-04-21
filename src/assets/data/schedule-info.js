@@ -17,8 +17,8 @@ let scheduleData = {
     {
       name: 'Tech for Good Panel',
       link: 'https://uci.zoom.us/j/94535498642',
-      description: 'Change.org, LaunchCode, Nina Space',
-      tooltip: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Nina Space! We will be exploring the side of tech that brings good changes into our everyday lives.",
+      description: 'Change.org, LaunchCode, Cosmos Pics',
+      tooltip: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Cosmos Pics! We will be exploring the side of tech that brings good changes into our everyday lives.",
       time: '11:00AM-12:00PM'
     },
     {
