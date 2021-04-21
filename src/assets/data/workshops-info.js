@@ -2,12 +2,6 @@ let workshopsData = [
     {
         title: "Intro to Web Dev", 
         description: "Want to create your own full-stack web application but not sure where to start? Come by to learn the basics of HTML/CSS, JavaScript, Bootstrap, and Python Flask by building a simple Expense Tracker!",
-        // prereqs: [
-        //     {
-        //         description: "TEMP",
-        //         link: "TEMP"
-        //     }
-        // ]
     },
     {
         title: "iOS Development", 
