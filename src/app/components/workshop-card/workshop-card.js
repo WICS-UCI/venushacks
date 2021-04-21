@@ -8,21 +8,27 @@ function WorkshopCard(workshop) {
         preqs.push(<h5>Prequisites:</h5>);
         for (var i = 0; i < prereqs.length; i++) {
             if(prereqs[i].link){
-                preqs.push(<a href={prereqs[i].link}>{prereqs[i].description}</a>);
+                preqs.push(
+                    <a href={prereqs[i].link} target="_blank" rel="noopener noreferrer">
+                        {prereqs[i].description}
+                    </a>
+                );
             }
             else{
                 preqs.push(<p>{prereqs[i].description}</p>);
             }
         }
-    } else {
-        preqs = [];
     }
 
     return (
         <div className="workshop-card">
             <div className="workshop-card-header">
                 <h4>{title}</h4>
-                <p>Recording</p>
+                {recording && 
+                    <a href={recording} target="_blank" rel="noopener noreferrer">
+                        Recording
+                    </a>
+                }
             </div>
             {description}
             <div className="workshop-card-prereqs">
