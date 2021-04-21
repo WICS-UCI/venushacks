@@ -60,7 +60,7 @@ let starterPackData = [
     ]
   },
   {
-    name: "User Interface",
+    name: "Frontend",
     description: "Build a frontend you can interact with!",
     packs: [
       {
@@ -74,6 +74,12 @@ let starterPackData = [
         link: "https://youtu.be/MAPOgz8dd-o",
         tooltip:
           "Check out what else you can do with frontend!"
+      },
+      {
+        name: "ReactJS",
+        link: "https://reactjs.org/",
+        tooltip:
+          "Official documentation for ReactJS, a JavaScript library for building user interfaces"
       },
       {
         name: "Figma",
@@ -98,6 +104,11 @@ let starterPackData = [
         link: "https://github.com/public-apis/public-apis",
         tooltip:
           "Get inspiration from this list of public APIs!"
+      },
+      {
+        name: "PeterPortal - An Unofficial API for UCI",
+        link: "https://api.peterportal.org/",
+        tooltip: "PeterPortal API provides consolidated data about UCI professors, courses, and grades."
       }
     ]
   },
@@ -118,10 +129,14 @@ let starterPackData = [
           "Check out this Android App Development Workshop by Codepath at UCI!"
       },
       {
-        name: "ReactJS",
-        link: "https://reactjs.org/",
-        tooltip:
-          "Official documentation for ReactJS, a JavaScript library for building user interfaces"
+        name: "React Native",
+        link: "https://reactnative.dev/",
+        tooltip: "Create native apps for Android and iOS using React."
+      },
+      {
+        name: "Flutter",
+        link: "https://flutter.dev/",
+        tooltip: "Google’s UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase."
       }
     ]
   },
