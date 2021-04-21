@@ -1,8 +1,7 @@
 import React from 'react';
 import './ScheduleCard.scss';
 
-import { satScheduleData } from "assets/data/sat-schedule-info.js";
-import { sunScheduleData } from "assets/data/sun-schedule-info.js";
+import { scheduleData } from "assets/data/schedule-info.js";
 
 function ScheduleCard() {
   const {satSchedule, sunSchedule} = scheduleData;
@@ -15,7 +14,7 @@ function ScheduleCard() {
           <div className="schedule-card-divider-horizontal">
             <div/>
           </div>
-          {satScheduleData.map(function(event, index) {
+          {satSchedule.map(function(event, index) {
             return(
               <div className="schedule-card-time-slot" key={index}>
                 <div>
@@ -41,7 +40,7 @@ function ScheduleCard() {
           <div className="schedule-card-divider-horizontal">
             <div/>
           </div>
-          {sunScheduleData.map(function(event, index) {
+          {sunSchedule.map(function(event, index) {
             return(
               <div className="schedule-card-time-slot" key={index}>
                 <div>
