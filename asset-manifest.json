@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.416cc2f9.chunk.css",
-    "main.js": "/static/js/main.a6c2942e.chunk.js",
-    "main.js.map": "/static/js/main.a6c2942e.chunk.js.map",
+    "main.css": "/static/css/main.84921aed.chunk.css",
+    "main.js": "/static/js/main.05196b92.chunk.js",
+    "main.js.map": "/static/js/main.05196b92.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f4b0be27.js",
     "runtime-main.js.map": "/static/js/runtime-main.f4b0be27.js.map",
-    "static/js/2.5c815cba.chunk.js": "/static/js/2.5c815cba.chunk.js",
-    "static/js/2.5c815cba.chunk.js.map": "/static/js/2.5c815cba.chunk.js.map",
+    "static/js/2.17631847.chunk.js": "/static/js/2.17631847.chunk.js",
+    "static/js/2.17631847.chunk.js.map": "/static/js/2.17631847.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8b410be934f103ec74b4d9a3241c3c6f.js": "/precache-manifest.8b410be934f103ec74b4d9a3241c3c6f.js",
+    "precache-manifest.ff6aa3b65a35cbda45ca28036ee45825.js": "/precache-manifest.ff6aa3b65a35cbda45ca28036ee45825.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.416cc2f9.chunk.css.map": "/static/css/main.416cc2f9.chunk.css.map",
-    "static/js/2.5c815cba.chunk.js.LICENSE.txt": "/static/js/2.5c815cba.chunk.js.LICENSE.txt",
+    "static/css/main.84921aed.chunk.css.map": "/static/css/main.84921aed.chunk.css.map",
+    "static/js/2.17631847.chunk.js.LICENSE.txt": "/static/js/2.17631847.chunk.js.LICENSE.txt",
     "static/media/about.png": "/static/media/about.f5289833.png",
     "static/media/ai.png": "/static/media/ai.0839f269.png",
     "static/media/alice-funny.jpeg": "/static/media/alice-funny.61b09230.jpeg",
@@ -86,7 +86,7 @@
     "static/media/shannon.jpeg": "/static/media/shannon.b6fe3653.jpeg",
     "static/media/speakers.png": "/static/media/speakers.1b62d010.png",
     "static/media/sponsors.png": "/static/media/sponsors.9f2f04ba.png",
-    "static/media/StarterPacks.scss": "/static/media/stars-background.5546c7c6.svg",
+    "static/media/Workshops.scss": "/static/media/stars-background.5546c7c6.svg",
     "static/media/swe.jpg": "/static/media/swe.aeace2d5.jpg",
     "static/media/tiffany.jpeg": "/static/media/tiffany.31cb5c0d.jpeg",
     "static/media/ucibren.png": "/static/media/ucibren.020ead76.png",
@@ -99,8 +99,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f4b0be27.js",
-    "static/js/2.5c815cba.chunk.js",
-    "static/css/main.416cc2f9.chunk.css",
-    "static/js/main.a6c2942e.chunk.js"
+    "static/js/2.17631847.chunk.js",
+    "static/css/main.84921aed.chunk.css",
+    "static/js/main.05196b92.chunk.js"
   ]
 }
