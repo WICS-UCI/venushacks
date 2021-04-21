@@ -5,7 +5,17 @@ let workshopsData = [
         host: {
             name: "WICS",
             link: "https://wics.ics.uci.edu/"
-        }
+        },
+        // prereqs: [
+        //     {
+        //         description: "Clone the Github Repo",
+        //         link: "https://github.com/kaseychuang/venushacks-web-dev-workshop",
+        //     },
+        //     {
+        //         description: "Follow ReadMe steps",
+        //         link: "https://github.com/kaseychuang/venushacks-web-dev-workshop/blob/main/README.md",
+        //     }
+        // ]
     },
     {
         title: "iOS Development", 

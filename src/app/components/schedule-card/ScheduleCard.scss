@@ -3,20 +3,20 @@
 .schedule-card {
   border-radius: 20px;
   z-index: 50;
-  width: 85vw;
+  width: 55vw;
   background-color: #42384473;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   color: #F6D4D4;
-  display: grid;
   grid-template-columns: 49% 2% 49%;
-  grid-auto-flow: row;
+  grid-auto-flow: column;
 
   @media screen and (max-width: 800px) {
     display: flex;
     flex-direction: column;
+    width: 85vw;
   }
 
-  .schedule-card-divider-vertical {
+  .schedule-card-divider-horizontal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,36 +26,50 @@
     }
 
     div {
-      height: 80%;
-      width: 4px;
+      height: 4px;
+      width: 15%;
       border-radius: 5px;
       background-color: #F6D4D4;
+      margin-bottom: 40px;
     }
+
+
   }
 
-  .schedule-card-divider-horizontal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-
-    @media screen and (max-width: 800px) {
-      display: inherit;
-    }
-
-    div {
-      height: 4px;
-      width: 80%;
-      border-radius: 5px;
-      background-color: #F6D4D4;
-    }
+  .schedule-card-tooltip {
+    position: relative;
+  }
+  
+  .schedule-card-tooltip .schedule-card-tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: #f6d4d4dc;
+    color: black;
+    z-index: 1;
+    top: 100%;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+  }
+  
+  .schedule-card-tooltip .schedule-card-tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 10%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #f6d4d4dc transparent;
+  }
+  
+  .schedule-card-tooltip:hover .schedule-card-tooltiptext {
+    visibility: visible;
+    opacity: 1;
   }
 
   .schedule-card-section {
-
-    h4 {
-      margin-bottom: 40px;
-    }
 
     .schedule-card-time-slot {
       width: 100%;
