@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
-    
+
     @media screen and (max-width: 830px) {
       display: none;
     }
@@ -16,7 +16,7 @@
 
   #faq-accordion-mobile {
     display: none;
-    
+
     @media screen and (max-width: 830px) {
       display: block;
     }
@@ -40,7 +40,7 @@ div.card-header {
   text-align: left;
   font-size: 1.4em;
   border: none;
-  font-weight: bold;
+  font-weight: 500;
   padding: 15px 0;
   transition: 0.3s;
 
