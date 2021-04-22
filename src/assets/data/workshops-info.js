@@ -12,7 +12,7 @@ let workshopsData = [
                 link: "https://github.com/WICS-UCI/venushacks-web-dev-workshop",
             },
             {
-                description: "Follow ReadMe steps",
+                description: "Follow README steps",
                 link: "https://github.com/WICS-UCI/venushacks-web-dev-workshop/blob/main/README.md",
             }
         ]
