@@ -22,19 +22,16 @@
   h4 {
     font-size: 30px;
     margin-bottom: .5em;
-    font-weight: 600;
   }
 
   h3 {
     font-size: 40px;
     margin-bottom: .5em;
-    font-weight: 600;
   }
 
   h2 {
     font-size: 60px;
     margin-bottom: .5em;
-    font-weight: 600;
   }
 
   h1 {
@@ -48,7 +45,7 @@
 
   a {
     color: $lightPink;
-    font-weight: bold;
+    font-weight: 500;
     text-decoration: underline;
     transition: 0.3s;
   }

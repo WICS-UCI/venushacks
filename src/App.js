@@ -6,7 +6,8 @@ import './App.scss';
 import {
   Home,
   Schedule,
-  StarterPacks
+  StarterPacks,
+  Workshops
 } from 'app/views';
 
 import {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path='/' component={Home}/>
           <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/starter-packs' component={StarterPacks}/>
+          <Route exact path='/workshops' component={Workshops}/>
         </Switch>
       </Router>
     </div>

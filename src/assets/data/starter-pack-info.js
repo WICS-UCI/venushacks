@@ -1,83 +1,5 @@
 let starterPackData = [
   {
-    name: "CodePath iOS",
-    description: "Pre-work",
-    packs: [
-      {
-        name: "Mac",
-        link: "/",
-        tooltip:
-          "You will need a Mac for this workshop"
-      },
-      {
-        name: "Download XCode",
-        link: "https://developer.apple.com/xcode/resources/",
-        tooltip:
-          "Link to Download"
-      },
-      {
-        name: "Yelp Developer Account",
-        link: "https://www.yelp.com/login?return_url=%2Fdevelopers%2Fv3%2Fmanage_app",
-        tooltip:
-          "Create a Yelp Developer Account"
-      },
-      {
-        name: "Get a Yelp API Key",
-        link: "https://www.youtube.com/watch?v=GFhGN36Wf7Q&ab_channel=WidgetPack",
-        tooltip:
-          "Link to Youtube Tutorial"
-      },
-    ]
-  },
-  {
-    name: "CodePath Android",
-    description: "Pre-work",
-    packs: [
-      {
-        name: "Android Studio",
-        link: "https://developer.android.com/studio/?gclid=Cj0KCQjwyN-DBhCDARIsAFOELTk6p95lbnMqdTVzN9hIxb4Wom4JX-vPgO6wfQfUT2egFgDfhOF1Y-YaAhE_EALw_wcB&gclsrc=aw.ds",
-        tooltip:
-          "Download Android Studio on you computer"
-      },
-      {
-        name: "Clone the Github repository",
-        link: "https://github.com/powerserg23/SimpleTodo/blob/master/README.md",
-        tooltip:
-          "Steps for how to clone the Github repository"
-      }
-    ]
-  },
-  // {
-  //   name: "WICS Intro to Web Dev",
-  //   description: "Pre-work",
-  //   packs: [
-  //     {
-  //       name: "Clone the Github repository",
-  //       link: "https://github.com/kaseychuang/venushacks-web-dev-workshop",
-  //       tooltip:
-  //         "Link to repository"
-  //     },
-  //     {
-  //       name: "ReadMe",
-  //       link: "https://github.com/kaseychuang/venushacks-web-dev-workshop/blob/main/README.md",
-  //       tooltip:
-  //         "Follow setup instructions on the ReadMe"
-  //     }
-  //   ]
-  // },
-  {
-    name: "VGDC Unity Game Engine",
-    description: "Pre-work",
-    packs: [
-      {
-        name: "Download Unity",
-        link: "https://unity.com/products",
-        tooltip:
-          "Link to Unity"
-      },
-    ]
-  },
-  {
     name: "MLH",
     description: "Check out these other resources provided by MLH!",
     packs: [
@@ -138,7 +60,7 @@ let starterPackData = [
     ]
   },
   {
-    name: "User Interface",
+    name: "Frontend",
     description: "Build a frontend you can interact with!",
     packs: [
       {
@@ -152,6 +74,12 @@ let starterPackData = [
         link: "https://youtu.be/MAPOgz8dd-o",
         tooltip:
           "Check out what else you can do with frontend!"
+      },
+      {
+        name: "ReactJS",
+        link: "https://reactjs.org/",
+        tooltip:
+          "Official documentation for ReactJS, a JavaScript library for building user interfaces"
       },
       {
         name: "Figma",
@@ -176,6 +104,11 @@ let starterPackData = [
         link: "https://github.com/public-apis/public-apis",
         tooltip:
           "Get inspiration from this list of public APIs!"
+      },
+      {
+        name: "PeterPortal - An Unofficial API for UCI",
+        link: "https://api.peterportal.org/",
+        tooltip: "PeterPortal API provides consolidated data about UCI professors, courses, and grades."
       }
     ]
   },
@@ -196,10 +129,14 @@ let starterPackData = [
           "Check out this Android App Development Workshop by Codepath at UCI!"
       },
       {
-        name: "ReactJS",
-        link: "https://reactjs.org/",
-        tooltip:
-          "Official documentation for ReactJS, a JavaScript library for building user interfaces"
+        name: "React Native",
+        link: "https://reactnative.dev/",
+        tooltip: "Create native apps for Android and iOS using React."
+      },
+      {
+        name: "Flutter",
+        link: "https://flutter.dev/",
+        tooltip: "Google’s UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase."
       }
     ]
   },
@@ -238,10 +175,10 @@ let starterPackData = [
           "A complete tutorial on how to get started with Git, a version-control system"
       },
       {
-        name: "Mathworks",
-        link: "https://drive.google.com/file/d/1oAwNYdwTFOV0gE-0XDptBmiH96yqsIfW/view?usp=sharing",
+        name: "MATLAB",
+        link: "https://drive.google.com/file/d/1G_9d-_2z0ZQ5rkxHTUH0c72Sa0xpREyZ/view?usp=sharing",
         tooltip:
-          "Mathworks Resources"
+          "MATLAB Resources"
       },
       {
         name: "Ngrok",

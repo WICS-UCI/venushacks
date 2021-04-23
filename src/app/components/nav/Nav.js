@@ -44,6 +44,11 @@ function Nav() {
             Starter Packs
           </p>
         </Link>
+        <Link to="/workshops">
+          <p>
+            Workshops
+          </p>
+        </Link>
       </div>
       <div className="nav-right">
         <a id="mlh-trust-badge" href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white" target="_blank" rel="noopener noreferrer">

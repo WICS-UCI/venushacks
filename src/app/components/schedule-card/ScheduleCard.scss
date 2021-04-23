@@ -39,7 +39,7 @@
   .schedule-card-tooltip {
     position: relative;
   }
-  
+
   .schedule-card-tooltip .schedule-card-tooltiptext {
     visibility: hidden;
     width: 400px;
@@ -52,7 +52,7 @@
     padding: 10px;
     position: absolute;
   }
-  
+
   .schedule-card-tooltip .schedule-card-tooltiptext::after {
     content: "";
     position: absolute;
@@ -63,7 +63,7 @@
     border-style: solid;
     border-color: transparent transparent #f6d4d4dc transparent;
   }
-  
+
   .schedule-card-tooltip:hover .schedule-card-tooltiptext {
     visibility: visible;
     opacity: 1;
@@ -94,13 +94,11 @@
       }
 
       h5 {
-        font-weight: 800;
         font-size: 21px;
         margin-bottom: 0;
       }
 
       p {
-        font-weight: 500;
         color: white;
         margin-bottom: 0;
       }
