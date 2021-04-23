@@ -14,14 +14,17 @@
         display: flex;
         justify-content: space-between;
 
+        .right {
+            text-align: right;
+        }
+
         h4 {
             color: white;
             margin-bottom: 0;
         }
     }
 
-    .workshop-card-prereqs {
-        margin-top: 0.75em;
+    .pink-buttons {
         a {
             display: inline-flex;
             font-size: 14px;
@@ -47,6 +50,10 @@
             margin: 5px;
             padding: 8px;
         }
+    }
+
+    .workshop-card-prereqs {
+        margin-top: 0.75em;
 
         h5 {
             color: white;
