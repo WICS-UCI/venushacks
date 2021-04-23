@@ -109,6 +109,11 @@ let starterPackData = [
         name: "PeterPortal - An Unofficial API for UCI",
         link: "https://api.peterportal.org/",
         tooltip: "PeterPortal API provides consolidated data about UCI professors, courses, and grades."
+      },
+      {
+        name: "Google Cloud - Intro to Firebase",
+        link: "https://youtu.be/cgBB_JHBXSM",
+        tooltip: "Check out Google Cloud's Introduction to Firebase workshop on YouTube to learn more about how to use and integrate Firebase into your projects!"
       }
     ]
   },

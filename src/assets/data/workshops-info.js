@@ -129,6 +129,17 @@ let workshopsData = [
             name: "MAISS",
             link: "http://www.maissuci.com/"
         },
+    },
+    {
+        title: "Exploring Data-Driven Advocacy", 
+        description: "Percentage Project is a nonprofit organization that promotes data-driven advocacy and conducts climate surveys in partnership with post-secondary institutions in the US. Check out their workshop on YouTube to learn how you can take action to create more inclusive CS communities!",
+        host: {
+            name: "Percentage Project",
+            link: "https://www.percentageproject.org/"
+        },
+        recap: {
+            "Recording": "https://youtu.be/0VZqR982nRU"
+        }
     }
 ]
 
