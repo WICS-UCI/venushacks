@@ -136,8 +136,8 @@ let scheduleData = {
     {
       name: 'Diversity in Tech Panel',
       link: 'https://uci.zoom.us/j/91396656865',
-      description: 'Linode, Darktrace, Procure Technologies',
-      tooltip: "Come join us for our Diversity in Tech Panel with a diverse set of empowering women from Linode, Darktrace, and Procure Technologies. We will be listening to how their identity as women impacted their personal journeys, decisions, and who they are today.",
+      description: 'Linode, Darktrace, Procore Technologies',
+      tooltip: "Come join us for our Diversity in Tech Panel with a diverse set of empowering women from Linode, Darktrace, and Procore Technologies. We will be listening to how their identity as women impacted their personal journeys, decisions, and who they are today.",
       time: '2:00PM-3:00PM'
     },
     {
