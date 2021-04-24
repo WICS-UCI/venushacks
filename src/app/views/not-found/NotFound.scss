@@ -1,0 +1,10 @@
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+}
