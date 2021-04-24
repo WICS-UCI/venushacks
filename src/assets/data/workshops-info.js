@@ -26,7 +26,10 @@ let workshopsData = [
                 description: "Follow README steps",
                 link: "https://github.com/WICS-UCI/venushacks-web-dev-workshop/blob/main/README.md",
             }
-        ]
+        ],
+        recap: {
+            Slides: "https://docs.google.com/presentation/d/1DNlBSbckMJH5rK1svym7awNEdovsyK2ZqiSAnaZTi8E/edit"
+        },
     },
     {
         title: "iOS Development", 
@@ -57,7 +60,8 @@ let workshopsData = [
             }
         ],
         recap: {
-            Recording: "https://uci.zoom.us/rec/share/_2RZlDZHJMylLZUJS24PAaF327Pdv_gea3Mvtl7eN4FfsQ6VNbOdigQmDda6YYA.tniK1ECu_HqZMNfL"
+            Recording: "https://uci.zoom.us/rec/share/_2RZlDZHJMylLZUJS24PAaF327Pdv_gea3Mvtl7eN4FfsQ6VNbOdigQmDda6YYA.tniK1ECu_HqZMNfL",
+            Slides: "https://docs.google.com/presentation/d/1cx0Ft2-nFVhLAUijrXI0U5v1IIy--9OdFaqjeiicuKU/edit#slide=id.p1"
         }
     },
     {
