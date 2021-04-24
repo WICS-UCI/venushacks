@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.dcfd38f5.chunk.css",
-    "main.js": "/static/js/main.8d497737.chunk.js",
-    "main.js.map": "/static/js/main.8d497737.chunk.js.map",
+    "main.js": "/static/js/main.0bd466d6.chunk.js",
+    "main.js.map": "/static/js/main.0bd466d6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f4b0be27.js",
     "runtime-main.js.map": "/static/js/runtime-main.f4b0be27.js.map",
-    "static/js/2.fe527ded.chunk.js": "/static/js/2.fe527ded.chunk.js",
-    "static/js/2.fe527ded.chunk.js.map": "/static/js/2.fe527ded.chunk.js.map",
+    "static/js/2.e4a42ac4.chunk.js": "/static/js/2.e4a42ac4.chunk.js",
+    "static/js/2.e4a42ac4.chunk.js.map": "/static/js/2.e4a42ac4.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.374bbb804a32fc53afec5c10a997f503.js": "/precache-manifest.374bbb804a32fc53afec5c10a997f503.js",
+    "precache-manifest.a4fd037af106256fb1adefd9adac0b61.js": "/precache-manifest.a4fd037af106256fb1adefd9adac0b61.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.dcfd38f5.chunk.css.map": "/static/css/main.dcfd38f5.chunk.css.map",
-    "static/js/2.fe527ded.chunk.js.LICENSE.txt": "/static/js/2.fe527ded.chunk.js.LICENSE.txt",
+    "static/js/2.e4a42ac4.chunk.js.LICENSE.txt": "/static/js/2.e4a42ac4.chunk.js.LICENSE.txt",
     "static/media/about.png": "/static/media/about.f5289833.png",
     "static/media/ai.png": "/static/media/ai.0839f269.png",
     "static/media/alice-funny.jpeg": "/static/media/alice-funny.61b09230.jpeg",
@@ -21,7 +21,7 @@
     "static/media/april-funny.jpeg": "/static/media/april-funny.f14e26c8.jpeg",
     "static/media/april.jpeg": "/static/media/april.f56ca4fd.jpeg",
     "static/media/areeta-funny.jpeg": "/static/media/areeta-funny.32693e5d.jpeg",
-    "static/media/areeta.jpeg": "/static/media/areeta.69a6cd2a.jpeg",
+    "static/media/areeta.jpeg": "/static/media/areeta.b713fdea.jpeg",
     "static/media/astronaut.png": "/static/media/astronaut.1025b6ee.png",
     "static/media/Home.scss": "/static/media/laptop.ebf76dee.png",
     "static/media/bhavani-funny.jpeg": "/static/media/bhavani-funny.37801c79.jpeg",
@@ -99,8 +99,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f4b0be27.js",
-    "static/js/2.fe527ded.chunk.js",
+    "static/js/2.e4a42ac4.chunk.js",
     "static/css/main.dcfd38f5.chunk.css",
-    "static/js/main.8d497737.chunk.js"
+    "static/js/main.0bd466d6.chunk.js"
   ]
 }
