@@ -7,7 +7,8 @@ import {
   Home,
   Schedule,
   StarterPacks,
-  Workshops
+  Workshops,
+  NotFound
 } from 'app/views';
 
 import {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/starter-packs' component={StarterPacks}/>
           <Route exact path='/workshops' component={Workshops}/>
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
     </div>
