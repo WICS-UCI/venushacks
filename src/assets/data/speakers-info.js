@@ -11,6 +11,7 @@ let speakersData = {
         {photo: "ekaterina", name: "Ekaterina (Katia) Stambolieva", title: "Founder of Cosmos Pics"},
         {photo: "danielle", name: "Danielle Sandoval", title: "Group Product Manager at Procure Technologies"},
         {photo: "kristina", name: "Kristina Harris", title: "Global Executive Engagement at DarkTrace"},
+        {photo: "areeta", name: "Areeta Wong", title: "Previous Co-President of Blueprint at UCI"},
     ]
 };
 
