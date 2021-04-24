@@ -9,7 +9,7 @@ let speakersData = {
         {photo: "victoria", name: "Victoria Good", title: "Lead Software Engineer at Linode"},
         {photo: "sally", name: "Sally Steuterman", title: "Senior Education Program Developer at LaunchCode"},
         {photo: "ekaterina", name: "Ekaterina (Katia) Stambolieva", title: "Founder of Cosmos Pics"},
-        {photo: "danielle", name: "Danielle Sandoval", title: "Group Product Manager at Procure Technologies"},
+        {photo: "danielle", name: "Danielle Sandoval", title: "Group Product Manager at Procore Technologies"},
         {photo: "kristina", name: "Kristina Harris", title: "Global Executive Engagement at DarkTrace"},
         {photo: "areeta", name: "Areeta Wong", title: "Previous Co-President of Blueprint at UCI"},
     ]

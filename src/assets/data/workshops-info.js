@@ -1,7 +1,7 @@
 let workshopsData = [
     {
         title: "Tech for Good Panel", 
-        description: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Nina Space! We will be exploring the side of tech that brings good changes into our everyday lives.",
+        description: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Cosmos Pics! We will be exploring the side of tech that brings good changes into our everyday lives.",
         host: {
             name: "VenusHacks",
             link: "https://www.venushacks.com/"
@@ -55,7 +55,10 @@ let workshopsData = [
                 description: "Get a Yelp API Key",
                 link: "https://www.youtube.com/watch?v=GFhGN36Wf7Q&ab_channel=WidgetPack"
             }
-        ]
+        ],
+        recap: {
+            Recording: "https://uci.zoom.us/rec/share/_2RZlDZHJMylLZUJS24PAaF327Pdv_gea3Mvtl7eN4FfsQ6VNbOdigQmDda6YYA.tniK1ECu_HqZMNfL"
+        }
     },
     {
         title: "Android Development", 
