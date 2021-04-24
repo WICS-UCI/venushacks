@@ -1,5 +1,16 @@
 let workshopsData = [
     {
+        title: "Tech for Good Panel", 
+        description: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Nina Space! We will be exploring the side of tech that brings good changes into our everyday lives.",
+        host: {
+            name: "VenusHacks",
+            link: "https://www.venushacks.com/"
+        },
+        recap: {
+            "Recording": "https://uci.zoom.us/rec/share/9fI6oxeRhelBpGKTQuDHsX3ySGaKrzlKvW36GkBFxshfGThIdZm5U7z5s8tEiNJm.DoDok5Wq-Q2MbLvk"
+        }
+    },
+    {
         title: "Intro to Web Dev", 
         description: "Want to create your own full-stack web application but not sure where to start? Come by to learn the basics of HTML/CSS, JavaScript, Bootstrap, and Python Flask by building a simple Expense Tracker!",
         host: {
@@ -135,6 +146,14 @@ let workshopsData = [
         },
     },
     {
+        title: "Diversity in Tech Panel", 
+        description: "Come join us for our Diversity in Tech Panel with a diverse set of empowering women from Linode, Darktrace, and Procure Technologies. We will be listening to how their identity as women impacted their personal journeys, decisions, and who they are today.",
+        host: {
+            name: "VenusHacks",
+            link: "https://www.venushacks.com/"
+        },
+    }
+    {
         title: "Exploring Data-Driven Advocacy", 
         description: "Percentage Project is a nonprofit organization that promotes data-driven advocacy and conducts climate surveys in partnership with post-secondary institutions in the US. Check out their workshop on YouTube to learn how you can take action to create more inclusive CS communities!",
         host: {
@@ -145,33 +164,6 @@ let workshopsData = [
             "Recording": "https://youtu.be/0VZqR982nRU"
         }
     },
-    {
-        title: "Tech for Good Panel", 
-        description: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Nina Space! We will be exploring the side of tech that brings good changes into our everyday lives.",
-        host: {
-            name: "VenusHacks",
-            link: "https://www.venushacks.com/"
-        },
-        recap: {
-            "Recording": "https://uci.zoom.us/rec/share/9fI6oxeRhelBpGKTQuDHsX3ySGaKrzlKvW36GkBFxshfGThIdZm5U7z5s8tEiNJm.DoDok5Wq-Q2MbLvk"
-        }
-    },
-    {
-        title: "Disney Tech Talk", 
-        description: "Infrastructure and software engineers make it possible to stream your favorite movies on Disney+. The Content Delivery Network and Origin team at Disney must deliver the best video quality experience to subscribers in order to stream effectively. To meet this goal, Disney uses multiple content delivery networks (CDNs) as a way to distribute the Disney+ content globally. Join us while we discuss CDNS, midtiers, control planes, and content management and how these all come together to create the streaming experience the world has come to expect from Disney.",
-        host: {
-            name: "VenusHacks",
-            link: "https://www.venushacks.com/"
-        },
-    },
-    {
-        title: "Diversity in Tech Panel", 
-        description: "Come join us for our Diversity in Tech Panel with a diverse set of empowering women from Linode, Darktrace, and Procure Technologies. We will be listening to how their identity as women impacted their personal journeys, decisions, and who they are today.",
-        host: {
-            name: "VenusHacks",
-            link: "https://www.venushacks.com/"
-        },
-    }
 ]
 
 export { workshopsData }
