@@ -87,7 +87,7 @@ let scheduleData = {
     },
     {
       name: 'Cyber Security Challenge',
-      link: 'https://uci.zoom.us/j/99122491205',
+      link: 'https://uci.zoom.us/j/98525269241',
       description: 'MLH',
       tooltip: "The USAF Cyber Security Challenge is a beginner-friendly capture the flag style event where you'll tackle a few security challenges in a fun environment. No experience necessary! ",
       time: '5:30PM-6:00PM'
