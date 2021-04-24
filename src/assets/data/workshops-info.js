@@ -155,6 +155,22 @@ let workshopsData = [
         recap: {
             "Recording": "https://uci.zoom.us/rec/share/9fI6oxeRhelBpGKTQuDHsX3ySGaKrzlKvW36GkBFxshfGThIdZm5U7z5s8tEiNJm.DoDok5Wq-Q2MbLvk"
         }
+    },
+    {
+        title: "Disney Tech Talk", 
+        description: "Infrastructure and software engineers make it possible to stream your favorite movies on Disney+. The Content Delivery Network and Origin team at Disney must deliver the best video quality experience to subscribers in order to stream effectively. To meet this goal, Disney uses multiple content delivery networks (CDNs) as a way to distribute the Disney+ content globally. Join us while we discuss CDNS, midtiers, control planes, and content management and how these all come together to create the streaming experience the world has come to expect from Disney.",
+        host: {
+            name: "VenusHacks",
+            link: "https://www.venushacks.com/"
+        },
+    },
+    {
+        title: "Diversity in Tech Panel", 
+        description: "Come join us for our Diversity in Tech Panel with a diverse set of empowering women from Linode, Darktrace, and Procure Technologies. We will be listening to how their identity as women impacted their personal journeys, decisions, and who they are today.",
+        host: {
+            name: "VenusHacks",
+            link: "https://www.venushacks.com/"
+        },
     }
 ]
 
