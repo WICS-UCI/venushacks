@@ -144,6 +144,17 @@ let workshopsData = [
         recap: {
             "Recording": "https://youtu.be/0VZqR982nRU"
         }
+    },
+    {
+        title: "Tech for Good Panel", 
+        description: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Nina Space! We will be exploring the side of tech that brings good changes into our everyday lives.",
+        host: {
+            name: "VenusHacks",
+            link: "https://www.venushacks.com/"
+        },
+        recap: {
+            "Recording": "https://uci.zoom.us/rec/share/9fI6oxeRhelBpGKTQuDHsX3ySGaKrzlKvW36GkBFxshfGThIdZm5U7z5s8tEiNJm.DoDok5Wq-Q2MbLvk"
+        }
     }
 ]
 
