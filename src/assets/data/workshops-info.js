@@ -28,8 +28,9 @@ let workshopsData = [
             }
         ],
         recap: {
+            Recording: "https://uci.zoom.us/rec/share/bQo7ZUWDIzb_qQAGX8o6Fm7Yl_jSZTF3hDlUsx1xYgHSuLMATlj7PIiFVVy-YR2e.zCinReZllyNQVZss",
             Slides: "https://docs.google.com/presentation/d/1DNlBSbckMJH5rK1svym7awNEdovsyK2ZqiSAnaZTi8E/edit"
-        },
+        }
     },
     {
         title: "iOS Development", 
