@@ -51,12 +51,6 @@ let starterPackData = [
         tooltip:
           "Up to $100 in Google Cloud credits per account!"
       },
-      {
-        name: "GoDaddyRegistry",
-        link: "https://hackp.ac/GoDaddy-medium",
-        tooltip:
-          "Get a free domain of your choice for 1 year!"
-      },
     ]
   },
   {

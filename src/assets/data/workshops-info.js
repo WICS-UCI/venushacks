@@ -102,6 +102,9 @@ let workshopsData = [
             name: "Disney",
             link: "https://jobs.disneycareers.com/technology"
         },
+        recap: {
+            Recording: "https://uci.zoom.us/rec/share/s4VaNsyLTdy2FIpETkfXhLzZXg6BnFQ2g5BZGAGGAgD85ZqBg3PTf6DQ-mVvd4fY.IonhOznwfVBjnMNg",
+        }
     },
     {
         title: "APIs 101 Workshop", 
