@@ -33,6 +33,10 @@ let workshopsData = [
                 link: "https://developer.apple.com/xcode/resources/"
             },
             {
+                description: "Download Starter Code",
+                link: "https://drive.google.com/file/d/1wBlmsckdAYnUNcKmrKmo38A9vWV7E5BR/view?usp=sharing"
+            },
+            {
                 description: "Create a Yelp Developer Account",
                 link: "https://www.yelp.com/login?return_url=%2Fdevelopers%2Fv3%2Fmanage_app"
             },
