@@ -66,6 +66,18 @@ let workshopsData = [
         }
     },
     {
+        title: "Intro to UI/UX Design", 
+        description: "Learn why a good user interface is crucial in creating seamless communication with users and why UX thinking matters when developing products. In this workshop, you'll see UX/UI designs come to life in case studies and examples and be able to apply these concepts your own projects",
+        host: {
+            name: "Design at UCI",
+            link: "https://designatuci.com/"
+        },
+        recap: {
+            Recording: "https://uci.zoom.us/rec/share/VHRLa0y5anCMzvzNff8B6zGP-iCUp0NBJnMVqHzXY4n4Cq0Rv5Uix4DWLF6Y6Ysk.ih3r-pYWYnHxTBZo",
+            Slides: "https://docs.google.com/presentation/d/1PUJYtPPjqeHHQuiqjk0jw7Xna-oG-XfidlwsTERzYYs/edit"
+        }
+    },
+    {
         title: "Android Development", 
         description: "In this workshop you will learn about Android app architecture, data manipulation, and styling. By the end of the workshop you should have the knowledge to build a simple app which you can build upon for your hackathon project!",
         host: {
@@ -82,18 +94,6 @@ let workshopsData = [
                 link: "https://github.com/powerserg23/SimpleTodo/blob/master/README.md"
             }
         ]
-    },
-    {
-        title: "Intro to UI/UX Design", 
-        description: "Learn why a good user interface is crucial in creating seamless communication with users and why UX thinking matters when developing products. In this workshop, you'll see UX/UI designs come to life in case studies and examples and be able to apply these concepts your own projects",
-        host: {
-            name: "Design at UCI",
-            link: "https://designatuci.com/"
-        },
-        recap: {
-            Recording: "https://uci.zoom.us/rec/share/VHRLa0y5anCMzvzNff8B6zGP-iCUp0NBJnMVqHzXY4n4Cq0Rv5Uix4DWLF6Y6Ysk.ih3r-pYWYnHxTBZo",
-            Slides: "https://docs.google.com/presentation/d/1PUJYtPPjqeHHQuiqjk0jw7Xna-oG-XfidlwsTERzYYs/edit"
-        }
     },
     {
         title: "Disney Tech Talk", 
