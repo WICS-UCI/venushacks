@@ -162,6 +162,11 @@ export default class Home extends React.Component {
                         HACKER APP
                       </a>
                     </Button>
+                    <Button id="apply-btn">
+                      <a href="https://venushacks-2021.devpost.com/" style={{ color: "#99a6e5"}}>
+                        DEVPOST
+                      </a>
+                    </Button>
                 </div>
 
             </section>
