@@ -89,6 +89,10 @@ let workshopsData = [
             name: "Design at UCI",
             link: "https://designatuci.com/"
         },
+        recap: {
+            Recording: "https://uci.zoom.us/rec/share/VHRLa0y5anCMzvzNff8B6zGP-iCUp0NBJnMVqHzXY4n4Cq0Rv5Uix4DWLF6Y6Ysk.ih3r-pYWYnHxTBZo",
+            Slides: "https://docs.google.com/presentation/d/1PUJYtPPjqeHHQuiqjk0jw7Xna-oG-XfidlwsTERzYYs/edit"
+        }
     },
     {
         title: "Disney Tech Talk", 
