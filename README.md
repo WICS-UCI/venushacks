@@ -1,6 +1,8 @@
 # VenusHacks Website
 Planned in collaboration with [WICS](https://wics.ics.uci.edu/) and [Hack at UCI](https://hack.ics.uci.edu/), VenusHacks is UCI’s first women-centric hackathon!
 
+<img src="screenshots/venushacks_2021.gif" alt="VenusHacks 2021 Homepage">
+
 ## Mission
 Our mission is to empower underrepresented groups by providing an inclusive community to foster growth and creativity in computing. 
 VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community.
