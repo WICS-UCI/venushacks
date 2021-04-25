@@ -184,6 +184,10 @@ let workshopsData = [
             name: "MAISS",
             link: "http://www.maissuci.com/"
         },
+        recap : {
+            Recording: "https://uci.zoom.us/rec/share/o9WE0J6k4D2_7vw_G-BXaBj6MiR4eFNd4o-y-fJk_LuijUsFSjHuk5eR-FCGSAz2.pkJF2bQ55OXdhHeu",
+            Slides: "https://docs.google.com/presentation/d/1tt_IWz-X9edv7I0rrN8PKYIJx1JzzmQ0OPrsVPKN-Uw/edit#slide=id.p"
+        }
     },
     {
         title: "Diversity in Tech Panel", 
