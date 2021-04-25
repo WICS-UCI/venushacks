@@ -160,6 +160,10 @@ let workshopsData = [
             name: "AI@UCI",
             link: "https://aiclub.ics.uci.edu/"
         },
+        recap : {
+            Recording: "https://uci.zoom.us/rec/share/xA2NTn_ZVRheMAtUWEd69etuw7PpKcx9abJKgncWSbyy9eaefOtaRNJKIp0bk18a.B3LIpTNCDaRTUeOs",
+            Slides: "https://docs.google.com/presentation/d/1O90R-0dyT3lcGmPEQQ7QxFIu24lhBfwAxfYPcL2NJoQ/edit"
+        }
     },
     {
         title: "Imposter Syndrome", 
