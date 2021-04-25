@@ -149,6 +149,7 @@ let workshopsData = [
             link: "http://studentcouncil.ics.uci.edu/"
         },
         recap : {
+            Recording: "https://uci.zoom.us/rec/share/xtQd-dTxaJWsuEumwZ9geMeFH7hCwJgM_Rn3KZu-Qce3q0dvKg23nBqUBYXTzDnN.jHcFxfQ0jQHaymIx",
             Slides: "https://docs.google.com/presentation/d/1v6VJOJzgOBrA3jAjERRrZyCYQ1Hkz1MTbnjta6hgDJY/edit?usp=sharing"
         }
     },
