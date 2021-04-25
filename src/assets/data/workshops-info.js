@@ -94,7 +94,7 @@ let workshopsData = [
                 link: "https://github.com/powerserg23/SimpleTodo/blob/master/README.md"
             }
         ],
-        recap : {
+        recap: {
             Recording: "https://uci.zoom.us/rec/share/mHDR0150k4QRnkZyunrfIt0M3yB733Qr-AG_CthBUZb0RT7JNrErDLZkfSxDM5cG.02woEYnfnBP3-lSZ",
             Slides: "https://docs.google.com/presentation/d/1E5hXyvfCZUICzse2Mm8k_w-tq-9Zz1dvkAb3pGwwbK0/edit?usp=sharing"
         }
