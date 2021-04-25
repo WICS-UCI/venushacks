@@ -172,6 +172,10 @@ let workshopsData = [
             name: "Society of Women Engineers at UCI",
             link: "https://sites.uci.edu/societywomenengineers/"
         },
+        recap : {
+            Recording: "https://uci.zoom.us/rec/play/H15JdAe6iGL2FcwFW4GB08S_GzZmC1Zn_vgNrJJe1NTCdQzesrCD0ZKhgwYOyWzG19Dl-vhnYev56Nxx.gJL4A6b2cbh2BQQt?continueMode=true&_x_zm_rtaid=10f2F3Z1Ta-Nto5QWHsIkw.1619319541012.dd50f46d4c0145c9aef82e528d027e22&_x_zm_rhtaid=849",
+            Slides: "https://docs.google.com/presentation/d/14VPl0wfm0wBPrei0Glmrz6ngGdQFxiyG9a1zbmLDX-E/edit#slide=id.p1"
+        }
     },
     {
         title: "How to Pitch Your Hackathon Project", 
