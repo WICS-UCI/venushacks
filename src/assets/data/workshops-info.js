@@ -93,7 +93,11 @@ let workshopsData = [
                 description: "Clone the GitHub Repo",
                 link: "https://github.com/powerserg23/SimpleTodo/blob/master/README.md"
             }
-        ]
+        ],
+        recap : {
+            Recording: "https://uci.zoom.us/rec/share/mHDR0150k4QRnkZyunrfIt0M3yB733Qr-AG_CthBUZb0RT7JNrErDLZkfSxDM5cG.02woEYnfnBP3-lSZ",
+            Slides: "https://docs.google.com/presentation/d/1E5hXyvfCZUICzse2Mm8k_w-tq-9Zz1dvkAb3pGwwbK0/edit?usp=sharing"
+        }
     },
     {
         title: "Disney Tech Talk", 
@@ -104,6 +108,7 @@ let workshopsData = [
         },
         recap: {
             Recording: "https://uci.zoom.us/rec/share/s4VaNsyLTdy2FIpETkfXhLzZXg6BnFQ2g5BZGAGGAgD85ZqBg3PTf6DQ-mVvd4fY.IonhOznwfVBjnMNg",
+            Slides: "https://drive.google.com/file/d/1-JeUmCVOscQnpKA0Qo6zBu3J5IOYAWF-/view?usp=sharing"
         }
     },
     {
@@ -113,6 +118,10 @@ let workshopsData = [
             name: "Postman",
             link: "https://www.postman.com/"
         },
+        recap: {
+            Recording: "https://uci.zoom.us/rec/share/O6GiNMsPBuuFU8LlqT_po9LXhTfK7fn5pBszXmwDSsvHnslAL8Um6oLWqrr9gg.GCTQWGbUOtvJDLeu",
+            Slides: "https://docs.google.com/presentation/d/1JgteQWADDhwoy1ami6cDd4UQfxHCeUvBfGWg2nzz8Kk/edit#slide=id.gb2349a47d9_2_103"
+        }
     },
     {
         title: "The Unity Game Engine", 
@@ -126,7 +135,10 @@ let workshopsData = [
                 description: "Download Unity",
                 link: "https://unity.com/products"
             }
-        ]
+        ],
+        recap : {
+            Slides: "https://docs.google.com/presentation/d/1j4mWpNDLpyDPNJQeLIwZGaMbFlExqhc4KxHdZtT5uBQ/edit"
+        }
     },
     {
         title: "GraphQL Workshop", 
