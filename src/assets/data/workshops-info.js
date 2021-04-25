@@ -137,6 +137,7 @@ let workshopsData = [
             }
         ],
         recap : {
+            Recording: "https://uci.zoom.us/rec/share/WtSiAon5OmE2EQrFwIzzYwrY5yY62Ps2tJYL2DZRE4PGL19YAVdjnP4kl0VzcocR.sc_bUkQPFV6Atzcm",
             Slides: "https://docs.google.com/presentation/d/1j4mWpNDLpyDPNJQeLIwZGaMbFlExqhc4KxHdZtT5uBQ/edit"
         }
     },
@@ -147,6 +148,9 @@ let workshopsData = [
             name: "ICS Student Council",
             link: "http://studentcouncil.ics.uci.edu/"
         },
+        recap : {
+            Slides: "https://docs.google.com/presentation/d/1v6VJOJzgOBrA3jAjERRrZyCYQ1Hkz1MTbnjta6hgDJY/edit?usp=sharing"
+        }
     },
     {
         title: "Supervised Learning with Online Datasets Workshop", 
