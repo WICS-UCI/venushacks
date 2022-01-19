@@ -10,7 +10,7 @@ VenusHacks will be open to participants of all experience levels, as we aim to i
 ## Local Development
 
 ### Getting Setup
-- `git clone https://github.com/WICS-UCI/venushacks.git`
+- `git clone git@github.com:WICS-UCI/venushacks.git`
 - `cd venushacks`  
 - `npm install`  
 
