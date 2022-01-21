@@ -270,7 +270,7 @@ export default class Home extends React.Component {
               </section>
 
                 {/* PARTNERS **********************/}
-              <section id="partners">
+              <section id="partners" className="hidden">
                   <img className="section-title" src={partners_title} alt="Partners" />
                   <div id="partners-container">
                     <div className="logo-wrapper medium">
