@@ -155,7 +155,7 @@ export default class Home extends React.Component {
 
                 <div id="hero-right">
                   <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
-                  <h4 id="date">April 24 - 25, 2021</h4>
+                  <h4 id="date">May 21 - 22, 2022</h4>
                   <p id="tagline">UC Irvine's first women-centric hackathon</p>
                     <Button id="apply-btn">
                       <a href="https://venushacks-2021.devpost.com/" style={{ color: "#99a6e5"}}>
