@@ -5,9 +5,6 @@ import './App.scss';
 
 import {
   Home,
-  Schedule,
-  StarterPacks,
-  Workshops,
   NotFound
 } from 'app/views';
 
@@ -22,9 +19,6 @@ function App() {
         <Nav history={history}></Nav>
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route exact path='/schedule' component={Schedule}/>
-          <Route exact path='/starter-packs' component={StarterPacks}/>
-          <Route exact path='/workshops' component={Workshops}/>
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

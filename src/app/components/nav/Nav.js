@@ -34,21 +34,6 @@ function Nav() {
             Home
           </p>
         </Link>
-        <Link to="/schedule">
-          <p>
-            Schedule
-          </p>
-        </Link>
-        <Link to="/starter-packs">
-          <p>
-            Starter Packs
-          </p>
-        </Link>
-        <Link to="/workshops">
-          <p>
-            Workshops
-          </p>
-        </Link>
       </div>
     </div>
   )
