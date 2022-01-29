@@ -217,7 +217,8 @@ $laptop: "./../../../assets/images/laptop.png";
     }
   } // END FAQ
 
-  #sponsors {
+  #sponsors{
+    display: none;
     margin-top: 50px;
 
     #sponsors-container {
