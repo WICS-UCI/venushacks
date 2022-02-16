@@ -5,7 +5,7 @@
     },
     {
         "question": "Who can participate?",
-        "answer": "We hope this event inspires and highlights high school, undergraduate, and graduate students identifying as women or allies to hack. There are also opportunities to participate as mentors and volunteers to support!"
+        "answer": "We hope this event inspires and highlights high school, undergraduate, and graduate students identifying as women, gender minorities, or allies to hack. There are also opportunities to participate as mentors and volunteers to support!"
     },
     {
         "question": "Can high schoolers attend?",
@@ -17,7 +17,7 @@
     },
     {
         "question": "What do I need?",
-        "answer": "An open mind, laptop, charger, and anything else you would need to hack!"
+        "answer": "An open mind, laptop, charger, and anything else you would need to hack! If attending in-person (UCI students only), be sure to also bring a proper face covering following UCI guidelines, valid UCI Student ID, a refillable water bottle, comfy clothes, and personal hygienic supplies if staying overnight."
     },
     {
         "question": "What if I have no experience?",
@@ -36,12 +36,8 @@
         "answer": "Up to 4 hackers can be on a team."
     },
     {
-        "question": "What rules are in place?",
-        "answer": "We follow <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf' target='_blank'>MLH's Code of Conduct</a>."
-    },
-    {
         "question": "When are applications released and when are they due?",
-        "answer": "Applications were released 03-01-2021 and are due 04-18-2021."
+        "answer": "Release date TBA."
     },
     {
         "question": "How do I get hyped?",
