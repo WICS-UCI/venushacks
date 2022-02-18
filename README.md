@@ -1,5 +1,5 @@
 # VenusHacks Website
-Planned in collaboration with [WICS](https://wics.ics.uci.edu/) and [Hack at UCI](https://hack.ics.uci.edu/), VenusHacks is UCI’s first women-centric hackathon!
+Planned in collaboration with [WICS](https://wics.ics.uci.edu/) and [Hack at UCI](https://hack.ics.uci.edu/), VenusHacks is UCI’s largest women-centric hackathon!
 
 <img src="screenshots/venushacks_2021.gif" alt="VenusHacks 2021 Homepage">
 
