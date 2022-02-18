@@ -156,7 +156,7 @@ export default class Home extends React.Component {
 
                 <div id="hero-right">
                   <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
-                  <h4 id="date">May 21 - 22, 2022</h4>
+                  <h4 id="date">May 20 - 22, 2022</h4>
                   <p id="tagline">UC Irvine's largest women-centric hackathon</p>
                     <Button id="apply-btn">
                       <a href="https://venushacks-2021.devpost.com/" style={{ color: "#99a6e5"}}>
@@ -213,7 +213,7 @@ export default class Home extends React.Component {
                   VenusHacks will be open to participants of all experience levels, as 
                   we aim to increase diversity in tech through support, exposure, and 
                   community. Join us as we welcome high school (18+), undergraduate, and 
-                  graduate students to participate in our 48-hour event that includes networking, 
+                  graduate students to participate in our 36-hour event that includes networking, 
                   fun activities, educational workshops, and lots of coding!
                 </p>
               </div>
