@@ -1,7 +1,7 @@
 @import "globals/zothacks-styles.scss";
 
-$astronaut: "./../../../assets/images/astronaut_solid.png";
-$laptop: "./../../../assets/images/laptop.png";
+$astronaut: "./../../../assets/images/astronaut-float.png";
+$laptop: "./../../../assets/images/new-laptop.png";
 
 .Home {
   text-align: center;
@@ -79,10 +79,10 @@ $laptop: "./../../../assets/images/laptop.png";
   
       #laptop {
         float: right;
-        width: 25vw;
-        height: 25vw;
+        width: 15vw;
+        height: 15vw;
         max-width: 360px;
-        margin: -30% 0 0;
+        margin: 0% 5% 0;
         background: url($laptop);
         background-size: contain;
         background-repeat: no-repeat;
@@ -109,7 +109,7 @@ $laptop: "./../../../assets/images/laptop.png";
       #venushacks-title {
         width: 100%;
         max-width: 800px;
-        margin-bottom: 15px;
+        margin-bottom: 0px;
 
         @media screen and (max-width: $break-small) {
           width: 100%;

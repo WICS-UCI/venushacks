@@ -10,7 +10,7 @@ import Speakers from "../../components/speakers/speakers";
 
 
 // TITLES
-import vh_title from 'assets/images/titles/vh_title.png';
+import vh_title from 'assets/images/titles/vh-worded-logo.png';
 import about_title from 'assets/images/titles/about.png';
 import faq_title from 'assets/images/titles/faq.png';
 import sponsors_title from 'assets/images/titles/sponsors.png';
@@ -20,11 +20,11 @@ import meet_team_title from 'assets/images/titles/meettheteam.png';
 
 // PARALLAX ASSETS
 import stars_background from 'assets/images/stars-background.svg';
-import periwinkle_planet from 'assets/images/periwinkleplanet.png';
-import pink_planet from 'assets/images/pinkplanet.png';
-import constellation1 from 'assets/images/constellation1.png';
-import constellation2 from 'assets/images/constellation2.png';
-import constellation3 from 'assets/images/constellation3.png';
+import periwinkle_planet from 'assets/images/vh-periwinkle-planet.png';
+import pink_planet from 'assets/images/big-planet.png';
+import constellation1 from 'assets/images/vh-big-dipper.png';
+import constellation2 from 'assets/images/vh-cassiopeia.png';
+import constellation3 from 'assets/images/vh-pegasus.png';
 // import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
@@ -169,17 +169,17 @@ export default class Home extends React.Component {
 
           {/* LEFT CONSTELLATION */}
           <ParallaxLayer className="parallax-asset" offset={1.3} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={constellation3} alt="constellation icon" style={{ width: '22%', height: 'auto', marginRight: '80%' }} />
+            <img src={constellation3} alt="constellation icon" style={{ width: '15%', height: 'auto', marginRight: '80%' }} />
           </ParallaxLayer>
 
           {/* UPPER-RIGHT CONSTELLATION */}
           <ParallaxLayer className="parallax-asset" offset={1.2} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={constellation1} alt="constellation icon" style={{ width: '25%', height: 'auto', marginLeft: '80%' }} />
+            <img src={constellation1} alt="constellation icon" style={{ width: '15%', height: 'auto', marginLeft: '80%' }} />
           </ParallaxLayer>
 
           {/* LOWER-RIGHT CONSTELLATION */}
           <ParallaxLayer className="parallax-asset" offset={1.6} speed={-0.2} style={{ pointerEvents: 'none' }}>
-            <img src={constellation2} alt="constellation icon" style={{ width: '20%', height: 'auto', marginLeft: '80%' }} />
+            <img src={constellation2} alt="constellation icon" style={{ width: '15%', height: 'auto', marginLeft: '80%' }} />
           </ParallaxLayer>
 
           {/* UPPER-LEFT PLANET */}
@@ -188,8 +188,8 @@ export default class Home extends React.Component {
           </ParallaxLayer>
 
           {/* LOWER-RIGHT PLANET */}
-          <ParallaxLayer className="parallax-asset" offset={2.65} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={periwinkle_planet} alt="periwinkle planet icon" style={{ width: '10%', height: 'auto', marginLeft: '80%' }} />
+          <ParallaxLayer className="parallax-asset" offset={2.75} speed={-0.1} style={{ pointerEvents: 'none' }}>
+            <img src={periwinkle_planet} alt="periwinkle planet icon" style={{ width: '12.5%', height: 'auto', marginLeft: '80%' }} />
           </ParallaxLayer>
 
           {/* ABOUT **********************/}
