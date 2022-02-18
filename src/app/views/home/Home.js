@@ -14,6 +14,7 @@ import vh_title from 'assets/images/titles/vh_title.png';
 import about_title from 'assets/images/titles/about.png';
 import faq_title from 'assets/images/titles/faq.png';
 import sponsors_title from 'assets/images/titles/sponsors.png';
+import past_sponsors_title from 'assets/images/titles/past-sponsors.png';
 import partners_title from 'assets/images/titles/partners.png';
 import speakers_title from 'assets/images/titles/speakers.png';
 import meet_team_title from 'assets/images/titles/meettheteam.png';
@@ -236,7 +237,7 @@ export default class Home extends React.Component {
 
               {/* SPONSORS **********************/}
               <section id="sponsors">
-                  <img className="section-title" src={sponsors_title} alt="Sponsor" />
+                  <img className="section-title" src={past_sponsors_title} alt="Sponsor" />
                   <div id="sponsors-container">
                     <div className="logo-wrapper largest">
                       {this.renderSponsorLink("blackberry", blackberry, "https://www.blackberry.com/us/en/company/careers/students")}
