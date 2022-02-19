@@ -5,26 +5,35 @@ import './team.scss';
 export default class Team extends React.Component {
     render() {
         let organizers = [
-            {photo: "alice", name: "Alice Phan"},
+            {photo: "aasha", name: "Aasha Sendhil"},
+            {photo: "alan", name: "Alan Chang"},
             {photo: "ameya", name: "Ameya Mandalik"},
-            {photo: 'april', name: "April Lee"},
-            {photo: 'areeta', name: "Areeta Wong"},
-            {photo: 'bhavani', name: "Bhavani Panda"},
-            {photo: 'chase', name: "Chase Carnaroli"},
-            {photo: 'crystal', name: "Crystal Lee"},
-            {photo: 'deepal', name: "Deepal Sanghrajka"},
-            {photo: 'elise', name: "Elise Jang"},
-            {photo: 'ellen', name: "Ellen Kim"},
-            {photo: 'ellise', name: "Ellise Limjoco"},
-            {photo: 'kasey', name: "Kasey Chuang"},
-            {photo: 'kayla', name: "Kayla Tran"},
-            {photo: 'khushi', name: "Khushi Valia"},
-            {photo: 'kingsley', name: "Kingsley Szeto"},
-            {photo: 'megha', name: "Megha Kak"},
-            {photo: 'nicole', name: "Nicole Pham"},
-            {photo: 'rieko', name: "Rieko Konishi"},
-            {photo: 'riley', name: "Riley Champion"},
-            {photo: 'shannon', name: "Shannon Hoang"},
+            {photo: "angela", name: "Angela Qiao"},
+            {photo: "chase", name: "Chase Carnaroli"},
+            {photo: "chloe", name: "Chloe Cheng"},
+            {photo: "duong", name: "Duong Vu"},
+            {photo: "elise", name: "Elise Jang"},
+            {photo: "ellise", name: "Ellise Limjoco"},
+            {photo: "emily", name: "Emily Doan"},
+            {photo: "grace", name: "Grace Manning"},
+            {photo: "joseph", name: "Joseph Gu"},
+            {photo: "julianna", name: "Julianna Cardenas"},
+            {photo: "khushi", name: "Khushi Valia"},
+            {photo: "kingsley", name: "Kingsley Szeto"},
+            {photo: "megha", name: "Megha Kak"},
+            {photo: "nathan", name: "Nathan Nguyen"},
+            {photo: "nicole", name: "Nicole Pham"},
+            {photo: "olivia", name: "Olivia Ih"},
+            {photo: "parsa", name: "Parsa Karamat"},
+            {photo: "philip", name: "Philip Truong"},
+            {photo: "riley", name: "Riley Wong"},
+            {photo: "rochelle", name: "Rochelle Nixon"},
+            {photo: "rong", name: "Rong Mu"},
+            {photo: "sanjana", name: "Sanjana Magidewar"},
+            {photo: "shalini", name: "Shalina Bhakta"},
+            {photo: "sydney", name: "Sydnee Tan"},
+            {photo: "william", name: "William Hou"},
+            {photo: "zoya", name: "Zoya Hajee"}
         ];
 
         const images = organizers.map((organizer, i) =>
@@ -33,8 +42,8 @@ export default class Team extends React.Component {
                     <img 
                         src = {require('assets/images/organizer-photos/'+organizer.photo+'.jpeg')}
                         alt = {organizer.photo + "'s profile picture"}
-                        onMouseOver={e => (e.currentTarget.src = require('assets/images/organizer-photos-funny/'+organizer.photo+'-funny.jpeg'))}
-                        onMouseOut={e => (e.currentTarget.src = require('assets/images/organizer-photos/'+organizer.photo+'.jpeg'))}
+                        //onMouseOver={e => (e.currentTarget.src = require('assets/images/organizer-photos-funny/'+organizer.photo+'-funny.jpeg'))}
+                        //onMouseOut={e => (e.currentTarget.src = require('assets/images/organizer-photos/'+organizer.photo+'.jpeg'))}
                     />
                 </div>
                 <p>{organizer.name}</p>
