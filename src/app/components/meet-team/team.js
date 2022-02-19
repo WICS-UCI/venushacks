@@ -7,7 +7,7 @@ export default class Team extends React.Component {
         let organizers = [
             {photo: "aasha", name: "Aasha Sendhil"},
             {photo: "alan", name: "Alan Chang"},
-            {photo: "ameya", name: "Mandalik"},
+            {photo: "ameya", name: "Ameya Mandalik"},
             {photo: "angela", name: "Angela Qiao"},
             {photo: "chase", name: "Chase Carnaroli"},
             {photo: "chloe", name: "Chloe Cheng"},
@@ -30,7 +30,7 @@ export default class Team extends React.Component {
             {photo: "rochelle", name: "Rochelle Nixon"},
             {photo: "rong", name: "Rong Mu"},
             {photo: "sanjana", name: "Sanjana Magidewar"},
-            {photo: "shalina", name: "Shalina Bhakta"},
+            {photo: "shalini", name: "Shalina Bhakta"},
             {photo: "sydney", name: "Sydnee Tan"},
             {photo: "william", name: "William Hou"},
             {photo: "zoya", name: "Zoya Hajee"}
