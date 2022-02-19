@@ -162,6 +162,17 @@ $laptop: "./../../../assets/images/new-laptop.png";
     align-items: center;
     flex-direction: column;
 
+    .section-title {
+      height: 110px;
+      margin: 20px auto 30px;
+
+      @media screen and (max-width: $break-medium) {
+        height: 18vw;
+        max-height: 80px;
+        margin: 20px auto;
+      }
+    }
+
     #about-text-container {
       width: 60vw;
       max-width: 1500px;

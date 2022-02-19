@@ -11,13 +11,13 @@ import Speakers from "../../components/speakers/speakers";
 
 // TITLES
 import vh_title from 'assets/images/titles/vh-worded-logo.png';
-import about_title from 'assets/images/titles/about.png';
-import faq_title from 'assets/images/titles/faq.png';
-import sponsors_title from 'assets/images/titles/sponsors.png';
-import past_sponsors_title from 'assets/images/titles/past-sponsors.png';
-import partners_title from 'assets/images/titles/partners.png';
-import speakers_title from 'assets/images/titles/speakers.png';
-import meet_team_title from 'assets/images/titles/meettheteam.png';
+import about_title from 'assets/images/titles/vh-about.png';
+import faq_title from 'assets/images/titles/vh-faq.png';
+import sponsors_title from 'assets/images/titles/vh-sponsors.png';
+import past_sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
+import partners_title from 'assets/images/titles/vh-partners.png';
+import speakers_title from 'assets/images/titles/vh-speakers.png';
+import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 // PARALLAX ASSETS
 import stars_background from 'assets/images/stars-background.svg';
