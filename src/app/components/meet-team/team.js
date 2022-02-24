@@ -22,7 +22,7 @@ export default class Team extends React.Component {
             {photo: "kingsley", name: "Kingsley Szeto"},
             {photo: "megha", name: "Megha Kak"},
             {photo: "nathan", name: "Nathan Nguyen"},
-            {photo: "nicole", name: "Nicole Pham"},
+            {photo: "nicole", name: "Pham"},
             {photo: "olivia", name: "Olivia Ih"},
             {photo: "parsa", name: "Parsa Karamat"},
             {photo: "philip", name: "Philip Truong"},
@@ -30,7 +30,7 @@ export default class Team extends React.Component {
             {photo: "rochelle", name: "Rochelle Nixon"},
             {photo: "rong", name: "Rong Mu"},
             {photo: "sanjana", name: "Sanjana Magidewar"},
-            {photo: "shalini", name: "Shalina Bhakta"},
+            {photo: "shalini", name: "Shalini Bhakta"},
             {photo: "sydney", name: "Sydnee Tan"},
             {photo: "william", name: "William Hou"},
             {photo: "zoya", name: "Zoya Hajee"}
