@@ -159,8 +159,9 @@ export default class Home extends React.Component {
                   <h4 id="date">May 20 - 22, 2022</h4>
                   <p id="tagline">UC Irvine's largest women-centric hackathon</p>
                     <Button id="apply-btn">
-                      <a href="https://venushacks-2021.devpost.com/" style={{ color: "#99a6e5"}}>
-                        DEVPOST
+                      <a href="https://airtable.com/shr1Etr4Typ3FEqBc" target="_blank" 
+                      style={{ color: "#99a6e5"}}>
+                        Apply as a Hacker
                       </a>
                     </Button>
                 </div>
