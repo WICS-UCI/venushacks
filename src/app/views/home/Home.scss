@@ -129,7 +129,7 @@ $laptop: "./../../../assets/images/new-laptop.png";
         }
       }
 
-      #apply-btn {
+      #apply-hacker-btn {
         a {color: #8784C8;}
         border-color: #FFFFFF;
         padding: 12px 20px;
@@ -148,7 +148,31 @@ $laptop: "./../../../assets/images/new-laptop.png";
         }
       }
 
-      #apply-btn:hover {
+      #apply-mentor-btn {
+        a {color: #8784C8;}
+        border-color: #FFFFFF;
+        padding: 12px 20px;
+        font-size: 1.3vw;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: #FFFFFF;
+        @media screen and (max-width: $break-medium) {
+          font-size: 16px;
+        }
+
+        a:visited, a:link, a:active{
+            text-decoration: none;
+        }
+      }
+
+      #apply-hacker-btn:hover {
+        transition: all .2s ease;
+        transform: scale(1.08);
+      }
+
+      #apply-mentor-btn:hover {
         transition: all .2s ease;
         transform: scale(1.08);
       }
