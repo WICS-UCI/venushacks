@@ -4,3 +4,4 @@ export { default as ScheduleCard } from './schedule-card/ScheduleCard';
 export { default as Tooltip } from './tooltip/tooltip';
 export { default as Footer } from './footer/Footer';
 export { default as WorkshopCard } from './workshop-card/workshop-card';
+export { default as VenusButton } from './venus-button/venusButton';

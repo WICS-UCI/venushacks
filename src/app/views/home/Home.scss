@@ -129,8 +129,8 @@ $laptop: "./../../../assets/images/new-laptop.png";
         }
       }
 
-      #apply-btn {
-        a {color: #8784C8;}
+      .venus-btn {
+        color: #8784C8;
         border-color: #FFFFFF;
         padding: 12px 20px;
         font-size: 1.3vw;
@@ -139,19 +139,19 @@ $laptop: "./../../../assets/images/new-laptop.png";
         margin-top: 10px;
         margin-bottom: 10px;
         background-color: #FFFFFF;
+        border-radius: 50px;
+        text-decoration: none;
+
         @media screen and (max-width: $break-medium) {
           font-size: 16px;
         }
-
-        a:visited, a:link, a:active{
-            text-decoration: none;
-        }
       }
 
-      #apply-btn:hover {
+      .venus-btn:hover {
         transition: all .2s ease;
         transform: scale(1.08);
       }
+
     } // END #hero-right
 
   } // END HERO
