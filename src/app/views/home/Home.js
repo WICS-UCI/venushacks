@@ -120,6 +120,23 @@ export default class Home extends React.Component {
       </a>
     )
   }
+  /**
+   * 
+   * @param {*} URL url of respective application
+   * @param {*} text apply as {text}
+   * @returns button of respective application
+   */
+
+  ApplyButton(URL, text) {
+    return (
+      <Button className="apply-btn">
+        <a
+          href={URL} target="_blank" rel="noopener noreferrer">
+          {text}
+        </a>
+      </Button>
+      )
+  }
 
   render() {
     /**
@@ -158,16 +175,8 @@ export default class Home extends React.Component {
                   <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
                   <h4 id="date">May 20 - 22, 2022</h4>
                   <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-                    <Button id="apply-hacker-btn">
-                      <a href="https://airtable.com/shr1Etr4Typ3FEqBc" target="_blank" rel="noopener noreferrer">
-                        Apply as a Hacker
-                      </a>
-                    </Button>
-                    <Button id="apply-mentor-btn">
-                      <a href="https://airtable.com/shr5Y9x5ocJaJL52j" target="_blank" rel="noopener noreferrer">
-                        Apply as a Mentor
-                      </a>
-                    </Button>
+                      {this.ApplyButton("https://airtable.com/shr1Etr4Typ3FEqBc", "Apply as a Hacker")}
+                      {this.ApplyButton("https://airtable.com/shr5Y9x5ocJaJL52j", "Apply as a Mentor")}
                 </div>
 
             </section>
