@@ -129,11 +129,9 @@ export default class Home extends React.Component {
 
   ApplyButton(URL, text) {
     return (
-      <Button className="apply-btn">
-        <a
-          href={URL} target="_blank" rel="noopener noreferrer">
+      <Button className="apply-btn"
+        href={URL} target="_blank" rel="noopener noreferrer">
           {text}
-        </a>
       </Button>
       )
   }
