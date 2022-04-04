@@ -32,6 +32,14 @@
         "answer": "You will be building your project from scratch. However, feel free to come with ideas of what you want to build!"
     },
     {
+        "question": "Can international students participate?",
+        "answer": "VenusHacks is limited to hackers within the United States."
+    },
+    {
+        "question": "Can I attend in-person?",
+        "answer": "In-person attendance is limited to only official UCI students with proper UCI identification. However, anyone can attend virtually!"
+    },
+    {
         "question": "How many people can be on a team?",
         "answer": "Up to 4 hackers can be on a team."
     },
