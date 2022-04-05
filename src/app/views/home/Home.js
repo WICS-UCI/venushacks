@@ -226,8 +226,8 @@ export default class Home extends React.Component {
                 <FAQs/>
                 <p id="faq-contact-us">
                   Additional logistic questions? Contact us&nbsp;
-                  <a href="mailto:venushacks.uci@gmail.com" target="_top">
-                    venushacks.uci@gmail.com
+                  <a href="mailto:contact@venushacks.com" target="_top">
+                    contact@venushacks.com
                   </a>.
                 </p>
               </section>
@@ -261,8 +261,8 @@ export default class Home extends React.Component {
                   </div>
                   <p className="sponsor-contact-us">
                     Join our movement, contact us&nbsp;
-                    <a href="mailto:venushacks.corporate@gmail.com" target="_top">
-                      venushacks.corporate@gmail.com
+                    <a href="mailto:sponsorships@venushacks.com" target="_top">
+                      sponsorships@venushacks.com
                     </a>.
                   </p>
               </section>
