@@ -4,7 +4,7 @@ import './Footer.scss';
 function Footer() {
     return (
         <footer id="footer">
-            <a href="mailto:venushacks.uci@gmail.com" target="_top">
+            <a href="mailto:contact@venushacks.com" target="_top">
                 <i className="fa fa-envelope"></i>
             </a>
             <a href="https://www.facebook.com/venushacksUCI/" target="_blank" rel="noopener noreferrer">
