@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c649e3fa.css",
-    "main.js": "/static/js/main.84326cd4.js",
+    "main.css": "/static/css/main.87203b98.css",
+    "main.js": "/static/js/main.a47c8ddf.js",
     "static/media/rochelle.jpeg": "/static/media/rochelle.0110e89afbba722b97bd.jpeg",
     "static/media/julianna.jpeg": "/static/media/julianna.8c235a7c6896c26d3513.jpeg",
     "static/media/megha.jpeg": "/static/media/megha.ba2810a8c774fc7f1ec5.jpeg",
@@ -56,8 +56,8 @@
     "static/media/disney.png": "/static/media/disney.2b60d5938307d27be8ab.png",
     "static/media/danielle.jpeg": "/static/media/danielle.a5ee578bbd6a06c942ac.jpeg",
     "static/media/tiffany.jpeg": "/static/media/tiffany.bd998159537659c8d30a.jpeg",
-    "static/media/stars-background.svg": "/static/media/stars-background.9e9d9712c6e3673ab5b3e6b0539ffc20.svg",
     "static/media/uciinformatics.png": "/static/media/uciinformatics.5a08ca1e992f16a6c0b4.png",
+    "static/media/stars-background.svg": "/static/media/stars-background.f7d6c318b39105ddf7b597dcc7c5c9b1.svg",
     "static/media/aasha.jpeg": "/static/media/aasha.ed07b5454314928e4fc1.jpeg",
     "static/media/vh-about.png": "/static/media/vh-about.1fb632778c3c7e86edc5.png",
     "static/media/vh-faq.png": "/static/media/vh-faq.e1642e63968fbbed884a.png",
@@ -78,11 +78,11 @@
     "static/media/vgdc.jpeg": "/static/media/vgdc.50f9dbaf12bc002bcfdc.jpeg",
     "static/media/design.png": "/static/media/design.d5451039757f00aa4985.png",
     "index.html": "/index.html",
-    "main.c649e3fa.css.map": "/static/css/main.c649e3fa.css.map",
-    "main.84326cd4.js.map": "/static/js/main.84326cd4.js.map"
+    "main.87203b98.css.map": "/static/css/main.87203b98.css.map",
+    "main.a47c8ddf.js.map": "/static/js/main.a47c8ddf.js.map"
   },
   "entrypoints": [
-    "static/css/main.c649e3fa.css",
-    "static/js/main.84326cd4.js"
+    "static/css/main.87203b98.css",
+    "static/js/main.a47c8ddf.js"
   ]
 }
