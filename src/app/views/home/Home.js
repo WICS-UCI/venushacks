@@ -159,7 +159,6 @@ export default class Home extends React.Component {
                   <h4 id="date">May 20 - 22, 2022</h4>
                   <p id="tagline">UC Irvine's largest women-centric hackathon</p>
                   <VenusButton text="Apply as a Hacker" url="https://airtable.com/shr1Etr4Typ3FEqBc" />
-                  <VenusButton text="Apply as a Mentor" url="https://airtable.com/shr5Y9x5ocJaJL52j" />
                 </div>
 
             </section>
