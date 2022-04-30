@@ -1,14 +1,14 @@
 import React from "react";
 
-import "./StarterPacks.scss";
+import "./Resources.scss";
 
 import { Tooltip, Footer } from "app/components";
-import { starterPackData } from "assets/data/starter-pack-info.js";
+import { starterPackData } from "assets/data/resources-info.js";
 
-function StarterPacks() {
+function Resources() {
     return (
         <div className="starter-packs">
-            <h2>Starter Packs</h2>
+            <h2>Resources</h2>
             {starterPackData.map(function(starterPack) {
                 return (
                 <div className="starter-pack-card" key={starterPack.name}>
@@ -42,4 +42,4 @@ function StarterPacks() {
     );
 }
 
-export default StarterPacks;
+export default Resources;
