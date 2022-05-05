@@ -12,7 +12,7 @@ import Speakers from "../../components/speakers/speakers";
 import vh_title from 'assets/images/titles/vh-worded-logo.png';
 import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
-import sponsors_title from 'assets/images/titles/vh-sponsors.png';
+// import sponsors_title from 'assets/images/titles/vh-sponsors.png';
 import past_sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
 import partners_title from 'assets/images/titles/vh-partners.png';
 import speakers_title from 'assets/images/titles/vh-speakers.png';
