@@ -54,7 +54,6 @@ import maiss from 'assets/images/partners/maiss.png';
 import mlh from 'assets/images/partners/mlh.png';
 import swe from 'assets/images/partners/swe.jpg';
 import vgdc from 'assets/images/partners/vgdc.jpeg';
-import { VenusButton } from "app/components";
 
 
 
