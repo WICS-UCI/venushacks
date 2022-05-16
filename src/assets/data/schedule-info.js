@@ -1,167 +1,257 @@
 let scheduleData = {
+
+  thurSchedule: [
+    {
+      name: 'Hybrid Team Formation #1',
+      link: 'https://uci.zoom.us/j/93054283933',
+      location: 'Location: Zoom',
+      description: 'Guide to hackathons + Meet fellow hackers!',
+      tooltip: "Want to learn more about what a hackathon is and meet some potential teammates? Join us for tips for hackathon success during our first team formation event!",
+      time: '5:00PM-6:00PM'
+    }
+  ],
+
   friSchedule: [
     {
-      name: 'Hackathon 101 and Team Formation',
-      link: 'https://uci.zoom.us/j/95369921050',
-      description: 'Guide to hackathons + Meet fellow hackers!',
-      tooltip: "Tune into our team formation event to get a head-start on finding teammates to create a cool project together this weekend! We will also be hosting a Hackathon 101 workshop at the beginning where we will discuss what a hackathon is and how to approach VenusHacks, especially as a beginner.",
-      time: '8:00PM-9:00PM'
-    }
+
+      name: 'Early Bird Check In For In-Person Team Formation',
+      location: 'Location: Bottom of DBH',
+      description: 'Check in early to team up!',
+      tooltip: "Please have your negative COVID test result, green ZotPass, and UCI ID when you check in!",
+      time: '3:30PM-4:00PM'
+
+    },
+    {
+
+      name: 'In-Person Team Formation',
+      location: 'Location: Aldrich Park',
+      description: 'Team up hackers!',
+      tooltip: " Get to know your fellow hackers and find potential teammates with an in-person icebreaker event! Meet in front of DBH at 4 PM and we’ll head over to Aldrich Park together!",
+      time: '4:00PM-5:00PM'
+
+    },
+    {
+
+      name: 'Check-In',
+      location: 'Location: Bottom of DBH',
+      description: 'Check in for the hackathon!',
+      tooltip: "Please have your negative COVID test result, green ZotPass, and UCI ID when you check in!",
+      time: '5:00PM-6:00PM'
+
+    },
+    {
+
+      name: 'Dinner',
+      location: 'Location: Java City',
+      description: 'Grab dinner on us!',
+      tooltip: "Take a break from hacking, grab a meal provided by us, and socialize with others!",
+      time: '6:00PM-7:00PM'
+
+    },
+    {
+
+      name: 'Hybrid Team Formation #2',
+      link: 'https://uci.zoom.us/j/97927331684',
+      location: 'Location: Zoom',
+      description: 'Meet fellow hackers!',
+      tooltip: "Haven’t found your teammates yet? Meet your fellow hackers over Zoom in this last-minute networking event!",
+      time: '7:00PM-8:00PM'
+
+    },
+    {
+
+      name: 'Opening Ceremony',
+      location: 'Location: Live Stage',
+      description: '[To-Do]',
+      tooltip: "[Required]",
+      time: '8:00PM-8:30PM'
+
+    },
+    {
+
+      name: 'Hacking Begins',
+      description: 'Blast off!',
+      tooltip: "Hacking officially starts",
+      time: '9:00PM'
+
+    },
+    {
+
+      name: 'Web Design Basics',
+      link: 'https://uci.zoom.us/j/92893547685',
+      location: 'Location: DBH 4011, Zoom',
+      description: 'Design@UCI',
+      tooltip: "Interested in creating a clean and user-friendly design for your project? Join Design at UCI for a workshop that focuses on web design basics, such as visual design principles, colors, accessibility, and more!",
+      time: '9:00PM-10:00PM'
+
+    },
+    {
+
+      name: 'Skribblio',
+      link: 'https://uci.zoom.us/j/94247791031',
+      location: 'Location: Zoom',
+      description: 'Doodle away!',
+      tooltip: "Are you a terrible artist? An amazing artist? Join us for some rounds of Skribbl, where you can put your drawing and guessing skills to the test!",
+      time: '11:00PM-11:30PM'
+
+    },
+    {
+
+      name: 'Origami',
+      location: 'Location: DBH 4011',
+      description: 'Fold paper with us!',
+      tooltip: "Come out to our Origami social for a relaxing break of folding your very own works of paper art!",
+      time: '12:30AM-1:00AM'
+
+    },
+    
   ],
   satSchedule: [
     {
-      name: 'Team Formation',
-      link: 'https://uci.zoom.us/j/92221155593',
-      description: 'Team up hackers!',
-      tooltip: "Didn't make it to yesterday's team formation event? No worries! We are hosting another team formation event right before hacking to help you find members for your ultimate dream team!",
+      name: 'Breakfast',
+      location: 'Location: Java City',
+      description: 'Grab breakfast on us!',
+      tooltip: "Take a break from hacking, grab a meal provided by us, and socialize with others!",
       time: '9:00AM-10:00AM'
     },
     {
-      name: 'Opening Ceremony',
-      link: 'https://youtu.be/YOVul8y9tUw',
-      description: 'Getting started',
-      tooltip: "Welcome to VenusHacks 2021! Our opening ceremony will cover everything you need to know about this weekend, including all the fun workshops, socials, prizes, swag, and more! We will also hear from our opening keynote speaker, Lisa Conn, the Cofounder and Chief Operating Officer at Icebreaker so be sure to join in via YouTube livestream!",
+      name: 'Working with APIs',
+      location: 'Location: DBH 4011, Zoom',
+      link: 'https://uci.zoom.us/j/96689531564',
+      description: 'ICSSC',
+      tooltip: "Join ICSSC to learn about APIs and how to incorporate a REST API into your React project!",
       time: '10:00AM-11:00AM'
     },
     {
-      name: 'Tech for Good Panel',
-      link: 'https://uci.zoom.us/j/94535498642',
-      description: 'Change.org, LaunchCode, Cosmos Pics',
-      tooltip: "Come join us for our Tech for Good panel with inspiring women from Change.org, LaunchCode, and Cosmos Pics! We will be exploring the side of tech that brings good changes into our everyday lives.",
-      time: '11:00AM-12:00PM'
+      name: 'Cox Office Hours',
+      location: 'Location: Outside DBH 6011',
+      description: '[To-Do]',
+      tooltip: "[Required]",
+      time: '11:00AM-1:00PM'
     },
     {
-      name: 'Hacking Begins',
-      description: 'Blast-off!',
-      tooltip: "Hacking officially begins",
-      time: '12:00PM'
-    },
-    {
-      name: 'Intro to Web Dev',
-      link: 'https://uci.zoom.us/j/98907500070',
-      description: 'WICS',
-      tooltip: "Want to create your own full-stack web application but not sure where to start? Come by to learn the basics of HTML/CSS, JavaScript, Bootstrap, and Python Flask by building a simple Expense Tracker!",
+      name: 'Lunch',
+      location: 'Location: Java City',
+      description: 'Grab lunch on us!',
+      tooltip: "Take a break from hacking, grab a meal provided by us, and socialize with others!",
       time: '12:00PM-1:00PM'
     },
     {
-      name: 'iOS Development',
-      link: 'https://uci.zoom.us/j/98043160884',
-      description: 'CodePath',
-      tooltip: "Learn the basics of Xcode and Swift by building a fully-functional restaurant app! This workshop will guide you through iOS development workflows, APIs, and storyboards — all you'll need to kickstart your iOS journey. Refer to the starter packs for the steps you need to take before attending.",
-      time: '12:00PM-1:00PM'
-    },
-    {
-      name: 'Intro to UI/UX Design',
-      link: 'https://uci.zoom.us/j/96828624934',
-      description: 'Design at UCI',
-      tooltip: "Learn why a good user interface is crucial in creating seamless communication with users and why UX thinking matters when developing products. In this workshop, you'll see UX/UI designs come to life in case studies and examples and be able to apply these concepts your own projects! ",
+      name: 'Landing Your First Dev Job',
+      location: 'Location: DBH 4011, Zoom',
+      link: 'https://uci.zoom.us/j/92076806372',
+      description: 'COX',
+      tooltip: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
       time: '1:00PM-2:00PM'
     },
     {
-      name: 'Disney Tech Talk',
-      link: 'https://uci.zoom.us/j/99473643316',
-      description: 'Disney',
-      tooltip: "Infrastructure and software engineers make it possible to stream your favorite movies on Disney+. The Content Delivery Network and Origin team at Disney must deliver the best video quality experience to subscribers in order to stream effectively. To meet this goal, Disney uses multiple content delivery networks (CDNs) as a way to distribute the Disney+ content globally. Join us while we discuss CDNS, midtiers, control planes, and content management and how these all come together to create the streaming experience the world has come to expect from Disney.",
+      name: "What They Don't Tell You About Tech Interviews",
+      link: 'https://uci.zoom.us/j/95687250468',
+      location: 'Location: Zoom',
+      description: 'Learn the tech interview strategies!',
+      tooltip: "Learn about the tech interview and gain insight into how you can improve your interview skills from a software engineer at Yelp! Tips and tricks included.",
       time: '2:00PM-3:00PM'
     },
     {
-      name: 'Android Development',
-      link: 'https://uci.zoom.us/j/92109394679',
-      description: 'CodePath',
-      tooltip: "In this workshop you will learn about Android app architecture, data manipulation, and styling. By the end of the workshop you should have the knowledge to build a simple app which you can build upon for your hackathon project! Refer to the starter packs for the steps you need to take before attending.",
+      name: '[Workshop Name]',
+      link: 'https://uci.zoom.us/j/98098596672',
+      location: 'Location: Zoom',
+      description: 'Shalom',
+      tooltip: "[Required]",
       time: '3:00PM-4:00PM'
     },
     {
-      name: 'APIs 101 Workshop',
-      link: 'https://uci.zoom.us/j/92479898700',
-      description: 'Postman',
-      tooltip: "Learn the basics of APIs in this hands-on 101 session with Postman. Get direct experience working with APIs and Postman,an industry-standard tool. This workshop includes introduction to what APIs are and how to use them, as well as a demo API made by the Postman team that everyone can send live data to.",
+      name: 'How to Pitch a Hackathon Project',
+      link: 'https://uci.zoom.us/j/94731848746',
+      location: 'Location: DBH 4011, Zoom',
+      description: 'MAISS',
+      tooltip: "Learn how to pitch your hackathon project through roadmaps, market fits, commercialization, and more from MAISS!",
       time: '4:00PM-5:00PM'
     },
     {
-      name: 'The Unity Game Engine',
-      link: 'https://uci.zoom.us/j/98094631168',
-      description: 'VGDC',
-      tooltip: "Curious about game development and wondering where to start? In this short workshop, we will get you familiar with the Unity game engine and prepare you for an exciting journey into the world of making games!",
+      name: 'The Basics of Pose Estimation',
+      link: 'https://uci.zoom.us/j/95782535563',
+      location: 'Location: Zoom',
+      description: 'AI@UCI',
+      tooltip: "In this workshop you will learn about Android app architecture, data manipulation, and styling. By the end of the workshop you should have the knowledge to build a simple app which you can build upon for your hackathon project! Refer to the starter packs for the steps you need to take before attending.",
       time: '5:00PM-6:00PM'
     },
     {
-      name: 'Cyber Security Challenge',
-      link: 'https://uci.zoom.us/j/99122491205',
-      description: 'MLH',
-      tooltip: "The USAF Cyber Security Challenge is a beginner-friendly capture the flag style event where you'll tackle a few security challenges in a fun environment. No experience necessary! ",
-      time: '5:30PM-6:00PM'
-    },
-    {
-      name: 'GraphQL Workshop',
-      link: 'https://uci.zoom.us/j/96242131335',
-      description: 'ICSSC',
-      tooltip: "GraphQL is a Web API query language that steps above REST. We’d like to show you why companies like Facebook and SpaceX use GraphQL and how you can incorporate this powerful tool in your project!",
+      name: 'Dinner',
+      location: 'Location: Java City',
+      description: 'Grab dinner on us!',
+      tooltip: "Take a break from hacking, grab a meal provided by us, and socialize with others!",
       time: '6:00PM-7:00PM'
     },
     {
-      name: 'Supervised Learning with Online Datasets Workshop',
-      link: 'https://uci.zoom.us/j/99364847238',
-      description: 'AI@UCI',
-      tooltip: "The topic of this workshop is supervised learning with online datasets. We will first give a brief introduction of artificial intelligence and why it is useful. Then, we will talk about the importance of choosing a good dataset and a good model. We will finish off with a demo of how to create a simple AI program to do image vision task.",
-      time: '7:00PM-8:00PM'
+      name: 'Stretch Break!',
+      link: 'https://uci.zoom.us/j/98362603715',
+      location: 'Location: DBH 4011, Zoom',
+      description: 'Time for a stretch!',
+      tooltip: "Feeling tired and sore after hours of non-stop coding and debugging? Take a short break to stretch and refresh your mind!",
+      time: '8:00PM-8:30PM'
     },
     {
-      name: 'Imposter Syndrome',
-      link: 'https://uci.zoom.us/j/95912998559',
-      description: 'SWE',
-      tooltip: "The Society of Women Engineers will be talking about resources for imposter syndrome and empowerment for women in tech. Join us to learn about how to deal with these feelings on a daily basis and support others who may be feeling this way as well.",
-      time: '8:00PM-9:00PM'
+      name: 'Among Us',
+      link: 'https://uci.zoom.us/j/93344263095',
+      location: "Location: Zoom",
+      description: 'Time to be sussy!',
+      tooltip: "Find out who the imposter among us is! Please make sure to download the mobile app beforehand!",
+      time: '9:00PM-9:30PM'
     },
     {
-      name: 'Drawphone',
-      link: 'https://uci.zoom.us/j/98223072689',
-      description: 'Let\'s have some fun!',
-      tooltip: "Combine Drawing with the game Telephone to get Drawphone ! Come play Drawphone to misinterpret some art and have a good laugh >:^). ",
-      time: '9:00PM-10:00PM'
+      name: 'Wiki Race',
+      link: 'https://uci.zoom.us/j/99259899840',
+      location: 'Location: Zoom',
+      description: 'Time for a race!',
+      tooltip: "Think your researching skills are up to speed? Join us for Wiki Race and click your way to victory!",
+      time: '10:00PM-10:30PM'
     },
     {
-      name: 'How to Pitch Your Hackathon Project',
-      link: 'https://uci.zoom.us/j/94401407167',
-      description: 'MAISS',
-      tooltip: "While hackathons can develop your coding and team-building skills, pitching your final product to the judges can be intimidating. Come through If you're looking to enhance your public speaking skills and learn various strategies to employ during your pitch at a hackathon.",
-      time: '10:00PM-11:00PM'
+      name: 'Paint Along With Bob Ross',
+      location: 'Location: DBH 4011',
+      description: 'Time to paint!',
+      tooltip: "Come and chill with Bob Ross and paint your very own masterpiece!",
+      time: '11:00PM-11:30PM'
     },
-    {
-      name: 'binarysearch',
-      link: 'https://uci.zoom.us/j/95759746304',
-      description: 'Let\'s do some coding!',
-      tooltip: "Have you ever wanted to Leetcode and Chill with your homies? Come out for a round of binarysearch to solve a few problems! Make an account beforehand at https://binarysearch.com.",
-      time: '11:00PM-12:00AM'
-    },
+
   ],
   sunSchedule: [
     {
       name: 'Hacking Ends',
       description: 'Landing!',
       tooltip: "Hacking officially ends",
-      time: '12:00PM'
+      time: '9:00AM'
     },
     {
-      name: 'Diversity in Tech Panel',
-      link: 'https://uci.zoom.us/j/91396656865',
-      description: 'Linode, Darktrace, Procore Technologies',
-      tooltip: "Come join us for our Diversity in Tech Panel with a diverse set of empowering women from Linode, Darktrace, and Procore Technologies. We will be listening to how their identity as women impacted their personal journeys, decisions, and who they are today.",
-      time: '2:00PM-3:00PM'
+      name: 'Breakfast',
+      location: 'Location: Java City',
+      description: 'Grab breakfast on us!',
+      tooltip: "Take a break from hacking, grab a meal provided by us, and socialize with others!",
+      time: '9:00AM-10:00AM'
     },
     {
-      name: 'Bob Ross Painting Along',
-      link: 'https://uci.zoom.us/j/94228741813',
-      description: 'Let\'s get creative!',
-      tooltip: "At Bob Ross MS Paint, you'll relax as you recreate your own Bob Ross painting in MS Paint.",
-      time: '5:30PM-6:00PM'
+      name: 'Project Expo',
+      location: 'Location: DBH 6011',
+      description: "Check out other hackers' projects!",
+      tooltip: "Showcase your projects to other hackers and see the many projects made by other hackers!.",
+      time: '10:30AM-12:00PM'
+    },
+    {
+      name: 'Diversity in Tech 2022 Panel',
+      location: 'Location: Zoom',
+      link: 'https://uci.zoom.us/j/97043599119',
+      description: "Learn what diversity in tech means!",
+      tooltip: "[Required]",
+      time: '12:00PM-1:00PM'
     },
     {
       name: 'Closing Ceremony',
       link: 'https://youtu.be/koFpykh3hrA',
+      location: 'Live Stage',
       description: 'See you next year!',
-      tooltip: "Ready to find out if you won a prize? Then come out to our closing ceremony where we will announce all the winners for VenusHacks 2021! We will also hear from our closing keynote speaker, Emily Van Norden, the Senior Director of DE&I and Corporate Communications at Crowdstrike!",
-      time: '6:00PM-7:00PM'
+      tooltip: "Ready to find out if you won a prize? Then come out to our closing ceremony where we will announce all the winners for VenusHacks 2022!",
+      time: '1:30PM-2:00PM'
     },
     
   ]
