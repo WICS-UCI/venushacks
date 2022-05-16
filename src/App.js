@@ -5,6 +5,7 @@ import './App.scss';
 
 import {
   Home,
+  Schedule,
   Resources,
   NotFound
 } from 'app/views';
@@ -20,6 +21,7 @@ function App() {
         <Nav history={history}></Nav>
         <Switch>
           <Route exact path='/' component={Home}/>
+          <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/resources' component={Resources} />
           <Route path="*" component={NotFound} />
         </Switch>
