@@ -12,8 +12,7 @@ import Speakers from "../../components/speakers/speakers";
 import vh_title from 'assets/images/titles/vh-worded-logo.png';
 import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
-// import sponsors_title from 'assets/images/titles/vh-sponsors.png';
-import past_sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
+import sponsors_title from 'assets/images/titles/vh-sponsors.png';
 import partners_title from 'assets/images/titles/vh-partners.png';
 import speakers_title from 'assets/images/titles/vh-speakers.png';
 import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
@@ -28,22 +27,13 @@ import constellation3 from 'assets/images/vh-pegasus.png';
 // import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
+import assemblyai from 'assets/images/sponsors/assemblyai.png';
 import balsamiq from 'assets/images/sponsors/balsamiq.png';
-import blackberry from 'assets/images/sponsors/blackberry.png';
-import corelogic from 'assets/images/sponsors/corelogic.jpg';
+import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
 import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
-import disney from 'assets/images/sponsors/disney.png';
-import uciinformatics from 'assets/images/sponsors/uciinformatics.png';
-import google_cloud from 'assets/images/sponsors/google_cloud.png';
-import linode from 'assets/images/sponsors/linode.png';
-import matlab from 'assets/images/sponsors/matlab.png';
-import oai from 'assets/images/sponsors/oai.png';
-import postman from 'assets/images/sponsors/postman.png';
-import robinhood from 'assets/images/sponsors/robinhood.png';
-import ucibren from 'assets/images/sponsors/ucibren.png';
-import wayup from 'assets/images/sponsors/wayup.png';
-import zybooks from 'assets/images/sponsors/zybooks.png';
-import zillow from 'assets/images/sponsors/zillow.png';
+import slalom from 'assets/images/sponsors/slalom.png';
+import pimco from 'assets/images/sponsors/pimco.JPG';
+import properdata from 'assets/images/sponsors/properdata.png';
 
 // PARTNERS
 import ai from 'assets/images/partners/ai.png';
@@ -231,29 +221,20 @@ export default class Home extends React.Component {
 
               {/* SPONSORS **********************/}
               <section id="sponsors">
-                  <img className="section-title" src={past_sponsors_title} alt="Sponsor" />
+                  <img className="section-title" src={sponsors_title} alt="Sponsor" />
                   <div id="sponsors-container">
                     <div className="logo-wrapper largest">
-                      {this.renderSponsorLink("blackberry", blackberry, "https://www.blackberry.com/us/en/company/careers/students")}
+                      {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
                     </div>
                     <div className="logo-wrapper large">
-                      {this.renderSponsorLink("ucibren", ucibren, "https://www.ics.uci.edu/")}
+                      {this.renderSponsorLink("pimco", pimco, "https://www.pimco.com/en-us/?showSplash=1")}
+                      {this.renderSponsorLink("properdata", properdata, "https://properdata.eng.uci.edu/")}
                     </div>
                     <div className="logo-wrapper medium">
-                      {this.renderSponsorLink("disney", disney, "https://jobs.disneycareers.com/technology")}
-                      {this.renderSponsorLink("zillow", zillow, "https://www.zillow.com/careers/university/")}
-                      {this.renderSponsorLink("oai", oai, "https://oai.tech.uci.edu/")}
-                      {this.renderSponsorLink("uciinformatics", uciinformatics, "https://www.informatics.uci.edu/")}
-                      {this.renderSponsorLink("google_cloud", google_cloud, "https://cloud.google.com/")}
+                      {this.renderSponsorLink("slalom", slalom, "https://www.slalom.com/")} 
                       {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}
-                      {this.renderSponsorLink("linode", linode, "https://www.linode.com/company/careers/")}
-                      {this.renderSponsorLink("robinhood", robinhood, "https://robinhood.com/us/en/careers/")}
-                      {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/about-us/internships.aspx")}
-                      {this.renderSponsorLink("wayup", wayup, "https://www.wayup.com/")}
-                      {this.renderSponsorLink("matlab", matlab, "https://www.mathworks.com/company/jobs/students.html")}
-                      {this.renderSponsorLink("zybooks", zybooks, "https://www.zybooks.com/careers/")}
-                      {this.renderSponsorLink("postman", postman, "https://www.postman.com/company/careers/")}
+                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}  
+                      {this.renderSponsorLink("assemblyai", assemblyai, "https://www.assemblyai.com/")}
                     </div>
                   </div>
                   <p className="sponsor-contact-us">
