@@ -39,6 +39,11 @@ function Nav() {
             Resources
           </p>
         </Link>
+        <Link to="/workshops">
+          <p>
+            Workshops
+          </p>
+        </Link>
       </div>
     </div>
   )

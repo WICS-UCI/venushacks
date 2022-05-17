@@ -6,6 +6,7 @@ import './App.scss';
 import {
   Home,
   Resources,
+  Workshops,
   NotFound
 } from 'app/views';
 
@@ -21,6 +22,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/resources' component={Resources} />
+          <Route exact path='/workshops' component={Workshops}/>
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
