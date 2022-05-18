@@ -61,9 +61,10 @@ let scheduleData = {
     {
 
       name: 'Opening Ceremony',
-      location: 'Location: Live Stage',
-      description: '[To-Do]',
-      tooltip: "[Required]",
+      link: "https://uci.zoom.us/j/91874723731",
+      location: 'Location: Zoom',
+      description: 'Welcome to VenusHacks!',
+      tooltip: "Tune in to the opening ceremony to hear about the clubs and sponsors behind VenusHacks, as well as important rules and resources for navigating the hackathon!",
       time: '8:00PM-8:30PM'
 
     },
@@ -101,7 +102,7 @@ let scheduleData = {
       location: 'Location: DBH 4011',
       description: 'Fold paper with us!',
       tooltip: "Come out to our Origami social for a relaxing break of folding your very own works of paper art!",
-      time: '12:30AM-1:00AM'
+      time: '12:00AM-1:00AM'
 
     },
     
@@ -123,11 +124,11 @@ let scheduleData = {
       time: '10:00AM-11:00AM'
     },
     {
-      name: 'Cox Office Hours',
+      name: 'Company Office Hours',
       location: 'Location: Outside DBH 6011',
-      description: '[To-Do]',
-      tooltip: "[Required]",
-      time: '11:00AM-1:00PM'
+      description: 'Check out tech companies!',
+      tooltip: "Come join us at the PIMCO (10am-1pm), Cox Automotive (11am-1pm) and Women in CyberSecurity (11am-1pm) tables where you can connect with their employees and hear more about their company!",
+      time: '10:00AM-1:00PM'
     },
     {
       name: 'Lunch',
@@ -140,7 +141,7 @@ let scheduleData = {
       name: 'Landing Your First Dev Job',
       location: 'Location: DBH 4011, Zoom',
       link: 'https://uci.zoom.us/j/92076806372',
-      description: 'COX',
+      description: 'Cox',
       tooltip: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
       time: '1:00PM-2:00PM'
     },
@@ -153,11 +154,11 @@ let scheduleData = {
       time: '2:00PM-3:00PM'
     },
     {
-      name: '[Workshop Name]',
+      name: 'Early Career Opportunities + Info Session',
       link: 'https://uci.zoom.us/j/98098596672',
       location: 'Location: Zoom',
       description: 'Shalom',
-      tooltip: "[Required]",
+      tooltip: "Come hear about Slalom! An overview of the company, early career opportunities for students, and a day-in-the-life of a Slalom software engineer will be provided!",
       time: '3:00PM-4:00PM'
     },
     {
@@ -242,7 +243,7 @@ let scheduleData = {
       location: 'Location: Zoom',
       link: 'https://uci.zoom.us/j/97043599119',
       description: "Learn what diversity in tech means!",
-      tooltip: "[Required]",
+      tooltip: "Come out to our Diversity in Tech Panel with employees from Slack, Crowdstrike, and the Startup industry where we will discuss their experience and their companies relating to diversity!",
       time: '12:00PM-1:00PM'
     },
     {
@@ -250,7 +251,7 @@ let scheduleData = {
       link: 'https://youtu.be/koFpykh3hrA',
       location: 'Live Stage',
       description: 'See you next year!',
-      tooltip: "Ready to find out if you won a prize? Then come out to our closing ceremony where we will announce all the winners for VenusHacks 2022!",
+      tooltip: "Excited for prizes? Come out to the closing ceremony where we will announce all the winners for VenusHacks 2022 and hear some final remarks from our sponsors!",
       time: '1:30PM-2:00PM'
     },
     
