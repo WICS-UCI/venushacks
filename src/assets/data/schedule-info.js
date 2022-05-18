@@ -202,8 +202,7 @@ let scheduleData = {
     },
     {
       name: 'Wiki Race',
-      link: 'https://uci.zoom.us/j/99259899840',
-      location: 'Location: Zoom',
+      location: 'Location: DBH 4011',
       description: 'Time for a race!',
       tooltip: "Think your researching skills are up to speed? Join us for Wiki Race and click your way to victory!",
       time: '10:00PM-10:30PM'
