@@ -60,6 +60,14 @@ let workshopsData = [
             link: "https://jobs.coxenterprises.com/businesses/cox-communications/"
         },
     },
+    {
+        title: "Info Session + Early Career Opportunities", 
+        description: "Come hear about Slalom! An overview of the company, early career opportunities for students, and a day-in-the-life of a Slalom software engineer will be provided!",
+        host: {
+            name: "Shalom",
+            link: "https://www.shalomtechnology.net/"
+        },
+    },
 
 ]
 
