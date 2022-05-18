@@ -24,7 +24,7 @@ let scheduleData = {
     {
 
       name: 'In-Person Team Formation',
-      location: 'Location: Aldrich Park',
+      location: 'Location: Bottom of DBH',
       description: 'Team up hackers!',
       tooltip: " Get to know your fellow hackers and find potential teammates with an in-person icebreaker event! Meet in front of DBH at 4 PM and we’ll head over to Aldrich Park together!",
       time: '4:00PM-5:00PM'
