@@ -1,5 +1,7 @@
 @import "globals/zothacks-styles.scss";
 
+//style={{ 'text-decoration': 'none' }}
+
 .schedule-card {
   border-radius: 20px;
   z-index: 50;
@@ -103,6 +105,14 @@
         color: white;
         margin-bottom: 0;
       }
+    }
+
+    .schedule-card-location {
+    
+      a {
+        text-decoration: none;
+      }
+  
     }
 
     & > div {
