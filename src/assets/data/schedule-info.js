@@ -26,7 +26,7 @@ let scheduleData = {
       name: 'In-Person Team Formation',
       location: 'Location: Bottom of DBH',
       description: 'Team up hackers!',
-      tooltip: " Get to know your fellow hackers and find potential teammates with an in-person icebreaker event! Meet in front of DBH at 4 PM and we’ll head over to Aldrich Park together!",
+      tooltip: "Get to know your fellow hackers and find potential teammates with an in-person icebreaker event!",
       time: '4:00PM-5:00PM'
 
     },
@@ -54,7 +54,7 @@ let scheduleData = {
       link: 'https://uci.zoom.us/j/97927331684',
       location: 'Location: Zoom',
       description: 'Meet fellow hackers!',
-      tooltip: "Haven’t found your teammates yet? Meet your fellow hackers over Zoom in this last-minute networking event!",
+      tooltip: "Haven't found your teammates yet? Meet your fellow hackers over Zoom in this last-minute networking event!",
       time: '7:00PM-8:00PM'
 
     },
@@ -141,7 +141,7 @@ let scheduleData = {
       name: 'Landing Your First Dev Job',
       location: 'Location: DBH 4011, Zoom',
       link: 'https://uci.zoom.us/j/92076806372',
-      description: 'Cox',
+      description: 'Cox Automotive',
       tooltip: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
       time: '1:00PM-2:00PM'
     },
@@ -157,7 +157,7 @@ let scheduleData = {
       name: 'Early Career Opportunities + Info Session',
       link: 'https://uci.zoom.us/j/98098596672',
       location: 'Location: Zoom',
-      description: 'Shalom',
+      description: 'Slalom',
       tooltip: "Come hear about Slalom! An overview of the company, early career opportunities for students, and a day-in-the-life of a Slalom software engineer will be provided!",
       time: '3:00PM-4:00PM'
     },
@@ -174,7 +174,7 @@ let scheduleData = {
       link: 'https://uci.zoom.us/j/95782535563',
       location: 'Location: Zoom',
       description: 'AI@UCI',
-      tooltip: "In this workshop you will learn about Android app architecture, data manipulation, and styling. By the end of the workshop you should have the knowledge to build a simple app which you can build upon for your hackathon project! Refer to the starter packs for the steps you need to take before attending.",
+      tooltip: "Want to augment your hackathon project? Visit AI@UCI as they examine how to integrate a deep learning model.",
       time: '5:00PM-6:00PM'
     },
     {
@@ -234,21 +234,21 @@ let scheduleData = {
       name: 'Project Expo',
       location: 'Location: DBH 6011',
       description: "Check out other hackers' projects!",
-      tooltip: "Showcase your projects to other hackers and see the many projects made by other hackers!.",
+      tooltip: "Showcase your projects to other hackers and see the many projects made by other hackers!",
       time: '10:30AM-12:00PM'
     },
     {
       name: 'Diversity in Tech 2022 Panel',
       location: 'Location: Zoom',
       link: 'https://uci.zoom.us/j/97043599119',
-      description: "Learn what diversity in tech means!",
+      description: "Learn what diversity in tech means to our panelists!",
       tooltip: "Come out to our Diversity in Tech Panel with employees from Slack, Crowdstrike, and the Startup industry where we will discuss their experience and their companies relating to diversity!",
       time: '12:00PM-1:00PM'
     },
     {
       name: 'Closing Ceremony',
-      link: 'https://youtu.be/koFpykh3hrA',
-      location: 'Live Stage',
+      link: 'https://uci.zoom.us/j/94217501590',
+      location: 'Location: Zoom',
       description: 'See you next year!',
       tooltip: "Excited for prizes? Come out to the closing ceremony where we will announce all the winners for VenusHacks 2022 and hear some final remarks from our sponsors!",
       time: '1:30PM-2:00PM'
