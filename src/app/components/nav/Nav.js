@@ -49,6 +49,11 @@ function Nav() {
             Workshops
           </p>
         </Link>
+        <Link to="/report">
+          <p>
+            Incident Form
+          </p>
+        </Link>
       </div>
     </div>
   )
