@@ -10,14 +10,14 @@ function Event(props) {
     <div className="schedule-card-time-slot">
       <div>
         <h5> {name}</h5>
-        <div class="schedule-card-location">
+        <div className="schedule-card-location">
           <a href={link} >
             <p>Location: {location}</p>
           </a>
         </div>
-        <div class="schedule-card-tooltip">
+        <div className="schedule-card-tooltip">
           <p>{description}</p>
-          <span class="schedule-card-tooltiptext">{tooltip}</span>
+          <span className="schedule-card-tooltiptext">{tooltip}</span>
         </div>
       </div>
       <div style={{ 'textAlign': 'right' }}>
