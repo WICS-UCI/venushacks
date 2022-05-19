@@ -3,6 +3,30 @@ import './ScheduleCard.scss';
 
 import { scheduleData } from "assets/data/schedule-info.js";
 
+function Event(props) {
+  const { name, link, location, description, time, tooltip } = props;
+
+  return (
+    <div className="schedule-card-time-slot">
+      <div>
+        <h5> {name}</h5>
+        <div class="schedule-card-location">
+          <a href={link} >
+            <p>Location: {location}</p>
+          </a>
+        </div>
+        <div class="schedule-card-tooltip">
+          <p>{description}</p>
+          <span class="schedule-card-tooltiptext">{tooltip}</span>
+        </div>
+      </div>
+      <div style={{ 'textAlign': 'right' }}>
+        <h5>{time}</h5>
+      </div>
+    </div>
+  )
+}
+
 function ScheduleCard() {
   const { thurSchedule, friSchedule, satSchedule, sunSchedule } = scheduleData;
 
@@ -14,27 +38,7 @@ function ScheduleCard() {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {thurSchedule.map(function (event, index) {
-            return (
-              <div className="schedule-card-time-slot" key={index}>
-                <div>
-                  <h5> {event.name}</h5>
-                  <div class="schedule-card-location">
-                    <a href={event.link} >
-                      <p>{event.location}</p>
-                    </a>
-                  </div>
-                  <div class="schedule-card-tooltip">
-                    <p>{event.description}</p>
-                    <span class="schedule-card-tooltiptext">{event.tooltip}</span>
-                  </div>
-                </div>
-                <div style={{ 'textAlign': 'right' }}>
-                  <h5>{event.time}</h5>
-                </div>
-              </div>
-            )
-          })}
+          {thurSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
       </div>
       <div className="schedule-card-section">
@@ -43,27 +47,7 @@ function ScheduleCard() {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {friSchedule.map(function (event, index) {
-            return (
-              <div className="schedule-card-time-slot" key={index}>
-                <div>
-                  <h5> {event.name}</h5>
-                  <div class="schedule-card-location">
-                    <a href={event.link} >
-                      <p>{event.location}</p>
-                    </a>
-                  </div>
-                  <div class="schedule-card-tooltip">
-                    <p>{event.description}</p>
-                    <span class="schedule-card-tooltiptext">{event.tooltip}</span>
-                  </div>
-                </div>
-                <div style={{ 'textAlign': 'right' }}>
-                  <h5>{event.time}</h5>
-                </div>
-              </div>
-            )
-          })}
+          {friSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
       </div>
       <div className="schedule-card-section">
@@ -72,27 +56,7 @@ function ScheduleCard() {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {satSchedule.map(function (event, index) {
-            return (
-              <div className="schedule-card-time-slot" key={index}>
-                <div>
-                  <h5> {event.name}</h5>
-                  <div class="schedule-card-location">
-                    <a href={event.link} >
-                      <p>{event.location}</p>
-                    </a>
-                  </div>
-                  <div class="schedule-card-tooltip">
-                    <p>{event.description}</p>
-                    <span class="schedule-card-tooltiptext">{event.tooltip}</span>
-                  </div>
-                </div>
-                <div style={{ 'textAlign': 'right' }}>
-                  <h5>{event.time}</h5>
-                </div>
-              </div>
-            )
-          })}
+          {satSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
       </div>
       <div className="schedule-card-section">
@@ -101,27 +65,7 @@ function ScheduleCard() {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {sunSchedule.map(function (event, index) {
-            return (
-              <div className="schedule-card-time-slot" key={index}>
-                <div>
-                  <h5> {event.name}</h5>
-                  <div class="schedule-card-location">
-                    <a href={event.link} >
-                      <p>{event.location}</p>
-                    </a>
-                  </div>
-                  <div class="schedule-card-tooltip">
-                    <p>{event.description}</p>
-                    <span class="schedule-card-tooltiptext">{event.tooltip}</span>
-                  </div>
-                </div>
-                <div style={{ 'textAlign': 'right' }}>
-                  <h5>{event.time}</h5>
-                </div>
-              </div>
-            )
-          })}
+          {sunSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
       </div>
     </div>
