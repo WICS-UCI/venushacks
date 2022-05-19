@@ -37,13 +37,11 @@ import properdata from 'assets/images/sponsors/properdata.png';
 
 // PARTNERS
 import ai from 'assets/images/partners/ai.png';
-import codepath from 'assets/images/partners/codepath.png';
 import design from 'assets/images/partners/design.png';
+import googlecloud from 'assets/images/partners/googlecloud.png';
 import icssc from 'assets/images/partners/icssc.png';
 import maiss from 'assets/images/partners/maiss.png';
-import mlh from 'assets/images/partners/mlh.png';
-import swe from 'assets/images/partners/swe.jpg';
-import vgdc from 'assets/images/partners/vgdc.jpeg';
+import wicys from 'assets/images/partners/wicys.png';
 
 
 
@@ -251,13 +249,11 @@ export default class Home extends React.Component {
                   <div id="partners-container">
                     <div className="logo-wrapper medium">
                       {this.renderSponsorLink("ai", ai, "https://aiclub.ics.uci.edu/")}
-                      {this.renderSponsorLink("codepath", codepath, "https://codepath.org/")}
                       {this.renderSponsorLink("design", design, "https://designatuci.com/")}
+                      {this.renderSponsorLink("google cloud", googlecloud, "https://cloud.google.com/")}
                       {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
                       {this.renderSponsorLink("maiss", maiss, "http://www.maissuci.com/")}
-                      {this.renderSponsorLink("mlh", mlh, "https://mlh.io/")}
-                      {this.renderSponsorLink("swe", swe, "https://sites.uci.edu/societywomenengineers/")}
-                      {this.renderSponsorLink("vgdc", vgdc, "https://sites.google.com/uci.edu/vgdcuci/home")}
+                      {this.renderSponsorLink("wicys", wicys, "https://www.wicys.org/")}
                     </div>
                   </div>
               </section>
