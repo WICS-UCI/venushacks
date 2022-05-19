@@ -25,6 +25,7 @@ function App() {
           <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/resources' component={Resources} />
           <Route exact path='/workshops' component={Workshops}/>
+          <Route exact path='/report' component={()=>{window.location.replace("https://docs.google.com/forms/d/e/1FAIpQLSepDdiImhchD7eBsRwiQk9a9TG5nQwdtPumrDUKEeX3tZLaKw/viewform"); return null;}} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
