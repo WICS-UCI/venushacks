@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a8e6fa32.css",
-    "main.js": "/static/js/main.4b6b53f1.js",
+    "main.css": "/static/css/main.39d0d05f.css",
+    "main.js": "/static/js/main.a14359fb.js",
     "static/media/rochelle.jpeg": "/static/media/rochelle.0110e89afbba722b97bd.jpeg",
     "static/media/julianna.jpeg": "/static/media/julianna.8c235a7c6896c26d3513.jpeg",
     "static/media/megha.jpeg": "/static/media/megha.ba2810a8c774fc7f1ec5.jpeg",
@@ -31,11 +31,9 @@
     "static/media/big-planet.png": "/static/media/big-planet.7c28a692e358c8a0bbe7.png",
     "static/media/nicole.jpeg": "/static/media/nicole.e772da276cbab07d626b.jpeg",
     "static/media/new-laptop.png": "/static/media/new-laptop.ef1b21b4ff7a59c93f3c.png",
-    "static/media/swe.jpg": "/static/media/swe.42a6fe16bd2b2c89342f.jpg",
     "static/media/nathan.jpeg": "/static/media/nathan.574238b0541dd766a18b.jpeg",
     "static/media/vh-pegasus.png": "/static/media/vh-pegasus.3b75df15ec71dc419cc0.png",
     "static/media/ekaterina.jpeg": "/static/media/ekaterina.874dfc77beb6c6b3a35d.jpeg",
-    "static/media/codepath.png": "/static/media/codepath.40e1a3665875be668036.png",
     "static/media/assemblyai.png": "/static/media/assemblyai.9687abeb6643a02b60b6.png",
     "static/media/parsa.jpeg": "/static/media/parsa.9a772277b37837cc8ac0.jpeg",
     "static/media/astronaut.png": "/static/media/astronaut.50444f0231466172c6bb.png",
@@ -54,25 +52,26 @@
     "static/media/rong.jpeg": "/static/media/rong.044c3ce7d5c57eb54b1d.jpeg",
     "static/media/khushi.jpeg": "/static/media/khushi.57dbc5c703b517b193db.jpeg",
     "static/media/danielle.jpeg": "/static/media/danielle.a5ee578bbd6a06c942ac.jpeg",
+    "static/media/wicys.png": "/static/media/wicys.4b629b5a0090b212ede1.png",
     "static/media/tiffany.jpeg": "/static/media/tiffany.bd998159537659c8d30a.jpeg",
     "static/media/stars-background.svg": "/static/media/stars-background.f7d6c318b39105ddf7b597dcc7c5c9b1.svg",
     "static/media/aasha.jpeg": "/static/media/aasha.ed07b5454314928e4fc1.jpeg",
     "static/media/vh-about.png": "/static/media/vh-about.1fb632778c3c7e86edc5.png",
     "static/media/vh-faq.png": "/static/media/vh-faq.e1642e63968fbbed884a.png",
     "static/media/coxautomotive.png": "/static/media/coxautomotive.5500992900be48d4176e.png",
+    "static/media/googlecloud.png": "/static/media/googlecloud.a2da4ca592641b864c26.png",
     "static/media/sally.jpeg": "/static/media/sally.bd32352357023ff5fbcb.jpeg",
     "static/media/vh-worded-logo.png": "/static/media/vh-worded-logo.e65c051923f558f5d78a.png",
     "static/media/maira.jpeg": "/static/media/maira.8e83eb486d96f0977cdf.jpeg",
     "static/media/chase.jpeg": "/static/media/chase.985ba2ca2df44ab93e0f.jpeg",
-    "static/media/vgdc.jpeg": "/static/media/vgdc.50f9dbaf12bc002bcfdc.jpeg",
     "static/media/design.png": "/static/media/design.d5451039757f00aa4985.png",
     "static/media/pimco.JPG": "/static/media/pimco.21dfb2e87794df596267.JPG",
     "index.html": "/index.html",
-    "main.a8e6fa32.css.map": "/static/css/main.a8e6fa32.css.map",
-    "main.4b6b53f1.js.map": "/static/js/main.4b6b53f1.js.map"
+    "main.39d0d05f.css.map": "/static/css/main.39d0d05f.css.map",
+    "main.a14359fb.js.map": "/static/js/main.a14359fb.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8e6fa32.css",
-    "static/js/main.4b6b53f1.js"
+    "static/css/main.39d0d05f.css",
+    "static/js/main.a14359fb.js"
   ]
 }
