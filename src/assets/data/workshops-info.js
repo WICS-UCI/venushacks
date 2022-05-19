@@ -33,8 +33,8 @@ let workshopsData = [
         title: "What They Don't Tell You About Tech Interviews", 
         description: "Are you terrified of the tech interview process? Do you wish someone could just give you an end-to-end overview of what the whole process is like? Or are you someone who’s very frustrated with how you just don’t seem to understand what the interviewer wants? You get interviews and you seem to do everything right on paper, but something’s still amiss? If you find yourself saying yes to any of these questions, then this workshop is for you. In this workshop, we’ll walkthrough the tech interview process, including the art of networking during COVID, the standard tech interview process, tips and tricks for behavioural and technical rounds which go beyond just getting the question right and that’ll really help you stand out as a candidate, post-interview etiquette, compensation packages and negotiation etc. The best part? I recently went through this process myself so you’ll also get to hear the silly mistakes that I made along the way and what I learnt as I went along!",
         host: {
-            name: "Yelp",
-            link: "https://www.yelp.careers/us/en"
+            name: "Fatima Taj",
+            link: "https://www.linkedin.com/in/fatima-taj-37363a109/?originalSubdomain=ca"
         },
     },
     {
@@ -57,7 +57,7 @@ let workshopsData = [
         description: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
         host: {
             name: "Cox",
-            link: "https://jobs.coxenterprises.com/businesses/cox-communications/"
+            link: "https://www.coxautoinc.com/"
         },
     },
     {
@@ -65,7 +65,7 @@ let workshopsData = [
         description: "Come hear about Slalom! An overview of the company, early career opportunities for students, and a day-in-the-life of a Slalom software engineer will be provided!",
         host: {
             name: "Shalom",
-            link: "https://www.shalomtechnology.net/"
+            link: "https://www.slalom.com/"
         },
     },
 
