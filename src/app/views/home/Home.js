@@ -253,7 +253,7 @@ export default class Home extends React.Component {
                       {this.renderSponsorLink("google cloud", googlecloud, "https://cloud.google.com/")}
                       {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
                       {this.renderSponsorLink("maiss", maiss, "http://www.maissuci.com/")}
-                      {this.renderSponsorLink("wicys", wicys, "https://www.wicys.org/")}
+                      {this.renderSponsorLink("wicys", wicys, "https://sites.uci.edu/wicys/")}
                     </div>
                   </div>
               </section>
