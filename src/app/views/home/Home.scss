@@ -341,14 +341,14 @@ $laptop: "./../../../assets/images/new-laptop.png";
   } // END PARTNERS
 
   #speakers {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
 
     .section-title {
-      height: 200px;
+      height: 110px;
       @media screen and (max-width: $break-medium) {
         height: 25vw;
         max-height: 150px;
