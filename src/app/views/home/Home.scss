@@ -163,12 +163,12 @@ $laptop: "./../../../assets/images/new-laptop.png";
     flex-direction: column;
 
     .section-title {
-      height: 110px;
+      height: 90px;
       margin: 20px auto 30px;
 
       @media screen and (max-width: $break-medium) {
-        height: 18vw;
-        max-height: 80px;
+        height: 35vw;
+        max-height: 100px;
         margin: 20px auto;
       }
     }
@@ -207,13 +207,10 @@ $laptop: "./../../../assets/images/new-laptop.png";
     flex-direction: column;
 
     .section-title {
-      height: 120px;
-      margin: 20px auto 30px;
-
+      height: 110px;
       @media screen and (max-width: $break-medium) {
-        height: 18vw;
-        max-height: 80px;
-        margin: 20px auto;
+        height: 25vw;
+        max-height: 150px;
       }
     }
 
@@ -234,8 +231,10 @@ $laptop: "./../../../assets/images/new-laptop.png";
 
     .section-title {
       height: 120px;
-      //margin: 20px auto 30px;
-      
+      @media screen and (max-width: $break-medium) {
+        height: 25vw;
+        max-height: 150px;
+      }
     }
 
     #sponsors-container {
@@ -292,7 +291,7 @@ $laptop: "./../../../assets/images/new-laptop.png";
     margin-top: 50px;
 
     .section-title {
-      height: 200px;
+      height: 120px;
       @media screen and (max-width: $break-medium) {
         height: 25vw;
         max-height: 150px;
@@ -371,12 +370,12 @@ $laptop: "./../../../assets/images/new-laptop.png";
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 50px;
 
     .section-title {
-      height: 90px;
+      height: 100px;
       @media screen and (max-width: $break-medium) {
-        height: 12vw;
+        height: 15vw;
         max-height: 70px;
       }
     }
