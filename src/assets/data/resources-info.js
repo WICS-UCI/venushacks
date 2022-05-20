@@ -16,12 +16,6 @@ let starterPackData = [
           "Checkout the frontend project and video tutorial from ZotHacks 2020! A great first step to getting started with a React frontend."
       },
       {
-        name: "Figma Giveaway",
-        link: "https://docs.google.com/forms/d/e/1FAIpQLSfeaWeXJvj_ZbZZCCb54gh83RS4hmz30g4H_L0jPKqP7KwFHQ/viewform",
-        tooltip: 
-          "Figma is giving away $100 worth of Figma swag to anyone who verifies their education status over the weekend!"
-      },
-      {
         name: "iOS App Development Workshop",
         link: "https://www.youtube.com/watch?v=50Uxl6hz3Ug",
         tooltip:
