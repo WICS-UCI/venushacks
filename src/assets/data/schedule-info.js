@@ -117,7 +117,7 @@ let scheduleData = {
     },
     {
       name: 'Working with APIs',
-      location: 'DBH 4011, Zoom',
+      location: 'DBH 3011, Zoom',
       link: 'https://uci.zoom.us/j/96689531564',
       description: 'ICSSC',
       tooltip: "Join ICSSC to learn about APIs and how to incorporate a REST API into your React project!",
@@ -139,7 +139,7 @@ let scheduleData = {
     },
     {
       name: 'Landing Your First Dev Job',
-      location: 'DBH 4011, Zoom',
+      location: 'DBH 3011, Zoom',
       link: 'https://uci.zoom.us/j/92076806372',
       description: 'Cox Automotive',
       tooltip: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
@@ -164,7 +164,7 @@ let scheduleData = {
     {
       name: 'How to Pitch a Hackathon Project',
       link: 'https://uci.zoom.us/j/94731848746',
-      location: 'DBH 4011, Zoom',
+      location: 'DBH 3011, Zoom',
       description: 'MAISS',
       tooltip: "Learn how to pitch your hackathon project through roadmaps, market fits, commercialization, and more from MAISS!",
       time: '4:00PM-5:00PM'
@@ -187,7 +187,7 @@ let scheduleData = {
     {
       name: 'Stretch Break!',
       link: 'https://uci.zoom.us/j/98362603715',
-      location: 'DBH 4011, Zoom',
+      location: 'DBH 3011, Zoom',
       description: 'Time for a stretch!',
       tooltip: "Feeling tired and sore after hours of non-stop coding and debugging? Take a short break to stretch and refresh your mind!",
       time: '8:00PM-8:30PM'
@@ -202,14 +202,14 @@ let scheduleData = {
     },
     {
       name: 'Wiki Race',
-      location: 'DBH 4011',
+      location: 'DBH 3011',
       description: 'Time for a race!',
       tooltip: "Think your researching skills are up to speed? Join us for Wiki Race and click your way to victory!",
       time: '10:00PM-10:30PM'
     },
     {
       name: 'Paint Along With Bob Ross',
-      location: 'DBH 4011',
+      location: 'DBH 3011',
       description: 'Time to paint!',
       tooltip: "Come and chill with Bob Ross and paint your very own masterpiece!",
       time: '11:00PM-11:30PM'
