@@ -117,7 +117,7 @@ let scheduleData = {
     },
     {
       name: 'Working with APIs',
-      location: 'DBH 3011, Zoom',
+      location: 'Zoom',
       link: 'https://uci.zoom.us/j/96689531564',
       description: 'ICSSC',
       tooltip: "Join ICSSC to learn about APIs and how to incorporate a REST API into your React project!",
