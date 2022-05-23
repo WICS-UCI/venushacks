@@ -43,7 +43,7 @@ import icssc from 'assets/images/partners/icssc.png';
 import maiss from 'assets/images/partners/maiss.png';
 import wicys from 'assets/images/partners/wicys.png';
 
-
+import { VenusButton } from "app/components";
 
 export default class Home extends React.Component {
 
@@ -145,6 +145,7 @@ export default class Home extends React.Component {
                   <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
                   <h4 id="date">May 20 - 22, 2022</h4>
                   <p id="tagline">UC Irvine's largest women-centric hackathon</p>
+                  <VenusButton text="Devpost" url="https://venushacks-2022.devpost.com/"/>
                 </div>
 
             </section>
