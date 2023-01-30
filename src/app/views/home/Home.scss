@@ -1,4 +1,4 @@
-@import "globals/zothacks-styles.scss";
+@import "globals/vh-styles.scss";
 
 $astronaut: "./../../../assets/images/astronaut-float.png";
 $laptop: "./../../../assets/images/new-laptop.png";
@@ -192,7 +192,7 @@ $laptop: "./../../../assets/images/new-laptop.png";
       }
   
       #asterisk-inclusive {
-        color: $lightPink;
+        color: $pink;
 
         @media screen and (max-width: $break-medium) {
           font-size: 20px;

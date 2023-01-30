@@ -1,4 +1,4 @@
-@import "globals/zothacks-styles.scss";
+@import "globals/vh-styles.scss";
 
 #faq-accordion-wrapper {
   width: 80vw;
@@ -54,7 +54,7 @@ div.card-body {
 }
 div.card-header:hover {
   cursor: pointer;
-  color: $lightPink;
+  color: $pink;
 }
 div.card-body {
   font-size: 1.2em;
