@@ -2,7 +2,8 @@ import React from "react";
 import './Schedule.scss';
 
 
-import { FloatingHat, ScheduleCard, Footer } from 'app/components';
+// import { FloatingHat, ScheduleCard, Footer } from 'app/components';
+import { FloatingHat, Footer } from 'app/components';
 
 function Schedule() {
   return (
