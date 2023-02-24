@@ -1,4 +1,4 @@
-@import "globals/zothacks-styles.scss";
+@import "globals/vh-styles.scss";
 
 .App {
   text-align: center;
@@ -6,7 +6,7 @@
   width: 100vw;
   background-color: $lightBackground;
   color: $fontColor;
-  font-family: $hackUCIFont;
+  font-family: $vhFont;
   overflow-y: auto;
   background-image: $gradientBackground;
   background-attachment: fixed;
@@ -44,13 +44,13 @@
   }
 
   a {
-    color: $lightPink;
+    color: $pink;
     font-weight: 500;
     text-decoration: underline;
     transition: 0.3s;
   }
 
   a:hover {
-    color: $darkerPink;
+    color: $purple;
   }
 }

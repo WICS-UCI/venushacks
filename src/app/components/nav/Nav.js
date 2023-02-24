@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 import './Nav.scss';
@@ -29,7 +29,7 @@ function Nav() {
         {showDropMenu ? 'x' : '≡'}
       </Button>
       <div className={"nav-left" + (showDropMenu ? " show" : "")}>
-        <Link to="/">
+        {/* <Link to="/">
           <p>
             Home
           </p>
@@ -48,12 +48,12 @@ function Nav() {
           <p>
             Workshops
           </p>
-        </Link>
-        <Link to="/report">
+        </Link> */}
+        {/* <Link to="/report">
           <p>
             Incident Form
           </p>
-        </Link>
+        </Link> */}
       </div>
     </div>
   )

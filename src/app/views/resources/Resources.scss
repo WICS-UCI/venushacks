@@ -1,4 +1,4 @@
-@import "globals/zothacks-styles.scss";
+@import "globals/vh-styles.scss";
 
 .starter-packs {
   min-height: 100vh;
@@ -87,7 +87,7 @@
         margin-bottom: 1rem;
 
         div {
-          border: 3px solid $lightPink;
+          border: 3px solid $pink;
           width: 100%;
           padding: 1rem;
           border-radius: 1rem;

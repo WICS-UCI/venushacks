@@ -1,4 +1,4 @@
-@import "globals/zothacks-styles.scss";
+@import "globals/vh-styles.scss";
 
 $astronaut: "./../../../assets/images/astronaut-float.png";
 $laptop: "./../../../assets/images/new-laptop.png";
@@ -20,6 +20,11 @@ $laptop: "./../../../assets/images/new-laptop.png";
         max-height: 40px;
       }
     }
+  }
+
+  // TODO: Remove once padding is removed
+  section#padding:last-of-type {
+    min-height: 15vh;
   }
 
   .parallax-asset {
@@ -192,7 +197,7 @@ $laptop: "./../../../assets/images/new-laptop.png";
       }
   
       #asterisk-inclusive {
-        color: $lightPink;
+        color: $pink;
 
         @media screen and (max-width: $break-medium) {
           font-size: 20px;

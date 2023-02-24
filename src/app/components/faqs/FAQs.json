@@ -1,54 +1,50 @@
 [
-    {
-        "question": "What is a hackathon?",
-        "answer": "A hackathon is a 24 hour event where students of different backgrounds come together to collaborate on a project. Teams of up to 4 work together on brainstorming an idea and bringing the technology to life, and may present the project to possibly win some awesome prizes! You can also attend workshops, hear from inspiring speakers, and network with company representatives and fellow hackers."
-    },
-    {
-        "question": "Who can participate?",
-        "answer": "We hope this event inspires and highlights high school, undergraduate, and graduate students identifying as women, gender minorities, or allies to hack. There are also opportunities to participate as mentors and volunteers to support!"
-    },
-    {
-        "question": "Can high schoolers attend?",
-        "answer": "Yes! However, you must be at least 18 years old at the time of the hackathon to attend."
-    },
-    {
-        "question": "Does this event cost money to attend?",
-        "answer": "No, admission to the event is free! We will also be providing workshops and activities throughout the weekend, as well as virtual swag!"
-    },
-    {
-        "question": "What do I need?",
-        "answer": "An open mind, laptop, charger, and anything else you would need to hack! If attending in-person (UCI students only), be sure to also bring a proper face covering following UCI guidelines, valid UCI Student ID, a refillable water bottle, comfy clothes, and personal hygienic supplies if staying overnight."
-    },
-    {
-        "question": "What if I have no experience?",
-        "answer": "Perfect! We welcome hackers of all experience levels and backgrounds. We will be providing resources and workshops to help new hackers get started on projects and learn new technologies. There will also be mentors at the event to help guide you!"
-    },
-    {
-        "question": "Do I sign up as an individual or as a team?",
-        "answer": "Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during team formation at the start of the hackathon. To be officially considered a team, all of your teammates must be signed up for the hackathon's Devpost and must join your team's project submission. Details about the Devpost will be given at the event!"
-    },
-    {
-        "question": "Can I come with a project pre-built or will I have to build from scratch?",
-        "answer": "You will be building your project from scratch. However, feel free to come with ideas of what you want to build!"
-    },
-    {
-        "question": "Can international students participate?",
-        "answer": "VenusHacks is limited to hackers within the United States."
-    },
-    {
-        "question": "Can I attend in-person?",
-        "answer": "In-person attendance is limited to only official UCI students with proper UCI identification. However, anyone can attend virtually!"
-    },
-    {
-        "question": "How many people can be on a team?",
-        "answer": "Up to 4 hackers can be on a team."
-    },
-    {
-        "question": "When are applications due?",
-        "answer": "Applications are due May 13th, 2022 at 11:59pm."
-    },
-    {
-        "question": "How do I get hyped?",
-        "answer": "Follow our Facebook page: <a href='https://www.facebook.com/venushacksUCI/' target='_blank'>@venushacksUCI</a> and our Instagram: <a href='https://www.instagram.com/venushacksuci/' target='_blank'>@venushacks_uci</a> for important updates!"
-    }
+	{
+		"question": "What is a hackathon?",
+		"answer": "A hackathon is a 36 hour event where students of different backgrounds come together to collaborate on a project. Teams of up to 4 work together on brainstorming an idea and bringing the technology for that idea to life! Submit your project within the 36 hour window for the chance to win some awesome prizes! You can also attend workshops, hear from inspiring speakers, and network with company representatives and fellow hackers."
+	},
+	{
+		"question": "Who can participate?",
+		"answer": "We hope this event inspires and highlights high school, undergraduate, and graduate students ages 18 or older who identify as women, gender minorities, or allies interested in technology. There are also opportunities to participate as mentors and volunteers to support!"
+	},
+	{
+		"question": "Can high schoolers attend?",
+		"answer": "Yes! However, you must be at least 18 years old at the time of the hackathon to attend."
+	},
+	{
+		"question": "Will transportation to the event or overnight accommodations be provided?",
+		"answer": "No, all attendees (UCI and non-UCI students) are responsible for their own transportation to UC Irvine and overnight stay between event days."
+	},
+	{
+		"question": "What do I need? (What can/should I bring?)",
+		"answer": "An open mind, valid photo ID, laptop, charger, and anything else you would need to hack! We also encourage bringing a refillable water bottle and any items that might come in handy during the hacking experience (e.g., for inspiration or comfort)."
+	},
+	{
+		"question": "What if I have no experience?",
+		"answer": "Perfect! We welcome hackers of all experience levels and backgrounds. We will be providing resources and workshops to help new hackers get started on projects and learn new technologies. There will also be mentors at the event to help guide you!"
+	},
+	{
+		"question": "Do I sign up as an individual or as a team?",
+		"answer": "Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during our team formation event at the start of the hackathon. "
+	},
+	{
+		"question": "Can I come with a project pre-built or will I have to build from scratch?",
+		"answer": "You will be building your project from scratch. Participants that start working on their projects before the hacking period begins will be immediately disqualified from the competition. However, feel free to come up with ideas of what you want to build before the hackathon!"
+	},
+	{
+		"question": "Will the hackathon be in-person or online?",
+		"answer": "VenusHacks 2023 will be fully in-person! Hackers should expect to be available in-person all 3 event days from Friday night to Sunday morning."
+	},
+	{
+		"question": "How many people can be on a team?",
+		"answer": "Up to 4 hackers can be on a team."
+	},
+	{
+		"question": "When will applications open?",
+		"answer": "Applications will open early April."
+	},
+	{
+		"question": "How do I get hyped?",
+		"answer": "Follow our Facebook page: @venushacksUCI and our Instagram: @venushacks_uci for important updates!"
+	}
 ]
