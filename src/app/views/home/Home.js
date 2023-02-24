@@ -268,7 +268,7 @@ export default class Home extends React.Component {
 
               {/* MEET THE TEAM ******************/}
               {/* TODO: Replace padding once org photos are back */}
-              <section />
+              <section id="padding" />
               {/* <section id="meet-team">
                 <img className="section-title" src={meet_team_title} alt="Meet the Team" />
                 <Team/>

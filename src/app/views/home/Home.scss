@@ -23,7 +23,7 @@ $laptop: "./../../../assets/images/new-laptop.png";
   }
 
   // TODO: Remove once padding is removed
-  section:last-of-type {
+  section#padding:last-of-type {
     min-height: 15vh;
   }
 
