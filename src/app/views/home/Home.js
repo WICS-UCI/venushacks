@@ -4,7 +4,7 @@ import './Home.scss';
 
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
-import Team from '../../components/meet-team/team';
+// import Team from '../../components/meet-team/team';
 import Speakers from "../../components/speakers/speakers";
 
 
@@ -15,7 +15,7 @@ import faq_title from 'assets/images/titles/vh-faq.png';
 import sponsors_title from 'assets/images/titles/vh-sponsors.png';
 import partners_title from 'assets/images/titles/vh-partners.png';
 import speakers_title from 'assets/images/titles/vh-speakers.png';
-import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
+// import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 // PARALLAX ASSETS
 import stars_background from 'assets/images/stars-background.svg';
@@ -43,7 +43,9 @@ import icssc from 'assets/images/partners/icssc.png';
 import maiss from 'assets/images/partners/maiss.png';
 import wicys from 'assets/images/partners/wicys.png';
 
-import { VenusButton } from "app/components";
+// import { VenusButton } from "app/components";
+
+const VH_DATE = 'Spring 2023';
 
 export default class Home extends React.Component {
 
@@ -143,9 +145,9 @@ export default class Home extends React.Component {
 
                 <div id="hero-right">
                   <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
-                  <h4 id="date">May 20 - 22, 2022</h4>
+                  <h4 id="date">{VH_DATE}</h4>
                   <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-                  <VenusButton text="Devpost" url="https://venushacks-2022.devpost.com/"/>
+                  {/* <VenusButton text="Devpost" url="https://venushacks-2022.devpost.com/"/> */}
                 </div>
 
             </section>
@@ -187,8 +189,7 @@ export default class Home extends React.Component {
                   Planned in collaboration with&nbsp;
                   <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
                   <a href="https://hack.ics.uci.edu/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
-                  VenusHacks is UCI’s largest
-                  women-centric hackathon and will take place both in-person and online! 
+                  VenusHacks is UCI’s largest women-centric hackathon and will take place fully in-person in Spring 2023!
                 </p>
                 <p>
                   Our mission is to empower underrepresented groups by providing an 
@@ -196,8 +197,8 @@ export default class Home extends React.Component {
                   VenusHacks will be open to participants of all experience levels, as 
                   we aim to increase diversity in tech through support, exposure, and 
                   community. Join us as we welcome high school (18+), undergraduate, and 
-                  graduate students to participate in our 36-hour event that includes networking, 
-                  fun activities, educational workshops, and lots of coding!
+                  graduate students to participate in our 36-hour (non-overnight) event that
+                  includes networking, fun activities, educational workshops, and lots of coding!
                 </p>
               </div>
             </section>
@@ -266,10 +267,13 @@ export default class Home extends React.Component {
               </section>
 
               {/* MEET THE TEAM ******************/}
-              <section id="meet-team">
+              {/* TODO: Replace padding once org photos are back */}
+              <section />
+              {/* <section id="meet-team">
                 <img className="section-title" src={meet_team_title} alt="Meet the Team" />
                 <Team/>
-              </section>
+                <p>Coming soon!</p>
+              </section> */}
               
             </div>
           </ParallaxLayer>

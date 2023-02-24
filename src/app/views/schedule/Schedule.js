@@ -16,8 +16,8 @@ function Schedule() {
             <FloatingHat offset={2}></FloatingHat>
         </div>
         <h4> All times are in PDT </h4>
-        <h4 style={{'marginBottom': '50px'}}> If the event location includes Zoom, click on the location to access the Zoom Link! </h4>
-        <ScheduleCard/>
+        <h4 style={{'marginBottom': '400px'}}> Schedule coming soon! </h4>
+        {/* <ScheduleCard/> */}
       </section>
       <Footer/>
     </div>
