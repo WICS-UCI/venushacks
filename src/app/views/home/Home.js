@@ -223,25 +223,13 @@ export default class Home extends React.Component {
               {/* SPONSORS **********************/}
               <section id="sponsors">
                   <img className="section-title" src={sponsors_title} alt="Sponsor" />
-                  <div id="sponsors-container">
-                    <div className="logo-wrapper largest">
-                      {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
-                    </div>
-                    <div className="logo-wrapper large">
-                      {this.renderSponsorLink("pimco", pimco, "https://www.pimco.com/en-us/?showSplash=1")}
-                      {this.renderSponsorLink("properdata", properdata, "https://properdata.eng.uci.edu/")}
-                    </div>
-                    <div className="logo-wrapper medium">
-                      {this.renderSponsorLink("slalom", slalom, "https://www.slalom.com/")} 
-                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}  
-                      {this.renderSponsorLink("assemblyai", assemblyai, "https://www.assemblyai.com/")}
-                    </div>
-                  </div>
+                  {/* <div id="sponsors-container">
+                      
+                  </div> */}
                   <p className="sponsor-contact-us">
                     Join our movement, contact us&nbsp;
-                    <a href="mailto:sponsorships@venushacks.com" target="_top">
-                      sponsorships@venushacks.com
+                    <a href="mailto:venushacks.corporate@gmail.com" target="_top">
+                    venushacks.corporate@gmail.com
                     </a>.
                   </p>
               </section>
@@ -262,10 +250,10 @@ export default class Home extends React.Component {
               </section>
 
               {/* SPEAKERS ******************/}
-              <section id="speakers">
+              {/* <section id="speakers">
                 <img className="section-title" src={speakers_title} alt="Speakers" />
                 <Speakers/>
-              </section>
+              </section> */}
 
               {/* MEET THE TEAM ******************/}
               {/* TODO: Replace padding once org photos are back */}
