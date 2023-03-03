@@ -5,7 +5,7 @@ import './Home.scss';
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
 // import Team from '../../components/meet-team/team';
-import Speakers from "../../components/speakers/speakers";
+// import Speakers from "../../components/speakers/speakers";
 
 
 // TITLES
@@ -14,7 +14,7 @@ import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
 import sponsors_title from 'assets/images/titles/vh-sponsors.png';
 import partners_title from 'assets/images/titles/vh-partners.png';
-import speakers_title from 'assets/images/titles/vh-speakers.png';
+// import speakers_title from 'assets/images/titles/vh-speakers.png';
 // import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 // PARALLAX ASSETS
@@ -27,13 +27,13 @@ import constellation3 from 'assets/images/vh-pegasus.png';
 // import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
-import assemblyai from 'assets/images/sponsors/assemblyai.png';
-import balsamiq from 'assets/images/sponsors/balsamiq.png';
-import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
-import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
-import slalom from 'assets/images/sponsors/slalom.png';
-import pimco from 'assets/images/sponsors/pimco.JPG';
-import properdata from 'assets/images/sponsors/properdata.png';
+// import assemblyai from 'assets/images/sponsors/assemblyai.png';
+// import balsamiq from 'assets/images/sponsors/balsamiq.png';
+// import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
+// import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
+// import slalom from 'assets/images/sponsors/slalom.png';
+// import pimco from 'assets/images/sponsors/pimco.JPG';
+// import properdata from 'assets/images/sponsors/properdata.png';
 
 // PARTNERS
 import ai from 'assets/images/partners/ai.png';
