@@ -12,8 +12,8 @@ import Footer from '../../components/footer/Footer';
 import vh_title from 'assets/images/titles/vh-worded-logo.png';
 import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
-import sponsors_title from 'assets/images/titles/vh-sponsors.png';
-import partners_title from 'assets/images/titles/vh-partners.png';
+import sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
+import partners_title from 'assets/images/titles/vh-past-partners.png';
 // import speakers_title from 'assets/images/titles/vh-speakers.png';
 // import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
@@ -27,13 +27,13 @@ import constellation3 from 'assets/images/vh-pegasus.png';
 // import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
-// import assemblyai from 'assets/images/sponsors/assemblyai.png';
-// import balsamiq from 'assets/images/sponsors/balsamiq.png';
-// import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
-// import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
-// import slalom from 'assets/images/sponsors/slalom.png';
-// import pimco from 'assets/images/sponsors/pimco.JPG';
-// import properdata from 'assets/images/sponsors/properdata.png';
+import assemblyai from 'assets/images/sponsors/assemblyai.png';
+import balsamiq from 'assets/images/sponsors/balsamiq.png';
+import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
+import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
+import slalom from 'assets/images/sponsors/slalom.png';
+import pimco from 'assets/images/sponsors/pimco.JPG';
+import properdata from 'assets/images/sponsors/properdata.png';
 
 // PARTNERS
 import ai from 'assets/images/partners/ai.png';
@@ -223,9 +223,21 @@ export default class Home extends React.Component {
               {/* SPONSORS **********************/}
               <section id="sponsors">
                   <img className="section-title" src={sponsors_title} alt="Sponsor" />
-                  {/* <div id="sponsors-container">
-                      
-                  </div> */}
+                  <div id="sponsors-container">
+                      <div className="logo-wrapper largest">
+                      {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
+                    </div>
+                    <div className="logo-wrapper large">
+                      {this.renderSponsorLink("pimco", pimco, "https://www.pimco.com/en-us/?showSplash=1")}
+                      {this.renderSponsorLink("properdata", properdata, "https://properdata.eng.uci.edu/")}
+                    </div>
+                    <div className="logo-wrapper medium">
+                      {this.renderSponsorLink("slalom", slalom, "https://www.slalom.com/")} 
+                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
+                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}  
+                      {this.renderSponsorLink("assemblyai", assemblyai, "https://www.assemblyai.com/")}
+                    </div>
+                  </div>
                   <p className="sponsor-contact-us">
                     Join our movement, contact us&nbsp;
                     <a href="mailto:venushacks.corporate@gmail.com" target="_top">
