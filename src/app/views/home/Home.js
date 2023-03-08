@@ -46,8 +46,8 @@ import wicys from 'assets/images/partners/wicys.png';
 // import { VenusButton } from "app/components";
 
 const VH_DATE = 'Spring 2023';
-const CONTACT_EMAIL = 'venushacks.uci@gmail.com';
-const CORPORATE_EMAIL = 'venushacks.corporate@gmail.com';
+const CONTACT_EMAIL = 'contact@venushacks.com';
+const CORPORATE_EMAIL = 'sponsorships@venushacks.com';
 
 export default class Home extends React.Component {
 
