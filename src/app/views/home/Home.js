@@ -46,6 +46,8 @@ import wicys from 'assets/images/partners/wicys.png';
 // import { VenusButton } from "app/components";
 
 const VH_DATE = 'Spring 2023';
+const CONTACT_EMAIL = 'venushacks.uci@gmail.com';
+const CORPORATE_EMAIL = 'venushacks.corporate@gmail.com';
 
 export default class Home extends React.Component {
 
@@ -213,9 +215,9 @@ export default class Home extends React.Component {
                 <img className="section-title" src={faq_title} alt="FAQ" />
                 <FAQs/>
                 <p id="faq-contact-us">
-                  Additional logistic questions? Contact us&nbsp;
-                  <a href="mailto:contact@venushacks.com" target="_top">
-                    contact@venushacks.com
+                  Additional logistic questions? Contact us at&nbsp;
+                  <a href={`mailto:${CONTACT_EMAIL}`} target="_top">
+                    {CONTACT_EMAIL}
                   </a>.
                 </p>
               </section>
@@ -239,9 +241,9 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                   <p className="sponsor-contact-us">
-                    Join our movement, contact us&nbsp;
-                    <a href="mailto:venushacks.corporate@gmail.com" target="_top">
-                    venushacks.corporate@gmail.com
+                    Join our movement, contact us at&nbsp;
+                    <a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
+                    {CORPORATE_EMAIL}
                     </a>.
                   </p>
               </section>
