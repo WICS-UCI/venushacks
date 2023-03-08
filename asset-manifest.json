@@ -1,42 +1,37 @@
 {
   "files": {
-    "main.css": "/static/css/main.81e28c06.css",
-    "main.js": "/static/js/main.f1ff3f2a.js",
-    "static/media/jenny.jpeg": "/static/media/jenny.e10d8c86aad3a9caa5ef.jpeg",
-    "static/media/lauren.jpeg": "/static/media/lauren.902c35b5b9f21535d936.jpeg",
+    "main.css": "/static/css/main.2fcbd735.css",
+    "main.js": "/static/js/main.4687d62e.js",
     "static/media/vh-periwinkle-planet.png": "/static/media/vh-periwinkle-planet.b45de47e57fc2303dfe6.png",
-    "static/media/joohee.jpeg": "/static/media/joohee.70169a38ddd7e3269b02.jpeg",
     "static/media/astronaut-float.png": "/static/media/astronaut-float.137150a66e37ba55152d.png",
     "static/media/ai.png": "/static/media/ai.b0fdd056e9a1e8e9f42d.png",
     "static/media/properdata.png": "/static/media/properdata.fa4a60eed19ed50c2f3e.png",
     "static/media/big-planet.png": "/static/media/big-planet.7c28a692e358c8a0bbe7.png",
+    "static/media/vh-past-partners.png": "/static/media/vh-past-partners.a78c931bb5c1dfec7c8e.png",
     "static/media/new-laptop.png": "/static/media/new-laptop.ef1b21b4ff7a59c93f3c.png",
+    "static/media/vh-past-sponsors.png": "/static/media/vh-past-sponsors.36fc46cb869072567307.png",
     "static/media/vh-pegasus.png": "/static/media/vh-pegasus.3b75df15ec71dc419cc0.png",
     "static/media/assemblyai.png": "/static/media/assemblyai.9687abeb6643a02b60b6.png",
     "static/media/astronaut.png": "/static/media/astronaut.50444f0231466172c6bb.png",
     "static/media/vh-big-dipper.png": "/static/media/vh-big-dipper.f62551b370e35e67c39f.png",
     "static/media/maiss.png": "/static/media/maiss.4f6b036a530290a620b2.png",
-    "static/media/vh-speakers.png": "/static/media/vh-speakers.2917c994e85e2baf8418.png",
-    "static/media/vh-partners.png": "/static/media/vh-partners.1db79ec1ca87a29d9648.png",
+    "static/media/vh-about.png": "/static/media/vh-about.fbb6fe7288e095bc4a9b.png",
     "static/media/vh-cassiopeia.png": "/static/media/vh-cassiopeia.3488084b6a5cbc530b23.png",
-    "static/media/vh-sponsors.png": "/static/media/vh-sponsors.260d15f2beff69275261.png",
+    "static/media/vh-faq.png": "/static/media/vh-faq.1da5c4f2113b63c1c27a.png",
     "static/media/crowdstrike.png": "/static/media/crowdstrike.9d6e0ed93b0eec6025cf.png",
+    "static/media/vh-worded-logo.png": "/static/media/vh-worded-logo.8f758caee616223128b9.png",
     "static/media/wicys.png": "/static/media/wicys.4b629b5a0090b212ede1.png",
     "static/media/stars-background.svg": "/static/media/stars-background.f7d6c318b39105ddf7b597dcc7c5c9b1.svg",
-    "static/media/christina.jpeg": "/static/media/christina.62b99cb5f4540aadc9fc.jpeg",
-    "static/media/vh-about.png": "/static/media/vh-about.1fb632778c3c7e86edc5.png",
-    "static/media/vh-faq.png": "/static/media/vh-faq.e1642e63968fbbed884a.png",
     "static/media/coxautomotive.png": "/static/media/coxautomotive.5500992900be48d4176e.png",
     "static/media/googlecloud.png": "/static/media/googlecloud.a2da4ca592641b864c26.png",
-    "static/media/vh-worded-logo.png": "/static/media/vh-worded-logo.e65c051923f558f5d78a.png",
     "static/media/design.png": "/static/media/design.d5451039757f00aa4985.png",
     "static/media/pimco.JPG": "/static/media/pimco.21dfb2e87794df596267.JPG",
     "index.html": "/index.html",
-    "main.81e28c06.css.map": "/static/css/main.81e28c06.css.map",
-    "main.f1ff3f2a.js.map": "/static/js/main.f1ff3f2a.js.map"
+    "main.2fcbd735.css.map": "/static/css/main.2fcbd735.css.map",
+    "main.4687d62e.js.map": "/static/js/main.4687d62e.js.map"
   },
   "entrypoints": [
-    "static/css/main.81e28c06.css",
-    "static/js/main.f1ff3f2a.js"
+    "static/css/main.2fcbd735.css",
+    "static/js/main.4687d62e.js"
   ]
 }
