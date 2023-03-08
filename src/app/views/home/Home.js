@@ -5,16 +5,16 @@ import './Home.scss';
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
 // import Team from '../../components/meet-team/team';
-import Speakers from "../../components/speakers/speakers";
+// import Speakers from "../../components/speakers/speakers";
 
 
 // TITLES
 import vh_title from 'assets/images/titles/vh-worded-logo.png';
 import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
-import sponsors_title from 'assets/images/titles/vh-sponsors.png';
-import partners_title from 'assets/images/titles/vh-partners.png';
-import speakers_title from 'assets/images/titles/vh-speakers.png';
+import sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
+import partners_title from 'assets/images/titles/vh-past-partners.png';
+// import speakers_title from 'assets/images/titles/vh-speakers.png';
 // import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 // PARALLAX ASSETS
@@ -46,6 +46,8 @@ import wicys from 'assets/images/partners/wicys.png';
 // import { VenusButton } from "app/components";
 
 const VH_DATE = 'Spring 2023';
+const CONTACT_EMAIL = 'venushacks.uci@gmail.com';
+const CORPORATE_EMAIL = 'venushacks.corporate@gmail.com';
 
 export default class Home extends React.Component {
 
@@ -213,9 +215,9 @@ export default class Home extends React.Component {
                 <img className="section-title" src={faq_title} alt="FAQ" />
                 <FAQs/>
                 <p id="faq-contact-us">
-                  Additional logistic questions? Contact us&nbsp;
-                  <a href="mailto:contact@venushacks.com" target="_top">
-                    contact@venushacks.com
+                  Additional logistic questions? Contact us at&nbsp;
+                  <a href={`mailto:${CONTACT_EMAIL}`} target="_top">
+                    {CONTACT_EMAIL}
                   </a>.
                 </p>
               </section>
@@ -224,7 +226,7 @@ export default class Home extends React.Component {
               <section id="sponsors">
                   <img className="section-title" src={sponsors_title} alt="Sponsor" />
                   <div id="sponsors-container">
-                    <div className="logo-wrapper largest">
+                      <div className="logo-wrapper largest">
                       {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
                     </div>
                     <div className="logo-wrapper large">
@@ -239,9 +241,9 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                   <p className="sponsor-contact-us">
-                    Join our movement, contact us&nbsp;
-                    <a href="mailto:sponsorships@venushacks.com" target="_top">
-                      sponsorships@venushacks.com
+                    Join our movement, contact us at&nbsp;
+                    <a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
+                    {CORPORATE_EMAIL}
                     </a>.
                   </p>
               </section>
@@ -262,10 +264,10 @@ export default class Home extends React.Component {
               </section>
 
               {/* SPEAKERS ******************/}
-              <section id="speakers">
+              {/* <section id="speakers">
                 <img className="section-title" src={speakers_title} alt="Speakers" />
                 <Speakers/>
-              </section>
+              </section> */}
 
               {/* MEET THE TEAM ******************/}
               {/* TODO: Replace padding once org photos are back */}
