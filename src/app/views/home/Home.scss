@@ -135,16 +135,18 @@ $laptop: "./../../../assets/images/new-laptop.png";
       }
 
       .venus-btn {
-        color: #8784C8;
-        border-color: #FFFFFF;
-        padding: 12px 20px;
-        font-size: 1.3vw;
+        color: $darkBlackBackground;
+        padding: 12px 24px;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.25px;
         margin-right: 10px;
         margin-left: 10px;
         margin-top: 10px;
         margin-bottom: 10px;
-        background-color: #FFFFFF;
+        background: linear-gradient(to right top, $darkBlue, $pink);
         border-radius: 50px;
+        border: none;
         text-decoration: none;
 
         @media screen and (max-width: $break-medium) {
