@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2fcbd735.css",
-    "main.js": "/static/js/main.f5f3c0d8.js",
+    "main.css": "/static/css/main.c4232777.css",
+    "main.js": "/static/js/main.04edbe12.js",
     "static/media/vh-periwinkle-planet.png": "/static/media/vh-periwinkle-planet.b45de47e57fc2303dfe6.png",
     "static/media/astronaut-float.png": "/static/media/astronaut-float.137150a66e37ba55152d.png",
     "static/media/ai.png": "/static/media/ai.b0fdd056e9a1e8e9f42d.png",
@@ -27,11 +27,11 @@
     "static/media/design.png": "/static/media/design.d5451039757f00aa4985.png",
     "static/media/pimco.JPG": "/static/media/pimco.21dfb2e87794df596267.JPG",
     "index.html": "/index.html",
-    "main.2fcbd735.css.map": "/static/css/main.2fcbd735.css.map",
-    "main.f5f3c0d8.js.map": "/static/js/main.f5f3c0d8.js.map"
+    "main.c4232777.css.map": "/static/css/main.c4232777.css.map",
+    "main.04edbe12.js.map": "/static/js/main.04edbe12.js.map"
   },
   "entrypoints": [
-    "static/css/main.2fcbd735.css",
-    "static/js/main.f5f3c0d8.js"
+    "static/css/main.c4232777.css",
+    "static/js/main.04edbe12.js"
   ]
 }
