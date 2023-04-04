@@ -28,6 +28,7 @@ function App() {
           {/* <Route exact path='/report' component={()=>{window.location.replace("https://docs.google.com/forms/d/e/1FAIpQLSepDdiImhchD7eBsRwiQk9a9TG5nQwdtPumrDUKEeX3tZLaKw/viewform"); return null;}} /> */}
           <Route exact path='/apply' component={() => window.location.replace('https://forms.gle/FQdADfQFvHQ7SjXLA')} />
           <Route exact path='/volunteer' component={() => window.location.replace('https://forms.gle/w4SoNXrHJX4zWiNY7')} />
+          <Route exact path='/mentor' component={() => window.location.replace('https://forms.gle/CmcMqoQ2q577edwJ6')} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

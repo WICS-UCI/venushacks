@@ -152,6 +152,7 @@ export default class Home extends React.Component {
                   <p id="tagline">Apps are now open!</p>
                   <VenusButton text="APPLY" url="/apply"/>
                   <VenusButton text="VOLUNTEER" url="/volunteer"/>
+                  <VenusButton text="MENTOR" url="/mentor"/>
                 </div>
 
             </section>
