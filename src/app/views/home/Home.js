@@ -150,10 +150,10 @@ export default class Home extends React.Component {
                 <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
                 <h4 id="date">{VH_DATE}</h4>
                 <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-                <p id="tagline">Apps are now open!</p>
-                <VenusButton text="APPLY" url="/apply"/>
-                <VenusButton text="VOLUNTEER" url="/volunteer"/>
+                <p id="tagline">Apply now as a</p>
+                <VenusButton text="HACKER" url="/apply"/>
                 <VenusButton text="MENTOR" url="/mentor"/>
+                <VenusButton text="VOLUNTEER" url="/volunteer"/>
               </div>
               <div id="planet" />
           </section>
