@@ -4,7 +4,6 @@ $boba: "./../../../assets/images/vh-boba.png";
 $astronaut: "./../../../assets/images/vh-astronaut-float.png";
 $laptop: "./../../../assets/images/vh-laptop.png";
 $cat: "./../../../assets/images/vh-cat.png";
-$planet: "./../../../assets/images/vh-planet.png";
 
 
 .Home {
@@ -13,7 +12,6 @@ $planet: "./../../../assets/images/vh-planet.png";
 
   section {
     min-height: 100vh;
-
     .section-title {
       height: 60px;
       width: auto;
@@ -28,7 +26,7 @@ $planet: "./../../../assets/images/vh-planet.png";
 
   // TODO: Remove once padding is removed
   section#padding:last-of-type {
-    min-height: 15vh;
+    min-height: 50vh;
   }
 
   .parallax-asset {
@@ -198,18 +196,6 @@ $planet: "./../../../assets/images/vh-planet.png";
         transform: scale(1.08);
       }
     } // END #hero-right
-    #planet {
-      width: 50vw;
-      height: 50vw;
-      max-height: 600px;
-      max-width: 600px;
-      background: url($planet);
-      background-size: contain;
-      background-repeat: no-repeat;
-      display:block;
-      margin:auto;
-      margin-top: 5%;
-    }
   } // END HERO
 
   #about {

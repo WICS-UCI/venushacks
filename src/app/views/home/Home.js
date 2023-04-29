@@ -4,7 +4,7 @@ import './Home.scss';
 
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
-// import Team from '../../components/meet-team/team';
+import Team from '../../components/meet-team/team';
 // import Speakers from "../../components/speakers/speakers";
 
 
@@ -159,27 +159,27 @@ export default class Home extends React.Component {
           </section>
 
           {/* LEFT CONSTELLATION */}
-          <ParallaxLayer className="parallax-asset" offset={0.3} speed={-0.1} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer className="parallax-asset" offset={0.15} speed={-0.1} style={{ pointerEvents: 'none' }}>
             <img src={constellation3} alt="constellation icon" style={{ width: '15%', height: 'auto', marginRight: '80%' }} />
           </ParallaxLayer>
 
           {/* UPPER-RIGHT CONSTELLATION */}
-          <ParallaxLayer className="parallax-asset" offset={0.2} speed={-0.1} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer className="parallax-asset" offset={0.1} speed={-0.1} style={{ pointerEvents: 'none' }}>
             <img src={constellation1} alt="constellation icon" style={{ width: '15%', height: 'auto', marginLeft: '80%' }} />
           </ParallaxLayer>
 
           {/* LOWER-RIGHT CONSTELLATION */}
-          <ParallaxLayer className="parallax-asset" offset={0.6} speed={-0.2} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer className="parallax-asset" offset={0.3} speed={-0.2} style={{ pointerEvents: 'none' }}>
             <img src={constellation2} alt="constellation icon" style={{ width: '15%', height: 'auto', marginLeft: '80%' }} />
           </ParallaxLayer>
 
           {/* UPPER-LEFT PLANET */}
-          <ParallaxLayer className="parallax-asset" offset={1.02} speed={-0.1} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer className="parallax-asset" offset={0.5} speed={-0.1} style={{ pointerEvents: 'none' }}>
             <img src={pink_planet} alt="pink planet icon" style={{ width: '10%', height: 'auto', marginRight: '80%' }} />
           </ParallaxLayer>
 
           {/* LOWER-RIGHT PLANET */}
-          <ParallaxLayer className="parallax-asset" offset={1.75} speed={-0.1} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer className="parallax-asset" offset={0.7} speed={-0.1} style={{ pointerEvents: 'none' }}>
             <img src={periwinkle_planet} alt="periwinkle planet icon" style={{ width: '12.5%', height: 'auto', marginLeft: '80%' }} />
           </ParallaxLayer>
 
@@ -259,6 +259,8 @@ export default class Home extends React.Component {
                   </div>
                 </div>
             </section>
+
+            
 
             {/* SPEAKERS ******************/}
             {/* <section id="speakers">
