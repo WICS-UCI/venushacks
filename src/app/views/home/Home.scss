@@ -4,12 +4,20 @@ $boba: "./../../../assets/images/vh-boba.png";
 $astronaut: "./../../../assets/images/vh-astronaut-float.png";
 $laptop: "./../../../assets/images/vh-laptop.png";
 $cat: "./../../../assets/images/vh-cat.png";
+$planet: "./../../../assets/images/vh-planet.png";
+$stars_background: "./../../../assets/images/stars-background.svg";
 
+body {
+  overflow-x: hidden;
+}
 
 .Home {
+  background-image: url($stars_background);
+  background-size: cover;
+  background-attachment: fixed;
   text-align: center;
   min-height: 100vh;
-
+  
   section {
     min-height: 100vh;
     .section-title {
@@ -26,7 +34,7 @@ $cat: "./../../../assets/images/vh-cat.png";
 
   // TODO: Remove once padding is removed
   section#padding:last-of-type {
-    min-height: 50vh;
+    min-height: 15vh;
   }
 
   .parallax-asset {
@@ -47,7 +55,7 @@ $cat: "./../../../assets/images/vh-cat.png";
       display: flex;
       width: 40%;
       max-width: 600px;
-      margin-top: 5rem;
+      margin-top:200px;
       
       @media screen and (max-width: $break-medium) {
         width: 100%;
@@ -196,6 +204,18 @@ $cat: "./../../../assets/images/vh-cat.png";
         transform: scale(1.08);
       }
     } // END #hero-right
+    #planet {
+      width: 50vw;
+      height: 50vw;
+      max-height: 600px;
+      max-width: 600px;
+      background: url($planet);
+      background-size: contain;
+      background-repeat: no-repeat;
+      display:block;
+      margin:auto;
+      margin-top: 5%;
+    }
   } // END HERO
 
   #about {
@@ -424,7 +444,6 @@ $cat: "./../../../assets/images/vh-cat.png";
   }
 
   #footer {
-    position: absolute;
     bottom: 0;
   }
 }
