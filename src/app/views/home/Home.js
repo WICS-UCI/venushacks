@@ -4,7 +4,7 @@ import './Home.scss';
 
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
-import Team from '../../components/meet-team/team';
+// import Team from '../../components/meet-team/team';
 // import Speakers from "../../components/speakers/speakers";
 
 
