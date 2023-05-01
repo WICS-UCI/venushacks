@@ -1,15 +1,25 @@
 @import "globals/vh-styles.scss";
 
-$astronaut: "./../../../assets/images/astronaut-float.png";
-$laptop: "./../../../assets/images/new-laptop.png";
+$boba: "./../../../assets/images/vh-boba.png";
+$astronaut: "./../../../assets/images/vh-astronaut-float.png";
+$laptop: "./../../../assets/images/vh-laptop.png";
+$cat: "./../../../assets/images/vh-cat.png";
+$planet: "./../../../assets/images/vh-planet.png";
+$stars_background: "./../../../assets/images/stars-background.svg";
+
+body {
+  overflow-x: hidden;
+}
 
 .Home {
+  background-image: url($stars_background);
+  background-size: cover;
+  background-attachment: fixed;
   text-align: center;
   min-height: 100vh;
-
+  
   section {
     min-height: 100vh;
-
     .section-title {
       height: 60px;
       width: auto;
@@ -39,22 +49,24 @@ $laptop: "./../../../assets/images/new-laptop.png";
     justify-content: center;
     align-items: center;
     margin: 0 50px;
-
-    @media screen and (max-width: $break-small) {
-      flex-direction: column;
-    }
+    flex-direction: column;
 
     #astronaut-animation {
-      padding-left: 50px;
+      display: flex;
       width: 40%;
       max-width: 600px;
-
+      margin-top:200px;
+      
       @media screen and (max-width: $break-medium) {
-        padding-left: 0;
         width: 100%;
         max-width: 325px;
       }
 
+      @keyframes floatBoba {
+        0% { transform: translatey(50px); }
+        50% { transform: translatey(70px); }
+        100% { transform: translatey(50px); }
+      }
       @keyframes floatAstronaut {
         0% { transform: translatey(0px); }
         50% { transform: translatey(-20px); }
@@ -64,6 +76,22 @@ $laptop: "./../../../assets/images/new-laptop.png";
         0% { transform: translatey(0px); }
         50% { transform: translatey(20px); }
         100% { transform: translatey(0px); }
+      }
+
+      #boba {
+        float: left;
+        width: 18vw;
+        height: 18vw;
+        max-width: 15%;
+        background: url($boba);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floatBoba 4s ease-in-out infinite;
+  
+        @media screen and (max-width: $break-small) {
+          width: 12vw;
+          height: 12vw;
+        }
       }
 
       #astronaut {
@@ -84,19 +112,38 @@ $laptop: "./../../../assets/images/new-laptop.png";
   
       #laptop {
         float: right;
-        width: 15vw;
-        height: 15vw;
-        max-width: 360px;
-        margin: 0% 5% 0;
+        width: 12vw;
+        height: 12vw;
+        max-width: 340px;
+        margin-left:-10%;
+        margin-top: -15%;
         background: url($laptop);
         background-size: contain;
         background-repeat: no-repeat;
         animation: floatLaptop 4s ease-in-out infinite;
   
         @media screen and (max-width: $break-small) {
-          margin: -40% 0 0;
-          width: 52vw;
-          height: 52vw;
+          margin-top: -60px;
+          width: 30vw;
+          height: 30vw;
+        }
+      }
+
+      #cat {
+        float: right;
+        width: 12vw;
+        height: 12vw;
+        max-width: 360px;
+        margin-left:-15%;
+        margin-top: 12%;
+        background: url($cat);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floatAstronaut 4s ease-in-out infinite;
+  
+        @media screen and (max-width: $break-small) {
+          width: 30vw;
+          height: 30vw;
         }
       }
     } // END #astronaut-animation
@@ -107,14 +154,12 @@ $laptop: "./../../../assets/images/new-laptop.png";
       @media screen and (max-width: $break-medium) {
         width: initial;
       }
-      @media screen and (max-width: $break-small) {
-        margin-top: 20%;
-      }
 
       #venushacks-title {
         width: 100%;
         max-width: 800px;
         margin-bottom: 0px;
+        margin-top: -7%;
 
         @media screen and (max-width: $break-small) {
           width: 100%;
@@ -158,9 +203,19 @@ $laptop: "./../../../assets/images/new-laptop.png";
         transition: all .2s ease;
         transform: scale(1.08);
       }
-
     } // END #hero-right
-
+    #planet {
+      width: 50vw;
+      height: 50vw;
+      max-height: 600px;
+      max-width: 600px;
+      background: url($planet);
+      background-size: contain;
+      background-repeat: no-repeat;
+      display:block;
+      margin:auto;
+      margin-top: 5%;
+    }
   } // END HERO
 
   #about {
@@ -389,7 +444,6 @@ $laptop: "./../../../assets/images/new-laptop.png";
   }
 
   #footer {
-    position: absolute;
     bottom: 0;
   }
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons'
 import './Home.scss';
 
 import FAQs from '../../components/faqs/FAQs';
@@ -17,14 +16,6 @@ import partners_title from 'assets/images/titles/vh-past-partners.png';
 // import speakers_title from 'assets/images/titles/vh-speakers.png';
 // import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
-// PARALLAX ASSETS
-import stars_background from 'assets/images/stars-background.svg';
-import periwinkle_planet from 'assets/images/vh-periwinkle-planet.png';
-import pink_planet from 'assets/images/big-planet.png';
-import constellation1 from 'assets/images/vh-big-dipper.png';
-import constellation2 from 'assets/images/vh-cassiopeia.png';
-import constellation3 from 'assets/images/vh-pegasus.png';
-// import constellation4 from 'assets/images/constellation4.png';
 
 // SPONSORS
 import assemblyai from 'assets/images/sponsors/assemblyai.png';
@@ -45,7 +36,7 @@ import wicys from 'assets/images/partners/wicys.png';
 
 import { VenusButton } from "app/components";
 
-const VH_DATE = 'Spring 2023';
+const VH_DATE = 'May 26-28, 2023';
 const CONTACT_EMAIL = 'contact@venushacks.com';
 const CORPORATE_EMAIL = 'sponsorships@venushacks.com';
 
@@ -128,165 +119,133 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
 
-        <Parallax 
-          ref={ref => (this.parallax = ref)}
-          pages={2+this.state.contentHeight}
-          style={{ backgroundImage: `url(${stars_background})`, backgroundSize: 'cover'}}
-        >
+
 
           {/* HERO **********************/}
-          <ParallaxLayer offset={0} speed={this.isMobileScreen() ? null : 0.1}>
-            <section id="hero">
+          <section id="hero">
 
-                <div id="astronaut-animation">
-                  {/* These assets are a background of a div instead of imgs to prevent 
-                      them from being able to be saved to camera roll on iOS */}
-                  <div id="astronaut" />
-                  <div id="laptop" />
-                </div>
+              <div id="astronaut-animation">
+                {/* These assets are a background of a div instead of imgs to prevent 
+                    them from being able to be saved to camera roll on iOS */}
+                <div id="boba" />
+                <div id="astronaut" />
+                <div id="laptop" />
+                <div id="cat" />
+              </div>
 
-                <div id="hero-right">
-                  <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
-                  <h4 id="date">{VH_DATE}</h4>
-                  <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-                  <p id="tagline">Apps are now open!</p>
-                  <VenusButton text="APPLY" url="/apply"/>
-                  <VenusButton text="VOLUNTEER" url="/volunteer"/>
-                  <VenusButton text="MENTOR" url="/mentor"/>
-                </div>
+              <div id="hero-right">
+                <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
+                <h4 id="date">{VH_DATE}</h4>
+                <p id="tagline">UC Irvine's largest women-centric hackathon</p>
+                <p id="tagline">Apply now as a</p>
+                <VenusButton text="HACKER" url="/apply"/>
+                <VenusButton text="MENTOR" url="/mentor"/>
+                <VenusButton text="VOLUNTEER" url="/volunteer"/>
+              </div>
+              <div id="planet" />
+          </section>
 
-            </section>
-          </ParallaxLayer>
-
-          {/* LEFT CONSTELLATION */}
-          <ParallaxLayer className="parallax-asset" offset={1.3} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={constellation3} alt="constellation icon" style={{ width: '15%', height: 'auto', marginRight: '80%' }} />
-          </ParallaxLayer>
-
-          {/* UPPER-RIGHT CONSTELLATION */}
-          <ParallaxLayer className="parallax-asset" offset={1.2} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={constellation1} alt="constellation icon" style={{ width: '15%', height: 'auto', marginLeft: '80%' }} />
-          </ParallaxLayer>
-
-          {/* LOWER-RIGHT CONSTELLATION */}
-          <ParallaxLayer className="parallax-asset" offset={1.6} speed={-0.2} style={{ pointerEvents: 'none' }}>
-            <img src={constellation2} alt="constellation icon" style={{ width: '15%', height: 'auto', marginLeft: '80%' }} />
-          </ParallaxLayer>
-
-          {/* UPPER-LEFT PLANET */}
-          <ParallaxLayer className="parallax-asset" offset={2.02} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={pink_planet} alt="pink planet icon" style={{ width: '10%', height: 'auto', marginRight: '80%' }} />
-          </ParallaxLayer>
-
-          {/* LOWER-RIGHT PLANET */}
-          <ParallaxLayer className="parallax-asset" offset={2.75} speed={-0.1} style={{ pointerEvents: 'none' }}>
-            <img src={periwinkle_planet} alt="periwinkle planet icon" style={{ width: '12.5%', height: 'auto', marginLeft: '80%' }} />
-          </ParallaxLayer>
+   
 
           {/* ABOUT **********************/}
-          <ParallaxLayer offset={1} 
-            speed={this.isMobileScreen() ? null : 0.1}
-          >
-            <section id="about">
-              <img className="section-title" src={about_title} alt="About"/>
-              <div id="about-text-container">
-                <p>
-                  Planned in collaboration with&nbsp;
-                  <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
-                  <a href="https://hack.ics.uci.edu/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
-                  VenusHacks is UCI’s largest women-centric hackathon and will take place fully in-person in Spring 2023!
-                </p>
-                <p>
-                  Our mission is to empower underrepresented groups by providing an 
-                  inclusive community to foster growth and creativity in computing. 
-                  VenusHacks will be open to participants of all experience levels, as 
-                  we aim to increase diversity in tech through support, exposure, and 
-                  community. Join us as we welcome high school (18+), undergraduate, and 
-                  graduate students to participate in our 36-hour (non-overnight) event that
-                  includes networking, fun activities, educational workshops, and lots of coding!
-                </p>
-              </div>
+          <section id="about">
+            <img className="section-title" src={about_title} alt="About"/>
+            <div id="about-text-container">
+              <p>
+                Planned in collaboration with&nbsp;
+                <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
+                <a href="https://hack.ics.uci.edu/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
+                VenusHacks is UCI’s largest women-centric hackathon and will take place fully in-person in Spring 2023!
+              </p>
+              <p>
+                Our mission is to empower underrepresented groups by providing an 
+                inclusive community to foster growth and creativity in computing. 
+                VenusHacks will be open to participants of all experience levels, as 
+                we aim to increase diversity in tech through support, exposure, and 
+                community. Join us as we welcome high school (18+), undergraduate, and 
+                graduate students to participate in our 36-hour (non-overnight) event that
+                includes networking, fun activities, educational workshops, and lots of coding!
+              </p>
+            </div>
+          </section>
+
+          <div ref={ref => {this._element = ref}}>
+
+            {/* FAQ ************************/}
+            <section id="faq">
+              <img className="section-title" src={faq_title} alt="FAQ" />
+              <FAQs/>
+              <p id="faq-contact-us">
+                Additional logistic questions? Contact us at&nbsp;
+                <a href={`mailto:${CONTACT_EMAIL}`} target="_top">
+                  {CONTACT_EMAIL}
+                </a>.
+              </p>
             </section>
-          </ParallaxLayer>
 
-          <ParallaxLayer offset={2}>
-            <div ref={ref => {this._element = ref}}>
-
-              {/* FAQ ************************/}
-              <section id="faq">
-                <img className="section-title" src={faq_title} alt="FAQ" />
-                <FAQs/>
-                <p id="faq-contact-us">
-                  Additional logistic questions? Contact us at&nbsp;
-                  <a href={`mailto:${CONTACT_EMAIL}`} target="_top">
-                    {CONTACT_EMAIL}
+            {/* SPONSORS **********************/}
+            <section id="sponsors">
+                <img className="section-title" src={sponsors_title} alt="Sponsor" />
+                <div id="sponsors-container">
+                    <div className="logo-wrapper largest">
+                    {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
+                  </div>
+                  <div className="logo-wrapper large">
+                    {this.renderSponsorLink("pimco", pimco, "https://www.pimco.com/en-us/?showSplash=1")}
+                    {this.renderSponsorLink("properdata", properdata, "https://properdata.eng.uci.edu/")}
+                  </div>
+                  <div className="logo-wrapper medium">
+                    {this.renderSponsorLink("slalom", slalom, "https://www.slalom.com/")} 
+                    {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
+                    {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}  
+                    {this.renderSponsorLink("assemblyai", assemblyai, "https://www.assemblyai.com/")}
+                  </div>
+                </div>
+                <p className="sponsor-contact-us">
+                  Join our movement, contact us at&nbsp;
+                  <a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
+                  {CORPORATE_EMAIL}
                   </a>.
                 </p>
-              </section>
+            </section>
 
-              {/* SPONSORS **********************/}
-              <section id="sponsors">
-                  <img className="section-title" src={sponsors_title} alt="Sponsor" />
-                  <div id="sponsors-container">
-                      <div className="logo-wrapper largest">
-                      {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
-                    </div>
-                    <div className="logo-wrapper large">
-                      {this.renderSponsorLink("pimco", pimco, "https://www.pimco.com/en-us/?showSplash=1")}
-                      {this.renderSponsorLink("properdata", properdata, "https://properdata.eng.uci.edu/")}
-                    </div>
-                    <div className="logo-wrapper medium">
-                      {this.renderSponsorLink("slalom", slalom, "https://www.slalom.com/")} 
-                      {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                      {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}  
-                      {this.renderSponsorLink("assemblyai", assemblyai, "https://www.assemblyai.com/")}
-                    </div>
+              {/* PARTNERS **********************/}
+            <section id="partners">
+                <img className="section-title" src={partners_title} alt="Partners" />
+                <div id="partners-container">
+                  <div className="logo-wrapper medium">
+                    {this.renderSponsorLink("ai", ai, "https://aiclub.ics.uci.edu/")}
+                    {this.renderSponsorLink("design", design, "https://designatuci.com/")}
+                    {this.renderSponsorLink("google cloud", googlecloud, "https://cloud.google.com/")}
+                    {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
+                    {this.renderSponsorLink("maiss", maiss, "http://www.maissuci.com/")}
+                    {this.renderSponsorLink("wicys", wicys, "https://sites.uci.edu/wicys/")}
                   </div>
-                  <p className="sponsor-contact-us">
-                    Join our movement, contact us at&nbsp;
-                    <a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
-                    {CORPORATE_EMAIL}
-                    </a>.
-                  </p>
-              </section>
+                </div>
+            </section>
 
-                {/* PARTNERS **********************/}
-              <section id="partners">
-                  <img className="section-title" src={partners_title} alt="Partners" />
-                  <div id="partners-container">
-                    <div className="logo-wrapper medium">
-                      {this.renderSponsorLink("ai", ai, "https://aiclub.ics.uci.edu/")}
-                      {this.renderSponsorLink("design", design, "https://designatuci.com/")}
-                      {this.renderSponsorLink("google cloud", googlecloud, "https://cloud.google.com/")}
-                      {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
-                      {this.renderSponsorLink("maiss", maiss, "http://www.maissuci.com/")}
-                      {this.renderSponsorLink("wicys", wicys, "https://sites.uci.edu/wicys/")}
-                    </div>
-                  </div>
-              </section>
+            
 
-              {/* SPEAKERS ******************/}
-              {/* <section id="speakers">
-                <img className="section-title" src={speakers_title} alt="Speakers" />
-                <Speakers/>
-              </section> */}
+            {/* SPEAKERS ******************/}
+            {/* <section id="speakers">
+              <img className="section-title" src={speakers_title} alt="Speakers" />
+              <Speakers/>
+            </section> */}
 
-              {/* MEET THE TEAM ******************/}
-              {/* TODO: Replace padding once org photos are back */}
-              <section id="padding" />
-              {/* <section id="meet-team">
-                <img className="section-title" src={meet_team_title} alt="Meet the Team" />
-                <Team/>
-                <p>Coming soon!</p>
-              </section> */}
-              
-            </div>
-          </ParallaxLayer>
+            {/* MEET THE TEAM ******************/}
+            {/* TODO: Replace padding once org photos are back */}
+            <section id="padding" />
+            {/* <section id="meet-team">
+              <img className="section-title" src={meet_team_title} alt="Meet the Team" />
+              <Team/>
+              <p>Coming soon!</p>
+            </section> */}
+            
+          </div>
         
           {/* FOOTER ******************/}
           <Footer/>
-          
-        </Parallax>
+
 
         
       </div>
