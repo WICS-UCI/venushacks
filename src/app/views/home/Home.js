@@ -36,7 +36,7 @@ import wicys from 'assets/images/partners/wicys.png';
 
 import { VenusButton } from "app/components";
 
-const VH_DATE = 'Spring 2023';
+const VH_DATE = 'May 26-28, 2023';
 const CONTACT_EMAIL = 'contact@venushacks.com';
 const CORPORATE_EMAIL = 'sponsorships@venushacks.com';
 
