@@ -1,48 +1,34 @@
 let workshopsData = [
     {
-        title: "Web Design Basics", 
-        description: "Interested in creating a clean and user-friendly design for your project? Join us for a workshop that focuses on web design basics, including the application of visual design principles, colors, branding, and accessibility. Additionally, we'll be providing resources for you to jumpstart your web design process!",
+        title: "Hackathon 101: How to Get Started ", 
+        description: "JThe workshop is all about demystifying and guiding first-time hackers on good hacking practices and the general flow of a hackathon. We will start out with how to get started, team role division, how to brainstorm project ideas, user interviews, how to decide on what technology nodes to use. Then, we show them the general milestone timeline of a project. Then, to finish off, we will go over how to show-off your projects on resume or verbally with a recruiter. ",
         host: {
-            name: "Design@UCI",
+            name: "WICS (Women in Information and Computer Sciences)",
+            link: "https://wics.ics.uci.edu/"
+        },
+    },
+    {
+        title: "Become a Git God", 
+        description: "Scared by merge conflicts? Losing your files in git hell? Come learn how to use git confidently using more advanced commands and best practices.",
+        host: {
+            name: "ACM",
+            link: "https://acm-uci.org/"
+        },
+    },
+    {
+        title: "Intro to Brand Design", 
+        description: "Creating a new project from scratch and want to make it look cohesive? Join Design at UCI as we host a beginner-friendly workshop on the basics of brand design. Learn how to build a brand identity that fits your product's concept, how to simplify the process of prototyping and design through a style guide that ✨ just makes sense ✨, and how to use visual elements to make your project stand out against the competition!",
+        host: {
+            name: "Design at UCI",
             link: "https://designatuci.com/"
         },
     },
     {
-        title: "The Basics of Pose Estimation", 
-        description: "Join AI@UCI as we look into how AI can add a little bit of spice to you hackathon projects! For this workshop, we'll cover the basics of integrating a deep learning model into your project. Then, we'll walk you through a hands-on example using a deep learning model for pose estimation—the computer vision task of identifying the poses of people in an image or video. ",
+        title: "Firebase: The Perfect All-in-One Toolchain", 
+        description: "Firebase is one of the best tools for hackers like you who want to integrate services into your application as quickly as possible! We'll be journeying through several of Firebase's features, including authentication, file storage, and databases, and tying them all together in one simple React web application.",
         host: {
-            name: "Artificial Intelligence@UCI",
-            link: "https://aiclub.ics.uci.edu/"
-        },
-        prereqs: [
-            {
-                description: "Follow instructions here",
-                link: "https://github.com/aiatuci/Examples/blob/main/VenusHacks2022/",
-            }
-        ],
-    },
-    {
-        title: "How to Pitch A Hackathon Project", 
-        description: "Learn how to pitch your hackathon project in a way that will impress judges and potential investors! We'll be going over tips and tricks to convey your product or service's feature roadmap, path to commercialization, market fit, and related effective communication skills needed!",
-        host: {
-            name: "MAISS",
-            link: "https://www.maissuci.com/"
-        },
-    },
-    {
-        title: "What They Don't Tell You About Tech Interviews", 
-        description: "Are you terrified of the tech interview process? Do you wish someone could just give you an end-to-end overview of what the whole process is like? Or are you someone who's very frustrated with how you just don't seem to understand what the interviewer wants? You get interviews and you seem to do everything right on paper, but something's still amiss? If you find yourself saying yes to any of these questions, then this workshop is for you. In this workshop, we'll walkthrough the tech interview process, including the art of networking during COVID, the standard tech interview process, tips and tricks for behavioural and technical rounds which go beyond just getting the question right and that'll really help you stand out as a candidate, post-interview etiquette, compensation packages and negotiation etc. The best part? I recently went through this process myself so you'll also get to hear the silly mistakes that I made along the way and what I learnt as I went along!",
-        host: {
-            name: "Fatima Taj",
-            link: "https://www.linkedin.com/in/fatima-taj-37363a109/?originalSubdomain=ca"
-        },
-    },
-    {
-        title: "Working with APIs", 
-        description: "Come learn about how to use an API in your React project! We'll show you how to fetch data about UCI from the PeterPortal API and how to set up your own REST API.",
-        host: {
-            name: "ICSSC",
-            link: "https://studentcouncil.ics.uci.edu/"
+            name: "Hack at UCI",
+            link: "https://hack.ics.uci.edu/"
         },
         prereqs: [
             {
@@ -50,22 +36,55 @@ let workshopsData = [
                 link: "https://nodejs.org/en/download/",
             }
         ],
-           
     },
     {
-        title: "Landing Your First Dev Job", 
+        title: "Intro To Unity and Game Development", 
+        description: "An introduction to the Unity Engine (a game development software). The workshop will cover a quick overview of everything you need to know to make a game including setting up a git repository for unity, the basics of implementing stuff like movement, level design, input, audio, animations, menus, and more. The workshop will teach people everything they need to know to make a simple game.",
+        host: {
+            name: "Video Game Development Club",
+            link: "https://sites.google.com/uci.edu/vgdcuci/home"
+        },
+        prereqs: [
+            {
+                description: "Download Unity",
+                link: "https://unity.com/download",
+            }
+        ],
+    },
+    {
+        title: "Scaling to Zero: Building Serverless Applications", 
+        description: "Unleash the power of serverless at our, \"Scaling to Zero: Building Serverless Applications\" workshop! Dive into the world of serverless computing, explore its pros and cons, and unleash your creativity by crafting your own project in an engaging, hands-on demo. Don't forget to bring your laptop and GitHub account to create your own serverless project!",
+        host: {
+            name: "ICS Student Council",
+            link: "https://studentcouncil.ics.uci.edu/"
+        },
+        prereqs: [
+            {
+                description: "Register a GitHub Account",
+                link: "https://github.com/",
+            }
+        ],
+    },
+    {
+        title: "Pre-trained Models in your Project", 
+        description: "This workshop provides an introduction to pre-trained models and demonstrates their usage in projects through Flask. You will gain an understanding of pre-trained models’ benefits and learn how to load them into memory. The workshop focuses on using Flask, a lightweight web framework, and covers the setup of a Flask application for handling model inference requests. You will learn about handling input data, forwarding it to pre-trained models for inference, and obtaining predictions or outputs. By the end, you will have the knowledge to integrate pre-trained models effectively using Flask, empowering your projects with advanced AI capabilities.",
+        host: {
+            name: "Commit the Change",
+            link: "https://ctc-uci.com/"
+        },
+        prereqs: [
+            {
+                description: "Download Flask",
+                link: "https://pypi.org/project/Flask/",
+            }
+        ],
+    },
+    {
+        title: "“Resumes, Networking and Interviewing Best Practices”", 
         description: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
         host: {
             name: "Cox Automotive",
             link: "https://www.coxautoinc.com/"
-        },
-    },
-    {
-        title: "Info Session + Early Career Opportunities", 
-        description: "Come hear about Slalom! An overview of the company, early career opportunities for students, and a day-in-the-life of a Slalom software engineer will be provided!",
-        host: {
-            name: "Slalom",
-            link: "https://www.slalom.com/"
         },
     },
 
