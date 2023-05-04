@@ -1,6 +1,6 @@
 let workshopsData = [
     {
-        title: "Hackathon 101: How to Get Started ", 
+        title: "Hackathon 101: How to Get Started", 
         description: "This workshop is all about demystifying and guiding first-time hackers on good hacking practices and the general flow of a hackathon. We will start out with how to get started, team role division, how to brainstorm project ideas, user interviews, how to decide on what technology nodes to use. Then, we show the general milestone timeline of a project. Then, to finish off, we will go over how to show-off your projects on resume or verbally with a recruiter.",
         host: {
             name: "WICS (Women in Information and Computer Sciences)",
