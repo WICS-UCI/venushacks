@@ -31,7 +31,7 @@ export default class Team extends React.Component {
             {photo: "nathan", name: "Nathan Huey"},
             {photo: "nicole", name: "Nicole Nguyen"},
             {photo: "philip", name: "Philip Truong"},
-            {photo: "randy", name: "Randy Hyunh"},
+            {photo: "randy", name: "Randy Huynh"},
             {photo: "riley", name: "Riley Wong"},
             {photo: "rochelle", name: "Rochelle Nixon"},
             {photo: "rosalind", name: "Rosalind Guo"},

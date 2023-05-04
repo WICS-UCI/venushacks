@@ -232,7 +232,6 @@ export default class Home extends React.Component {
             <section id="meet-team">
               <img className="section-title" src={meet_team_title} alt="Meet the Team" />
               <Team/>
-              <p>Coming soon!</p>
             </section>
           </div>
         
