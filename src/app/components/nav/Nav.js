@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 import './Nav.scss';
@@ -28,13 +28,13 @@ function Nav() {
       <Button onClick={toggleDropDownMenu} className="menu-button btn-secondary">
         {showDropMenu ? 'x' : '≡'}
       </Button>
-      <div className={"nav-left" + (showDropMenu ? " show" : "")}>
-        {/* <Link to="/">
+      <div className={"nav-container" + (showDropMenu ? " show" : "")}>
+        <Link to="/">
           <p>
             Home
           </p>
         </Link>
-        <Link to="/schedule">
+        {/* <Link to="/schedule">
           <p>
             Schedule
           </p>
@@ -43,12 +43,12 @@ function Nav() {
           <p>
             Resources
           </p>
-        </Link>
+        </Link> */}
         <Link to="/workshops">
           <p>
             Workshops
           </p>
-        </Link> */}
+        </Link>
         {/* <Link to="/report">
           <p>
             Incident Form
