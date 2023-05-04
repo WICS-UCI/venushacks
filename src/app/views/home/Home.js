@@ -3,7 +3,7 @@ import './Home.scss';
 
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
-// import Team from '../../components/meet-team/team';
+import Team from '../../components/meet-team/team';
 // import Speakers from "../../components/speakers/speakers";
 
 
@@ -14,7 +14,7 @@ import faq_title from 'assets/images/titles/vh-faq.png';
 import sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
 import partners_title from 'assets/images/titles/vh-past-partners.png';
 // import speakers_title from 'assets/images/titles/vh-speakers.png';
-// import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
+import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 
 // SPONSORS
@@ -119,8 +119,6 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
 
-
-
           {/* HERO **********************/}
           <section id="hero">
 
@@ -144,8 +142,6 @@ export default class Home extends React.Component {
               </div>
               <div id="planet" />
           </section>
-
-   
 
           {/* ABOUT **********************/}
           <section id="about">
@@ -209,7 +205,7 @@ export default class Home extends React.Component {
                 </p>
             </section>
 
-              {/* PARTNERS **********************/}
+            {/* PARTNERS **********************/}
             <section id="partners">
                 <img className="section-title" src={partners_title} alt="Partners" />
                 <div id="partners-container">
@@ -224,8 +220,6 @@ export default class Home extends React.Component {
                 </div>
             </section>
 
-            
-
             {/* SPEAKERS ******************/}
             {/* <section id="speakers">
               <img className="section-title" src={speakers_title} alt="Speakers" />
@@ -233,21 +227,17 @@ export default class Home extends React.Component {
             </section> */}
 
             {/* MEET THE TEAM ******************/}
-            {/* TODO: Replace padding once org photos are back */}
-            <section id="padding" />
-            {/* <section id="meet-team">
+            {/* Use padding if there's no org photos */}
+            {/* <section id="padding" /> */}
+            <section id="meet-team">
               <img className="section-title" src={meet_team_title} alt="Meet the Team" />
               <Team/>
-              <p>Coming soon!</p>
-            </section> */}
-            
+            </section>
           </div>
         
           {/* FOOTER ******************/}
           <Footer/>
 
-
-        
       </div>
     )
   }
