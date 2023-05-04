@@ -4,7 +4,7 @@
   width: 100vw;
   height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   position: fixed;
   z-index: 100000;
   background-image: linear-gradient(#292053, rgba(18,32,66,0));
@@ -40,8 +40,8 @@
     cursor: pointer;
   }
 
-  .nav-left {
-    margin-left: 30px;
+  .nav-container {
+    margin-right: 30px;
     margin-top: 30px;
     display: flex;
     flex-direction: row;
@@ -80,7 +80,7 @@
       display: block;
     }
 
-    .nav-left {
+    .nav-container {
       display: none;
 
       margin-left: 0;
