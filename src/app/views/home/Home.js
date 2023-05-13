@@ -34,7 +34,7 @@ import icssc from 'assets/images/partners/icssc.png';
 import maiss from 'assets/images/partners/maiss.png';
 import wicys from 'assets/images/partners/wicys.png';
 
-import { VenusButton } from "app/components";
+// import { VenusButton } from "app/components";
 
 const VH_DATE = 'May 26-28, 2023';
 const CONTACT_EMAIL = 'contact@venushacks.com';
@@ -135,10 +135,8 @@ export default class Home extends React.Component {
                 <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
                 <h4 id="date">{VH_DATE}</h4>
                 <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-                <p id="tagline">Apply now as a</p>
-                <VenusButton text="HACKER" url="/apply"/>
-                <VenusButton text="MENTOR" url="/mentor"/>
-                <VenusButton text="VOLUNTEER" url="/volunteer"/>
+                <p id="tagline">Apps are now closed! If you submitted an application, please check your email in the next week for your application status.</p>
+                {/* <VenusButton text="HACKER" url="/apply"/> */}
               </div>
               <div id="planet" />
           </section>
