@@ -11,28 +11,29 @@ import Team from '../../components/meet-team/team';
 import vh_title from 'assets/images/titles/vh-worded-logo.png';
 import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
-import sponsors_title from 'assets/images/titles/vh-past-sponsors.png';
-import partners_title from 'assets/images/titles/vh-past-partners.png';
+import sponsors_title from 'assets/images/titles/vh-sponsors.png';
+import partners_title from 'assets/images/titles/vh-partners.png';
 // import speakers_title from 'assets/images/titles/vh-speakers.png';
 import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 
 // SPONSORS
-import assemblyai from 'assets/images/sponsors/assemblyai.png';
-import balsamiq from 'assets/images/sponsors/balsamiq.png';
 import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
-import crowdstrike from 'assets/images/sponsors/crowdstrike.png';
-import slalom from 'assets/images/sponsors/slalom.png';
-import pimco from 'assets/images/sponsors/pimco.JPG';
-import properdata from 'assets/images/sponsors/properdata.png';
+import odit from 'assets/images/sponsors/odit.png';
+import costar from 'assets/images/sponsors/costar.png';
+import corelogic from 'assets/images/sponsors/corelogic.png';
+import antrepreneurcenter from 'assets/images/sponsors/antrepreneurcenter.png';
 
 // PARTNERS
+import acm from 'assets/images/partners/acm.png';
 import ai from 'assets/images/partners/ai.png';
+import ctc from 'assets/images/partners/ctc.png';
 import design from 'assets/images/partners/design.png';
 import googlecloud from 'assets/images/partners/googlecloud.png';
+import hack from 'assets/images/partners/hack.png';
 import icssc from 'assets/images/partners/icssc.png';
-import maiss from 'assets/images/partners/maiss.png';
-import wicys from 'assets/images/partners/wicys.png';
+import vgdc from 'assets/images/partners/vgdc.jpeg';
+import wics from 'assets/images/partners/wics.png';
 
 // import { VenusButton } from "app/components";
 
@@ -181,18 +182,16 @@ export default class Home extends React.Component {
             <section id="sponsors">
                 <img className="section-title" src={sponsors_title} alt="Sponsor" />
                 <div id="sponsors-container">
-                    <div className="logo-wrapper largest">
+                  <div className="logo-wrapper largest">
                     {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
+                    {this.renderSponsorLink("odit", odit, "https://odit.uci.edu/")}
                   </div>
                   <div className="logo-wrapper large">
-                    {this.renderSponsorLink("pimco", pimco, "https://www.pimco.com/en-us/?showSplash=1")}
-                    {this.renderSponsorLink("properdata", properdata, "https://properdata.eng.uci.edu/")}
+                    {this.renderSponsorLink("costar", costar, "https://www.costar.com/")}
                   </div>
                   <div className="logo-wrapper medium">
-                    {this.renderSponsorLink("slalom", slalom, "https://www.slalom.com/")} 
-                    {this.renderSponsorLink("crowdstrike", crowdstrike, "https://www.crowdstrike.com/careers/university-interns/")}
-                    {this.renderSponsorLink("balsamiq", balsamiq, "https://balsamiq.com/company/jobs/")}  
-                    {this.renderSponsorLink("assemblyai", assemblyai, "https://www.assemblyai.com/")}
+                    {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/")} 
+                    {this.renderSponsorLink("antrepreneurcenter", antrepreneurcenter, "https://antrepreneur.uci.edu/")}
                   </div>
                 </div>
                 <p className="sponsor-contact-us">
@@ -208,12 +207,15 @@ export default class Home extends React.Component {
                 <img className="section-title" src={partners_title} alt="Partners" />
                 <div id="partners-container">
                   <div className="logo-wrapper medium">
+                    {this.renderSponsorLink("acm", acm, "https://acm-uci.org/")}
                     {this.renderSponsorLink("ai", ai, "https://aiclub.ics.uci.edu/")}
+                    {this.renderSponsorLink("ctc", ctc, "https://ctc-uci.com/")}
                     {this.renderSponsorLink("design", design, "https://designatuci.com/")}
                     {this.renderSponsorLink("google cloud", googlecloud, "https://cloud.google.com/")}
+                    {this.renderSponsorLink("hack", hack, "https://hack.ics.uci.edu/")}
                     {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
-                    {this.renderSponsorLink("maiss", maiss, "http://www.maissuci.com/")}
-                    {this.renderSponsorLink("wicys", wicys, "https://sites.uci.edu/wicys/")}
+                    {this.renderSponsorLink("vgdc", vgdc, "https://sites.google.com/uci.edu/vgdcuci/home")}
+                    {this.renderSponsorLink("wics", wics, "https://wics.ics.uci.edu/")}
                   </div>
                 </div>
             </section>
