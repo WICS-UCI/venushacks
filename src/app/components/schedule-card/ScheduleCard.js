@@ -4,17 +4,12 @@ import './ScheduleCard.scss';
 import { scheduleData } from "assets/data/schedule-info.js";
 
 function Event(props) {
-  const { name, link, location, description, time, tooltip } = props;
+  const { name, description, time, tooltip } = props;
 
   return (
     <div className="schedule-card-time-slot">
       <div>
         <h5> {name}</h5>
-        <div className="schedule-card-location">
-          <a href={link} >
-            <p>Location: {location}</p>
-          </a>
-        </div>
         <div className="schedule-card-tooltip">
           <p>{description}</p>
           <span className="schedule-card-tooltiptext">{tooltip}</span>
@@ -28,19 +23,10 @@ function Event(props) {
 }
 
 function ScheduleCard() {
-  const { thurSchedule, friSchedule, satSchedule, sunSchedule } = scheduleData;
+  const { friSchedule, satSchedule, sunSchedule } = scheduleData;
 
   return (
     <div className="schedule-card">
-      <div className="schedule-card-section">
-        <div>
-          <h4>Thursday</h4>
-          <div className="schedule-card-divider-horizontal">
-            <div />
-          </div>
-          {thurSchedule.map((event, index) => <Event {...event} key={index} />)}
-        </div>
-      </div>
       <div className="schedule-card-section">
         <div>
           <h4>Friday</h4>
