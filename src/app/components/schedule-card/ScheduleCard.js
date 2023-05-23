@@ -11,8 +11,8 @@ function Event(props) {
       <div>
         <h5> {name}</h5>
         <div className="schedule-card-tooltip">
-          <p>{description}</p>
-          <span className="schedule-card-tooltiptext">{tooltip}</span>
+          <p className="schedule-card-description">{description}</p>
+          {tooltip && <span className="schedule-card-tooltiptext">{tooltip}</span>}
         </div>
       </div>
       <div style={{ 'textAlign': 'right' }}>
