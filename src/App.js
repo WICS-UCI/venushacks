@@ -19,13 +19,13 @@ function App() {
   return (
     <div className='App'>
       <Router history={history}>
-        <Nav history={history}></Nav>
+        <Nav history={history} />
         <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/schedule' component={Schedule}/>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/schedule' component={Schedule} />
           <Route exact path='/resources' component={Resources} />
-          <Route exact path='/workshops' component={Workshops}/>
-          {/* <Route exact path='/report' component={()=>{window.location.replace("https://docs.google.com/forms/d/e/1FAIpQLSepDdiImhchD7eBsRwiQk9a9TG5nQwdtPumrDUKEeX3tZLaKw/viewform"); return null;}} /> */}
+          <Route exact path='/workshops' component={Workshops} />
+          <Route exact path='/report' component={() => window.location.replace("https://forms.gle/xzPqKT4YgSWWdRqv8")} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

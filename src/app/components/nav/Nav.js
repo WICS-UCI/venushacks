@@ -49,11 +49,11 @@ function Nav() {
             Workshops
           </p>
         </Link>
-        {/* <Link to="/report">
+        <Link to="/report">
           <p>
             Incident Form
           </p>
-        </Link> */}
+        </Link>
       </div>
     </div>
   )
