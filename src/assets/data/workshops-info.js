@@ -78,16 +78,7 @@ let workshopsData = [
                 link: "https://pypi.org/project/Flask/",
             }
         ],
-    },
-    {
-        title: "“Resumes, Networking and Interviewing Best Practices”", 
-        description: "In the current job market, landing your first job might be one of the most challenging experiences you may encounter to date. In this session, gain tips and tricks to help you improve your chances. You'll learn how to search for the right company/manager, find the right role, prepare for the interview and more.",
-        host: {
-            name: "Cox Automotive",
-            link: "https://www.coxautoinc.com/"
-        },
-    },
-
+    }
 ]
 
 export { workshopsData }
