@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.659894e1.css",
-    "main.js": "/static/js/main.f27be7f1.js",
+    "main.css": "/static/css/main.5eda06d1.css",
+    "main.js": "/static/js/main.02d2cfdd.js",
     "static/media/vh-astronaut-float.png": "/static/media/vh-astronaut-float.6cc719618913f620f30b.png",
     "static/media/vh-cat.png": "/static/media/vh-cat.fafc41d166b079c6e7a4.png",
     "static/media/vh-boba.png": "/static/media/vh-boba.72a099b19d75c9b8ba13.png",
@@ -40,6 +40,7 @@
     "static/media/nicole.jpg": "/static/media/nicole.79af31ca143123b37342.jpg",
     "static/media/ryan.jpg": "/static/media/ryan.25c854fd9bc8999bb6b8.jpg",
     "static/media/caroline.jpg": "/static/media/caroline.eda7a107162c5c99fedf.jpg",
+    "static/media/coxenterprises.png": "/static/media/coxenterprises.9409fd8f76b6f50b73f1.png",
     "static/media/ruslan.jpg": "/static/media/ruslan.92d935e0443e7312e683.jpg",
     "static/media/vh-worded-logo.png": "/static/media/vh-worded-logo.8f758caee616223128b9.png",
     "static/media/avent.jpg": "/static/media/avent.85d1778ece3b3b25de48.jpg",
@@ -55,7 +56,6 @@
     "static/media/crystal.jpg": "/static/media/crystal.09dff0667accd01d0510.jpg",
     "static/media/nathanC.jpg": "/static/media/nathanC.7d5c8f7696af5c499701.jpg",
     "static/media/wics.png": "/static/media/wics.e7d347d41e0bd1bcdf84.png",
-    "static/media/coxautomotive.png": "/static/media/coxautomotive.5500992900be48d4176e.png",
     "static/media/googlecloud.png": "/static/media/googlecloud.a2da4ca592641b864c26.png",
     "static/media/antrepreneurcenter.png": "/static/media/antrepreneurcenter.369504b9184528dfd9be.png",
     "static/media/odit.png": "/static/media/odit.4b7222d21fb2540862a0.png",
@@ -64,11 +64,11 @@
     "static/media/vgdc.jpeg": "/static/media/vgdc.50f9dbaf12bc002bcfdc.jpeg",
     "static/media/icssc.png": "/static/media/icssc.d77a855dbba987e5f245.png",
     "index.html": "/index.html",
-    "main.659894e1.css.map": "/static/css/main.659894e1.css.map",
-    "main.f27be7f1.js.map": "/static/js/main.f27be7f1.js.map"
+    "main.5eda06d1.css.map": "/static/css/main.5eda06d1.css.map",
+    "main.02d2cfdd.js.map": "/static/js/main.02d2cfdd.js.map"
   },
   "entrypoints": [
-    "static/css/main.659894e1.css",
-    "static/js/main.f27be7f1.js"
+    "static/css/main.5eda06d1.css",
+    "static/js/main.02d2cfdd.js"
   ]
 }
