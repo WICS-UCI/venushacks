@@ -18,7 +18,7 @@ import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 
 // SPONSORS
-import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
+import coxenterprises from 'assets/images/sponsors/coxenterprises.png';
 import odit from 'assets/images/sponsors/odit.png';
 import costar from 'assets/images/sponsors/costar.png';
 import corelogic from 'assets/images/sponsors/corelogic.png';
@@ -136,7 +136,7 @@ export default class Home extends React.Component {
                 <img id="venushacks-title" src={vh_title} alt="VenusHacks Title Logo"/>
                 <h4 id="date">{VH_DATE}</h4>
                 <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-                <p id="tagline">Apps are now closed! If you submitted an application, please check your email in the next week for your application status.</p>
+                <p id="tagline">Apps are now closed! If you applied, please check your email for your application status.</p>
                 {/* <VenusButton text="HACKER" url="/apply"/> */}
               </div>
               <div id="planet" />
@@ -183,7 +183,7 @@ export default class Home extends React.Component {
                 <img className="section-title" src={sponsors_title} alt="Sponsor" />
                 <div id="sponsors-container">
                   <div className="logo-wrapper largest">
-                    {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
+                    {this.renderSponsorLink("coxenterprises", coxenterprises, "https://www.coxenterprises.com/")}
                     {this.renderSponsorLink("odit", odit, "https://odit.uci.edu/")}
                   </div>
                   <div className="logo-wrapper large">

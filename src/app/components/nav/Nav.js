@@ -34,12 +34,12 @@ function Nav() {
             Home
           </p>
         </Link>
-        {/* <Link to="/schedule">
+        <Link to="/schedule">
           <p>
             Schedule
           </p>
         </Link>
-        <Link to="/resources">
+        {/* <Link to="/resources">
           <p>
             Resources
           </p>
