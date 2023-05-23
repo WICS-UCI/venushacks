@@ -18,7 +18,7 @@ import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 
 // SPONSORS
-import coxautomotive from 'assets/images/sponsors/coxautomotive.png';
+import coxenterprises from 'assets/images/sponsors/coxenterprises.png';
 import odit from 'assets/images/sponsors/odit.png';
 import costar from 'assets/images/sponsors/costar.png';
 import corelogic from 'assets/images/sponsors/corelogic.png';
@@ -183,7 +183,7 @@ export default class Home extends React.Component {
                 <img className="section-title" src={sponsors_title} alt="Sponsor" />
                 <div id="sponsors-container">
                   <div className="logo-wrapper largest">
-                    {this.renderSponsorLink("coxautomotive", coxautomotive, "https://www.coxautoinc.com/")}
+                    {this.renderSponsorLink("coxenterprises", coxenterprises, "https://www.coxenterprises.com/")}
                     {this.renderSponsorLink("odit", odit, "https://odit.uci.edu/")}
                   </div>
                   <div className="logo-wrapper large">
