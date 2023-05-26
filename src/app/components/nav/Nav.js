@@ -54,6 +54,11 @@ function Nav() {
             Incident Form
           </p>
         </Link>
+        <Link to="/devpost">
+          <p>
+            Devpost
+          </p>
+        </Link>
       </div>
     </div>
   )
