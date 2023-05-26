@@ -1,19 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.5eda06d1.css",
-    "main.js": "/static/js/main.5e9c0c7e.js",
+    "main.css": "/static/css/main.a1844707.css",
+    "main.js": "/static/js/main.7644b0fd.js",
     "static/media/vh-astronaut-float.png": "/static/media/vh-astronaut-float.6cc719618913f620f30b.png",
     "static/media/vh-cat.png": "/static/media/vh-cat.fafc41d166b079c6e7a4.png",
     "static/media/vh-boba.png": "/static/media/vh-boba.72a099b19d75c9b8ba13.png",
     "static/media/ai.png": "/static/media/ai.b0fdd056e9a1e8e9f42d.png",
     "static/media/vh-planet.png": "/static/media/vh-planet.c9caa64b206b1ffe4b4a.png",
     "static/media/vh-meet-the-team.png": "/static/media/vh-meet-the-team.256e4f757db97da7c21e.png",
+    "static/media/vh-speakers.png": "/static/media/vh-speakers.1459d08e98dc695b4025.png",
     "static/media/corelogic.png": "/static/media/corelogic.8902d561f5270e75ad1e.png",
+    "static/media/tara_elsey.jpeg": "/static/media/tara_elsey.23f913d5dcf0446f53c6.jpeg",
+    "static/media/thomas_andriola.jpeg": "/static/media/thomas_andriola.a0ddb018213bcb05fa63.jpeg",
     "static/media/vh-sponsors.png": "/static/media/vh-sponsors.ec4b630412f214fbde4f.png",
+    "static/media/valentyna_yurtyn.jpeg": "/static/media/valentyna_yurtyn.bfc2304eb126f6f6319f.jpeg",
     "static/media/vh-partners.png": "/static/media/vh-partners.734e8461779f8c9d6f37.png",
     "static/media/acm.png": "/static/media/acm.2793e61bd78450c8ac39.png",
+    "static/media/shohreh_bozorgmehri.jpeg": "/static/media/shohreh_bozorgmehri.0143a6cebc4e8edc6ce3.jpeg",
+    "static/media/rupa_prasad.jpeg": "/static/media/rupa_prasad.912cb6248f2be4df0baf.jpeg",
     "static/media/astronaut.png": "/static/media/astronaut.50444f0231466172c6bb.png",
+    "static/media/janet_chavez_erazo.jpeg": "/static/media/janet_chavez_erazo.2f78c7e815a413daafca.jpeg",
+    "static/media/dayana_alvarez.jpeg": "/static/media/dayana_alvarez.97add79fe2abd366e741.jpeg",
     "static/media/vh-about.png": "/static/media/vh-about.fbb6fe7288e095bc4a9b.png",
+    "static/media/alyssa_darjuan.jpeg": "/static/media/alyssa_darjuan.8023be21aba9ee8e6b9b.jpeg",
     "static/media/vh-faq.png": "/static/media/vh-faq.1da5c4f2113b63c1c27a.png",
     "static/media/vh-laptop.png": "/static/media/vh-laptop.66575f84bcb8d80ee895.png",
     "static/media/shreshta.jpg": "/static/media/shreshta.94c2e53b21f47bf4d566.jpg",
@@ -64,11 +73,11 @@
     "static/media/vgdc.jpeg": "/static/media/vgdc.50f9dbaf12bc002bcfdc.jpeg",
     "static/media/icssc.png": "/static/media/icssc.d77a855dbba987e5f245.png",
     "index.html": "/index.html",
-    "main.5eda06d1.css.map": "/static/css/main.5eda06d1.css.map",
-    "main.5e9c0c7e.js.map": "/static/js/main.5e9c0c7e.js.map"
+    "main.a1844707.css.map": "/static/css/main.a1844707.css.map",
+    "main.7644b0fd.js.map": "/static/js/main.7644b0fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.5eda06d1.css",
-    "static/js/main.5e9c0c7e.js"
+    "static/css/main.a1844707.css",
+    "static/js/main.7644b0fd.js"
   ]
 }
