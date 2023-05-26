@@ -32,10 +32,12 @@ export default class Speakers extends React.Component {
     render() {
         return (
             <div id="speakers">
+                <p className="subheader">Opening Speakers</p>
+                {renderSpeakers(speakersData.opening)}
+                <p className="subheader">Closing Speakers</p>
+                {renderSpeakers(speakersData.closing)}
                 <p className="subheader">Panelists</p>
                 {renderSpeakers(speakersData.panelists)}
-                <p className="subheader">Closing Keynote</p>
-                {renderSpeakers(speakersData.closing)}
             </div>
         )
     }

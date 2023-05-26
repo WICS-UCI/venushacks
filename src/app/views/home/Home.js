@@ -4,7 +4,7 @@ import './Home.scss';
 import FAQs from '../../components/faqs/FAQs';
 import Footer from '../../components/footer/Footer';
 import Team from '../../components/meet-team/team';
-// import Speakers from "../../components/speakers/speakers";
+import Speakers from "../../components/speakers/speakers";
 
 
 // TITLES
@@ -13,7 +13,7 @@ import about_title from 'assets/images/titles/vh-about.png';
 import faq_title from 'assets/images/titles/vh-faq.png';
 import sponsors_title from 'assets/images/titles/vh-sponsors.png';
 import partners_title from 'assets/images/titles/vh-partners.png';
-// import speakers_title from 'assets/images/titles/vh-speakers.png';
+import speakers_title from 'assets/images/titles/vh-speakers.png';
 import meet_team_title from 'assets/images/titles/vh-meet-the-team.png';
 
 
@@ -221,10 +221,10 @@ export default class Home extends React.Component {
             </section>
 
             {/* SPEAKERS ******************/}
-            {/* <section id="speakers">
+            <section id="speakers">
               <img className="section-title" src={speakers_title} alt="Speakers" />
               <Speakers/>
-            </section> */}
+            </section>
 
             {/* MEET THE TEAM ******************/}
             {/* Use padding if there's no org photos */}

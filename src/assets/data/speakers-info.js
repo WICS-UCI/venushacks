@@ -1,11 +1,17 @@
 let speakersData = {
     panelists: [
-        {photo: "joohee", name: "Joohee Yoo", title: "Staff Data Engineer at Slack"},
-        {photo: "lauren", name: "Lauren Yoo", title: "Software Engineer at OpenFin"},
-        {photo: "jenny", name: "Jenny Mankin", title: "Principal Software Engineer at Crowdstrike"},
+        {photo: "alyssa_darjuan", name: "Alyssa Darjuan", title: "Software Engineer at Zillow"},
+        {photo: "rupa_prasad", name: "Rupa Prasad", title: "Program Manager at Crowdstrike "},
+        {photo: "dayana_alvarez", name: "Dayana Alvarez", title: "Product Designer at Spotify "}
     ],
     closing: [
-        {photo: "christina", name: "Christina Hastenrath", title: "Software Engineer at Postman"},
+        {photo: "tara_elsey", name: "Tara Elsey", title: "Sr. Software Engineer at Cox Automotive"},
+        {photo: "janet_chavez_erazo", name: "Janet Chavez Erazo", title: "Data & Analytics Consultant at Slalom "}
+    ],
+    opening: [
+        {photo: "valentyna_yurtyn", name: "Valentyna Yurtyn", title: "Principal Software Engineer at Cox Automotive"},
+        {photo: "thomas_andriola", name: "Tom Andriola", title: "Chief Digital Officer UC Irvine"},
+        {photo: "shohreh_bozorgmehri", name: "Shohreh Bozorgmehri", title: "Divisional Director at UC Irvine OIT"}
     ]
 };
 
