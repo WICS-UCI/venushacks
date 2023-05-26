@@ -10,7 +10,7 @@ let speakersData = {
     ],
     opening: [
         {photo: "valentyna_yurtyn", name: "Valentyna Yurtyn", title: "Principal Software Engineer at Cox Automotive"},
-        {photo: "thomas_andriola", name: "Tom Andriola", title: "Chief Digital Officer UC Irvine"},
+        {photo: "thomas_andriola", name: "Tom Andriola", title: "Chief Digital Officer at UC Irvine"},
         {photo: "shohreh_bozorgmehri", name: "Shohreh Bozorgmehri", title: "Divisional Director at UC Irvine OIT"}
     ]
 };

@@ -52,8 +52,8 @@ let workshopsData = [
         ],
     },
     {
-        title: "Scaling to Zero: Building Serverless Applications", 
-        description: "Unleash the power of serverless at our, \"Scaling to Zero: Building Serverless Applications\" workshop! Dive into the world of serverless computing, explore its pros and cons, and unleash your creativity by crafting your own project in an engaging, hands-on demo. Don't forget to bring your laptop and GitHub account to create your own serverless project!",
+        title: "Scaling to Zero: Building Serverless Discord Bots", 
+        description: "Unleash the power of serverless during our \"Scaling to Zero\" workshop! Learn what serverless is, its pros and cons, and unleash your creativity during our hands-on demo. Don't forget to bring your laptop, GitHub account, and Discord account to create your own pham bot!",
         host: {
             name: "ICS Student Council",
             link: "https://studentcouncil.ics.uci.edu/"
