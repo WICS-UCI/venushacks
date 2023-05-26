@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1844707.css",
-    "main.js": "/static/js/main.d0c6b799.js",
+    "main.css": "/static/css/main.fd37d98d.css",
+    "main.js": "/static/js/main.c9882ab1.js",
     "static/media/vh-astronaut-float.png": "/static/media/vh-astronaut-float.6cc719618913f620f30b.png",
     "static/media/vh-cat.png": "/static/media/vh-cat.fafc41d166b079c6e7a4.png",
     "static/media/vh-boba.png": "/static/media/vh-boba.72a099b19d75c9b8ba13.png",
@@ -73,11 +73,11 @@
     "static/media/vgdc.jpeg": "/static/media/vgdc.50f9dbaf12bc002bcfdc.jpeg",
     "static/media/icssc.png": "/static/media/icssc.d77a855dbba987e5f245.png",
     "index.html": "/index.html",
-    "main.a1844707.css.map": "/static/css/main.a1844707.css.map",
-    "main.d0c6b799.js.map": "/static/js/main.d0c6b799.js.map"
+    "main.fd37d98d.css.map": "/static/css/main.fd37d98d.css.map",
+    "main.c9882ab1.js.map": "/static/js/main.c9882ab1.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1844707.css",
-    "static/js/main.d0c6b799.js"
+    "static/css/main.fd37d98d.css",
+    "static/js/main.c9882ab1.js"
   ]
 }
