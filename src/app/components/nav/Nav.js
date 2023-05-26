@@ -39,11 +39,11 @@ function Nav() {
             Schedule
           </p>
         </Link>
-        {/* <Link to="/resources">
+        <Link to="/resources">
           <p>
             Resources
           </p>
-        </Link> */}
+        </Link>
         <Link to="/workshops">
           <p>
             Workshops

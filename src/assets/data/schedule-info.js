@@ -136,10 +136,10 @@ let scheduleData = {
       time: "1:00PM-2:00PM",
     },
     {
-      name: "Scaling to Zero: Building Serverless Applications (Hosted by ICSSC)",
+      name: "Scaling to Zero: Building Serverless Discord Bots (Hosted by ICSSC)",
       // description: "ICSSC",
       description:
-        "Unleash the power of serverless! Dive into the world of serverless computing, explore its pros and cons, and unleash your creativity by crafting your own project in an engaging, hands-on demo. Don't forget to bring your laptop and GitHub account to create your own serverless project! Prerequisites: You should have a GitHub account.",
+        "Unleash the power of serverless during our \"Scaling to Zero\" workshop! Learn what serverless is, its pros and cons, and unleash your creativity during our hands-on demo. Don't forget to bring your laptop, GitHub account, and Discord account to create your own pham bot!",
       time: "2:00PM-3:00PM",
     },
     {
@@ -203,14 +203,14 @@ let scheduleData = {
       description: "Grab breakfast on us!",
       tooltip:
         "Take a break from hacking, grab a meal provided by us, and socialize with others!",
-      time: "9:00AM-10:30AM",
+      time: "9:00AM-10:00AM",
     },
     {
       name: "Project Expo",
       description: "Check out other hackers' projects!",
       tooltip:
         "Showcase your projects to other hackers and see the many projects made by other hackers!",
-      time: "10:30AM-12:00PM",
+      time: "10:00AM-12:00PM",
     },
     {
       name: "Accessibility in Tech 2023 Panel",
