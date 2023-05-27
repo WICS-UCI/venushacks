@@ -3,7 +3,7 @@ import './Schedule.scss';
 
 import { Countdown, FloatingHat, Footer, ScheduleCard } from 'app/components';
 
-const HACKING_DEADLINE = "28 May 2023 09:00:00 PST";
+const HACKING_DEADLINE = "28 May 2023 09:00:00 PDT";
 
 const Schedule = () => (
   <div className="Schedule">
