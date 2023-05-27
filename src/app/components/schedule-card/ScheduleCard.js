@@ -27,7 +27,7 @@ function ScheduleCard() {
 
   return (
     <div className="schedule-card">
-      <div className="schedule-card-section">
+      {/* <div className="schedule-card-section">
         <div>
           <h4>Friday</h4>
           <div className="schedule-card-divider-horizontal">
@@ -35,7 +35,7 @@ function ScheduleCard() {
           </div>
           {friSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
-      </div>
+      </div> */}
       <div className="schedule-card-section">
         <div>
           <h4>Saturday</h4>
