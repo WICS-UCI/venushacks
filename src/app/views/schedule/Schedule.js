@@ -1,26 +1,26 @@
 import React from "react";
 import './Schedule.scss';
 
+import { Countdown, FloatingHat, Footer, ScheduleCard } from 'app/components';
 
-import { FloatingHat, ScheduleCard, Footer } from 'app/components';
+const HACKING_DEADLINE = "28 May 2023 09:00:00 PST";
 
-function Schedule() {
-  return (
-    <div className="Schedule">
-      <section id="schedule-block">
-        <div className="schedule-countdown">
-          <FloatingHat offset={0}></FloatingHat>
-          <h2>
-            Schedule
-          </h2>
-            <FloatingHat offset={2}></FloatingHat>
-        </div>
-        <h4> All times are in PDT </h4>
-        <ScheduleCard/>
-      </section>
-      <Footer/>
-    </div>
-  );
-}
+const Schedule = () => (
+  <div className="Schedule">
+    <section id="schedule-block">
+      <div className="schedule-header">
+        <FloatingHat offset={0}></FloatingHat>
+        <h2>Schedule</h2>
+        <FloatingHat offset={2}></FloatingHat>
+      </div>
+      <h4 className="schedule-hacking-ends-in">All times in PDT. Hacking ends in:</h4>
+      <div className="schedule-countdown">
+        <Countdown date={HACKING_DEADLINE} />
+      </div>
+      <ScheduleCard/>
+    </section>
+    <Footer/>
+  </div>
+);
 
 export default Schedule;

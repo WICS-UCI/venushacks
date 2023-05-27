@@ -4,7 +4,7 @@ import './FloatingHat.scss';
 
 import { Keyframes, animated, interpolate } from 'react-spring/renderprops'
 
-import hat from 'assets/images/astronaut.png';
+import hat from 'assets/images/vh-laptop.png';
 
 const Container = Keyframes.Spring(async next => {
   while (true) {
@@ -32,7 +32,7 @@ function FloatingHat({offset}) {
         transform: interpolate([height, degree], (h, d) => `translateY(${h - 10}px) rotate(-50deg)`),
         transformOrigin: 'top center',
       }}
-    ></animated.img>
+    />
   );
 
   return (
