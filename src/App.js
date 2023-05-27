@@ -26,6 +26,7 @@ function App() {
           <Route exact path='/resources' component={Resources} />
           <Route exact path='/workshops' component={Workshops} />
           <Route exact path='/devpost' component={() => window.location.replace("https://venushacks-2023.devpost.com/")} />
+          <Route exact path='/midway' component={() => window.location.replace("https://forms.gle/3imPJg2UWXGXjvGT7")} />
           <Route exact path='/report' component={() => window.location.replace("https://forms.gle/xzPqKT4YgSWWdRqv8")} />
           <Route path="*" component={NotFound} />
         </Switch>

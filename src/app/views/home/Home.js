@@ -138,6 +138,8 @@ export default class Home extends React.Component {
                 <p id="tagline">UC Irvine's largest women-centric hackathon</p>
                 {/* <p id="tagline">Apps are now closed! If you applied, please check your email for your application status.</p> */}
                 <VenusButton text="DEVPOST" url="/devpost"/>
+                <VenusButton text="OPENING SLIDES" url="https://docs.google.com/presentation/d/1T5tyLHiz6wc2yIEScvUzOKGqBmmSwFMk8ldt_koBGPs"/>
+                <VenusButton text="MIDWAY CHECK IN" url="/midway"/>
               </div>
               <div id="planet" />
           </section>
