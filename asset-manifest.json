@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fd37d98d.css",
-    "main.js": "/static/js/main.184be467.js",
+    "main.css": "/static/css/main.39f52f78.css",
+    "main.js": "/static/js/main.42d200e9.js",
     "static/media/vh-astronaut-float.png": "/static/media/vh-astronaut-float.6cc719618913f620f30b.png",
     "static/media/vh-cat.png": "/static/media/vh-cat.fafc41d166b079c6e7a4.png",
     "static/media/vh-boba.png": "/static/media/vh-boba.72a099b19d75c9b8ba13.png",
@@ -18,7 +18,6 @@
     "static/media/acm.png": "/static/media/acm.2793e61bd78450c8ac39.png",
     "static/media/shohreh_bozorgmehri.jpeg": "/static/media/shohreh_bozorgmehri.0143a6cebc4e8edc6ce3.jpeg",
     "static/media/rupa_prasad.jpeg": "/static/media/rupa_prasad.912cb6248f2be4df0baf.jpeg",
-    "static/media/astronaut.png": "/static/media/astronaut.50444f0231466172c6bb.png",
     "static/media/janet_chavez_erazo.jpeg": "/static/media/janet_chavez_erazo.2f78c7e815a413daafca.jpeg",
     "static/media/dayana_alvarez.jpeg": "/static/media/dayana_alvarez.97add79fe2abd366e741.jpeg",
     "static/media/vh-about.png": "/static/media/vh-about.fbb6fe7288e095bc4a9b.png",
@@ -73,11 +72,11 @@
     "static/media/vgdc.jpeg": "/static/media/vgdc.50f9dbaf12bc002bcfdc.jpeg",
     "static/media/icssc.png": "/static/media/icssc.d77a855dbba987e5f245.png",
     "index.html": "/index.html",
-    "main.fd37d98d.css.map": "/static/css/main.fd37d98d.css.map",
-    "main.184be467.js.map": "/static/js/main.184be467.js.map"
+    "main.39f52f78.css.map": "/static/css/main.39f52f78.css.map",
+    "main.42d200e9.js.map": "/static/js/main.42d200e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd37d98d.css",
-    "static/js/main.184be467.js"
+    "static/css/main.39f52f78.css",
+    "static/js/main.42d200e9.js"
   ]
 }
