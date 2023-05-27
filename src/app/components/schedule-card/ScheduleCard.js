@@ -23,7 +23,8 @@ function Event(props) {
 }
 
 function ScheduleCard() {
-  const { friSchedule, satSchedule, sunSchedule } = scheduleData;
+  // const { friSchedule, satSchedule, sunSchedule } = scheduleData;
+  const { satSchedule, sunSchedule } = scheduleData;
 
   return (
     <div className="schedule-card">
