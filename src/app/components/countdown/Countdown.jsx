@@ -70,6 +70,9 @@ const Countdown = ({ date }) => {
         color="white"
         width={isDesktop ? 60 : 30}
         height={isDesktop ? 50 : 30}
+        nonNumberStyle={{
+          fontSize: isDesktop ? "40px" : "30px"
+        }}
         numberStyles={{
           textAlign: "left",
           fontSize: isDesktop ? "20px" : "30px",
