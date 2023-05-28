@@ -24,7 +24,7 @@ function Event(props) {
 
 function ScheduleCard() {
   // const { friSchedule, satSchedule, sunSchedule } = scheduleData;
-  const { satSchedule, sunSchedule } = scheduleData;
+  const { sunSchedule } = scheduleData;
 
   return (
     <div className="schedule-card">
@@ -37,7 +37,7 @@ function ScheduleCard() {
           {friSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
       </div> */}
-      <div className="schedule-card-section">
+      {/* <div className="schedule-card-section">
         <div>
           <h4>Saturday</h4>
           <div className="schedule-card-divider-horizontal">
@@ -45,7 +45,7 @@ function ScheduleCard() {
           </div>
           {satSchedule.map((event, index) => <Event {...event} key={index} />)}
         </div>
-      </div>
+      </div> */}
       <div className="schedule-card-section">
         <div>
           <h4>Sunday</h4>
