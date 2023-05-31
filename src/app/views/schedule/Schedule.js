@@ -17,6 +17,7 @@ const Schedule = () => (
       <div className="schedule-countdown">
         <Countdown date={HACKING_DEADLINE} />
       </div>
+      <h4 className="schedule-hacking-ends-in">See you next year!</h4>
       <ScheduleCard/>
     </section>
     <Footer/>
