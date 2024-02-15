@@ -1,45 +1,11 @@
 import React from "react";
 import "./Home.scss";
 
-// import FAQs from "../../components/faqs/FAQs";
-// import Footer from "../../components/footer/Footer";
-// import Team from "../../components/meet-team/team";
-// import Speakers from "../../components/speakers/speakers";
-
 // TITLES
 import vh_title from "assets/images/titles/vh-title-launch.svg";
-// import about_title from "assets/images/titles/vh-about.png";
-// import faq_title from "assets/images/titles/vh-faq.png";
-// import sponsors_title from "assets/images/titles/vh-sponsors.png";
-// import partners_title from "assets/images/titles/vh-partners.png";
-// import speakers_title from "assets/images/titles/vh-speakers.png";
-// import meet_team_title from "assets/images/titles/vh-meet-the-team.png";
-
-// SPONSORS
-// import coxenterprises from "assets/images/sponsors/coxenterprises.png";
-// import odit from "assets/images/sponsors/odit.png";
-// import costar from "assets/images/sponsors/costar.png";
-// import corelogic from "assets/images/sponsors/corelogic.png";
-// import antrepreneurcenter from "assets/images/sponsors/antrepreneurcenter.png";
-
-// PARTNERS
-// import acm from "assets/images/partners/acm.png";
-// import ai from "assets/images/partners/ai.png";
-// import ctc from "assets/images/partners/ctc.png";
-// import design from "assets/images/partners/design.png";
-// import googlecloud from "assets/images/partners/googlecloud.png";
-// import hack from "assets/images/partners/hack.png";
-// import icssc from "assets/images/partners/icssc.png";
-// import vgdc from "assets/images/partners/vgdc.jpeg";
-// import wics from "assets/images/partners/wics.png";
-
-import { VenusButton } from "app/components";
 
 // const VH_DATE = "May 26-28, 2023";
 const VH_DATE = "Coming Soon!";
-const CONTACT_EMAIL = "contact@venushacks.com";
-const CORPORATE_EMAIL = "sponsorships@venushacks.com";
-
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -136,113 +102,8 @@ export default class Home extends React.Component {
             />
             <h4 id="date">{VH_DATE}</h4>
             <p id="tagline">UC Irvine's largest women-centric hackathon</p>
-            {/* <p id="tagline">Apps are now closed! If you applied, please check your email for your application status.</p> */}
-            {/* <VenusButton text="DEVPOST" url="/devpost" /> */}
-            {/* <VenusButton
-              text="OPENING SLIDES"
-              url="https://docs.google.com/presentation/d/1T5tyLHiz6wc2yIEScvUzOKGqBmmSwFMk8ldt_koBGPs"
-            /> */}
-            {/* <VenusButton text="FEEDBACK" url="/feedback" />
-            <VenusButton text="MIDWAY CHECK IN" url="/midway" /> */}
           </div>
-          {/* <div id="planet" /> */}
         </section>
-
-        {/* ABOUT **********************/}
-        {/* <section id="about">
-            <img className="section-title" src={about_title} alt="About"/>
-            <div id="about-text-container">
-              <p>
-                Planned in collaboration with&nbsp;
-                <a href="https://wics.ics.uci.edu/" target="_blank" rel="noopener noreferrer">WICS</a> and&nbsp;
-                <a href="https://hack.ics.uci.edu/" target="_blank" rel="noopener noreferrer">Hack at UCI</a>,&nbsp;
-                VenusHacks is UCI’s largest women-centric hackathon and will take place fully in-person in Spring 2023!
-              </p>
-              <p>
-                Our mission is to empower underrepresented groups by providing an 
-                inclusive community to foster growth and creativity in computing. 
-                VenusHacks will be open to participants of all experience levels, as 
-                we aim to increase diversity in tech through support, exposure, and 
-                community. Join us as we welcome high school (18+), undergraduate, and 
-                graduate students to participate in our 36-hour (non-overnight) event that
-                includes networking, fun activities, educational workshops, and lots of coding!
-              </p>
-            </div>
-          </section>
-
-          <div ref={ref => {this._element = ref}}> */}
-
-        {/* FAQ ************************/}
-        {/* <section id="faq">
-              <img className="section-title" src={faq_title} alt="FAQ" />
-              <FAQs/>
-              <p id="faq-contact-us">
-                Additional logistic questions? Contact us at&nbsp;
-                <a href={`mailto:${CONTACT_EMAIL}`} target="_top">
-                  {CONTACT_EMAIL}
-                </a>.
-              </p>
-            </section> */}
-
-        {/* SPONSORS **********************/}
-        {/* <section id="sponsors">
-                <img className="section-title" src={sponsors_title} alt="Sponsor" />
-                <div id="sponsors-container">
-                  <div className="logo-wrapper largest">
-                    {this.renderSponsorLink("coxenterprises", coxenterprises, "https://www.coxenterprises.com/")}
-                    {this.renderSponsorLink("odit", odit, "https://odit.uci.edu/")}
-                  </div>
-                  <div className="logo-wrapper large">
-                    {this.renderSponsorLink("costar", costar, "https://www.costar.com/")}
-                  </div>
-                  <div className="logo-wrapper medium">
-                    {this.renderSponsorLink("corelogic", corelogic, "https://www.corelogic.com/")} 
-                    {this.renderSponsorLink("antrepreneurcenter", antrepreneurcenter, "https://antrepreneur.uci.edu/")}
-                  </div>
-                </div>
-                <p className="sponsor-contact-us">
-                  Join our movement, contact us at&nbsp;
-                  <a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
-                  {CORPORATE_EMAIL}
-                  </a>.
-                </p>
-            </section> */}
-
-        {/* PARTNERS **********************/}
-        {/* <section id="partners">
-                <img className="section-title" src={partners_title} alt="Partners" />
-                <div id="partners-container">
-                  <div className="logo-wrapper medium">
-                    {this.renderSponsorLink("acm", acm, "https://acm-uci.org/")}
-                    {this.renderSponsorLink("ai", ai, "https://aiclub.ics.uci.edu/")}
-                    {this.renderSponsorLink("ctc", ctc, "https://ctc-uci.com/")}
-                    {this.renderSponsorLink("design", design, "https://designatuci.com/")}
-                    {this.renderSponsorLink("google cloud", googlecloud, "https://cloud.google.com/")}
-                    {this.renderSponsorLink("hack", hack, "https://hack.ics.uci.edu/")}
-                    {this.renderSponsorLink("icssc", icssc, "https://studentcouncil.ics.uci.edu/")}
-                    {this.renderSponsorLink("vgdc", vgdc, "https://sites.google.com/uci.edu/vgdcuci/home")}
-                    {this.renderSponsorLink("wics", wics, "https://wics.ics.uci.edu/")}
-                  </div>
-                </div>
-            </section> */}
-
-        {/* SPEAKERS ******************/}
-        {/* <section id="speakers">
-              <img className="section-title" src={speakers_title} alt="Speakers" />
-              <Speakers/>
-            </section> */}
-
-        {/* MEET THE TEAM ******************/}
-        {/* Use padding if there's no org photos */}
-        {/* <section id="padding" /> */}
-        {/* <section id="meet-team">
-              <img className="section-title" src={meet_team_title} alt="Meet the Team" />
-              <Team/>
-            </section>
-          </div> */}
-
-        {/* FOOTER ******************/}
-        {/* <Footer/> */}
       </div>
     );
   }
