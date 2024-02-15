@@ -11,7 +11,7 @@ function NotFound() {
         <span className="h2">Not Found</span>
         <span>Just empty space over here.</span>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
