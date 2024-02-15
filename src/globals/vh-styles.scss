@@ -7,7 +7,7 @@ When graphics gives us their style guidelines we can look here.
 **/
 
 // VH 2023 Font: Nunito Bold (font-weight 700, 400+500 also included)
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
 // PX Sizing for Media queries
 $break-small: 500px;
@@ -20,23 +20,23 @@ $errorColor: #a31e1e;
 $vhFont: Nunito, sans-serif;
 
 // VH 2023 Backgrounds
-$gradientBackground: linear-gradient(#322660, #070024);
+$gradientBackground: linear-gradient(#a8acf9, #ffc999);
 $darkBlueBackground: #322660;
 $darkBlackBackground: #070024;
 
 // VH 2022 Backgrounds
 $lightBackground: #fcfcfc;
-$coloredLightBackground: #AFE3F9;
+$coloredLightBackground: #afe3f9;
 $tealBackground: #92dee2;
 $purpleBackground: #cba3fe;
 
 // Gradients
-$leftGradient: #C6FFDD;
-$rightGradient: #FBD786;
+$leftGradient: #c6ffdd;
+$rightGradient: #fbd786;
 $moreRightGradient: #f7797d;
 $rightOffGradient: rgb(226, 131, 128);
 
-// Colors 
+// Colors
 $lightGray: #e8e8e8;
 $pink: #ffc3ff;
 $purple: #ccbbff;

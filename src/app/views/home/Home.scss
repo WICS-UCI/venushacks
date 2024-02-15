@@ -1,11 +1,11 @@
 @import "globals/vh-styles.scss";
 
 $boba: "./../../../assets/images/vh-boba.png";
-$astronaut: "./../../../assets/images/vh-astronaut-float.png";
+$astronaut: "./../../../assets/images/vh-astronaut.png";
 $laptop: "./../../../assets/images/vh-laptop.png";
-$cat: "./../../../assets/images/vh-cat.png";
+$shiba: "./../../../assets/images/VH_shiba_inu.png";
 $planet: "./../../../assets/images/vh-planet.png";
-$stars_background: "./../../../assets/images/stars-background.svg";
+$stars_background: "./../../../assets/images/stars.svg";
 
 body {
   overflow-x: hidden;
@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   text-align: center;
   min-height: 100vh;
-  
+
   section {
     min-height: 100vh;
     .section-title {
@@ -54,29 +54,48 @@ body {
 
     #astronaut-animation {
       display: flex;
-      width: 40%;
+      width: 45%;
+      justify-content: space-between;
       max-width: 600px;
-      margin-top:200px;
-      
+      margin-top: 200px;
+
       @media screen and (max-width: $break-medium) {
         width: 100%;
         max-width: 325px;
       }
 
       @keyframes floatBoba {
-        0% { transform: translatey(50px); }
-        50% { transform: translatey(70px); }
-        100% { transform: translatey(50px); }
+        0% {
+          transform: translatey(50px);
+        }
+        50% {
+          transform: translatey(70px);
+        }
+        100% {
+          transform: translatey(50px);
+        }
       }
       @keyframes floatAstronaut {
-        0% { transform: translatey(0px); }
-        50% { transform: translatey(-20px); }
-        100% { transform: translatey(0px); }
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
       }
       @keyframes floatLaptop {
-        0% { transform: translatey(0px); }
-        50% { transform: translatey(20px); }
-        100% { transform: translatey(0px); }
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
       }
 
       #boba {
@@ -88,7 +107,7 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         animation: floatBoba 4s ease-in-out infinite;
-  
+
         @media screen and (max-width: $break-small) {
           width: 12vw;
           height: 12vw;
@@ -104,25 +123,25 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         animation: floatAstronaut 4s ease-in-out infinite;
-  
+
         @media screen and (max-width: $break-small) {
           width: 40vw;
           height: 40vw;
         }
       }
-  
+
       #laptop {
         float: right;
         width: 12vw;
         height: 12vw;
         max-width: 340px;
-        margin-left:-10%;
+        margin-left: -10%;
         margin-top: -15%;
         background: url($laptop);
         background-size: contain;
         background-repeat: no-repeat;
         animation: floatLaptop 4s ease-in-out infinite;
-  
+
         @media screen and (max-width: $break-small) {
           margin-top: -60px;
           width: 30vw;
@@ -130,18 +149,18 @@ body {
         }
       }
 
-      #cat {
+      #shiba-inu {
         float: right;
         width: 12vw;
         height: 12vw;
         max-width: 360px;
-        margin-left:-15%;
+        margin-left: -15%;
         margin-top: 12%;
-        background: url($cat);
+        background: url($shiba);
         background-size: contain;
         background-repeat: no-repeat;
         animation: floatAstronaut 4s ease-in-out infinite;
-  
+        transform: rotateY(180deg);
         @media screen and (max-width: $break-small) {
           width: 30vw;
           height: 30vw;
@@ -150,7 +169,7 @@ body {
     } // END #astronaut-animation
 
     #hero-right {
-     width: 48%;
+      width: 48%;
 
       @media screen and (max-width: $break-medium) {
         width: initial;
@@ -166,15 +185,17 @@ body {
           width: 100%;
         }
       }
-  
+
       #date {
+        color: #322660;
         @media screen and (max-width: $break-medium) {
           font-size: 20px;
         }
       }
-  
+
       #tagline {
         font-size: 22px;
+        color: #322660;
         @media screen and (max-width: $break-medium) {
           font-size: 18px;
         }
@@ -201,7 +222,7 @@ body {
       }
 
       .venus-btn:hover {
-        transition: all .2s ease;
+        transition: all 0.2s ease;
         transform: scale(1.08);
       }
     } // END #hero-right
@@ -213,8 +234,8 @@ body {
       background: url($planet);
       background-size: contain;
       background-repeat: no-repeat;
-      display:block;
-      margin:auto;
+      display: block;
+      margin: auto;
       margin-top: 5%;
     }
   } // END HERO
@@ -250,10 +271,10 @@ body {
         }
         @media screen and (max-width: $break-small) {
           font-size: 14px; // This line can prob be removed
-                           // when we take out the psa
+          // when we take out the psa
         }
       }
-  
+
       #asterisk-inclusive {
         color: $pink;
 
@@ -318,7 +339,7 @@ body {
 
       .logo-wrapper .logo {
         margin: 30px;
-        transition: all .2s ease;
+        transition: all 0.2s ease;
       }
 
       .logo-wrapper .logo:hover {
@@ -340,7 +361,9 @@ body {
         max-height: 100px;
       }
 
-      .medium .logo, .large .logo, .largest .logo {
+      .medium .logo,
+      .large .logo,
+      .largest .logo {
         @media screen and (max-width: $break-medium) {
           max-width: 90%;
           max-height: 75px;
@@ -379,7 +402,7 @@ body {
 
       .logo-wrapper .logo {
         margin: 30px;
-        transition: all .2s ease;
+        transition: all 0.2s ease;
       }
 
       .logo-wrapper .logo:hover {
@@ -393,7 +416,9 @@ body {
         max-height: 100px;
       }
 
-      .medium .logo, .large .logo, .largest .logo {
+      .medium .logo,
+      .large .logo,
+      .largest .logo {
         @media screen and (max-width: $break-medium) {
           max-width: 90%;
           max-height: 75px;
@@ -417,10 +442,10 @@ body {
         max-height: 150px;
       }
     }
-    
+
     .subheader {
       max-width: 85%;
-      font-size: 50px;  
+      font-size: 50px;
 
       @media screen and (max-width: $break-medium) {
         font-size: 30px;

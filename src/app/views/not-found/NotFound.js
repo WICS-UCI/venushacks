@@ -1,5 +1,4 @@
 import React from "react";
-import { Footer } from "app/components";
 
 import "./NotFound.scss";
 
@@ -11,7 +10,6 @@ function NotFound() {
         <span className="h2">Not Found</span>
         <span>Just empty space over here.</span>
       </div>
-      <Footer />
     </div>
   );
 }
