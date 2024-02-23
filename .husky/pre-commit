@@ -1,6 +1,6 @@
 echo "Starting husky..."
 
-echo "Linting..."
+echo "Lint-staged with prettier..."
 npx lint-staged
 git update-index --again
 
