@@ -10,7 +10,7 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* Number of "pages" needed to contain all content under 
+      /* Number of "pages" needed to contain all content under
          the about section (faqs, sponsors, meet team, etc).
          This number is calculated in updateParallaxLayerHeight().
       */
@@ -86,7 +86,7 @@ export default class Home extends React.Component {
         {/* HERO **********************/}
         <section id="hero">
           <div id="astronaut-animation">
-            {/* These assets are a background of a div instead of imgs to prevent 
+            {/* These assets are a background of a div instead of imgs to prevent
                     them from being able to be saved to camera roll on iOS */}
             <div id="boba" />
             <div id="astronaut" />

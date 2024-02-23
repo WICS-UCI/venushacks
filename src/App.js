@@ -1,21 +1,18 @@
 import React from "react";
-import { Route, Switch, Router } from "react-router-dom";
-import history from "./history";
-import "./App.scss";
+import { Route, Routes } from "react-router-dom";
 
 import { Home, NotFound } from "app/views";
+import "./App.scss";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
