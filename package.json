@@ -5,6 +5,8 @@
   "homepage": "https://www.venushacks.com/",
   "dependencies": {
     "@react-spring/addons": "^9.0.0-beta.35",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-confetti": "^6.1.0",
@@ -20,7 +22,8 @@
     "build": "react-scripts build",
     "deploy": "node scripts/deploy.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +42,7 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
+    "husky": "^9.0.11",
     "typescript": "^4"
   }
 }
