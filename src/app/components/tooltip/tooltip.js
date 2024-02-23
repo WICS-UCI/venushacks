@@ -4,7 +4,7 @@ import "./tooltip.scss";
 // Taken from:
 // https://dev.to/vtrpldn/how-to-make-an-extremely-reusable-tooltip-component-with-react-and-nothing-else-3pnk
 
-const Tooltip = props => {
+const Tooltip = (props) => {
   let timeout;
   const [active, setActive] = useState(false);
 

@@ -139,7 +139,7 @@ let scheduleData = {
       name: "Scaling to Zero: Building Serverless Discord Bots (Hosted by ICSSC)",
       // description: "ICSSC",
       description:
-        "Unleash the power of serverless during our \"Scaling to Zero\" workshop! Learn what serverless is, its pros and cons, and unleash your creativity during our hands-on demo. Don't forget to bring your laptop, GitHub account, and Discord account to create your own pham bot!",
+        'Unleash the power of serverless during our "Scaling to Zero" workshop! Learn what serverless is, its pros and cons, and unleash your creativity during our hands-on demo. Don\'t forget to bring your laptop, GitHub account, and Discord account to create your own pham bot!',
       time: "2:00PM-3:00PM",
     },
     {

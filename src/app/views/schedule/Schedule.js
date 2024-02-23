@@ -1,7 +1,12 @@
 import React from "react";
-import './Schedule.scss';
+import "./Schedule.scss";
 
-import { Countdown, FloatingLaptop, Footer, ScheduleCard } from 'app/components';
+import {
+  Countdown,
+  FloatingLaptop,
+  Footer,
+  ScheduleCard,
+} from "app/components";
 
 const HACKING_DEADLINE = "28 May 2023 09:00:00 PDT";
 
@@ -13,14 +18,16 @@ const Schedule = () => (
         <h2>Schedule</h2>
         <FloatingLaptop offset={2}></FloatingLaptop>
       </div>
-      <h4 className="schedule-hacking-ends-in">All times in PDT. Hacking ends in:</h4>
+      <h4 className="schedule-hacking-ends-in">
+        All times in PDT. Hacking ends in:
+      </h4>
       <div className="schedule-countdown">
         <Countdown date={HACKING_DEADLINE} />
       </div>
       <h4 className="schedule-hacking-ends-in">See you next year!</h4>
-      <ScheduleCard/>
+      <ScheduleCard />
     </section>
-    <Footer/>
+    <Footer />
   </div>
 );
 

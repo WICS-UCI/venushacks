@@ -1,7 +1,7 @@
 import React from "react";
 
-import hat from 'assets/images/vh-laptop.png';
-import './FloatingLaptop.scss';
+import hat from "assets/images/vh-laptop.png";
+import "./FloatingLaptop.scss";
 
 // TODO Redo this animation natively or in Framer Motion
 // const Container = Keyframes.Spring(async next => {
@@ -9,11 +9,11 @@ import './FloatingLaptop.scss';
 //     let prev = 0;
 //     let prevDegree = -3;
 //     for (let i = 0; i < 10; i++) {
-//       let randomHeight = Math.floor(Math.random() * 20) 
+//       let randomHeight = Math.floor(Math.random() * 20)
 //       let randomDegree = i % 1 === 0 ? prevDegree * -1 : prevDegree;
 //       await next({
 //         from: { height: prev, degree: prevDegree},
-//         to: { height: i === 9 ? 0 : randomHeight, degree: randomDegree} 
+//         to: { height: i === 9 ? 0 : randomHeight, degree: randomDegree}
 //       });
 //       prev = randomHeight;
 //       prevDegree = randomDegree;
@@ -23,11 +23,11 @@ import './FloatingLaptop.scss';
 
 const FloatingLaptop = ({ offset }) => {
   // const image = ({height, degree}) => (
-  //   <img 
-  //     src={hat} 
+  //   <img
+  //     src={hat}
   //     className="floating-laptop"
   //     alt="floating laptop"
-  //     style={{ 
+  //     style={{
   //       transform: interpolate([height, degree], (h, d) => `translateY(${h - 10}px) rotate(-50deg)`),
   //       transformOrigin: 'top center',
   //     }}
@@ -42,12 +42,8 @@ const FloatingLaptop = ({ offset }) => {
     // >
     //   {image}
     // </Container>
-    <img 
-      src={hat} 
-      className="floating-laptop"
-      alt="floating laptop"
-    />
+    <img src={hat} className="floating-laptop" alt="floating laptop" />
   );
-}
+};
 
 export default FloatingLaptop;

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-import './Nav.scss';
+import "./Nav.scss";
 
 function Nav() {
   const [showDropMenu, setShowDropMenu] = useState(false);
 
   const toggleDropDownMenu = () => {
     setShowDropMenu(!showDropMenu);
-  }
+  };
 
   // hideDropDownMenu is the onclick function for the nav
   // If the menu is shown and the user clicks somewhere on
@@ -18,51 +18,41 @@ function Nav() {
     if (showDropMenu) {
       setShowDropMenu(false);
     }
-  }
+  };
 
   return (
-    <div 
+    <div
       className={"nav" + (showDropMenu ? " show-menu" : "")}
       onClick={hideDropDownMenu}
     >
-      <Button onClick={toggleDropDownMenu} className="menu-button btn-secondary">
-        {showDropMenu ? 'x' : '≡'}
+      <Button
+        onClick={toggleDropDownMenu}
+        className="menu-button btn-secondary"
+      >
+        {showDropMenu ? "x" : "≡"}
       </Button>
       <div className={"nav-container" + (showDropMenu ? " show" : "")}>
         <Link to="/">
-          <p>
-            Home
-          </p>
+          <p>Home</p>
         </Link>
         <Link to="/schedule">
-          <p>
-            Schedule
-          </p>
+          <p>Schedule</p>
         </Link>
         <Link to="/resources">
-          <p>
-            Resources
-          </p>
+          <p>Resources</p>
         </Link>
         <Link to="/workshops">
-          <p>
-            Workshops
-          </p>
+          <p>Workshops</p>
         </Link>
         <Link to="/report">
-          <p>
-            Incident Form
-          </p>
+          <p>Incident Form</p>
         </Link>
         <Link to="/devpost">
-          <p>
-            Devpost
-          </p>
+          <p>Devpost</p>
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
 export default Nav;
-

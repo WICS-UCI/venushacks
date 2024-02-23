@@ -1,5 +1,5 @@
-import React from 'react';
-import './ScheduleCard.scss';
+import React from "react";
+import "./ScheduleCard.scss";
 
 import { scheduleData } from "assets/data/schedule-info.js";
 
@@ -9,10 +9,12 @@ const Event = ({ name, description, time, tooltip }) => (
       <h5>{name}</h5>
       <div className="schedule-card-tooltip">
         <p className="schedule-card-description">{description}</p>
-        {tooltip && <span className="schedule-card-tooltiptext">{tooltip}</span>}
+        {tooltip && (
+          <span className="schedule-card-tooltiptext">{tooltip}</span>
+        )}
       </div>
     </div>
-    <div style={{ 'textAlign': 'right' }}>
+    <div style={{ textAlign: "right" }}>
       <h5>{time}</h5>
     </div>
   </div>
@@ -29,7 +31,9 @@ const ScheduleCard = () => {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {friSchedule.map((event, index) => <Event {...event} key={index} />)}
+          {friSchedule.map((event, index) => (
+            <Event {...event} key={index} />
+          ))}
         </div>
       </div>
       <div className="schedule-card-section">
@@ -38,7 +42,9 @@ const ScheduleCard = () => {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {satSchedule.map((event, index) => <Event {...event} key={index} />)}
+          {satSchedule.map((event, index) => (
+            <Event {...event} key={index} />
+          ))}
         </div>
       </div>
       <div className="schedule-card-section">
@@ -47,7 +53,9 @@ const ScheduleCard = () => {
           <div className="schedule-card-divider-horizontal">
             <div />
           </div>
-          {sunSchedule.map((event, index) => <Event {...event} key={index} />)}
+          {sunSchedule.map((event, index) => (
+            <Event {...event} key={index} />
+          ))}
         </div>
       </div>
     </div>
