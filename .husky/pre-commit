@@ -1,1 +1,7 @@
-echo "Husky works"
+echo "Starting husky..."
+
+echo "Linting..."
+npx lint-staged
+git update-index --again
+
+echo "Husky ran successfully"

@@ -25,6 +25,14 @@
     "eject": "react-scripts eject",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --check --verbose"
+    ],
+    "*.jsx": [
+      "prettier --check --verbose"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
