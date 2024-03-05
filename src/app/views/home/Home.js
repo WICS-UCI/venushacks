@@ -101,7 +101,7 @@ export default class Home extends React.Component {
               alt="VenusHacks Title Logo"
             />
             <h4 id="date">{VH_DATE}</h4>
-            <p id="tagline">UC Irvine's largest women-centric hackathon</p>
+            <p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
           </div>
         </section>
       </div>

@@ -21,7 +21,7 @@ import "./FloatingLaptop.scss";
 //   }
 // })
 
-const FloatingLaptop = ({ offset }) => {
+const FloatingLaptop = () => {
   // const image = ({height, degree}) => (
   //   <img
   //     src={hat}

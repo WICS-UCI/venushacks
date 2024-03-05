@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://www.venushacks.com/",
   "dependencies": {
-    "@react-spring/addons": "^9.0.0-beta.35",
     "lint-staged": "^15.2.2",
+    "next": "^14.1.1",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
@@ -13,28 +13,19 @@
     "react-dom": "^18.2.0",
     "react-flip-numbers": "^3.0.8",
     "react-router-dom": "^6.22.1",
-    "react-scripts": "^5.0.1",
-    "react-spring": "^9.7.3",
     "sass": "^1.71.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "node scripts/deploy.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier '**/*.js' --write --verbose"
-    ],
     "*.jsx": [
       "prettier '**/*.jsx' --write --verbose"
     ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -49,8 +40,9 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-next": "^14.1.2",
     "gh-pages": "^6.1.1",
     "husky": "^9.0.11",
-    "typescript": "^4"
+    "tailwindcss": "^3.4.1"
   }
 }

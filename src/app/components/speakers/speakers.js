@@ -2,7 +2,7 @@ import React from "react";
 import { speakersData } from "assets/data/speakers-info.js";
 import "./speakers.scss";
 
-const Speaker = (name, title, photo, index) => {
+const Speaker = (name, title, photo) => {
   return (
     <div className="speaker-img-wrapper">
       <img
@@ -20,8 +20,8 @@ const Speaker = (name, title, photo, index) => {
 const renderSpeakers = (speakers) => {
   return (
     <div className="speaker-photos">
-      {speakers.map((speaker, index) =>
-        Speaker(speaker.name, speaker.title, speaker.photo, index),
+      {speakers.map((speaker) =>
+        Speaker(speaker.name, speaker.title, speaker.photo),
       )}
     </div>
   );

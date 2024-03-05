@@ -1,0 +1,32 @@
+/* VH 2024 Fonts: Comfortaa (300-700) + Varela Round (400) */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Varela+Round&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background-upper-gradient: #322660;
+  --color-background-lower-gradient: #070024;
+  --color-vh-primary: #ffc999;
+  --color-vh-secondary: #ee99a0;
+  --color-vh-tertiary: #a8acf9;
+  --color-light-gray: #e8e8e8;
+  --color-pink: #ffc3ff;
+  --color-purple: #ccbbff;
+  --color-dark-blue: #a8abf2;
+  --color-blue: #afd6fa;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.25;
+}
