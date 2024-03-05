@@ -5,9 +5,9 @@
   "homepage": "https://www.venushacks.com/",
   "dependencies": {
     "@next/font": "^14.1.2",
+    "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
     "next": "^14.1.1",
-    "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-confetti": "^6.1.0",
@@ -25,7 +25,7 @@
   },
   "lint-staged": {
     "*.jsx": [
-      "prettier '**/*.jsx' --write --verbose"
+      "eslint '**/*.{js,jsx}' --fix"
     ]
   },
   "browserslist": {

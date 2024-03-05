@@ -22,8 +22,10 @@ body {
   margin: 0;
   overflow-y: auto;
   color: #fff;
-  background-image: linear-gradient(var(--color-vh-secondary), var(--color-vh-primary));
+  background-image: linear-gradient(var(--color-vh-tertiary), var(--color-vh-primary));
 }
+
+/* Legacy VH styles */
 
 button {
   border-radius: 50px;
