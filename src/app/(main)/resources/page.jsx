@@ -40,6 +40,6 @@ import "./Resources.scss";
 //   );
 // }
 
-const Resources = () => null;
+const Resources = () => <p>Resources</p>;
 
 export default Resources;

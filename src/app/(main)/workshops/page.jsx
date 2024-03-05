@@ -17,6 +17,6 @@ import "./Workshops.scss";
 //   );
 // };
 
-const Workshops = () => null;
+const Workshops = () => <p>Workshops</p>;
 
 export default Workshops;
