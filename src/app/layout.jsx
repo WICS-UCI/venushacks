@@ -1,3 +1,5 @@
+import { varela } from "./fonts";
+
 export const metadata = {
   title: {
     default: "VenusHacks",
@@ -22,7 +24,7 @@ export const viewport = {
 
 const RootLayout = ({ children }) => (
   <html lang="en">
-    <body>{children}</body>
+    <body className={varela.className}>{children}</body>
   </html>
 );
 

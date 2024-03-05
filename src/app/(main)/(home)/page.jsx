@@ -1,3 +1,5 @@
+import "./Home.scss";
+
 const VH_DATE = "Coming Soon!";
 
 const Home = () => {
