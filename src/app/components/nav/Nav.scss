@@ -1,4 +1,4 @@
-@import "globals/vh-styles.scss";
+@import "../../(main)/vh-styles.scss";
 
 .nav {
   width: 100vw;
@@ -52,7 +52,7 @@
       width: 40px;
     }
   }
-  
+
   .nav-right {
     margin-right: 30px;
     margin-top: 30px;
@@ -75,7 +75,7 @@
     }
   }
 
-  @media screen and (max-width: $break-small) {    
+  @media screen and (max-width: $break-small) {
     .menu-button {
       display: block;
     }

@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@next/font':
-    specifier: ^14.1.2
-    version: 14.1.2(next@14.1.1)
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
@@ -17,9 +14,6 @@ dependencies:
   next:
     specifier: ^14.1.1
     version: 14.1.1(react-dom@18.2.0)(react@18.2.0)(sass@1.71.1)
-  prettier:
-    specifier: ^3.2.5
-    version: 3.2.5
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -171,14 +165,6 @@ packages:
     dependencies:
       glob: 10.3.10
     dev: true
-
-  /@next/font@14.1.2(next@14.1.1):
-    resolution: {integrity: sha512-1MWfdC0EiHCuC9U9vRAYd96fA3vW9/fW/CkNGy8Ol1QrSfSRLft5i0g+xLEPsuo+BSJKqU03JkA2LEE1LdNv6w==}
-    peerDependencies:
-      next: '*'
-    dependencies:
-      next: 14.1.1(react-dom@18.2.0)(react@18.2.0)(sass@1.71.1)
-    dev: false
 
   /@next/swc-darwin-arm64@14.1.1:
     resolution: {integrity: sha512-yDjSFKQKTIjyT7cFv+DqQfW5jsD+tVxXTckSe1KIouKk75t1qZmj/mV3wzdmFb0XHVGtyRjDMulfVG8uCKemOQ==}
@@ -2325,12 +2311,6 @@ packages:
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
-
-  /prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: false
 
   /prop-types-extra@1.1.1(react@18.2.0):
     resolution: {integrity: sha512-59+AHNnHYCdiC+vMwY52WmvP5dM3QLeoumYuEyceQDi9aEhtwN9zIQ2ZNo25sMyXnbh32h+P1ezDsUpUH3JAew==}

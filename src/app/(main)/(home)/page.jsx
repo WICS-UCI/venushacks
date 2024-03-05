@@ -1,5 +1,9 @@
+import Image from "next/image";
+
+import vhTitle from "@/assets/images/titles/vh-title-launch.svg";
 import "./Home.scss";
 
+// const VH_DATE = "May 26-28, 2023";
 const VH_DATE = "Coming Soon!";
 
 const Home = () => {
@@ -17,11 +21,11 @@ const Home = () => {
         </div>
 
         <div id="hero-right">
-          {/* <img
-            id="venushacks-title"
-            src={vh_title}
-            alt="VenusHacks Title Logo"
-          /> */}
+										<Image
+											src={vhTitle}
+											alt="VenusHacks Title Logo"
+											id="venushacks-title"
+										/>
           <h4 id="date">{VH_DATE}</h4>
           <p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
         </div>

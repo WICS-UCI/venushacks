@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://www.venushacks.com/",
   "dependencies": {
-    "@next/font": "^14.1.2",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
     "next": "^14.1.1",

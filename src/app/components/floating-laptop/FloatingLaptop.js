@@ -1,6 +1,6 @@
-import React from "react";
+import Image from "next/image";
 
-import hat from "assets/images/vh-laptop.png";
+import laptop from "@/assets/images/vh-laptop.png";
 import "./FloatingLaptop.scss";
 
 // TODO Redo this animation natively or in Framer Motion
@@ -42,7 +42,11 @@ const FloatingLaptop = () => {
     // >
     //   {image}
     // </Container>
-    <img src={hat} className="floating-laptop" alt="floating laptop" />
+		<Image
+			src={laptop}
+			className="floating-laptop"
+			alt="Floating Laptop"
+		/>
   );
 };
 

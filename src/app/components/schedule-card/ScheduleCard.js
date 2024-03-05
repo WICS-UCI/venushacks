@@ -1,7 +1,7 @@
 import React from "react";
 import "./ScheduleCard.scss";
 
-import { scheduleData } from "assets/data/schedule-info.js";
+import { scheduleData } from "@/assets/data/schedule-info";
 
 const Event = ({ name, description, time, tooltip }) => (
   <div className="schedule-card-time-slot">
