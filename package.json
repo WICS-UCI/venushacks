@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://www.venushacks.com/",
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
     "next": "^14.1.1",
