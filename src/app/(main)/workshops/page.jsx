@@ -1,7 +1,8 @@
-import "./Workshops.scss";
-
+import { redirect } from "next/navigation";
 // import { WorkshopCard, Footer } from "@/app/components";
 // import { workshopsData } from "@/assets/data/workshops-info";
+
+import "./Workshops.scss";
 
 // const Workshops = () => {
 //   return (
@@ -17,6 +18,6 @@ import "./Workshops.scss";
 //   );
 // };
 
-const Workshops = () => <p>Workshops</p>;
+const Workshops = () => process.env.MAINTENANCE_MODE_WORKSHOPS ? redirect("/") : <p>Workshops</p>;
 
 export default Workshops;

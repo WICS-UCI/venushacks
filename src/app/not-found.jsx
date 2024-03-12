@@ -1,4 +1,4 @@
-import "./(main)/globals.css";
+import "./globals.css";
 import styles from "./not-found.module.css";
 
 const NotFound = () => (

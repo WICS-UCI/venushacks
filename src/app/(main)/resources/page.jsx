@@ -1,7 +1,8 @@
-import "./Resources.scss";
-
+import { redirect } from "next/navigation";
 // import { Tooltip, Footer } from "@/app/components";
 // import { starterPackData } from "@/assets/data/resources-info";
+
+import "./Resources.scss";
 
 // function Resources() {
 //   return (
@@ -40,6 +41,6 @@ import "./Resources.scss";
 //   );
 // }
 
-const Resources = () => <p>Resources</p>;
+const Resources = () => process.env.MAINTENANCE_MODE_RESOURCES ? redirect("/") : <p>Resources</p>;
 
 export default Resources;

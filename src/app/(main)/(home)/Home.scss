@@ -178,7 +178,7 @@ body {
       #venushacks-title {
         width: 100%;
         max-width: 800px;
-        margin-bottom: 0px;
+        margin-bottom: -10%;
         margin-top: -7%;
 
         @media screen and (max-width: $break-small) {
@@ -188,6 +188,8 @@ body {
 
       #date {
         color: #322660;
+				font-family: var(--font-comfortaa);
+				font-weight: 700;
         @media screen and (max-width: $break-medium) {
           font-size: 20px;
         }

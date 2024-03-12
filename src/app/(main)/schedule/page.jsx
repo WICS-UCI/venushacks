@@ -1,12 +1,14 @@
 "use client";
-import "./Schedule.scss";
 
+import { redirect } from "next/navigation";
 // import {
 //   Countdown,
 //   FloatingLaptop,
 //   Footer,
 //   ScheduleCard,
 // } from "@/app/components";
+
+import "./Schedule.scss";
 
 // const HACKING_DEADLINE = "28 May 2023 09:00:00 PDT";
 
@@ -31,6 +33,6 @@ import "./Schedule.scss";
 //   </div>
 // );
 
-const Schedule = () => <p>Schedule</p>;
+const Schedule = () => process.env.MAINTENANCE_MODE_SCHEDULE ? redirect("/") :<p>Schedule</p>;
 
 export default Schedule;
