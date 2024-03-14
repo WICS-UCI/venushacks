@@ -4,8 +4,8 @@ import { comfortaa } from "@/app/fonts";
 import vhTitle from "@/assets/images/titles/vh-title-launch.svg";
 import "./Home.scss";
 
-// const VH_DATE = "May 26-28, 2023";
-const VH_DATE = "Coming Soon!";
+const VH_DATE = "May 24 - 26, 2024";
+// const VH_DATE = "Coming Soon!";
 
 const Home = () => {
 	return (
