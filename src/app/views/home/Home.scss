@@ -187,15 +187,15 @@ body {
       }
 
       #date {
-        color: #322660;
+        color: $darkPurple;
         @media screen and (max-width: $break-medium) {
           font-size: 20px;
         }
       }
 
-      #tagline {
+      .tagline {
         font-size: 22px;
-        color: #322660;
+        color: $darkPurple;
         @media screen and (max-width: $break-medium) {
           font-size: 18px;
         }
@@ -211,7 +211,8 @@ body {
         margin-left: 10px;
         margin-top: 10px;
         margin-bottom: 10px;
-        background: linear-gradient(to right top, $darkBlue, $pink);
+        background: linear-gradient($darkPurple, $purple);
+        color: white;
         border-radius: 50px;
         border: none;
         text-decoration: none;

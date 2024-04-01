@@ -11,6 +11,13 @@ function App() {
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/apply"
+            component={() =>
+              window.location.replace("https://tally.so/r/wvyaW0")
+            }
+          />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

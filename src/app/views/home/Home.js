@@ -1,11 +1,11 @@
 import React from "react";
+import { VenusButton } from "app/components";
 import "./Home.scss";
 
 // TITLES
 import vh_title from "assets/images/titles/vh-title-launch.svg";
 
-// const VH_DATE = "May 26-28, 2023";
-const VH_DATE = "Coming Soon!";
+const VH_DATE = "May 24-26, 2024";
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -101,7 +101,11 @@ export default class Home extends React.Component {
               alt="VenusHacks Title Logo"
             />
             <h4 id="date">{VH_DATE}</h4>
-            <p id="tagline">UC Irvine's largest women-centric hackathon</p>
+            <p className="tagline">
+              UC Irvine's largest women-centric hackathon
+            </p>
+            <p className="tagline">Apps are now open!</p>
+            <VenusButton text="Hacker" url="/apply"></VenusButton>
           </div>
         </section>
       </div>
