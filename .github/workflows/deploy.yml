@@ -13,11 +13,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES }}
-  NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE }}
-  NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,6 +31,10 @@ jobs:
 
       - name: build nextjs
         run: npx next build
+        env:
+          NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES }}
+          NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE }}
+          NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS }}
 
       - name: upload
         uses: actions/upload-pages-artifact@v3
