@@ -13,6 +13,11 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  MAINTENANCE_MODE_RESOURCES: ${{ secrets.MAINTENANCE_MODE_RESOURCES }}
+  MAINTENANCE_MODE_SCHEDULE: ${{ secrets.MAINTENANCE_MODE_SCHEDULE }}
+  MAINTENANCE_MODE_WORKSHOPS: ${{ secrets.MAINTENANCE_MODE_WORKSHOPS }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
