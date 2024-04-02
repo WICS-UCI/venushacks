@@ -10,6 +10,11 @@ const nextConfig = {
 			permanent: true,
 		},
 		{
+			source: "/mentor",
+			destination: "https://x03p1nm9c8s.typeform.com/to/tbReYJHH",
+			permanent: true,
+		},
+		{
 			source: "/volunteer",
 			destination: "https://tally.so/r/w48aRA",
 			permanent: true,

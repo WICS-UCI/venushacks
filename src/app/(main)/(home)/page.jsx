@@ -38,6 +38,7 @@ const Home = () => {
 					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
 					<p id="apps">Apps are now open!</p>
 					<VenusButton text="Hacker" url="/apply" />
+					<VenusButton text="Mentor" url="/mentor" />
 					<VenusButton text="Volunteer" url="/volunteer" />
 				</div>
 			</section>
