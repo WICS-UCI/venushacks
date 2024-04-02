@@ -4,7 +4,7 @@ import "./speakers.scss";
 
 const Speaker = (name, title, photo) => (
     <div className="speaker-img-wrapper">
-        <img 
+        <img
             src = {require('assets/images/speaker-photos/'+photo+'.jpeg')}
             alt = {name + "'s profile picture"}
         />
@@ -17,7 +17,7 @@ const Speaker = (name, title, photo) => (
 
 const renderSpeakers = (speakers) => (
     <div className="speaker-photos">
-        {speakers.map((speaker) => 
+        {speakers.map((speaker) =>
             Speaker(speaker.name, speaker.title, speaker.photo)
         )}
     </div>
@@ -34,5 +34,6 @@ const Speakers = () => {
             {renderSpeakers(speakersData.panelists)}
         </div>
     );
+};
 
 export default Speakers;
