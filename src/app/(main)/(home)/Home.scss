@@ -1,0 +1,477 @@
+@import "../vh-styles.scss";
+
+$boba: "./../../../assets/images/vh-boba.png";
+$astronaut: "./../../../assets/images/vh-astronaut.png";
+$laptop: "./../../../assets/images/vh-laptop.png";
+$shiba: "./../../../assets/images/VH_shiba_inu.png";
+$planet: "./../../../assets/images/vh-planet.png";
+$stars_background: "./../../../assets/images/stars.svg";
+
+body {
+  overflow-x: hidden;
+}
+
+.Home {
+  background-image: url($stars_background);
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  min-height: 100vh;
+
+  section {
+    min-height: 100vh;
+    .section-title {
+      max-width: 100vw;
+      height: 60px;
+      width: auto;
+      margin: 20px auto;
+
+      @media screen and (max-width: $break-medium) {
+        height: 9vw;
+        max-height: 40px;
+      }
+    }
+  }
+
+  // TODO: Remove once padding is removed
+  section#padding:last-of-type {
+    min-height: 15vh;
+  }
+
+  .parallax-asset {
+    // hide constellations & planets on smaller screens
+    @media screen and (max-width: $break-medium) {
+      display: none;
+    }
+  }
+
+  #hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 50px;
+    flex-direction: column;
+
+    #astronaut-animation {
+      display: flex;
+      width: 45%;
+      justify-content: space-between;
+      max-width: 600px;
+      margin-top: 150px;
+
+      @media screen and (max-width: $break-medium) {
+        width: 100%;
+        max-width: 325px;
+      }
+
+      @keyframes floatBoba {
+        0% {
+          transform: translatey(50px);
+        }
+        50% {
+          transform: translatey(70px);
+        }
+        100% {
+          transform: translatey(50px);
+        }
+      }
+      @keyframes floatAstronaut {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+      @keyframes floatLaptop {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+
+      #boba {
+        float: left;
+        width: 18vw;
+        height: 18vw;
+        max-width: 15%;
+        background: url($boba);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floatBoba 4s ease-in-out infinite;
+
+        @media screen and (max-width: $break-small) {
+          width: 12vw;
+          height: 12vw;
+        }
+      }
+
+      #astronaut {
+        float: left;
+        width: 18vw;
+        height: 18vw;
+        max-width: 290px;
+        background: url($astronaut);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floatAstronaut 4s ease-in-out infinite;
+
+        @media screen and (max-width: $break-small) {
+          width: 40vw;
+          height: 40vw;
+        }
+      }
+
+      #laptop {
+        float: right;
+        width: 12vw;
+        height: 12vw;
+        max-width: 340px;
+        margin-left: -10%;
+        margin-top: -15%;
+        background: url($laptop);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floatLaptop 4s ease-in-out infinite;
+
+        @media screen and (max-width: $break-small) {
+          margin-top: -60px;
+          width: 30vw;
+          height: 30vw;
+        }
+      }
+
+      #shiba-inu {
+        float: right;
+        width: 12vw;
+        height: 12vw;
+        max-width: 360px;
+        margin-left: -15%;
+        margin-top: 12%;
+        background: url($shiba);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floatAstronaut 4s ease-in-out infinite;
+        transform: rotateY(180deg);
+        @media screen and (max-width: $break-small) {
+          width: 30vw;
+          height: 30vw;
+        }
+      }
+    } // END #astronaut-animation
+
+    #hero-right {
+      width: 48%;
+
+      @media screen and (max-width: $break-medium) {
+        width: initial;
+      }
+
+      #venushacks-title {
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: -5%;
+        margin-top: -7%;
+
+        @media screen and (max-width: $break-small) {
+          width: 100%;
+        }
+      }
+
+      #date {
+        color: #322660;
+				font-family: var(--font-comfortaa);
+				font-weight: 700;
+        @media screen and (max-width: $break-medium) {
+          font-size: 20px;
+        }
+      }
+
+      #tagline {
+        font-size: 22px;
+        color: #322660;
+        @media screen and (max-width: $break-medium) {
+          font-size: 18px;
+        }
+      }
+
+      .venus-btn {
+        color: $darkBlackBackground;
+        padding: 12px 24px;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.25px;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: linear-gradient(to right top, $darkBlue, $pink);
+        border-radius: 50px;
+        border: none;
+        text-decoration: none;
+
+        @media screen and (max-width: $break-medium) {
+          font-size: 16px;
+        }
+      }
+
+      .venus-btn:hover {
+        transition: all 0.2s ease;
+        transform: scale(1.08);
+      }
+    } // END #hero-right
+    #planet {
+      width: 50vw;
+      height: 50vw;
+      max-height: 600px;
+      max-width: 600px;
+      background: url($planet);
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: block;
+      margin: auto;
+      margin-top: 5%;
+    }
+  } // END HERO
+
+  #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .section-title {
+      height: 90px;
+      margin: 20px auto 30px;
+
+      @media screen and (max-width: $break-medium) {
+        height: 35vw;
+        max-height: 100px;
+        margin: 20px auto;
+      }
+    }
+
+    #about-text-container {
+      width: 60vw;
+      max-width: 1500px;
+
+      @media screen and (max-width: $break-medium) {
+        width: 80vw;
+      }
+
+      p {
+        @media screen and (max-width: $break-medium) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: $break-small) {
+          font-size: 14px; // This line can prob be removed
+          // when we take out the psa
+        }
+      }
+
+      #asterisk-inclusive {
+        color: $pink;
+
+        @media screen and (max-width: $break-medium) {
+          font-size: 20px;
+        }
+      }
+    }
+  } // END ABOUT
+
+  #faq {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .section-title {
+      height: 110px;
+      @media screen and (max-width: $break-medium) {
+        height: 25vw;
+        max-height: 150px;
+      }
+    }
+
+    #faq-contact-us {
+      font-size: 20px;
+      margin: 30px 0 65px 0;
+
+      @media screen and (max-width: $break-small) {
+        font-size: 15px;
+        margin: 10px 0 65px 0;
+        width: 80%;
+      }
+    }
+  } // END FAQ
+
+  #sponsors {
+    margin-top: 50px;
+
+    .section-title {
+      height: 120px;
+      @media screen and (max-width: $break-medium) {
+        height: 25vw;
+        max-height: 150px;
+      }
+    }
+
+    #sponsors-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      margin: 20px 60px;
+      padding: 15px 20px;
+      border-radius: 10px;
+      color: #4767b1;
+
+      @media screen and (max-width: $break-small) {
+        margin: 10px 30px;
+        padding: 5px 20px 20px;
+      }
+
+      .logo-wrapper .logo {
+        margin: 30px;
+        transition: all 0.2s ease;
+      }
+
+      .logo-wrapper .logo:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+        height: auto;
+      }
+
+      .largest .logo {
+        max-width: 400px;
+      }
+
+      .large .logo {
+        max-width: 300px;
+      }
+
+      .medium .logo {
+        max-width: 250px;
+        max-height: 100px;
+      }
+
+      .medium .logo,
+      .large .logo,
+      .largest .logo {
+        @media screen and (max-width: $break-medium) {
+          max-width: 90%;
+          max-height: 75px;
+          margin: 10px;
+        }
+      }
+    }
+  } // END SPONSORS
+
+  #partners {
+    margin-top: 50px;
+
+    .section-title {
+      height: 120px;
+      @media screen and (max-width: $break-medium) {
+        height: 25vw;
+        max-height: 150px;
+      }
+    }
+
+    #partners-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      margin: 20px 60px;
+      padding: 15px 20px;
+      border-radius: 10px;
+      color: #4767b1;
+
+      @media screen and (max-width: $break-small) {
+        margin: 10px 30px;
+        padding: 5px 20px 15px;
+      }
+
+      .logo-wrapper .logo {
+        margin: 30px;
+        transition: all 0.2s ease;
+      }
+
+      .logo-wrapper .logo:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+        height: auto;
+      }
+
+      .medium .logo {
+        max-width: 250px;
+        max-height: 100px;
+      }
+
+      .medium .logo,
+      .large .logo,
+      .largest .logo {
+        @media screen and (max-width: $break-medium) {
+          max-width: 90%;
+          max-height: 75px;
+          margin: 10px;
+        }
+      }
+    }
+  } // END PARTNERS
+
+  #speakers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .section-title {
+      height: 110px;
+      @media screen and (max-width: $break-medium) {
+        height: 25vw;
+        max-height: 150px;
+      }
+    }
+
+    .subheader {
+      max-width: 85%;
+      font-size: 50px;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  #meet-team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .section-title {
+      height: 100px;
+      @media screen and (max-width: $break-medium) {
+        height: 15vw;
+        max-height: 70px;
+      }
+    }
+  }
+
+  #footer {
+    bottom: 0;
+  }
+}

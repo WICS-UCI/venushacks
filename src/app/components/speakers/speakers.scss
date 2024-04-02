@@ -1,8 +1,8 @@
-@import "globals/vh-styles.scss";
+@import "../../(main)/vh-styles.scss";
 
 .speaker-photos{
   margin: 10px 60px 40px;
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 

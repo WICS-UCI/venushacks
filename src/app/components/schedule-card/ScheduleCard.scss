@@ -1,4 +1,4 @@
-@import "globals/vh-styles.scss";
+@import "../../(main)/vh-styles.scss";
 
 //style={{ 'text-decoration': 'none' }}
 
@@ -113,11 +113,11 @@
     }
 
     .schedule-card-location {
-    
+
       a {
         text-decoration: none;
       }
-  
+
     }
 
     & > div {

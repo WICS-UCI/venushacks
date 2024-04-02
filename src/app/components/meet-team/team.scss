@@ -1,4 +1,4 @@
-@import "globals/vh-styles.scss";
+@import "../../(main)/vh-styles.scss";
 
 #organizer-photos{
   padding: 10px 50px 175px;
@@ -19,7 +19,7 @@
       margin: 14px 20px;
     }
   }
-  
+
   .organizer-img-wrapper img {
     width: 100%;
     height: 100%;
