@@ -18,6 +18,6 @@ import "./Workshops.scss";
 //   );
 // };
 
-const Workshops = () => process.env.MAINTENANCE_MODE_WORKSHOPS ? redirect("/") : <p>Workshops</p>;
+const Workshops = () => process.env.NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS ? redirect("/") : <p>Workshops</p>;
 
 export default Workshops;

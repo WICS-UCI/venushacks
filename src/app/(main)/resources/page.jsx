@@ -41,6 +41,6 @@ import "./Resources.scss";
 //   );
 // }
 
-const Resources = () => process.env.MAINTENANCE_MODE_RESOURCES ? redirect("/") : <p>Resources</p>;
+const Resources = () => process.env.NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES ? redirect("/") : <p>Resources</p>;
 
 export default Resources;

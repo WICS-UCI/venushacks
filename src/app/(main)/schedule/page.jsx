@@ -33,6 +33,6 @@ import "./Schedule.scss";
 //   </div>
 // );
 
-const Schedule = () => process.env.MAINTENANCE_MODE_SCHEDULE ? redirect("/") :<p>Schedule</p>;
+const Schedule = () => process.env.NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE ? redirect("/") :<p>Schedule</p>;
 
 export default Schedule;
