@@ -1,0 +1,36 @@
+name: Deploy Preview
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  Site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-version: 32.6.1
+          github-comment: |
+            <table>
+              <tr>
+                <td><strong>Name</strong></td>
+                <td>VenusHacks 2024</td>
+              </tr>
+              <tr>
+                <td><strong>Preview</strong></td>
+                <td><a href='{{deploymentUrl}}'>Visit Preview</a></td>
+              </tr>
+              <tr>
+                <td><strong>Commit</strong></td>
+                <td>{{deploymentCommit}}</td>
+              </tr>
+            </table>
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_SITE}}
