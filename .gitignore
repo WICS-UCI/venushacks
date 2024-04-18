@@ -8,7 +8,6 @@ next-env.d.ts
 
 # vercel
 .vercel
-/out
 
 # dependencies
 /node_modules
