@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/functions";
+
+// Bootstrap overrides (must come before importing variables)
+// $font-family-base: var(--next-font-fuzzy-bubbles);
+// $font-size-base: 1.25rem;
+// $h1-font-size: 5rem;
+// $h2-font-size: 3rem;
+// $headings-font-weight: 700;
+
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
