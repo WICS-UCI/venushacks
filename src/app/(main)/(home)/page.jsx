@@ -42,7 +42,10 @@ const Home = () => {
 						text="Mentor"
 						url="https://x03p1nm9c8s.typeform.com/to/tbReYJHH"
 					/>
-					<VenusButton text="Volunteer" url="https://tally.so/r/w48aRA" />
+					<VenusButton
+						text="Volunteer"
+						url="https://35s22lm0h6u.typeform.com/to/qvVV3ukS"
+					/>
 				</div>
 			</section>
 		</div>
