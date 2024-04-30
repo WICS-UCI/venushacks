@@ -1,0 +1,108 @@
+@import "../../../globals/vh-styles.scss";
+
+.starter-packs {
+	min-height: 100vh;
+	width: 100vw;
+	background-image: url("../../../assets/images/stars-background.svg");
+	background-attachment: fixed;
+	background-size: 100% auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: white;
+
+	.starter-packs-instructions {
+		min-height: calc(100vh - 114px);
+		width: 60vw;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+
+		p {
+			font-size: 1.4rem;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	.starter-pack-card {
+		margin: 3rem auto;
+		width: 80vw;
+		min-height: 10rem;
+		border-radius: 25px;
+		background-color: #42384473;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 3rem;
+		z-index: 10;
+		display: flex;
+		flex-direction: row;
+		min-height: auto;
+		opacity: 0.8;
+
+		@media screen and (max-width: $break-medium) {
+			flex-direction: column;
+		}
+
+		p {
+			font-size: 1.4rem;
+		}
+
+		.starter-pack-card-information {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			width: 60%;
+			height: 100%;
+
+			@media screen and (max-width: $break-medium) {
+				align-items: center;
+				width: 90%;
+			}
+		}
+
+		.starter-pack-card-links {
+			display: flex;
+			flex-direction: column;
+			width: 40%;
+			margin-top: 1rem;
+
+			@media screen and (max-width: $break-medium) {
+				width: 90%;
+				h4 {
+					font-size: 1em;
+				}
+			}
+
+			a {
+				width: 100%;
+				margin-bottom: 1rem;
+
+				div {
+					border: 3px solid $pink;
+					width: 100%;
+					padding: 1rem;
+					border-radius: 1rem;
+					border-collapse: separate;
+					display: inline-block;
+				}
+
+				h4 {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	h2 {
+		margin-top: 2em;
+	}
+}

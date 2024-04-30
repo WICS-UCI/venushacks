@@ -1,127 +1,122 @@
-@import "../../(main)/vh-styles.scss";
+@import "../../../globals/vh-styles.scss";
 
 //style={{ 'text-decoration': 'none' }}
 
 .schedule-card {
-  border-radius: 20px;
-  z-index: 50;
-  width: 75vw;
-  background-color: #42384473;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  color: #F6D4D4;
-  grid-template-columns: 49% 2% 49%;
-  grid-auto-flow: column;
+	border-radius: 20px;
+	z-index: 50;
+	width: 75vw;
+	background-color: #42384473;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+	color: #f6d4d4;
+	grid-template-columns: 49% 2% 49%;
+	grid-auto-flow: column;
 
-  @media screen and (max-width: 800px) {
-    display: flex;
-    flex-direction: column;
-    width: 85vw;
-  }
+	@media screen and (max-width: 800px) {
+		display: flex;
+		flex-direction: column;
+		width: 85vw;
+	}
 
-  .schedule-card-divider-horizontal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	.schedule-card-divider-horizontal {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    @media screen and (max-width: 800px) {
-      display: none;
-    }
+		@media screen and (max-width: 800px) {
+			display: none;
+		}
 
-    div {
-      height: 4px;
-      width: 15%;
-      border-radius: 5px;
-      background-color: #F6D4D4;
-      margin-bottom: 40px;
-    }
+		div {
+			height: 4px;
+			width: 15%;
+			border-radius: 5px;
+			background-color: #f6d4d4;
+			margin-bottom: 40px;
+		}
+	}
 
+	.schedule-card-tooltip {
+		position: relative;
+	}
 
-  }
+	.schedule-card-tooltip .schedule-card-tooltiptext {
+		visibility: hidden;
+		width: 400px;
+		background-color: #f6d4d4dc;
+		color: black;
+		z-index: 1;
+		top: 100%;
+		text-align: center;
+		border-radius: 6px;
+		padding: 10px;
+		position: absolute;
+	}
 
-  .schedule-card-tooltip {
-    position: relative;
-  }
+	.schedule-card-tooltip .schedule-card-description {
+		margin-top: 2px;
+		font-size: 18px;
+	}
 
-  .schedule-card-tooltip .schedule-card-tooltiptext {
-    visibility: hidden;
-    width: 400px;
-    background-color: #f6d4d4dc;
-    color: black;
-    z-index: 1;
-    top: 100%;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-  }
+	.schedule-card-tooltip .schedule-card-tooltiptext::after {
+		content: "";
+		position: absolute;
+		bottom: 100%;
+		left: 10%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent #f6d4d4dc transparent;
+	}
 
-  .schedule-card-tooltip .schedule-card-description {
-    margin-top: 2px;
-    font-size: 18px;
-  }
+	.schedule-card-tooltip:hover .schedule-card-tooltiptext {
+		visibility: visible;
+		opacity: 1;
+	}
 
-  .schedule-card-tooltip .schedule-card-tooltiptext::after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 10%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #f6d4d4dc transparent;
-  }
+	.schedule-card-section {
+		.schedule-card-time-slot {
+			color: #cd8ad8;
+			width: 100%;
+			// height: 60px;
+			display: flex;
+			justify-content: space-between;
+			text-align: left;
+			margin-bottom: 20px !important;
 
-  .schedule-card-tooltip:hover .schedule-card-tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
+			div {
+				height: 100%;
+			}
 
-  .schedule-card-section {
+			@media screen and (max-width: 450px) {
+				h5 {
+					font-size: 16px !important;
+				}
 
-    .schedule-card-time-slot {
-      color: #CD8AD8;
-      width: 100%;
-      // height: 60px;
-      display: flex;
-      justify-content: space-between;
-      text-align: left;
-      margin-bottom: 20px !important;
+				p {
+					font-size: 12px;
+				}
+			}
 
-      div {
-        height: 100%;
-      }
+			h5 {
+				font-size: 21px;
+				margin-bottom: 0;
+			}
 
-      @media screen and (max-width: 450px) {
-        h5 {
-          font-size: 16px !important;
-        }
+			p {
+				color: white;
+				margin-bottom: 0;
+			}
+		}
 
-        p {
-          font-size: 12px;
-        }
-      }
+		.schedule-card-location {
+			a {
+				text-decoration: none;
+			}
+		}
 
-      h5 {
-        font-size: 21px;
-        margin-bottom: 0;
-      }
-
-      p {
-        color: white;
-        margin-bottom: 0;
-      }
-    }
-
-    .schedule-card-location {
-
-      a {
-        text-decoration: none;
-      }
-
-    }
-
-    & > div {
-      margin: 30px;
-    }
-  }
+		& > div {
+			margin: 30px;
+		}
+	}
 }

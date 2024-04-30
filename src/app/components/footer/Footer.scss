@@ -1,21 +1,21 @@
-@import "../../(main)/vh-styles.scss";
+@import "../../../globals/vh-styles.scss";
 
 #footer {
-    width: 100vw;
-    height: 125px;
-    background-color: #382a77;
+	width: 100vw;
+	height: 125px;
+	background-color: #382a77;
 
-    font-size: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    a {
-        color: $fontColor;
-        margin: 0 15px;
-    }
+	a {
+		color: $fontColor;
+		margin: 0 15px;
+	}
 
-    a:hover {
-        color: $pink;
-    }
+	a:hover {
+		color: $pink;
+	}
 }

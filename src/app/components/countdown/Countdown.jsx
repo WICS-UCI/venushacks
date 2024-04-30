@@ -3,7 +3,12 @@ import Confetti from "react-confetti";
 import FlipNumbers from "react-flip-numbers";
 
 const Countdown = ({ date }) => {
-  const [winDim, setWinDim] = useState({ height: 0, width: 0 });
+  const getWinDims = () => {
+    const { innerWidth: width, innerHeight: height } = window;
+    return { width, height };
+  };
+
+  const [winDim, setWinDim] = useState(getWinDims());
   const [timer, setTimer] = useState("00:00:00");
   const [hasTimerInit, setHasTimerInit] = useState(false);
   const ref = useRef(null);
@@ -42,8 +47,7 @@ const Countdown = ({ date }) => {
   }, [date]);
 
   useEffect(() => {
-		const { innerWidth: width, innerHeight: height } = window;
-    const handleResize = () => setWinDim({ width, height });
+    const handleResize = () => setWinDim(getWinDims());
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

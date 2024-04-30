@@ -8,43 +8,47 @@
 		"answer": "We hope this event inspires and highlights high school, undergraduate, and graduate students ages 18 or older who identify as women, gender minorities, or allies interested in technology. There are also opportunities to participate as mentors and volunteers to support!"
 	},
 	{
-		"question": "Can high schoolers attend?",
-		"answer": "Yes! However, you must be at least 18 years old at the time of the hackathon to attend."
-	},
-	{
-		"question": "Will transportation to the event or overnight accommodations be provided?",
-		"answer": "No, all attendees (UCI and non-UCI students) are responsible for their own transportation to UC Irvine and overnight stay between event days."
-	},
-	{
-		"question": "What do I need? (What can/should I bring?)",
-		"answer": "An open mind, valid photo ID, laptop, charger, and anything else you would need to hack! We also encourage bringing a refillable water bottle and any items that might come in handy during the hacking experience (e.g., for inspiration or comfort)."
-	},
-	{
 		"question": "What if I have no experience?",
 		"answer": "Perfect! We welcome hackers of all experience levels and backgrounds. We will be providing resources and workshops to help new hackers get started on projects and learn new technologies. There will also be mentors at the event to help guide you!"
 	},
 	{
-		"question": "Do I sign up as an individual or as a team?",
-		"answer": "Individual. We will be accepting applicants on an individual basis. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during our team formation event at the start of the hackathon. "
-	},
-	{
-		"question": "Can I come with a project pre-built or will I have to build from scratch?",
-		"answer": "You will be building your project from scratch. Participants that start working on their projects before the hacking period begins will be immediately disqualified from the competition. However, feel free to come up with ideas of what you want to build before the hackathon!"
+		"question": "Can high schoolers attend?",
+		"answer": "Yes! However, you must be at least 18 years old at the time of the hackathon to attend."
 	},
 	{
 		"question": "Will the hackathon be in-person or online?",
-		"answer": "VenusHacks 2023 will be fully in-person! Hackers should expect to be available in-person all 3 event days from Friday night to Sunday morning."
+		"answer": "VenusHacks 2024 will be fully in-person! Hackers should expect to be available in-person all 3 event days from Friday night to Sunday morning."
+	},
+	{
+		"question": "Will transportation or overnight accommodations be provided?",
+		"answer": "No, all attendees (UCI and non-UCI students) are responsible for their own transportation to UC Irvine and overnight stay between event days."
+	},
+	{
+		"question": "What do I need to bring?",
+		"answer": "Bring a valid photo ID, laptop, charger, and anything else you would need to hack! We also encourage bringing a refillable water bottle to help stay hydrated."
+	},
+	{
+		"question": "Do I sign up as an individual or as a team?",
+		"answer": "Applications are submitted individually. Those accepted can form teams before the hackathon (i.e. via our Slack channel) or during our team formation event at the start of the hackathon."
+	},
+	{
+		"question": "Can I come with a project pre-built, or will I have to build it from scratch?",
+		"answer": "You will be building your project from scratch. Participants who start working on their projects before the hacking period begins will be immediately disqualified from the competition. However, feel free to brainstorm ideas of what you want to build before the hackathon!"
 	},
 	{
 		"question": "How many people can be on a team?",
-		"answer": "Up to 4 hackers can be on a team."
+		"answer": "Up to 4 hackers can be on a team. Participants are free to form smaller teams or compete individually, but it is recommended to find other students to collaborate with!"
 	},
 	{
-		"question": "When will applications open?",
-		"answer": "Applications for VenusHacks 2023 are now open! You can apply as a hacker (venushacks.com/apply) or as a volunteer (venushacks.com/volunteer)."
+		"question": "Will food be provided?",
+		"answer": "Yes! Meals and snacks will be provided throughout the hackathon for all participants."
 	},
 	{
-		"question": "How do I get hyped?",
-		"answer": "Follow our Facebook page: @venushacksUCI and our Instagram: @venushacks_uci for important updates!"
+		"question": "When will applications close?",
+		"answer": "Applications will close Friday, May 3rd, 2024 at 11:59 PM!"
+	},
+	{
+		"question": "When will the hackathon begin?",
+		"answer": "The hackathon will take place from Friday, May 24th to Sunday, May 26th!"
 	}
 ]

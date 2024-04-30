@@ -1,0 +1,14 @@
+@import "../../../globals/vh-styles.scss";
+
+.workshops {
+	min-height: 100vh;
+	background-image: url("../../../assets/images/stars-background.svg");
+	background-attachment: fixed;
+	background-size: 100% auto;
+	display: flex;
+	flex-direction: column;
+
+	h2 {
+		margin-top: 2em;
+	}
+}

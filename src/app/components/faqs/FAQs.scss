@@ -1,65 +1,37 @@
-@import "globals/vh-styles.scss";
+// @import "../../../globals/vh-styles.scss";
 
 #faq-accordion-wrapper {
-  width: 80vw;
-  text-align: left;
+	width: 80vw;
+	text-align: left;
 
-  #faq-accordion-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
+	#faq-accordion-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 20px;
 
-    @media screen and (max-width: 830px) {
-      display: none;
-    }
-  }
+		@media screen and (max-width: 830px) {
+			display: none;
+		}
+	}
 
-  #faq-accordion-mobile {
-    display: none;
+	#faq-accordion-mobile {
+		display: none;
 
-    @media screen and (max-width: 830px) {
-      display: block;
-    }
-  }
+		@media screen and (max-width: 830px) {
+			display: block;
+		}
+	}
 }
 
 // BOOTSTRAP ACCORDION STYLING
-.accordion {
-  text-align: left;
-}
-.accordion>.card .card-header, .card-body {
-  background: none;
-}
-.accordion>.card {
-  border: none;
-  background: none;
-  border-bottom: solid 1px white !important;
-  border-radius: 0 !important;
-}
-div.card-header {
-  text-align: left;
-  font-size: 1.4em;
-  border: none;
-  font-weight: 500;
-  padding: 15px 0;
-  transition: 0.3s;
 
-  @media screen and (max-width: $break-medium) {
-    font-size: 17px;
-    padding: 10px 0;
-  }
-}
-div.card-body {
-  text-align: left;
-}
-div.card-header:hover {
-  cursor: pointer;
-  color: $pink;
-}
-div.card-body {
-  font-size: 1.2em;
-  padding: 0 0 10px;
-  @media screen and (max-width: $break-medium) {
-    font-size: 15px;
-  }
+.accordion {
+	text-align: left;
+	--bs-accordion-color: #322660;
+	--bs-accordion-active-color: #322660;
+	--bs-accordion-btn-color: #322660;
+	--bs-accordion-bg: none;
+	--bs-accordion-border-color: none;
+	--bs-accordion-active-bg: none;
+	--bs-accordion-btn-focus-box-shadow: none;
 }
