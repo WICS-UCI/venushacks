@@ -1,37 +1,36 @@
-@import "../../(main)/vh-styles.scss";
+@import "../../../globals/vh-styles.scss";
 
-#organizer-photos{
-  padding: 10px 50px 175px;
-  margin-bottom: 25px;
+#organizer-photos {
+	padding: 10px 50px 175px;
+	margin-bottom: 25px;
 
-  @media screen and (max-width: $break-small) {
-    padding: 0 0 175px 0;
-  }
+	@media screen and (max-width: $break-small) {
+		padding: 0 0 175px 0;
+	}
 
-  .organizer-img-wrapper {
-    width: 200px;
-    height: 200px;
-    margin: 15px;
+	.organizer-img-wrapper {
+		width: 200px;
+		height: 200px;
+		margin: 15px;
 
-    @media screen and (max-width: 560px) {
-      width: 120px;
-      height: 120px;
-      margin: 14px 20px;
-    }
-  }
+		@media screen and (max-width: 560px) {
+			width: 120px;
+			height: 120px;
+			margin: 14px 20px;
+		}
+	}
 
-  .organizer-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+	.organizer-img-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
 
-  p {
-    @media screen and (max-width: $break-medium) {
-      font-size: 15px;
-      margin-bottom: 0;
-    }
-  }
-
+	p {
+		@media screen and (max-width: $break-medium) {
+			font-size: 15px;
+			margin-bottom: 0;
+		}
+	}
 }

@@ -1,7 +1,0 @@
-echo "!| Starting husky..."
-
-echo "!| Lint-staged with eslint..."
-npx lint-staged
-git update-index --again
-
-echo "!| Husky ran successfully"

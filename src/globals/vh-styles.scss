@@ -1,0 +1,50 @@
+/**
+
+HackUCI environment styles.
+
+When graphics gives us their style guidelines we can look here.
+
+**/
+
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+
+// PX Sizing for Media queries
+$break-small: 500px;
+$break-medium: 900px;
+$break-large: 1250px;
+
+// Temporary Appwide Style Variables
+$fontColor: white;
+$errorColor: #a31e1e;
+$vhFont: Nunito, sans-serif;
+
+// VH 2024 Backgrounds
+$gradientBackground: linear-gradient(#a8acf9, #ffc999);
+$darkBlueBackground: #322660;
+$darkBlackBackground: #070024;
+
+// VH 2022 Backgrounds
+$lightBackground: #fcfcfc;
+$coloredLightBackground: #afe3f9;
+$tealBackground: #92dee2;
+$purpleBackground: #cba3fe;
+
+// Gradients
+$leftGradient: #c6ffdd;
+$rightGradient: #fbd786;
+$moreRightGradient: #f7797d;
+$rightOffGradient: rgb(226, 131, 128);
+
+// Colors
+$lightGray: #e8e8e8;
+$pink: #ffc3ff;
+$purple: #322660b9;
+$darkPurple: #322660;
+$darkBlue: #a8abf2;
+$blue: #afd6fa;
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

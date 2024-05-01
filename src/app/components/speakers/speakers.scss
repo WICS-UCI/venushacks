@@ -1,31 +1,31 @@
-@import "../../(main)/vh-styles.scss";
+@import "../../../globals/vh-styles.scss";
 
-.speaker-photos{
-  margin: 10px 60px 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.speaker-photos {
+	margin: 10px 60px 40px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 
-  .speaker-img-wrapper {
-    padding: 1em;
-    flex-basis: 25%;
+	.speaker-img-wrapper {
+		padding: 1em;
+		flex-basis: 25%;
 
-    img {
-      height: 200px;
-      width: 200px;
-      margin-bottom: 20px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-  }
+		img {
+			height: 200px;
+			width: 200px;
+			margin-bottom: 20px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+	}
 
-  @media screen and (max-width: $break-medium) {
-    h4 {
-      font-size: 18px;
-    }
+	@media screen and (max-width: $break-medium) {
+		h4 {
+			font-size: 18px;
+		}
 
-    p {
-      font-size: 15px;
-    }
-  }
+		p {
+			font-size: 15px;
+		}
+	}
 }

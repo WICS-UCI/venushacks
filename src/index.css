@@ -1,0 +1,87 @@
+/* VH 2024 Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+/* VH 2024 Colors */
+:root {
+	--color-background-upper-gradient: #322660;
+	--color-background-lower-gradient: #070024;
+	--color-vh-primary: #ffc999;
+	--color-vh-secondary: #ee99a0;
+	--color-vh-tertiary: #a8acf9;
+	--color-light-gray: #e8e8e8;
+	--color-pink: #ffc3ff;
+	--color-purple: #ccbbff;
+	--color-dark-blue: #a8abf2;
+	--color-blue: #afd6fa;
+}
+
+body {
+	font-family: "Comfortaa", sans-serif;
+	min-height: 100vh;
+	width: 100vw;
+	margin: 0;
+	overflow-y: auto;
+	color: #fff;
+	background-image: linear-gradient(
+		to bottom,
+		var(--color-vh-tertiary),
+		var(--color-vh-primary)
+	);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* Legacy VH styles */
+
+button {
+	border-radius: 50px;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-size: 20px;
+}
+
+hr {
+	margin: 1rem 0;
+	color: inherit;
+	border: 0;
+	border-top: 1px solid;
+	opacity: 0.25;
+}
+
+h4 {
+	font-size: 30px;
+	margin-bottom: 0.5em;
+}
+
+h3 {
+	font-size: 40px;
+	margin-bottom: 0.5em;
+}
+
+h2 {
+	font-size: 60px;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: 80px;
+	margin-bottom: 0.3em;
+}
+
+button {
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+a {
+	color: var(--color-background-upper-gradient);
+	font-weight: 500;
+	text-decoration: underline;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: var(--color-vh-tertiary);
+}
