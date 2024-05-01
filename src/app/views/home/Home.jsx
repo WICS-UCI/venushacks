@@ -8,7 +8,7 @@ import faq_title from "/assets/images/titles/vh-faq.svg";
 import "./Home.scss";
 
 const VH_DATE = "May 24 - 26, 2024";
-const CONTACT_EMAIL = "contact@venushacks.com";
+const CONTACT_EMAIL = "venushacks.uci@gmail.com";
 // const CORPORATE_EMAIL = 'sponsorships@venushacks.com';
 
 const Home = () => {
