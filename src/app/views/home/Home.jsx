@@ -53,6 +53,7 @@ const Home = () => {
 							href="https://wics.ics.uci.edu/"
 							target="_blank"
 							rel="noopener noreferrer"
+							className="about-url"
 						>
 							WICS
 						</a>{" "}
@@ -61,6 +62,7 @@ const Home = () => {
 							href="https://hack.ics.uci.edu/"
 							target="_blank"
 							rel="noopener noreferrer"
+							className="about-url"
 						>
 							Hack at UCI
 						</a>

@@ -279,12 +279,16 @@ body {
 			}
 		}
 
+		.about-url {
+			font-weight: 700;
+		}
+
 		#about-text-container {
 			width: 60vw;
 			max-width: 1500px;
 			color: $darkPurple;
 			font-family: "Varela", sans-serif;
-			font-weight: 700;
+			font-weight: 500;
 
 			@media screen and (max-width: $break-medium) {
 				width: 80vw;
