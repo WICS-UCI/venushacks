@@ -33,13 +33,6 @@ const Home = () => {
 					/>
 					<h4 id="date">{VH_DATE}</h4>
 					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
-					<p id="apps">Apps are now open!</p>
-					<VenusButton text="Hacker" url="https://tally.so/r/wvyaW0" />
-					<VenusButton
-						text="Mentor"
-						url="https://35s22lm0h6u.typeform.com/to/qvVV3ukS"
-					/>
-					<VenusButton text="Volunteer" url="https://tally.so/r/w48aRA" />
 				</div>
 			</section>
 			<section id="about">
