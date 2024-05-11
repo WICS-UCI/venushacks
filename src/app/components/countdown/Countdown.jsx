@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import FlipNumbers from "react-flip-numbers";
