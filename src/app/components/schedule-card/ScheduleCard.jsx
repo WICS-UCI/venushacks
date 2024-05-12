@@ -2,9 +2,11 @@ import "./ScheduleCard.scss";
 
 import { scheduleData } from "../../data/schedule-info";
 
-const Event = ({ name, description, time, tooltip }) => (
+const Event = ({ name, description, time, tooltip, header, pill }) => (
 	<div className="schedule-card-time-slot">
 		<div>
+			<img src={header}></img>
+			<img src={pill} className="pill-position"></img>
 			<h5>{name}</h5>
 			<div className="schedule-card-tooltip">
 				<p className="schedule-card-description">{description}</p>

@@ -5,7 +5,6 @@ import { Home, Schedule, Resources, Workshops, NotFound } from "src/app/views";
 
 // import { Nav } from "src/app/components";
 
-import "./App.css";
 
 const router = createBrowserRouter([
 	{
@@ -13,6 +12,11 @@ const router = createBrowserRouter([
 		element: <Home />,
 		errorElement: <NotFound />,
 	},
+	{
+        path: "/schedule",
+        element: <Schedule />,
+    },
+
 ]);
 
 function App() {

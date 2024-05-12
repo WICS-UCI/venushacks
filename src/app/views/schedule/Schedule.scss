@@ -2,8 +2,8 @@
 
 .Schedule {
 	min-height: 100vh;
-	width: 100vw;
-	background-image: url("../../../assets/images/stars-background.svg");
+	width: 100%;
+	background-image: url("../../../assets/images/schedule/schedule-bg.png");
 	background-attachment: fixed;
 	background-size: 100% auto;
 	display: flex;
@@ -158,7 +158,7 @@
 
 		.schedule-hacking-ends-in {
 			margin-bottom: 30px;
-			color: $pink;
+			color: #322660;
 
 			@media screen and (max-width: $break-medium) {
 				font-size: 20px;
@@ -168,15 +168,24 @@
 		.schedule-countdown {
 			margin-top: 10px;
 			margin-bottom: 30px;
+			color: #322660;
 
 			& > section > span {
 				font-size: 16px;
 				margin-left: 2px;
 			}
+			
+			.container-style {
+				border-radius: 20px;
+				background-image: url("../../../assets/images/schedule/countdown-bg-blank.png");
+				background-size: 100% auto;
+				padding: 3vw;
+			}
 		}
 
 		.schedule-header {
 			margin-top: 100px;
+			margin-bottom: 100px;
 			height: 15vh;
 			width: 100vw;
 			display: flex;

@@ -6,6 +6,7 @@ import {
 } from "src/app/components";
 
 import "./Schedule.scss";
+import { Container } from "react-bootstrap";
 
 const HACKING_DEADLINE = "28 May 2023 09:00:00 PDT";
 
@@ -13,15 +14,18 @@ const Schedule = () => (
 	<div className="Schedule">
 		<section id="schedule-block">
 			<div className="schedule-header">
-				<FloatingLaptop offset={0} />
-				<h2>Schedule</h2>
-				<FloatingLaptop offset={2} />
+				{/* <FloatingLaptop offset={0} /> */}
+				{/* <h2>Schedule</h2> */}
+				<img src="../../../assets/images/schedule/Schedule Header.png"></img>
+				{/* <FloatingLaptop offset={2} /> */}
 			</div>
 			<h4 className="schedule-hacking-ends-in">
 				All times in PDT. Hacking ends in:
 			</h4>
 			<div className="schedule-countdown">
-				<Countdown date={HACKING_DEADLINE} />
+				<Container className="container-style">
+					<Countdown date={HACKING_DEADLINE} />
+				</Container>
 			</div>
 			<h4 className="schedule-hacking-ends-in">See you next year!</h4>
 			<ScheduleCard />

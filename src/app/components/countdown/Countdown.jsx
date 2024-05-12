@@ -54,6 +54,8 @@ const Countdown = ({ date }) => {
 
   const timerExpired = hasTimerInit && timer === "00:00:00";
   const isDesktop = winDim.width > 1000;
+  // VH 2024 colors
+  const confettiColors = ['#ee99a0', '#ffc999', '#070024', '#322660', '#a8acf9'];
   return (
     <>
       {timerExpired && (
@@ -62,20 +64,21 @@ const Countdown = ({ date }) => {
           height={isDesktop ? 400 : 300}
           numberOfPieces={50}
           tweenDuration={2}
+          colors={confettiColors}
         />
       )}
       <FlipNumbers
         play
         numbers={timer}
-        color="white"
-        width={isDesktop ? 60 : 30}
+        color="#322660"
+        width={isDesktop ? 65 : 30}
         height={isDesktop ? 50 : 30}
         nonNumberStyle={{
           fontSize: isDesktop ? "40px" : "30px"
         }}
         numberStyles={{
           textAlign: "left",
-          fontSize: isDesktop ? "20px" : "30px",
+          fontSize: isDesktop ? "30px" : "30px",
         }}
       />
     </>
