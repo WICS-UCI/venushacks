@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'framer-motion';
+import { motion, useMotionValueEvent, useReducedMotion, useScroll, AnimatePresence } from 'framer-motion';
 
 import vhLogo from '/assets/images/icon.png';
 import vhRocketship from '/assets/images/rocketship.png';
 import './Nav.scss';
 
-const NavLink = ({ url, text }) => (
+const NavLink = ({ url, text, reduceMotion }) => (
 	<Link className="nav-link" to={url}>
 		<motion.span
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ delay: 0.6, duration: 0.2 }}
+			{...(!reduceMotion && {
+				initial: { opacity: 0 },
+				animate: { opacity: 1 },
+				exit: { opacity: 0 },
+				transition: { delay: 0.6, duration: 0.2 }
+			})}
 		>
 			{text}
 		</motion.span>
@@ -21,6 +23,7 @@ const NavLink = ({ url, text }) => (
 
 const Nav = () => {
 	const [scrollPct, setScrollPct] = useState(0);
+	const reduceMotion = useReducedMotion();
 	const { scrollYProgress } = useScroll();
 
 	useMotionValueEvent(scrollYProgress, "change", latest => setScrollPct(latest));
@@ -29,43 +32,51 @@ const Nav = () => {
 		<AnimatePresence mode="sync">
 			<motion.div
 				className="nav-container"
-				initial={{ y: -100 }}
-				animate={{ y: 0 }}
-				exit={{ y: -100 }}
-				transition={{ type: "spring", duration: 0.1, damping: 15, mass: 0.9 }}
+				{...(!reduceMotion && {
+					initial: { y: -100 },
+					animate: { y: 0 },
+					exit: { y: -100 },
+					transition: { type: "spring", duration: 0.1, damping: 15, mass: 0.9 }
+				})}
 			>
 				<motion.div
 					className="nav-links-container"
-					initial={{ width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "20%" }}
-					animate={{ width: "80%", paddingLeft: "10%", paddingRight: "4.5%", paddingTop: "14px", marginLeft: "11%" }}
-					exit={{ width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "20%" }}
-					transition={{ type: "spring", delay: 0.4, duration: 0.2, damping: 18 }}
+					{...(!reduceMotion && {
+						initial: { width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "20%" },
+						animate: { width: "80%", paddingLeft: "10%", paddingRight: "4.5%", paddingTop: "14px", marginLeft: "11%" },
+						exit: { width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "20%" },
+						transition: { type: "spring", delay: 0.4, duration: 0.2, damping: 18 }
+					})}
 				>
 					<motion.img
 						className="nav-vh-logo"
 						src={vhLogo}
-						initial={{ rotate: -360, left: "10%" }}
-						animate={{ rotate: 0, left: "-2.5%" }}
-						exit={{ rotate: 360 }}
-						transition={{ duration: 0.25, damping: 15, restSpeed: 0.00001, mass: 0.9 }}
+						{...(!reduceMotion && {
+							initial: { rotate: -360, left: "10%" },
+							animate: { rotate: 0, left: "-2.5%" },
+							exit: { rotate: 360, left: "10%" },
+							transition: { duration: 0.25, damping: 15, restSpeed: 0.00001, mass: 0.9 }
+						})}
 					/>
 					<motion.img
 						className="nav-scroll-progressor"
 						src={vhRocketship}
-						style={{ rotate: 90, translateX: `${scrollPct * 1.5 * window.innerWidth}%` }}
+						style={{ rotate: 90, translateX: reduceMotion ? 0 : `${scrollPct * 1.5 * window.innerWidth}%` }}
 					/>
-					<NavLink url="/" text="Home" />
-					<NavLink url="/schedule" text="Schedule" />
-					<NavLink url="/resources" text="Resources" />
+					<NavLink url="/" text="Home" {...{ reduceMotion }} />
+					<NavLink url="/schedule" text="Schedule" {...{ reduceMotion }} />
+					<NavLink url="/resources" text="Resources" {...{ reduceMotion }} />
 					<motion.span
 						className="nav-link-divider"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ delay: 0.6, duration: 0.2 }}
+						{...(!reduceMotion && {
+							initial: { opacity: 0 },
+							animate: { opacity: 1 },
+							exit: { opacity: 0 },
+							transition: { delay: 0.6, duration: 0.2 }
+						})}
 					/>
-					<NavLink url="/report" text="Incident Form" />
-					<NavLink url="/devpost" text="Devpost" />
+					<NavLink url="/report" text="Incident Form" {...{ reduceMotion }} />
+					<NavLink url="/devpost" text="Devpost" {...{ reduceMotion }} />
 				</motion.div>
 			</motion.div>
 		</AnimatePresence>
