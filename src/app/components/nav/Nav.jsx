@@ -1,23 +1,71 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'framer-motion';
 
-import vhLogo from '../../../../public/assets/images/icon.png';
+import vhLogo from '/assets/images/icon.png';
+import vhRocketship from '/assets/images/rocketship.png';
 import './Nav.scss';
 
+const NavLink = ({ url, text }) => (
+	<Link className="nav-link" to={url}>
+		<motion.span
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{ delay: 0.6, duration: 0.2 }}
+		>
+			{text}
+		</motion.span>
+	</Link>
+);
+
 const Nav = () => {
+	const { scrollYProgress } = useScroll();
+	useMotionValueEvent(scrollYProgress, "change", latest => console.log(typeof latest, latest));
 
 	return (
-		<div className="nav-container">
-			<div className="nav-links-container">
-				<img className="nav-vh-logo" src={vhLogo} />
-				<Link className="nav-link" to="/">Home</Link>
-				<Link className="nav-link" to="/schedule">Schedule</Link>
-				<Link className="nav-link" to="/resources">Resources</Link>
-				<span className="nav-link-divider" />
-				<Link className="nav-link" to="/incident-form">Incident Form</Link>
-				<Link className="nav-link" to="/devpost">Devpost</Link>
-			</div>
-		</div>
+		<AnimatePresence mode="sync">
+			<motion.div
+				className="nav-container"
+				initial={{ y: -100 }}
+				animate={{ y: 0 }}
+				exit={{ y: -100 }}
+				transition={{ type: "spring", duration: 0.1, damping: 15, mass: 0.9 }}
+			>
+				<motion.div
+					className="nav-links-container"
+					initial={{ width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "20%" }}
+					animate={{ width: "80%", paddingLeft: "10%", paddingRight: "4.5%", paddingTop: "14px", marginLeft: "11%" }}
+					exit={{ width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "20%" }}
+					transition={{ type: "spring", delay: 0.4, duration: 0.2, damping: 18 }}
+				>
+					<motion.img
+						className="nav-vh-logo"
+						src={vhLogo}
+						initial={{ rotate: -360, left: "10%" }}
+						animate={{ rotate: 0, left: "-2.5%" }}
+						exit={{ rotate: 360 }}
+						transition={{ duration: 0.25, damping: 15, restSpeed: 0.00001, mass: 0.9 }}
+					/>
+					<motion.img
+						className="nav-scroll-progressor"
+						src={vhRocketship}
+						style={{ left: `${scrollYProgress * 80 + 8}%` }}
+					/>
+					<NavLink url="/" text="Home" />
+					<NavLink url="/schedule" text="Schedule" />
+					<NavLink url="/resources" text="Resources" />
+					<motion.span
+						className="nav-link-divider"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ delay: 0.6, duration: 0.2 }}
+					/>
+					<NavLink url="/incident-form" text="Incident Form" />
+					<NavLink url="/devpost" text="Devpost" />
+				</motion.div>
+			</motion.div>
+		</AnimatePresence>
 	);
 };
 

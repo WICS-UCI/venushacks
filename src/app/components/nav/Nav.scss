@@ -10,21 +10,16 @@
 		position: absolute;
 		width: 110px;
 		top: -40%;
-		left: -2.5%;
 		z-index: 9;
 	}
 
 	.nav-links-container {
 		position: fixed;
 		background-color: #edeeff;
-		width: 80%;
 		height: 60px;
 		margin-top: 20px;
 		margin-left: 11%;
 		border-radius: 35px;
-		padding-left: 10%;
-		padding-right: 4.5%;
-		padding-top: 14px;
 		z-index: 8;
 
 		display: flex;
@@ -50,6 +45,14 @@
 			margin-left: -2%;
 			margin-right: -2%;
 		}
+	}
+
+	.nav-scroll-progressor {
+		position: absolute;
+		width: 50px;
+		top: 36px;
+		transform: rotate(90deg);
+		z-index: 9;
 	}
 }
 
