@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'framer-motion';
 
@@ -19,8 +20,10 @@ const NavLink = ({ url, text }) => (
 );
 
 const Nav = () => {
+	const [scrollPct, setScrollPct] = useState(0);
 	const { scrollYProgress } = useScroll();
-	useMotionValueEvent(scrollYProgress, "change", latest => console.log(typeof latest, latest));
+
+	useMotionValueEvent(scrollYProgress, "change", latest => setScrollPct(latest));
 
 	return (
 		<AnimatePresence mode="sync">
@@ -49,7 +52,7 @@ const Nav = () => {
 					<motion.img
 						className="nav-scroll-progressor"
 						src={vhRocketship}
-						style={{ left: `${scrollYProgress * 80 + 8}%` }}
+						style={{ rotate: 90, translateX: `${scrollPct * 1.5 * window.innerWidth}%` }}
 					/>
 					<NavLink url="/" text="Home" />
 					<NavLink url="/schedule" text="Schedule" />
