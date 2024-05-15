@@ -2,8 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Home, Schedule, Resources, Workshops, NotFound } from "src/app/views";
 
-// import { Nav } from "src/app/components";
-
 const router = createBrowserRouter([
 	{
 		path: "/",

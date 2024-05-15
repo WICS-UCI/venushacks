@@ -1,5 +1,59 @@
 @import "../../../globals/vh-styles.scss";
 
+.nav-container {
+	position: sticky;
+	width: 100vw;
+	margin-top: 15px;
+	background-color: #fff;
+
+	.nav-vh-logo {
+		position: absolute;
+		width: 110px;
+		top: -40%;
+		left: -2.5%;
+		z-index: 9;
+	}
+
+	.nav-links-container {
+		position: fixed;
+		background-color: #edeeff;
+		width: 80%;
+		height: 60px;
+		margin-top: 20px;
+		margin-left: 11%;
+		border-radius: 35px;
+		padding-left: 10%;
+		padding-right: 4.5%;
+		padding-top: 14px;
+		z-index: 8;
+
+		display: flex;
+		justify-content: space-between;
+
+		.nav-link {
+			margin-top: 4px;
+			color: #5f4ea0;
+			font-size: 18px;
+			font-weight: 600;
+		}
+
+		.nav-link:hover {
+			color: #a8acf9;
+			transition: 0.3s all;
+		}
+
+		.nav-link-divider {
+			border-left: 3px solid #a8acf9;
+			border-radius: 3px;
+			width: 0px;
+			margin-bottom: 14px;
+			margin-left: -2%;
+			margin-right: -2%;
+		}
+	}
+}
+
+
 .nav {
 	width: 100vw;
 	height: 100px;
