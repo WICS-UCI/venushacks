@@ -1,5 +1,5 @@
 import FAQs from "src/app/components/faqs/FAQs";
-import { Nav, VenusButton } from "src/app/components";
+import { VenusButton } from "src/app/components";
 
 import vhTitle from "/assets/images/titles/vh-title-launch.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
@@ -14,7 +14,6 @@ const CONTACT_EMAIL = "venushacks.uci@gmail.com";
 const Home = () => {
 	return (
 		<div className="Home">
-			<Nav />
 			{/* HERO **********************/}
 			<section id="hero">
 				<div id="astronaut-animation">

@@ -64,7 +64,7 @@ const Nav = () => {
 						exit={{ opacity: 0 }}
 						transition={{ delay: 0.6, duration: 0.2 }}
 					/>
-					<NavLink url="/incident-form" text="Incident Form" />
+					<NavLink url="/report" text="Incident Form" />
 					<NavLink url="/devpost" text="Devpost" />
 				</motion.div>
 			</motion.div>
