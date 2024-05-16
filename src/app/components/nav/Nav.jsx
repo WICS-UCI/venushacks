@@ -86,9 +86,9 @@ const Nav = () => {
 							className="nav-vh-logo"
 							src={vhLogo}
 							{...(!reduceMotion && {
-								initial: { rotate: -360 },
+								initial: { rotate: -180 },
 								animate: { rotate: 0 },
-								exit: { rotate: 360 },
+								exit: { rotate: 180 },
 								transition: { duration: 0.3, damping: 15, restSpeed: 0.00001, mass: 0.9 }
 							})}
 						/>
