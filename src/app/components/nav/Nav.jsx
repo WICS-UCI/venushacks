@@ -6,14 +6,14 @@ import vhLogo from '/assets/images/icon.png';
 import vhRocketship from '/assets/images/rocketship.png';
 import './Nav.scss';
 
-const NavLink = ({ url, text, reduceMotion }) => (
+const NavLink = ({ url, text, reduceMotion, isMobile }) => (
 	<Link className="nav-link" to={url}>
 		<motion.span
 			{...(!reduceMotion && {
 				initial: { opacity: 0 },
 				animate: { opacity: 1 },
 				exit: { opacity: 0 },
-				transition: { duration: 0.2 }
+				transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 }
 			})}
 		>
 			{text}
@@ -21,11 +21,11 @@ const NavLink = ({ url, text, reduceMotion }) => (
 	</Link>
 );
 
-const NavLinks = ({ reduceMotion, showDivider }) => (
+const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
 	<>
-		<NavLink url="/" text="Home" {...{ reduceMotion }} />
-		<NavLink url="/schedule" text="Schedule" {...{ reduceMotion }} />
-		<NavLink url="/resources" text="Resources" {...{ reduceMotion }} />
+		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/resources" text="Resources" {...{ isMobile, reduceMotion }} />
 		{showDivider && (
 			<motion.span
 				className="nav-link-divider"
@@ -33,12 +33,12 @@ const NavLinks = ({ reduceMotion, showDivider }) => (
 					initial: { opacity: 0 },
 					animate: { opacity: 1 },
 					exit: { opacity: 0 },
-					transition: { duration: 0.2 }
+					transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 }
 				})}
 			/>
 		)}
-		<NavLink url="/report" text="Incident Form" {...{ reduceMotion }} />
-		<NavLink url="/devpost" text="Devpost" {...{ reduceMotion }} />
+		<NavLink url="/report" text="Incident Form" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/devpost" text="Devpost" {...{ isMobile, reduceMotion }} />
 	</>
 );
 
@@ -100,7 +100,7 @@ const Nav = () => {
 						/>
 					)}
 					{!isMobile ? (
-						<NavLinks showDivider={true} {...{ reduceMotion }} />
+						<NavLinks showDivider={true} {...{ isMobile, reduceMotion }} />
 					) : (
 						<>
 							<motion.span
@@ -114,7 +114,7 @@ const Nav = () => {
 							>
 								{showDropdown ? "x" : "≡"}
 							</motion.span>
-							{showDropdown && <NavLinks showDivider={false} {...{ reduceMotion }} />}
+							{showDropdown && <NavLinks showDivider={false} {...{ isMobile, reduceMotion }} />}
 						</>
 					)}
 				</motion.div>
