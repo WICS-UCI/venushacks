@@ -47,8 +47,7 @@ const Nav = () => {
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 	const isMobile = screenWidth < 900;
 	const [showDropdown, setShowDropdown] = useState(false);
-	const toggleShowDropdown = () => {setShowDropdown(!showDropdown); console.log(showDropdown);};
-	const hideDropdown = () => setShowDropdown(false);
+	const toggleShowDropdown = () => setShowDropdown(!showDropdown);
 
 	const reduceMotion = useReducedMotion();
 	const { scrollYProgress } = useScroll();
