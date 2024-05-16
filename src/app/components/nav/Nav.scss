@@ -7,12 +7,15 @@
 	background-color: #fff;
 	z-index: 100;
 
-	.nav-vh-logo {
+	.nav-vh-logo-link {
 		position: absolute;
-		width: 110px;
 		top: -40%;
 		left: -2.5%;
 		z-index: 9;
+
+		.nav-vh-logo {
+			width: 110px;
+		}
 	}
 
 	.nav-links-container {
@@ -30,6 +33,7 @@
 
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 
 		.nav-link {
 			margin-top: 4px;

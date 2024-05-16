@@ -48,16 +48,18 @@ const Nav = () => {
 						transition: { type: "spring", delay: 0.4, duration: 0.2, damping: 18 }
 					})}
 				>
-					<motion.img
-						className="nav-vh-logo"
-						src={vhLogo}
-						{...(!reduceMotion && {
-							initial: { rotate: -360, left: "10%" },
-							animate: { rotate: 0, left: "-2.5%" },
-							exit: { rotate: 360, left: "10%" },
-							transition: { duration: 0.25, damping: 15, restSpeed: 0.00001, mass: 0.9 }
-						})}
-					/>
+					<Link className="nav-vh-logo-link" to="/">
+						<motion.img
+							className="nav-vh-logo"
+							src={vhLogo}
+							{...(!reduceMotion && {
+								initial: { rotate: -360, left: "10%" },
+								animate: { rotate: 0, left: "-2.5%" },
+								exit: { rotate: 360, left: "10%" },
+								transition: { duration: 0.3, damping: 15, restSpeed: 0.00001, mass: 0.9 }
+							})}
+						/>
+					</Link>
 					<motion.img
 						className="nav-scroll-progressor"
 						src={vhRocketship}
