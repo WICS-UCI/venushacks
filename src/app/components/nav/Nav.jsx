@@ -26,6 +26,7 @@ const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
 		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
 		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
 		<NavLink url="/resources" text="Resources" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/workshops" text="Workshops" {...{ isMobile, reduceMotion }} />
 		{showDivider && (
 			<motion.span
 				className="nav-link-divider"
