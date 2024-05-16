@@ -23,6 +23,10 @@ const NavLink = ({ url, text, reduceMotion }) => (
 
 const Nav = () => {
 	const [scrollPct, setScrollPct] = useState(0);
+	const [showDropdown, setShowDropdown] = useState(false);
+	const toggleShowDropdown = () => setShowDropdown(!showDropdown);
+	const hideDropdown = () => setShowDropdown(false);
+
 	const reduceMotion = useReducedMotion();
 	const { scrollYProgress } = useScroll();
 
