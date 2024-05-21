@@ -4,7 +4,6 @@ import { starterPackData } from "src/app/data/resources-info";
 import { Carousel, Stack, Card } from 'react-bootstrap';
 
 import "./Resources.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function Resources() {
     return (
