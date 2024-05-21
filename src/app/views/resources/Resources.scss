@@ -1,108 +1,156 @@
 @import "../../../globals/vh-styles.scss";
 
 .starter-packs {
-	min-height: 100vh;
-	width: 100vw;
-	background-image: url("../../../assets/images/stars-background.svg");
-	background-attachment: fixed;
-	background-size: 100% auto;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	color: white;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(#dfe0ff, #fcd6bd), url("../../../assets/images/stars-background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #322660;
+    padding: 2rem;
 
-	.starter-packs-instructions {
-		min-height: calc(100vh - 114px);
-		width: 60vw;
-		text-align: left;
-		display: flex;
-		flex-direction: column;
-		padding-top: 4rem;
-		padding-bottom: 4rem;
+    h2 {
+        margin-top: 2em;
+        text-align: center;
+        font-size: 3.5em;
+    }
 
-		p {
-			font-size: 1.4rem;
-		}
+    .description {
+        font-weight: bold; 
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 2rem;
+    }
+    
+    .starter-pack-card {
+        margin: 1.5rem;
+        width: 100%;
+        height: auto;
+        border-radius: 45px;
+        color: #2b2150;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        z-index: 10;
 
-		a {
-			text-decoration: underline;
-		}
-	}
+        @media screen and (max-width: $break-medium) {
+            flex-direction: column;
+        }
 
-	.starter-pack-card {
-		margin: 3rem auto;
-		width: 80vw;
-		min-height: 10rem;
-		border-radius: 25px;
-		background-color: #42384473;
-		color: white;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 3rem;
-		z-index: 10;
-		display: flex;
-		flex-direction: row;
-		min-height: auto;
-		opacity: 0.8;
+        .starter-pack-card-information {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 90%;
 
-		@media screen and (max-width: $break-medium) {
-			flex-direction: column;
-		}
+            @media screen and (max-width: $break-medium) {
+                align-items: center;
+                width: 90%;
+            }
 
-		p {
-			font-size: 1.4rem;
-		}
+            h3 {
+                text-align: left;
+                width: 100%;
+                font-size: 2em;
+                margin-bottom: 1rem;
+            }
 
-		.starter-pack-card-information {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: flex-start;
-			width: 60%;
-			height: 100%;
+            p {
+                text-align: left;
+                width: 100%;
+                font-size: 1.3em;
+            }
+        }
 
-			@media screen and (max-width: $break-medium) {
-				align-items: center;
-				width: 90%;
-			}
-		}
+        .starter-pack-card-links {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 1rem auto;
 
-		.starter-pack-card-links {
-			display: flex;
-			flex-direction: column;
-			width: 40%;
-			margin-top: 1rem;
+            @media screen and (max-width: $break-medium) {
+                width: 90%;
+            }
 
-			@media screen and (max-width: $break-medium) {
-				width: 90%;
-				h4 {
-					font-size: 1em;
-				}
-			}
+            .carousel-item {
+                height: 450px;
+            }
 
-			a {
-				width: 100%;
-				margin-bottom: 1rem;
+            .stack {
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                gap: 5rem;
+            }
 
-				div {
-					border: 3px solid $pink;
-					width: 100%;
-					padding: 1rem;
-					border-radius: 1rem;
-					border-collapse: separate;
-					display: inline-block;
-				}
+            .card {
+                width: 20rem;
+                height: 25rem;
+                border-radius: 30px;
+                border: none;
+                box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); /* Added shadow */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                overflow: hidden;
+                background-image: linear-gradient(#EE99A0, #b1affb);
+                overflow-wrap: break-word;
 
-				h4 {
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
+                .starter-pack-card-link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 100%;
+                    height: 100%;
+                    padding: 1rem;
+                    text-align: center;
+                    color: white;
+                    text-decoration: none;
 
-	h2 {
-		margin-top: 2em;
-	}
+                    h4 {
+                        font-size: 25px;
+                        margin: 1.5rem 0;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 15rem;
+                        object-fit: contain;
+                        margin-top: 1rem;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev {
+            left: -80px;
+            max-width: 10%;
+        }
+
+        .carousel-control-next {
+            right: -80px;
+            max-width: 10%;
+        }
+
+        .carousel-indicators {
+            bottom: -30px;
+        }
+    }
 }
