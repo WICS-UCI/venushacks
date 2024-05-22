@@ -1,4 +1,4 @@
-@import "../../../globals/vh-styles.scss";
+@import "src/globals/vh-styles.scss";
 
 $boba: "/assets/images/vh-boba.png";
 $astronaut: "/assets/images/vh-astronaut.png";
@@ -289,6 +289,15 @@ body {
 			color: $darkPurple;
 			font-family: "Varela", sans-serif;
 			font-weight: 500;
+			background-color: #a8acf977;
+			margin: 20px 60px;
+			padding: 15px 20px;
+			border-radius: 20px;
+
+			@media screen and (max-width: $break-small) {
+				margin: 10px 30px;
+				padding: 5px 20px 20px;
+			}
 
 			@media screen and (max-width: $break-medium) {
 				width: 80vw;
@@ -329,9 +338,21 @@ body {
 			}
 		}
 
+		#faq-container {
+			align-items: center;
+			background-color: #a8acf977;
+			margin: 20px 60px;
+			padding: 15px 20px;
+			border-radius: 20px;
+
+			@media screen and (max-width: $break-small) {
+				margin: 10px 30px;
+				padding: 5px 20px 20px;
+			}
+		}
+
 		#faq-contact-us {
 			font-size: 20px;
-			margin: 30px 0 65px 0;
 
 			@media screen and (max-width: $break-small) {
 				font-size: 15px;
@@ -340,124 +361,6 @@ body {
 			}
 		}
 	} // END FAQ
-
-	#sponsors {
-		margin-top: 50px;
-
-		.section-title {
-			height: 120px;
-			@media screen and (max-width: $break-medium) {
-				height: 25vw;
-				max-height: 150px;
-			}
-		}
-
-		#sponsors-container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			background: white;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 10px;
-			color: #4767b1;
-
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 20px;
-			}
-
-			.logo-wrapper .logo {
-				margin: 30px;
-				transition: all 0.2s ease;
-			}
-
-			.logo-wrapper .logo:hover {
-				cursor: pointer;
-				transform: scale(1.08);
-				height: auto;
-			}
-
-			.largest .logo {
-				max-width: 400px;
-			}
-
-			.large .logo {
-				max-width: 300px;
-			}
-
-			.medium .logo {
-				max-width: 250px;
-				max-height: 100px;
-			}
-
-			.medium .logo,
-			.large .logo,
-			.largest .logo {
-				@media screen and (max-width: $break-medium) {
-					max-width: 90%;
-					max-height: 75px;
-					margin: 10px;
-				}
-			}
-		}
-	} // END SPONSORS
-
-	#partners {
-		margin-top: 50px;
-
-		.section-title {
-			height: 120px;
-			@media screen and (max-width: $break-medium) {
-				height: 25vw;
-				max-height: 150px;
-			}
-		}
-
-		#partners-container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			background: white;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 10px;
-			color: #4767b1;
-
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 15px;
-			}
-
-			.logo-wrapper .logo {
-				margin: 30px;
-				transition: all 0.2s ease;
-			}
-
-			.logo-wrapper .logo:hover {
-				cursor: pointer;
-				transform: scale(1.08);
-				height: auto;
-			}
-
-			.medium .logo {
-				max-width: 250px;
-				max-height: 100px;
-			}
-
-			.medium .logo,
-			.large .logo,
-			.largest .logo {
-				@media screen and (max-width: $break-medium) {
-					max-width: 90%;
-					max-height: 75px;
-					margin: 10px;
-				}
-			}
-		}
-	} // END PARTNERS
 
 	#speakers {
 		display: flex;

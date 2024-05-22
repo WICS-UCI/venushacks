@@ -19,7 +19,11 @@ $errorColor: #a31e1e;
 $vhFont: Nunito, sans-serif;
 
 // VH 2024 Backgrounds
-$gradientBackground: linear-gradient(#a8acf9, #ffc999);
+$gradientBackground: linear-gradient(
+	#a8acf977 0%,
+	#ee99a077 77%,
+	#ffc99977 100%
+);
 $darkBlueBackground: #322660;
 $darkBlackBackground: #070024;
 
