@@ -1,16 +1,25 @@
 import FAQs from "src/app/components/faqs/FAQs";
 import Sponsor from "src/app/components/sponsor/Sponsor";
+import Partner from "src/app/components/partner/Partner";
 
 import vhTitle from "/assets/images/titles/vh-title-launch.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
 import faq_title from "/assets/images/titles/vh-faq.svg";
 import sponsors_title from "/assets/images/titles/vh-sponsors.svg";
+import partners_title from "/assets/images/titles/vh-partners.svg";
 
-import odit from "/assets/images/current-sponsors/odit.png";
-import melissa from "/assets/images/current-sponsors/melissa.png";
-import antrepreneur from "/assets/images/current-sponsors/antrepreneur-center.png";
-import oai from "/assets/images/current-sponsors/office-access-inclusion.png";
-import spfb from "/assets/images/current-sponsors/spfb.png";
+import odit from "/assets/images/2024-sponsors/odit.png";
+import melissa from "/assets/images/2024-sponsors/melissa.png";
+import antrepreneur from "/assets/images/2024-sponsors/antrepreneur-center.png";
+import oai from "/assets/images/2024-sponsors/office-access-inclusion.png";
+import spfb from "/assets/images/2024-sponsors/spfb.png";
+
+import acm from "/assets/images/2024-partners/acm.png";
+import cyber from "/assets/images/2024-partners/cyber.png";
+import design from "/assets/images/2024-partners/design.png";
+import hack from "/assets/images/2024-partners/hack.png";
+import icssc from "/assets/images/2024-partners/icssc.jpg";
+import wics from "/assets/images/2024-partners/wics.png";
 
 import "./Home.scss";
 
@@ -42,6 +51,8 @@ const Home = () => {
 					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
 				</div>
 			</section>
+
+			{/* ABOUT **********************/}
 			<section id="about">
 				<img className="section-title" src={about_title} alt="About" />
 				<div id="about-text-container">
@@ -80,6 +91,8 @@ const Home = () => {
 					</p>
 				</div>
 			</section>
+
+			{/* FAQ ************************/}
 			<section id="faq">
 				<img className="section-title" src={faq_title} alt="FAQ" />
 				<div id="faq-container">
@@ -93,6 +106,8 @@ const Home = () => {
 					.
 				</p>
 			</section>
+
+			{/* SPONSORS **********************/}
 			<section id="sponsors">
 				<img className="section-title" src={sponsors_title} alt="Sponsor" />
 				<div id="sponsors-container">
@@ -131,6 +146,37 @@ const Home = () => {
 					</a>
 					.
 				</p>
+			</section>
+
+			{/* PARTNERS **********************/}
+			<section id="partners">
+				<img className="section-title" src={partners_title} alt="Partners" />
+				<div id="partners-container">
+					<div className="logo-wrapper medium">
+						<Partner
+							imgId="design"
+							imgSrc={design}
+							url="https://designatuci.com/"
+						/>
+						<Partner imgId="acm" imgSrc={acm} url="https://www.acm-uci.org/" />
+						<Partner imgId="cyber" imgSrc={cyber} url="https://cyberuci.com/" />
+						<Partner
+							imgId="icssc"
+							imgSrc={icssc}
+							url="https://studentcouncil.ics.uci.edu/"
+						/>
+						<Partner
+							imgId="wics"
+							imgSrc={wics}
+							url="https://wics.ics.uci.edu/"
+						/>
+						<Partner
+							imgId="hack"
+							imgSrc={hack}
+							url="https://hack.ics.uci.edu/"
+						/>
+					</div>
+				</div>
 			</section>
 		</div>
 	);

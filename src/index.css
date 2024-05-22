@@ -5,8 +5,9 @@
 :root {
 	--color-background-btn-upper-gradient: #322660;
 	--color-background-btn-lower-gradient: #070024;
-	--color-background-upper-gradient: #a8acf9aa;
-	--color-background-lower-gradient: #ffc999aa;
+	--color-background-upper-gradient: #a8acf990;
+	--color-background-middle-gradient: #ee99a090;
+	--color-background-lower-gradient: #ffc99990;
 	--color-vh-primary: #ffc999;
 	--color-vh-secondary: #ee99a0;
 	--color-vh-tertiary: #a8acf9;
@@ -26,8 +27,9 @@ body {
 	color: #fff;
 	background-image: linear-gradient(
 		to bottom,
-		var(--color-background-upper-gradient),
-		var(--color-background-lower-gradient)
+		var(--color-background-upper-gradient) 0%,
+		var(--color-background-middle-gradient) 77%,
+		var(--color-background-lower-gradient) 100%
 	);
 	background-size: cover;
 	background-repeat: no-repeat;
