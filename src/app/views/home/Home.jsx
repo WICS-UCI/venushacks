@@ -1,31 +1,15 @@
 import FAQs from "src/app/components/faqs/FAQs";
-import Sponsor from "src/app/components/sponsor/Sponsor";
-import Partner from "src/app/components/partner/Partner";
+import Sponsors from "src/app/components/sponsors/Sponsors";
+import Partners from "src/app/components/partners/Partners";
 
 import vhTitle from "/assets/images/titles/vh-title-launch.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
 import faq_title from "/assets/images/titles/vh-faq.svg";
-import sponsors_title from "/assets/images/titles/vh-sponsors.svg";
-import partners_title from "/assets/images/titles/vh-partners.svg";
-
-import odit from "/assets/images/2024-sponsors/odit.png";
-import melissa from "/assets/images/2024-sponsors/melissa.png";
-import antrepreneur from "/assets/images/2024-sponsors/antrepreneur-center.png";
-import oai from "/assets/images/2024-sponsors/office-access-inclusion.png";
-import spfb from "/assets/images/2024-sponsors/spfb.png";
-
-import acm from "/assets/images/2024-partners/acm.png";
-import cyber from "/assets/images/2024-partners/cyber.png";
-import design from "/assets/images/2024-partners/design.png";
-import hack from "/assets/images/2024-partners/hack.png";
-import icssc from "/assets/images/2024-partners/icssc.jpg";
-import wics from "/assets/images/2024-partners/wics.png";
 
 import "./Home.scss";
 
 const VH_DATE = "May 24 - 26, 2024";
 const CONTACT_EMAIL = "venushacks.uci@gmail.com";
-const CORPORATE_EMAIL = "sponsorships@venushacks.com";
 
 const Home = () => {
 	return (
@@ -108,76 +92,8 @@ const Home = () => {
 			</section>
 
 			{/* SPONSORS **********************/}
-			<section id="sponsors">
-				<img className="section-title" src={sponsors_title} alt="Sponsor" />
-				<div id="sponsors-container">
-					<div className="logo-wrapper largest">
-						<Sponsor imgId="odit" imgSrc={odit} url="https://odit.uci.edu/" />
-					</div>
-					<div className="logo-wrapper large">
-						<Sponsor
-							imgId="melissa"
-							imgSrc={melissa}
-							url="https://www.melissa.com/"
-						/>
-					</div>
-					<div className="logo-wrapper medium">
-						<Sponsor
-							imgId="antrepreneur"
-							imgSrc={antrepreneur}
-							url="https://antrepreneur.uci.edu/"
-						/>
-					</div>
-					<div className="logo-wrapper medium">
-						<Sponsor imgId="oai" imgSrc={oai} url="https://oai.tech.uci.edu/" />
-					</div>
-					<div className="logo-wrapper medium">
-						<Sponsor
-							imgId="spfb"
-							imgSrc={spfb}
-							url="https://asuci.uci.edu/president/spfb/"
-						/>
-					</div>
-				</div>
-				<p className="sponsor-contact-us">
-					Join our movement, contact us at&nbsp;
-					<a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
-						{CORPORATE_EMAIL}
-					</a>
-					.
-				</p>
-			</section>
-
-			{/* PARTNERS **********************/}
-			<section id="partners">
-				<img className="section-title" src={partners_title} alt="Partners" />
-				<div id="partners-container">
-					<div className="logo-wrapper medium">
-						<Partner
-							imgId="design"
-							imgSrc={design}
-							url="https://designatuci.com/"
-						/>
-						<Partner imgId="acm" imgSrc={acm} url="https://www.acm-uci.org/" />
-						<Partner imgId="cyber" imgSrc={cyber} url="https://cyberuci.com/" />
-						<Partner
-							imgId="icssc"
-							imgSrc={icssc}
-							url="https://studentcouncil.ics.uci.edu/"
-						/>
-						<Partner
-							imgId="wics"
-							imgSrc={wics}
-							url="https://wics.ics.uci.edu/"
-						/>
-						<Partner
-							imgId="hack"
-							imgSrc={hack}
-							url="https://hack.ics.uci.edu/"
-						/>
-					</div>
-				</div>
-			</section>
+			<Sponsors />
+			<Partners />
 		</div>
 	);
 };
