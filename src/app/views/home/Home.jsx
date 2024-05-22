@@ -90,8 +90,6 @@ const Home = () => {
 					.
 				</p>
 			</section>
-
-			{/* SPONSORS **********************/}
 			<Sponsors />
 			<Partners />
 		</div>

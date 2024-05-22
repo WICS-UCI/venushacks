@@ -17,6 +17,13 @@ const Sponsors = () => {
 		<section id="sponsors">
 			<img className="section-title" src={sponsors_title} alt="Sponsor" />
 			<div id="sponsors-container">
+				<div className="logo-wrapper medium">
+					<Sponsor
+						imgId="spfb"
+						imgSrc={spfb}
+						url="https://asuci.uci.edu/president/spfb/"
+					/>
+				</div>
 				<div className="logo-wrapper largest">
 					<Sponsor imgId="odit" imgSrc={odit} url="https://odit.uci.edu/" />
 				</div>
@@ -36,13 +43,6 @@ const Sponsors = () => {
 				</div>
 				<div className="logo-wrapper medium">
 					<Sponsor imgId="oai" imgSrc={oai} url="https://oai.tech.uci.edu/" />
-				</div>
-				<div className="logo-wrapper medium">
-					<Sponsor
-						imgId="spfb"
-						imgSrc={spfb}
-						url="https://asuci.uci.edu/president/spfb/"
-					/>
 				</div>
 			</div>
 			<p className="sponsor-contact-us">
