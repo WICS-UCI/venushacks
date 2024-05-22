@@ -289,6 +289,15 @@ body {
 			color: $darkPurple;
 			font-family: "Varela", sans-serif;
 			font-weight: 500;
+			background-color: #a8acf977;
+			margin: 20px 60px;
+			padding: 15px 20px;
+			border-radius: 20px;
+
+			@media screen and (max-width: $break-small) {
+				margin: 10px 30px;
+				padding: 5px 20px 20px;
+			}
 
 			@media screen and (max-width: $break-medium) {
 				width: 80vw;
@@ -329,9 +338,21 @@ body {
 			}
 		}
 
+		#faq-container {
+			align-items: center;
+			background-color: #a8acf977;
+			margin: 20px 60px;
+			padding: 15px 20px;
+			border-radius: 20px;
+
+			@media screen and (max-width: $break-small) {
+				margin: 10px 30px;
+				padding: 5px 20px 20px;
+			}
+		}
+
 		#faq-contact-us {
 			font-size: 20px;
-			margin: 30px 0 65px 0;
 
 			@media screen and (max-width: $break-small) {
 				font-size: 15px;
@@ -343,9 +364,11 @@ body {
 
 	#sponsors {
 		margin-top: 50px;
+		color: $darkPurple;
+		font-family: "Varela", sans-serif;
 
 		.section-title {
-			height: 120px;
+			height: 250px;
 			@media screen and (max-width: $break-medium) {
 				height: 25vw;
 				max-height: 150px;
@@ -357,10 +380,10 @@ body {
 			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
-			background: white;
+			background-color: #a8acf977;
 			margin: 20px 60px;
 			padding: 15px 20px;
-			border-radius: 10px;
+			border-radius: 20px;
 			color: #4767b1;
 
 			@media screen and (max-width: $break-small) {
