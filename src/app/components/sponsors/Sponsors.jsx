@@ -45,13 +45,13 @@ const Sponsors = () => {
 					<Sponsor imgId="oai" imgSrc={oai} url="https://oai.tech.uci.edu/" />
 				</div>
 			</div>
-			<p className="sponsor-contact-us">
+			{/* <p className="sponsor-contact-us">
 				Join our movement, contact us at&nbsp;
 				<a href={`mailto:${CORPORATE_EMAIL}`} target="_top">
 					{CORPORATE_EMAIL}
 				</a>
 				.
-			</p>
+			</p> */}
 		</section>
 	);
 };
