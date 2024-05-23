@@ -17,38 +17,60 @@ const renderButtons = (buttons) => {
 
 function WorkshopCard(workshop) {
   const { title, description, prereqs, recap, host } = workshop;
-
   return (
     <div className="workshop-card">
-      <div className="workshop-card-header">
-        <div>
-          <h4>{title}</h4>
-          <h5>
+      <div className="workshop-card-left">
+        <p className="workshop-card-title">{title}</p>
+        <h5>
             Hosted by{" "}
             <a href={host.link} target="_blank" rel="noopener noreferrer">
               {host.name}
             </a>
-          </h5>
-        </div>
-        <div className="right pink-buttons">
-          {recap &&
-            renderButtons(
-              Object.entries(recap).map((pair) => {
-                const [key, val] = pair;
-                return { description: key, link: val };
-              }),
-            )}
-        </div>
+        </h5>
+        {prereqs && (
+          <div className="workshop-card-prereqs pink-buttons">
+            <h5>Prequisites:</h5>
+            {renderButtons(prereqs)}
+          </div>
+        )}
       </div>
-      {description}
-      {prereqs && (
-        <div className="workshop-card-prereqs pink-buttons">
-          <h5>Prequisites:</h5>
-          {renderButtons(prereqs)}
-        </div>
-      )}
+      <div className="workshop-card-right">
+          <p className="workshop-card-description">{description}</p>
+      </div>
     </div>
   );
+
+  // return (
+  //   <div className="workshop-card">
+  //     <div className="workshop-card-header">
+  //       <div>
+  //         <h4>{title}</h4>
+          // <h5>
+          //   Hosted by{" "}
+          //   <a href={host.link} target="_blank" rel="noopener noreferrer">
+          //     {host.name}
+          //   </a>
+          // </h5>
+  //       </div>
+  //       <div className="right pink-buttons">
+  //         {recap &&
+  //           renderButtons(
+  //             Object.entries(recap).map((pair) => {
+  //               const [key, val] = pair;
+  //               return { description: key, link: val };
+  //             }),
+  //           )}
+  //       </div>
+  //     </div>
+  //     {description}
+      // {prereqs && (
+      //   <div className="workshop-card-prereqs pink-buttons">
+      //     <h5>Prequisites:</h5>
+      //     {renderButtons(prereqs)}
+      //   </div>
+      // )}
+  //   </div>
+  // );
 }
 
 export default WorkshopCard;
