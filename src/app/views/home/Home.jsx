@@ -2,7 +2,7 @@ import FAQs from "src/app/components/faqs/FAQs";
 import Sponsors from "src/app/components/sponsors/Sponsors";
 import Partners from "src/app/components/partners/Partners";
 
-import vhTitle from "/assets/images/titles/vh-title-launch.svg";
+import vh_title from "/assets/images/titles/venushacks.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
 import faq_title from "/assets/images/titles/vh-faq.svg";
 
@@ -27,14 +27,15 @@ const Home = () => {
 
 				<div id="hero-right">
 					<img
-						src={vhTitle}
+						src={vh_title}
 						alt="VenusHacks Title Logo"
 						id="venushacks-title"
 					/>
-					<h4 id="date">{VH_DATE}</h4>
-					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
+					{/* <h4 id="date">{VH_DATE}</h4>
+					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p> */}
 				</div>
 			</section>
+			<div id="planet" />
 
 			{/* ABOUT **********************/}
 			<section id="about">

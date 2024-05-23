@@ -4,7 +4,7 @@ $boba: "/assets/images/vh-boba.png";
 $astronaut: "/assets/images/vh-astronaut.png";
 $laptop: "/assets/images/vh-laptop.png";
 $shiba: "/assets/images/VH_shiba_inu.png";
-$planet: "/assets/images/vh-planet.png";
+$planet: "/assets/images/planet-3.svg";
 $stars_background: "/assets/images/stars.svg";
 
 body {
@@ -49,8 +49,10 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin: 0 50px;
+		margin: 10vw 15vw;
 		flex-direction: column;
+		background-color: #a8acf977;
+		border-radius: 50px;
 
 		#astronaut-animation {
 			display: flex;
@@ -169,8 +171,8 @@ body {
 		} // END #astronaut-animation
 
 		#hero-right {
-			width: 48%;
-			margin-bottom: 20px;
+			// width: 48%;
+			// margin-bottom: 20px;
 
 			@media screen and (max-width: $break-medium) {
 				width: initial;
@@ -248,19 +250,20 @@ body {
 				transform: scale(1.08);
 			}
 		} // END #hero-right
-		#planet {
-			width: 50vw;
-			height: 50vw;
-			max-height: 600px;
-			max-width: 600px;
-			background: url($planet);
-			background-size: contain;
-			background-repeat: no-repeat;
-			display: block;
-			margin: auto;
-			margin-top: 5%;
-		}
 	} // END HERO
+
+	#planet {
+		width: 90vw;
+		height: 90vw;
+		// max-height: 600px;
+		// max-width: 600px;
+		background: url($planet);
+		background-size: contain;
+		background-repeat: no-repeat;
+		// display: block;
+		margin: auto;
+		margin-top: -50%;
+	}
 
 	#about {
 		display: flex;
