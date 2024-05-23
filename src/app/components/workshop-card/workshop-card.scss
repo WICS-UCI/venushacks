@@ -5,34 +5,31 @@
     width: 85vw;
     max-width: 67vw;
     margin: 20px auto;
-    background-color: #42384473;
+    // background-color: #42384473;
+    background-image: linear-gradient(rgba(50, 38, 96), rgba(168, 172, 249));
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
     color: #FFFFFF;
     // text-align: left;
     display: flex;
 
     .workshop-card-left {
-        border-bottom-left-radius: 20px;
-        border-top-left-radius: 20px;
         padding: 20px;
-        background-image: linear-gradient(rgba(238, 153, 160), rgba(168, 172, 249));
-        // #EE99A0, #A8ACF9
+        border-style: none groove none none;
+        margin-top: 10px;
+        margin-bottom: 10px;
         flex: 1 1 0px;
-
     }
 
     .workshop-card-right {
-        border-bottom-right-radius: 20px;
-        border-top-right-radius: 20px;
         padding: 20px;
-        background-image: linear-gradient(rgba(238, 153, 160, 0.8), rgba(168, 172, 249, 0.8));
+        margin-top: 10px;
+        margin-bottom: 10px;
         flex: 1 1 0px;
 
     }
 
     .workshop-card-title {
         font-size: 1.6em;
-        color: #322660;
         margin-bottom: 25px;
     }
 
@@ -44,17 +41,17 @@
         font-size: large;
         margin-top: 25px;
         margin-bottom: 3px;
+        color: #EE99A0;
     }
 
     #host-name {
-        color: #322660;
         font-size: large;
         margin-top: 3px;
     }
 
     a { // for prereq-button
         text-decoration: none;
-        background-color: #EE99A0;
+        background-color: #322660;
         display: block;
         //margin: auto;
         margin-bottom: 6px;
