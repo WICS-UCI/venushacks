@@ -46,7 +46,6 @@ body {
 
 	#hero {
 		display: flex;
-		// justify-content: center;
 		align-items: center;
 		margin: 10vw 15vw;
 		flex-direction: column;
@@ -63,18 +62,18 @@ body {
 			justify-content: space-between;
 			max-width: 600px;
 			margin-top: 150px;
-			transform: translateY(-65vh);
+			transform: translateY(-700px);
 
 			@media screen and (max-width: $break-medium) {
 				width: 100%;
 				max-width: 325px;
-				transform: translateY(-50vh);
+				transform: translateY(-600px);
 			}
 
 			@media screen and (max-width: $break-small) {
 				width: 100%;
 				max-width: 325px;
-				transform: translateY(-30vh);
+				transform: translateY(-400px);
 			}
 
 			@keyframes floatBoba {
@@ -138,8 +137,8 @@ body {
 				animation: floatAstronaut 4s ease-in-out infinite;
 
 				@media screen and (max-width: $break-small) {
-					width: 40vw;
-					height: 40vw;
+					width: 25vw;
+					height: 25vw;
 				}
 			}
 
@@ -201,22 +200,31 @@ body {
 			}
 
 			#date {
-				margin-top: 15px;
+				transform: translateY(-200px);
 				color: $darkPurple;
 				font-family: var(--font-comfortaa);
 				font-weight: 700;
 				@media screen and (max-width: $break-medium) {
 					font-size: 20px;
 				}
+
+				@media screen and (max-width: $break-small) {
+					transform: translateY(-20px);
+				}
 			}
 
 			#tagline {
+				transform: translateY(-190px);
 				font-family: "Varela", sans-serif;
 				font-size: 22px;
 				color: $darkPurple;
 				margin-bottom: 0.5rem;
 				@media screen and (max-width: $break-medium) {
 					font-size: 18px;
+				}
+
+				@media screen and (max-width: $break-small) {
+					transform: translateY(-10px);
 				}
 			}
 

@@ -22,8 +22,8 @@ const Home = () => {
 						alt="VenusHacks Title Logo"
 						id="venushacks-title"
 					/>
-					{/* <h4 id="date">{VH_DATE}</h4>
-					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p> */}
+					<h4 id="date">{VH_DATE}</h4>
+					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
 				</div>
 				<div id="astronaut-animation">
 					{/* These assets are a background of a div instead of imgs to prevent
