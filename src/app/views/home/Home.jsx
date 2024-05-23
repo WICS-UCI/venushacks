@@ -66,7 +66,7 @@ const Home = () => {
 						providing an inclusive community where students can receive the
 						support to grow and express their creativity in computing.
 					</p>
-					<p>
+					<p className="mb-0">
 						This year, VenusHacks will take place fully in-person in Spring
 						2024! Join us as we welcome high school (18+), undergraduate, and
 						graduate students to participate in our 36-hour (non-overnight)
