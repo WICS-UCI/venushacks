@@ -106,18 +106,18 @@
 			}
 
 			.name {
-				background: linear-gradient($darkerPurple, $lightPurple);
+				background: linear-gradient($darkerPurple, $darkPurple);
 				-webkit-background-clip: text;
 				color: transparent;
 				background-clip: text;
-				font-size: 21px;
+				font-size: 24px;
 				margin-bottom: 0;
 			}
 			
 			.time {
-				font-size: 18px;
+				font-size: 14px;
 				color: black;
-				letter-spacing: 1.5px;
+				letter-spacing: .75px;
 			}
 
 			p {
