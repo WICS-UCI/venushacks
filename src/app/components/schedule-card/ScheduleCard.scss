@@ -9,7 +9,7 @@
 	background-image: url("../../../assets/images/schedule/schedule-block-bg.png");
 	background-size: cover;
 	//box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-	color: #322660;
+	color: $darkerPurple;
 	grid-template-columns: 49% 2% 49%;
 	grid-auto-flow: column;
 
@@ -32,7 +32,7 @@
 			height: 4px;
 			width: 15%;
 			border-radius: 5px;
-			background-color: #322660;
+			background-color: $darkerPurple;
 			margin-bottom: 40px;
 		}
 	}
@@ -44,7 +44,7 @@
 	.schedule-card-tooltip .schedule-card-tooltiptext {
 		visibility: hidden;
 		width: 400px;
-		background-color: #ee99a0;
+		background-color: $peach;
 		color: black;
 		z-index: 1;
 		top: 100%;
@@ -67,7 +67,7 @@
 		margin-left: -5px;
 		border-width: 5px;
 		border-style: solid;
-		border-color: transparent transparent #ee99a0 transparent;
+		border-color: transparent transparent $peach transparent;
 	}
 
 	.schedule-card-tooltip:hover .schedule-card-tooltiptext {
@@ -77,11 +77,12 @@
 
 	.schedule-card-section {
 		.schedule-card-time-slot {
-			color: #322660;
+			color: $darkerPurple;
 			width: 100%;
 			// height: 60px;
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 			text-align: left;
 			margin-bottom: 20px !important;
 
@@ -94,10 +95,6 @@
 				height: auto;
 			}
 
-			.pill-position{
-				float: left;
-			}
-
 			@media screen and (max-width: 450px) {
 				h5 {
 					font-size: 16px !important;
@@ -108,13 +105,23 @@
 				}
 			}
 
-			h5 {
+			.name {
+				background: linear-gradient($darkerPurple, $lightPurple);
+				-webkit-background-clip: text;
+				color: transparent;
+				background-clip: text;
 				font-size: 21px;
 				margin-bottom: 0;
 			}
+			
+			.time {
+				font-size: 18px;
+				color: black;
+				letter-spacing: 1.5px;
+			}
 
 			p {
-				color: #5F4EA0;
+				color: $darkPurple;
 				margin-bottom: 0;
 			}
 		}

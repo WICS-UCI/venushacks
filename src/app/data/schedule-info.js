@@ -1,7 +1,7 @@
 let scheduleData = {
   friSchedule: [
     {
-      header: "../../../assets/images/schedule/Check-In.png",
+      name: "Check In",
       description:
         "Check in for the hackathon! Let us know beforehand if you won't be able to make the below time!",
       tooltip:
@@ -16,7 +16,6 @@ let scheduleData = {
       time: "6:00PM-7:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/activity-pill.png",
       name: "Teammate Tinder: Team Formation",
       description: "Team up hackers!",
       tooltip: "Stressed about team formation! Speed friendliness is here for you! If you already have a team, you are welcome to join to network with other teams and organizers!",
@@ -34,7 +33,7 @@ let scheduleData = {
       name: "Opening Ceremony",
       description: "Welcome to VenusHacks!",
       tooltip:
-        "Hear about the clubs and sponsors behind VenusHacks, as well as important rules and resources for navigating the hackathon! Featuring speakers from our sponsors at [keynote speakers here]",
+        "Hear about the clubs and sponsors behind VenusHacks, as well as important rules and resources for navigating the hackathon! Featuring speakers from our sponsors at Melissa",
       time: "8:00PM-9:00PM",
     },
     {
@@ -44,14 +43,12 @@ let scheduleData = {
       time: "9:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Product and UI/UX Design for Hackathons (Hosted by Design@UCI)",
       description:
         "This workshop will provide you with beginner and programmer-friendly guides to level up your design and overall project!",
       time: "9:00PM-10:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Intro to SQL (Hosted by Data@UCI)",
       description:
         "Come by for an introduction to SQL that covers the most vital database operations and an accompanying live coding demo to follow along with.",
@@ -60,7 +57,7 @@ let scheduleData = {
   ],
   satSchedule: [
     {
-      header: "../../../assets/images/schedule/Check-In.png",
+      name: "Check In",
       description: "Check in for the hackathon!",
       tooltip:
         "Bring your badge to check in! Always keep the badge visible with you.",
@@ -74,14 +71,12 @@ let scheduleData = {
       time: "9:00AM-10:00AM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Solo to Social (Hosted by ICSSC)",
       description:
         "Do you have friends? Do you like multiplayer applications? Learn how to build realtime multiplayer experiences for the web!",
       time: "10:00AM-11:00AM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Intro to Git Basics (Hosted by WICS@UCI)",
       description:
         "Join WICS for a workshop that will introduce the basics of Git and version control!",
@@ -102,33 +97,28 @@ let scheduleData = {
       time: "12:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Intro to Web Dev (Hosted by Ryan Yang)",
       description:
         "Learn how to create a web app by going through the frontend and backend fundamentals in a live coding demo!",
       time: "1:00PM-2:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/activity-pill.png",
       name: "Mindful Moments: Crafting and Meditation Social",
       description:
         'Escape the Matrix! Relax outside, meditate, make cards, and journal!',
       time: "2:00PM-3:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Intro to Sveltekit (Hosted by ACM@UCI)",
       description: "Looking for ways to go beyond React and supercharge your website? Take a dive into SvelteKit, a web development framework that provides many of the functionalities of other frameworks but in a simpler and more intuitive format!",
       time: "3:00PM-4:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/activity-pill.png",
       name: "Crafting the Cosmos: DIY Planet Paper Lanterns Social",
       description: "Craft your own celestial wonders. Join us creating beautiful paper lanterns resembling the solar system!",
       time: "4:00PM-5:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Intro to FastAPI (Hosted by Hack@UCI)",
       description: "FastAPI is a powerful tool for building APIs with Python! Come learn how to integrate FastAPI into your Hackathon project and get a working backend implemented.",
       time: "5:00PM-6:00PM",
@@ -141,20 +131,17 @@ let scheduleData = {
       time: "6:00PM-7:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "Intro to Application Security: Protecting Your Projects (Hosted by Cyber@UCI)",
       description: "Learn the fundamentals of application security which can be used to apply to your hackathon project!",
       time: "7:00PM-8:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/activity-pill.png",
       name: "Designing the Universe Social",
       description:
         "Explore, Build, and Defend the Universe! Explore the city in your DIY toilet paper/streamer spacesuits. Build the new city with LEGO. Defend the universe from invaders in cup pong.",
       time: "8:00PM-9:00PM",
     },
     {
-      pill: "../../../assets/images/schedule/workshop-pill.png",
       name: "API 101 (Hosted by Postman)",
       description:
         "Want to level up your program? Use postman! We‘ll teach you how to easily integrate APIs without the hassle of confusing code!",
@@ -163,7 +150,7 @@ let scheduleData = {
   ],
   sunSchedule: [
     {
-      header: "../../../assets/images/schedule/Check-In.png",
+      name: "Check In",
       description: "Check in for the hackathon!",
       tooltip: "Bring your badge!",
       time: "8:00AM-9:00AM",
@@ -194,6 +181,11 @@ let scheduleData = {
       tooltip:
         "Showcase your projects to other hackers and see the many projects made by other hackers!",
       time: "10:30AM-12:00PM",
+    },
+    {
+      name: "Speakers' Panel",
+      description: "Have fun and gain knowledge by talking to people in the industry and UCI professors!",
+      time: "12:00PM-1:00PM",
     },
     {
       name: "Closing Ceremony",
