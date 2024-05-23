@@ -2,7 +2,7 @@ import FAQs from "src/app/components/faqs/FAQs";
 import Sponsors from "src/app/components/sponsors/Sponsors";
 import Partners from "src/app/components/partners/Partners";
 
-import vhTitle from "/assets/images/titles/vh-title-launch.svg";
+import vh_title from "/assets/images/titles/venushacks.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
 import faq_title from "/assets/images/titles/vh-faq.svg";
 
@@ -16,6 +16,15 @@ const Home = () => {
 		<div className="Home">
 			{/* HERO **********************/}
 			<section id="hero">
+				<div id="hero-right">
+					<img
+						src={vh_title}
+						alt="VenusHacks Title Logo"
+						id="venushacks-title"
+					/>
+					<h4 id="date">{VH_DATE}</h4>
+					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
+				</div>
 				<div id="astronaut-animation">
 					{/* These assets are a background of a div instead of imgs to prevent
 					them from being able to be saved to camera roll on iOS */}
@@ -24,17 +33,8 @@ const Home = () => {
 					<div id="laptop" />
 					<div id="shiba-inu" />
 				</div>
-
-				<div id="hero-right">
-					<img
-						src={vhTitle}
-						alt="VenusHacks Title Logo"
-						id="venushacks-title"
-					/>
-					<h4 id="date">{VH_DATE}</h4>
-					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
-				</div>
 			</section>
+			<div id="planet" />
 
 			{/* ABOUT **********************/}
 			<section id="about">
@@ -66,7 +66,7 @@ const Home = () => {
 						providing an inclusive community where students can receive the
 						support to grow and express their creativity in computing.
 					</p>
-					<p>
+					<p className="mb-0">
 						This year, VenusHacks will take place fully in-person in Spring
 						2024! Join us as we welcome high school (18+), undergraduate, and
 						graduate students to participate in our 36-hour (non-overnight)
