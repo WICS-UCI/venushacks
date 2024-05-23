@@ -19,7 +19,6 @@ body {
 	min-height: 100vh;
 
 	section {
-		min-height: 100vh;
 		.section-title {
 			max-width: 100vw;
 			height: 60px;
@@ -47,12 +46,16 @@ body {
 
 	#hero {
 		display: flex;
-		justify-content: center;
+		// justify-content: center;
 		align-items: center;
 		margin: 10vw 15vw;
 		flex-direction: column;
 		background-color: #a8acf977;
 		border-radius: 50px;
+
+		@media screen and (max-width: $break-medium) {
+			margin: 10vw 5vw;
+		}
 
 		#astronaut-animation {
 			display: flex;
@@ -60,10 +63,12 @@ body {
 			justify-content: space-between;
 			max-width: 600px;
 			margin-top: 150px;
+			transform: translateY(-65vh);
 
 			@media screen and (max-width: $break-medium) {
 				width: 100%;
 				max-width: 325px;
+				transform: translateY(-30vh);
 			}
 
 			@keyframes floatBoba {

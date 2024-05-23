@@ -1,4 +1,4 @@
-// @import "../../../globals/vh-styles.scss";
+@import "../../../globals/vh-styles.scss";
 
 #faq-accordion-wrapper {
 	width: 80vw;
@@ -27,11 +27,19 @@
 
 .accordion {
 	text-align: left;
-	--bs-accordion-color: #322660;
-	--bs-accordion-active-color: #322660;
-	--bs-accordion-btn-color: #322660;
+	--bs-accordion-color: $darkPurple;
+	--bs-accordion-active-color: $darkPurple;
+	--bs-accordion-btn-color: $darkPurple;
 	--bs-accordion-bg: none;
 	--bs-accordion-border-color: none;
 	--bs-accordion-active-bg: none;
 	--bs-accordion-btn-focus-box-shadow: none;
+}
+
+.accordion-item {
+	border-bottom: $darkPurple 1px solid;
+}
+
+.accordion .accordion-button {
+	box-shadow: none;
 }
