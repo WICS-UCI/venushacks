@@ -6,7 +6,7 @@ import acm from "/assets/images/2024-partners/acm.png";
 import cyber from "/assets/images/2024-partners/cyber.png";
 import design from "/assets/images/2024-partners/design.png";
 import hack from "/assets/images/2024-partners/hack.png";
-import icssc from "/assets/images/2024-partners/icssc.jpg";
+import icssc from "/assets/images/2024-partners/icssc.png";
 import wics from "/assets/images/2024-partners/wics.png";
 
 import "./Partners.scss";
