@@ -37,6 +37,10 @@
 	--bs-accordion-btn-focus-box-shadow: none;
 }
 
+.accordion-body {
+	padding-top: 0px;
+}
+
 .accordion-item {
 	border-bottom: $darkPurple 1px solid;
 }
