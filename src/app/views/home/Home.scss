@@ -264,14 +264,11 @@ body {
 	} // END HERO
 
 	#planet {
-		width: 90vw;
-		height: 90vw;
-		// max-height: 600px;
-		// max-width: 600px;
+		width: 75vw;
+		height: 75vw;
 		background: url($planet);
 		background-size: contain;
 		background-repeat: no-repeat;
-		// display: block;
 		margin: auto;
 		margin-top: -50%;
 	}
