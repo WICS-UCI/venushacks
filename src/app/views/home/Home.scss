@@ -68,6 +68,12 @@ body {
 			@media screen and (max-width: $break-medium) {
 				width: 100%;
 				max-width: 325px;
+				transform: translateY(-50vh);
+			}
+
+			@media screen and (max-width: $break-small) {
+				width: 100%;
+				max-width: 325px;
 				transform: translateY(-30vh);
 			}
 
