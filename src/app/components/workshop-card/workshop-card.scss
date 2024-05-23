@@ -2,86 +2,71 @@
 
 .workshop-card {
     border-radius: 20px;
-    // padding: 20px;
     width: 85vw;
+    max-width: 67vw;
     margin: 20px auto;
     background-color: #42384473;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    color: #F6D4D4;
+    color: #FFFFFF;
     // text-align: left;
     display: flex;
-    flex: 1 1;
 
     .workshop-card-left {
         border-bottom-left-radius: 20px;
         border-top-left-radius: 20px;
         padding: 20px;
-        background-image: linear-gradient(rgba(238, 153, 160, 0.8), rgba(168, 172, 249, 0.8));
+        background-image: linear-gradient(rgba(238, 153, 160), rgba(168, 172, 249));
         // #EE99A0, #A8ACF9
+        flex: 1 1 0px;
+
     }
 
     .workshop-card-right {
         border-bottom-right-radius: 20px;
         border-top-right-radius: 20px;
         padding: 20px;
-        background-image: linear-gradient(rgba(238, 153, 160), rgba(168, 172, 249));
+        background-image: linear-gradient(rgba(238, 153, 160, 0.8), rgba(168, 172, 249, 0.8));
+        flex: 1 1 0px;
+
     }
 
     .workshop-card-title {
-       font-size:large;
+        font-size: 1.6em;
+        color: #322660;
+        margin-bottom: 25px;
     }
 
-    .workshop-card-description{
+    .workshop-card-description {
+        font-size: 0.95em;
+    }
+
+    #hosted-by {
+        font-size: large;
+        margin-top: 25px;
+        margin-bottom: 3px;
+    }
+
+    #host-name {
+        color: #322660;
+        font-size: large;
+        margin-top: 3px;
+    }
+
+    a { // for prereq-button
+        text-decoration: none;
+        background-color: #EE99A0;
+        display: block;
+        //margin: auto;
+        margin-bottom: 6px;
+        width:max-content;
+        padding: 10px;
+        border-radius: 20px;
         font-size: small;
+        color: #FFFFFF;
     }
 
-    // .workshop-card-header {
-    //     display: flex;
-    //     justify-content: space-between;
-
-    //     .right {
-    //         text-align: right;
-    //     }
-
-    //     h4 {
-    //         color: white;
-    //         margin-bottom: 0;
-    //     }
-    // }
-
-    // .pink-buttons {
-    //     a {
-    //         display: inline-flex;
-    //         font-size: 14px;
-    //         border: 1px;
-    //         border-style: solid;
-    //         border-radius: 25px;
-    //         border-color: #F6D4D4;
-    //         width:fit-content;
-    //         margin: 5px;
-    //         padding: 8px;
-    //         text-decoration: none;
-    //     }
-
-    //     p {
-    //         display: inline-flex;
-    //         font-size: 14px;
-    //         font-weight: bold;
-    //         border: 1px;
-    //         border-style: solid;
-    //         border-radius: 25px;
-    //         border-color: #F6D4D4;
-    //         width:fit-content;
-    //         margin: 5px;
-    //         padding: 8px;
-    //     }
-    // }
-
-    // .workshop-card-prereqs {
-    //     margin-top: 0.75em;
-
-    //     h5 {
-    //         color: white;
-    //     }
-    // }
+    #prerequisites-title {
+        margin-bottom: 6px;
+        font-size: medium;
+    }
 }

@@ -11,8 +11,7 @@ const Workshops = () => {
         <div id='workshops_header'>
             <h2>Workshops</h2>
             <h5>
-            For time and location info, check the
-            <a href="/schedule"> schedule </a> !
+            For time and location info, check the Schedules page!
             </h5>
         </div>
             

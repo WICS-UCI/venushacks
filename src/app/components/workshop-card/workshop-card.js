@@ -6,9 +6,12 @@ const renderButtons = (buttons) => {
   return buttons.map((button) => {
     const { link, description } = button;
     return link ? (
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        {description}
-      </a>
+      <div className="prereq-button">
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            {description}
+          </a>
+      </div>
+      
     ) : (
       <p>{description}</p>
     );
@@ -21,15 +24,19 @@ function WorkshopCard(workshop) {
     <div className="workshop-card">
       <div className="workshop-card-left">
         <p className="workshop-card-title">{title}</p>
-        <h5>
-            Hosted by{" "}
-            <a href={host.link} target="_blank" rel="noopener noreferrer">
-              {host.name}
-            </a>
-        </h5>
+        <p id="hosted-by">Hosted by</p><p id="host-name">{host.name}</p>
+        {/* recap??? */}
+        {recap && 
+            renderButtons(
+              Object.entries(recap).map((pair) => {
+                const [key, val] = pair;
+                return { description: key, link: val };
+              }),
+        )}
+
         {prereqs && (
-          <div className="workshop-card-prereqs pink-buttons">
-            <h5>Prequisites:</h5>
+          <div className="workshop-card-prereqs">
+            <h5 id="prerequisites-title">Prequisites:</h5>
             {renderButtons(prereqs)}
           </div>
         )}
@@ -53,13 +60,13 @@ function WorkshopCard(workshop) {
           // </h5>
   //       </div>
   //       <div className="right pink-buttons">
-  //         {recap &&
-  //           renderButtons(
-  //             Object.entries(recap).map((pair) => {
-  //               const [key, val] = pair;
-  //               return { description: key, link: val };
-  //             }),
-  //           )}
+          // {recap &&
+          //   renderButtons(
+          //     Object.entries(recap).map((pair) => {
+          //       const [key, val] = pair;
+          //       return { description: key, link: val };
+          //     }),
+          //   )}
   //       </div>
   //     </div>
   //     {description}
