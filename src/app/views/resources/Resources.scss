@@ -14,9 +14,13 @@
     padding: 2rem;
 
     h2 {
-        margin-top: 2em;
+        margin-top: 10px;
         text-align: center;
         font-size: 3.5em;
+    }
+
+    .title-img {
+        width: 65%;
     }
 
     .description {
@@ -25,6 +29,28 @@
         font-size: 1.5em;
         margin-bottom: 2rem;
     }
+
+    .tooltip_link .tooltip-content {
+        z-index: 9999;
+        position: absolute; /* or fixed, depending on your layout */
+
+
+    }
+    .tooltip-wrapper .tooltip-tip {
+        width: 250px;
+        background-color: #2b2150;
+
+    }
+    
+
+    /* Ensure no parent element clips the tooltip */
+    .starter-packs,
+    .starter-pack-card,
+    .starter-pack-card-information,
+    .starter-pack-card-links {
+        overflow: visible !important;
+    }
+    
     
     .starter-pack-card {
         margin: 1.5rem;
@@ -100,7 +126,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
-                overflow: hidden;
+               // overflow: hidden;
                 background-image: linear-gradient(#EE99A0, #b1affb);
                 overflow-wrap: break-word;
 

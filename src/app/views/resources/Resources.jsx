@@ -8,7 +8,7 @@ import "./Resources.scss";
 function Resources() {
     return (
         <div className="starter-packs">
-            <h2>Resources</h2>
+            <h2><img className="title-img" src='/assets/images/resources_title.png'/></h2>
             {starterPackData.map((starterPack) => (
                 <div className="starter-pack-card" key={starterPack.name}>
                     <div className="starter-pack-card-information">
