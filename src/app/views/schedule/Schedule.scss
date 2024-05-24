@@ -170,13 +170,15 @@
 			margin-bottom: 30px;
 			color: #322660;
 
-			section {
-				padding-top: -5px;
+			@media screen and (min-width: $break-medium) {
+				section {
+					padding-top: -5px;
 
-				span {
-					font-size: 40px !important;
-					font-weight: 600;
-					line-height: 50px !important;
+					span {
+						font-size: 40px !important;
+						font-weight: 600;
+						line-height: 50px !important;
+					}
 				}
 			}
 
