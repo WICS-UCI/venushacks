@@ -1,4 +1,4 @@
-@import "../../../globals/vh-styles.scss";
+@import "src/globals/vh-styles.scss";
 
 .workshops {
 	min-height: 100vh;
@@ -10,5 +10,23 @@
 
 	h2 {
 		margin-top: 2em;
+	}
+
+	h5 {
+		font-size: 1.1em;
+	}
+
+	#workshops_header {
+		text-align: center;
+		color: $darkerPurple;
+
+		#title-img {
+			width: 50%;
+			margin-top: 50px;
+
+			@media screen and (max-width: $break-small) {
+				margin-top: 75px;
+			}
+		}
 	}
 }

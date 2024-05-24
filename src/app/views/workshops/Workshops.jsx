@@ -1,24 +1,28 @@
 import { Link } from "react-router-dom";
 
+import { WorkshopCard, Footer } from "src/app/components";
+import { workshopsData } from "src/app/data/workshops-info.js";
+import workshopsTitle from "/assets/images/titles/vh-workshops-title.png";
+
 import "./Workshops.scss";
 
-// import { WorkshopCard, Footer } from "./app/components";
-import { WorkshopCard, Footer } from "../../components";
-// import { workshopsData } from "./assets/data/workshops-info.js";
-import { workshopsData } from "../../data/workshops-info.js";
-
-function Workshops() {
+const Workshops = () => {
 	return (
 		<div className="workshops">
-			<h2>Workshops</h2>
-			<h5>
-				For time and location info, check the{" "}
-				<Link to="/schedule">Schedule</Link> page!
-			</h5>
-			{workshopsData.map((workshop) => WorkshopCard(workshop))}
+			<div id="workshops_header">
+				<img src={workshopsTitle} alt="Workshops" id="title-img" />
+				<h5>
+					For time and location info, check the{" "}
+					<Link to="/schedule">Schedule</Link> page!
+				</h5>
+			</div>
+
+			{workshopsData.map((workshop) => (
+				<WorkshopCard workshop={workshop} key={workshop.title} />
+			))}
 			<Footer />
 		</div>
 	);
-}
+};
 
 export default Workshops;
