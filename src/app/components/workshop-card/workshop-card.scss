@@ -2,61 +2,119 @@
 
 .workshop-card {
 	border-radius: 20px;
-	padding: 20px;
 	width: 85vw;
+	max-width: 67vw;
 	margin: 20px auto;
-	background-color: #42384473;
+	background-image: linear-gradient(rgba(50, 38, 96), rgb(137, 143, 247));
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-	color: #f6d4d4;
-	text-align: left;
+	color: #ffffff;
+	display: flex;
+	flex-direction: row;
 
-	.workshop-card-header {
-		display: flex;
-		justify-content: space-between;
-
-		.right {
-			text-align: right;
-		}
-
-		h4 {
-			color: white;
-			margin-bottom: 0;
-		}
+	.workshop-card-left,
+	.workshop-card-right {
+		padding: 20px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		flex: 1 1 0px;
 	}
 
-	.pink-buttons {
+	.workshop-card-title {
+		font-size: 1.6em;
+		margin-bottom: 25px;
+	}
+
+	.workshop-card-description {
+		font-size: 0.95em;
+	}
+
+	#hosted-by {
+		font-size: large;
+		margin-top: 25px;
+		margin-bottom: 3px;
+		color: #ee99a0;
+	}
+
+	#host-name {
+		font-size: large;
+		margin-top: 3px;
+	}
+
+	a {
+		text-decoration: none;
+		background-color: #322660;
+		display: block;
+		margin-bottom: 6px;
+		width: max-content;
+		padding: 10px;
+		border-radius: 20px;
+		font-size: small;
+		color: #ffffff;
+	}
+
+	#prerequisites-title {
+		margin-bottom: 6px;
+		font-size: medium;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		width: 95vw;
+		max-width: 95vw;
+
+		.workshop-card-left,
+		.workshop-card-right {
+			flex: none;
+			width: 100%;
+			padding: 15px;
+		}
+
+		.workshop-card-title {
+			font-size: 1.4em;
+			margin-bottom: 20px;
+		}
+
+		.workshop-card-description {
+			font-size: 0.9em;
+		}
+
+		#hosted-by,
+		#host-name {
+			font-size: medium;
+		}
+
 		a {
-			display: inline-flex;
-			font-size: 14px;
-			border: 1px;
-			border-style: solid;
-			border-radius: 25px;
-			border-color: #f6d4d4;
-			width: fit-content;
-			margin: 5px;
 			padding: 8px;
-			text-decoration: none;
+			font-size: 0.85em;
 		}
 
-		p {
-			display: inline-flex;
-			font-size: 14px;
-			font-weight: bold;
-			border: 1px;
-			border-style: solid;
-			border-radius: 25px;
-			border-color: #f6d4d4;
-			width: fit-content;
-			margin: 5px;
-			padding: 8px;
+		#prerequisites-title {
+			font-size: small;
 		}
 	}
 
-	.workshop-card-prereqs {
-		margin-top: 0.75em;
+	@media (max-width: 480px) {
+		.workshop-card-title {
+			font-size: 1.2em;
+			margin-bottom: 15px;
+		}
 
-		h5 {
-			color: white;
+		.workshop-card-description {
+			font-size: 0.85em;
+		}
+
+		#hosted-by,
+		#host-name {
+			font-size: small;
+		}
+
+		a {
+			padding: 6px;
+			font-size: 0.75em;
+		}
+
+		#prerequisites-title {
+			font-size: small;
 		}
 	}
 }
