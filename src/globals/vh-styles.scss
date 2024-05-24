@@ -19,7 +19,11 @@ $errorColor: #a31e1e;
 $vhFont: Nunito, sans-serif;
 
 // VH 2024 Backgrounds
-$gradientBackground: linear-gradient(#a8acf9, #ffc999);
+$gradientBackground: linear-gradient(
+	#a8acf977 0%,
+	#ee99a077 77%,
+	#ffc99977 100%
+);
 $darkBlueBackground: #322660;
 $darkBlackBackground: #070024;
 
@@ -34,13 +38,16 @@ $leftGradient: #c6ffdd;
 $rightGradient: #fbd786;
 $moreRightGradient: #f7797d;
 $rightOffGradient: rgb(226, 131, 128);
+$purpleGradient: linear-gradient(#322660, #a8acf9);
 
 // Colors
 $lightGray: #e8e8e8;
 $pink: #ffc3ff;
-$purple: #322660b9;
-$darkPurple: #322660;
+$peach: #ee99a0;
+$darkerPurple: #322660;
+$darkPurple: #5F4EA0;
 $darkBlue: #a8abf2;
+$lightPurple: #a8acf9;
 $blue: #afd6fa;
 
 .flex-center {

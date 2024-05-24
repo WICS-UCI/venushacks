@@ -5,16 +5,14 @@ import { scheduleData } from "../../data/schedule-info";
 const Event = ({ name, description, time, tooltip }) => (
 	<div className="schedule-card-time-slot">
 		<div>
-			<h5>{name}</h5>
+			<h5 className="time-slot-name">{name}</h5>
+			<h5 className="time">{time}</h5>
 			<div className="schedule-card-tooltip">
 				<p className="schedule-card-description">{description}</p>
 				{tooltip && (
 					<span className="schedule-card-tooltiptext">{tooltip}</span>
 				)}
 			</div>
-		</div>
-		<div style={{ textAlign: "right" }}>
-			<h5>{time}</h5>
 		</div>
 	</div>
 );
