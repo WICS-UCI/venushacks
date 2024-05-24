@@ -40,6 +40,8 @@ const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
 		)}
 		<NavLink url="/report" text="Incident Form" {...{ isMobile, reduceMotion }} />
 		<NavLink url="/devpost" text="Devpost" {...{ isMobile, reduceMotion }} />
+		{/* <NavLink url="/midway" text="Midway Check-in" {...{ isMobile, reduceMotion }} /> */}
+		{/* <NavLink url="/hackers-choice" text="Hacker's Choice" {...{ isMobile, reduceMotion }} /> */}
 	</>
 );
 
