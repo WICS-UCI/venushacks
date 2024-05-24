@@ -25,7 +25,7 @@ const Schedule = () => (
 					<Countdown date={HACKING_DEADLINE} />
 				</Container>
 			</div>
-			<h4 className="schedule-hacking-ends-in">{timerExpired ? "Blast off!" : "See you soon!"}</h4>
+			<h4 className="schedule-hacking-ends-in">See you soon!</h4>
 			<ScheduleCard />
 		</section>
 		<Footer />
