@@ -19,5 +19,14 @@
 	#workshops_header {
 		text-align: center;
 		color: #322660;
+
+		#title-img {
+			width: 60%;
+			margin-top: 50px;
+
+			@media screen and (max-width: $break-small) {
+				margin-top: 75px;
+			}
+		}
 	}
 }
