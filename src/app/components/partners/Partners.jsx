@@ -8,6 +8,7 @@ import design from "/assets/images/2024-partners/design.png";
 import hack from "/assets/images/2024-partners/hack.png";
 import icssc from "/assets/images/2024-partners/icssc.png";
 import wics from "/assets/images/2024-partners/wics.png";
+import data from "/assets/images/2024-partners/data.png";
 
 import "./Partners.scss";
 
@@ -31,6 +32,11 @@ const Partners = () => {
 					/>
 					<Partner imgId="wics" imgSrc={wics} url="https://wics.ics.uci.edu/" />
 					<Partner imgId="hack" imgSrc={hack} url="https://hack.ics.uci.edu/" />
+					<Partner
+						imgId="data"
+						imgSrc={data}
+						url="https://www.dataatuci.com/"
+					/>
 				</div>
 			</div>
 		</section>
