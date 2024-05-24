@@ -2,11 +2,10 @@ import React from "react";
 import "./workshop-card.scss";
 
 const renderButtons = (buttons) => {
-	console.log(buttons);
 	return buttons.map((button) => {
 		const { link, description } = button;
 		return link ? (
-			<div className="prereq-button">
+			<div className="prereq-button" key={description}>
 				<a href={link} target="_blank" rel="noopener noreferrer">
 					{description}
 				</a>
@@ -17,7 +16,7 @@ const renderButtons = (buttons) => {
 	});
 };
 
-function WorkshopCard(workshop) {
+function WorkshopCard({ workshop }) {
 	const { title, description, prereqs, recap, host } = workshop;
 
 	return (

@@ -17,7 +17,9 @@ const Workshops = () => {
 				</h5>
 			</div>
 
-			{workshopsData.map((workshop) => WorkshopCard(workshop))}
+			{workshopsData.map((workshop) => (
+				<WorkshopCard workshop={workshop} key={workshop.title} />
+			))}
 			<Footer />
 		</div>
 	);
