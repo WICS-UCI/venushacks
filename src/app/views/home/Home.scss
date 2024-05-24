@@ -53,7 +53,11 @@ body {
 		border-radius: 50px;
 
 		@media screen and (max-width: $break-medium) {
-			margin: 10vw 5vw;
+			margin: 12vw 5vw;
+		}
+
+		@media screen and (max-width: $break-small) {
+			margin: 20vw 5vw;
 		}
 
 		#astronaut-animation {
