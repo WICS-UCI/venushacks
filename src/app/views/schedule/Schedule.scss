@@ -158,7 +158,7 @@
 
 		.schedule-hacking-ends-in {
 			margin-bottom: 30px;
-			color: #322660;
+			color: $darkerPurple;
 
 			@media screen and (max-width: $break-medium) {
 				font-size: 20px;
@@ -168,7 +168,7 @@
 		.schedule-countdown {
 			margin-top: 10px;
 			margin-bottom: 30px;
-			color: #322660;
+			color: $darkerPurple;
 
 			@media screen and (min-width: $break-medium) {
 				section {

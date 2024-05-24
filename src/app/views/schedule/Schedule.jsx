@@ -14,10 +14,7 @@ const Schedule = () => (
 	<div className="Schedule">
 		<section id="schedule-block">
 			<div className="schedule-header">
-				{/* <FloatingLaptop offset={0} /> */}
-				{/* <h2>Schedule</h2> */}
 				<img src="../../../assets/images/schedule/schedule-header.png" alt="Schedule Header"></img>
-				{/* <FloatingLaptop offset={2} /> */}
 			</div>
 			<h4 className="schedule-hacking-ends-in">
 				All times in PDT. Hacking ends in:

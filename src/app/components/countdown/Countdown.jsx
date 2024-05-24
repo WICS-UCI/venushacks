@@ -78,7 +78,7 @@ const Countdown = ({ date }) => {
         }}
         numberStyles={{
           textAlign: "left",
-          fontSize: isDesktop ? "30px" : "30px",
+          fontSize: "30px",
         }}
       />
     </>

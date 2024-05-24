@@ -2,11 +2,11 @@ import "./ScheduleCard.scss";
 
 import { scheduleData } from "../../data/schedule-info";
 
-const Event = ({ name, description, time, tooltip}) => (
+const Event = ({ name, description, time, tooltip }) => (
 	<div className="schedule-card-time-slot">
 		<div>
-			<h5 className="name">{name}</h5>
-			<h5 style={{paddingTop: "2px"}}className="time">{time}</h5>
+			<h5 className="time-slot-name">{name}</h5>
+			<h5 className="time">{time}</h5>
 			<div className="schedule-card-tooltip">
 				<p className="schedule-card-description">{description}</p>
 				{tooltip && (

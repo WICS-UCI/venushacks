@@ -18,7 +18,7 @@ let scheduleData = {
     {
       name: "Teammate Tinder: Team Formation",
       description: "Team up hackers!",
-      tooltip: "Stressed about team formation! Speed friendliness is here for you! If you already have a team, you are welcome to join to network with other teams and organizers!",
+      tooltip: "Stressed about team formation? Speed friendliness is here for you! If you already have a team, you are welcome to join to network with other teams and organizers!",
       time: "7:00PM-8:00PM",
     },
     {
@@ -33,7 +33,7 @@ let scheduleData = {
       name: "Opening Ceremony",
       description: "Welcome to VenusHacks!",
       tooltip:
-        "Hear about the clubs and sponsors behind VenusHacks, as well as important rules and resources for navigating the hackathon! Featuring speakers from our sponsors at Melissa",
+        "Hear about the clubs and sponsors behind VenusHacks, as well as important rules and resources for navigating the hackathon! Featuring speakers from our sponsors at Melissa and industry professionals.",
       time: "8:00PM-9:00PM",
     },
     {
@@ -191,7 +191,7 @@ let scheduleData = {
       name: "Closing Ceremony",
       description: "See you next year!",
       tooltip:
-        "Excited for prizes? Come out to the closing ceremony where we will announce all the winners for VenusHacks 2024 and hear some final remarks from representatives from [keynote speakers here]!",
+        "Excited for prizes? Come out to the closing ceremony where we will announce all the winners for VenusHacks 2024 and hear some final remarks from industry professionals and professors!",
       time: "1:00PM-2:00PM",
     },
   ],
