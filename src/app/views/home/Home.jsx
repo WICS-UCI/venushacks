@@ -4,7 +4,7 @@ import Partners from "src/app/components/partners/Partners";
 
 import vh_title from "/assets/images/titles/venushacks.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
-import faq_title from "/assets/images/titles/vh-faq.svg";
+import faq_title from "/assets/images/titles/vh-faq.png";
 
 import "./Home.scss";
 

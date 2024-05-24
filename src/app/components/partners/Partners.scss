@@ -8,7 +8,6 @@
 		@media screen and (max-width: $break-medium) {
 			height: 35vw;
 			max-height: 200px;
-			margin: 20px auto;
 		}
 	}
 
@@ -17,9 +16,8 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		background-color: #a8acf977;
-		margin: 20px 60px;
-		padding: 15px 20px;
+		margin: 0px 60px;
+		padding: 0px 20px;
 		border-radius: 20px;
 		color: #4767b1;
 

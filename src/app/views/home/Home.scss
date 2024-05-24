@@ -61,19 +61,18 @@ body {
 			width: 45%;
 			justify-content: space-between;
 			max-width: 600px;
-			margin-top: 150px;
-			transform: translateY(-700px);
+			transform: translateY(-550px);
 
 			@media screen and (max-width: $break-medium) {
 				width: 100%;
 				max-width: 325px;
-				transform: translateY(-600px);
+				transform: translateY(-400px);
 			}
 
 			@media screen and (max-width: $break-small) {
 				width: 100%;
 				max-width: 325px;
-				transform: translateY(-400px);
+				transform: translateY(-250px);
 			}
 
 			@keyframes floatBoba {
@@ -181,9 +180,6 @@ body {
 		} // END #astronaut-animation
 
 		#hero-right {
-			// width: 48%;
-			// margin-bottom: 20px;
-
 			@media screen and (max-width: $break-medium) {
 				width: initial;
 			}
@@ -272,13 +268,20 @@ body {
 	} // END HERO
 
 	#planet {
-		width: 75vw;
-		height: 75vw;
+		width: 50vw;
+		height: 50vw;
 		background: url($planet);
 		background-size: contain;
 		background-repeat: no-repeat;
 		margin: auto;
-		margin-top: -50%;
+		margin-top: -55%;
+		margin-bottom: 50px;
+
+		@media screen and (max-width: $break-medium) {
+			margin-top: -80%;
+			width: 70vw;
+			height: 70vw;
+		}
 	}
 
 	#about {
@@ -308,7 +311,6 @@ body {
 			color: $darkPurple;
 			font-family: "Varela", sans-serif;
 			font-weight: 500;
-			background-color: #a8acf977;
 			margin: 20px 60px;
 			padding: 15px 20px;
 			border-radius: 20px;
@@ -348,6 +350,7 @@ body {
 		flex-direction: column;
 		font-family: "Varela", sans-serif;
 		color: $darkPurple;
+		margin-top: 50px;
 
 		.section-title {
 			height: 140px;
@@ -359,7 +362,6 @@ body {
 
 		#faq-container {
 			align-items: center;
-			background-color: #a8acf977;
 			margin: 20px 60px;
 			padding: 15px 20px;
 			border-radius: 20px;

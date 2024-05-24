@@ -1,6 +1,6 @@
 import Partner from "./Partner";
 
-import partners_title from "/assets/images/titles/vh-partners.svg";
+import partners_title from "/assets/images/titles/vh-partners.png";
 
 import acm from "/assets/images/2024-partners/acm.png";
 import cyber from "/assets/images/2024-partners/cyber.png";
