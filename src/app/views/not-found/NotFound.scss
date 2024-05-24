@@ -3,8 +3,9 @@
 	background-attachment: fixed;
 	background-size: 100% auto;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
+	text-align: center;
+	min-height: 100vh;
 
 	.not-found-message {
 		flex-grow: 1;
