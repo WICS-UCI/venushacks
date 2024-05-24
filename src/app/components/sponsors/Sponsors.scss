@@ -1,0 +1,66 @@
+@import "src/globals/vh-styles.scss";
+
+#sponsors {
+	margin-top: 50px;
+	color: $darkPurple;
+	font-family: "Varela", sans-serif;
+
+	.section-title {
+		height: 250px;
+		@media screen and (max-width: $break-medium) {
+			height: 35vw;
+			max-height: 200px;
+			margin: 20px auto;
+		}
+	}
+
+	#sponsors-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin: 0px 60px;
+		padding: 0px 20px;
+		border-radius: 20px;
+		color: #4767b1;
+
+		@media screen and (max-width: $break-small) {
+			margin: 10px 30px;
+			padding: 5px 20px 20px;
+		}
+
+		.logo-wrapper .logo {
+			margin: 30px;
+			transition: all 0.2s ease;
+		}
+
+		.logo-wrapper .logo:hover {
+			cursor: pointer;
+			transform: scale(1.08);
+			height: auto;
+		}
+
+		.largest .logo {
+			max-width: 400px;
+		}
+
+		.large .logo {
+			max-width: 300px;
+		}
+
+		.medium .logo {
+			max-width: 250px;
+			max-height: 100px;
+		}
+
+		.medium .logo,
+		.large .logo,
+		.largest .logo {
+			@media screen and (max-width: $break-medium) {
+				max-width: 90%;
+				max-height: 75px;
+				margin: 10px;
+			}
+		}
+	}
+} // END SPONSORS

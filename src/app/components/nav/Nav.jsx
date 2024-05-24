@@ -75,8 +75,8 @@ const Nav = () => {
 				<motion.div
 					className="nav-links-container"
 					{...(!reduceMotion && {
-						initial: { width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "25%" },
-						animate: { width: "80%", paddingLeft: "10%", paddingRight: "4.5%", paddingTop: "14px", marginLeft: "11%" },
+						initial: { width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "25%", marginTop: "-7%" },
+						animate: { width: "80%", paddingLeft: "10%", paddingRight: "4.5%", paddingTop: "14px", marginLeft: "10%", marginTop: "-7%" },
 						exit: { width: 0, paddingLeft: 0, paddingRight: 0, paddingTop: 0, marginLeft: "25%" },
 						transition: { type: "spring", delay: 0.4, duration: 0.2, damping: 18 }
 					})}
