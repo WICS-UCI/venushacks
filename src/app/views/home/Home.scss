@@ -18,6 +18,10 @@ body {
 	text-align: center;
 	min-height: 100vh;
 
+	@media screen and (max-width: $break-small) {
+		background-size: contain;
+	}
+
 	section {
 		.section-title {
 			max-width: 100vw;

@@ -1,6 +1,7 @@
 import FAQs from "src/app/components/faqs/FAQs";
 import Sponsors from "src/app/components/sponsors/Sponsors";
 import Partners from "src/app/components/partners/Partners";
+import { Footer } from "src/app/components";
 
 import vh_title from "/assets/images/titles/venushacks.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
@@ -92,6 +93,7 @@ const Home = () => {
 			</section>
 			<Sponsors />
 			<Partners />
+			<Footer />
 		</div>
 	);
 };
