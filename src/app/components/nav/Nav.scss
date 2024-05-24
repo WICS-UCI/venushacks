@@ -3,7 +3,6 @@
 .nav-container {
 	position: sticky;
 	width: 100vw;
-	margin-top: 15px;
 	background-color: #fff;
 	z-index: 100;
 
@@ -20,10 +19,10 @@
 
 	.nav-links-container {
 		position: fixed;
+		top: 2.5vw;
 		width: 80%;
 		background-color: #edeeff;
 		height: 60px;
-		margin-top: 20px;
 		margin-left: 11%;
 		padding-top: 14px;
 		padding-left: 10%;
