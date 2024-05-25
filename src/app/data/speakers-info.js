@@ -7,7 +7,7 @@ let speakersData = {
 				"Software & Semiconductor Portfolio Director at Dassault Systèmes, ENOVIA",
 		},
 		{
-			photo: "grace_mcCubbins",
+			photo: "grace_mccubbins",
 			name: "Grace McCubbins",
 			title: "CEO of Darmok Designs",
 		},

@@ -1,9 +1,14 @@
 @import "../../../globals/vh-styles.scss";
 
 .speaker-photos {
+	margin: 10px 60px 40px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+
+	@media screen and (max-width: $break-small) {
+		margin: 10px 0px 40px;
+	}
 
 	.speaker-img-wrapper {
 		padding: 1em;

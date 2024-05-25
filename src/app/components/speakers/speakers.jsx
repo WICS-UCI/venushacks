@@ -6,7 +6,7 @@ const Speaker = (name, title, photo, index) => {
 	return (
 		<div className="speaker-img-wrapper">
 			<img
-				src={"assets/images/speaker-photos/" + photo + ".jpeg"}
+				src={"assets/images/2024-speaker-photos/" + photo + ".png"}
 				alt={name + "'s profile picture"}
 			/>
 			<div className="text">
