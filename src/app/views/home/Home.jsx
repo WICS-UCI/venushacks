@@ -2,7 +2,7 @@ import FAQs from "src/app/components/faqs/FAQs";
 import Sponsors from "src/app/components/sponsors/Sponsors";
 import Partners from "src/app/components/partners/Partners";
 import Speakers from "src/app/components/speakers/speakers";
-import { Footer } from "src/app/components";
+import { Footer, VenusButton } from "src/app/components";
 
 import vh_title from "/assets/images/titles/venushacks.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
@@ -27,6 +27,10 @@ const Home = () => {
 					/>
 					<h4 id="date">{VH_DATE}</h4>
 					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
+					<VenusButton
+						url="https://docs.google.com/forms/d/e/1FAIpQLSdObzMrHpTjjcc5DhdXmuX8v485aDhsCqBRxCV3R66316htcg/viewform?usp=sharing"
+						text="Mid-Way Check In"
+					/>
 				</div>
 				<div id="astronaut-animation">
 					{/* These assets are a background of a div instead of imgs to prevent

@@ -69,18 +69,18 @@ body {
 			width: 45%;
 			justify-content: space-between;
 			max-width: 600px;
-			transform: translateY(-550px);
+			transform: translateY(-600px);
 
 			@media screen and (max-width: $break-medium) {
 				width: 100%;
 				max-width: 325px;
-				transform: translateY(-400px);
+				transform: translateY(-475px);
 			}
 
 			@media screen and (max-width: $break-small) {
 				width: 100%;
 				max-width: 325px;
-				transform: translateY(-250px);
+				transform: translateY(-325px);
 			}
 
 			@keyframes floatBoba {
@@ -257,6 +257,7 @@ body {
 				border-radius: 50px;
 				border: none;
 				text-decoration: none;
+				transform: translateY(-190px);
 
 				@media screen and (max-width: $break-medium) {
 					font-size: 16px;
@@ -265,12 +266,17 @@ body {
 				@media screen and (max-width: $break-small) {
 					margin-right: 2px;
 					margin-left: 2px;
+					transform: translateY(-20px);
 				}
 			}
 
 			.venus-btn:hover {
 				transition: all 0.2s ease;
-				transform: scale(1.08);
+				transform: translateY(-190px) scale(1.08);
+
+				@media screen and (max-width: $break-small) {
+					transform: translateY(-20px) scale(1.08);
+				}
 			}
 		} // END #hero-right
 	} // END HERO
