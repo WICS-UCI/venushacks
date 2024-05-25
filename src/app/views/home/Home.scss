@@ -428,12 +428,13 @@ body {
 		align-items: center;
 		flex-direction: column;
 		margin-top: 50px;
+		color: $darkPurple;
 
 		.section-title {
-			height: 100px;
+			height: 250px;
 			@media screen and (max-width: $break-medium) {
-				height: 15vw;
-				max-height: 70px;
+				// height: 15vw;
+				max-height: 150px;
 			}
 		}
 	}
