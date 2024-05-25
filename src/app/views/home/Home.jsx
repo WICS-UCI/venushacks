@@ -1,11 +1,13 @@
 import FAQs from "src/app/components/faqs/FAQs";
 import Sponsors from "src/app/components/sponsors/Sponsors";
 import Partners from "src/app/components/partners/Partners";
+import Speakers from "src/app/components/speakers/speakers";
 import { Footer } from "src/app/components";
 
 import vh_title from "/assets/images/titles/venushacks.svg";
 import about_title from "/assets/images/titles/vh-about.svg";
 import faq_title from "/assets/images/titles/vh-faq.png";
+import speakers_title from "/assets/images/titles/vh-speakers.svg";
 
 import "./Home.scss";
 
@@ -93,6 +95,13 @@ const Home = () => {
 			</section>
 			<Sponsors />
 			<Partners />
+
+			{/* SPEAKERS ******************/}
+			<section id="speakers">
+				<img className="section-title" src={speakers_title} alt="Speakers" />
+				<Speakers />
+			</section>
+
 			<Footer />
 		</div>
 	);

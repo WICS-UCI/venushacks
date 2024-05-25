@@ -5,6 +5,11 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	font-family: "Varela", sans-serif;
+
+	@media screen and (max-width: $break-small) {
+		margin: 10px 0px 40px;
+	}
 
 	.speaker-img-wrapper {
 		padding: 1em;
@@ -16,6 +21,11 @@
 			margin-bottom: 20px;
 			object-fit: cover;
 			border-radius: 50%;
+
+			@media screen and (max-width: $break-small) {
+				height: 150px;
+				width: 150px;
+			}
 		}
 	}
 
