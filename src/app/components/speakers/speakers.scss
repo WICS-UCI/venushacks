@@ -5,6 +5,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	font-family: "Varela", sans-serif;
 
 	@media screen and (max-width: $break-small) {
 		margin: 10px 0px 40px;
