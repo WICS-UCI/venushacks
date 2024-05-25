@@ -1,7 +1,6 @@
 @import "../../../globals/vh-styles.scss";
 
 .speaker-photos {
-	margin: 10px 60px 40px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -16,6 +15,11 @@
 			margin-bottom: 20px;
 			object-fit: cover;
 			border-radius: 50%;
+
+			@media screen and (max-width: $break-small) {
+				height: 150px;
+				width: 150px;
+			}
 		}
 	}
 
