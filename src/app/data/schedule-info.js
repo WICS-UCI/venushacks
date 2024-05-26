@@ -191,14 +191,14 @@ let scheduleData = {
 			name: "Speakers' Panel",
 			description:
 				"Have fun and gain knowledge by talking to people in the industry and UCI professors!",
-			time: "12:30PM-1:30PM",
+			time: "1:00PM-2:00PM",
 		},
 		{
 			name: "Closing Ceremony",
 			description: "See you next year!",
 			tooltip:
 				"Excited for prizes? Come out to the closing ceremony where we will announce all the winners for VenusHacks 2024 and hear some final remarks from industry professionals and professors!",
-			time: "1:30PM-2:30PM",
+			time: "2:00PM-3:00PM",
 		},
 	],
 };
