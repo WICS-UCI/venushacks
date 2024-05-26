@@ -33,6 +33,7 @@ const Home = () => {
 						url="https://docs.google.com/forms/d/e/1FAIpQLSdObzMrHpTjjcc5DhdXmuX8v485aDhsCqBRxCV3R66316htcg/viewform?usp=sharing"
 						text="Mid-Way Check In"
 					/>
+					<VenusButton url="/feedback" text="Feedback Form" />
 				</div>
 				<div id="astronaut-animation">
 					{/* These assets are a background of a div instead of imgs to prevent
