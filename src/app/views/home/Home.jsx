@@ -29,11 +29,11 @@ const Home = () => {
 					/>
 					<h4 id="date">{VH_DATE}</h4>
 					<p id="tagline">UC Irvine&apos;s largest women-centric hackathon</p>
-					<VenusButton
-						url="https://docs.google.com/forms/d/e/1FAIpQLSdObzMrHpTjjcc5DhdXmuX8v485aDhsCqBRxCV3R66316htcg/viewform?usp=sharing"
-						text="Mid-Way Check In"
-					/>
 					<VenusButton url="/feedback" text="Feedback Form" />
+					<VenusButton
+						url="https://docs.google.com/presentation/d/1J8zlxYDR8AaiQXu7p_qg8xuav4qieKvU9AOkuwOJIhk/edit?usp=sharing"
+						text="Closing Ceremony"
+					/>
 				</div>
 				<div id="astronaut-animation">
 					{/* These assets are a background of a div instead of imgs to prevent
@@ -45,6 +45,14 @@ const Home = () => {
 				</div>
 			</section>
 			<div id="planet" />
+			<h2 id="tanesha-moody-title">Tanesha Moody's Closing Speech</h2>
+			<iframe
+				src="https://drive.google.com/file/d/18y1D-co2T84_f287Eqj7NunVVTRM1-AP/preview"
+				width="640"
+				height="480"
+				allow="autoplay"
+				id="tanesha-moody"
+			></iframe>
 
 			{/* ABOUT **********************/}
 			<section id="about">
