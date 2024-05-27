@@ -298,6 +298,24 @@ body {
 		}
 	}
 
+	#tanesha-moody-title {
+		color: $darkerPurple;
+
+		@media screen and (max-width: 700px) {
+			font-size: 36px;
+		}
+	}
+
+	#tanesha-moody {
+		width: 640px;
+		margin-bottom: 120px;
+
+		@media screen and (max-width: 700px) {
+			width: 80vw;
+			height: 60vw;
+		}
+	}
+
 	#about {
 		display: flex;
 		justify-content: center;
