@@ -10,13 +10,13 @@ importers:
     dependencies:
       framer-motion:
         specifier: ^11.2.0
-        version: 11.2.6(react-dom@18.3.1)(react@18.3.1)
+        version: 11.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
       react-bootstrap:
         specifier: ^2.10.2
-        version: 2.10.2(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
+        version: 2.10.2(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-confetti:
         specifier: ^6.1.0
         version: 6.1.0(react@18.3.1)
@@ -25,10 +25,10 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-flip-numbers:
         specifier: ^3.0.8
-        version: 3.0.8(react-dom@18.3.1)(react-simple-animate@3.5.2)(react@18.3.1)
+        version: 3.0.8(react-dom@18.3.1(react@18.3.1))(react-simple-animate@3.5.2(react-dom@18.3.1(react@18.3.1)))(react@18.3.1)
       react-router-dom:
         specifier: ^6.23.1
-        version: 6.23.1(react-dom@18.3.1)(react@18.3.1)
+        version: 6.23.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sass:
         specifier: ^1.77.2
         version: 1.77.2
@@ -41,7 +41,7 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react':
         specifier: ^4.2.1
-        version: 4.3.0(vite@5.2.11)
+        version: 4.3.0(vite@5.2.11(sass@1.77.2))
       eslint:
         specifier: ^9.3.0
         version: 9.3.0
@@ -324,6 +324,7 @@ packages:
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -331,6 +332,7 @@ packages:
 
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
+    deprecated: Use @eslint/object-schema instead
 
   '@humanwhocodes/retry@0.3.0':
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
@@ -601,8 +603,8 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  cross-spawn@7.0.3:
-    resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
+  cross-spawn@7.0.6:
+    resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
 
   csstype@3.1.3:
@@ -1448,7 +1450,7 @@ snapshots:
       dequal: 2.0.3
       react: 18.3.1
 
-  '@restart/ui@1.6.9(react-dom@18.3.1)(react@18.3.1)':
+  '@restart/ui@1.6.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.5
       '@popperjs/core': 2.11.8
@@ -1554,7 +1556,7 @@ snapshots:
 
   '@types/warning@3.0.3': {}
 
-  '@vitejs/plugin-react@4.3.0(vite@5.2.11)':
+  '@vitejs/plugin-react@4.3.0(vite@5.2.11(sass@1.77.2))':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-react-jsx-self': 7.24.5(@babel/core@7.24.5)
@@ -1660,7 +1662,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cross-spawn@7.0.3:
+  cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
       shebang-command: 2.0.0
@@ -1740,7 +1742,7 @@ snapshots:
       '@nodelib/fs.walk': 1.2.8
       ajv: 6.12.6
       chalk: 4.1.2
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
       debug: 4.3.4
       escape-string-regexp: 4.0.0
       eslint-scope: 8.0.1
@@ -1815,11 +1817,12 @@ snapshots:
 
   flatted@3.3.1: {}
 
-  framer-motion@11.2.6(react-dom@18.3.1)(react@18.3.1):
+  framer-motion@11.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
+      tslib: 2.6.2
+    optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      tslib: 2.6.2
 
   fsevents@2.3.3:
     optional: true
@@ -1981,12 +1984,11 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-bootstrap@2.10.2(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1):
+  react-bootstrap@2.10.2(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.5
       '@restart/hooks': 0.4.16(react@18.3.1)
-      '@restart/ui': 1.6.9(react-dom@18.3.1)(react@18.3.1)
-      '@types/react': 18.3.3
+      '@restart/ui': 1.6.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react-transition-group': 4.4.10
       classnames: 2.5.1
       dom-helpers: 5.2.1
@@ -1995,9 +1997,11 @@ snapshots:
       prop-types-extra: 1.1.1(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-transition-group: 4.4.5(react-dom@18.3.1)(react@18.3.1)
+      react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       uncontrollable: 7.2.1(react@18.3.1)
       warning: 4.0.3
+    optionalDependencies:
+      '@types/react': 18.3.3
 
   react-confetti@6.1.0(react@18.3.1):
     dependencies:
@@ -2010,11 +2014,11 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-flip-numbers@3.0.8(react-dom@18.3.1)(react-simple-animate@3.5.2)(react@18.3.1):
+  react-flip-numbers@3.0.8(react-dom@18.3.1(react@18.3.1))(react-simple-animate@3.5.2(react-dom@18.3.1(react@18.3.1)))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-simple-animate: 3.5.2(react-dom@18.3.1)
+      react-simple-animate: 3.5.2(react-dom@18.3.1(react@18.3.1))
 
   react-is@16.13.1: {}
 
@@ -2022,7 +2026,7 @@ snapshots:
 
   react-refresh@0.14.2: {}
 
-  react-router-dom@6.23.1(react-dom@18.3.1)(react@18.3.1):
+  react-router-dom@6.23.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@remix-run/router': 1.16.1
       react: 18.3.1
@@ -2034,11 +2038,11 @@ snapshots:
       '@remix-run/router': 1.16.1
       react: 18.3.1
 
-  react-simple-animate@3.5.2(react-dom@18.3.1):
+  react-simple-animate@3.5.2(react-dom@18.3.1(react@18.3.1)):
     dependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  react-transition-group@4.4.5(react-dom@18.3.1)(react@18.3.1):
+  react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.5
       dom-helpers: 5.2.1
@@ -2164,9 +2168,9 @@ snapshots:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.18.0
-      sass: 1.77.2
     optionalDependencies:
       fsevents: 2.3.3
+      sass: 1.77.2
 
   warning@4.0.3:
     dependencies:
