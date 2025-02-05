@@ -10,21 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "framer-motion": "^11.2.0",
+    "framer-motion": "^11.18.2",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.2",
-    "react-confetti": "^6.1.0",
+    "react-bootstrap": "^2.10.9",
+    "react-confetti": "^6.2.2",
     "react-dom": "^18.3.1",
-    "react-flip-numbers": "^3.0.8",
-    "react-router-dom": "^6.23.1",
-    "sass": "^1.77.2"
+    "react-flip-numbers": "^3.0.9",
+    "react-router-dom": "^6.29.0",
+    "sass": "^1.83.4"
   },
   "devDependencies": {
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^9.3.0",
-    "eslint-plugin-react-refresh": "^0.4.7",
-    "vite": "^5.2.11"
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "vite": "^5.4.14"
   }
 }
