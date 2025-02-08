@@ -55,14 +55,6 @@
 			}
 		}
 
-		// .all-links {
-		// 	background-color: #E0DAF7; //rgba(224,218,247,0);
-		// }
-		// .nav-link:hover {
-		// 	color: #a8acf9;
-		// 	transition: 0.3s all;
-		// }
-
 		.nav-link-divider {
 			border-left: 3px solid #a8acf9;
 			border-radius: 3px;
@@ -72,15 +64,6 @@
 			margin-right: -2%;
 		}
 	}
-
-	// .nav-scroll-progressor {
-	// 	position: absolute;
-	// 	width: 50px;
-	// 	top: 36px;
-	// 	left: 3%;
-	// 	transform: rotate(90deg);
-	// 	z-index: 9;
-	// }
 
 	@media (prefers-reduced-motion) {
 		.nav-links-container {
@@ -128,9 +111,5 @@
 				margin-right: -4px;
 			}
 		}
-
-		// .nav-scroll-progressor {
-		// 	left: 0;
-		// }
 	}
 }
