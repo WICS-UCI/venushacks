@@ -2,15 +2,15 @@
 
 .nav-container {
 	position: sticky;
-	width: 100vw; // not this one
+	width: 100vw; 
 	background-color: #fff;
 	z-index: 100;
-	margin-left:5%;
-
+	margin-left:4%;
+	
 	.nav-vh-logo-link {
 		position: absolute;
-		top: -30%;
-		left: -7.5%;
+		top: -15%;
+		left: -5.5%;
 		z-index: 10;
 
 		.nav-vh-logo {
@@ -29,20 +29,24 @@
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
+			align-items: center;
 			
-			position:absolute;
-			top: 0;
-			left: 0;
+			// keeping this in case it glitches and the div doesn't take up all the space anymore
+			// position:absolute;
+			// top: 0;
+			// left: 0;
 			width:100%;
 			height:100%;
 			border-radius: 0 35px 35px 0;
 
 			margin-left: 11%;
-			padding-top: 14px;
+			margin-top: 2.5%;
 			padding-left: 15%;
 			padding-right: 15%;
 
 			background-color: #E0DAF7;
+			filter: drop-shadow(rgba(0,0,0,0.15) 0.25rem 0.25rem 6px);
+
 			.nav-link {
 				display:block;
 				align-items: center;
@@ -53,15 +57,15 @@
 					height: 35px;
 				}
 			}
-		}
 
-		.nav-link-divider {
-			border-left: 3px solid #a8acf9;
-			border-radius: 3px;
-			width: 0px;
-			margin-bottom: 14px;
-			margin-left: -2%;
-			margin-right: -2%;
+			.nav-link-divider {
+				border-left: 3px solid #a8acf9;
+				border-radius: 3px;
+				width: 0px;
+				margin-bottom: 14px;
+				margin-left: -2%;
+				margin-right: -2%;
+			}
 		}
 	}
 

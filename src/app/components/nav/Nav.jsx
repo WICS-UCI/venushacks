@@ -82,7 +82,6 @@ const Nav = () => {
 				})}
 			>
 				<motion.div
-					onMouseEnter={() => setHover(true)}
 					onMouseLeave={() => setHover(false)}
 					className="nav-links-container" 
 					{...(showDropdown && { style: { height: "auto" } })}
@@ -94,6 +93,7 @@ const Nav = () => {
 							{...(showDropdown && { style: { top: "-10%" } })}
 						>
 							<motion.img
+								onMouseEnter={() => setHover(true)}
 								className="nav-vh-logo"
 								src={vhLogo}
 							/>
