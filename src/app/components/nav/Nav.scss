@@ -2,14 +2,15 @@
 
 .nav-container {
 	position: sticky;
-	width: 100vw;
+	width: 100vw; 
 	background-color: #fff;
 	z-index: 100;
-
+	margin-left:4%;
+	
 	.nav-vh-logo-link {
 		position: absolute;
-		top: -40%;
-		left: -2.5%;
+		top: -15%;
+		left: -5.5%;
 		z-index: 10;
 
 		.nav-vh-logo {
@@ -20,49 +21,52 @@
 	.nav-links-container {
 		position: fixed;
 		top: 2.5vw;
-		width: 80%;
-		background-color: #edeeff;
-		height: 60px;
-		margin-left: 11%;
-		padding-top: 14px;
-		padding-left: 10%;
-		padding-right: 4.5%;
-		border-radius: 35px;
+		width: 25%; // this paired with the one in nav.jsx
+		height: 65px;
 		z-index: 8;
 
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
+		.bckgrd {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			align-items: center;
+			
+			// keeping this in case it glitches and the div doesn't take up all the space anymore
+			// position:absolute;
+			// top: 0;
+			// left: 0;
+			width:100%;
+			height:100%;
+			border-radius: 0 35px 35px 0;
 
-		.nav-link {
-			margin-top: 4px;
-			color: #5f4ea0;
-			font-size: 18px;
-			font-weight: 600;
+			margin-left: 11%;
+			margin-top: 2.5%;
+			padding-left: 15%;
+			padding-right: 15%;
+
+			background-color: #E0DAF7;
+			filter: drop-shadow(rgba(0,0,0,0.15) 0.25rem 0.25rem 6px);
+
+			.nav-link {
+				display:block;
+				align-items: center;
+				color: #7E73A5;
+				font-size: 18px;
+				font-weight: 600;
+				.nav-icon{
+					height: 35px;
+				}
+			}
+
+			.nav-link-divider {
+				border-left: 3px solid #a8acf9;
+				border-radius: 3px;
+				width: 0px;
+				margin-bottom: 14px;
+				margin-left: -2%;
+				margin-right: -2%;
+			}
 		}
-
-		.nav-link:hover {
-			color: #a8acf9;
-			transition: 0.3s all;
-		}
-
-		.nav-link-divider {
-			border-left: 3px solid #a8acf9;
-			border-radius: 3px;
-			width: 0px;
-			margin-bottom: 14px;
-			margin-left: -2%;
-			margin-right: -2%;
-		}
-	}
-
-	.nav-scroll-progressor {
-		position: absolute;
-		width: 50px;
-		top: 36px;
-		left: 3%;
-		transform: rotate(90deg);
-		z-index: 9;
 	}
 
 	@media (prefers-reduced-motion) {
@@ -73,7 +77,7 @@
 
 	@media (max-width: $break-medium) {
 		.nav-links-container {
-			padding-left: 12.5% !important;
+			padding-left: 11.5% !important;
 			padding-right: 6% !important;
 			padding-bottom: 5%;
 			justify-content: flex-start;
@@ -110,10 +114,6 @@
 				line-height: 28px;
 				margin-right: -4px;
 			}
-		}
-
-		.nav-scroll-progressor {
-			left: 0;
 		}
 	}
 }
