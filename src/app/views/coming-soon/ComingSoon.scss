@@ -7,6 +7,9 @@ $shiba: "/assets/images/VH_shiba_inu.png";
 $planet: "/assets/images/planet-3.svg";
 $stars_background: "/assets/images/stars.svg";
 
+$leftFishes: "/assets/images/left-fishes.png";
+$rightFishes: "/assets/images/right-fishes.png";
+
 body {
 	overflow-x: hidden;
 }
@@ -18,6 +21,27 @@ body {
 	@media screen and (max-width: $break-small) {
 		background-size: contain;
 	}
+
+    #left-fishes {
+        float: left;
+        margin-top: 20vh;
+        width: 28vw;
+        height: 27vh;
+        background: url($leftFishes);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #right-fishes {
+        float: right;
+        margin-top: -0.5vh;
+        margin-right: -5vh;
+        width: 28vw;
+        height: 27vh;
+        background: url($rightFishes);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 
 	section {
 		.section-title {
