@@ -9,6 +9,7 @@ $stars_background: "/assets/images/stars.svg";
 
 $leftFishes: "/assets/images/left-fishes.png";
 $rightFishes: "/assets/images/right-fishes.png";
+$coral: "/assets/images/coral.png";
 
 body {
 	overflow-x: hidden;
@@ -41,6 +42,20 @@ body {
         background: url($rightFishes);
         background-size: contain;
         background-repeat: no-repeat;
+    }
+
+    #coral {
+        width: 100vw;
+        height: 75vh;
+        position: fixed;
+        margin-top: 25vh;
+        margin-left: auto;
+        margin-right: auto;
+        background: url($coral);
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        z-index: 5;
     }
 
 	section {
