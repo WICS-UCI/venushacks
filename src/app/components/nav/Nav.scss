@@ -2,11 +2,11 @@
 
 .nav-container {
 	position: sticky;
-	width: 100vw; 
+	width: 100vw;
 	background-color: #fff;
 	z-index: 100;
-	margin-left:4%;
-	
+	margin-left: 4%;
+
 	.nav-vh-logo-link {
 		position: absolute;
 		top: -15%;
@@ -30,13 +30,13 @@
 			justify-content: space-between;
 			flex-wrap: wrap;
 			align-items: center;
-			
+
 			// keeping this in case it glitches and the div doesn't take up all the space anymore
 			// position:absolute;
 			// top: 0;
 			// left: 0;
-			width:100%;
-			height:100%;
+			width: 100%;
+			height: 100%;
 			border-radius: 0 35px 35px 0;
 
 			margin-left: 11%;
@@ -44,16 +44,16 @@
 			padding-left: 15%;
 			padding-right: 15%;
 
-			background-color: #E0DAF7;
-			filter: drop-shadow(rgba(0,0,0,0.15) 0.25rem 0.25rem 6px);
+			background-color: #e0daf7;
+			filter: drop-shadow(rgba(0, 0, 0, 0.15) 0.25rem 0.25rem 6px);
 
 			.nav-link {
-				display:block;
+				display: block;
 				align-items: center;
-				color: #7E73A5;
+				color: #7e73a5;
 				font-size: 18px;
 				font-weight: 600;
-				.nav-icon{
+				.nav-icon {
 					height: 35px;
 				}
 			}

@@ -13,20 +13,51 @@ import instaIcon from "/assets/images/instagram_icon.svg";
 import emailIcon from "/assets/images/email_icon.svg";
 import tiktokIcon from "/assets/images/tikok_icon.svg";
 
-// import vhRocketship from "/assets/images/rocketship.png";
 import "./Nav.scss";
 
 const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	<Link className="nav-link" to={url}>
 		<motion.span>
 			{text}
-			<img className="nav-icon" src={img} alt={desc}/>
+			<img className="nav-icon" src={img} alt={desc} />
 		</motion.span>
 	</Link>
 );
 
 const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
 	<>
+		{/* <NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
+		<NavLink
+			url="/resources"
+			text="Resources"
+			{...{ isMobile, reduceMotion }}
+		/>
+		<NavLink
+			url="/workshops"
+			text="Workshops"
+			{...{ isMobile, reduceMotion }}
+		/>
+		{showDivider && (
+			<motion.span
+				className="nav-link-divider"
+				{...(!reduceMotion && {
+					initial: { opacity: 0 },
+					animate: { opacity: 1 },
+					exit: { opacity: 0 },
+					transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
+				})}
+			/>
+		)}
+		<NavLink
+			url="/report"
+			text="Incident Form"
+			{...{ isMobile, reduceMotion }}
+		/>
+		<NavLink url="/devpost" text="Devpost" {...{ isMobile, reduceMotion }} /> */}
+		{/* <NavLink url="/midway" text="Midway Check-in" {...{ isMobile, reduceMotion }} /> */}
+		{/* <NavLink url="/hackers-choice" text="Hacker's Choice" {...{ isMobile, reduceMotion }} /> */}
+
 		<NavLink
 			url="https://www.instagram.com/venushacksuci/"
 			desc="Instagram"
@@ -83,7 +114,7 @@ const Nav = () => {
 			>
 				<motion.div
 					onMouseLeave={() => setHover(false)}
-					className="nav-links-container" 
+					className="nav-links-container"
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
 					{!showDropdown && (
@@ -99,12 +130,9 @@ const Nav = () => {
 							/>
 						</Link>
 					)}
-					{hover?(
+					{hover && (
 						<>
-						{!isMobile? (
-							<div className="bckgrd"><NavLinks showDivider={true} {...{ isMobile, reduceMotion }} /></div>
-						) : ( 
-							<>
+							{isMobile ? (
 								<div className="bckgrd">
 									<motion.span
 										className={`nav-menu-span ${!showDropdown && "menu-icon"}`}
@@ -118,14 +146,22 @@ const Nav = () => {
 										{showDropdown ? "x" : "≡"}
 									</motion.span>
 									{showDropdown && (
-										<NavLinks showDivider={false} {...{ isMobile, reduceMotion }} />
+										<NavLinks
+											showDivider={false}
+											{...{ isMobile, reduceMotion }}
+										/>
 									)}
 								</div>
-							</>
-						)}
+							) : (
+								<div className="bckgrd">
+									<NavLinks
+										showDivider={true}
+										{...{ isMobile, reduceMotion }}
+									/>
+								</div>
+							)}
 						</>
-					):(null)}
-					
+					)}
 				</motion.div>
 			</motion.div>
 		</AnimatePresence>
