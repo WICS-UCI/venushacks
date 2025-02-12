@@ -29,7 +29,7 @@ const ComingSoon = () => {
 						<TitleLetter key={index} letter={letter} index={index} rotation={LETTER_ROTATIONS[index]} />
 					))}
 				</h1>
-				<div id="coming-soon-subtitle">Coming Soon in Spring 2025...</div>
+				<h2 id="coming-soon-subtitle">Coming Soon in Spring 2025...</h2>
 			</div>
 		</div>
 	);
