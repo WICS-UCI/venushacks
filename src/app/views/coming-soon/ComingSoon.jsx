@@ -1,5 +1,21 @@
 import "./ComingSoon.scss";
 
+const TITLE_TEXT = "VENUSHACKS";
+
+const LETTER_ROTATIONS = [9.4, -5, -1, 9, -4, 3, -6, 4, -3, 9.4];
+
+const TitleLetter = ({ letter, index, rotation }) => {
+	const isFloating = index % 2 === 0 ? "float-up" : "float-down";
+    return (
+		<span
+			className={`coming-soon-letter ${isFloating}`}
+			style={{ transform: `rotate(${rotation}deg)` }}
+		>
+			{letter}
+		</span>
+	);
+};
+
 const ComingSoon = () => {
 	return (
 		<div className="ComingSoon">
@@ -8,38 +24,11 @@ const ComingSoon = () => {
 			<div id="coral" />
 
 			<div className="coming-soon-text">
-				<div id="coming-soon-title-container">
-					<h1 id="title-v" className="coming-soon-title title-animation">
-						V
-					</h1>
-					<h1 id="title-e" className="coming-soon-title">
-						E
-					</h1>
-					<h1 id="title-n" className="coming-soon-title">
-						N
-					</h1>
-					<h1 id="title-u" className="coming-soon-title">
-						U
-					</h1>
-					<h1 id="title-s1" className="coming-soon-title">
-						S
-					</h1>
-					<h1 id="title-h" className="coming-soon-title">
-						H
-					</h1>
-					<h1 id="title-a" className="coming-soon-title">
-						A
-					</h1>
-					<h1 id="title-c" className="coming-soon-title">
-						C
-					</h1>
-					<h1 id="title-k" className="coming-soon-title">
-						K
-					</h1>
-					<h1 id="title-s2" className="coming-soon-title title-animation">
-						S
-					</h1>
-				</div>
+                <h1 id="coming-soon-title-container">
+					{TITLE_TEXT.split("").map((letter, index) => (
+						<TitleLetter key={index} letter={letter} index={index} rotation={LETTER_ROTATIONS[index]} />
+					))}
+				</h1>
 				<div id="coming-soon-subtitle">Coming Soon in Spring 2025...</div>
 			</div>
 		</div>
