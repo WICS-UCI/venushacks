@@ -19,7 +19,7 @@
 
 	.nav-links-container {
 		position: fixed;
-		top: min(2.5vw,7%);
+		top: min(2.5vw, 7%);
 		width: 25%; // this paired with the one in nav.jsx
 		min-height: 60px;
 		z-index: 8;
@@ -29,11 +29,11 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			min-width:300px;
-			max-width:400px;
+			min-width: 300px;
+			max-width: 400px;
 
 			// keeping this in case it glitches and the div doesn't take up all the space anymore
-			position:absolute;
+			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -42,7 +42,7 @@
 
 			margin-left: 50px;
 			margin-top: 5.5%;
-			padding-left: max(60px,15%);
+			padding-left: max(60px, 15%);
 			padding-right: 15%;
 
 			background-color: #e0daf7;
@@ -88,12 +88,12 @@
 			// background-color: red;
 
 			.bckgrd {
-				padding-bottom:5px;
-				padding-left:max(50px,10%);
-				top:10%;
+				padding-bottom: 5px;
+				padding-left: max(50px, 10%);
+				top: 10%;
 				.nav-link {
 					margin-top: 12px;
-					padding-right:10%;
+					padding-right: 10%;
 					.nav-icon {
 						height: 35px;
 					}

@@ -33,12 +33,12 @@ import "./Nav.scss";
 const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	<Link className="nav-link" to={url}>
 		<motion.span
-		{...(!reduceMotion && {
-							initial: { opacity: 0 },
-							animate: { opacity: 1 },
-							exit: { opacity: 0 },
-							transition: {duration: 0.2 },
-						})}
+			{...(!reduceMotion && {
+				initial: { opacity: 0 },
+				animate: { opacity: 1 },
+				exit: { opacity: 0 },
+				transition: { duration: 0.2 },
+			})}
 		>
 			{text}
 			<img className="nav-icon" src={img} alt={desc} />
@@ -139,19 +139,18 @@ const Nav = () => {
 					className="nav-links-container"
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
-					
-						<Link
-							className="nav-vh-logo-link"
-							to="/"
-							{...(showDropdown && { style: { top: "-10%" } })}
-						>
-							<motion.img
-								onMouseEnter={() => setHover(true)}
-								className="nav-vh-logo"
-								src={vhLogo}
-							/>
-						</Link>
-					
+					<Link
+						className="nav-vh-logo-link"
+						to="/"
+						{...(showDropdown && { style: { top: "-10%" } })}
+					>
+						<motion.img
+							onMouseEnter={() => setHover(true)}
+							className="nav-vh-logo"
+							src={vhLogo}
+						/>
+					</Link>
+
 					{hover && (
 						<>
 							{isMobile ? (
@@ -164,15 +163,14 @@ const Nav = () => {
 											exit: { opacity: 0 },
 											transition: { delay: 0.5, duration: 0.2 },
 										})}
-									>
-									</motion.span>
+									></motion.span>
 									{showDropdown && (
 										<div className="bckgrd">
-										{/* <div className="menu-icon">{showDropdown ? "x" : ""}</div> */}
-										<NavLinks
-											showDivider={false}
-											{...{ isMobile, reduceMotion }}
-										/>
+											{/* <div className="menu-icon">{showDropdown ? "x" : ""}</div> */}
+											<NavLinks
+												showDivider={false}
+												{...{ isMobile, reduceMotion }}
+											/>
 										</div>
 									)}
 								</div>
