@@ -3,7 +3,7 @@
 .nav-container {
 	position: sticky;
 	width: 100vw;
-	background-color: #0804d3;
+	// background-color: #0804d3;
 	z-index: 100;
 	margin-left: 4%;
 
@@ -23,7 +23,7 @@
 		width: 25%; // this paired with the one in nav.jsx
 		min-height: 60px;
 		z-index: 8;
-		background-color: #000;
+		// background-color: #000;
 
 		.bckgrd {
 			display: flex;
@@ -42,7 +42,7 @@
 
 			margin-left: 50px;
 			margin-top: 5.5%;
-			padding-left: 15%;
+			padding-left: max(60px,15%);
 			padding-right: 15%;
 
 			background-color: #e0daf7;
@@ -85,11 +85,12 @@
 			flex-direction: column;
 			align-items: flex-end;
 			cursor: pointer;
-			background-color: red;
+			// background-color: red;
 
 			.bckgrd {
 				padding-bottom:5px;
 				padding-left:max(50px,10%);
+				top:10%;
 				.nav-link {
 					margin-top: 12px;
 					padding-right:10%;
