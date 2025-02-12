@@ -3,7 +3,7 @@
 .nav-container {
 	position: sticky;
 	width: 100vw;
-	background-color: #fff;
+	background-color: #0804d3;
 	z-index: 100;
 	margin-left: 4%;
 
@@ -12,7 +12,6 @@
 		top: -15%;
 		left: -5.5%;
 		z-index: 10;
-
 		.nav-vh-logo {
 			width: 110px;
 		}
@@ -20,27 +19,29 @@
 
 	.nav-links-container {
 		position: fixed;
-		top: 2.5vw;
+		top: min(2.5vw,7%);
 		width: 25%; // this paired with the one in nav.jsx
-		height: 65px;
+		min-height: 60px;
 		z-index: 8;
+		background-color: #000;
 
 		.bckgrd {
 			display: flex;
 			justify-content: space-between;
-			flex-wrap: wrap;
 			align-items: center;
+			min-width:300px;
+			max-width:400px;
 
 			// keeping this in case it glitches and the div doesn't take up all the space anymore
-			// position:absolute;
-			// top: 0;
-			// left: 0;
+			position:absolute;
+			top: 0;
+			left: 0;
 			width: 100%;
 			height: 100%;
 			border-radius: 0 35px 35px 0;
 
-			margin-left: 11%;
-			margin-top: 2.5%;
+			margin-left: 50px;
+			margin-top: 5.5%;
 			padding-left: 15%;
 			padding-right: 15%;
 
@@ -79,19 +80,27 @@
 		.nav-links-container {
 			padding-left: 11.5% !important;
 			padding-right: 6% !important;
-			padding-bottom: 5%;
+			padding-bottom: 5px;
 			justify-content: flex-start;
 			flex-direction: column;
 			align-items: flex-end;
 			cursor: pointer;
+			background-color: red;
 
-			.nav-link {
-				margin-top: 12px;
-			}
-
-			.nav-link-divider {
-				margin-top: 3px;
-				margin-bottom: 17px;
+			.bckgrd {
+				padding-bottom:5px;
+				padding-left:max(50px,10%);
+				.nav-link {
+					margin-top: 12px;
+					padding-right:10%;
+					.nav-icon {
+						height: 35px;
+					}
+				}
+				.nav-link-divider {
+					margin-top: 3px;
+					margin-bottom: 17px;
+				}
 			}
 
 			.nav-menu-span {
@@ -108,12 +117,15 @@
 				user-select: none;
 			}
 
-			.menu-icon {
-				font-size: 48px;
-				font-weight: 100;
-				line-height: 28px;
-				margin-right: -4px;
-			}
+			// .menu-icon {
+			// 	color: #7e73a5;
+			// 	padding-left:3vw;
+			// 	padding-right:3vw;
+			// 	font-size: 32px;
+			// 	font-weight: 100;
+			// 	line-height: 28px;
+			// 	margin-right: -4px;
+			// }
 		}
 	}
 }

@@ -15,9 +15,31 @@ import tiktokIcon from "/assets/images/tikok_icon.svg";
 
 import "./Nav.scss";
 
+// const NavLink = ({ url, text, reduceMotion, isMobile }) => (
+// 	<Link className="nav-link" to={url}>
+// 		<motion.span
+// 			{...(!reduceMotion && {
+// 				initial: { opacity: 0 },
+// 				animate: { opacity: 1 },
+// 				exit: { opacity: 0 },
+// 				transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
+// 			})}
+// 		>
+// 			{text}
+// 		</motion.span>
+// 	</Link>
+// );
+
 const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	<Link className="nav-link" to={url}>
-		<motion.span>
+		<motion.span
+		{...(!reduceMotion && {
+							initial: { opacity: 0 },
+							animate: { opacity: 1 },
+							exit: { opacity: 0 },
+							transition: {duration: 0.2 },
+						})}
+		>
 			{text}
 			<img className="nav-icon" src={img} alt={desc} />
 		</motion.span>
@@ -117,7 +139,7 @@ const Nav = () => {
 					className="nav-links-container"
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
-					{!showDropdown && (
+					
 						<Link
 							className="nav-vh-logo-link"
 							to="/"
@@ -129,13 +151,13 @@ const Nav = () => {
 								src={vhLogo}
 							/>
 						</Link>
-					)}
+					
 					{hover && (
 						<>
 							{isMobile ? (
-								<div className="bckgrd">
+								<div>
 									<motion.span
-										className={`nav-menu-span ${!showDropdown && "menu-icon"}`}
+										className={`nav-menu-span`}
 										{...(!reduceMotion && {
 											initial: { opacity: 0 },
 											animate: { opacity: 1 },
@@ -143,13 +165,15 @@ const Nav = () => {
 											transition: { delay: 0.5, duration: 0.2 },
 										})}
 									>
-										{showDropdown ? "x" : "≡"}
 									</motion.span>
 									{showDropdown && (
+										<div className="bckgrd">
+										{/* <div className="menu-icon">{showDropdown ? "x" : ""}</div> */}
 										<NavLinks
 											showDivider={false}
 											{...{ isMobile, reduceMotion }}
 										/>
+										</div>
 									)}
 								</div>
 							) : (
