@@ -15,21 +15,6 @@ import tiktokIcon from "/assets/images/tikok_icon.svg";
 
 import "./Nav.scss";
 
-// const NavLink = ({ url, text, reduceMotion, isMobile }) => (
-// 	<Link className="nav-link" to={url}>
-// 		<motion.span
-// 			{...(!reduceMotion && {
-// 				initial: { opacity: 0 },
-// 				animate: { opacity: 1 },
-// 				exit: { opacity: 0 },
-// 				transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
-// 			})}
-// 		>
-// 			{text}
-// 		</motion.span>
-// 	</Link>
-// );
-
 const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	<Link className="nav-link" to={url}>
 		<motion.span
@@ -48,38 +33,6 @@ const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 
 const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
 	<>
-		{/* <NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
-		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
-		<NavLink
-			url="/resources"
-			text="Resources"
-			{...{ isMobile, reduceMotion }}
-		/>
-		<NavLink
-			url="/workshops"
-			text="Workshops"
-			{...{ isMobile, reduceMotion }}
-		/>
-		{showDivider && (
-			<motion.span
-				className="nav-link-divider"
-				{...(!reduceMotion && {
-					initial: { opacity: 0 },
-					animate: { opacity: 1 },
-					exit: { opacity: 0 },
-					transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
-				})}
-			/>
-		)}
-		<NavLink
-			url="/report"
-			text="Incident Form"
-			{...{ isMobile, reduceMotion }}
-		/>
-		<NavLink url="/devpost" text="Devpost" {...{ isMobile, reduceMotion }} /> */}
-		{/* <NavLink url="/midway" text="Midway Check-in" {...{ isMobile, reduceMotion }} /> */}
-		{/* <NavLink url="/hackers-choice" text="Hacker's Choice" {...{ isMobile, reduceMotion }} /> */}
-
 		<NavLink
 			url="https://www.instagram.com/venushacksuci/"
 			desc="Instagram"
@@ -166,7 +119,6 @@ const Nav = () => {
 									></motion.span>
 									{showDropdown && (
 										<div className="bckgrd">
-											{/* <div className="menu-icon">{showDropdown ? "x" : ""}</div> */}
 											<NavLinks
 												showDivider={false}
 												{...{ isMobile, reduceMotion }}

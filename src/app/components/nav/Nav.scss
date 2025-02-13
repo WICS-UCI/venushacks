@@ -3,14 +3,13 @@
 .nav-container {
 	position: sticky;
 	width: 100vw;
-	// background-color: #0804d3;
 	z-index: 100;
 	margin-left: 4%;
 
 	.nav-vh-logo-link {
 		position: absolute;
 		top: -15%;
-		left: -5.5%;
+		left: max(0, -55px);
 		z-index: 10;
 		.nav-vh-logo {
 			width: 110px;
@@ -19,20 +18,18 @@
 
 	.nav-links-container {
 		position: fixed;
-		top: min(2.5vw, 7%);
-		width: 25%; // this paired with the one in nav.jsx
+		top: max(15px,4%);
+		width: 25%;
 		min-height: 60px;
 		z-index: 8;
-		// background-color: #000;
 
 		.bckgrd {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			min-width: 300px;
+			min-width: 275px;
 			max-width: 400px;
 
-			// keeping this in case it glitches and the div doesn't take up all the space anymore
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -40,10 +37,10 @@
 			height: 100%;
 			border-radius: 0 35px 35px 0;
 
-			margin-left: 50px;
-			margin-top: 5.5%;
-			padding-left: max(60px, 15%);
-			padding-right: 15%;
+			margin-left: max(3rem, 55px);
+			margin-top: 0.7rem;
+			padding-left: min(75px, 18%);
+			padding-right: min(50px, 10%);
 
 			background-color: #e0daf7;
 			filter: drop-shadow(rgba(0, 0, 0, 0.15) 0.25rem 0.25rem 6px);
@@ -80,19 +77,15 @@
 		.nav-links-container {
 			padding-left: 11.5% !important;
 			padding-right: 6% !important;
-			padding-bottom: 5px;
 			justify-content: flex-start;
 			flex-direction: column;
-			align-items: flex-end;
+			align-items: center;
 			cursor: pointer;
-			// background-color: red;
 
 			.bckgrd {
-				padding-bottom: 5px;
-				padding-left: max(50px, 10%);
+				padding-left: max(60px, 10%);
 				top: 10%;
 				.nav-link {
-					margin-top: 12px;
 					padding-right: 10%;
 					.nav-icon {
 						height: 35px;
@@ -117,16 +110,6 @@
 				-o-user-select: none;
 				user-select: none;
 			}
-
-			// .menu-icon {
-			// 	color: #7e73a5;
-			// 	padding-left:3vw;
-			// 	padding-right:3vw;
-			// 	font-size: 32px;
-			// 	font-weight: 100;
-			// 	line-height: 28px;
-			// 	margin-right: -4px;
-			// }
 		}
 	}
 }
