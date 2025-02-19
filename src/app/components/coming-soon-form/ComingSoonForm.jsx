@@ -11,7 +11,6 @@ export default function ComingSoonForm() {
 			<input type="hidden" name="u" value="f6273e8cb99a5b38c895e6292" />
 			<input type="hidden" name="id" value="7afebb41eb" />
 
-			<label htmlFor="MERGE0" />
 			<input
 				type="email"
 				className="email-input"
