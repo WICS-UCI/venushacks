@@ -3,7 +3,7 @@
 .primary-button {
 	height: 68px;
 	min-width: 14rem;
-	font-family: "Londrina Solid", sans-serif;
+	font-family: "Londrina Solid";
 	font-size: 2.2rem;
 	letter-spacing: 0.25rem;
 
@@ -14,7 +14,8 @@
 
 	transition: all 0.2s ease;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: #df89d0;
 	}
 

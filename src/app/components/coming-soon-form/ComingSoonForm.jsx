@@ -1,4 +1,5 @@
-import PrimaryButton from "../primary-button/PrimaryButton";
+import PrimaryButton from "src/app/components/primary-button/PrimaryButton";
+
 import "./ComingSoonForm.scss";
 
 export default function ComingSoonForm() {
