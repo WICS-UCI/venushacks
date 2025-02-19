@@ -8,58 +8,49 @@ import {
 	AnimatePresence,
 } from "framer-motion";
 
-import vhLogo from "/assets/images/icon.png";
-import vhRocketship from "/assets/images/rocketship.png";
+import vhLogo from "/assets/images/shell.svg";
+import instaIcon from "/assets/images/instagram_icon.svg";
+import emailIcon from "/assets/images/email_icon.svg";
+import tiktokIcon from "/assets/images/tikok_icon.svg";
+
 import "./Nav.scss";
 
-const NavLink = ({ url, text, reduceMotion, isMobile }) => (
+const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	<Link className="nav-link" to={url}>
 		<motion.span
 			{...(!reduceMotion && {
 				initial: { opacity: 0 },
 				animate: { opacity: 1 },
 				exit: { opacity: 0 },
-				transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
+				transition: { duration: 0.2 },
 			})}
 		>
 			{text}
+			<img className="nav-icon" src={img} alt={desc} />
 		</motion.span>
 	</Link>
 );
 
 const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
 	<>
-		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
-		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
 		<NavLink
-			url="/resources"
-			text="Resources"
+			url="https://www.instagram.com/venushacksuci/"
+			desc="Instagram"
+			img={instaIcon}
 			{...{ isMobile, reduceMotion }}
 		/>
 		<NavLink
-			url="/workshops"
-			text="Workshops"
+			url="https://www.tiktok.com/@venushacksuci"
+			desc="TikTok"
+			img={tiktokIcon}
 			{...{ isMobile, reduceMotion }}
 		/>
-		{showDivider && (
-			<motion.span
-				className="nav-link-divider"
-				{...(!reduceMotion && {
-					initial: { opacity: 0 },
-					animate: { opacity: 1 },
-					exit: { opacity: 0 },
-					transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
-				})}
-			/>
-		)}
 		<NavLink
-			url="/report"
-			text="Incident Form"
+			url="mailto:venushacks.uci@gmail.com"
+			desc="Email"
+			img={emailIcon}
 			{...{ isMobile, reduceMotion }}
 		/>
-		<NavLink url="/devpost" text="Devpost" {...{ isMobile, reduceMotion }} />
-		{/* <NavLink url="/midway" text="Midway Check-in" {...{ isMobile, reduceMotion }} /> */}
-		{/* <NavLink url="/hackers-choice" text="Hacker's Choice" {...{ isMobile, reduceMotion }} /> */}
 	</>
 );
 
@@ -74,6 +65,8 @@ const Nav = () => {
 	const isHomepage = pathname == "/";
 	const reduceMotion = useReducedMotion();
 	const { scrollYProgress } = useScroll();
+
+	const [hover, setHover] = useState(false);
 
 	window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
 	useMotionValueEvent(scrollYProgress, "change", (latest) =>
@@ -95,90 +88,51 @@ const Nav = () => {
 				})}
 			>
 				<motion.div
+					onMouseLeave={() => setHover(false)}
 					className="nav-links-container"
-					{...(!reduceMotion && {
-						initial: {
-							width: 0,
-							paddingLeft: 0,
-							paddingRight: 0,
-							paddingTop: 0,
-							marginLeft: "25%",
-						},
-						animate: {
-							width: "80%",
-							paddingLeft: "10%",
-							paddingRight: "4.5%",
-							paddingTop: "14px",
-							marginLeft: "10%",
-						},
-						exit: {
-							width: 0,
-							paddingLeft: 0,
-							paddingRight: 0,
-							paddingTop: 0,
-							marginLeft: "25%",
-						},
-						transition: {
-							type: "spring",
-							delay: 0.4,
-							duration: 0.2,
-							damping: 18,
-						},
-					})}
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
-					{!showDropdown && (
-						<Link
-							className="nav-vh-logo-link"
-							to="/"
-							{...(showDropdown && { style: { top: "-10%" } })}
-						>
-							<motion.img
-								className="nav-vh-logo"
-								src={vhLogo}
-								{...(!reduceMotion && {
-									initial: { rotate: -180 },
-									animate: { rotate: 0 },
-									exit: { rotate: 180 },
-									transition: {
-										duration: 0.3,
-										damping: 15,
-										restSpeed: 0.00001,
-										mass: 0.9,
-									},
-								})}
-							/>
-						</Link>
-					)}
-					{!showDropdown && (
+					<Link
+						className="nav-vh-logo-link"
+						to="/"
+						{...(showDropdown && { style: { top: "-10%" } })}
+					>
 						<motion.img
-							className="nav-scroll-progressor"
-							src={vhRocketship}
-							style={{
-								rotate: 90,
-								translateX: reduceMotion
-									? 0
-									: `${scrollPct * 1.5 * window.innerWidth}%`,
-							}}
+							onMouseEnter={() => setHover(true)}
+							className="nav-vh-logo"
+							src={vhLogo}
 						/>
-					)}
-					{!isMobile ? (
-						<NavLinks showDivider={true} {...{ isMobile, reduceMotion }} />
-					) : (
+					</Link>
+
+					{hover && (
 						<>
-							<motion.span
-								className={`nav-menu-span ${!showDropdown && "menu-icon"}`}
-								{...(!reduceMotion && {
-									initial: { opacity: 0 },
-									animate: { opacity: 1 },
-									exit: { opacity: 0 },
-									transition: { delay: 0.5, duration: 0.2 },
-								})}
-							>
-								{showDropdown ? "x" : "≡"}
-							</motion.span>
-							{showDropdown && (
-								<NavLinks showDivider={false} {...{ isMobile, reduceMotion }} />
+							{isMobile ? (
+								<div>
+									<motion.span
+										className={`nav-menu-span`}
+										{...(!reduceMotion && {
+											initial: { opacity: 0 },
+											animate: { opacity: 1 },
+											exit: { opacity: 0 },
+											transition: { delay: 0.5, duration: 0.2 },
+										})}
+									></motion.span>
+									{showDropdown && (
+										<div className="bckgrd">
+											<NavLinks
+												showDivider={false}
+												{...{ isMobile, reduceMotion }}
+											/>
+										</div>
+									)}
+								</div>
+							) : (
+								<div className="bckgrd">
+									<NavLinks
+										showDivider={true}
+										{...{ isMobile, reduceMotion }}
+									/>
+								</div>
 							)}
 						</>
 					)}
