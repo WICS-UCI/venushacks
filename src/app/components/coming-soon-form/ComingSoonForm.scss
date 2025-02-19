@@ -1,8 +1,36 @@
 .email-form {
-    width: 80%;
+	z-index: 10;
+	width: 70%;
+	margin-top: 3rem;
+
+	display: flex;
+	justify-content: center;
+	gap: 4%;
 }
 
 .email-input {
-	height: 48px;
-    min-width: 100%;
+	height: 68px;
+	width: 60%;
+	border-radius: 20px;
+	border: 0;
+
+	text-indent: 0.75rem;
+	font-size: 2rem;
+}
+
+.notify-button {
+	width: 25%;
+	font-size: 1.75rem;
+
+	border-radius: 20px;
+	background-color: #e0b0d8;
+	border: 0px;
+	box-shadow: 0px 3px 4px 0px #0000007c;
+
+	&:hover {
+		background-color: #df89d0;
+	}
+	&:active {
+		background-color: #d45ec0 !important;
+	}
 }

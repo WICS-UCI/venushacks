@@ -7,7 +7,7 @@ import "./ComingSoon.scss";
 
 const ComingSoon = () => {
 	return (
-		<div className="ComingSoon">
+		<div className="coming-soon-container">
 			<div id="left-fishes" />
 			<div id="right-fishes" />
 			<div id="coral" />
