@@ -30,9 +30,11 @@
 	width: 50%;
 	border-radius: 20px;
 	border: 0;
+	background-color: #e4dce7;
 
 	text-indent: 0.75rem;
-	font-size: 2rem;
+	font-size: 1.875rem;
+	font-family: "Instrument Sans";
 
 	@media screen and (max-width: vh-styles.$break-large) {
 		width: 80%;
