@@ -6,7 +6,7 @@ import { Nav, Redirect } from "src/app/components";
 const App = () => (
 	<div className="App">
 		<BrowserRouter>
-			{/* <Nav /> */}
+			<Nav />
 			<Routes>
 				<Route path="/" element={<ComingSoon />} />
 				{/* <Route path="/schedule" element={<Schedule />} />
