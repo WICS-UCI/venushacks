@@ -15,17 +15,15 @@
 	&:hover {
 		background-color: #df89d0;
 	}
+
 	&:active {
 		background-color: #d46bc3 !important;
 		transform: scale(0.96);
 	}
 
 	@media screen and (max-width: vh-styles.$break-large) {
-		width: 80%;
-	}
-
-	@media screen and (max-width: vh-styles.$break-medium) {
-		height: 50px;
-		font-size: 1.5rem;
+		min-width: 12rem;
+		height: 40px;
+		font-size: 1.25rem;
 	}
 }
