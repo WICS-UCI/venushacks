@@ -43,30 +43,3 @@
 		font-size: 1.5rem;
 	}
 }
-
-.notify-button {
-	height: 68px;
-	min-width: 14rem;
-	font-size: 1.75rem;
-
-	border-radius: 20px;
-	background-color: #e0b0d8;
-	border: 0px;
-	box-shadow: 0px 3px 4px 0px #0000007c;
-
-	&:hover {
-		background-color: #df89d0;
-	}
-	&:active {
-		background-color: #d45ec0 !important;
-	}
-
-	@media screen and (max-width: vh-styles.$break-large) {
-		width: 80%;
-	}
-
-	@media screen and (max-width: vh-styles.$break-medium) {
-		height: 50px;
-		font-size: 1.5rem;
-	}
-}

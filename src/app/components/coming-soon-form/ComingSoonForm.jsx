@@ -1,5 +1,4 @@
-import { Button } from "react-bootstrap";
-
+import PrimaryButton from "../primary-button/PrimaryButton";
 import "./ComingSoonForm.scss";
 
 export default function ComingSoonForm() {
@@ -22,9 +21,7 @@ export default function ComingSoonForm() {
 				id="MERGE0"
 				placeholder="Email Address"
 			/>
-			<Button type="submit" className="notify-button">
-				Notify Me!
-			</Button>
+			<PrimaryButton type="submit">Notify Me!</PrimaryButton>
 		</form>
 	);
 }
