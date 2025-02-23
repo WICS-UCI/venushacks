@@ -1,4 +1,4 @@
-import laptop from "/assets/images/vh-laptop.png";
+// import laptop from "/assets/images/vh-laptop.png";
 import "./FloatingLaptop.scss";
 
 // TODO Redo this animation natively or in Framer Motion

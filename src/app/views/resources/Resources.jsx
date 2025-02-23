@@ -3,8 +3,8 @@ import { Tooltip, Footer } from "src/app/components";
 import { starterPackData } from "src/app/data/resources-info";
 import { Carousel, Stack, Card } from "react-bootstrap";
 
-import next_icon from "/assets/images/next-icon.svg";
-import prev_icon from "/assets/images/prev-icon.svg";
+// import next_icon from "/assets/images/next-icon.svg";
+// import prev_icon from "/assets/images/prev-icon.svg";
 
 import "./Resources.scss";
 

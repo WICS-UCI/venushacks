@@ -1,14 +1,14 @@
 import Partner from "./Partner";
 
-import partners_title from "/assets/images/titles/vh-partners.png";
+// import partners_title from "/assets/images/titles/vh-partners.png";
 
-import acm from "/assets/images/2024-partners/acm.png";
-import cyber from "/assets/images/2024-partners/cyber.png";
-import design from "/assets/images/2024-partners/design.png";
-import hack from "/assets/images/2024-partners/hack.png";
-import icssc from "/assets/images/2024-partners/icssc.png";
-import wics from "/assets/images/2024-partners/wics.png";
-import data from "/assets/images/2024-partners/data.png";
+// import acm from "/assets/images/2024-partners/acm.png";
+// import cyber from "/assets/images/2024-partners/cyber.png";
+// import design from "/assets/images/2024-partners/design.png";
+// import hack from "/assets/images/2024-partners/hack.png";
+// import icssc from "/assets/images/2024-partners/icssc.png";
+// import wics from "/assets/images/2024-partners/wics.png";
+// import data from "/assets/images/2024-partners/data.png";
 
 import "./Partners.scss";
 
