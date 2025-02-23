@@ -1,0 +1,45 @@
+@use "src/globals/vh-styles.scss";
+
+.email-form {
+	z-index: 10;
+	width: 70%;
+	margin-top: 3rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+
+	@media screen and (max-width: vh-styles.$break-medium) {
+		width: 90%;
+	}
+
+	@media screen and (max-width: vh-styles.$break-large) {
+		margin-top: 0;
+		margin-bottom: 3rem;
+
+		flex-direction: column;
+		gap: 10px;
+	}
+}
+
+.email-input {
+	height: 68px;
+	min-width: 14rem;
+
+	width: 50%;
+	border-radius: 20px;
+	border: 0;
+	background-color: #e4dce7;
+
+	text-indent: 0.75rem;
+	font-size: 1.875rem;
+	font-family: "Instrument Sans";
+
+	@media screen and (max-width: vh-styles.$break-large) {
+		height: 50px;
+		width: 80%;
+
+		font-size: 1.05rem;
+	}
+}
