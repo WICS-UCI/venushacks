@@ -1,12 +1,12 @@
 import Sponsor from "./Sponsor";
 
-import sponsors_title from "/assets/images/titles/vh-sponsors.svg";
+// import sponsors_title from "/assets/images/titles/vh-sponsors.svg";
 
-import odit from "/assets/images/2024-sponsors/odit.png";
-import melissa from "/assets/images/2024-sponsors/melissa.png";
-import antrepreneur from "/assets/images/2024-sponsors/antrepreneur-center.png";
-import oai from "/assets/images/2024-sponsors/oai.png";
-import spfb from "/assets/images/2024-sponsors/spfb.png";
+// import odit from "/assets/images/2024-sponsors/odit.png";
+// import melissa from "/assets/images/2024-sponsors/melissa.png";
+// import antrepreneur from "/assets/images/2024-sponsors/antrepreneur-center.png";
+// import oai from "/assets/images/2024-sponsors/oai.png";
+// import spfb from "/assets/images/2024-sponsors/spfb.png";
 
 import "./Sponsors.scss";
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { WorkshopCard, Footer } from "src/app/components";
 import { workshopsData } from "src/app/data/workshops-info.js";
-import workshopsTitle from "/assets/images/titles/vh-workshops-title.png";
+// import workshopsTitle from "/assets/images/titles/vh-workshops-title.png";
 
 import "./Workshops.scss";
 
