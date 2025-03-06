@@ -2,7 +2,7 @@ name: deploy-to-github-pages
 on:
   push:
     branches:
-      - main
+      - setup/site-dir
 
 permissions:
   contents: read
@@ -21,25 +21,43 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: setup node/pnpm and install dependencies
-        uses: ./.github/workflows/setup-node-pnpm
-
-      - name: setup pages
-        uses: actions/configure-pages@v4
+      - name: setup node
+        uses: actions/setup-node@v4
         with:
-          static_site_generator: next
+          node-version: 20
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
+      - name: get pnpm store dir
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: cache dependencies in pnpm
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: install dependencies in pnpm
+        working-directory: ./site
+        shell: bash
+        run: pnpm install
 
       - name: build vite
+        working-directory: ./site
         run: npx vite build
-        env:
-          NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_RESOURCES }}
-          NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE }}
-          NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS: ${{ secrets.NEXT_PUBLIC_MAINTENANCE_MODE_WORKSHOPS }}
 
       - name: upload
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./site/dist
 
   deploy:
     environment:
