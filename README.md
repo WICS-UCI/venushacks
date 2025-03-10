@@ -10,14 +10,30 @@ Our mission is to empower underrepresented groups by providing an inclusive comm
 VenusHacks will be open to participants of all experience levels, as we aim to increase diversity in tech through support, exposure, and community.
 
 ## Local Development
+There are 2 apps in this repository:
 
-### Getting Setup
+`site`: The React website that users will interact with. It is currently deployed on Github Pages.
+
+`sanity`: The [Sanity Studio](https://www.sanity.io/) used to define assets and resources to pull from.
+
+### Setup
 
 - `git clone https://github.com/wics-uci/venushacks`
-- `cd venushacks`
+- `cd site`
+- `pnpm install`
+
+Go back to project root.
+- `cd sanity`
 - `pnpm install`
 
 ### Running the Project
 
+#### Site
+- `cd site`
 - `pnpm dev`
 - Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+#### Sanity
+- `cd sanity`
+- `pnpm dev`
+- Open [http://localhost:3333](http://localhost:3333) to view it in the browser.
