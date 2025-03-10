@@ -2,7 +2,7 @@ name: deploy-to-github-pages
 on:
   push:
     branches:
-      - setup/site-dir # CHANGE BACK TO MAIN, CHANGE ENVIRONMENT BRANCH TO NOT INCLUDE THIS BRANCH AND THEN MERGE WITH MAIN?!?!?!?
+      - main
 
 permissions:
   contents: read
