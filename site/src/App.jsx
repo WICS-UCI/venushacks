@@ -1,6 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Home, Schedule, Resources, Workshops, NotFound, ComingSoon } from "src/app/views";
+import {
+	Home,
+	Schedule,
+	Resources,
+	Workshops,
+	NotFound,
+	ComingSoon,
+} from "src/app/views";
 import { Nav, Redirect } from "src/app/components";
 
 const App = () => (
