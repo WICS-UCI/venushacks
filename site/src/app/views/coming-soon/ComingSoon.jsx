@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 
+import ResourceCard from "src/app/components/resources/Resources";
 import ComingSoonTitle from "src/app/components/coming-soon/ComingSoonTitle";
 import ComingSoonForm from "src/app/components/coming-soon-form/ComingSoonForm";
 
@@ -13,6 +14,7 @@ const ComingSoon = () => {
 			<div id="coral" />
 
 			<Container className="d-flex flex-column align-items-center">
+				<ResourceCard />
 				<ComingSoonTitle />
 				<ComingSoonForm />
 			</Container>
