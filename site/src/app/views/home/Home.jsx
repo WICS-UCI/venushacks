@@ -20,7 +20,7 @@ const Home = () => {
 	return (
 		<div className="Home">
 			{/* HERO **********************/}
-			<section id="hero">
+			{/* <section id="hero">
 				<div id="hero-right">
 					<img
 						src={vh_title}
@@ -35,10 +35,10 @@ const Home = () => {
 						text="Closing Ceremony"
 					/>
 				</div>
-				<div id="astronaut-animation">
+				<div id="astronaut-animation"> */}
 					{/* These assets are a background of a div instead of imgs to prevent
 					them from being able to be saved to camera roll on iOS */}
-					<div id="boba" />
+					{/* <div id="boba" />
 					<div id="astronaut" />
 					<div id="laptop" />
 					<div id="shiba-inu" />
@@ -52,11 +52,11 @@ const Home = () => {
 				height="480"
 				allow="autoplay"
 				id="tanesha-moody"
-			></iframe>
+			></iframe> */}
 
 			{/* ABOUT **********************/}
 			<section id="about">
-				<img className="section-title" src={about_title} alt="About" />
+				<h1 className="section-title">ABOUT</h1>
 				<div id="about-text-container">
 					<p>
 						VenusHacks is UCI’s largest women-centric hackathon, an annual event
@@ -95,7 +95,7 @@ const Home = () => {
 			</section>
 
 			{/* FAQ ************************/}
-			<section id="faq">
+			{/* <section id="faq">
 				<img className="section-title" src={faq_title} alt="FAQ" />
 				<div id="faq-container">
 					<FAQs />
@@ -109,10 +109,10 @@ const Home = () => {
 				</p>
 			</section>
 			<Sponsors />
-			<Partners />
+			<Partners /> */}
 
 			{/* SPEAKERS ******************/}
-			<section id="speakers">
+			{/* <section id="speakers">
 				<img className="section-title" src={speakers_title} alt="Speakers" />
 				<Speakers />
 			</section>
@@ -124,9 +124,9 @@ const Home = () => {
 					alt="Meet the Team"
 				/>
 				<Team />
-			</section>
+			</section> */}
 
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 };

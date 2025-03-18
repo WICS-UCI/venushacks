@@ -12,9 +12,10 @@ body {
 }
 
 .Home {
-	background-image: url($stars_background);
-	background-size: cover;
-	background-attachment: fixed;
+	// background-image: url($stars_background);
+	// background-size: cover;
+	// background-attachment: fixed;
+	background-color: #79d0fb77; // TODO delete this later
 	text-align: center;
 	min-height: 100vh;
 
@@ -323,13 +324,25 @@ body {
 		flex-direction: column;
 
 		.section-title {
-			height: 90px;
-			margin: 20px auto 30px;
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 7rem;
+			color: white;
+			text-shadow: 9px 16px 10px #7c94c0;
+			gap: 1.3rem;
+			letter-spacing: 0.56rem;
+
+			align-self: flex-start; // Aligns the title to the left
+			text-align: left; // Ensures the text is aligned left
+			width: auto; // Makes it span the entire width
+			margin-left: 15vw;
 
 			@media screen and (max-width: $break-medium) {
-				height: 15vw;
-				max-height: 100px;
-				margin: 20px auto;
+				font-size: 5rem;
+				gap: 1rem;
+				align-self: flex-end;
+				text-align: right;
+				margin-left: 32vw;
 			}
 		}
 
