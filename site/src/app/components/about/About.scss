@@ -135,7 +135,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 		display: none;
 	}
 
-	@keyframes floatAnimation {
+	@keyframes floatAnimationMobile {
 		0% {
 			transform: translateY(0);
 		}
@@ -145,5 +145,13 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 		100% {
 			transform: translateY(0);
 		}
+	}
+
+	#otter {
+		animation: floatAnimationMobile 4s ease-in-out infinite;
+	}
+
+	#purple-scuba {
+		animation: floatAnimationMobile 4s ease-in-out infinite;
 	}
 }

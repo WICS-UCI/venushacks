@@ -57,7 +57,7 @@ const Home = () => {
 
 			{/* ABOUT **********************/}
 			<section id="about">
-				<h1 className="section-title">ABOUT</h1>
+				<h2 className="section-title">ABOUT</h2>
 				<About/>
 			</section>
 
