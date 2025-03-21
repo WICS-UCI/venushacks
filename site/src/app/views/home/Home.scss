@@ -332,10 +332,11 @@ body {
 			gap: 1.3rem;
 			letter-spacing: 0.56rem;
 
-			align-self: flex-start; // Aligns the title to the left
-			text-align: left; // Ensures the text is aligned left
-			width: auto; // Makes it span the entire width
-			margin-left: 15vw;
+			align-self: flex-start;
+			text-align: left;
+			width: auto;
+			margin-left: 12vw;
+			margin-bottom: 60px;
 
 			@media screen and (max-width: $break-medium) {
 				font-size: 5rem;
@@ -347,44 +348,84 @@ body {
 		}
 
 		.about-url {
-			font-weight: 700;
+			color: white;
 		}
 
-		#about-text-container {
-			width: 60vw;
+		#about-content {
+			width: 90%;
 			max-width: 1500px;
-			color: $darkPurple;
-			font-family: "Varela", sans-serif;
+			margin: 0 auto;
+		}
+
+		.about-row {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+		}
+
+		.about-text {
+			width: 40%;
+			font-family: "Instrument Sans", serif;
 			font-weight: 500;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 20px;
+			font-size: 25px;
+			text-align: left;
+			color: white;
+		}
 
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 20px;
+		.align-right {
+			text-align: right;
+		}
+
+		.about-image-container {
+			position: relative;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.about-image {
+			max-width: 80%;
+			height: auto;
+		}
+
+		.floating-logo {
+			position: absolute;
+			opacity: 0.9;
+		}
+
+		.wics {
+			top: -9vw;
+			left: -8vw;
+			width: 9vw;
+			height: auto;
+		}
+
+		.hack {
+			top: -2vw;
+			left: 2vw;
+			width: 7vw;
+			height: auto;
+		}
+
+		@media screen and (max-width: $break-medium) {
+			#about-content {
+				width: 85vw;
 			}
 
-			@media screen and (max-width: $break-medium) {
-				width: 80vw;
+			.about-row {
+				flex-direction: column;
 			}
 
-			p {
-				@media screen and (max-width: $break-medium) {
-					font-size: 16px;
-				}
-				@media screen and (max-width: $break-small) {
-					font-size: 14px; // This line can prob be removed
-					// when we take out the psa
-				}
+			.about-text,
+			.about-text-2,
+			.about-image-container {
+				width: 100%;
+				text-align: center;
 			}
 
-			#asterisk-inclusive {
-				color: $pink;
-
-				@media screen and (max-width: $break-medium) {
-					font-size: 20px;
-				}
+			.floating-logo {
+				width: 40px;
 			}
 		}
 	} // END ABOUT
