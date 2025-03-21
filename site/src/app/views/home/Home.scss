@@ -12,10 +12,9 @@ body {
 }
 
 .Home {
-	// background-image: url($stars_background);
-	// background-size: cover;
-	// background-attachment: fixed;
-	background-color: #79d0fb77; // TODO delete this later
+	background-image: url($stars_background);
+	background-size: cover;
+	background-attachment: fixed;
 	text-align: center;
 	min-height: 100vh;
 
