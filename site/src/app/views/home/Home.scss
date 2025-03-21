@@ -323,55 +323,26 @@ body {
 		flex-direction: column;
 
 		.section-title {
-			height: 90px;
-			margin: 20px auto 30px;
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 7rem;
+			color: white;
+			text-shadow: 9px 16px 10px #7c94c0;
+			gap: 1.3rem;
+			letter-spacing: 0.56rem;
+
+			align-self: flex-start;
+			text-align: left;
+			width: auto;
+			margin-left: 12vw;
+			margin-bottom: 60px;
 
 			@media screen and (max-width: $break-medium) {
-				height: 15vw;
-				max-height: 100px;
-				margin: 20px auto;
-			}
-		}
-
-		.about-url {
-			font-weight: 700;
-		}
-
-		#about-text-container {
-			width: 60vw;
-			max-width: 1500px;
-			color: $darkPurple;
-			font-family: "Varela", sans-serif;
-			font-weight: 500;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 20px;
-
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 20px;
-			}
-
-			@media screen and (max-width: $break-medium) {
-				width: 80vw;
-			}
-
-			p {
-				@media screen and (max-width: $break-medium) {
-					font-size: 16px;
-				}
-				@media screen and (max-width: $break-small) {
-					font-size: 14px; // This line can prob be removed
-					// when we take out the psa
-				}
-			}
-
-			#asterisk-inclusive {
-				color: $pink;
-
-				@media screen and (max-width: $break-medium) {
-					font-size: 20px;
-				}
+				font-size: 5rem;
+				gap: 1rem;
+				align-self: flex-end;
+				text-align: right;
+				margin-left: 32vw;
 			}
 		}
 	} // END ABOUT

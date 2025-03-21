@@ -1,9 +1,10 @@
+import { Footer, VenusButton } from "src/app/components";
+import About from "src/app/components/about/About";
 import FAQs from "src/app/components/faqs/FAQs";
-import Sponsors from "src/app/components/sponsors/Sponsors";
+import Team from "src/app/components/meet-team/team";
 import Partners from "src/app/components/partners/Partners";
 import Speakers from "src/app/components/speakers/speakers";
-import Team from "src/app/components/meet-team/team";
-import { Footer, VenusButton } from "src/app/components";
+import Sponsors from "src/app/components/sponsors/Sponsors";
 
 // import vh_title from "/assets/images/titles/venushacks.svg";
 // import about_title from "/assets/images/titles/vh-about.svg";
@@ -36,9 +37,9 @@ const Home = () => {
 					/>
 				</div>
 				<div id="astronaut-animation">
-					{/* These assets are a background of a div instead of imgs to prevent
+			{/* These assets are a background of a div instead of imgs to prevent
 					them from being able to be saved to camera roll on iOS */}
-					<div id="boba" />
+			<div id="boba" />
 					<div id="astronaut" />
 					<div id="laptop" />
 					<div id="shiba-inu" />
@@ -56,42 +57,8 @@ const Home = () => {
 
 			{/* ABOUT **********************/}
 			<section id="about">
-				<img className="section-title" src={about_title} alt="About" />
-				<div id="about-text-container">
-					<p>
-						VenusHacks is UCI’s largest women-centric hackathon, an annual event
-						empowering women, gender minorities, and other underrepresented
-						groups in tech. Hosted by&nbsp;
-						<a
-							href="https://wics.ics.uci.edu/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="about-url"
-						>
-							WICS
-						</a>{" "}
-						and&nbsp;
-						<a
-							href="https://hack.ics.uci.edu/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="about-url"
-						>
-							Hack at UCI
-						</a>
-						,&nbsp;the hackathon is open to participants of all experience
-						levels with a mission to increase diversity in the tech industry by
-						providing an inclusive community where students can receive the
-						support to grow and express their creativity in computing.
-					</p>
-					<p className="mb-0">
-						This year, VenusHacks will take place fully in-person in Spring
-						2024! Join us as we welcome high school (18+), undergraduate, and
-						graduate students to participate in our 36-hour (non-overnight)
-						event that includes workshops, networking, fun activities, free food
-						and swag, and lots of coding! Happy hacking!
-					</p>
-				</div>
+				<h2 className="section-title">ABOUT</h2>
+				<About/>
 			</section>
 
 			{/* FAQ ************************/}
