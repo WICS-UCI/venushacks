@@ -6,105 +6,144 @@ $wics_bubble: "assets/images/wics-bubble.svg";
 $hack_bubble: "assets/images/hack-bubble.svg";
 
 .about-url {
-    color: white;
+	color: white;
 }
 
 #about-content {
-    width: 90%;
-    max-width: 1500px;
-    margin: 0 auto;
+	width: 90%;
+	max-width: 1500px;
+	margin: 0 auto;
 }
 
 .about-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 .about-text {
-    width: 40%;
-    font-family: "Instrument Sans", serif;
-    font-weight: 500;
-    font-size: 25px;
-    text-align: left;
-    color: white;
+	width: 40%;
+	font-family: "Instrument Sans", serif;
+	font-weight: 500;
+	font-size: 25px;
+	text-align: left;
+	color: white;
 }
 
 .align-right {
-    text-align: right;
+	text-align: right;
 }
 
 .about-image-container {
-    position: relative;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	position: relative;
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes floatAnimation {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes floatBubbles {
+	0% {
+		transform: translatey(50px);
+	}
+	50% {
+		transform: translatey(70px);
+	}
+	100% {
+		transform: translatey(50px);
+	}
 }
 
 #otter {
-    width: 25vw;
-    height: 25vw;
-    max-width: 396px;
-    background: url($otter);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+	width: 25vw;
+	height: 25vw;
+	max-width: 396px;
+	background: url($otter);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	animation: floatAnimation 4s ease-in-out infinite;
 }
 
 #purple-scuba {
-    width: 28vw;
-    height: 28vw;
-    max-width: 470px;
-    background: url($purple_scuba);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+	width: 28vw;
+	height: 28vw;
+	max-width: 470px;
+	background: url($purple_scuba);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	animation: floatAnimation 4s ease-in-out infinite;
 }
 
 .floating-logo {
-    position: absolute;
+	position: absolute;
+	animation: floatBubbles 4s ease-in-out infinite;
 }
 
 .wics {
-    top: -9vw;
-    left: -8vw;
-    width: 9vw;
-    height: 9vw;
-    background: url($wics_bubble);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+	top: -9vw;
+	left: -8vw;
+	width: 9vw;
+	height: 9vw;
+	background: url($wics_bubble);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .hack {
-    top: -2vw;
-    left: 2vw;
-    width: 7vw;
-    height: 7vw;
-    background: url($hack_bubble);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+	top: -2vw;
+	left: 2vw;
+	width: 7vw;
+	height: 7vw;
+	background: url($hack_bubble);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 @media screen and (max-width: $break-medium) {
-    #about-content {
-        width: 85vw;
-    }
+	#about-content {
+		width: 85vw;
+	}
 
-    .about-row {
-        flex-direction: column;
-    }
+	.about-row {
+		flex-direction: column;
+	}
 
-    .about-text,
-    .about-text-2,
-    .about-image-container {
-        width: 100%;
-        text-align: center;
-    }
+	.about-text,
+	.about-text-2,
+	.about-image-container {
+		width: 100%;
+		text-align: center;
+	}
 
-    .floating-logo {
-        display: none;
-    }
+	.floating-logo {
+		display: none;
+	}
+
+	@keyframes floatAnimation {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-5px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
 }
