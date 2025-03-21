@@ -64,7 +64,6 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 
 .floating-logo {
     position: absolute;
-    opacity: 0.9;
 }
 
 .wics {
@@ -106,6 +105,6 @@ $hack_bubble: "assets/images/hack-bubble.svg";
     }
 
     .floating-logo {
-        width: 40px;
+        display: none;
     }
 }
