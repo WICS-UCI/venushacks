@@ -10,9 +10,25 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 #about-content {
-	width: 90%;
+	width: 75%;
 	max-width: 1500px;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	@media screen and (max-width: $break-medium) {
+		align-items: center;
+	}
+}
+
+.about-title {
+	font-family: "Londrina Solid", sans-serif;
+	font-weight: 400;
+	font-size: 7rem;
+	color: white;
+	text-shadow: 9px 16px 10px #7c94c0;
+	letter-spacing: 0.56rem;
 }
 
 .about-row {
@@ -22,7 +38,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 .about-text {
-	width: 40%;
+	// width: 40%;
 	font-family: "Instrument Sans", serif;
 	font-weight: 500;
 	font-size: 25px;
@@ -36,7 +52,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 
 .about-image-container {
 	position: relative;
-	width: 30%;
+	// width: 30%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

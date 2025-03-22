@@ -322,29 +322,6 @@ body {
 		align-items: center;
 		flex-direction: column;
 
-		.section-title {
-			font-family: "Londrina Solid", sans-serif;
-			font-weight: 400;
-			font-size: 7rem;
-			color: white;
-			text-shadow: 9px 16px 10px #7c94c0;
-			gap: 1.3rem;
-			letter-spacing: 0.56rem;
-
-			align-self: flex-start;
-			text-align: left;
-			width: auto;
-			margin-left: 12vw;
-			margin-bottom: 60px;
-
-			@media screen and (max-width: $break-medium) {
-				font-size: 5rem;
-				gap: 1rem;
-				align-self: flex-end;
-				text-align: right;
-				margin-left: 32vw;
-			}
-		}
 	} // END ABOUT
 
 	#faq {
