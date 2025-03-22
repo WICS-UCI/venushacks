@@ -39,7 +39,6 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 .about-text {
-	// width: 40%;
 	font-family: "Instrument Sans", serif;
 	font-weight: 500;
 	font-size: 1.56rem;
@@ -53,7 +52,6 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 
 .about-image-container {
 	position: relative;
-	// width: 30%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -73,19 +71,19 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 
 @keyframes floatBubbles {
 	0% {
-		transform: translatey(50px);
+		transform: translateY(50px);
 	}
 	50% {
-		transform: translatey(70px);
+		transform: translateY(70px);
 	}
 	100% {
-		transform: translatey(50px);
+		transform: translateY(50px);
 	}
 }
 
 #otter {
-	width: 25vw;
-	height: 40vh;
+	width: 40vw;
+	height: 60vh;
 	max-width: 396px;
 	max-height: 352px;
 	background: url($otter);
@@ -94,15 +92,17 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 	background-position: center;
 	animation: floatAnimation 4s ease-in-out infinite;
 
-	@media screen and (max-width: $break-medium) {
+	@media screen and (max-width: $break-small) {
+		width: 25vw;
 		height: 25vw;
 	}
 }
 
 #purple-scuba {
-	width: 28vw;
-	height: 43vh;
+	width: 30vw;
+	height: 65vh;
 	max-width: 470px;
+	max-height: 463px;
 	background: url($purple_scuba);
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -110,6 +110,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 	animation: floatAnimation 4s ease-in-out infinite;
 
 	@media screen and (max-width: $break-medium) {
+		width: 28vw;
 		height: 28vw;
 	}
 }
@@ -120,10 +121,12 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 .wics {
-	top: -9vw;
-	left: -8vw;
+	top: calc(-170px - 1vw);
+	left: calc(-80px - 1vw);
 	width: 9vw;
 	height: 9vw;
+	max-width: 135px;
+	max-height: 135px;
 	background: url($wics_bubble);
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -131,10 +134,12 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 .hack {
-	top: -2vw;
-	left: 2vw;
+	top: calc(-60px - 0.8vw);
+	left: calc(20px + 0.5vw);
 	width: 7vw;
 	height: 7vw;
+	max-width: 99px;
+	max-height: 99px;
 	background: url($hack_bubble);
 	background-size: contain;
 	background-repeat: no-repeat;
