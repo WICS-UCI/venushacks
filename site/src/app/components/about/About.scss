@@ -29,6 +29,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 	color: white;
 	text-shadow: 9px 16px 10px #7c94c0;
 	letter-spacing: 0.56rem;
+	margin-bottom: 0;
 }
 
 .about-row {
@@ -41,7 +42,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 	// width: 40%;
 	font-family: "Instrument Sans", serif;
 	font-weight: 500;
-	font-size: 25px;
+	font-size: 1.56rem;
 	text-align: left;
 	color: white;
 }
@@ -84,24 +85,33 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 
 #otter {
 	width: 25vw;
-	height: 25vw;
+	height: 40vh;
 	max-width: 396px;
+	max-height: 352px;
 	background: url($otter);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
 	animation: floatAnimation 4s ease-in-out infinite;
+
+	@media screen and (max-width: $break-medium) {
+		height: 25vw;
+	}
 }
 
 #purple-scuba {
 	width: 28vw;
-	height: 28vw;
+	height: 43vh;
 	max-width: 470px;
 	background: url($purple_scuba);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
 	animation: floatAnimation 4s ease-in-out infinite;
+
+	@media screen and (max-width: $break-medium) {
+		height: 28vw;
+	}
 }
 
 .floating-logo {
