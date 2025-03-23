@@ -41,14 +41,14 @@ export default function About() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<div class="floating-logo wics" aria-label="WICS Logo"></div>
+						<div className="floating-logo wics" aria-label="WICS Logo"></div>
 					</a>
 					<a
 						href="https://hack.ics.uci.edu/"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<div class="floating-logo hack" aria-label="Hack Logo"></div>
+						<div className="floating-logo hack" aria-label="Hack Logo"></div>
 					</a>
 				</div>
 			</div>
