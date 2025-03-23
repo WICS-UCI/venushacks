@@ -82,8 +82,8 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 #otter {
-	width: 40vw;
-	height: 60vh;
+	width: 30vw;
+	height: 55vh;
 	max-width: 396px;
 	max-height: 352px;
 	background: url($otter);
@@ -100,7 +100,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 
 #purple-scuba {
 	width: 30vw;
-	height: 65vh;
+	height: 60vh;
 	max-width: 470px;
 	max-height: 463px;
 	background: url($purple_scuba);
@@ -121,8 +121,8 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 .wics {
-	top: calc(-170px - 1vw);
-	left: calc(-80px - 1vw);
+	top: calc(-20vh - 50px);
+	left: calc(-5vw + 10px); // +10px keeps it from going too far left and covering text
 	width: 9vw;
 	height: 9vw;
 	max-width: 135px;
@@ -134,8 +134,8 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 .hack {
-	top: calc(-60px - 0.8vw);
-	left: calc(20px + 0.5vw);
+	top: calc(-3vh - 30px); // -30px keeps it from shifting too far up
+	left: calc(2vw - 10px); // -10px prevents excessive right shift
 	width: 7vw;
 	height: 7vw;
 	max-width: 99px;
