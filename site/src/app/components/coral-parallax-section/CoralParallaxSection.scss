@@ -31,22 +31,16 @@ body {
 
 	.coral {
 		position: absolute;
-		left: 0;
 		width: 100vw;
+		pointer-events: none;
 	}
 
 	#coral0 {
 		margin-top: 50vh;
 	}
 
-	#coral1 {
-		margin-top: 25vh;
-	}
-
-	#coral2 {
-		margin-top: 25vh;
-	}
-
+	#coral1,
+	#coral2,
 	#coral3 {
 		margin-top: 25vh;
 	}
@@ -56,5 +50,51 @@ body {
 		flex-direction: row;
 		gap: 50px;
 		margin-top: 30px;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			gap: 30px;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
+
+	@media screen and (max-width: vh-styles.$break-medium) {
+		.coral {
+			width: 110vw;
+			left: -5vw;
+		}
+
+		#coral0 {
+			margin-top: 60vh;
+		}
+		#coral1,
+		#coral2,
+		#coral3 {
+			margin-top: 40vh;
+		}
+	}
+
+	@media screen and (max-width: vh-styles.$break-small) {
+		.content-container {
+			height: 100vh;
+			padding-top: 10vh;
+		}
+
+		.coral {
+			width: 110vw;
+			left: -5vw;
+		}
+
+		#coral0 {
+			margin-top: 75vh;
+		}
+		#coral1,
+		#coral2,
+		#coral3 {
+			margin-top: 65vh;
+		}
 	}
 }
