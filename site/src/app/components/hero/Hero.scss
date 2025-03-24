@@ -1,0 +1,40 @@
+@use "src/globals/vh-styles.scss";
+
+$leftFishes: "/assets/images/left-fishes.svg";
+$rightFishes: "/assets/images/right-fishes.svg";
+$coral: "/assets/images/coral.svg";
+
+body {
+	overflow-x: hidden;
+}
+
+.hero-container {
+	background: linear-gradient(179.68deg, #CBE9F1 1.23%, #3F9FCF 55.74%);
+	min-height: 100vh;
+    height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	@media screen and (max-width: vh-styles.$break-small) {
+		background-size: contain;
+	}
+
+	#coral {
+		pointer-events: none;
+		width: 105vw;
+		height: 75vh;
+		position: absolute;
+		background-position: top;
+		margin-top: 25vh;
+		background: url($coral) no-repeat top/cover;
+	}
+
+	.button-row {
+		display: flex;
+		flex-direction: row;
+		gap: 50px;
+		margin-top: 30px;
+	}
+}
