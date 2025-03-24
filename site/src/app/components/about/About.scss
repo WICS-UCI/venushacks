@@ -1,0 +1,188 @@
+@import "src/globals/vh-styles.scss";
+
+$otter: "assets/images/otter.svg";
+$purple_scuba: "assets/images/purple-scuba.svg";
+$wics_bubble: "assets/images/wics-bubble.svg";
+$hack_bubble: "assets/images/hack-bubble.svg";
+
+.about-url {
+	color: white;
+}
+
+#about-content {
+	width: 75%;
+	max-width: 1500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	@media screen and (max-width: $break-medium) {
+		align-items: center;
+	}
+}
+
+.about-title {
+	font-family: "Londrina Solid", sans-serif;
+	font-weight: 400;
+	font-size: 7rem;
+	color: white;
+	text-shadow: 9px 16px 10px #7c94c0;
+	letter-spacing: 0.56rem;
+	margin-bottom: 0;
+}
+
+.about-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.about-text {
+	font-family: "Instrument Sans", serif;
+	font-weight: 500;
+	font-size: 1.56rem;
+	text-align: left;
+	color: white;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.about-image-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes floatAnimation {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes floatBubbles {
+	0% {
+		transform: translateY(50px);
+	}
+	50% {
+		transform: translateY(70px);
+	}
+	100% {
+		transform: translateY(50px);
+	}
+}
+
+#otter {
+	width: 30vw;
+	height: 55vh;
+	max-width: 396px;
+	max-height: 352px;
+	background: url($otter);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	animation: floatAnimation 4s ease-in-out infinite;
+
+	@media screen and (max-width: $break-small) {
+		width: 25vw;
+		height: 25vw;
+	}
+}
+
+#purple-scuba {
+	width: 30vw;
+	height: 60vh;
+	max-width: 470px;
+	max-height: 463px;
+	background: url($purple_scuba);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	animation: floatAnimation 4s ease-in-out infinite;
+
+	@media screen and (max-width: $break-medium) {
+		width: 28vw;
+		height: 28vw;
+	}
+}
+
+.floating-logo {
+	position: absolute;
+	animation: floatBubbles 4s ease-in-out infinite;
+}
+
+.wics {
+	top: calc(-20vh - 50px);
+	left: calc(-5vw + 10px); // +10px keeps it from going too far left and covering text
+	width: 9vw;
+	height: 9vw;
+	max-width: 135px;
+	max-height: 135px;
+	background: url($wics_bubble);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.hack {
+	top: calc(-3vh - 30px); // -30px keeps it from shifting too far up
+	left: calc(2vw - 10px); // -10px prevents excessive right shift
+	width: 7vw;
+	height: 7vw;
+	max-width: 99px;
+	max-height: 99px;
+	background: url($hack_bubble);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@media screen and (max-width: $break-medium) {
+	#about-content {
+		width: 85vw;
+	}
+
+	.about-row {
+		flex-direction: column;
+	}
+
+	.about-text,
+	.about-text-2,
+	.about-image-container {
+		width: 100%;
+		text-align: center;
+	}
+
+	.floating-logo {
+		display: none;
+	}
+
+	@keyframes floatAnimationMobile {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-5px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	#otter {
+		animation: floatAnimationMobile 4s ease-in-out infinite;
+	}
+
+	#purple-scuba {
+		animation: floatAnimationMobile 4s ease-in-out infinite;
+	}
+}
