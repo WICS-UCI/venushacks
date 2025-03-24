@@ -1,48 +1,25 @@
 import { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Title from "../title/Title";
-import PrimaryButton from "../primary-button/PrimaryButton";
-
-import "./Hero.scss";
+import CoralParallaxSection from "../coral-parallax-section/CoralParallaxSection";
 
 
 const Hero = () => {
-	const [scrollY, setScrollY] = useState(0);
+	const [clientWidth, setClientWidth] = useState(window.innerWidth);
+	const [clientHeight, setClientHeight] = useState(window.innerHeight);
 
 	useEffect(() => {
-		const handleScroll = () => setScrollY(window.scrollY);
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		const handleResize = () => {
+			setClientWidth(window.innerWidth);
+			setClientHeight(window.innerHeight);
+		};
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
 	return (
-		<section className="hero-container">
-			{/* PARALLAX CORAL LAYERS */}
-			<div
-				id="coral1"
-				style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-			/>
-			<div
-				id="coral2"
-				style={{ transform: `translateY(${scrollY * 0.4}px)` }}
-			/>
-			<div
-				id="coral3"
-				style={{ transform: `translateY(${scrollY * 0.6}px)` }}
-			/>
-			<div
-				id="coral4"
-				style={{ transform: `translateY(${scrollY * 0.8}px)` }}
-			/>
-
-			<Container className="d-flex flex-column align-items-center">
-				<Title />
-				<div className="button-row">
-					<PrimaryButton href="/apply" type="button">Apply Now</PrimaryButton>
-					<PrimaryButton href="/sponsor" type="button">Sponsor Us</PrimaryButton>
-				</div>
-			</Container>
-		</section>
+		<CoralParallaxSection
+			clientWidth={clientWidth}
+			clientHeight={clientHeight}
+		/>
 	);
 };
 
