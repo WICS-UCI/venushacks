@@ -10,7 +10,7 @@ body {
 .hero-container {
 	background: linear-gradient(179.68deg, #cbe9f1 1.23%, #3f9fcf 55.74%);
 	width: 100%;
-	min-height: 200vh;
+	min-height: 220vh;
 	overflow: hidden;
 	position: relative;
 
@@ -62,6 +62,8 @@ body {
 	}
 
 	@media screen and (max-width: vh-styles.$break-medium) {
+		min-height: 150vh;
+
 		.coral {
 			width: 110vw;
 			left: -5vw;
@@ -78,6 +80,8 @@ body {
 	}
 
 	@media screen and (max-width: vh-styles.$break-small) {
+		min-height: 115vh;
+
 		.content-container {
 			height: 100vh;
 			padding-top: 10vh;

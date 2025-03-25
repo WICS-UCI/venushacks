@@ -1,9 +1,10 @@
+import { Footer, VenusButton } from "src/app/components";
+import About from "src/app/components/about/About";
 import FAQs from "src/app/components/faqs/FAQs";
-import Sponsors from "src/app/components/sponsors/Sponsors";
+import Team from "src/app/components/meet-team/team";
 import Partners from "src/app/components/partners/Partners";
 import Speakers from "src/app/components/speakers/speakers";
-import Team from "src/app/components/meet-team/team";
-import { Footer, VenusButton } from "src/app/components";
+import Sponsors from "src/app/components/sponsors/Sponsors";
 
 // import vh_title from "/assets/images/titles/venushacks.svg";
 // import about_title from "/assets/images/titles/vh-about.svg";
@@ -22,9 +23,14 @@ const Home = () => {
 	return (
 		<div className="Home">
 			{/* HERO **********************/}
-			<Hero />
+			<section id="hero">
+				<Hero />
+			</section>
 
 			{/* ABOUT **********************/}
+			<section id="about">
+				<About />
+			</section>
 
 			{/* FAQ ************************/}
 

@@ -48,7 +48,7 @@ const CoralLayer = ({ speed, src, id, clientWidth, clientHeight }) => {
 };
 
 const CoralParallaxSection = ({ clientWidth, clientHeight }) => (
-	<section className="hero-container">
+	<div className="hero-container">
 		{coralImages.map((src, i) => (
 			<CoralLayer
 				key={i}
@@ -72,7 +72,7 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => (
 				</PrimaryButton>
 			</div>
 		</Container>
-	</section>
+	</div>
 );
 
 export default CoralParallaxSection;
