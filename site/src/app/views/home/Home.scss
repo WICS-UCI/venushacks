@@ -327,27 +327,29 @@ body {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		font-family: "Varela", sans-serif;
-		color: $darkPurple;
+		font-family: "Londrina Solid", sans-serif;
+		color: white;
 		margin-top: 50px;
 
-		.section-title {
-			height: 140px;
-			@media screen and (max-width: $break-medium) {
-				height: 25vw;
-				max-height: 150px;
-			}
-		}
-
 		#faq-container {
+			width: 75%;
+			max-width: 1500px;
+			margin: 0 auto;
 			align-items: center;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 20px;
 
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 20px;
+			.section-title {
+				font-family: "Londrina Solid", sans-serif;
+				font-weight: 400;
+				font-size: 6.25rem;
+				color: white;
+				text-shadow: 9px 16px 10px #8e7694;
+				letter-spacing: 0.56rem;
+				text-align: left;
+				margin-bottom: 1em;
+
+				@media screen and (max-width: $break-medium) {
+					text-align: center;
+				}
 			}
 		}
 
