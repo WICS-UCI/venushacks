@@ -4,22 +4,18 @@
 	width: 80vw;
 	text-align: left;
 
-	#faq-accordion-grid {
+	// #faq-accordion-grid {
+	// 	display: grid;
+	// 	grid-template-columns: 1fr 1fr;
+	// 	grid-column-gap: 20px;
+
+	// 	@media screen and (max-width: 830px) {
+	// 		display: none;
+	// 	}
+	// }
+
+	#faq-accordion {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-column-gap: 20px;
-
-		@media screen and (max-width: 830px) {
-			display: none;
-		}
-	}
-
-	#faq-accordion-mobile {
-		display: none;
-
-		@media screen and (max-width: 830px) {
-			display: block;
-		}
 	}
 }
 
