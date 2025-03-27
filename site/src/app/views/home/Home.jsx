@@ -5,6 +5,8 @@ import Team from "src/app/components/meet-team/team";
 import Partners from "src/app/components/partners/Partners";
 import Speakers from "src/app/components/speakers/speakers";
 import Sponsors from "src/app/components/sponsors/Sponsors";
+import Hero from "src/app/components/hero/Hero";
+
 
 // import vh_title from "/assets/images/titles/venushacks.svg";
 // import about_title from "/assets/images/titles/vh-about.svg";
@@ -13,13 +15,11 @@ import Sponsors from "src/app/components/sponsors/Sponsors";
 // import meet_team_title from "/assets/images/titles/vh-meet-the-team.svg";
 
 import "./Home.scss";
-import Hero from "src/app/components/hero/Hero";
 
 const VH_DATE = "May 24 - 26, 2024";
 const CONTACT_EMAIL = "venushacks.uci@gmail.com";
 
 const Home = () => {
-	console.log("rendering home");
 	return (
 		<div className="Home">
 			{/* HERO **********************/}

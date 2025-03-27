@@ -11,7 +11,7 @@ const coralImages = [
 	"/assets/images/coral1.svg",
 ];
 
-const SCROLL_INCREMENT = -8;
+const SCROLL_INCREMENT = -20;
 const SVG_ASPECT_RATIO = 1728 / 1117;
 const PARALLAX_PORTION = 0.75;
 
@@ -24,8 +24,8 @@ const CoralLayer = ({ speed, src, id, clientWidth, clientHeight }) => {
 	return (
 		<Parallax
 			startScroll={0}
-			endScroll={height}
-			translateY={[0, -end]}
+			endScroll={height * 1.5}
+			translateY={[0, -end * 1.2]}
 			className="coral"
 			id={`coral${id}`}
 			style={{

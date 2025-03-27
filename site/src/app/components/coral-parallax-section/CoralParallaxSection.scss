@@ -8,11 +8,10 @@ body {
 }
 
 .hero-container {
-	background: linear-gradient(179.68deg, #cbe9f1 1.23%, #3f9fcf 55.74%);
 	width: 100%;
 	min-height: 220vh;
-	overflow: hidden;
 	position: relative;
+	margin-bottom: 10vh;
 
 	@media screen and (max-width: vh-styles.$break-small) {
 		background-size: contain;
@@ -61,8 +60,12 @@ body {
 		}
 	}
 
+	@media screen and (max-width: vh-styles.$break-large) {
+		margin-bottom: -60vh;
+	}
+
 	@media screen and (max-width: vh-styles.$break-medium) {
-		min-height: 150vh;
+		margin-bottom: -70vh;
 
 		.coral {
 			width: 110vw;
@@ -80,7 +83,8 @@ body {
 	}
 
 	@media screen and (max-width: vh-styles.$break-small) {
-		min-height: 115vh;
+		overflow-x: hidden;
+		margin-bottom: -90vh;
 
 		.content-container {
 			height: 100vh;
