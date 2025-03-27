@@ -4,16 +4,6 @@
 	width: 80vw;
 	text-align: left;
 
-	// #faq-accordion-grid {
-	// 	display: grid;
-	// 	grid-template-columns: 1fr 1fr;
-	// 	grid-column-gap: 20px;
-
-	// 	@media screen and (max-width: 830px) {
-	// 		display: none;
-	// 	}
-	// }
-
 	#faq-accordion {
 		display: grid;
 	}
@@ -23,24 +13,29 @@
 
 .accordion {
 	text-align: left;
-	--bs-accordion-color: $darkPurple;
-	--bs-accordion-active-color: $darkPurple;
-	--bs-accordion-btn-color: $darkPurple;
-	--bs-accordion-bg: none;
+	--bs-accordion-color: white;
+	--bs-accordion-active-color: white;
+	--bs-accordion-btn-color: white;
+	--bs-accordion-bg: #8659a4;
 	--bs-accordion-border-color: none;
-	--bs-accordion-border-radius: none;
+	--bs-accordion-border-radius: 29px;
 	--bs-accordion-active-bg: none;
 	--bs-accordion-btn-focus-box-shadow: none;
 }
 
 .accordion-body {
-	padding-top: 0px;
+	padding: 25px;
+	font-size: 1.5rem;
 }
 
 .accordion-item {
-	border-bottom: $darkPurple 1px solid;
+	margin-bottom: 30px;
+	border-radius: 29px;
+	overflow: hidden; // Prevent content from breaking the border radius
+	box-shadow: 0 4px 4px #673f82;
 }
 
-.accordion .accordion-button {
-	box-shadow: none;
+.accordion-button {
+	font-weight: 400;
+	font-size: 1.875rem;
 }

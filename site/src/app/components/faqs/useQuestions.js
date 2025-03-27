@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getQuestions } from "./getQuestions";
 
 export default function useQuestions() {
@@ -12,8 +12,9 @@ export default function useQuestions() {
 		const fetchQuestions = async () => {
 			try {
 				const data = await getQuestions();
+				// console.log("Fetched questions:", data[0].faqs); // Check the fetched data
 				if (isMounted) {
-					setQuestions(data);
+					setQuestions(data[0].faqs);
 					setIsLoading(false);
 				}
 			} catch (err) {
