@@ -21,7 +21,7 @@ const Home = () => {
 	return (
 		<div className="Home">
 			{/* HERO **********************/}
-			{/* <section id="hero">
+			<section id="hero">
 				<div id="hero-right">
 					<img
 						src={vh_title}
@@ -36,10 +36,10 @@ const Home = () => {
 						text="Closing Ceremony"
 					/>
 				</div>
-				<div id="astronaut-animation"> */}
+				<div id="astronaut-animation">
 					{/* These assets are a background of a div instead of imgs to prevent
 					them from being able to be saved to camera roll on iOS */}
-					{/* <div id="boba" />
+					<div id="boba" />
 					<div id="astronaut" />
 					<div id="laptop" />
 					<div id="shiba-inu" />
@@ -53,7 +53,7 @@ const Home = () => {
 				height="480"
 				allow="autoplay"
 				id="tanesha-moody"
-			></iframe> */}
+			></iframe>
 
 			{/* ABOUT **********************/}
 			<section id="about">
@@ -68,11 +68,11 @@ const Home = () => {
 					<FAQs />
 				</div>
 			</section>
-			{/* <Sponsors />
-			<Partners /> */}
+			<Sponsors />
+			<Partners />
 
 			{/* SPEAKERS ******************/}
-			{/* <section id="speakers">
+			<section id="speakers">
 				<img className="section-title" src={speakers_title} alt="Speakers" />
 				<Speakers />
 			</section>
@@ -86,7 +86,7 @@ const Home = () => {
 				<Team />
 			</section>
 
-			<Footer /> */}
+			<Footer />
 		</div>
 	);
 };
