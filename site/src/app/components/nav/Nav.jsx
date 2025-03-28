@@ -9,9 +9,6 @@ import {
 } from "framer-motion";
 
 import vhLogo from "/assets/images/shell.svg";
-import instaIcon from "/assets/images/instagram_icon.svg";
-import emailIcon from "/assets/images/email_icon.svg";
-import tiktokIcon from "/assets/images/tikok_icon.svg";
 
 import "./Nav.scss";
 
@@ -22,7 +19,7 @@ const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 				initial: { opacity: 0 },
 				animate: { opacity: 1 },
 				exit: { opacity: 0 },
-				transition: { duration: 0.2 },
+				transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
 			})}
 		>
 			{text}
@@ -31,26 +28,26 @@ const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	</Link>
 );
 
-const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
+const NavLinks = ({ reduceMotion, isMobile }) => (
 	<>
+		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
 		<NavLink
-			url="https://www.instagram.com/venushacksuci/"
-			desc="Instagram"
-			img={instaIcon}
+			url="/resources"
+			text="Resources"
 			{...{ isMobile, reduceMotion }}
 		/>
 		<NavLink
-			url="https://www.tiktok.com/@venushacksuci"
-			desc="TikTok"
-			img={tiktokIcon}
+			url="/workshops"
+			text="Workshops"
 			{...{ isMobile, reduceMotion }}
 		/>
 		<NavLink
-			url="mailto:venushacks.uci@gmail.com"
-			desc="Email"
-			img={emailIcon}
+			url="/report"
+			text="Incident Form"
 			{...{ isMobile, reduceMotion }}
 		/>
+		<NavLink url="/devpost" text="DevPost" {...{ isMobile, reduceMotion }} />
 	</>
 );
 
@@ -65,8 +62,6 @@ const Nav = () => {
 	const isHomepage = pathname == "/";
 	const reduceMotion = useReducedMotion();
 	const { scrollYProgress } = useScroll();
-
-	const [hover, setHover] = useState(false);
 
 	window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
 	useMotionValueEvent(scrollYProgress, "change", (latest) =>
@@ -88,7 +83,6 @@ const Nav = () => {
 				})}
 			>
 				<motion.div
-					onMouseLeave={() => setHover(false)}
 					className="nav-links-container"
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
@@ -97,44 +91,29 @@ const Nav = () => {
 						to="/"
 						{...(showDropdown && { style: { top: "-10%" } })}
 					>
-						<motion.img
-							onMouseEnter={() => setHover(true)}
-							className="nav-vh-logo"
-							src={vhLogo}
-						/>
+						<motion.img className="nav-vh-logo" src={vhLogo} />
 					</Link>
-
-					{hover && (
-						<>
-							{isMobile ? (
-								<div>
-									<motion.span
-										className={`nav-menu-span`}
-										{...(!reduceMotion && {
-											initial: { opacity: 0 },
-											animate: { opacity: 1 },
-											exit: { opacity: 0 },
-											transition: { delay: 0.5, duration: 0.2 },
-										})}
-									></motion.span>
-									{showDropdown && (
-										<div className="bckgrd">
-											<NavLinks
-												showDivider={false}
-												{...{ isMobile, reduceMotion }}
-											/>
-										</div>
-									)}
-								</div>
-							) : (
+					{isMobile ? (
+						<div>
+							<motion.span
+								className={`nav-menu-span ${!showDropdown && "menu-icon"}`}
+								{...(!reduceMotion && {
+									initial: { opacity: 0 },
+									animate: { opacity: 1 },
+									exit: { opacity: 0 },
+									transition: { delay: 0.5, duration: 0.2 },
+								})}
+							></motion.span>
+							{showDropdown && (
 								<div className="bckgrd">
-									<NavLinks
-										showDivider={true}
-										{...{ isMobile, reduceMotion }}
-									/>
+									<NavLinks {...{ isMobile, reduceMotion }} />
 								</div>
 							)}
-						</>
+						</div>
+					) : (
+						<div className="bckgrd">
+							<NavLinks {...{ isMobile, reduceMotion }} />
+						</div>
 					)}
 				</motion.div>
 			</motion.div>
