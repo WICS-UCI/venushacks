@@ -1,12 +1,9 @@
 @import "src/globals/vh-styles.scss";
+$arrow: "assets/images/arrow-point-right.svg";
 
 #faq-accordion-wrapper {
-	width: 80vw;
 	text-align: left;
-
-	#faq-accordion {
-		display: grid;
-	}
+	display: grid;
 }
 
 // BOOTSTRAP ACCORDION STYLING
@@ -26,10 +23,13 @@
 .accordion-body {
 	padding: 25px;
 	font-size: 1.5rem;
+	@media screen and (max-width: $break-medium) {
+		font-size: 1.2rem;
+	}
 }
 
 .accordion-item {
-	margin-bottom: 30px;
+	margin-bottom: 1.5rem;
 	border-radius: 29px;
 	overflow: hidden; // Prevent content from breaking the border radius
 	box-shadow: 0 4px 4px #673f82;
@@ -38,4 +38,35 @@
 .accordion-button {
 	font-weight: 400;
 	font-size: 1.875rem;
+	padding-left: 4rem;
+
+	// Move the arrow to the left
+	&::before {
+		content: "";
+		background-image: url($arrow);
+		background-repeat: no-repeat;
+		background-size: contain;
+		position: absolute;
+		left: 1rem;
+		width: 35px;
+		height: 35px;
+		transform-origin: center;
+		transition: transform 0.3s ease-in-out;
+	}
+	// Remove the default right-side arrow
+	&::after {
+		content: none;
+	}
+	// When the accordion is not collapsed (i.e., open)
+	&:not(.collapsed) {
+		&::before {
+			margin-top: 1rem;
+			transform: rotate(90deg);
+		}
+	}
+
+	@media screen and (max-width: $break-medium) {
+		font-size: 1.5rem;
+		padding-left: 3rem;
+	}
 }

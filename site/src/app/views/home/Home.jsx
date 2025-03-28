@@ -67,13 +67,6 @@ const Home = () => {
 					<h2 className="section-title">FAQs</h2>
 					<FAQs />
 				</div>
-				<p id="faq-contact-us">
-					Additional logistic questions? Contact us at&nbsp;
-					<a href={`mailto:${CONTACT_EMAIL}`} target="_top">
-						{CONTACT_EMAIL}
-					</a>
-					.
-				</p>
 			</section>
 			{/* <Sponsors />
 			<Partners /> */}

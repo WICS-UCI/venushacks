@@ -351,15 +351,8 @@ body {
 					text-align: center;
 				}
 			}
-		}
-
-		#faq-contact-us {
-			font-size: 20px;
-
-			@media screen and (max-width: $break-small) {
-				font-size: 15px;
-				margin: 10px 0 65px 0;
-				width: 80%;
+			@media screen and (max-width: $break-medium) {
+				width: 85%;
 			}
 		}
 	} // END FAQ
