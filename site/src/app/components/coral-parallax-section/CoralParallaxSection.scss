@@ -9,9 +9,9 @@ body {
 
 .hero-container {
 	width: 100%;
-	min-height: 220vh;
 	position: relative;
-	margin-bottom: 10vh;
+	padding-bottom: 10vh;
+	margin-bottom: 15vh;
 
 	@media screen and (max-width: vh-styles.$break-small) {
 		background-size: contain;
@@ -30,7 +30,8 @@ body {
 
 	.coral {
 		position: absolute;
-		width: 100vw;
+		width: 105vw;
+		left: -2.5vw;
 		pointer-events: none;
 	}
 
@@ -60,12 +61,16 @@ body {
 		}
 	}
 
+	@media screen and (max-width: vh-styles.$break-xlarge) {
+		margin-bottom: 10vh;
+	}
+
 	@media screen and (max-width: vh-styles.$break-large) {
-		margin-bottom: -60vh;
+		margin-bottom: -35vh;
 	}
 
 	@media screen and (max-width: vh-styles.$break-medium) {
-		margin-bottom: -70vh;
+		margin-bottom: -60vh;
 
 		.coral {
 			width: 110vw;
@@ -84,7 +89,7 @@ body {
 
 	@media screen and (max-width: vh-styles.$break-small) {
 		overflow-x: hidden;
-		margin-bottom: -90vh;
+		margin-bottom: -85vh;
 
 		.content-container {
 			height: 100vh;
