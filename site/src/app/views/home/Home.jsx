@@ -62,17 +62,10 @@ const Home = () => {
 
 			{/* FAQ ************************/}
 			<section id="faq">
-				<img className="section-title" src={faq_title} alt="FAQ" />
 				<div id="faq-container">
+					<h2 className="section-title">FAQs</h2>
 					<FAQs />
 				</div>
-				<p id="faq-contact-us">
-					Additional logistic questions? Contact us at&nbsp;
-					<a href={`mailto:${CONTACT_EMAIL}`} target="_top">
-						{CONTACT_EMAIL}
-					</a>
-					.
-				</p>
 			</section>
 			<Sponsors />
 			<Partners />
