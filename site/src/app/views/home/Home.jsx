@@ -1,4 +1,4 @@
-import { Footer, VenusButton } from "src/app/components";
+import { VenusButton } from "src/app/components";
 import About from "src/app/components/about/About";
 import FAQs from "src/app/components/faqs/FAQs";
 import Team from "src/app/components/meet-team/team";
@@ -91,8 +91,6 @@ const Home = () => {
 				/>
 				<Team />
 			</section>
-
-			<Footer />
 		</div>
 	);
 };
