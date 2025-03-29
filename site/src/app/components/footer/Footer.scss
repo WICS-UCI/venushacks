@@ -45,3 +45,19 @@
 		margin: 0 10px;
 	}
 }
+
+@media (max-width: $break-medium) {
+	#footer {
+		padding-bottom:1vw;
+		display: grid;
+		justify-content: center;
+
+		.logos {
+			order: 1;
+		}
+
+		.msg {
+			order: 2;
+		}
+	}
+}
