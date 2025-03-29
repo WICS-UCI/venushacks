@@ -10,7 +10,6 @@ body {
 .hero-container {
 	width: 100%;
 	position: relative;
-	padding-bottom: 10vh;
 	margin-bottom: 15vh;
 
 	@media screen and (max-width: vh-styles.$break-small) {
@@ -62,24 +61,27 @@ body {
 	}
 
 	@media screen and (max-width: vh-styles.$break-xlarge) {
-		margin-bottom: 10vh;
+		margin-bottom: 0;
+
+		#coral0 {
+			margin-top: 55vh;
+		}
+
+		#coral1,
+		#coral2,
+		#coral3 {
+			margin-top: 30vh;
+		}
+
 	}
 
 	@media screen and (max-width: vh-styles.$break-large) {
-		margin-bottom: -35vh;
-	}
-
-	@media screen and (max-width: vh-styles.$break-medium) {
-		margin-bottom: -60vh;
-
-		.coral {
-			width: 110vw;
-			left: -5vw;
-		}
+		margin-bottom: 0;
 
 		#coral0 {
-			margin-top: 60vh;
+			margin-top: 65vh;
 		}
+
 		#coral1,
 		#coral2,
 		#coral3 {
@@ -87,9 +89,27 @@ body {
 		}
 	}
 
+	@media screen and (max-width: vh-styles.$break-medium) {
+		margin-bottom: 0;
+
+		.coral {
+			width: 110vw;
+			left: -5vw;
+		}
+
+		#coral0 {
+			margin-top: 75vh;
+		}
+		#coral1,
+		#coral2,
+		#coral3 {
+			margin-top: 55vh;
+		}
+	}
+
 	@media screen and (max-width: vh-styles.$break-small) {
 		overflow-x: hidden;
-		margin-bottom: -85vh;
+		margin-bottom: 0;
 
 		.content-container {
 			height: 100vh;
