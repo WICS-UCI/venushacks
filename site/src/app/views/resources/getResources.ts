@@ -45,7 +45,7 @@ export const getResources = async () => {
 					link,
 					title,
 					'resourceIconUrl': coalesce(icon.asset->url, ""),
-					resourceType
+					resourceType,
 				}
 			}
 		}

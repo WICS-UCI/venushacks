@@ -16,8 +16,8 @@ const App = () => (
 			<Nav />
 			<Routes>
 				<Route path="/" element={<ComingSoon />} />
-				{/* <Route path="/schedule" element={<Schedule />} />
 				<Route path="/resources" element={<Resources />} />
+				{/* <Route path="/schedule" element={<Schedule />} />
 				<Route path="/workshops" element={<Workshops />} />
 				<Route
 					path="/devpost"
