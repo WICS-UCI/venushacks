@@ -32,7 +32,7 @@ const NavLinks = ({ reduceMotion, isMobile }) => (
 	<>
 		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
 		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
-		<NavLink
+		{/* <NavLink
 			url="/resources"
 			text="Resources"
 			{...{ isMobile, reduceMotion }}
@@ -47,7 +47,7 @@ const NavLinks = ({ reduceMotion, isMobile }) => (
 			text="Incident Form"
 			{...{ isMobile, reduceMotion }}
 		/>
-		<NavLink url="/devpost" text="DevPost" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/devpost" text="DevPost" {...{ isMobile, reduceMotion }} /> */}
 	</>
 );
 
