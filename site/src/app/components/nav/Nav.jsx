@@ -86,26 +86,45 @@ const Nav = () => {
 					className="nav-links-container"
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
-					<Link
-						className="nav-vh-logo-link"
-						to="/"
-						{...(showDropdown && { style: { top: "-10%" } })}
-					>
-						<motion.img className="nav-vh-logo" src={vhLogo} />
-					</Link>
+					{!showDropdown && (
+						<Link
+							className="nav-vh-logo-link"
+							to="/"
+							{...(showDropdown && { style: { top: "-10%" } })}
+						>
+							<motion.img
+								className="nav-vh-logo"
+								src={vhLogo}
+								{...(!reduceMotion && {
+									initial: { scale: 0.5 },
+									animate: {scale: [null, 1.1, 0.8, 1.05, 1]},
+									exit: { scale: 0.5 },
+									transition: {
+										duration: 1,
+										times: [0.1, 0.11, 0.12, 0.2, 0.6, 0.7],
+										damping: 15,
+										restSpeed: 0.00001,
+										mass: 0.9,
+									},
+								})}
+							/>
+						</Link>
+					)}
 					{isMobile ? (
-						<div>
+						<div className = {`bckgrd ${showDropdown && "open-bckgrd"}`}>
 							<motion.span
-								className={`nav-menu-span ${!showDropdown && "menu-icon"}`}
+								className={`nav-menu-span`}
 								{...(!reduceMotion && {
 									initial: { opacity: 0 },
 									animate: { opacity: 1 },
 									exit: { opacity: 0 },
 									transition: { delay: 0.5, duration: 0.2 },
 								})}
-							></motion.span>
+							>
+								{showDropdown ? "x" : "≡"}
+							</motion.span>
 							{showDropdown && (
-								<div className="bckgrd">
+								<div>
 									<NavLinks {...{ isMobile, reduceMotion }} />
 								</div>
 							)}
