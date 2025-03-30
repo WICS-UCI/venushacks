@@ -12,6 +12,9 @@ const coralImages = [
 	"/assets/images/coral1.svg",
 ];
 
+const parallelCorals = coralImages.slice(0, coralImages.length - 1);
+const darkBlueCoral = coralImages[coralImages.length - 1];
+
 const SCROLL_INCREMENT = -20;
 const SVG_ASPECT_RATIO = 1728 / 1117;
 const PARALLAX_PORTION = 0.75;
@@ -48,7 +51,7 @@ const CoralLayer = ({
 		<Parallax
 			startScroll={0}
 			endScroll={height * 1.5}
-			translateY={[0, -end * 1.2]}
+			translateY={[0, 20]}
 			className="coral"
 			id={`coral${id}`}
 			style={{
@@ -84,9 +87,9 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 		if (maxBottom > largestHeightRef.current) {
 			largestHeightRef.current = maxBottom;
 
-			const totalPx = Math.ceil(maxBottom) + 50;
+			const totalPx = Math.ceil(maxBottom) + 100;
 
-			const totalVh = (totalPx / window.innerHeight) * 100 + 0;
+			const totalVh = ((totalPx / window.innerHeight) * 100) + 100;
 			setContainerHeight(`${totalVh}vh`);
 		}
 	}, [bottomPositions]);
@@ -104,10 +107,10 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 
 	return (
 		<div className="hero-container" style={{ minHeight: containerHeight }}>
-			{coralImages.map((src, i) => (
+			{parallelCorals.map((src, i) => (
 				<CoralLayer
 					key={i}
-					speed={coralImages.length - i}
+					speed={parallelCorals.length - i}
 					id={i}
 					src={src}
 					clientWidth={clientWidth}
@@ -115,6 +118,20 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 					onHeightChange={handleHeightChange}
 				/>
 			))}
+
+			<Parallax translateY={[20, 20]} className="coral static" id="static-coral">
+				<img
+					src={darkBlueCoral}
+					alt="Dark Blue Coral"
+					style={{
+						width: "100%",
+						height: "auto",
+						display: "block",
+						pointerEvents: "none",
+						userSelect: "none",
+					}}
+				/>
+			</Parallax>
 
 			<Container className="d-flex flex-column align-items-center content-container">
 				<Title />

@@ -10,7 +10,7 @@ body {
 .hero-container {
 	width: 100%;
 	position: relative;
-	margin-bottom: 15vh;
+	margin-bottom: -30vh;
 
 	@media screen and (max-width: vh-styles.$break-small) {
 		background-size: contain;
@@ -29,19 +29,29 @@ body {
 
 	.coral {
 		position: absolute;
-		width: 105vw;
-		left: -2.5vw;
+		width: 100vw;
 		pointer-events: none;
 	}
 
+	.coral.static {
+		position: absolute;
+		width: 100vw;
+		z-index: 5;
+		pointer-events: none;
+		margin-top: -10vh;
+	}
+
 	#coral0 {
-		margin-top: 50vh;
+		margin-top: 55vh;
 	}
 
 	#coral1,
-	#coral2,
 	#coral3 {
-		margin-top: 25vh;
+		margin-top: 20vh;
+	}
+
+	#coral2 {
+		margin-top: 22vh;
 	}
 
 	.button-row {
@@ -61,66 +71,75 @@ body {
 	}
 
 	@media screen and (max-width: vh-styles.$break-xlarge) {
-		margin-bottom: 0;
+		margin-bottom: -45vh;
 
 		#coral0 {
-			margin-top: 55vh;
+			margin-top: 60vh;
 		}
 
 		#coral1,
-		#coral2,
 		#coral3 {
-			margin-top: 30vh;
+			margin-top: 25vh;
 		}
 
+		#coral2 {
+			margin-top: 27vh;
+		}
+
+		.coral.static {
+			margin-top: -5vh;
+		}
 	}
 
 	@media screen and (max-width: vh-styles.$break-large) {
-		margin-bottom: 0;
+		margin-bottom: -65vh;
 
 		#coral0 {
-			margin-top: 65vh;
+			margin-top: 62vh;
 		}
 
 		#coral1,
 		#coral2,
 		#coral3 {
-			margin-top: 40vh;
+			margin-top: 38vh;
+		}
+
+		.coral.static {
+			margin-top: 13vh;
 		}
 	}
 
 	@media screen and (max-width: vh-styles.$break-medium) {
-		margin-bottom: 0;
-
-		.coral {
-			width: 110vw;
-			left: -5vw;
-		}
+		overflow-x: hidden;
+		margin-bottom: -75vh;
 
 		#coral0 {
-			margin-top: 75vh;
+			margin-top: 70vh;
 		}
+
 		#coral1,
-		#coral2,
 		#coral3 {
-			margin-top: 55vh;
+			margin-top: 50vh;
+		}
+
+		#coral2 {
+			margin-top: 52vh;
+		}
+
+		.coral.static {
+			margin-top: 35vh;
 		}
 	}
 
 	@media screen and (max-width: vh-styles.$break-small) {
 		overflow-x: hidden;
-		margin-bottom: 0;
+		margin-bottom: -90vh;
 
 		.content-container {
 			height: 100vh;
 			padding-top: 10vh;
 		}
 
-		.coral {
-			width: 110vw;
-			left: -5vw;
-		}
-
 		#coral0 {
 			margin-top: 75vh;
 		}
@@ -128,6 +147,10 @@ body {
 		#coral2,
 		#coral3 {
 			margin-top: 65vh;
+		}
+
+		.coral.static {
+			margin-top: 55vh;
 		}
 	}
 }
