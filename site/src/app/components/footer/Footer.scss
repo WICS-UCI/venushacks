@@ -12,10 +12,10 @@
 	padding-right: 3%;
 
 	background-image: linear-gradient(#333b6d, #000);
-	font-size: 35px;
+	font-size: 2.2rem;
 
 	.msg {
-		font-size: min(2vw, 15px);
+		font-size: min(2vw, 0.95rem);
 		text-align: center;
 	}
 
@@ -28,7 +28,7 @@
 	}
 
 	.logos {
-		font-size: min(30px, 4vw);
+		font-size: min(1.875rem, 4vw);
 
 		img {
 			height: min(30px, 4vw);
@@ -49,7 +49,7 @@
 
 @media (max-width: $break-medium) {
 	#footer {
-		padding-bottom:1vw;
+		padding-bottom: 1vw;
 		display: grid;
 		justify-content: center;
 
