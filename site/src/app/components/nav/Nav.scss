@@ -29,7 +29,6 @@
 		.bckgrd {
 			position: absolute;
 			display: flex;
-			// justify-content: space-between;
 			justify-content: start;
 			gap: max(20px, 5%);
 			align-items: center;
@@ -52,7 +51,7 @@
 				align-items: center;
 
 				color: #fff;
-				font-size: min(120%, 24px);
+				font-size: min(120%, 1.5rem);
 				font-weight: 400;
 			}
 
@@ -103,7 +102,7 @@
 
 			.nav-menu-span {
 				color: #8659A4;
-				font-size: 36px;
+				font-size: 2.25rem;
 				font-weight: 300;
 				line-height: 32px;
 				-webkit-user-select: none;
