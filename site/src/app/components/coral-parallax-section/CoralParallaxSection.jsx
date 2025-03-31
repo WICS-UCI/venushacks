@@ -1,5 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { Parallax } from "react-scroll-parallax";
+import {
+	Parallax,
+	ParallaxBanner,
+	ParallaxBannerLayer,
+} from "react-scroll-parallax";
 import Container from "react-bootstrap/Container";
 import Title from "../title/Title";
 import PrimaryButton from "../primary-button/PrimaryButton";
@@ -89,7 +93,7 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 
 			const totalPx = Math.ceil(maxBottom) + 100;
 
-			const totalVh = ((totalPx / window.innerHeight) * 100) + 100;
+			const totalVh = (totalPx / window.innerHeight) * 100 + 100;
 			setContainerHeight(`${totalVh}vh`);
 		}
 	}, [bottomPositions]);
@@ -107,7 +111,92 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 
 	return (
 		<div className="hero-container" style={{ minHeight: containerHeight }}>
-			{parallelCorals.map((src, i) => (
+			<ParallaxBanner
+				style={{
+					height: "100vh", // Set a defined height
+					overflow: "visible",
+					position: "absolute",
+				}}
+			>
+				<ParallaxBannerLayer
+					speed={-10}
+					id="coral2"
+					translateY={[0, 20]} // Add specific translation values
+					expanded={false} // Prevent stretching
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						right: 0,
+						zIndex: 2,
+					}}
+				>
+					<img
+						src="/assets/images/coral2.svg"
+						alt="Coral Layer 2"
+						style={{
+							width: "100%",
+							height: "auto",
+							display: "block",
+							userSelect: "none",
+							pointerEvents: "none",
+						}}
+					/>
+				</ParallaxBannerLayer>
+
+				<ParallaxBannerLayer
+					speed={-30}
+					id="coral3"
+					translateY={[0, 50]} // Add specific translation values
+					expanded={false} // Prevent stretching
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						right: 0,
+						zIndex: 1,
+					}}
+				>
+					<img
+						src="/assets/images/coral3.svg"
+						alt="Coral Layer 3"
+						style={{
+							width: "100%",
+							height: "auto",
+							display: "block",
+							userSelect: "none",
+							pointerEvents: "none",
+						}}
+					/>
+				</ParallaxBannerLayer>
+
+				<ParallaxBannerLayer
+					speed={-60}
+					id="coral4"
+					translateY={[0, 90]} // Add specific translation values
+					expanded={false} // Prevent stretching
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						right: 0,
+						zIndex: 0,
+					}}
+				>
+					<img
+						src="/assets/images/coral4.svg"
+						alt="Coral Layer 3"
+						style={{
+							width: "100%",
+							height: "auto",
+							display: "block",
+							userSelect: "none",
+							pointerEvents: "none",
+						}}
+					/>
+				</ParallaxBannerLayer>
+			</ParallaxBanner>
+			{/* {parallelCorals.map((src, i) => (
 				<CoralLayer
 					key={i}
 					speed={parallelCorals.length - i}
@@ -117,9 +206,13 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 					clientHeight={clientHeight}
 					onHeightChange={handleHeightChange}
 				/>
-			))}
+			))} */}
 
-			<Parallax translateY={[20, 20]} className="coral static" id="static-coral">
+			<Parallax
+				translateY={[20, 20]}
+				className="coral static"
+				id="static-coral"
+			>
 				<img
 					src={darkBlueCoral}
 					alt="Dark Blue Coral"

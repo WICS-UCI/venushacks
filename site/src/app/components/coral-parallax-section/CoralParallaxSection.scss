@@ -4,10 +4,11 @@ $leftFishes: "/assets/images/left-fishes.svg";
 $rightFishes: "/assets/images/right-fishes.svg";
 
 body {
-	overflow-x: hidden;
+	// overflow-x: hidden;
 }
 
 .hero-container {
+	overflow-y: hidden;
 	width: 100%;
 	position: relative;
 	margin-bottom: -30vh;
@@ -45,15 +46,23 @@ body {
 		margin-top: 55vh;
 	}
 
-	#coral1,
-	#coral3 {
-		margin-top: 20vh;
+	#coral1 {
+		margin-top: 6vh;
 	}
 
 	#coral2 {
-		margin-top: 22vh;
+		margin-top: 12vh;
 	}
 
+	#coral3 {
+		margin-top: -12vh;
+	}
+
+	#coral4 {
+		margin-top: 6vh;
+	}
+
+	
 	.button-row {
 		display: flex;
 		flex-direction: row;
@@ -70,87 +79,87 @@ body {
 		}
 	}
 
-	@media screen and (max-width: vh-styles.$break-xlarge) {
-		margin-bottom: -45vh;
+	// @media screen and (max-width: vh-styles.$break-xlarge) {
+	// 	margin-bottom: -45vh;
 
-		#coral0 {
-			margin-top: 60vh;
-		}
+	// 	#coral0 {
+	// 		margin-top: 60vh;
+	// 	}
 
-		#coral1,
-		#coral3 {
-			margin-top: 25vh;
-		}
+	// 	#coral1,
+	// 	#coral3 {
+	// 		margin-top: 25vh;
+	// 	}
 
-		#coral2 {
-			margin-top: 27vh;
-		}
+	// 	#coral2 {
+	// 		margin-top: 27vh;
+	// 	}
 
-		.coral.static {
-			margin-top: -5vh;
-		}
-	}
+	// 	.coral.static {
+	// 		margin-top: -5vh;
+	// 	}
+	// }
 
-	@media screen and (max-width: vh-styles.$break-large) {
-		margin-bottom: -65vh;
+	// @media screen and (max-width: vh-styles.$break-large) {
+	// 	margin-bottom: -65vh;
 
-		#coral0 {
-			margin-top: 62vh;
-		}
+	// 	#coral0 {
+	// 		margin-top: 62vh;
+	// 	}
 
-		#coral1,
-		#coral2,
-		#coral3 {
-			margin-top: 38vh;
-		}
+	// 	#coral1,
+	// 	#coral2,
+	// 	#coral3 {
+	// 		margin-top: 38vh;
+	// 	}
 
-		.coral.static {
-			margin-top: 13vh;
-		}
-	}
+	// 	.coral.static {
+	// 		margin-top: 13vh;
+	// 	}
+	// }
 
-	@media screen and (max-width: vh-styles.$break-medium) {
-		overflow-x: hidden;
-		margin-bottom: -75vh;
+	// @media screen and (max-width: vh-styles.$break-medium) {
+	// 	// overflow-x: hidden;
+	// 	margin-bottom: -75vh;
 
-		#coral0 {
-			margin-top: 70vh;
-		}
+	// 	#coral0 {
+	// 		margin-top: 70vh;
+	// 	}
 
-		#coral1,
-		#coral3 {
-			margin-top: 50vh;
-		}
+	// 	#coral1,
+	// 	#coral3 {
+	// 		margin-top: 50vh;
+	// 	}
 
-		#coral2 {
-			margin-top: 52vh;
-		}
+	// 	#coral2 {
+	// 		margin-top: 52vh;
+	// 	}
 
-		.coral.static {
-			margin-top: 35vh;
-		}
-	}
+	// 	.coral.static {
+	// 		margin-top: 35vh;
+	// 	}
+	// }
 
-	@media screen and (max-width: vh-styles.$break-small) {
-		overflow-x: hidden;
-		margin-bottom: -90vh;
+	// @media screen and (max-width: vh-styles.$break-small) {
+	// 	// overflow-x: hidden;
+	// 	margin-bottom: -90vh;
 
-		.content-container {
-			height: 100vh;
-			padding-top: 10vh;
-		}
+	// 	.content-container {
+	// 		height: 100vh;
+	// 		padding-top: 10vh;
+	// 	}
 
-		#coral0 {
-			margin-top: 75vh;
-		}
-		#coral1,
-		#coral2,
-		#coral3 {
-			margin-top: 65vh;
-		}
+	// 	#coral0 {
+	// 		margin-top: 75vh;
+	// 	}
+	// 	#coral1,
+	// 	#coral2,
+	// 	#coral3 {
+	// 		margin-top: 65vh;
+	// 	}
 
-		.coral.static {
-			margin-top: 55vh;
-		}
-	}
+	// 	.coral.static {
+	// 		margin-top: 55vh;
+	// 	}
+	// }
 }
