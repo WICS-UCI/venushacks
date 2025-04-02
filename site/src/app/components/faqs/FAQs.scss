@@ -22,10 +22,12 @@ $arrow: "assets/images/arrow-point-right.svg";
 
 .accordion-body {
 	padding: 25px;
-	font-size: 1.5rem;
-	@media screen and (max-width: $break-medium) {
-		font-size: 1.2rem;
-	}
+	font-family: Instrument Sans;
+	font-size: 1.25rem;
+	font-weight: 500;
+	background-color: #e0b0d8;
+	border: 4px solid #8659A4;
+	border-radius: 29px;
 }
 
 .accordion-item {
