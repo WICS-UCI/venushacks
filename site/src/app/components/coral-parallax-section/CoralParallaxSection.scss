@@ -3,10 +3,6 @@
 $leftFishes: "/assets/images/left-fishes.svg";
 $rightFishes: "/assets/images/right-fishes.svg";
 
-body {
-	overflow-x: hidden;
-}
-
 .hero-container {
 	width: 100%;
 	position: relative;
@@ -27,31 +23,34 @@ body {
 		z-index: 10;
 	}
 
+	.coral-container {
+		width: 100%;
+		position: absolute;
+		height: 100vh;
+	}
+
 	.coral {
 		position: absolute;
+		bottom: 0;
 		width: 100vw;
 		pointer-events: none;
 	}
 
-	.coral.static {
-		position: absolute;
-		width: 100vw;
-		z-index: 5;
-		pointer-events: none;
-		margin-top: -10vh;
-	}
-
-	#coral0 {
-		margin-top: 55vh;
-	}
-
-	#coral1,
-	#coral3 {
-		margin-top: 20vh;
+	#coral1 {
+		z-index: 10;
+		transform: translateY(58%);
 	}
 
 	#coral2 {
-		margin-top: 22vh;
+		transform: translateY(23%);
+	}
+
+	#coral3 {
+		transform: translateY(60%);
+	}
+
+	#coral4 {
+		transform: translateY(80%);
 	}
 
 	.button-row {
@@ -67,90 +66,6 @@ body {
 		@media screen and (max-width: vh-styles.$break-small) {
 			flex-direction: column;
 			gap: 20px;
-		}
-	}
-
-	@media screen and (max-width: vh-styles.$break-xlarge) {
-		margin-bottom: -45vh;
-
-		#coral0 {
-			margin-top: 60vh;
-		}
-
-		#coral1,
-		#coral3 {
-			margin-top: 25vh;
-		}
-
-		#coral2 {
-			margin-top: 27vh;
-		}
-
-		.coral.static {
-			margin-top: -5vh;
-		}
-	}
-
-	@media screen and (max-width: vh-styles.$break-large) {
-		margin-bottom: -65vh;
-
-		#coral0 {
-			margin-top: 62vh;
-		}
-
-		#coral1,
-		#coral2,
-		#coral3 {
-			margin-top: 38vh;
-		}
-
-		.coral.static {
-			margin-top: 13vh;
-		}
-	}
-
-	@media screen and (max-width: vh-styles.$break-medium) {
-		overflow-x: hidden;
-		margin-bottom: -75vh;
-
-		#coral0 {
-			margin-top: 70vh;
-		}
-
-		#coral1,
-		#coral3 {
-			margin-top: 50vh;
-		}
-
-		#coral2 {
-			margin-top: 52vh;
-		}
-
-		.coral.static {
-			margin-top: 35vh;
-		}
-	}
-
-	@media screen and (max-width: vh-styles.$break-small) {
-		overflow-x: hidden;
-		margin-bottom: -90vh;
-
-		.content-container {
-			height: 100vh;
-			padding-top: 10vh;
-		}
-
-		#coral0 {
-			margin-top: 75vh;
-		}
-		#coral1,
-		#coral2,
-		#coral3 {
-			margin-top: 65vh;
-		}
-
-		.coral.static {
-			margin-top: 55vh;
 		}
 	}
 }
