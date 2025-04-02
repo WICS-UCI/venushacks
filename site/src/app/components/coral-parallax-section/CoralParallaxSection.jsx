@@ -1,7 +1,4 @@
 import { Parallax } from "react-scroll-parallax";
-import Container from "react-bootstrap/Container";
-import Title from "../title/Title";
-import PrimaryButton from "../primary-button/PrimaryButton";
 
 import "./CoralParallaxSection.scss";
 
@@ -19,19 +16,29 @@ const CoralParallaxLayer = ({ id }) => {
 			translateY={translatePositions[arrIndex]}
 			className="coral"
 			style={{
-				position: "absolute",
 				zIndex: -id,
 			}}
 		>
 			<img
 				src={`/assets/images/coral${id}.svg`}
 				alt={`Coral Layer ${id}`}
-				style={{
-					width: "100%",
-					height: "auto",
-				}}
+				className="w-100 h-auto"
 			/>
 		</Parallax>
+	);
+};
+
+const StaticCoralLayer = () => {
+	return (
+		<div className="coral-container">
+			<div className="coral position-absolute" id="coral1">
+				<img
+					src="/assets/images/coral1.svg"
+					alt="Dark Blue Coral"
+					className="w-100 h-auto"
+				/>
+			</div>
+		</div>
 	);
 };
 
@@ -45,40 +52,7 @@ const CoralParallaxSection = () => {
 					))}
 				</div>
 			</div>
-			<div className="coral-container">
-				<div
-					className="coral"
-					id="coral1"
-					style={{
-						position: "absolute",
-					}}
-				>
-					<img
-						src="/assets/images/coral1.svg"
-						alt="Dark Blue Coral"
-						style={{
-							width: "100%",
-							height: "auto",
-							display: "block",
-							pointerEvents: "none",
-							userSelect: "none",
-						}}
-					/>
-				</div>
-			</div>
-
-			<Container className="d-flex flex-column align-items-center content-container">
-				<Title />
-				{/** @todo: change links */}
-				<div className="button-row">
-					<PrimaryButton href="/apply" type="button">
-						Apply Now
-					</PrimaryButton>
-					<PrimaryButton href="/sponsor" type="button">
-						Sponsor Us
-					</PrimaryButton>
-				</div>
-			</Container>
+			<StaticCoralLayer />
 		</>
 	);
 };
