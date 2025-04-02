@@ -48,4 +48,45 @@ body {
 	section#padding:last-of-type {
 		min-height: 15vh;
 	}
+
+	#about {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	} // END ABOUT
+
+	#faq {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		font-family: "Londrina Solid", sans-serif;
+		color: white;
+		margin-top: 50px;
+
+		#faq-container {
+			width: 75%;
+			max-width: 1500px;
+			margin: 0 auto;
+			align-items: center;
+
+			.section-title {
+				font-family: "Londrina Solid", sans-serif;
+				font-weight: 400;
+				font-size: 6.25rem;
+				color: white;
+				text-shadow: 9px 16px 10px #8e7694;
+				letter-spacing: 0.56rem;
+				text-align: left;
+				margin-bottom: 1em;
+
+				@media screen and (max-width: $break-medium) {
+					text-align: center;
+				}
+			}
+			@media screen and (max-width: $break-medium) {
+				width: 85%;
+			}
+		}
+	} // END FAQ
 }
