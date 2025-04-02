@@ -1,0 +1,190 @@
+@use "src/globals/vh-styles.scss";
+
+$scubaDiver: "/assets/images/scuba-diver.svg";
+$scubaDiverShadow: "/assets/images/scuba-diver-shadow.svg";
+$otter: "/assets/images/otter3.svg";
+$mermaidTails: "/assets/images/mermaid-tails.svg";
+$treasureChest: "/assets/images/treasure-chest.svg";
+$surface: "/assets/images/surface.svg";
+
+body {
+	overflow-x: hidden;
+}
+
+#bottom-graphic-container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+
+	#surface {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100vw;
+		height: 45vh;
+		background: url($surface) no-repeat top/cover;
+		z-index: 1;
+	}
+
+	#scuba-diver {
+		position: absolute;
+		left: 2vw;
+		bottom: 13vh;
+		width: 30vw;
+		height: 55vh;
+		background: url($scubaDiver) no-repeat center/contain;
+		z-index: 3;
+	}
+
+	#scuba-diver-shadow {
+		position: absolute;
+		left: 0vw;
+		bottom: 10vh;
+		width: 30vw;
+		height: 55vh;
+		background: url($scubaDiverShadow) no-repeat center/contain;
+		z-index: 3;
+	}
+
+	#otter3 {
+		position: absolute;
+		left: 24vw;
+		bottom: 40vh;
+		width: 30vw;
+		height: 50vh;
+		background: url($otter) no-repeat center/contain;
+		z-index: 2;
+	}
+
+	#mermaid-tails {
+		position: absolute;
+		right: 14vw;
+		bottom: 37vh;
+		width: 50vw;
+		height: 60vh;
+		background: url($mermaidTails) no-repeat center/contain;
+		z-index: 2;
+	}
+
+	#treasure-chest {
+		position: absolute;
+		right: 5vw;
+		bottom: 13vh;
+		width: 25vw;
+		height: 25vw;
+		background: url($treasureChest) no-repeat center/contain;
+		z-index: 2;
+	}
+
+	@media screen and (max-width: vh-styles.$break-large) {
+		#scuba-diver {
+			left: 2vw;
+			bottom: 13vh;
+			width: 35vw;
+			height: 55vh;
+		}
+
+		#scuba-diver-shadow {
+			left: 0vw;
+			bottom: 10vh;
+			width: 35vw;
+			height: 55vh;
+		}
+
+		#otter3 {
+			left: 23vw;
+			bottom: 40vh;
+			width: 35vw;
+			height: 50vh;
+		}
+
+		#mermaid-tails {
+			right: 5vw;
+			bottom: 37vh;
+			width: 50vw;
+			height: 60vh;
+		}
+
+		#treasure-chest {
+			right: 2vw;
+			bottom: 13vh;
+			width: 30vw;
+			height: 30vw;
+		}
+	}
+
+	@media screen and (max-width: vh-styles.$break-medium) {
+		#scuba-diver {
+			left: 3vw;
+			bottom: 5vh;
+			width: 40vw;
+			height: 55vh;
+		}
+
+		#scuba-diver-shadow {
+			left: 1vw;
+			bottom: 3vh;
+			width: 40vw;
+			height: 55vh;
+		}
+
+		#otter3 {
+			left: 15vw;
+			bottom: 40vh;
+			width: 40vw;
+			height: 50vh;
+		}
+
+		#mermaid-tails {
+			right: 5vw;
+			bottom: 33vh;
+			width: 50vw;
+			height: 60vh;
+		}
+
+		#treasure-chest {
+			right: 3vw;
+			bottom: 13vh;
+			width: 35vw;
+			height: 35vw;
+		}
+	}
+
+	@media screen and (max-width: vh-styles.$break-small) {
+		#scuba-diver {
+			left: 3vw;
+			bottom: 5vh;
+			width: 50vw;
+			height: 55vh;
+		}
+
+		#scuba-diver-shadow {
+			left: 1vw;
+			bottom: 3vh;
+			width: 40vw;
+			height: 55vh;
+		}
+
+		#otter3 {
+			left: 7vw;
+			bottom: 45vh;
+			width: 50vw;
+			height: 50vh;
+		}
+
+		#mermaid-tails {
+			right: 0vw;
+			bottom: 37vh;
+			width: 60vw;
+			height: 60vh;
+		}
+
+		#treasure-chest {
+			right: 3vw;
+			bottom: 10vh;
+			width: 40vw;
+			height: 40vw;
+		}
+	}
+}
