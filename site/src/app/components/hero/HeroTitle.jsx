@@ -8,12 +8,17 @@ export default function HeroTitle() {
 	return (
 		<Container className="d-flex flex-column align-items-center content-container">
 			<Title />
-			{/** @todo: change links */}
 			<div className="button-row">
-				<PrimaryButton href="/apply" type="button">
+				<PrimaryButton
+					href="https://airtable.com/app4GBC5A7cYMsnZX/shrsPSPqu4IgTulIg"
+					type="button"
+				>
 					Apply Now
 				</PrimaryButton>
-				<PrimaryButton href="/sponsor" type="button">
+				<PrimaryButton
+					href="mailto:venushacks.corporate@gmail.com"
+					type="button"
+				>
 					Sponsor Us
 				</PrimaryButton>
 			</div>
