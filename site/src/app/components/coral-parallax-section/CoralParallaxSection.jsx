@@ -106,74 +106,68 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 	};
 
 	return (
-		<div className="hero-container" style={{ minHeight: containerHeight }}>
+		<>
+			<div className="overflow-container">
+				<div className="background-container">
+					<Parallax
+						id="coral2"
+						translateY={[0, 35]}
+						className="coral"
+						style={{
+							position: "absolute",
+							zIndex: 2,
+						}}
+					>
+						<img
+							src="/assets/images/coral2.svg"
+							alt="Coral Layer 2"
+							style={{
+								width: "100%",
+								height: "auto",
+							}}
+						/>
+					</Parallax>
+
+					<Parallax
+						id="coral3"
+						translateY={[0, 65]}
+						className="coral"
+						style={{
+							position: "absolute",
+							zIndex: 1,
+						}}
+					>
+						<img
+							src="/assets/images/coral3.svg"
+							alt="Coral Layer 3"
+							style={{
+								width: "100%",
+								height: "auto",
+							}}
+						/>
+					</Parallax>
+
+					<Parallax
+						id="coral4"
+						translateY={[0, 110]}
+						className="coral"
+						style={{
+							position: "absolute",
+							zIndex: 0,
+						}}
+					>
+						<img
+							src="/assets/images/coral4.svg"
+							alt="Coral Layer 3"
+							style={{
+								width: "100%",
+								height: "auto",
+							}}
+						/>
+					</Parallax>
+				</div>
+			</div>
 			<div className="coral-container">
-				<Parallax
-					id="coral2"
-					translateY={[0, 35]}
-					className="coral"
-					style={{
-						position: "absolute",
-						zIndex: 2,
-					}}
-				>
-					<img
-						src="/assets/images/coral2.svg"
-						alt="Coral Layer 2"
-						style={{
-							width: "100%",
-							height: "auto",
-							display: "block",
-							userSelect: "none",
-							pointerEvents: "none",
-						}}
-					/>
-				</Parallax>
-
-				<Parallax
-					id="coral3"
-					translateY={[0, 65]}
-					className="coral"
-					style={{
-						position: "absolute",
-						zIndex: 1,
-					}}
-				>
-					<img
-						src="/assets/images/coral3.svg"
-						alt="Coral Layer 3"
-						style={{
-							width: "100%",
-							height: "auto",
-							display: "block",
-							userSelect: "none",
-							pointerEvents: "none",
-						}}
-					/>
-				</Parallax>
-
-				<Parallax
-					id="coral4"
-					translateY={[0, 110]}
-					className="coral"
-					style={{
-						position: "absolute",
-						zIndex: 0,
-					}}
-				>
-					<img
-						src="/assets/images/coral4.svg"
-						alt="Coral Layer 3"
-						style={{
-							width: "100%",
-							height: "auto",
-							display: "block",
-							userSelect: "none",
-							pointerEvents: "none",
-						}}
-					/>
-				</Parallax>
-
 				<div
 					className="coral"
 					id="coral1"
@@ -194,7 +188,6 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 					/>
 				</div>
 			</div>
-
 			<Container className="d-flex flex-column align-items-center content-container">
 				<Title />
 				{/** @todo: change links */}
@@ -207,7 +200,7 @@ const CoralParallaxSection = ({ clientWidth, clientHeight }) => {
 					</PrimaryButton>
 				</div>
 			</Container>
-		</div>
+		</>
 	);
 };
 

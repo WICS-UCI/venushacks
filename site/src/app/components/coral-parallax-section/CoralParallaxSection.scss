@@ -3,69 +3,94 @@
 $leftFishes: "/assets/images/left-fishes.svg";
 $rightFishes: "/assets/images/right-fishes.svg";
 
-.hero-container {
-	width: 100%;
+.content-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
 	position: relative;
-	margin-bottom: -30vh;
+	z-index: 10;
+}
 
-	@media screen and (max-width: vh-styles.$break-small) {
-		background-size: contain;
-	}
+.overflow-container {
+	height: 110vh;
+	width: 100%;
+	position: absolute;
+	overflow-y: hidden;
+}
 
-	.content-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 100vw;
-		height: 100vh;
-		position: relative;
-		z-index: 10;
-	}
+.coral-container {
+	width: 100%;
+	position: absolute;
+	height: 100vh;
+}
 
-	.coral-container {
-		width: 100%;
-		position: absolute;
-		height: 100vh;
-	}
+.background-container {
+	@extend .coral-container;
+	margin-top: 10%;
+}
 
-	.coral {
-		position: absolute;
-		bottom: 0;
-		width: 100vw;
-		pointer-events: none;
+.coral {
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	pointer-events: none;
+}
+
+#coral1 {
+	z-index: 10;
+	transform: translateY(54%);
+}
+
+#coral2 > img {
+	transform: translateY(-21%);
+}
+
+#coral3 > img {
+	transform: translateY(-32%);
+}
+
+#coral4 > img {
+	transform: translateY(-50%);
+}
+
+@media screen and (min-width: vh-styles.$break-small) {
+	.overflow-container {
+		height: 120vh;
 	}
 
 	#coral1 {
 		z-index: 10;
-		transform: translateY(58%);
+		transform: translateY(54%);
 	}
 
-	#coral2 {
-		transform: translateY(23%);
+	#coral2 > img {
+		transform: translateY(-23%);
 	}
 
-	#coral3 {
-		transform: translateY(60%);
+	#coral3 > img {
+		transform: translateY(-38%);
 	}
 
-	#coral4 {
-		transform: translateY(80%);
+	#coral4 > img {
+		transform: translateY(-50%);
+	}
+}
+
+.button-row {
+	display: flex;
+	flex-direction: row;
+	gap: 50px;
+	margin-top: 30px;
+
+	@media screen and (max-width: vh-styles.$break-medium) {
+		gap: 30px;
 	}
 
-	.button-row {
-		display: flex;
-		flex-direction: row;
-		gap: 50px;
-		margin-top: 30px;
-
-		@media screen and (max-width: vh-styles.$break-medium) {
-			gap: 30px;
-		}
-
-		@media screen and (max-width: vh-styles.$break-small) {
-			flex-direction: column;
-			gap: 20px;
-		}
+	@media screen and (max-width: vh-styles.$break-small) {
+		flex-direction: column;
+		gap: 20px;
 	}
 }
