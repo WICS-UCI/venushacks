@@ -1,5 +1,6 @@
 import resource from "./resource";
 import resourceCategory from "./resourceCategory";
 import resourceCategoryOrder from "./resourceCategoryOrder";
+import faqs from "./faqs";
 
-export const schemaTypes = [resource, resourceCategory, resourceCategoryOrder];
+export const schemaTypes = [faqs, resource, resourceCategory, resourceCategoryOrder];

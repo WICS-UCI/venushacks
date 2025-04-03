@@ -1,3 +1,4 @@
+import { Footer } from "src/app/components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import {
@@ -15,7 +16,7 @@ const App = () => (
 		<BrowserRouter>
 			<Nav />
 			<Routes>
-				<Route path="/" element={<ComingSoon />} />
+				<Route path="/" element={<Home />} />
 				{/* <Route path="/schedule" element={<Schedule />} />
 				<Route path="/resources" element={<Resources />} />
 				<Route path="/workshops" element={<Workshops />} />
@@ -35,6 +36,7 @@ const App = () => (
 				/> */}
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+			<Footer/>
 		</BrowserRouter>
 	</div>
 );
