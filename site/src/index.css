@@ -25,11 +25,17 @@ body {
 	margin: 0;
 	overflow-y: auto;
 	color: #fff;
-	background-image: linear-gradient(
-		to bottom,
-		var(--color-background-upper-gradient) 0%,
-		var(--color-background-middle-gradient) 77%,
-		var(--color-background-lower-gradient) 100%
+	/* https://cssgradient.io/ */
+	background: rgb(203, 233, 241);
+	background: linear-gradient(
+		180deg,
+		rgba(203, 233, 241, 1) 0%,
+		rgba(63, 159, 207, 1) 18.8%,
+		rgba(231, 182, 217, 1) 37.6%,
+		rgba(175, 134, 209, 1) 56.5%,
+		rgba(134, 89, 164, 1) 75.3%,
+		rgba(1, 10, 66, 1) 94.1%,
+		rgba(51, 59, 109, 1) 100%
 	);
 	background-size: cover;
 	background-repeat: no-repeat;
