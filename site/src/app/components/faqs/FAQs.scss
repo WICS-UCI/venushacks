@@ -28,7 +28,6 @@ $arrow: "assets/images/arrow-point-right.svg";
 	font-family: Instrument Sans;
 	font-size: 1.25rem;
 	font-weight: 500;
-	background-color: #e0b0d8;
 	border: 4px solid #8659a4;
 	border-radius: 29px;
 
@@ -52,6 +51,15 @@ $arrow: "assets/images/arrow-point-right.svg";
 	font-size: 1.875rem;
 	padding-left: 4rem;
 
+	border-bottom: 0;
+
+	&:focus {
+		border-bottom: 0;
+	}
+	&:active {
+		border-bottom: 2px solid black !important;
+	}
+
 	// Move the arrow to the left
 	&::before {
 		content: "";
@@ -71,6 +79,7 @@ $arrow: "assets/images/arrow-point-right.svg";
 	}
 	// When the accordion is not collapsed (i.e., open)
 	&:not(.collapsed) {
+		border-bottom: 2px solid black !important;
 		&::before {
 			margin-top: 1rem;
 			transform: rotate(90deg);

@@ -1,6 +1,7 @@
 import About from "src/app/components/about/About";
 import FAQs from "src/app/components/faqs/FAQs";
 import Hero from "src/app/components/hero/Hero";
+import BottomGraphic from "src/app/components/bottom-graphic/BottomGraphic";
 
 import "./Home.scss";
 
@@ -26,6 +27,11 @@ const Home = () => {
 					<h2 className="section-title">FAQs</h2>
 					<FAQs />
 				</div>
+			</section>
+
+			{/* BOTTOM GRAPHIC ******************/}
+			<section id="bottom-graphic">
+				<BottomGraphic />
 			</section>
 		</div>
 	);

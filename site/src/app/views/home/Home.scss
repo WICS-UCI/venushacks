@@ -1,12 +1,5 @@
 @import "src/globals/vh-styles.scss";
 
-$boba: "/assets/images/vh-boba.png";
-$astronaut: "/assets/images/vh-astronaut.png";
-$laptop: "/assets/images/vh-laptop.png";
-$shiba: "/assets/images/VH_shiba_inu.png";
-$planet: "/assets/images/planet-3.svg";
-$stars_background: "/assets/images/stars.svg";
-
 html {
 	scroll-behavior: smooth;
 }
@@ -16,7 +9,6 @@ body {
 }
 
 .Home {
-	background-image: url($stars_background);
 	background-size: cover;
 	background-attachment: scroll;
 	text-align: center;
