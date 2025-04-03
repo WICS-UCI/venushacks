@@ -1,0 +1,32 @@
+@import "src/globals/vh-styles.scss";
+
+.apply {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-top: 140px;
+	gap: 60px;
+}
+
+.apply-heading {
+	font-family: "Londrina Solid", sans-serif;
+	font-weight: 400;
+	width: 100vw;
+	text-align: center;
+	text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5), 9px 16px 10px #68b3d7;
+	letter-spacing: 6px;
+}
+
+.apply-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 60px;
+}
+
+@media screen and (min-width: $break-medium) {
+	.apply-buttons {
+		flex-direction: row;
+	}
+}

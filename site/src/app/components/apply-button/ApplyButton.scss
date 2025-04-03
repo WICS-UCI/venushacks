@@ -1,0 +1,71 @@
+@import "src/globals/vh-styles.scss";
+
+$otter-closed: "/assets/images/otter-closed.svg";
+$otter-open: "/assets/images/otter-flipped.svg";
+$scuba-closed: "/assets/images/purple-scuba.svg";
+$scuba-open: "/assets/images/scuba-diver.svg";
+$treasure: "/assets/images/treasure-chest.svg";
+
+.apply-button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: white;
+	text-decoration: none;
+
+	.base-img {
+		width: 100%;
+		height: 40vh;
+		background-size: contain !important;
+		background-repeat: no-repeat !important;
+		background-position: center !important;
+		top: 0;
+		transition: top 0.3s ease;
+		position: relative;
+	}
+
+	#otter-apply {
+		@extend .base-img;
+		background: url($otter-closed);
+
+		&:hover {
+			background: url($otter-open);
+		}
+	}
+
+	#scuba-apply {
+		@extend .base-img;
+		background: url($scuba-closed);
+
+		&:hover {
+			background: url($scuba-open);
+		}
+	}
+
+	#treasure-apply {
+		@extend .base-img;
+		background: url($treasure);
+	}
+
+	&:hover {
+		color: white;
+
+		.base-img {
+			top: -40px;
+		}
+
+		#otter-apply {
+			background: url($otter-open);
+		}
+
+		#scuba-apply {
+			background: url($scuba-open);
+		}
+	}
+}
+
+@media screen and (min-width: $break-medium) {
+	.base-img {
+		width: 20vw;
+	}
+}
