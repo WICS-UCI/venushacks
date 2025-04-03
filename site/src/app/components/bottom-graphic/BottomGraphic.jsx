@@ -1,10 +1,6 @@
 import "./BottomGraphic.scss";
 
-
-
 export default function BottomGraphic() {
-
-
 	return (
 		<div id="bottom-graphic-container">
 			<div id="surface" />
