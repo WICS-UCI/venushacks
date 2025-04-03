@@ -166,18 +166,14 @@ body {
 			height: 55vh;
 		}
 
+		// hidden in mobile
 		#otter3 {
-			left: 7vw;
-			bottom: 45vh;
-			width: 50vw;
-			height: 50vh;
+			display: none;
 		}
 
+		// hidden in mobile
 		#mermaid-tails {
-			right: 0vw;
-			bottom: 37vh;
-			width: 60vw;
-			height: 60vh;
+			display: none;
 		}
 
 		#treasure-chest {
