@@ -5,6 +5,7 @@ import { Carousel, Stack, Card } from "react-bootstrap";
 import { Nav, Redirect } from "src/app/components";
 
 
+
 import useResources from "./useResources";
 
 // import next_icon from "/assets/images/next-icon.svg";
@@ -21,6 +22,13 @@ function getWindowDimensions() {
 	};
 }
 
+const backgroundImages = [
+    "/assets/images/resources-card1.svg",
+	"/assets/images/resources-card2.svg",
+	"/assets/images/resources-card3.svg",
+	"/assets/images/resources-card4.svg",
+];
+
 
 export default function Resources() {
 	const { resources, isLoading, error } = useResources();
@@ -35,15 +43,14 @@ export default function Resources() {
 			<div id="right-fishes" />
 			<div id="coral" />
 		<Nav />
-		<center><h1>Resources</h1></center>
+		<center><h1 style={{fontSize: "100px", textShadow: "#68B3D7 10px 10px 10px"}}>RESOURCES</h1></center>
 			<div className="resource-list">
-			{resources.order.map(({ _id, iconUrl, title, description, resources }) => (
+			{resources.order.map(({ _id, iconUrl, title, description, resources }, index) => (
 				<div key={_id} className="category">
-					<h3>
+					<h3 style={{fontSize: "100px"}}> 
 						{title}
 					</h3>
-					<p>{description}</p>
-					<ResourceCarousel resources={resources} />
+					<ResourceCarousel resources={resources} backgroundImage={backgroundImages[index % backgroundImages.length]} className="resource-carousel"/>
 				</div>
 			))}
 			</div>
@@ -52,7 +59,7 @@ export default function Resources() {
 }
 
 
-function ResourceCarousel({ resources }) {
+function ResourceCarousel({ resources, backgroundImage }) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isTransitioning, setIsTransitioning] = useState(true);
 	const totalSlides = resources.length;
@@ -77,36 +84,56 @@ function ResourceCarousel({ resources }) {
 	}, [currentIndex, totalSlides]);
 
 	return (
-		<div className="carousel-container">
-			<button className="carousel-button left" onClick={prevResource}>&#9665;</button>
-			
-			<div className="carousel-wrapper">
-				<div
-					className="carousel-track"
-					style={{
-						transform: `translateX(-${currentIndex * 100}%)`,
-						transition: "transform 0.4s ease-in-out"
-					}}
-				>
-					{resources.map(({ _id, resourceIconUrl, title, link, description }) => (
-						<div key={_id} className="resource-card">
-							<a href={link} target="_blank" rel="noopener noreferrer">
-								<img src={resourceIconUrl} alt={title} className="resource-icon" />
-								<h4 className="resource-title">{title}</h4>
-								<p className="resource-description">{description}</p>
-							</a>
-						</div>
-					))}
+		<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+			{/* Carousel Section */}
+			<div className="carousel-container">
+				<button className="carousel-button left" onClick={prevResource}>
+					&#9665;
+				</button>
+
+				<div className="carousel-wrapper">
+					<div
+						className="carousel-track"
+						style={{
+							transform: `translateX(-${currentIndex * 100}%)`,
+							transition: "transform 0.4s ease-in-out",
+						}}
+					>
+						{resources.map(({ _id, resourceIconUrl, title, link, description }) => (
+							<div
+								key={_id}
+								className="resource-card"
+								style={{
+									backgroundImage: `url(${backgroundImage})`,
+									backgroundSize: "cover",
+								}}
+							>
+								<a
+									href={link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="card-link"
+								>
+									<img src={resourceIconUrl} alt={title} className="resource-icon" />
+									<h4 className="resource-title">{title}</h4>
+									<p className="resource-description">{description}</p>
+								</a>
+							</div>
+						))}
+					</div>
 				</div>
+
+				<button className="carousel-button right" onClick={nextResource}>
+					&#9655;
+				</button>
 			</div>
 
-			<button className="carousel-button right" onClick={nextResource}>&#9655;</button>
-
+			{/* Indicators Section (now outside and below the carousel) */}
 			<div className="carousel-indicators">
 				{resources.map((_, index) => (
-					<span 
-						key={index} 
-						className={`dot ${index === currentIndex ? "active" : ""}`} 
+					<span
+						key={index}
+						className={`dot ${index === currentIndex ? "active" : ""}`}
 						onClick={() => setCurrentIndex(index)}
 					/>
 				))}
@@ -114,192 +141,3 @@ function ResourceCarousel({ resources }) {
 		</div>
 	);
 }
-/*
-function Resources() {
-	const [uiIndex, setUIIndex] = useState(0);
-	const [backendIndex, setBackendIndex] = useState(0);
-	const [databasesIndex, setDatabasesIndex] = useState(0);
-	const [deploymentIndex, setDeploymentIndex] = useState(0);
-	const [gamingIndex, setGamingIndex] = useState(0);
-	const [aiIndex, setAIIndex] = useState(0);
-	const [generalIndex, setGeneralIndex] = useState(0);
-
-	const [windowDimensions, setWindowDimensions] = useState(
-		getWindowDimensions()
-	);
-
-	const handleUISelect = (selectedIndex) => {
-		setUIIndex(selectedIndex);
-	};
-
-	const handleBackendSelect = (selectedIndex) => {
-		setBackendIndex(selectedIndex);
-	};
-
-	const handleDatabasesSelect = (selectedIndex) => {
-		setDatabasesIndex(selectedIndex);
-	};
-
-	const handleDeploymentSelect = (selectedIndex) => {
-		setDeploymentIndex(selectedIndex);
-	};
-
-	const handleGamingSelect = (selectedIndex) => {
-		setGamingIndex(selectedIndex);
-	};
-
-	const handleAISelect = (selectedIndex) => {
-		setAIIndex(selectedIndex);
-	};
-
-	const handleGeneralIndex = (selectedIndex) => {
-		setGeneralIndex(selectedIndex);
-	};
-
-	const indexes = [
-		uiIndex,
-		backendIndex,
-		databasesIndex,
-		deploymentIndex,
-		gamingIndex,
-		aiIndex,
-		generalIndex,
-	];
-
-	const handleIndexes = [
-		setUIIndex,
-		setBackendIndex,
-		setDatabasesIndex,
-		setDeploymentIndex,
-		setGamingIndex,
-		setAIIndex,
-		setGeneralIndex,
-	];
-
-	useEffect(() => {
-		function handleResize() {
-			const dimensions = getWindowDimensions();
-			if (dimensions.width <= 900) {
-				handleIndexes.map((handleIndex) => {
-					handleIndex(0);
-				});
-			} else if (dimensions.width > 900) {
-				handleIndexes.map((handleIndex) => {
-					handleIndex(0);
-				});
-			}
-			setWindowDimensions(dimensions);
-		}
-
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
-
-	return (
-		<div className="starter-packs">
-			<h2>
-				<img className="title-img" src="/assets/images/resources_title.png" />
-			</h2>
-			{starterPackData.map((starterPack, index) => (
-				<div className="starter-pack-card" key={starterPack.name}>
-					<div className="starter-pack-card-information">
-						<h3>{starterPack.name}</h3>
-						<p>{starterPack.description}</p>
-
-						<div className="starter-pack-card-links">
-							{windowDimensions.width <= 900 ? (
-								<Carousel
-									activeIndex={indexes[index]}
-									onSelect={handleIndexes[index]}
-									nextIcon={<img src={next_icon} alt="Next" />}
-									prevIcon={<img src={prev_icon} alt="Previous" />}
-									style={{ height: 500 }}
-								>
-									{[...Array(Math.ceil(starterPack.packs.length))].map(
-										(_, index) => (
-											<Carousel.Item key={index} className="carousel-item">
-												<Stack direction="horizontal" className="stack">
-													{starterPack.packs
-														.slice(index, index + 1)
-														.map((pack, packIndex) => (
-															<Card key={packIndex} className="card">
-																<Tooltip
-																	className="tooltip_link"
-																	content={pack.tooltip}
-																	key={pack.name}
-																>
-																	<a
-																		className="starter-pack-card-link"
-																		href={pack.link}
-																		target={
-																			pack.link.startsWith("/")
-																				? "_self"
-																				: "_blank"
-																		}
-																		rel="noopener noreferrer"
-																	>
-																		<h4>{pack.name}</h4>
-																		<img src={pack.image} alt={pack.name} />
-																	</a>
-																</Tooltip>
-															</Card>
-														))}
-												</Stack>
-											</Carousel.Item>
-										)
-									)}
-								</Carousel>
-							) : (
-								<Carousel
-									activeIndex={indexes[index]}
-									onSelect={handleIndexes[index]}
-									nextIcon={<img src={next_icon} alt="Next" />}
-									prevIcon={<img src={prev_icon} alt="Previous" />}
-									style={{ height: 500 }}
-								>
-									{[...Array(Math.ceil(starterPack.packs.length / 3))].map(
-										(_, index) => (
-											<Carousel.Item key={index} className="carousel-item">
-												<Stack direction="horizontal" className="stack">
-													{starterPack.packs
-														.slice(index * 3, index * 3 + 3)
-														.map((pack, packIndex) => (
-															<Card key={packIndex} className="card">
-																<Tooltip
-																	className="tooltip_link"
-																	content={pack.tooltip}
-																	key={pack.name}
-																>
-																	<a
-																		className="starter-pack-card-link"
-																		href={pack.link}
-																		target={
-																			pack.link.startsWith("/")
-																				? "_self"
-																				: "_blank"
-																		}
-																		rel="noopener noreferrer"
-																	>
-																		<h4>{pack.name}</h4>
-																		<img src={pack.image} alt={pack.name} />
-																	</a>
-																</Tooltip>
-															</Card>
-														))}
-												</Stack>
-											</Carousel.Item>
-										)
-									)}
-								</Carousel>
-							)}
-						</div>
-					</div>
-				</div>
-			))}
-			<Footer />
-		</div>
-	);
-}
-
-export default Resources;
-*/

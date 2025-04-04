@@ -34,7 +34,7 @@ $coral: "assets/images/resources-coral.svg";
 #coral {
 	pointer-events: none;
 	width: 105vw;
-	height: 410vh;
+	height: 840vh;
 	position: absolute;
 	background-position: top;
 	margin-top: 25vh;
@@ -48,24 +48,32 @@ $coral: "assets/images/resources-coral.svg";
 .Resources .category {
 	position: relative;
 	z-index: 20; // Higher than fish and coral
-	margin-top: 5vh;
+	margin-top: 10vh;
 	align-items: center;
+	font-family: "Londrina Solid", sans-serif;
+}
+
+.category {
+	text-align: center;
+	margin-bottom: 2%;
+	font-size: 100px
 }
 
 .resource-list {
 	margin-top: 55vh;
-	margin-left: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; // Ensure it spans full width for proper centerin
 }
-
 
 .carousel-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: relative;
-	overflow: hidden;
 	width: 100%;
-	max-width: 400px;
+	max-width: 1000px;
+	font-family: 'Instrument Sans';
 }
 
 .carousel-wrapper {
@@ -78,37 +86,62 @@ $coral: "assets/images/resources-coral.svg";
 	display: flex;
 	transition: transform 0.4s ease-in-out;
 	will-change: transform;
+	height: 570px;
+	
 }
 
 .resource-card {
 	min-width: 100%;
-	background: linear-gradient(180deg, #87CEFA, #1E3A8A);
-	padding: 30px;
-	border-radius: 20px;
+	min-height: 350px;
 	text-align: center;
 	color: white;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	padding: 40px 20px;
+	box-sizing: border-box;
+}
+
+.card-link {
+    text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 800px; // Limit how wide children can go
+	margin: 0 auto;
+}
+
+.card-link,
+.card-link:visited,
+.card-link:hover,
+.card-link:active {
+	color: #333B6D;
 }
 
 .resource-icon {
-	width: 80px;
-	height: 80px;
-	margin-bottom: 15px;
+	margin-top: 0%;
+	width: 159px;
+	height: 159px;
+	margin-bottom: 5%;
 }
 
 .resource-title {
-	font-size: 1.5rem;
+	font-size: 48px;
 	margin-bottom: 10px;
+	font-weight: 700;
 }
 
 .resource-description {
-	font-size: 1rem;
+	font-size: 32px;
 	margin-bottom: 10px;
+	font-weight: 400;
+	max-width: 60%;
+	margin-left: 50%;
 }
 
 .resource-link {
-	background-color: white;
-	color: #1E3A8A;
 	padding: 8px 16px;
 	border-radius: 5px;
 	font-weight: bold;
@@ -134,8 +167,18 @@ $coral: "assets/images/resources-coral.svg";
 	cursor: pointer;
 	color: white;
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	transform: translateY(-50%);
+}
+
+.category h3 {
+    text-align: center;
+    margin-left: 0;
+}
+
+.category p {
+    text-align: center;
+    margin-left: 0;
 }
 
 
@@ -154,13 +197,14 @@ $coral: "assets/images/resources-coral.svg";
 .carousel-indicators {
 	display: flex;
 	justify-content: center;
-	margin-top: 15px;
+	margin-top: 30px;
+	position: relative;
 }
 
 .dot {
-	width: 10px;
-	height: 10px;
-	margin: 0 5px;
+	width: 20px;
+	height: 20px;
+	margin: 0 7px;
 	background: white;
 	border-radius: 50%;
 	cursor: pointer;
@@ -170,201 +214,4 @@ $coral: "assets/images/resources-coral.svg";
 
 .dot.active {
 	opacity: 1;
-}
-
-
-
-.starter-packs {
-	min-height: 100vh;
-	width: 100%;
-	background: linear-gradient(#dfe0ff, #fcd6bd),
-		url("../../../assets/images/stars-background.svg");
-	background-attachment: fixed;
-	background-size: cover;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	color: #322660;
-	padding: 2rem 2rem 0 2rem;
-
-	h2 {
-		margin-top: 10px;
-		text-align: center;
-		font-size: 3.5em;
-	}
-
-	.title-img {
-		width: 65%;
-	}
-
-	.description {
-		font-weight: bold;
-		text-align: center;
-		font-size: 1.5em;
-		margin-bottom: 2rem;
-	}
-
-	.tooltip_link .tooltip-content {
-		z-index: 9999;
-		position: absolute; /* or fixed, depending on your layout */
-	}
-	.tooltip-wrapper .tooltip-tip {
-		width: 250px;
-		background-color: #2b2150;
-	}
-
-	/* Ensure no parent element clips the tooltip */
-	.starter-packs,
-	.starter-pack-card,
-	.starter-pack-card-information,
-	.starter-pack-card-links {
-		overflow: visible !important;
-	}
-
-	.starter-pack-card {
-		margin: 1.5rem;
-		width: 100%;
-		height: auto;
-		border-radius: 45px;
-		color: #2b2150;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 1.5rem;
-		z-index: 10;
-
-		@media screen and (max-width: $break-medium) {
-			flex-direction: column;
-		}
-
-		@media screen and (max-width: $break-small) {
-			padding: 1.5rem 0;
-		}
-
-		.starter-pack-card-information {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: flex-start;
-			width: 90%;
-
-			@media screen and (max-width: $break-medium) {
-				align-items: center;
-				width: 90%;
-			}
-
-			h3 {
-				text-align: left;
-				width: 100%;
-				font-size: 2em;
-				margin-bottom: 1rem;
-			}
-
-			p {
-				text-align: left;
-				width: 100%;
-				font-size: 1.3em;
-			}
-		}
-
-		.starter-pack-card-links {
-			display: flex;
-			flex-direction: column;
-			width: 100%;
-			margin: 1rem auto;
-
-			@media screen and (max-width: $break-medium) {
-				width: 90%;
-			}
-
-			.carousel-item {
-				height: 450px;
-			}
-
-			.stack {
-				height: 100%;
-				justify-content: center;
-				align-items: center;
-				gap: 5rem;
-
-				@media screen and (max-width: 1050px) {
-					gap: 3rem;
-				}
-			}
-
-			.card {
-				width: 20rem;
-				height: 25rem;
-				border-radius: 30px;
-				border: none;
-				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); /* Added shadow */
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: flex-start;
-				// overflow: hidden;
-				background-image: linear-gradient(#ee99a0, #b1affb);
-				overflow-wrap: break-word;
-
-				.starter-pack-card-link {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: flex-start;
-					width: 100%;
-					height: 100%;
-					padding: 1rem;
-					text-align: center;
-					color: white;
-					text-decoration: none;
-
-					h4 {
-						font-size: 25px;
-						margin: 1.5rem 0;
-					}
-
-					img {
-						width: 100%;
-						height: auto;
-						max-height: 15rem;
-						object-fit: contain;
-						margin-top: 1rem;
-						margin-bottom: 1.5rem;
-					}
-				}
-			}
-		}
-
-		.carousel-control {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		.carousel-control-prev {
-			left: -80px;
-			max-width: 10%;
-			width: 50px;
-
-			@media screen and (max-width: $break-small) {
-				left: -40px;
-			}
-		}
-
-		.carousel-control-next {
-			right: -80px;
-			max-width: 10%;
-			width: 50px;
-
-			@media screen and (max-width: $break-small) {
-				right: -40px;
-			}
-		}
-
-		.carousel-indicators {
-			bottom: -30px;
-		}
-	}
 }
