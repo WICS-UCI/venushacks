@@ -1,4 +1,4 @@
-@import "../../../globals/vh-styles.scss";
+@use "../../../globals/vh-styles.scss" as *;
 
 .Schedule {
 	min-height: 100vh;

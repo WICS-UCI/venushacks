@@ -1,4 +1,4 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 
 $otter: "assets/images/otter.svg";
 $purple_scuba: "assets/images/purple-scuba.svg";
