@@ -81,4 +81,14 @@ body {
 			}
 		}
 	} // END FAQ
+
+	#sponsors {
+		width: 75%;
+		max-width: 1500px;
+		margin: auto;
+		
+		@media screen and (max-width: $break-medium) {
+			width: 85%;
+		}
+	} // END SPONSORS
 }
