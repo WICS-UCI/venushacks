@@ -1,14 +1,11 @@
 import {
 	Countdown,
-	FloatingLaptop,
-	Footer,
 	ScheduleCard,
 } from "src/app/components";
 
 import "./Schedule.scss";
 import { Container } from "react-bootstrap";
 
-// const HACKING_DEADLINE = "24 May 2024 21:00:00 PDT";
 const HACKING_DEADLINE = "26 May 2024 09:00:00 PDT";
 
 const Schedule = () => (
@@ -31,7 +28,6 @@ const Schedule = () => (
 			<h4 className="schedule-hacking-ends-in">Blast off!</h4>
 			<ScheduleCard />
 		</section>
-		<Footer />
 	</div>
 );
 
