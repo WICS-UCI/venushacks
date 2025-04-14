@@ -11,12 +11,7 @@ const HACKING_DEADLINE = "26 May 2024 09:00:00 PDT";
 const Schedule = () => (
 	<div className="Schedule">
 		<section id="schedule-block">
-			<div className="schedule-header">
-				<img
-					src="../../../assets/images/schedule/schedule-header.png"
-					alt="Schedule Header"
-				></img>
-			</div>
+			<h1 className="schedule-title">SCHEDULE</h1>
 			<h4 className="schedule-hacking-ends-in">
 				All times in PDT. Hacking ends in:
 			</h4>
