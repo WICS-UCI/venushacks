@@ -25,6 +25,18 @@ body {
 			width: auto;
 			margin: 20px auto;
 
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 6.25rem;
+			color: white;
+			letter-spacing: 0.56rem;
+			text-align: left;
+			margin-bottom: 1em;
+
+			@media screen and (max-width: $break-medium) {
+				text-align: center;
+			}
+
 			@media screen and (max-width: $break-medium) {
 				height: 9vw;
 				max-height: 40px;
@@ -63,19 +75,9 @@ body {
 			align-items: center;
 
 			.section-title {
-				font-family: "Londrina Solid", sans-serif;
-				font-weight: 400;
-				font-size: 6.25rem;
-				color: white;
 				text-shadow: 9px 16px 10px #8e7694;
-				letter-spacing: 0.56rem;
-				text-align: left;
-				margin-bottom: 1em;
-
-				@media screen and (max-width: $break-medium) {
-					text-align: center;
-				}
 			}
+
 			@media screen and (max-width: $break-medium) {
 				width: 85%;
 			}
@@ -86,7 +88,17 @@ body {
 		width: 75%;
 		max-width: 1500px;
 		margin: auto;
-		
+		margin-top: 5em;
+
+		.section-title {
+			text-shadow: 9px 16px 10px #35094159;
+
+			@media screen and (max-width: $break-medium) {
+				text-align: center;
+				font-size: min(6.25rem, 16vw);
+			}
+		}
+
 		@media screen and (max-width: $break-medium) {
 			width: 85%;
 		}

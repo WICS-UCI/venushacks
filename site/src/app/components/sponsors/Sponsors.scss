@@ -1,36 +1,17 @@
 @import "src/globals/vh-styles.scss";
 
-.sponsor-title {
-	text-align: left;
-	font-family: "Londrina Solid", sans-serif;
-	font-weight: 400;
-	font-size: 6.25rem;
-	color: #fff;
-
-	text-shadow: 9px 16px 10px rgba(36, 25, 53, 0.3);
-	letter-spacing: 0.56rem;
-
-	margin-top: max(150px, 5%);
-	width: 100%;
-
-	@media screen and (max-width: $break-medium) {
-		text-align: center;
-		font-size: 15vw;
-	}
-}
-
-#all-sponsors{
-	display:flex;
+#all-sponsors {
+	display: flex;
 	flex-wrap: wrap;
-	justify-content:space-between;
+	justify-content: space-between;
 	max-width: 1500px;
 	margin: auto;
 }
 
-.sponsor{
+.sponsor {
 	width: 46%;
 	aspect-ratio: 2 / 1;
-	
+
 	margin: auto;
 	margin-bottom: 4%;
 	background-color: grey;

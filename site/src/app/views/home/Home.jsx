@@ -32,7 +32,10 @@ const Home = () => {
 
 			{/* SPONSORS ************************/}
 			<section id="sponsors">
-				<Sponsors />
+				<div id="sponsors-container">
+					<h2 className="section-title">SPONSORS</h2>
+					<Sponsors />
+				</div>
 			</section>
 
 			{/* BOTTOM GRAPHIC ******************/}
