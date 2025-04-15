@@ -46,8 +46,7 @@ const Partners = () => {
 	}
 
 	return (
-		<section id="partners">
-			<div id="partners-container">
+			<div id="partners-carousel">
 				<input
 					className="arrow"
 					type="button"
@@ -73,7 +72,6 @@ const Partners = () => {
 					onClick={() => shift(1)}
 				/>
 			</div>
-		</section>
 	);
 };
 

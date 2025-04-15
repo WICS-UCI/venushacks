@@ -1,20 +1,23 @@
 @import "src/globals/vh-styles.scss";
 
-#partners {
-	margin-top: 50px;
+:root {
+	--med-width: 750px;
+	--small-width: 450px;
+}
 
-	#partners-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+#partners-carousel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-		width: 75%;
-		aspect-ratio: 3/1;
-		margin: auto;
+	width: 100%;
+	aspect-ratio: 3/1;
 
-		@media screen and (max-width: $break-medium) {
-			width: 85%;
-		}
+	@media screen and (max-width: --med-width) {
+		aspect-ratio: 2/1;
+	}
+	@media screen and (max-width: --small-width) {
+		aspect-ratio: 3/2;
 	}
 }
 
@@ -48,7 +51,7 @@
 	font-size: 0vw;
 	transition: all 2s ease;
 
-	@media screen and (max-width: 750px) {
+	@media screen and (max-width: --med-width) {
 		visibility: hidden;
 		transition: 0s;
 	}
@@ -74,12 +77,13 @@
 	aspect-ratio: 1/1;
 
 	border-radius: 50%;
+	opacity: 0;
 
-	@media screen and (max-width: 750px) {
+	@media screen and (max-width: --med-width) {
 		width: 65%;
 		font-size: 2.5vw;
 	}
-	@media screen and (max-width: 450px) {
+	@media screen and (max-width: --small-width) {
 		font-size: 3.5vw;
 	}
 }
@@ -110,21 +114,26 @@
 		height: 80%;
 	}
 
-	@media screen and (max-width: 750px) {
+	@media screen and (max-width: --med-width) {
 		visibility: visible;
 		position: absolute;
 		width: 55%;
 	}
-	@media screen and (max-width: 450px) {
+	@media screen and (max-width: --small-width) {
 		width: 75%;
 	}
 }
 
-#cur:hover .pop {
-	animation-name: bubble-pop;
-	animation-duration: 0.3s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+#cur:hover {
+	.pop {
+		animation-name: bubble-pop;
+		animation-duration: 0.3s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+	.desc {
+		opacity: 1;
+	}
 }
 
 @keyframes bubble-pop {
