@@ -9,16 +9,23 @@
 		align-items: center;
 
 		width: 75%;
+		aspect-ratio: 3/1;
 		margin: auto;
 
-		@media screen and (max-width: $break-small) {
-			margin: 10px 30px;
-			padding: 5px 20px 15px;
+		@media screen and (max-width: $break-medium) {
+			width: 85%;
 		}
 	}
 }
 
-input {
+#partners-view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.arrow {
 	background: none;
 	color: inherit;
 	border: none;
@@ -27,47 +34,93 @@ input {
 	font-weight: 1000;
 }
 
-.arrow {
-	background-color: transparent;
-	border: solid black;
-	border-width: 0 3px 3px 0;
-	display: inline-block;
-	padding: 3px;
-}
-
 .bubble {
+	position: absolute;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	width: 55%;
+	width: 20%;
+	aspect-ratio: 1 / 1;
 
 	border-radius: 50%;
+	opacity: 0;
+	font-size: 0vw;
+	transition: all 2s ease;
+
+	@media screen and (max-width: 750px) {
+		visibility: hidden;
+		transition: 0s;
+	}
+}
+
+#nxt {
+	margin-left: 50%;
 	opacity: 0.5;
-	aspect-ratio: 1 / 1;
+}
+
+#prv {
+	margin-right: 50%;
+	opacity: 0.5;
+}
+
+.desc {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+
+	width: 55%;
+	aspect-ratio: 1/1;
+
+	border-radius: 50%;
+
+	@media screen and (max-width: 750px) {
+		width: 65%;
+		font-size: 2.5vw;
+	}
+	@media screen and (max-width: 450px) {
+		font-size: 3.5vw;
+	}
 }
 
 .pop {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 2;
 
 	width: 90%;
 	aspect-ratio: 1/1;
 
 	border-radius: 50%;
-	background-image: radial-gradient(#c6ecf4, #80d9ec);
+	background-image: radial-gradient(#c6ecf4 30%, #80d9ec 80%);
 }
 
-.cur {
-	width: 95%;
+#cur {
+	display: flex;
+	width: 35%;
+	aspect-ratio: 1/1;
+
 	opacity: 1;
+	font-size: 1.65vw;
+
 	.pop {
 		width: 80%;
+		height: 80%;
+	}
+
+	@media screen and (max-width: 750px) {
+		visibility: visible;
+		position: absolute;
+		width: 55%;
+	}
+	@media screen and (max-width: 450px) {
+		width: 75%;
 	}
 }
 
-.cur:hover .pop {
+#cur:hover .pop {
 	animation-name: bubble-pop;
 	animation-duration: 0.3s;
 	animation-iteration-count: 1;
@@ -77,10 +130,13 @@ input {
 @keyframes bubble-pop {
 	from {
 		width: 80%;
+		aspect-ratio: 1/1;
 	}
 
 	to {
 		width: 90%;
+		aspect-ratio: 1/1;
+
 		opacity: 0;
 		border: 20px solid #80d9ec;
 	}
