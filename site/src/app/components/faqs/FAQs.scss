@@ -1,5 +1,6 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 $arrow: "/assets/images/arrow-point-right.svg";
+
 
 #faq-accordion-wrapper {
 	text-align: left;
@@ -57,7 +58,7 @@ $arrow: "/assets/images/arrow-point-right.svg";
 		border-bottom: 0;
 	}
 	&:active {
-		border-bottom: 2px solid black !important;
+		border-bottom: 2px solid white !important;
 	}
 
 	// Move the arrow to the left
@@ -79,7 +80,7 @@ $arrow: "/assets/images/arrow-point-right.svg";
 	}
 	// When the accordion is not collapsed (i.e., open)
 	&:not(.collapsed) {
-		border-bottom: 2px solid black !important;
+		border-bottom: 2px solid white !important;
 		&::before {
 			margin-top: 1rem;
 			transform: rotate(90deg);
