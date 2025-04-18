@@ -23,20 +23,23 @@
 			font-size: 6.25rem;
 			letter-spacing: 0.5rem;
 			text-shadow: 9px 16px 10px #68b3d7;
-			margin-top: 30vh;
+			margin-top: 170px;
+			margin-bottom: 10px;
 
 			@media screen and (max-width: $break-medium) {
-				font-size: 5rem;
-				margin-top: 20vh;
+				font-size: 4rem;
 			}
 		}
 
 		.schedule-hacking-ends-in {
 			margin-bottom: 30px;
-			color: $darkerPurple;
+			font-family: "Instrument Sans", sans-serif;
+			font-weight: 600;
+			font-size: 2.19rem;
+			color: white;
 
 			@media screen and (max-width: $break-medium) {
-				font-size: 20px;
+				font-size: 1.2rem;
 			}
 		}
 
