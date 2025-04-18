@@ -20,7 +20,6 @@ const Schedule = () => (
 					<Countdown date={HACKING_DEADLINE} />
 				</Container>
 			</div>
-			<h4 className="schedule-hacking-ends-in">Blast off!</h4>
 			<ScheduleCard />
 		</section>
 	</div>
