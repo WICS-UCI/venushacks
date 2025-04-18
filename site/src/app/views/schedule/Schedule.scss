@@ -1,4 +1,5 @@
-@use "../../../globals/vh-styles.scss" as *;
+@import "../../../globals/vh-styles.scss";
+$coral: "/assets/images/coral-combined.svg";
 
 .Schedule {
 	min-height: 100vh;
@@ -9,6 +10,11 @@
 	flex-direction: column;
 	color: white;
 	overflow-x: hidden;
+	background-image: url($coral);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+
 
 	#schedule-block {
 		position: relative;
