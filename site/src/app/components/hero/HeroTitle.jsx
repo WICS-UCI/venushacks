@@ -10,7 +10,7 @@ export default function HeroTitle() {
 			<Title />
 			<div className="button-row">
 				<PrimaryButton
-					href="https://airtable.com/app4GBC5A7cYMsnZX/shrsPSPqu4IgTulIg"
+					href="/apply"
 					type="button"
 				>
 					Apply Now

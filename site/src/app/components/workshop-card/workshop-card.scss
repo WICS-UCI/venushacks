@@ -1,4 +1,4 @@
-@import "../../../globals/vh-styles.scss";
+@use "../../../globals/vh-styles.scss" as *;
 
 .workshop-card {
 	border-radius: 20px;

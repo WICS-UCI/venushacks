@@ -1,9 +1,10 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 
-$otter: "assets/images/otter.svg";
-$purple_scuba: "assets/images/purple-scuba.svg";
-$wics_bubble: "assets/images/wics-bubble.svg";
-$hack_bubble: "assets/images/hack-bubble.svg";
+$otter: "/assets/images/otter.svg";
+$purple_scuba: "/assets/images/purple-scuba.svg";
+$wics_bubble: "/assets/images/wics-bubble.svg";
+$hack_bubble: "/assets/images/hack-bubble.svg";
+
 
 .about-url {
 	color: white;
@@ -82,6 +83,7 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 }
 
 #otter {
+	margin-left: 5vw;
 	width: 30vw;
 	height: 55vh;
 	max-width: 396px;
@@ -92,9 +94,14 @@ $hack_bubble: "assets/images/hack-bubble.svg";
 	background-position: center;
 	animation: floatAnimation 4s ease-in-out infinite;
 
+	@media screen and (max-width: $break-medium) {
+		margin-left: 0vw;
+	}
+
 	@media screen and (max-width: $break-small) {
 		width: 25vw;
 		height: 25vw;
+		margin-left: 0vw;
 	}
 }
 

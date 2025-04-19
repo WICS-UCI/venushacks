@@ -1,4 +1,4 @@
-@import "../../../globals/vh-styles.scss";
+@use "../../../globals/vh-styles.scss" as *;
 
 .speaker-photos {
 	margin: 10px 60px 40px;

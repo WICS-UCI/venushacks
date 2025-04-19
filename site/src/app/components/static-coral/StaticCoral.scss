@@ -1,0 +1,22 @@
+@use "src/globals/vh-styles.scss";
+
+.coral-static-container {
+	width: 100%;
+	position: relative;
+	bottom: 0;
+	height: 60vw;
+	overflow: hidden;
+}
+
+.coral-static {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
+}
+
+#coral-static-1 {
+	z-index: 1;
+	transform: translateY(50%);
+}
