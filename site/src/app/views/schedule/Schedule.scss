@@ -22,6 +22,8 @@ $coral: "/assets/images/coral-combined.svg";
 		align-items: center;
 		flex-direction: column;
 		padding-bottom: 100px;
+		min-height: 400px; // or however tall your countdown gets
+
 
 		.schedule-title {
 			font-family: "Londrina Solid", sans-serif;
@@ -42,7 +44,6 @@ $coral: "/assets/images/coral-combined.svg";
 			font-family: "Instrument Sans", sans-serif;
 			font-weight: 600;
 			font-size: 2.19rem;
-			color: white;
 
 			@media screen and (max-width: $break-medium) {
 				font-size: 1.2rem;
@@ -52,25 +53,14 @@ $coral: "/assets/images/coral-combined.svg";
 		.schedule-countdown {
 			margin-top: 10px;
 			margin-bottom: 30px;
-			color: $darkerPurple;
+			font-family: "Londrina Solid", sans-serif;
 
-			@media screen and (min-width: $break-medium) {
-				section {
-					padding-top: -5px;
-
-					span {
-						font-size: 40px !important;
-						font-weight: 600;
-						line-height: 50px !important;
-					}
-				}
-			}
 
 			.container-style {
 				border-radius: 20px;
-				background-image: url("../../../assets/images/schedule/countdown-bg-blank.png");
-				background-size: 100% auto;
-				padding: 3vw 4vw;
+				// background-image: url("../../../assets/images/schedule/countdown-bg-blank.png");
+				// background-size: 100% auto;
+				// padding: 3vw 4vw;
 			}
 		}
 	}
