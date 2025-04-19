@@ -6,7 +6,7 @@ import {
 import "./Schedule.scss";
 import { Container } from "react-bootstrap";
 
-const HACKING_DEADLINE = "26 May 2024 09:00:00 PDT";
+const HACKING_DEADLINE = "19 April 2025 09:00:00 PDT";
 
 const Schedule = () => (
 	<div className="Schedule">
