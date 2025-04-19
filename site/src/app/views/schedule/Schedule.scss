@@ -1,5 +1,5 @@
 @import "../../../globals/vh-styles.scss";
-$coral: "/assets/images/coral-combined.svg";
+$coral: "/assets/images/coral-combined.svg"; // delete this asset later and use StaticCoral component instead.
 
 .Schedule {
 	min-height: 100vh;
@@ -10,7 +10,7 @@ $coral: "/assets/images/coral-combined.svg";
 	flex-direction: column;
 	color: white;
 	overflow-x: hidden;
-	background-image: url($coral);
+	background-image: url($coral); // TODO delete background specifications and use StaticCoral
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
