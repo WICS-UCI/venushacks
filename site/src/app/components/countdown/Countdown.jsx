@@ -77,15 +77,11 @@ const Countdown = ({ date }) => {
 				play
 				numbers={timer}
 				color="white"
-				width={isDesktop ? 100 : 50}
+				width={isDesktop ? 80 : 40}
 				height={isDesktop ? 100 : 60}
 				nonNumberStyle={{
-					fontSize: isDesktop ? "13.75rem" : "7rem",
-          fontWeight: 400,
-				}}
-				numberStyles={{
-					fontSize: isDesktop ? "13.75rem" : "7rem",
-          fontWeight: 400,
+					fontSize: isDesktop ? "8rem" : "4rem",
+					fontWeight: 400,
 				}}
 			/>
 		</>
