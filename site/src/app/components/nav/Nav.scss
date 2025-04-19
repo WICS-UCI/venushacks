@@ -87,10 +87,11 @@
 				text-align: right;
 				align-items: center;
 				top: 10px;
-				height: 140px;
+				height: fit-content;
 
 				padding-top: 10px;
 				padding-left: max(60px, 10%);
+				padding-bottom: 15px;
 				
 				background-image: linear-gradient(#b9a2c8, #c8a0bc, #a094ca);
 

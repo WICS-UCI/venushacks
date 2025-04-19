@@ -1,10 +1,8 @@
-import {
-	Countdown,
-	ScheduleCard,
-} from "src/app/components";
+import { Countdown, ScheduleCard } from "src/app/components";
 
-import "./Schedule.scss";
 import { Container } from "react-bootstrap";
+import StaticCoral from "src/app/components/static-coral/StaticCoral";
+import "./Schedule.scss";
 
 const HACKING_DEADLINE = "19 April 2025 09:00:00 PDT";
 
@@ -22,6 +20,7 @@ const Schedule = () => (
 			</div>
 			<ScheduleCard />
 		</section>
+		<StaticCoral />
 	</div>
 );
 
