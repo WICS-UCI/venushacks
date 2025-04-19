@@ -1,5 +1,7 @@
 @use "../../../globals/vh-styles.scss" as *;
 
+$timer-bg: "/assets/images/timer-background.svg";
+
 .Schedule {
 	min-height: 100vh;
 	width: 100%;
@@ -10,15 +12,12 @@
 	color: white;
 	overflow-x: hidden;
 
-
 	#schedule-block {
 		position: relative;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		padding-bottom: 100px;
-		
-
 
 		.schedule-title {
 			font-family: "Londrina Solid", sans-serif;
@@ -50,13 +49,26 @@
 			margin-bottom: 30px;
 			font-family: "Londrina Solid", sans-serif;
 
-
-
 			.container-style {
-				border-radius: 20px;
-				// background-image: url("../../../assets/images/schedule/countdown-bg-blank.png");
-				// background-size: 100% auto;
-				// padding: 3vw 4vw;
+				background-image: url($timer-bg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center top;
+				padding: 4rem 6rem;
+
+				.countdown-content {
+					padding-top: 3.75rem;
+					text-align: center;
+				}
+
+				@media screen and (max-width: $break-medium) {
+					padding: 2rem 2rem;
+					max-width: 370px;
+					max-height: 270px;
+					.countdown-content {
+						padding-top: 1.5rem;
+					}
+				}
 			}
 		}
 	}

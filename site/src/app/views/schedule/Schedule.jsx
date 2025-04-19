@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import StaticCoral from "src/app/components/static-coral/StaticCoral";
 import "./Schedule.scss";
 
-const HACKING_DEADLINE = "19 April 2025 09:00:00 PDT";
+const HACKING_DEADLINE = "20 April 2025 09:00:00 PDT";
 
 const Schedule = () => (
 	<div className="Schedule">
@@ -15,7 +15,9 @@ const Schedule = () => (
 			</h4>
 			<div className="schedule-countdown">
 				<Container className="container-style">
-					<Countdown date={HACKING_DEADLINE} />
+					<div className="countdown-content">
+						<Countdown date={HACKING_DEADLINE} />
+					</div>
 				</Container>
 			</div>
 			<ScheduleCard />
