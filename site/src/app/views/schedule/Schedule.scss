@@ -1,6 +1,7 @@
 @use "../../../globals/vh-styles.scss" as *;
 
 $timer-bg: "/assets/images/timer-background.svg";
+$bubble: "/assets/images/bubble.svg";
 
 .Schedule {
 	min-height: 100vh;
@@ -30,6 +31,98 @@ $timer-bg: "/assets/images/timer-background.svg";
 
 			@media screen and (max-width: $break-medium) {
 				font-size: 4rem;
+			}
+		}
+
+		.bubble-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: -1;
+
+			.bubble {
+				position: absolute;
+				background: url($bubble);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				animation: float 6s ease-in-out infinite;
+
+				@media screen and (max-width: $break-medium) {
+					display: none;
+				}
+
+				&.small {
+					width: 2.5vw;
+					height: 2.5vw;
+					max-width: 32px;
+					max-height: 32px;
+				}
+
+				&.medium {
+					width: 3vw;
+					height: 3vw;
+					max-width: 39px;
+					max-height: 39px;
+				}
+
+				&.large {
+					width: 5vw;
+					height: 5vw;
+					max-width: 56px;
+					max-height: 56px;
+				}
+
+				&.left {
+					left: 1vw;
+
+					&.small {
+						top: 4%;
+						animation-delay: 0s;
+					}
+					&.medium {
+						left: 5vw;
+						top: 4.7%;
+						animation-delay: 1s;
+					}
+					&.large {
+						left: 2vw;
+						top: 6%;
+						animation-delay: 2s;
+					}
+				}
+
+				&.right {
+					right: 1vw;
+
+					&.small {
+						top: 4%;
+						animation-delay: 0s;
+					}
+					&.medium {
+						right: 5vw;
+						top: 4.7%;
+						animation-delay: 1s;
+					}
+					&.large {
+						right: 2vw;
+						top: 6%;
+						animation-delay: 2s;
+					}
+				}
+			}
+		}
+
+		@keyframes float {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-10px);
 			}
 		}
 

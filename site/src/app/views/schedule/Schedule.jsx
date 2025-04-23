@@ -9,7 +9,6 @@ import "./Schedule.scss";
 // const HACKING_START = new Date("23 May 2025 21:00:00 PDT");
 const HACKING_END = "25 April 2025 09:00:00 PDT"; // These are temporary test dates in order to see the timer
 const HACKING_START = new Date("22 April 2025 21:00:00 PDT");
-// TODO: Add bubbles with animations around the timer
 
 const Schedule = () => {
 	const [showCountdown, setShowCountdown] = useState(false);
@@ -23,7 +22,14 @@ const Schedule = () => {
 		<div className="Schedule">
 			<section id="schedule-block">
 				<h1 className="schedule-title">SCHEDULE</h1>
-
+				<div className="bubble-wrapper">
+					<div className="bubble left small" />
+					<div className="bubble left medium" />
+					<div className="bubble left large" />
+					<div className="bubble right small" />
+					<div className="bubble right medium" />
+					<div className="bubble right large" />
+				</div>
 				{showCountdown && (
 					<>
 						<h4 className="schedule-hacking-ends-in">
