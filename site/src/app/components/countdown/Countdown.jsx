@@ -54,13 +54,13 @@ const Countdown = ({ date }) => {
 
 	const timerExpired = hasTimerInit && timer === "00:00:00";
 	const isDesktop = winDim.width > 1000;
-	// VH 2024 colors
+	// VH 2025 colors
 	const confettiColors = [
-		"#ee99a0",
-		"#ffc999",
-		"#070024",
-		"#322660",
-		"#a8acf9",
+		"#CAE8F1",
+		"#409FCF",
+		"#EEB8D4",
+		"#8659A4",
+		"#333B6D",
 	];
 	return (
 		<>

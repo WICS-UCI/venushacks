@@ -1,15 +1,12 @@
 @use "../../../globals/vh-styles.scss" as *;
 
-//style={{ 'text-decoration': 'none' }}
 
 .schedule-card {
-	border-radius: 20px;
+	border-radius: 29px;
 	z-index: 50;
 	width: 75vw;
-	background-image: url("../../../assets/images/schedule/schedule-block-bg.png");
-	background-size: cover;
-	//box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-	color: $darkerPurple;
+	background: linear-gradient(#8659a4, #333b6d);
+	color: white;
 	grid-template-columns: 49% 2% 49%;
 	grid-auto-flow: column;
 
@@ -113,11 +110,11 @@
 				font-size: 24px;
 				margin-bottom: 0;
 			}
-			
+
 			.time {
 				font-size: 14px;
 				color: black;
-				letter-spacing: .75px;
+				letter-spacing: 0.75px;
 				padding-top: 2px;
 			}
 
