@@ -31,6 +31,7 @@ const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 const NavLinks = ({ reduceMotion, isMobile }) => (
 	<>
 		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
+		<NavLink url="/apply" text="Apply" {...{ isMobile, reduceMotion }} />
 		{/* <NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} /> */}
 		{/* <NavLink
 			url="/resources"
@@ -97,7 +98,7 @@ const Nav = () => {
 								src={vhLogo}
 								{...(!reduceMotion && {
 									initial: { scale: 0.5 },
-									animate: {scale: [null, 1.1, 0.8, 1.05, 1]},
+									animate: { scale: [null, 1.1, 0.8, 1.05, 1] },
 									exit: { scale: 0.5 },
 									transition: {
 										duration: 1,
@@ -111,7 +112,7 @@ const Nav = () => {
 						</Link>
 					)}
 					{isMobile ? (
-						<div className = {`bckgrd ${showDropdown && "open-bckgrd"}`}>
+						<div className={`bckgrd ${showDropdown && "open-bckgrd"}`}>
 							<motion.span
 								className={`nav-menu-span`}
 								{...(!reduceMotion && {
