@@ -18,7 +18,6 @@ $bubble: "/assets/images/bubble.svg";
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		padding-bottom: 100px;
 
 		.schedule-title {
 			font-family: "Londrina Solid", sans-serif;
@@ -77,39 +76,39 @@ $bubble: "/assets/images/bubble.svg";
 				}
 
 				&.left {
-					left: 1vw;
+					left: 20px;
 
 					&.small {
-						top: 4%;
+						top: 170px;
 						animation-delay: 0s;
 					}
 					&.medium {
-						left: 5vw;
-						top: 4.7%;
+						left: 65px;
+						top: 200px;
 						animation-delay: 1s;
 					}
 					&.large {
-						left: 2vw;
-						top: 6%;
+						left: 25px;
+						top: 250px;
 						animation-delay: 2s;
 					}
 				}
 
 				&.right {
-					right: 1vw;
+					right: 20px;
 
 					&.small {
-						top: 4%;
+						top: 170px;
 						animation-delay: 0s;
 					}
 					&.medium {
-						right: 5vw;
-						top: 4.7%;
+						right: 65px;
+						top: 200px;
 						animation-delay: 1s;
 					}
 					&.large {
-						right: 2vw;
-						top: 6%;
+						right: 25px;
+						top: 250px;
 						animation-delay: 2s;
 					}
 				}
@@ -138,8 +137,6 @@ $bubble: "/assets/images/bubble.svg";
 		}
 
 		.schedule-countdown {
-			margin-top: 10px;
-			margin-bottom: 30px;
 			font-family: "Londrina Solid", sans-serif;
 
 			.container-style {

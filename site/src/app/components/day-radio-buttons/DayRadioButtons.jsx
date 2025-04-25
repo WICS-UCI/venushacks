@@ -1,7 +1,6 @@
 import "./DayRadioButtons.scss";
 
 export default function DayRadioButtons({ days, selected, onChange }) {
-	console.log(selected);
 	return (
 		<div className="day-radio-group">
 			{days.map((day) => (
