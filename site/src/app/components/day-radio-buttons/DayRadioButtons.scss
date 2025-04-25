@@ -1,0 +1,39 @@
+@use "src/globals/vh-styles.scss";
+
+.day-radio-group {
+	display: flex;
+	justify-content: center;
+	gap: 5rem;
+	margin-bottom: 6rem;
+}
+
+.radio-button {
+	flex: 1 1 0;
+	max-width: 500px;
+	height: 68px;
+	min-width: 14rem;
+	font-family: "Londrina Solid";
+	color: white;
+	font-size: 2.2rem;
+	letter-spacing: 0.25rem;
+
+	border-radius: 20px;
+	background-color: #8659a4;
+	border: 0px;
+	box-shadow: 0px 3px 4px 0px #0000007c;
+
+	transition: all 0.2s ease;
+
+	&:active,
+	&:hover,
+	&:focus {
+		background-color: #deaed7;
+	}
+
+
+	@media screen and (max-width: vh-styles.$break-large) {
+		min-width: 12rem;
+		height: 40px;
+		font-size: 1.25rem;
+	}
+}

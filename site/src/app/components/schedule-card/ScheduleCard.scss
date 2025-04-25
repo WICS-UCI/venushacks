@@ -1,137 +1,53 @@
 @use "../../../globals/vh-styles.scss" as *;
 
-
 .schedule-card {
 	border-radius: 29px;
 	z-index: 50;
 	width: 75vw;
 	background: linear-gradient(#8659a4, #333b6d);
 	color: white;
-	grid-template-columns: 49% 2% 49%;
-	grid-auto-flow: column;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 
 	@media screen and (max-width: 800px) {
-		display: flex;
-		flex-direction: column;
 		width: 85vw;
 	}
+}
 
-	.schedule-card-divider-horizontal {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+.schedule-time-block {
+	background: #b38ad1;
+	box-shadow: 0px 3px 4px 0px #0000007c;
+	border-radius: 20px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	align-items: flex-start;
+}
 
-		@media screen and (max-width: 800px) {
-			display: none;
-		}
+.time-label {
+	font-size: 2.5rem;
+	font-weight: 400;
+	font-family: "Londrina Solid";
+	letter-spacing: 0.2rem;
+	white-space: nowrap;
+}
 
-		div {
-			height: 4px;
-			width: 15%;
-			border-radius: 5px;
-			background-color: $darkerPurple;
-			margin-bottom: 40px;
-		}
-	}
+.event-info {
+	font-family: "Instrument Sans";
+}
 
-	.schedule-card-tooltip {
-		position: relative;
-	}
+.event-title {
+	font-weight: 600;
+	font-size: 1.875rem;
+	line-height: 2;
+	padding: 0;
+	margin: 0;
+}
 
-	.schedule-card-tooltip .schedule-card-tooltiptext {
-		visibility: hidden;
-		width: 400px;
-		background-color: $peach;
-		color: black;
-		z-index: 1;
-		top: 100%;
-		text-align: center;
-		border-radius: 6px;
-		padding: 10px;
-		position: absolute;
-	}
-
-	.schedule-card-tooltip .schedule-card-description {
-		margin-top: 2px;
-		font-size: 18px;
-	}
-
-	.schedule-card-tooltip .schedule-card-tooltiptext::after {
-		content: "";
-		position: absolute;
-		bottom: 100%;
-		left: 10%;
-		margin-left: -5px;
-		border-width: 5px;
-		border-style: solid;
-		border-color: transparent transparent $peach transparent;
-	}
-
-	.schedule-card-tooltip:hover .schedule-card-tooltiptext {
-		visibility: visible;
-		opacity: 1;
-	}
-
-	.schedule-card-section {
-		.schedule-card-time-slot {
-			color: $darkerPurple;
-			width: 100%;
-			// height: 60px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			text-align: left;
-			margin-bottom: 20px !important;
-
-			div {
-				height: 100%;
-			}
-
-			img {
-				width: 100px;
-				height: auto;
-			}
-
-			@media screen and (max-width: 450px) {
-				h5 {
-					font-size: 16px !important;
-				}
-
-				p {
-					font-size: 12px;
-				}
-			}
-
-			.time-slot-name {
-				background: linear-gradient($darkerPurple, $darkPurple);
-				-webkit-background-clip: text;
-				color: transparent;
-				background-clip: text;
-				font-size: 24px;
-				margin-bottom: 0;
-			}
-
-			.time {
-				font-size: 14px;
-				color: black;
-				letter-spacing: 0.75px;
-				padding-top: 2px;
-			}
-
-			p {
-				color: $darkPurple;
-				margin-bottom: 0;
-			}
-		}
-
-		.schedule-card-location {
-			a {
-				text-decoration: none;
-			}
-		}
-
-		& > div {
-			margin: 30px;
-		}
-	}
+.event-description {
+	font-weight: 400;
+	font-size: 1rem;
 }

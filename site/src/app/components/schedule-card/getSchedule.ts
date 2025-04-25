@@ -1,4 +1,5 @@
 import { formatInTimeZone } from "date-fns-tz";
+import groq from "groq";
 import { z } from "zod";
 import { client } from "../../../sanity/client";
 import { SanityDocument } from "../../../sanity/types";
@@ -7,6 +8,7 @@ const Events = z.array(
 	SanityDocument.extend({
 		_type: z.literal("event"),
 		name: z.string(),
+		description: z.string().optional(),
 		startTime: z
 			.string()
 			.datetime()
@@ -15,26 +17,38 @@ const Events = z.array(
 			.string()
 			.datetime()
 			.transform((time) => new Date(time)),
-		description: z.string(),
 	})
 );
 
 export const getSchedule = async () => {
 	const events = Events.parse(
 		await client.fetch(
-			"*[_type == 'event'] | order(startTime asc, endTime asc)"
+			groq`*[_type == 'event'] | order(startTime asc, endTime asc)`
 		)
 	);
-	const eventsByDay = new Map<string, z.infer<typeof Events>>();
+
+	const eventsByDay = {
+		friday: [],
+		saturday: [],
+		sunday: [],
+	};
 
 	events.forEach((event) => {
-		const key = formatInTimeZone(
+		const dateKey = formatInTimeZone(
 			new Date(event.startTime),
 			"America/Los_Angeles",
 			"MM/dd/yyyy"
 		);
-		eventsByDay.set(key, [...(eventsByDay.get(key) ?? []), event]);
+
+		// Match against specific known day strings
+		if (dateKey === "05/23/2025") {
+			eventsByDay.friday.push(event);
+		} else if (dateKey === "05/24/2025") {
+			eventsByDay.saturday.push(event);
+		} else if (dateKey === "05/25/2025") {
+			eventsByDay.sunday.push(event);
+		}
 	});
 
-	return Array.from(eventsByDay.values());
+	return eventsByDay;
 };
