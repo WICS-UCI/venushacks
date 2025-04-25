@@ -24,16 +24,18 @@
 
 	transition: all 0.2s ease;
 
-	&:active,
 	&:hover,
 	&:focus {
-		background-color: #deaed7;
+		background-color: #df89d0;
 	}
-
 
 	@media screen and (max-width: vh-styles.$break-large) {
 		min-width: 12rem;
 		height: 40px;
 		font-size: 1.25rem;
 	}
+}
+
+.radio-button.active {
+	background-color: #deaed7;
 }
