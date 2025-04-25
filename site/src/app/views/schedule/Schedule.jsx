@@ -7,8 +7,8 @@ import "./Schedule.scss";
 
 // const HACKING_END = "25 May 2025 09:00:00 PDT";
 // const HACKING_START = new Date("23 May 2025 21:00:00 PDT");
-const HACKING_END = "25 April 2025 09:00:00 PDT"; // These are temporary test dates in order to see the timer
-const HACKING_START = new Date("22 April 2025 21:00:00 PDT");
+const HACKING_END = "27 April 2025 09:00:00 PDT"; // These are temporary test dates in order to see the timer
+const HACKING_START = new Date("24 April 2025 21:00:00 PDT");
 
 // TODO: FIX THE BUBBLE Y LOCATION CHANGING A LOT WHEN THE SCHEDULE LENGTH CHANGES.
 

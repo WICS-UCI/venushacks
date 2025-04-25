@@ -1,17 +1,22 @@
-@use "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 
 .day-radio-group {
 	display: flex;
 	justify-content: center;
+	width: 100%;
 	gap: 5rem;
-	margin-bottom: 6rem;
+	margin-bottom: 5rem;
+	@media screen and (max-width: $break-medium) {
+		gap: 1.5rem;
+		margin-bottom: 3rem;
+	}
 }
 
 .radio-button {
-	flex: 1 1 0;
-	max-width: 500px;
+	flex: 1;
+	max-width: 300px;
 	height: 68px;
-	min-width: 14rem;
+	min-width: 9rem;
 	font-family: "Londrina Solid";
 	color: white;
 	font-size: 2.2rem;
@@ -29,10 +34,12 @@
 		background-color: #df89d0;
 	}
 
-	@media screen and (max-width: vh-styles.$break-large) {
-		min-width: 12rem;
-		height: 40px;
-		font-size: 1.25rem;
+	@media screen and (max-width: $break-medium) {
+		min-width: 5rem;
+		max-width: 150px;
+		height: 30px;
+		font-size: 1rem;
+		letter-spacing: 0.1rem;
 	}
 }
 
