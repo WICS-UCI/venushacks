@@ -1,44 +1,20 @@
 import Sponsor from "./Sponsor";
-
-import placeholder from "/assets/images/shell.svg";
-
 import "./Sponsors.scss";
 
-const CORPORATE_EMAIL = "sponsorships@venushacks.com";
+import { getSponsors } from "./getSponsors";
+import { client } from "../../../sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
-const sponsors = [
-	{
-		imgId: "spfb",
-		imgSrc: placeholder,
-		url: "https://asuci.uci.edu/president/spfb/",
-	},
-	{
-		imgId: "odit",
-		imgSrc: placeholder,
-		url: "https://odit.uci.edu/",
-	},
-	{
-		imgId: "melissa",
-		imgSrc: placeholder,
-		url: "https://www.melissa.com/",
-	},
-	{
-		imgId: "antrepreneur",
-		imgSrc: placeholder,
-		url: "https://antrepreneur.uci.edu/",
-	},
-	{
-		imgId: "spfb",
-		imgSrc: placeholder,
-		url: "https://asuci.uci.edu/president/spfb/",
-	},
-];
+const builder = imageUrlBuilder(client);
+const { sponsors } = await getSponsors();
+
+const CORPORATE_EMAIL = "sponsorships@venushacks.com";
 
 const Sponsors = () => {
 	return (
 		<div id="all-sponsors">
-			{sponsors.map((s) => (
-				<Sponsor imgId={s.imgId} imgSrc={s.imgSrc} url={s.url} />
+			{sponsors.map(({ icon, url, _key }) => (
+				<Sponsor imgId={_key} imgSrc={builder.image(icon).url()} url={url} />
 			))}
 		</div>
 	);

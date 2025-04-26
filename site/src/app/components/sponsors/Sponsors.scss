@@ -9,6 +9,8 @@
 }
 
 .sponsor {
+	display: inline;
+
 	width: 46%;
 	aspect-ratio: 2 / 1;
 
@@ -16,6 +18,11 @@
 	margin-bottom: 4%;
 	background-color: grey;
 	border-radius: 20px;
+
+	img {
+		height: 100%;
+		padding: 20px;
+	}
 
 	@media screen and (max-width: $break-medium) {
 		width: 100%;
