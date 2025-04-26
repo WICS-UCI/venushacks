@@ -26,7 +26,6 @@ const Partners = () => {
 			/>
 
 			<div id="partners-view">
-				{console.log(partners)}
 				{partners.map(({ desc, icon, show, _key }) => (
 					<Partner
 						imgId={_key}
