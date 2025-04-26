@@ -1,42 +1,13 @@
 import Partner from "./Partner";
-
-import placeholder from "/assets/images/shell.svg";
-
 import "./Partners.scss";
 import updateView from "./carousel";
 
-const partners = [
-	{
-		imgId: "design",
-		imgSrc: placeholder,
-		addOn: "",
-		desc: "Lorem1 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-	},
-	{
-		imgId: "design",
-		imgSrc: placeholder,
-		addOn: "prv",
-		desc: "Lorem2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-	},
-	{
-		imgId: "design",
-		imgSrc: placeholder,
-		addOn: "cur",
-		desc: "Lorem3 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-	},
-	{
-		imgId: "design",
-		imgSrc: placeholder,
-		addOn: "nxt",
-		desc: "Lorem4 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-	},
-	{
-		imgId: "design",
-		imgSrc: placeholder,
-		addOn: "",
-		desc: "Lorem5 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-	},
-];
+import { getPartners } from "./getPartners";
+import { client } from "../../../sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(client);
+const { partners } = await getPartners();
 
 const Partners = () => {
 	let cur = 1;
@@ -46,32 +17,33 @@ const Partners = () => {
 	}
 
 	return (
-			<div id="partners-carousel">
-				<input
-					className="arrow"
-					type="button"
-					value="<"
-					onClick={() => shift(-1)}
-				/>
+		<div id="partners-carousel">
+			<input
+				className="arrow"
+				type="button"
+				value="<"
+				onClick={() => shift(-1)}
+			/>
 
-				<div id="partners-view">
-					{partners.map((p) => (
-						<Partner
-							imgId={p.imgId}
-							imgSrc={p.imgSrc}
-							addOn={p.addOn}
-							desc={p.desc}
-						/>
-					))}
-				</div>
-
-				<input
-					className="arrow"
-					type="button"
-					value=">"
-					onClick={() => shift(1)}
-				/>
+			<div id="partners-view">
+				{console.log(partners)}
+				{partners.map(({ desc, icon, show, _key }) => (
+					<Partner
+						imgId={_key}
+						imgSrc={builder.image(icon).url()}
+						addOn={show}
+						desc={desc}
+					/>
+				))}
 			</div>
+
+			<input
+				className="arrow"
+				type="button"
+				value=">"
+				onClick={() => shift(1)}
+			/>
+		</div>
 	);
 };
 
