@@ -37,6 +37,10 @@
 	font-weight: 1000;
 }
 
+img {
+	max-height: 50%;
+}
+
 .bubble {
 	position: absolute;
 	display: flex;
@@ -85,6 +89,9 @@
 	}
 	@media screen and (max-width: 450px) {
 		font-size: 3.5vw;
+	}
+	@media screen and (min-width: 1500px) {
+		font-size: 1.56rem;
 	}
 }
 
