@@ -15,7 +15,5 @@ const Sponsors = SanityDocument.extend({
 });
 
 export const getSponsors = async () => {
-    let a = await client.fetch(groq`*[_type == 'sponsors'][0]`);
-    console.log(a);
-	return Sponsors.parse(a);
+	return Sponsors.parse(await client.fetch(groq`*[_type == 'sponsors'][0]`));
 };
