@@ -1,10 +1,11 @@
 import Partner from "./Partner";
-import "./Partners.scss";
 import updateView from "./carousel";
 
 import { getPartners } from "./getPartners";
 import { client } from "../../../sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
+
+import "./Partners.scss";
 
 const builder = imageUrlBuilder(client);
 const { partners } = await getPartners();
@@ -26,9 +27,10 @@ const Partners = () => {
 			/>
 
 			<div id="partners-view">
-				{partners.map(({ desc, icon, show, _key }) => (
+				{partners.map(({ desc, icon, show, _key }, index) => (
 					<Partner
-						imgId={_key}
+						key = {_key}
+						imgId={index}
 						imgSrc={builder.image(icon).url()}
 						addOn={show}
 						desc={desc}

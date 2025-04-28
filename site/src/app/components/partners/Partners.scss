@@ -57,18 +57,24 @@ img {
 
 	@media screen and (max-width: 750px) {
 		visibility: hidden;
-		transition: 0.5s;
+		transition: 0.75s;
 	}
 }
 
 #nxt {
 	margin-left: 50%;
 	opacity: 0.5;
+	@media screen and (max-width: 750px) {
+		width: 0px;
+	}
 }
 
 #prv {
 	margin-right: 50%;
 	opacity: 0.5;
+	@media screen and (max-width: 750px) {
+		width: 0px;
+	}
 }
 
 .desc {
