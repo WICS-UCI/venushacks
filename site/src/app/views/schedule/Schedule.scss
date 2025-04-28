@@ -150,6 +150,9 @@ $bubble: "/assets/images/bubble.svg";
 					padding-top: 3.75rem;
 					text-align: center;
 				}
+				@media screen and (min-width: 900px) and (max-width: 1000px) {
+					padding-top: 2rem;
+				}
 
 				@media screen and (max-width: $break-medium) {
 					padding: 2rem 2rem;
