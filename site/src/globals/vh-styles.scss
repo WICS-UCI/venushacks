@@ -8,10 +8,10 @@ When graphics gives us their style guidelines we can look here.
 
 
 // PX Sizing for Media queries
-$break-small: 500px;
-$break-medium: 900px;
-$break-large: 1250px;
-$break-xlarge: 1600px;
+$break-small: 576px;
+$break-medium: 992px;
+$break-large: 1200px;
+$break-xlarge: 1400px;
 
 // Temporary Appwide Style Variables
 $fontColor: white;
