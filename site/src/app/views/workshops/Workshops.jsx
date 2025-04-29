@@ -8,20 +8,25 @@ import "./Workshops.scss";
 
 const Workshops = () => {
 	return (
-		<div className="workshops">
-			<div id="workshops_header">
-				<img src={workshopsTitle} alt="Workshops" id="title-img" />
-				<h5>
-					For time and location info, check the{" "}
-					<Link to="/schedule">Schedule</Link> page!
-				</h5>
-			</div>
+		<section>
+			<div className="workshops">
+				<h2 className="workshops-title">Workshops</h2>
+				<h2 className="workshops-subtitle">Refer to the Schedule Page for times and locations! </h2>
+				{/* <div id="workshops_header">
+					<img src={workshopsTitle} alt="Workshops" id="title-img" />
+					<h5>
+						For time and location info, check the{" "}
+						<Link to="/schedule">Schedule</Link> page!
+					</h5>
+				</div>
 
-			{workshopsData.map((workshop) => (
-				<WorkshopCard workshop={workshop} key={workshop.title} />
-			))}
-			<Footer />
-		</div>
+				{workshopsData.map((workshop) => (
+					<WorkshopCard workshop={workshop} key={workshop.title} />
+				))}
+				<Footer /> */}
+			</div>
+		</section>
+
 	);
 };
 

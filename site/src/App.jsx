@@ -19,10 +19,10 @@ const App = () => (
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/apply" element={<Apply />} />
-				{/* <Route path="/schedule" element={<Schedule />} />
-				<Route path="/resources" element={<Resources />} />
+				{/* <Route path="/schedule" element={<Schedule />} /> */}
+				{/* <Route path="/resources" element={<Resources />} /> */}
 				<Route path="/workshops" element={<Workshops />} />
-				<Route
+				{/* <Route
 					path="/devpost"
 					element={<Redirect url="https://venushacks-2024.devpost.com/" />}
 				/> */}
