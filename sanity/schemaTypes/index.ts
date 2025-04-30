@@ -1,6 +1,13 @@
+import event from "./event";
+import faqs from "./faqs";
 import resource from "./resource";
 import resourceCategory from "./resourceCategory";
 import resourceCategoryOrder from "./resourceCategoryOrder";
-import faqs from "./faqs";
 
-export const schemaTypes = [faqs, resource, resourceCategory, resourceCategoryOrder];
+export const schemaTypes = [
+  event,
+  faqs,
+  resource,
+  resourceCategory,
+  resourceCategoryOrder,
+];
