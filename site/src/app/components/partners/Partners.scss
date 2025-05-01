@@ -1,4 +1,4 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 
 :root {
 	--med-width: 750px;

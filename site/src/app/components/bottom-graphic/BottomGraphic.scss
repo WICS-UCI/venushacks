@@ -1,7 +1,6 @@
 @use "src/globals/vh-styles.scss";
 
 $scubaDiver: "/assets/images/scuba-diver.svg";
-$scubaDiverShadow: "/assets/images/scuba-diver-shadow.svg";
 $otter: "/assets/images/otter3.svg";
 $mermaidTails: "/assets/images/mermaid-tails.svg";
 $treasureChest: "/assets/images/treasure-chest.svg";
@@ -34,16 +33,6 @@ body {
 		width: 30vw;
 		height: 55vh;
 		background: url($scubaDiver) no-repeat center/contain;
-		z-index: 3;
-	}
-
-	#scuba-diver-shadow {
-		position: absolute;
-		left: 0vw;
-		bottom: 10vh;
-		width: 30vw;
-		height: 55vh;
-		background: url($scubaDiverShadow) no-repeat center/contain;
 		z-index: 3;
 	}
 

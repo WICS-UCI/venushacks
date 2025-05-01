@@ -8,6 +8,7 @@ import {
 	Workshops,
 	NotFound,
 	ComingSoon,
+	Apply,
 } from "src/app/views";
 import { Nav, Redirect } from "src/app/components";
 
@@ -17,8 +18,9 @@ const App = () => (
 			<Nav />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				{/* <Route path="/schedule" element={<Schedule />} />
-				<Route path="/resources" element={<Resources />} />
+				<Route path="/apply" element={<Apply />} />
+				<Route path="/schedule" element={<Schedule />} />
+				{/* <Route path="/resources" element={<Resources />} />
 				<Route path="/workshops" element={<Workshops />} />
 				<Route
 					path="/devpost"
@@ -36,7 +38,7 @@ const App = () => (
 				/> */}
 				<Route path="*" element={<NotFound />} />
 			</Routes>
-			<Footer/>
+			<Footer />
 		</BrowserRouter>
 	</div>
 );
