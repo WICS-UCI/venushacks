@@ -8,6 +8,12 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
+      name: "department",
+      title: "Department",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "organizers",
       title: "Organizers",
       type: "array",
@@ -21,20 +27,6 @@ export default defineType({
               title: "Name",
               type: "string",
               validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "department",
-              title: "Department",
-              type: "string",
-              validation: (Rule) => Rule.required(),
-              options: {
-                list: [
-                  { title: "Board", value: "Board" },
-                  { title: "Corporate", value: "Corporate" },
-                  { title: "Logistics", value: "Logistics" },
-                  { title: "Marketing", value: "Marketing" },
-                ],
-              },
             }),
             defineField({
               name: "role",

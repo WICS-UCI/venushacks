@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getOrganizers } from "./getOrganizers";
 
-export default function useQuestions() {
+export default function useOrganizers() {
     const [organizers, setOrganizers] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
