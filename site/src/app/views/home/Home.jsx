@@ -1,6 +1,7 @@
 import About from "src/app/components/about/About";
 import FAQs from "src/app/components/faqs/FAQs";
 import Sponsors from "src/app/components/sponsors/Sponsors";
+import Partners from "src/app/components/partners/Partners";
 import Hero from "src/app/components/hero/Hero";
 import BottomGraphic from "src/app/components/bottom-graphic/BottomGraphic";
 
@@ -35,6 +36,14 @@ const Home = () => {
 				<div id="sponsors-container">
 					<h2 className="section-title">SPONSORS</h2>
 					<Sponsors />
+				</div>
+			</section>
+
+			{/* PARTNERS ************************/}
+			<section id="partner">
+				<div id="partners-container">
+					<h2 className="section-title">PARTNERS</h2>
+					<Partners />
 				</div>
 			</section>
 

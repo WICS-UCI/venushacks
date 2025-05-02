@@ -103,4 +103,26 @@ body {
 			width: 85%;
 		}
 	} // END SPONSORS
+
+	#partner {
+		display: flex;
+		justify-content: center;
+		margin-top: 5em;
+
+		#partners-container {
+			width: 75%;
+
+			.section-title {
+				text-shadow: 9px 16px 10px #140c475d;
+
+				@media screen and (max-width: $break-medium) {
+					font-size: min(6.25rem, 17vw);
+				}
+			}
+
+			@media screen and (max-width: $break-medium) {
+				width: 85%;
+			}
+		}
+	} // END PARTNERS
 }

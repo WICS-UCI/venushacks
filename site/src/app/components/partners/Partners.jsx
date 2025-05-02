@@ -1,45 +1,50 @@
 import Partner from "./Partner";
+import updateView from "./carousel";
 
-// import partners_title from "/assets/images/titles/vh-partners.png";
-
-// import acm from "/assets/images/2024-partners/acm.png";
-// import cyber from "/assets/images/2024-partners/cyber.png";
-// import design from "/assets/images/2024-partners/design.png";
-// import hack from "/assets/images/2024-partners/hack.png";
-// import icssc from "/assets/images/2024-partners/icssc.png";
-// import wics from "/assets/images/2024-partners/wics.png";
-// import data from "/assets/images/2024-partners/data.png";
+import { getPartners } from "./getPartners";
+import { client } from "../../../sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
 import "./Partners.scss";
 
+const builder = imageUrlBuilder(client);
+const { partners } = await getPartners();
+
 const Partners = () => {
+	let cur = 1;
+
+	function shift(dir) {
+		cur = updateView(cur, dir);
+	}
+
 	return (
-		<section id="partners">
-			<img className="section-title" src={partners_title} alt="Partners" />
-			<div id="partners-container">
-				<div className="logo-wrapper medium">
+		<div id="partners-carousel">
+			<input
+				className="arrow"
+				type="button"
+				value="<"
+				onClick={() => shift(-1)}
+			/>
+
+			<div id="partners-view">
+				{partners.map(({ desc, icon, show, _key }, index) => (
 					<Partner
-						imgId="design"
-						imgSrc={design}
-						url="https://designatuci.com/"
+						key = {_key}
+						imgId={index}
+						imgSrc={builder.image(icon).url()}
+						addOn={show}
+						desc={desc}
 					/>
-					<Partner imgId="acm" imgSrc={acm} url="https://www.acm-uci.org/" />
-					<Partner imgId="cyber" imgSrc={cyber} url="https://cyberuci.com/" />
-					<Partner
-						imgId="icssc"
-						imgSrc={icssc}
-						url="https://studentcouncil.ics.uci.edu/"
-					/>
-					<Partner imgId="wics" imgSrc={wics} url="https://wics.ics.uci.edu/" />
-					<Partner imgId="hack" imgSrc={hack} url="https://hack.ics.uci.edu/" />
-					<Partner
-						imgId="data"
-						imgSrc={data}
-						url="https://www.dataatuci.com/"
-					/>
-				</div>
+				))}
 			</div>
-		</section>
+
+			<input
+				className="arrow"
+				type="button"
+				value=">"
+				onClick={() => shift(1)}
+			/>
+		</div>
 	);
 };
 
