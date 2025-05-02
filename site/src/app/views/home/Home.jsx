@@ -1,6 +1,7 @@
+import Hero from "src/app/components/hero/Hero";
 import About from "src/app/components/about/About";
 import FAQs from "src/app/components/faqs/FAQs";
-import Hero from "src/app/components/hero/Hero";
+import MeetTheTeam from "src/app/components/meet-the-team/MeetTheTeam";
 import BottomGraphic from "src/app/components/bottom-graphic/BottomGraphic";
 
 import "./Home.scss";
@@ -27,6 +28,10 @@ const Home = () => {
 					<h2 className="section-title">FAQs</h2>
 					<FAQs />
 				</div>
+			</section>
+
+			<section id="meet-the-team">
+				<MeetTheTeam />
 			</section>
 
 			{/* BOTTOM GRAPHIC ******************/}

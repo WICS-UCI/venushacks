@@ -81,4 +81,10 @@ body {
 			}
 		}
 	} // END FAQ
+
+	#meet-the-team {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
 }

@@ -2,10 +2,8 @@
 
 .tab-radio-group {
 	display: flex;
-	// justify-content: center;
 	justify-content: space-between;
 	width: 100%;
-	// gap: 5rem;
 	gap: 1.2rem;
 	margin-bottom: 5rem;
 	@media screen and (max-width: $break-medium) {
