@@ -21,14 +21,8 @@ body {
 	section {
 		.section-title {
 			max-width: 100vw;
-			height: 60px;
 			width: auto;
 			margin: 20px auto;
-
-			@media screen and (max-width: $break-medium) {
-				height: 9vw;
-				max-height: 40px;
-			}
 		}
 	}
 
@@ -70,7 +64,6 @@ body {
 				text-shadow: 9px 16px 10px #8e7694;
 				letter-spacing: 0.56rem;
 				text-align: left;
-				margin-bottom: 1em;
 
 				@media screen and (max-width: $break-medium) {
 					text-align: center;
@@ -82,9 +75,30 @@ body {
 		}
 	} // END FAQ
 
+	#meet-the-team-container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
 	#meet-the-team {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+
+		.section-title {
+			width: 100%;
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 6.25rem;
+			color: white;
+			text-shadow: 9px 16px 10px #48437b;
+			letter-spacing: 0.56rem;
+			text-align: left;
+
+			@media screen and (max-width: $break-medium) {
+				text-align: center;
+			}
+		}
 	}
 }

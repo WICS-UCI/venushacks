@@ -31,7 +31,10 @@ const Home = () => {
 			</section>
 
 			<section id="meet-the-team">
-				<MeetTheTeam />
+				<div id="meet-the-team-container">
+					<h2 className="section-title">Meet the Team</h2>
+					<MeetTheTeam />
+				</div>
 			</section>
 
 			{/* BOTTOM GRAPHIC ******************/}
