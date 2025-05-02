@@ -77,11 +77,32 @@ body {
 			.section-title {
 				text-shadow: 9px 16px 10px #8e7694;
 			}
+
 			@media screen and (max-width: $break-medium) {
 				width: 85%;
 			}
 		}
 	} // END FAQ
+
+	#sponsors {
+		width: 75%;
+		max-width: 1500px;
+		margin: auto;
+		margin-top: 5em;
+
+		.section-title {
+			text-shadow: 9px 16px 10px #35094159;
+
+			@media screen and (max-width: $break-medium) {
+				text-align: center;
+				font-size: min(6.25rem, 16vw);
+			}
+		}
+
+		@media screen and (max-width: $break-medium) {
+			width: 85%;
+		}
+	} // END SPONSORS
 
 	#partner {
 		display: flex;

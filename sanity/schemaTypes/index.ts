@@ -1,3 +1,4 @@
+import sponsors from "./sponsors";
 import event from "./event";
 import partners from "./partners";
 import faqs from "./faqs";
@@ -6,6 +7,7 @@ import resourceCategory from "./resourceCategory";
 import resourceCategoryOrder from "./resourceCategoryOrder";
 
 export const schemaTypes = [
+  sponsors,
   event,
   partners, 
   faqs,
