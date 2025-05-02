@@ -18,7 +18,13 @@ const Organizers = z.array(
 	})
 );
 
-export const getOrganizers = async () => {
+type OrganizerType = z.infer<typeof Organizer>;
+
+type ReducedOrganizers = {
+	[department: string]: OrganizerType[];
+};
+
+export const getOrganizers = async (): Promise<ReducedOrganizers | []> => {
 	const result = await client.fetch(
 		"*[_type == 'organizers']{department, organizers}"
 	);
@@ -31,9 +37,16 @@ export const getOrganizers = async () => {
 	}
 
 	try {
-		const res = Organizers.parse(result);
-		console.log(res);
-		return res;
+		const parsed = Organizers.parse(result);
+		const reduced: ReducedOrganizers = parsed.reduce((acc, curr) => {
+			const { department, organizers } = curr;
+			if (!acc[department]) {
+				acc[department] = [];
+			}
+			acc[department].push(...organizers);
+			return acc;
+		}, {} as ReducedOrganizers);
+		return reduced;
 	} catch (error) {
 		console.error("Error parsing organizers:", error);
 		return [];

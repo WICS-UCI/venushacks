@@ -13,7 +13,7 @@ export default function useOrganizers() {
             try {
                 const data = await getOrganizers();
                 if (isMounted) {
-                    setOrganizers(data[0].organizers);
+                    setOrganizers(data);
                     setIsLoading(false);
                 }
             } catch (err) {
