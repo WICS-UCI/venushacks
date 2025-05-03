@@ -51,7 +51,7 @@ const Home = () => {
 			{/* MEET THE TEAM ************************/}
 			<section id="meet-the-team">
 				<div id="meet-the-team-container">
-					<h2 className="section-title">Meet the Team</h2>
+					<h2 className="section-title">MEET THE TEAM</h2>
 					<MeetTheTeam />
 				</div>
 			</section>
