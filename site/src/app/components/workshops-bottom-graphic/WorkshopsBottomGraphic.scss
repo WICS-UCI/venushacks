@@ -77,7 +77,6 @@ body {
 		bottom: 80px;
 	}
 
-
 	.pinkStarfish {
 		position: absolute;
 		background: url($pinkStarfish) no-repeat center/contain;
@@ -127,9 +126,7 @@ body {
 		height: 100px;
 	}
 
-
 	// right container
-	// left container
 	#right-pinkStarfish {
 		top: -5px;
 		left: 70px;
@@ -161,11 +158,141 @@ body {
 		height: 70px;
 	}
 
+	@media screen and (max-width: vh-styles.$break-xlarge) {
+		.left {
+			left: 5%;
+		}
+
+		.right {
+			right: 5%;
+		}
+	}
 
 	@media screen and (max-width: vh-styles.$break-large) {
+		.container {
+			width: 270px;
+			height: 250px;
+		}
+
+		.left {
+			left: 3%;
+		}
+
+		.right {
+			right: 5%;
+		}
+
+		// left container
+		#left-pinkStarfish {
+			top: -5px;
+			width: 130px;
+			height: 117px;
+			transform: rotate(10deg);
+		}
+
+		#left-purpleStarfish {
+			bottom: 70px;
+			right: 10px;
+			width: 80px;
+			height: 80px;
+			transform: rotate(-54deg);
+		}
+
+		#left-bottomShell {
+			bottom: 30px;
+			left: 70px;
+			width: 70px;
+			height: 70px;
+			transform: rotate(-20deg);
+		}
+
+		#left-topShell {
+			top: -20px;
+			right: 0;
+			width: 90px;
+			height: 90px;
+		}
+
+		// right container
+		#right-pinkStarfish {
+			top: -5px;
+			left: 70px;
+			width: 130px;
+			height: 117px;
+			transform: rotate(-92deg);
+		}
+
+		#right-purpleStarfish {
+			bottom: 40px;
+			right: 10px;
+			width: 80px;
+			height: 80px;
+			transform: rotate(-70deg);
+		}
+
+		#right-bottomShell {
+			bottom: 30px;
+			left: 30px;
+			width: 90px;
+			height: 90px;
+			transform: rotate(-30deg);
+		}
+
+		#right-topShell {
+			top: 30px;
+			right: -20px;
+			width: 70px;
+			height: 70px;
+		}
 	}
 
 	@media screen and (max-width: vh-styles.$break-medium) {
+		#chest {
+			top: 0;
+			left: 60%;
+			width: 250px;
+			height: 250px;
+		}
+
+		#shadow {
+			top: 180px;
+			width: 350px;
+			height: 125px;
+		}
+
+		// left container
+		#left-pinkStarfish {
+			display: none;
+		}
+
+		#left-purpleStarfish {
+			display: none;
+		}
+
+		#left-bottomShell {
+			display: none;
+		}
+
+		#left-topShell {
+			display: none;
+		}
+
+		// right container
+		#right-pinkStarfish {
+			display: none;
+		}
+
+		#right-purpleStarfish {
+			display: none;
+		}
+
+		#right-bottomShell {
+			display: none;
+		}
+
+		#right-topShell {
+			display: none;
+		}
 	}
 
 	@media screen and (max-width: vh-styles.$break-small) {
