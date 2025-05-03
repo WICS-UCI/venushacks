@@ -9,7 +9,6 @@ const Workshops = () => {
 	if (error) return <div>Error: {error.message}</div>;
 	if (!workshops) return <div>No workshops found</div>;
 
-
 	// generate gradient for the workshop card
 	const generateCardGradient = (index) => {
 		const gradients = [
@@ -50,10 +49,7 @@ const Workshops = () => {
 				<div id="big-bubble" />
 
 				{workshops.map((workshop, index) => (
-					<div
-						key={workshop.title}
-						className="workshop-card-wrapper"
-					>
+					<div key={workshop.title} className="workshop-card-wrapper">
 						{index === 0 && <div id="dolphin-tail" />}
 						<WorkshopCard
 							workshop={workshop}

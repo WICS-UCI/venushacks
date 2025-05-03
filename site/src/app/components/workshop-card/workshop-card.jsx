@@ -1,7 +1,6 @@
 import React from "react";
 import "./workshop-card.scss";
 
-
 function WorkshopCard({ workshop, backgroundGradient, rightSectionGradient }) {
 	const { title, description, host } = workshop;
 
@@ -11,7 +10,10 @@ function WorkshopCard({ workshop, backgroundGradient, rightSectionGradient }) {
 				<p className="workshop-card-title">{title}</p>
 				<p id="host">Hosted by: {host}</p>
 			</div>
-			<div className="workshop-card-right" style={{ background: rightSectionGradient }}>
+			<div
+				className="workshop-card-right"
+				style={{ background: rightSectionGradient }}
+			>
 				<p className="workshop-card-description">{description}</p>
 			</div>
 		</div>

@@ -9,6 +9,7 @@ $bubble: "/assets/images/bubble.svg";
 	display: flex;
 	flex-direction: column;
 	margin-top: 140px;
+	overflow: hidden;
 
 	.workshops-title {
 		margin-top: 5vh;
@@ -112,8 +113,8 @@ $bubble: "/assets/images/bubble.svg";
 		position: absolute;
 		top: -200px;
 		right: 200px;
-		width: 15vw;
-		height: 25vw;
+		width: 200px;
+		height: 400px;
 		background: url($dolphin-tail);
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -121,13 +122,27 @@ $bubble: "/assets/images/bubble.svg";
 		z-index: -1;
 
 		@media screen and (max-width: vh-styles.$break-xlarge) {
-			top: -150px;
+			top: -200px;
 			right: 150px;
 		}
 
 		@media screen and (max-width: vh-styles.$break-large) {
+			top: -200px;
+			right: 125px;
+		}
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			width: 175px;
+			height: 350px;
+			top: -150px;
+			right: 20px;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			width: 175px;
+			height: 350px;
 			top: -100px;
-			right: 130px;
+			right: -30px;
 		}
 	}
 }
