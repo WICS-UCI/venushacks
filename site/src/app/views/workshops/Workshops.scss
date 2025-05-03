@@ -23,12 +23,10 @@ $bubble: "/assets/images/bubble.svg";
 
 		@media screen and (max-width: vh-styles.$break-medium) {
 			font-size: 6rem;
-			// gap: 1rem;
 		}
 
 		@media screen and (max-width: vh-styles.$break-small) {
 			font-size: 3.5rem;
-			// gap: 0.5rem;
 		}
 	}
 

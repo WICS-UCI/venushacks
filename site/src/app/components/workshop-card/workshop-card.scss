@@ -1,4 +1,4 @@
-@use "../../../globals/vh-styles.scss" as *;
+@use "../../../globals/vh-styles.scss";
 
 .workshop-card {
 	border-radius: 20px;
@@ -22,6 +22,10 @@
 	.workshop-card-right {
 		margin: 0;
 		border-radius: 0 20px 20px 0;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			border-radius: 0 0 20px 20px;
+		}
 	}
 
 	.workshop-card-title {
@@ -30,12 +34,28 @@
 		letter-spacing: 8%;
 		text-transform: uppercase;
 		line-height: 100%;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 3.5rem;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 2.5rem;
+		}
 	}
 
 	.workshop-card-description {
 		font-size: 24px;
 		font-family: "Instrument Sans", serif;
 		line-height: 150%;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 1.5rem;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 1.25rem;
+		}
 	}
 
 	#host {
@@ -45,6 +65,14 @@
 		letter-spacing: 0%;
 		margin-bottom: 3px;
 		font-weight: 700;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 2rem;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 1.5rem;
+		}
 	}
 
 	a {
@@ -64,25 +92,16 @@
 		font-size: medium;
 	}
 
-	@media (max-width: 768px) {
+	@media screen and (max-width: vh-styles.$break-medium) {
 		flex-direction: column;
-		width: 95vw;
-		max-width: 95vw;
+		width: 80vw;
+		max-width: 80vw;
 
 		.workshop-card-left,
 		.workshop-card-right {
 			flex: none;
 			width: 100%;
 			padding: 15px;
-		}
-
-		.workshop-card-title {
-			font-size: 1.4em;
-			margin-bottom: 20px;
-		}
-
-		.workshop-card-description {
-			font-size: 0.9em;
 		}
 
 		#hosted-by,
@@ -100,15 +119,9 @@
 		}
 	}
 
-	@media (max-width: 480px) {
-		.workshop-card-title {
-			font-size: 1.2em;
-			margin-bottom: 15px;
-		}
-
-		.workshop-card-description {
-			font-size: 0.85em;
-		}
+	@media screen and (max-width: vh-styles.$break-small) {
+		width: 90vw;
+		max-width: 90vw;
 
 		#hosted-by,
 		#host-name {
