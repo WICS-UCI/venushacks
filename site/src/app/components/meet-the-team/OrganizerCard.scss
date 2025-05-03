@@ -1,0 +1,58 @@
+@use "../../../globals/vh-styles.scss" as *;
+
+.organizer-card {
+	width: 45%;
+	text-align: center;
+	color: white;
+
+	.image-container {
+		position: relative;
+		aspect-ratio: 0.8;
+		padding-top: 100%;
+		background-color: #ccc;
+		border-radius: 12px;
+		overflow: hidden;
+
+		.org-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.linkedin-icon {
+			position: absolute;
+			bottom: 8px;
+			right: 8px;
+			width: 30px;
+			height: 30px;
+			border-radius: 4px;
+			padding: 2px;
+		}
+	}
+
+	.org-info {
+		margin-top: 8px;
+
+		.org-name {
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 1.875rem;
+			line-height: 1.875rem;
+			margin: 0;
+		}
+
+		.org-role {
+			font-size: 1.25rem;
+			margin: 0;
+		}
+	}
+}
+
+@media screen and (min-width: $break-small) {
+	.organizer-card {
+		width: 19.75%;
+	}
+}
