@@ -21,6 +21,7 @@ $bubble: "/assets/images/bubble.svg";
 		color: white;
 		text-shadow: 9px 16px 10px #7c94c0;
 		letter-spacing: 0.56rem;
+		text-decoration: uppercase;
 
 		@media screen and (max-width: vh-styles.$break-medium) {
 			font-size: 6rem;
@@ -50,6 +51,8 @@ $bubble: "/assets/images/bubble.svg";
 
 	.workshop-card-wrapper {
 		position: relative;
+		width: fit-content;
+		margin: 0 auto;
 	}
 
 	// assets
@@ -112,7 +115,7 @@ $bubble: "/assets/images/bubble.svg";
 	#dolphin-tail {
 		position: absolute;
 		top: -200px;
-		right: 200px;
+		right: -50px;
 		width: 200px;
 		height: 400px;
 		background: url($dolphin-tail);
@@ -121,28 +124,9 @@ $bubble: "/assets/images/bubble.svg";
 		background-position: center;
 		z-index: -1;
 
-		@media screen and (max-width: vh-styles.$break-xlarge) {
-			top: -200px;
-			right: 150px;
-		}
-
-		@media screen and (max-width: vh-styles.$break-large) {
-			top: -200px;
-			right: 125px;
-		}
-
 		@media screen and (max-width: vh-styles.$break-medium) {
 			width: 175px;
 			height: 350px;
-			top: -150px;
-			right: 20px;
-		}
-
-		@media screen and (max-width: vh-styles.$break-small) {
-			width: 175px;
-			height: 350px;
-			top: -100px;
-			right: -30px;
 		}
 	}
 }
