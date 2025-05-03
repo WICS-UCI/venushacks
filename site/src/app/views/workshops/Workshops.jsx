@@ -1,6 +1,8 @@
 import { WorkshopCard } from "src/app/components";
 import useWorkshops from "./useWorkshops";
 import "./Workshops.scss";
+import BottomGraphic from "src/app/components/workshops-bottom-graphic/WorkshopsBottomGraphic";
+import WorkshopsBottomGraphic from "src/app/components/workshops-bottom-graphic/WorkshopsBottomGraphic";
 
 const Workshops = () => {
 	const { workshops, isLoading, error } = useWorkshops();
@@ -59,6 +61,7 @@ const Workshops = () => {
 					</div>
 				))}
 			</div>
+			<WorkshopsBottomGraphic />
 		</section>
 	);
 };
