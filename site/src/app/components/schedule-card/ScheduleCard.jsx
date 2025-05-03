@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DayRadioButtons from "src/app/components/day-radio-buttons/DayRadioButtons";
+import TabRadioButtons from "../tab-radio-buttons/TabRadioButtons";
 import useSchedule from "src/app/components/schedule-card/useSchedule";
 import "./ScheduleCard.scss";
 
@@ -15,8 +15,8 @@ export default function ScheduleCard() {
 	if (!schedule) return <div>No schedule found.</div>;
 	return (
 		<div className="schedule-container">
-			<DayRadioButtons
-				days={days}
+			<TabRadioButtons
+				tabFields={days}
 				selected={selectedDay}
 				onChange={setSelectedDay}
 			/>

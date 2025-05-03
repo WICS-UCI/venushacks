@@ -5,7 +5,7 @@ import faqs from "./faqs";
 import resource from "./resource";
 import resourceCategory from "./resourceCategory";
 import resourceCategoryOrder from "./resourceCategoryOrder";
-import faqs from "./faqs";
+import organizer from "./organizer";
 import workshops from "./workshops";
 
 export const schemaTypes = [
@@ -16,5 +16,6 @@ export const schemaTypes = [
   resource,
   resourceCategory,
   resourceCategoryOrder,
-  workshops
+  organizer,
+  workshops,
 ];

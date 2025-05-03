@@ -31,14 +31,34 @@ export default defineType({
               title: "Description",
               type: "text",
             }),
+            defineField({
+              name: "startTime",
+              title: "Start Time",
+              type: "datetime",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "endTime",
+              title: "End Time",
+              type: "datetime",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "location",
+              title: "Location",
+              type: "string",
+            }),
           ],
           preview: {
             select: {
               title: "title",
               description: "description",
               host: "host",
+              startTime: "startTime",
+              endTime: "endTime",
+              location: "location",
             },
-            prepare({ title, description, host }) {
+            prepare({ title, description, host, startTime, endTime, location }) {
               return {
                 title,
                 subtitle: host,
@@ -47,6 +67,9 @@ export default defineType({
                     ? `${description.slice(0, 100)}...`
                     : description
                   : "",
+                startTime,
+                endTime,
+                location
               };
             },
           },
