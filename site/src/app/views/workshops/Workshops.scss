@@ -1,5 +1,8 @@
 @use "src/globals/vh-styles.scss";
 
+$dolphin-tail: "/assets/images/dolphin-tail.svg";
+$bubble: "/assets/images/bubble.svg";
+
 .workshops {
 	min-height: 100vh;
 	position: relative;
@@ -8,6 +11,7 @@
 	margin-top: 140px;
 
 	.workshops-title {
+		margin-top: 5vh;
 		width: 100vw;
 		text-align: center;
 		font-family: "Londrina Solid", sans-serif;
@@ -16,6 +20,16 @@
 		color: white;
 		text-shadow: 9px 16px 10px #7c94c0;
 		letter-spacing: 0.56rem;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 6rem;
+			// gap: 1rem;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 3.5rem;
+			// gap: 0.5rem;
+		}
 	}
 
 	.workshops-subtitle {
@@ -32,6 +46,90 @@
 
 		@media screen and (max-width: vh-styles.$break-small) {
 			font-size: 1.5rem;
+		}
+	}
+
+	.workshop-card-wrapper {
+		position: relative;
+	}
+
+	// assets
+	// small bubble
+	#small-bubble {
+		position: absolute;
+		top: 3vh;
+		right: 30vw;
+		width: 35px;
+		height: 35px;
+		background: url($bubble);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -1;
+
+		@media screen and (max-width: vh-styles.$break-xlarge) {
+			top: -50px;
+			left: -50px;
+			width: 8vw;
+			height: 8vw;
+		}
+
+		@media screen and (max-width: vh-styles.$break-large) {
+			top: -30px;
+			left: -30px;
+			width: 6vw;
+			height: 6vw;
+		}
+	}
+
+	// big bubble
+	#big-bubble {
+		position: absolute;
+		top: 7vh;
+		right: 26vw;
+		width: 50px;
+		height: 50px;
+		background: url($bubble);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -1;
+
+		@media screen and (max-width: vh-styles.$break-xlarge) {
+			top: -50px;
+			left: -50px;
+			width: 8vw;
+			height: 8vw;
+		}
+
+		@media screen and (max-width: vh-styles.$break-large) {
+			top: -30px;
+			left: -30px;
+			width: 6vw;
+			height: 6vw;
+		}
+	}
+
+	#dolphin-tail {
+		position: absolute;
+		top: -200px;
+		right: 200px;
+		width: 15vw;
+		height: 25vw;
+		background: url($dolphin-tail);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -1;
+
+		@media screen and (max-width: vh-styles.$break-xlarge) {
+			top: -150px;
+			right: 150px;
+		}
+
+		@media screen and (max-width: vh-styles.$break-large) {
+			top: -100px;
+			right: 130px;
 		}
 	}
 }

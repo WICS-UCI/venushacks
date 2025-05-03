@@ -5,39 +5,46 @@
 	width: 85vw;
 	max-width: 67vw;
 	margin: 20px auto;
-	background-image: linear-gradient(rgba(50, 38, 96), rgb(137, 143, 247));
-	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 4px 4px 0px #00000040;
 	color: #ffffff;
 	display: flex;
 	flex-direction: row;
 
+
 	.workshop-card-left,
 	.workshop-card-right {
-		padding: 20px;
+		padding: 28px;
 		margin-top: 10px;
 		margin-bottom: 10px;
 		flex: 1 1 0px;
 	}
 
+	.workshop-card-right {
+		margin: 0;
+		border-radius: 0 20px 20px 0;
+	}
+
 	.workshop-card-title {
-		font-size: 1.6em;
-		margin-bottom: 25px;
+		font-family: "Londrina Solid", sans-serif;
+		font-size: 69.18px;
+		letter-spacing: 8%;
+		text-transform: uppercase;
+		line-height: 100%;
 	}
 
 	.workshop-card-description {
-		font-size: 0.95em;
+		font-size: 24px;
+		font-family: "Instrument Sans", serif;
+		line-height: 150%;
 	}
 
-	#hosted-by {
-		font-size: large;
+	#host {
+		font-family: "Instrument Sans", serif;
+		font-size: 30.74px;
 		margin-top: 25px;
+		letter-spacing: 0%;
 		margin-bottom: 3px;
-		color: #ee99a0;
-	}
-
-	#host-name {
-		font-size: large;
-		margin-top: 3px;
+		font-weight: 700;
 	}
 
 	a {
