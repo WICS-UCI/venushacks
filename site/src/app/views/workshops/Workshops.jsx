@@ -1,11 +1,15 @@
+import { useState } from "react";
+import TabRadioButtons from "../../components/tab-radio-buttons/TabRadioButtons";
 import { WorkshopCard } from "src/app/components";
 import useWorkshops from "./useWorkshops";
-import "./Workshops.scss";
-import BottomGraphic from "src/app/components/workshops-bottom-graphic/WorkshopsBottomGraphic";
 import WorkshopsBottomGraphic from "src/app/components/workshops-bottom-graphic/WorkshopsBottomGraphic";
+import "./Workshops.scss";
+
+const days = ["Friday", "Saturday", "Sunday"];
 
 const Workshops = () => {
 	const { workshops, isLoading, error } = useWorkshops();
+	const [selectedDay, setSelectedDay] = useState("Friday");
 
 	if (isLoading) return <div>Loading...</div>;
 	if (error) return <div>Error: {error.message}</div>;
@@ -38,28 +42,38 @@ const Workshops = () => {
 	};
 
 	console.log("workshops", workshops);
+	console.log("selectedDay", selectedDay);
+	console.log(
+		`workshops[${selectedDay}]`,
+		workshops[selectedDay.toLowerCase()]
+	);
 
 	return (
 		<section>
 			<div className="workshops">
 				<h2 className="workshops-title">Workshops</h2>
-				<h2 className="workshops-subtitle">
-					Refer to the Schedule Page for times and locations!{" "}
-				</h2>
 
 				<div id="small-bubble" />
 				<div id="big-bubble" />
 
-				{workshops.map((workshop, index) => (
-					<div key={workshop.title} className="workshop-card-wrapper">
-						{index === 0 && <div id="dolphin-tail" />}
-						<WorkshopCard
-							workshop={workshop}
-							backgroundGradient={generateCardGradient(index)}
-							rightSectionGradient={generateRightSectionGradient(index)}
-						/>
-					</div>
-				))}
+				<div className="workshops-container">
+					<TabRadioButtons
+						tabFields={days}
+						selected={selectedDay}
+						onChange={setSelectedDay}
+					/>
+
+					{workshops[selectedDay.toLowerCase()].map((workshop, index) => (
+						<div key={workshop.title} className="workshop-card-wrapper">
+							{index === 0 && <div id="dolphin-tail" />}
+							<WorkshopCard
+								workshop={workshop}
+								backgroundGradient={generateCardGradient(index)}
+								rightSectionGradient={generateRightSectionGradient(index)}
+							/>
+						</div>
+					))}
+				</div>
 			</div>
 			<WorkshopsBottomGraphic />
 		</section>

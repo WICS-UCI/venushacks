@@ -14,7 +14,7 @@ export default function useWorkshops() {
 				const data = await getWorkshops();
 				console.log("data", data);
 				if (isMounted) {
-					setWorkshops(data[0].workshops);
+					setWorkshops(data);
 					setIsLoading(false);
 				}
 			} catch (err) {
