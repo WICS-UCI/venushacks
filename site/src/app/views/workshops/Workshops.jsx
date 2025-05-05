@@ -41,12 +41,12 @@ const Workshops = () => {
 		return rightGradients[index % rightGradients.length];
 	};
 
-	console.log("workshops", workshops);
-	console.log("selectedDay", selectedDay);
-	console.log(
-		`workshops[${selectedDay}]`,
-		workshops[selectedDay.toLowerCase()]
-	);
+	// console.log("workshops", workshops);
+	// console.log("selectedDay", selectedDay);
+	// console.log(
+	// 	`workshops[${selectedDay}]`,
+	// 	workshops[selectedDay.toLowerCase()]
+	// );
 
 	return (
 		<section>
