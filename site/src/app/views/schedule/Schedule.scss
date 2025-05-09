@@ -44,7 +44,7 @@ $bubble: "/assets/images/bubble.svg";
 
 			.bubble {
 				position: absolute;
-				background: url($bubble);
+				background-image: url($bubble);
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
