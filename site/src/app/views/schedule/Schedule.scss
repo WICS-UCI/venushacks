@@ -33,7 +33,7 @@ $bubble: "/assets/images/bubble.svg";
 			}
 		}
 
-		.bubble-wrapper {
+		.schedule-bubble-wrapper {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -42,7 +42,7 @@ $bubble: "/assets/images/bubble.svg";
 			pointer-events: none;
 			z-index: -1;
 
-			.bubble {
+			.schedule-bubble {
 				position: absolute;
 				background-image: url($bubble);
 				background-size: contain;
