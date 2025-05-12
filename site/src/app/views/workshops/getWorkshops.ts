@@ -45,7 +45,6 @@ export const getWorkshops = async () => {
 	const workshopsByDay = {
 		friday: [],
 		saturday: [],
-		sunday: [],
 	};
 
 	workshops.forEach((workshop) => {
@@ -60,12 +59,9 @@ export const getWorkshops = async () => {
 				workshopsByDay.friday.push(event);
 			} else if (dateKey === "05/24/2025") {
 				workshopsByDay.saturday.push(event);
-			} else if (dateKey === "05/25/2025") {
-				workshopsByDay.sunday.push(event);
 			}
 		});
 	});
 
-	console.log("workshopsByDay", workshopsByDay);
 	return workshopsByDay;
 };

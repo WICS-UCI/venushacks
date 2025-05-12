@@ -5,7 +5,7 @@ import useWorkshops from "./useWorkshops";
 import WorkshopsBottomGraphic from "src/app/components/workshops-bottom-graphic/WorkshopsBottomGraphic";
 import "./Workshops.scss";
 
-const days = ["Friday", "Saturday", "Sunday"];
+const days = ["Friday", "Saturday"];
 
 const Workshops = () => {
 	const { workshops, isLoading, error } = useWorkshops();
