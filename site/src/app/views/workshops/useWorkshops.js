@@ -12,7 +12,6 @@ export default function useWorkshops() {
 		const fetchWorkshops = async () => {
 			try {
 				const data = await getWorkshops();
-				console.log("data", data);
 				if (isMounted) {
 					setWorkshops(data);
 					setIsLoading(false);

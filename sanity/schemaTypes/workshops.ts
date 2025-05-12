@@ -20,11 +20,13 @@ export default defineType({
               name: "title",
               title: "Title",
               type: "string",
+              validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: "host",
               title: "Host",
               type: "string",
+              validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: "description",
@@ -47,6 +49,7 @@ export default defineType({
               name: "location",
               title: "Location",
               type: "string",
+              validation: (Rule) => Rule.required(),
             }),
           ],
           preview: {

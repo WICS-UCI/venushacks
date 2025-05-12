@@ -41,13 +41,6 @@ const Workshops = () => {
 		return rightGradients[index % rightGradients.length];
 	};
 
-	// console.log("workshops", workshops);
-	// console.log("selectedDay", selectedDay);
-	// console.log(
-	// 	`workshops[${selectedDay}]`,
-	// 	workshops[selectedDay.toLowerCase()]
-	// );
-
 	return (
 		<section>
 			<div className="workshops">
@@ -64,7 +57,7 @@ const Workshops = () => {
 					/>
 
 					{workshops[selectedDay.toLowerCase()].map((workshop, index) => (
-						<div key={workshop.title} className="workshop-card-wrapper">
+						<div key={index} className="workshop-card-wrapper">
 							{index === 0 && <div id="dolphin-tail" />}
 							<WorkshopCard
 								workshop={workshop}
