@@ -11,7 +11,7 @@ export default function WorkshopsBottomGraphic() {
 				<div id="shadow" />
 			</div>
 
-			{/* left stuff */}
+			{/* left of chest */}
 			<div className="left container">
 				<div id="left-pinkStarfish" className="pinkStarfish" />
 				<div id="left-purpleStarfish" className="purpleStarfish" />
@@ -19,7 +19,7 @@ export default function WorkshopsBottomGraphic() {
 				<div id="left-topShell" className="shell" />
 			</div>
 			
-			{/* right stuff */}
+			{/* right of chest */}
 			<div className="right container">
 				<div id="right-pinkStarfish" className="pinkStarfish" />
 				<div id="right-purpleStarfish" className="purpleStarfish" />
