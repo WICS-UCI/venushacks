@@ -68,100 +68,110 @@ body {
 
 	.container {
 		position: absolute;
-		width: 300px;
-		height: 250px;
+		max-height: 250px;
+		width: 23vw;
+		height: 17vw;
 		z-index: 3;
 	}
 
 	.left {
-		left: 10%;
+		left: 10vw;
 		bottom: 20px;
+		max-height: 280px;
 	}
 
 	.right {
-		right: 10%;
+		right: 10vw;
 		bottom: 80px;
+		max-height: 350px;
 	}
 
 	.pinkStarfish {
 		position: absolute;
 		background: url($pinkStarfish) no-repeat center/contain;
 		z-index: 2;
+		max-height: 150px;
+		max-width: 150px;
 	}
 
 	.purpleStarfish {
 		position: absolute;
 		background: url($purpleStarfish) no-repeat center/contain;
 		z-index: 2;
+		max-height: 130px;
+		max-width: 130px;
 	}
 
 	.shell {
 		position: absolute;
 		background: url($shell) no-repeat center/contain;
 		z-index: 2;
+		max-height: 120px;
+		max-width: 120px;
 	}
 
 	// left container
 	#left-pinkStarfish {
-		top: -5px;
-		width: 150px;
-		height: 137px;
+		width: 10vw;
+		height: 8vw;
 		transform: rotate(10deg);
 	}
 
 	#left-purpleStarfish {
-		bottom: 50px;
-		right: 10px;
-		width: 100px;
-		height: 100px;
+		bottom: 2vh;
+		right: 3vw;
+		width: 7vw;
+		height: 7vw;
 		transform: rotate(-54deg);
 	}
 
 	#left-bottomShell {
-		bottom: 10px;
-		left: 60px;
-		width: 80px;
-		height: 80px;
+		bottom: 1vw;
+		left: 5vw;
+		max-height: 100px;
+		max-width: 100px;
+		width: 5vw;
+		height: 5vw;
 		transform: rotate(-20deg);
 	}
 
 	#left-topShell {
-		top: -20px;
-		right: 0;
-		width: 100px;
-		height: 100px;
+		top: -1vw;
+		right: 2vw;
+		width: 7vw;
+		height: 7vw;
 	}
 
 	// right container
 	#right-pinkStarfish {
-		top: -5px;
-		left: 70px;
-		width: 150px;
-		height: 137px;
+		top: -1vw;
+		left: 5vw;
+		width: 10vw;
+		height: 9vw;
 		transform: rotate(-92deg);
 	}
 
 	#right-purpleStarfish {
-		bottom: 40px;
-		right: 10px;
-		width: 100px;
-		height: 100px;
+		bottom: 1vw;
+		right: 3vw;
+		width: 8vw;
+		height: 8vw;
 		transform: rotate(-70deg);
 	}
 
 	#right-bottomShell {
-		bottom: 30px;
-		left: 30px;
-		width: 90px;
-		height: 90px;
+		bottom: 2vw;
+		left: 2vw;
+		width: 7vw;
+		height: 7vw;
 		transform: rotate(-30deg);
 	}
 
 	#right-topShell {
-		top: 30px;
-		right: -20px;
-		width: 70px;
-		height: 70px;
+		top: 1vw;
+		right: 2vw;
+		width: 6vw;
+		height: 6vw;
 	}
 
 	@media screen and (max-width: vh-styles.$break-xlarge) {
@@ -175,11 +185,6 @@ body {
 	}
 
 	@media screen and (max-width: vh-styles.$break-large) {
-		.container {
-			width: 270px;
-			height: 250px;
-		}
-
 		.left {
 			left: 3%;
 		}
@@ -189,66 +194,13 @@ body {
 		}
 
 		// left container
-		#left-pinkStarfish {
-			top: -5px;
-			width: 130px;
-			height: 117px;
-			transform: rotate(10deg);
-		}
-
-		#left-purpleStarfish {
-			bottom: 70px;
-			right: 10px;
-			width: 80px;
-			height: 80px;
-			transform: rotate(-54deg);
-		}
-
-		#left-bottomShell {
-			bottom: 30px;
-			left: 70px;
-			width: 70px;
-			height: 70px;
-			transform: rotate(-20deg);
-		}
-
-		#left-topShell {
-			top: -20px;
-			right: 0;
-			width: 90px;
-			height: 90px;
+		.left.container {
+			display: none;
 		}
 
 		// right container
-		#right-pinkStarfish {
-			top: -5px;
-			left: 70px;
-			width: 130px;
-			height: 117px;
-			transform: rotate(-92deg);
-		}
-
-		#right-purpleStarfish {
-			bottom: 40px;
-			right: 10px;
-			width: 80px;
-			height: 80px;
-			transform: rotate(-70deg);
-		}
-
-		#right-bottomShell {
-			bottom: 30px;
-			left: 30px;
-			width: 90px;
-			height: 90px;
-			transform: rotate(-30deg);
-		}
-
-		#right-topShell {
-			top: 30px;
-			right: -20px;
-			width: 70px;
-			height: 70px;
+		.right.container {
+			display: none;
 		}
 	}
 
@@ -266,17 +218,6 @@ body {
 		#shadow {
 			width: 30vh;
 			height: 20vh;
-		}
-
-
-		// left container
-		.left.container {
-			display: none;
-		}
-
-		// right container
-		.right.container {
-			display: none;
 		}
 	}
 
