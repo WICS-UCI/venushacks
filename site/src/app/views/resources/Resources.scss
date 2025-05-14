@@ -8,7 +8,6 @@ $coral: "assets/images/resources-coral.svg";
 	background: linear-gradient(180deg, #bfe6f2 0%, #258bbe 100%);
 	position: relative; // Ensure content stays above background
 	z-index: 10; // Higher than the background elements
-	padding: 50px 20px;
 }
 
 #left-fishes {
@@ -31,16 +30,15 @@ $coral: "assets/images/resources-coral.svg";
 	z-index: 0; // Lower than content
 }
 
-#coral {
+#resources-top-coral {
+	position: relative;
+	left: -10px;
+	
+	width: 101vw;
+	height: auto;
+	
 	pointer-events: none;
-	width: 105vw;
-	height: 840vh;
-	position: absolute;
-	background-position: top;
-	margin-top: 25vh;
-	margin-left: -5vh;
-	background: url($coral) no-repeat top/cover;
-	z-index: 1;
+	z-index: 10;
 }
 
 // Ensure the text appears above everything
@@ -48,7 +46,6 @@ $coral: "assets/images/resources-coral.svg";
 .Resources .category {
 	position: relative;
 	z-index: 20; // Higher than fish and coral
-	margin-top: 10vh;
 	align-items: center;
 	font-family: "Londrina Solid", sans-serif;
 }
