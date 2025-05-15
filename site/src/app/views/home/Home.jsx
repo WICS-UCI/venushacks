@@ -41,20 +41,20 @@ const Home = () => {
 			</section>
 
 			{/* PARTNERS ************************/}
-			<section id="partner">
+			{/* <section id="partner">
 				<div id="partners-container">
 					<h2 className="section-title">PARTNERS</h2>
 					<Partners />
 				</div>
-			</section>
+			</section> */}
 
 			{/* MEET THE TEAM ************************/}
-			<section id="meet-the-team">
+			{/* <section id="meet-the-team">
 				<div id="meet-the-team-container">
 					<h2 className="section-title">MEET THE TEAM</h2>
 					<MeetTheTeam />
 				</div>
-			</section>
+			</section> */}
 
 			{/* BOTTOM GRAPHIC ******************/}
 			<section id="bottom-graphic">
