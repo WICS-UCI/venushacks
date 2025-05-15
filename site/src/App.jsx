@@ -18,8 +18,9 @@ const App = () => (
 			<Nav />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/apply" element={<Apply />} />
+				{/* <Route path="/apply" element={<Apply />} /> */}
 				<Route path="/schedule" element={<Schedule />} />
+				<Route path="/workshops" element={<Workshops />} />
 				<Route
 					path="/feedback"
 					element={
@@ -31,7 +32,6 @@ const App = () => (
 					element={<Redirect url="https://forms.gle/nvS7UQbGjceuxhU96" />}
 				/>
 				{/* <Route path="/resources" element={<Resources />} />
-				<Route path="/workshops" element={<Workshops />} />
 				{/* <Route
 					path="/devpost"
 					element={<Redirect url="https://venushacks-2024.devpost.com/" />}
