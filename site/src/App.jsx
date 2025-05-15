@@ -1,5 +1,5 @@
 import { Footer } from "src/app/components";
-import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import {
 	Home,
