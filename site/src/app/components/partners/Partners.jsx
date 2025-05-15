@@ -12,7 +12,7 @@ const { partners } = await getPartners();
 
 const Partners = () => {
 	let cur = 1;
-	let init_show = ['prv', 'cur', 'nxt'];
+	let init_show = ["prv", "cur", "nxt"];
 
 	function shift(dir) {
 		cur = updateView(cur, dir);
@@ -30,10 +30,10 @@ const Partners = () => {
 			<div id="partners-view">
 				{partners.map(({ desc, icon, show, _key }, index) => (
 					<Partner
-						key = {_key}
+						key={_key}
 						imgId={index}
 						imgSrc={builder.image(icon).url()}
-						addOn={(index < init_show.length)? init_show[index] : ""}
+						addOn={index < init_show.length ? init_show[index] : ""}
 						desc={desc}
 					/>
 				))}
