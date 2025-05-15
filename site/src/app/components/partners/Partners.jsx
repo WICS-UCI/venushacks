@@ -1,16 +1,20 @@
-import Partner from "./Partner";
-import updateView from "./carousel";
-
-import { getPartners } from "./getPartners";
-import { client } from "../../../sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
+import Partner from "./Partner";
+import updateView from "./carousel";
+import { client } from "../../../sanity/client";
+
 import "./Partners.scss";
+import usePartners from "./usePartners";
 
 const builder = imageUrlBuilder(client);
-const { partners } = await getPartners();
 
 const Partners = () => {
+	const { partners, isLoading, error } = usePartners();
+	if (isLoading) return <div>Loading...</div>;
+	if (error) return <div>Error: {error.message}</div>;
+	if (!partners) return <div>No partners found.</div>;
+
 	let cur = 1;
 	let init_show = ["prv", "cur", "nxt"];
 

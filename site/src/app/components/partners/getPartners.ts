@@ -1,9 +1,9 @@
 import groq from "groq";
 import { z } from "zod";
 import { client } from "../../../sanity/client";
-import { SanityDocument, SanityImageReference } from "../../../sanity/types";
+import { SanityImageReference } from "../../../sanity/types";
 
-const Partners = SanityDocument.extend({
+const Partners = z.object({
 	partners: z.array(
 		z.object({
 			desc: z.string(),
@@ -15,5 +15,8 @@ const Partners = SanityDocument.extend({
 });
 
 export const getPartners = async () => {
-	return Partners.parse(await client.fetch(groq`*[_type == 'partners'][0]`));
+	const parsed = Partners.parse(
+		await client.fetch(groq`*[_type == 'partners'][0]{partners}`)
+	);
+	return parsed.partners;
 };

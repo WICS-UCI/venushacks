@@ -1,13 +1,13 @@
 import groq from "groq";
 import { z } from "zod";
 import { client } from "../../../sanity/client";
-import { SanityDocument, SanityImageReference } from "../../../sanity/types";
+import { SanityImageReference } from "../../../sanity/types";
 
-const Sponsors = SanityDocument.extend({
+const Sponsors = z.object({
 	sponsors: z.array(
 		z.object({
 			icon: SanityImageReference,
-            url: z.string(),
+			url: z.string(),
 			_key: z.string(),
 			_type: z.literal("sponsor"),
 		})
@@ -15,5 +15,9 @@ const Sponsors = SanityDocument.extend({
 });
 
 export const getSponsors = async () => {
-	return Sponsors.parse(await client.fetch(groq`*[_type == 'sponsors'][0]`));
+	const parsed = Sponsors.parse(
+		await client.fetch(groq`*[_type == 'sponsors'][0]{sponsors}`)
+	);
+
+	return parsed.sponsors;
 };
