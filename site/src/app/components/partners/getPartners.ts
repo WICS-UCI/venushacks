@@ -8,7 +8,6 @@ const Partners = SanityDocument.extend({
 		z.object({
 			desc: z.string(),
 			icon: SanityImageReference,
-			show: z.string(),
 			_key: z.string(),
 			_type: z.literal("partner"),
 		})
