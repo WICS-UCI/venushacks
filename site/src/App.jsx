@@ -1,5 +1,5 @@
 import { Footer } from "src/app/components";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 
 import {
 	Home,
@@ -20,6 +20,8 @@ const App = () => (
 				<Route path="/" element={<Home />} />
 				<Route path="/apply" element={<Apply />} />
 				<Route path="/schedule" element={<Schedule />} />
+				<Route path="/feedback" element={<Redirect url="https://docs.google.com/forms/d/e/1FAIpQLSfG3Xh0U5lajLFHt6mhqgfGNartbXy1cQX71IEOz3TV5n-y4A/viewform?usp=preview"/>} />
+				<Route path="/report" element={<Redirect url="https://forms.gle/nvS7UQbGjceuxhU96"/>} />
 				{/* <Route path="/resources" element={<Resources />} />
 				<Route path="/workshops" element={<Workshops />} />
 				<Route
