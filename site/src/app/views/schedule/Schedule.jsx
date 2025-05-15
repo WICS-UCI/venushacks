@@ -20,13 +20,13 @@ const Schedule = () => {
 		<div className="Schedule">
 			<section id="schedule-block">
 				<h1 className="schedule-title">SCHEDULE</h1>
-				<div className="bubble-wrapper">
-					<div className="bubble left small" />
-					<div className="bubble left medium" />
-					<div className="bubble left large" />
-					<div className="bubble right small" />
-					<div className="bubble right medium" />
-					<div className="bubble right large" />
+				<div className="schedule-bubble-wrapper">
+					<div className="schedule-bubble left small" />
+					<div className="schedule-bubble left medium" />
+					<div className="schedule-bubble left large" />
+					<div className="schedule-bubble right small" />
+					<div className="schedule-bubble right medium" />
+					<div className="schedule-bubble right large" />
 				</div>
 				{showCountdown && (
 					<>

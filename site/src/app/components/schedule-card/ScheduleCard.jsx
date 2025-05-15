@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TabRadioButtons from "../tab-radio-buttons/TabRadioButtons";
 import useSchedule from "src/app/components/schedule-card/useSchedule";
+import TabRadioButtons from "../tab-radio-buttons/TabRadioButtons";
 import "./ScheduleCard.scss";
 
 const days = ["Friday", "Saturday", "Sunday"];
@@ -31,6 +31,9 @@ export default function ScheduleCard() {
 							{eventGroup.map((event) => (
 								<div className="event-info" key={event._id || event.name}>
 									<h4 className="event-title">{event.name}</h4>
+									{event.location && (
+										<p className="event-location">Location: {event.location}</p>
+									)}
 									{event.description && (
 										<p className="event-description">{event.description}</p>
 									)}
