@@ -33,14 +33,6 @@ export default defineType({
               title: "Role",
               type: "string",
               validation: (Rule) => Rule.required(),
-              options: {
-                list: [
-                  { title: "Chair", value: "Chair" },
-                  { title: "Committee Lead", value: "Committee Lead" },
-                  { title: "Organizer", value: "Organizer" },
-                  { title: "Advisor", value: "Advisor" },
-                ],
-              },
             }),
             defineField({
               name: "image",
