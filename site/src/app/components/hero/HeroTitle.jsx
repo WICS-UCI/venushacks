@@ -9,11 +9,8 @@ export default function HeroTitle() {
 		<Container className="d-flex flex-column align-items-center content-container">
 			<Title />
 			<div className="button-row">
-				<PrimaryButton
-					href="/apply"
-					type="button"
-				>
-					Apply Now
+				<PrimaryButton href="" type="button" disabled>
+					Applications Have Closed
 				</PrimaryButton>
 				<PrimaryButton
 					href="mailto:venushacks.corporate@gmail.com"
