@@ -6,6 +6,7 @@ import resource from "./resource";
 import resourceCategory from "./resourceCategory";
 import resourceCategoryOrder from "./resourceCategoryOrder";
 import organizer from "./organizer";
+import workshops from "./workshops";
 
 export const schemaTypes = [
   sponsors,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   resourceCategory,
   resourceCategoryOrder,
   organizer,
+  workshops,
 ];

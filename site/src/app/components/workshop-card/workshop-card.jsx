@@ -1,50 +1,39 @@
 import React from "react";
 import "./workshop-card.scss";
 
-const renderButtons = (buttons) => {
-	return buttons.map((button) => {
-		const { link, description } = button;
-		return link ? (
-			<div className="prereq-button" key={description}>
-				<a href={link} target="_blank" rel="noopener noreferrer">
-					{description}
-				</a>
-			</div>
-		) : (
-			<p>{description}</p>
-		);
-	});
-};
+export default function WorkshopCard({
+	workshop,
+	backgroundGradient,
+	rightSectionGradient,
+}) {
+	const { title, description, host, startTime, endTime, location } = workshop;
 
-function WorkshopCard({ workshop }) {
-	const { title, description, prereqs, recap, host } = workshop;
+	const startDate = new Date(startTime);
+	const endDate = new Date(endTime);
 
 	return (
-		<div className="workshop-card">
+		<div className="workshop-card" style={{ background: backgroundGradient }}>
 			<div className="workshop-card-left">
 				<p className="workshop-card-title">{title}</p>
-				<p id="hosted-by">Hosted by</p>
-				<p id="host-name">{host.name}</p>
-				{/* recap??? */}
-				{recap &&
-					renderButtons(
-						Object.entries(recap).map((pair) => {
-							const [key, val] = pair;
-							return { description: key, link: val };
-						})
-					)}
-				{prereqs && (
-					<div className="workshop-card-prereqs">
-						<h5 id="prerequisites-title">Prequisites:</h5>
-						{renderButtons(prereqs)}
-					</div>
-				)}
+				<p className="info">Hosted by: {host}</p>
+				<div className="mt-4 d-flex flex-column gap-0">
+					<p className="info">Location: {location}</p>
+					<p className="info">Time: {formatTimeRange(startDate, endDate)}</p>
+				</div>
 			</div>
-			<div className="workshop-card-right">
+			<div
+				className="workshop-card-right"
+				style={{ background: rightSectionGradient }}
+			>
 				<p className="workshop-card-description">{description}</p>
 			</div>
 		</div>
 	);
 }
 
-export default WorkshopCard;
+function formatTimeRange(start, end) {
+	const options = { hour: "numeric", minute: "2-digit", hour12: "true" };
+	return `${new Date(start).toLocaleTimeString([], options)} - ${new Date(
+		end
+	).toLocaleTimeString([], options)}`;
+}

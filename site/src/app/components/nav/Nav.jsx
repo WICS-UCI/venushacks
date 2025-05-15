@@ -44,7 +44,7 @@ const NavLinks = ({ reduceMotion, isMobile }) => (
 			url="/resources"
 			text="Resources"
 			{...{ isMobile, reduceMotion }}
-		/>
+		/> */}
 		<NavLink
 			url="/workshops"
 			text="Workshops"
