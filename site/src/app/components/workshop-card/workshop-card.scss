@@ -28,7 +28,7 @@
 
 	.workshop-card-title {
 		font-family: "Londrina Solid", sans-serif;
-		font-size: 69.18px;
+		font-size: 4.324rem;
 		letter-spacing: 8%;
 		text-transform: uppercase;
 		line-height: 100%;
@@ -43,13 +43,9 @@
 	}
 
 	.workshop-card-description {
-		font-size: 24px;
+		font-size: 1.5rem;
 		font-family: "Instrument Sans", serif;
 		line-height: 150%;
-
-		@media screen and (max-width: vh-styles.$break-medium) {
-			font-size: 1.5rem;
-		}
 
 		@media screen and (max-width: vh-styles.$break-small) {
 			font-size: 1.25rem;
@@ -58,14 +54,10 @@
 
 	.info {
 		font-family: "Instrument Sans", serif;
-		font-size: 30.74px;
+		font-size: 2rem;
 		letter-spacing: 0%;
 		margin-bottom: 3px;
 		font-weight: 700;
-
-		@media screen and (max-width: vh-styles.$break-medium) {
-			font-size: 2rem;
-		}
 
 		@media screen and (max-width: vh-styles.$break-small) {
 			font-size: 1.5rem;

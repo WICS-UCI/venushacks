@@ -1,7 +1,11 @@
 import React from "react";
 import "./workshop-card.scss";
 
-function WorkshopCard({ workshop, backgroundGradient, rightSectionGradient }) {
+export default function WorkshopCard({
+	workshop,
+	backgroundGradient,
+	rightSectionGradient,
+}) {
 	const { title, description, host, startTime, endTime, location } = workshop;
 
 	const startDate = new Date(startTime);
@@ -26,8 +30,6 @@ function WorkshopCard({ workshop, backgroundGradient, rightSectionGradient }) {
 		</div>
 	);
 }
-
-export default WorkshopCard;
 
 function formatTimeRange(start, end) {
 	const options = { hour: "numeric", minute: "2-digit", hour12: "true" };

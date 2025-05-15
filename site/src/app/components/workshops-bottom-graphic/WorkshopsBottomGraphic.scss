@@ -194,11 +194,7 @@ body {
 		}
 
 		// left container
-		.left.container {
-			display: none;
-		}
-
-		// right container
+		.left.container,
 		.right.container {
 			display: none;
 		}
@@ -219,8 +215,5 @@ body {
 			width: 30vh;
 			height: 20vh;
 		}
-	}
-
-	@media screen and (max-width: vh-styles.$break-small) {
 	}
 }
