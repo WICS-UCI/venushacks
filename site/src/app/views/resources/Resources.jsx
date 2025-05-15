@@ -100,7 +100,13 @@ function ResourceCarousel({ resources, backgroundImage }) {
 					&#9665;
 				</button>
 
-				<div className="carousel-wrapper">
+				<div
+					className="carousel-wrapper"
+					style={{
+						backgroundImage: `url(${backgroundImage})`,
+						backgroundSize: "cover",
+					}}
+				>
 					<div
 						className="carousel-track"
 						style={{
@@ -110,14 +116,7 @@ function ResourceCarousel({ resources, backgroundImage }) {
 					>
 						{resources.map(
 							({ _id, resourceIconUrl, title, link, description }) => (
-								<div
-									key={_id}
-									className="resource-card"
-									style={{
-										// backgroundImage: `url(${backgroundImage})`,
-										backgroundSize: "cover",
-									}}
-								>
+								<div key={_id} className="resource-card">
 									<a
 										href={link}
 										target="_blank"
