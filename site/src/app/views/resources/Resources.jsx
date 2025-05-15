@@ -16,10 +16,10 @@ function getWindowDimensions() {
 }
 
 const backgroundImages = [
-	"/assets/images/resources-card1.svg",
-	"/assets/images/resources-card2.svg",
-	"/assets/images/resources-card3.svg",
-	"/assets/images/resources-card4.svg",
+	"/assets/images/resources-card1.png",
+	"/assets/images/resources-card2.png",
+	"/assets/images/resources-card3.png",
+	"/assets/images/resources-card4.png",
 ];
 
 export default function Resources() {
@@ -101,10 +101,9 @@ function ResourceCarousel({ resources, backgroundImage }) {
 				</button>
 
 				<div
-					className="carousel-wrapper"
+					className="carousel-wrapper container"
 					style={{
 						backgroundImage: `url(${backgroundImage})`,
-						backgroundSize: "cover",
 					}}
 				>
 					<div
@@ -116,7 +115,7 @@ function ResourceCarousel({ resources, backgroundImage }) {
 					>
 						{resources.map(
 							({ _id, resourceIconUrl, title, link, description }) => (
-								<div key={_id} className="resource-card">
+								<div key={_id} className="resource-card container">
 									<a
 										href={link}
 										target="_blank"

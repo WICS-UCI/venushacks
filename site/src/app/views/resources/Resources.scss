@@ -1,4 +1,4 @@
-@import "../../../globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss";
 
 $leftFishes: "assets/images/left-fishes.svg";
 $rightFishes: "assets/images/right-fishes.svg";
@@ -51,7 +51,7 @@ $coral: "assets/images/resources-coral.svg";
 
 .category {
 	text-align: center;
-	margin-bottom: 2%;
+	margin-bottom: 10rem;
 	font-size: 100px;
 }
 
@@ -61,9 +61,12 @@ $coral: "assets/images/resources-coral.svg";
 	align-items: center;
 	width: 100%;
 
-	padding-top: 20px;
-	margin-top: -20px;
 	background: #333b6d;
+
+	@media screen and (min-width: vh-styles.$break-medium) {
+		padding-top: 20px;
+		margin-top: -20px;
+	}
 }
 
 .carousel-container {
@@ -76,9 +79,9 @@ $coral: "assets/images/resources-coral.svg";
 }
 
 .carousel-wrapper {
-	width: 100%;
 	overflow: hidden;
 	position: relative;
+	background-size: 100% 100%;
 }
 
 .carousel-track {
@@ -126,17 +129,15 @@ $coral: "assets/images/resources-coral.svg";
 }
 
 .resource-title {
-	font-size: 48px;
+	font-size: 3rem;
 	margin-bottom: 10px;
 	font-weight: 700;
 }
 
 .resource-description {
 	font-size: 32px;
-	margin-bottom: 10px;
 	font-weight: 400;
 	max-width: 60%;
-	margin-left: 50%;
 }
 
 .resource-link {
