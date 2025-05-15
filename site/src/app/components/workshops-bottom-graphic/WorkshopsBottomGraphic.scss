@@ -1,0 +1,219 @@
+@use "src/globals/vh-styles.scss";
+
+$bottomCoral: "/assets/images/bottom-coral.svg";
+$chest: "/assets/images/chest.svg";
+$chestShadow: "/assets/images/chest-shadow.svg";
+$pinkStarfish: "/assets/images/pink-starfish.svg";
+$purpleStarfish: "/assets/images/purple-starfish.svg";
+$shell: "/assets/images/bottom-shell.svg";
+
+body {
+	overflow-x: hidden;
+}
+
+#workshops-bottom-graphic-container {
+	padding-top: 10vh;
+	position: relative;
+	width: 100%;
+	max-height: 50vh;
+	min-height: 50vh;
+	overflow: hidden;
+
+	#bottom-coral {
+		position: absolute;
+		left: 0;
+		width: 100vw;
+		height: 50vh;
+		background: url($bottomCoral) no-repeat top/cover;
+		z-index: 1;
+	}
+
+	#chest-container {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 10vh;
+		max-width: 500px;
+		max-height: 500px;
+		width: 25vw;
+		height: 25vw;
+		z-index: 3;
+	}
+
+	#chest {
+		position: absolute;
+		left: 55%;
+		transform: translateX(-50%);
+		top: 0;
+		max-width: 400px;
+		max-height: 400px;
+		width: 20vw;
+		height: 20vw;
+		background: url($chest) no-repeat center/contain;
+		z-index: 3;
+	}
+
+	#shadow {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -5vh;
+		max-width: 500px;
+		max-height: 400px;
+		width: 30vw;
+		height: 20vw;
+		background: url($chestShadow) no-repeat center/contain;
+		z-index: 2;
+	}
+
+	.container {
+		position: absolute;
+		max-height: 250px;
+		width: 23vw;
+		height: 17vw;
+		z-index: 3;
+	}
+
+	.left {
+		left: 10vw;
+		bottom: 20px;
+		max-height: 280px;
+	}
+
+	.right {
+		right: 10vw;
+		bottom: 80px;
+		max-height: 350px;
+	}
+
+	.pinkStarfish {
+		position: absolute;
+		background: url($pinkStarfish) no-repeat center/contain;
+		z-index: 2;
+		max-height: 150px;
+		max-width: 150px;
+	}
+
+	.purpleStarfish {
+		position: absolute;
+		background: url($purpleStarfish) no-repeat center/contain;
+		z-index: 2;
+		max-height: 130px;
+		max-width: 130px;
+	}
+
+	.shell {
+		position: absolute;
+		background: url($shell) no-repeat center/contain;
+		z-index: 2;
+		max-height: 120px;
+		max-width: 120px;
+	}
+
+	// left container
+	#left-pinkStarfish {
+		width: 10vw;
+		height: 8vw;
+		transform: rotate(10deg);
+	}
+
+	#left-purpleStarfish {
+		bottom: 2vh;
+		right: 3vw;
+		width: 7vw;
+		height: 7vw;
+		transform: rotate(-54deg);
+	}
+
+	#left-bottomShell {
+		bottom: 1vw;
+		left: 5vw;
+		max-height: 100px;
+		max-width: 100px;
+		width: 5vw;
+		height: 5vw;
+		transform: rotate(-20deg);
+	}
+
+	#left-topShell {
+		top: -1vw;
+		right: 2vw;
+		width: 7vw;
+		height: 7vw;
+	}
+
+	// right container
+	#right-pinkStarfish {
+		top: -1vw;
+		left: 5vw;
+		width: 10vw;
+		height: 9vw;
+		transform: rotate(-92deg);
+	}
+
+	#right-purpleStarfish {
+		bottom: 1vw;
+		right: 3vw;
+		width: 8vw;
+		height: 8vw;
+		transform: rotate(-70deg);
+	}
+
+	#right-bottomShell {
+		bottom: 2vw;
+		left: 2vw;
+		width: 7vw;
+		height: 7vw;
+		transform: rotate(-30deg);
+	}
+
+	#right-topShell {
+		top: 1vw;
+		right: 2vw;
+		width: 6vw;
+		height: 6vw;
+	}
+
+	@media screen and (max-width: vh-styles.$break-xlarge) {
+		.left {
+			left: 5%;
+		}
+
+		.right {
+			right: 5%;
+		}
+	}
+
+	@media screen and (max-width: vh-styles.$break-large) {
+		.left {
+			left: 3%;
+		}
+
+		.right {
+			right: 5%;
+		}
+
+		// left container
+		.left.container,
+		.right.container {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: vh-styles.$break-medium) {
+		#chest-container {
+			width: 25vh;
+			height: 25vh;
+		}
+
+		#chest {
+			width: 20vh;
+			height: 20vh;
+		}
+
+		#shadow {
+			width: 30vh;
+			height: 20vh;
+		}
+	}
+}

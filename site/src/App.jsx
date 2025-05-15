@@ -20,12 +20,12 @@ const App = () => (
 				<Route path="/" element={<Home />} />
 				<Route path="/apply" element={<Apply />} />
 				<Route path="/schedule" element={<Schedule />} />
-				{/* <Route path="/resources" element={<Resources />} />
+				{/* <Route path="/resources" element={<Resources />} /> */}
 				<Route path="/workshops" element={<Workshops />} />
-				<Route
+				{/* <Route
 					path="/devpost"
 					element={<Redirect url="https://venushacks-2024.devpost.com/" />}
-				/> */}
+				/>
 				{/* <Route path='/hackers-choice' element={<Redirect url="https://docs.google.com/forms/d/e/1FAIpQLSdpBIi6cxLu9m_b8qQoA8GfLMMJ_cIV7HuVbIjH7nHtPQljGg/viewform" />} /> */}
 				{/* <Route path='/midway' element={<Redirect url="https://docs.google.com/forms/d/e/1FAIpQLSdObzMrHpTjjcc5DhdXmuX8v485aDhsCqBRxCV3R66316htcg/viewform" />} /> */}
 				{/* <Route
