@@ -1,40 +1,52 @@
-import {
-	Countdown,
-	FloatingLaptop,
-	Footer,
-	ScheduleCard,
-} from "src/app/components";
+import { useEffect, useState } from "react";
+import { Countdown, ScheduleCard } from "src/app/components";
 
-import "./Schedule.scss";
 import { Container } from "react-bootstrap";
+import StaticCoral from "src/app/components/static-coral/StaticCoral";
+import "./Schedule.scss";
 
-// const HACKING_DEADLINE = "24 May 2024 21:00:00 PDT";
-const HACKING_DEADLINE = "26 May 2024 09:00:00 PDT";
+const HACKING_START = new Date("23 May 2025 21:00:00 PDT");
+const HACKING_END = "25 May 2025 09:00:00 PDT";
 
-const Schedule = () => (
-	<div className="Schedule">
-		<section id="schedule-block">
-			<div className="schedule-header">
-				<img
-					src="../../../assets/images/schedule/schedule-header.png"
-					alt="Schedule Header"
-				></img>
-			</div>
-			<h4 className="schedule-hacking-ends-in">
-				All times in PDT. Hacking ends in:
-			</h4>
-			<div className="schedule-countdown">
-				<Container className="container-style">
-					<Countdown date={HACKING_DEADLINE} />
-				</Container>
-			</div>
-			<h4 className="schedule-hacking-ends-in">Blast off!</h4>
-			<ScheduleCard />
-		</section>
-		<Footer />
-	</div>
-);
+const Schedule = () => {
+	const [showCountdown, setShowCountdown] = useState(false);
 
-// const Schedule = () => process.env.NEXT_PUBLIC_MAINTENANCE_MODE_SCHEDULE ? redirect("/") :<p>Schedule</p>;
+	useEffect(() => {
+		const now = new Date();
+		setShowCountdown(now >= HACKING_START);
+	}, []);
+
+	return (
+		<div className="Schedule">
+			<section id="schedule-block">
+				<h1 className="schedule-title">SCHEDULE</h1>
+				<div className="schedule-bubble-wrapper">
+					<div className="schedule-bubble left small" />
+					<div className="schedule-bubble left medium" />
+					<div className="schedule-bubble left large" />
+					<div className="schedule-bubble right small" />
+					<div className="schedule-bubble right medium" />
+					<div className="schedule-bubble right large" />
+				</div>
+				{showCountdown && (
+					<>
+						<h4 className="schedule-hacking-ends-in">
+							All times in PDT. Hacking ends in:
+						</h4>
+						<div className="schedule-countdown">
+							<Container className="container-style">
+								<div className="countdown-content">
+									<Countdown date={HACKING_END} />
+								</div>
+							</Container>
+						</div>
+					</>
+				)}
+				<ScheduleCard />
+			</section>
+			<StaticCoral />
+		</div>
+	);
+};
 
 export default Schedule;

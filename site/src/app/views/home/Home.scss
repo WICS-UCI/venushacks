@@ -20,14 +20,17 @@ body {
 
 	section {
 		.section-title {
-			max-width: 100vw;
-			height: 60px;
-			width: auto;
-			margin: 20px auto;
+			width: 100%;
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 6.25rem;
+			color: white;
+			text-shadow: 9px 16px 10px #48437b;
+			letter-spacing: 0.56rem;
+			text-align: left;
 
 			@media screen and (max-width: $break-medium) {
-				height: 9vw;
-				max-height: 40px;
+				text-align: center;
 			}
 		}
 	}
@@ -63,22 +66,74 @@ body {
 			align-items: center;
 
 			.section-title {
-				font-family: "Londrina Solid", sans-serif;
-				font-weight: 400;
-				font-size: 6.25rem;
-				color: white;
 				text-shadow: 9px 16px 10px #8e7694;
 				letter-spacing: 0.56rem;
 				text-align: left;
-				margin-bottom: 1em;
 
 				@media screen and (max-width: $break-medium) {
 					text-align: center;
 				}
 			}
+
 			@media screen and (max-width: $break-medium) {
 				width: 85%;
 			}
 		}
 	} // END FAQ
+
+	#sponsors {
+		width: 75%;
+		max-width: 1500px;
+		margin: auto;
+		margin-top: 5em;
+
+		.section-title {
+			text-shadow: 9px 16px 10px #35094159;
+
+			@media screen and (max-width: $break-medium) {
+				text-align: center;
+				font-size: min(6.25rem, 16vw);
+			}
+		}
+
+		@media screen and (max-width: $break-medium) {
+			width: 85%;
+		}
+	} // END SPONSORS
+
+	#partner {
+		display: flex;
+		justify-content: center;
+		margin-top: 5em;
+
+		#partners-container {
+			width: 75%;
+
+			.section-title {
+				text-shadow: 9px 16px 10px #140c475d;
+
+				@media screen and (max-width: $break-medium) {
+					font-size: min(6.25rem, 17vw);
+				}
+			}
+
+			@media screen and (max-width: $break-medium) {
+				width: 85%;
+			}
+		}
+	} // END PARTNERS
+
+	#meet-the-team-container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	#meet-the-team {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		margin-top: 5em;
+	}
 }
