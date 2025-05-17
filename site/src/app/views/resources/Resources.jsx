@@ -96,9 +96,10 @@ function ResourceCarousel({ resources, backgroundImage }) {
 		>
 			{/* Carousel Section */}
 			<div className="carousel-container">
-				<button className="carousel-button left" onClick={prevResource}>
-					&#9665;
-				</button>
+				<button
+					className="carousel-button left-button"
+					onClick={prevResource}
+				></button>
 
 				<div
 					className="carousel-wrapper container"
@@ -136,9 +137,10 @@ function ResourceCarousel({ resources, backgroundImage }) {
 					</div>
 				</div>
 
-				<button className="carousel-button right" onClick={nextResource}>
-					&#9655;
-				</button>
+				<button
+					className="carousel-button right-button"
+					onClick={nextResource}
+				></button>
 			</div>
 
 			{/* Indicators Section (now outside and below the carousel) */}

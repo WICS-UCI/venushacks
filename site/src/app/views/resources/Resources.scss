@@ -1,8 +1,10 @@
 @use "src/globals/vh-styles.scss";
 
-$leftFishes: "assets/images/left-fishes.svg";
-$rightFishes: "assets/images/right-fishes.svg";
-$coral: "assets/images/resources-coral.svg";
+$leftFishes: "/assets/images/left-fishes.svg";
+$rightFishes: "/assets/images/right-fishes.svg";
+$coral: "/assets/images/resources-coral.svg";
+$leftArrow: "/assets/images/left-carousel-icon.svg";
+$rightArrow: "/assets/images/right-carousel-icon.svg";
 
 .Resources {
 	background: linear-gradient(180deg, #bfe6f2 0%, #258bbe 100%);
@@ -74,7 +76,6 @@ $coral: "assets/images/resources-coral.svg";
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	max-width: 1000px;
 	font-family: "Instrument Sans";
 }
 
@@ -137,7 +138,11 @@ $coral: "assets/images/resources-coral.svg";
 .resource-description {
 	font-size: 32px;
 	font-weight: 400;
-	max-width: 60%;
+	max-width: 100vw;
+
+	@media screen and (min-width: vh-styles.$break-medium) {
+		max-width: 60%;
+	}
 }
 
 .resource-link {
@@ -160,14 +165,26 @@ $coral: "assets/images/resources-coral.svg";
 }
 
 .carousel-button {
-	background: transparent;
-	border: none;
-	font-size: 2rem;
-	cursor: pointer;
-	color: white;
 	position: absolute;
 	top: 55%;
-	transform: translateY(-50%);
+	height: 50px;
+	width: 50px;
+
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+
+	z-index: 1;
+}
+
+.left-button {
+	left: 10%;
+	background: url($leftArrow) no-repeat center/contain;
+}
+
+.right-button {
+	right: 10%;
+	background: url($rightArrow) no-repeat center/contain;
 }
 
 .category h3 {
@@ -178,18 +195,6 @@ $coral: "assets/images/resources-coral.svg";
 .category p {
 	text-align: center;
 	margin-left: 0;
-}
-
-.left {
-	left: 10%;
-	z-index: 1;
-	max-width: 10%;
-}
-
-.right {
-	right: 5%;
-	z-index: 1;
-	max-width: 10%;
 }
 
 .carousel-indicators {
