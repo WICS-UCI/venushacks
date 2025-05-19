@@ -12,7 +12,7 @@ export default function HeroTitle() {
 				<PrimaryButton href="/feedback" type="button">
 					Feedback Form
 				</PrimaryButton>
-				<PrimaryButton href="/incident" type="button">
+				<PrimaryButton href="/report" type="button">
 					Incident Form
 				</PrimaryButton>
 			</div>
