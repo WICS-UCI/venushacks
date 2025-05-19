@@ -33,7 +33,6 @@ export default defineType({
       name: "endTime",
       title: "End Time",
       type: "datetime",
-      validation: (Rule) => Rule.required(),
     }),
   ],
 });

@@ -28,6 +28,12 @@ export default defineType({
               type: "text",
               validation: (Rule) => Rule.required(),
             }),
+            defineField({
+              name: "link",
+              title: "Site Link",
+              type: "url",
+              description: "Link to partner website",
+            }),
           ],
         }),
       ],

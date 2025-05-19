@@ -35,6 +35,8 @@ export default defineType({
               validation: (Rule) => Rule.required(),
               options: {
                 list: [
+                  { title: "President", value: "President" },
+                  { title: "Co-President", value: "Co-President" },
                   { title: "Chair", value: "Chair" },
                   { title: "Committee Lead", value: "Committee Lead" },
                   { title: "Organizer", value: "Organizer" },

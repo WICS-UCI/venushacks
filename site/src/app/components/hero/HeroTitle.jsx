@@ -9,14 +9,11 @@ export default function HeroTitle() {
 		<Container className="d-flex flex-column align-items-center content-container">
 			<Title />
 			<div className="button-row">
-				<PrimaryButton href="" type="button" disabled>
-					Applications Have Closed
+				<PrimaryButton href="/feedback" type="button">
+					Feedback Form
 				</PrimaryButton>
-				<PrimaryButton
-					href="mailto:venushacks.corporate@gmail.com"
-					type="button"
-				>
-					Sponsor Us
+				<PrimaryButton href="/incident" type="button">
+					Incident Form
 				</PrimaryButton>
 			</div>
 		</Container>

@@ -14,10 +14,13 @@ const Events = z.array(
 			.string()
 			.datetime()
 			.transform((time) => new Date(time)),
-		endTime: z
-			.string()
-			.datetime()
-			.transform((time) => new Date(time)),
+		endTime: z.union([
+			z
+				.string()
+				.datetime()
+				.transform((time) => new Date(time)),
+			z.undefined(),
+		]),
 	})
 );
 
