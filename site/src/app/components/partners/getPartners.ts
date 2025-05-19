@@ -7,6 +7,7 @@ const Partners = z.object({
 	partners: z.array(
 		z.object({
 			desc: z.string(),
+			link: z.string().url().optional(),
 			icon: SanityImageReference,
 			_key: z.string(),
 			_type: z.literal("partner"),

@@ -15,15 +15,27 @@
 
 #organizers-container {
 	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+}
+
+.organizer-row {
+	display: flex;
 	flex-wrap: wrap;
 	gap: 4% 10%;
 	justify-content: flex-start;
 	width: 100%;
+	min-height: 400px;
 }
 
 @media screen and (min-width: $break-small) {
-    #organizers-container {
-        gap: 7%;
-    }
-}
+	#organizers-container {
+		// gap: 2.5rem;
+	}
 
+	.organizer-row {
+		gap: 7%;
+		min-height: 500px;
+	}
+}

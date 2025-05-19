@@ -47,6 +47,7 @@
 }
 
 .time-label {
+	width: max(40%, 320px);
 	font-size: 2.5rem;
 	font-weight: 400;
 	font-family: "Londrina Solid";
@@ -54,8 +55,17 @@
 	white-space: nowrap;
 
 	@media screen and (max-width: $break-medium) {
+		width: 100%;
 		font-size: 1.7rem;
 		margin-bottom: -10px;
+	}
+}
+
+.event-group {
+	width: 60%;
+
+	@media screen and (max-width: $break-medium) {
+		width: 100%;
 	}
 }
 

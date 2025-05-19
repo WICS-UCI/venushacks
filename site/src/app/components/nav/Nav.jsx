@@ -50,7 +50,7 @@ const NavLinks = ({ reduceMotion, isMobile }) => (
 			text="Resources"
 			{...{ isMobile, reduceMotion }}
 		/> */}
-		{/* <NavLink url="/devpost" text="DevPost" {...{ isMobile, reduceMotion }} /> */}
+		<NavLink url="/devpost" text="DevPost" {...{ isMobile, reduceMotion }} />
 	</>
 );
 

@@ -29,7 +29,9 @@ const Title = () => {
 					/>
 				))}
 			</h1>
-			<h2 id="hero-subtitle">UCI's Women-Centric Hackathon 2025</h2>
+			<h2 id="hero-subtitle">
+				UCI's Women-Centric Hackathon <br /> May 23-25, 2025
+			</h2>
 		</div>
 	);
 };

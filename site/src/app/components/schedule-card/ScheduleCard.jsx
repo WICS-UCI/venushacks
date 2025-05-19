@@ -64,6 +64,7 @@ function groupEventsByTime(events) {
 
 function formatTimeRange(start, end) {
 	const options = { hour: "numeric", minute: "2-digit", hour12: "true" };
+	if (!end) return new Date(start).toLocaleTimeString([], options);
 	return `${new Date(start).toLocaleTimeString([], options)} - ${new Date(
 		end
 	).toLocaleTimeString([], options)}`;
