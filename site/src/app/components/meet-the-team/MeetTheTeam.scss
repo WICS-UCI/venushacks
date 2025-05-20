@@ -1,0 +1,35 @@
+@use "../../../globals/vh-styles.scss" as *;
+
+.tab-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 85vw;
+	max-width: 1500px;
+	margin-top: 1rem;
+	box-sizing: border-box;
+
+	@media screen and (min-width: $break-medium) {
+		margin-top: 0;
+		width: 75vw;
+	}
+}
+
+#organizers-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+}
+
+.organizer-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4% 10%;
+	justify-content: flex-start;
+	width: 100%;
+
+	@media screen and (min-width: $break-small) {
+		gap: 7%;
+	}
+}

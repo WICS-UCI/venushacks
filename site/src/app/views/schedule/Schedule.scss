@@ -1,249 +1,168 @@
-@import "../../../globals/vh-styles.scss";
+@use "../../../globals/vh-styles.scss" as *;
+
+$timer-bg: "/assets/images/timer-background.svg";
+$bubble: "/assets/images/bubble.svg";
 
 .Schedule {
 	min-height: 100vh;
 	width: 100%;
-	background-image: url("../../../assets/images/schedule/schedule-bg.png");
-	background-attachment: fixed;
-	background-size: 100% auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	color: white;
-
-	h1 {
-		font-weight: 600;
-	}
-
-	.stripes {
-		width: 100vw;
-		height: 80vh;
-		transform-origin: 0;
-		// background-image: url('./../../../assets/images/background.png');
-		background-size: cover;
-		position: absolute;
-
-		.div {
-			position: absolute;
-		}
-	}
-
-	.inner0 {
-		background-image: linear-gradient(
-			to left,
-			$leftGradient,
-			$rightOffGradient
-		);
-		grid-area: 5 / 5 / 5 / 6;
-	}
-
-	.inner1 {
-		background-image: linear-gradient(
-			to right,
-			$rightOffGradient,
-			$leftGradient
-		);
-		grid-area: 1 / 1 / 1 / 4;
-	}
-
-	.inner2 {
-		background-image: linear-gradient(
-			to left,
-			$leftGradient,
-			$rightOffGradient
-		);
-		grid-area: 2 / 3 / 2 / 6;
-	}
-
-	.inner3 {
-		background-image: linear-gradient(
-			to right,
-			$leftGradient,
-			$rightOffGradient
-		);
-		grid-area: 5 / 1 / 5 / 3;
-	}
-
-	#intro {
-		height: 90vh;
-		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		text-align: left;
-		color: white;
-
-		.schedule-nav {
-			position: absolute;
-			top: 0;
-			right: 0;
-			display: flex;
-			justify-content: flex-end;
-
-			a {
-				margin-right: 0 !important;
-				text-decoration: none;
-				display: flex;
-				align-items: center;
-
-				h5 {
-					margin-bottom: 0;
-				}
-			}
-		}
-
-		.schedule-button {
-			margin: 2em;
-			box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-		}
-
-		.title-info {
-			display: flex;
-			flex-direction: row;
-			width: 60vw;
-
-			@media screen and (max-width: $break-medium) {
-				flex-direction: column;
-				align-items: center;
-				text-align: center;
-
-				button {
-					align-self: center;
-				}
-
-				img {
-					margin-right: 0 !important;
-				}
-
-				h1 {
-					font-size: 60px;
-				}
-			}
-
-			img {
-				width: 250px;
-				height: 250px;
-				margin-right: 2em;
-			}
-
-			div {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-
-				button {
-					width: 100px;
-				}
-			}
-
-			h1 {
-				margin-bottom: 0.1em !important;
-			}
-		}
-	}
-
-	#schedule-nav {
-		width: 100vh;
-		position: relative;
-	}
+	overflow-x: hidden;
 
 	#schedule-block {
 		position: relative;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		padding-bottom: 100px;
+
+		.schedule-title {
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 6.25rem;
+			letter-spacing: 0.5rem;
+			text-shadow: 9px 16px 10px #68b3d7;
+			margin-top: 170px;
+			margin-bottom: 10px;
+
+			@media screen and (max-width: $break-medium) {
+				font-size: 4rem;
+			}
+		}
+
+		.schedule-bubble-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: -1;
+
+			.schedule-bubble {
+				position: absolute;
+				background-image: url($bubble);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				animation: float 6s ease-in-out infinite;
+
+				@media screen and (max-width: $break-medium) {
+					display: none;
+				}
+
+				&.small {
+					width: 2.5vw;
+					height: 2.5vw;
+					max-width: 32px;
+					max-height: 32px;
+				}
+
+				&.medium {
+					width: 3vw;
+					height: 3vw;
+					max-width: 39px;
+					max-height: 39px;
+				}
+
+				&.large {
+					width: 5vw;
+					height: 5vw;
+					max-width: 56px;
+					max-height: 56px;
+				}
+
+				&.left {
+					left: 20px;
+
+					&.small {
+						top: 170px;
+						animation-delay: 0s;
+					}
+					&.medium {
+						left: 65px;
+						top: 200px;
+						animation-delay: 1s;
+					}
+					&.large {
+						left: 25px;
+						top: 250px;
+						animation-delay: 2s;
+					}
+				}
+
+				&.right {
+					right: 20px;
+
+					&.small {
+						top: 170px;
+						animation-delay: 0s;
+					}
+					&.medium {
+						right: 65px;
+						top: 200px;
+						animation-delay: 1s;
+					}
+					&.large {
+						right: 25px;
+						top: 250px;
+						animation-delay: 2s;
+					}
+				}
+			}
+		}
+
+		@keyframes float {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-10px);
+			}
+		}
 
 		.schedule-hacking-ends-in {
 			margin-bottom: 30px;
-			color: $darkerPurple;
+			font-family: "Instrument Sans", sans-serif;
+			font-weight: 600;
+			font-size: 2.19rem;
 
 			@media screen and (max-width: $break-medium) {
-				font-size: 20px;
+				font-size: 1.2rem;
 			}
 		}
 
 		.schedule-countdown {
-			margin-top: 10px;
-			margin-bottom: 30px;
-			color: $darkerPurple;
-
-			@media screen and (min-width: $break-medium) {
-				section {
-					padding-top: -5px;
-
-					span {
-						font-size: 40px !important;
-						font-weight: 600;
-						line-height: 50px !important;
-					}
-				}
-			}
+			font-family: "Londrina Solid", sans-serif;
 
 			.container-style {
-				border-radius: 20px;
-				background-image: url("../../../assets/images/schedule/countdown-bg-blank.png");
-				background-size: 100% auto;
-				padding: 3vw 4vw;
-			}
-		}
+				background-image: url($timer-bg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center top;
+				padding: 4rem 6rem;
 
-		.schedule-header {
-			margin-top: 120px;
-			margin-bottom: 120px;
-			height: 15vh;
-			width: 100vw;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: white;
-			text-align: left;
+				.countdown-content {
+					padding-top: 3.75rem;
+					text-align: center;
+				}
+				@media screen and (min-width: 900px) and (max-width: 1000px) {
+					padding-top: 2rem;
+				}
 
-			.hat-left {
-				width: 40px;
-				height: 40px;
-			}
-
-			img {
-				max-width: 100%;
-				max-height: 160%;
-			}
-
-			& > div {
-				width: 40vw;
-				display: grid;
-				grid-template-columns: 33% 33% 20%;
-				text-align: center;
-
-				@media screen and (max-width: 800px) {
-					width: 80vw;
-
-					h3 {
-						font-size: 25px;
+				@media screen and (max-width: $break-medium) {
+					padding: 2rem 2rem;
+					max-width: 370px;
+					max-height: 270px;
+					.countdown-content {
+						padding-top: 1.5rem;
 					}
 				}
-
-				div {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
 			}
-		}
-	}
-
-	#credits {
-		background-color: white;
-		height: 15vh;
-		margin-top: 10vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		p {
-			margin: 0;
 		}
 	}
 }

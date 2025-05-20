@@ -1,120 +1,79 @@
-@import "../../../globals/vh-styles.scss";
+@use "../../../globals/vh-styles.scss";
 
 .workshop-card {
 	border-radius: 20px;
-	width: 85vw;
-	max-width: 67vw;
+	max-width: 100%;
 	margin: 20px auto;
-	background-image: linear-gradient(rgba(50, 38, 96), rgb(137, 143, 247));
-	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 4px 4px 0px #00000040;
 	color: #ffffff;
 	display: flex;
 	flex-direction: row;
 
 	.workshop-card-left,
 	.workshop-card-right {
-		padding: 20px;
+		padding: 28px;
 		margin-top: 10px;
 		margin-bottom: 10px;
 		flex: 1 1 0px;
 	}
 
+	.workshop-card-right {
+		margin: 0;
+		border-radius: 0 20px 20px 0;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			border-radius: 0 0 20px 20px;
+		}
+	}
+
 	.workshop-card-title {
-		font-size: 1.6em;
-		margin-bottom: 25px;
+		font-family: "Londrina Solid", sans-serif;
+		font-size: 4.324rem;
+		letter-spacing: 8%;
+		text-transform: uppercase;
+		line-height: 100%;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 3.5rem;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 2.5rem;
+		}
 	}
 
 	.workshop-card-description {
-		font-size: 0.95em;
+		font-size: 1.5rem;
+		font-family: "Instrument Sans", serif;
+		line-height: 150%;
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 1.25rem;
+		}
 	}
 
-	#hosted-by {
-		font-size: large;
-		margin-top: 25px;
+	.info {
+		font-family: "Instrument Sans", serif;
+		font-size: 2rem;
+		letter-spacing: 0%;
 		margin-bottom: 3px;
-		color: #ee99a0;
+		font-weight: 700;
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 1.5rem;
+		}
 	}
 
-	#host-name {
-		font-size: large;
-		margin-top: 3px;
-	}
-
-	a {
-		text-decoration: none;
-		background-color: #322660;
-		display: block;
-		margin-bottom: 6px;
-		width: max-content;
-		padding: 10px;
-		border-radius: 20px;
-		font-size: small;
-		color: #ffffff;
-	}
-
-	#prerequisites-title {
-		margin-bottom: 6px;
-		font-size: medium;
-	}
-
-	@media (max-width: 768px) {
+	@media screen and (max-width: vh-styles.$break-medium) {
 		flex-direction: column;
-		width: 95vw;
-		max-width: 95vw;
+		width: 80vw;
+		max-width: 80vw;
 
 		.workshop-card-left,
 		.workshop-card-right {
 			flex: none;
 			width: 100%;
 			padding: 15px;
-		}
-
-		.workshop-card-title {
-			font-size: 1.4em;
-			margin-bottom: 20px;
-		}
-
-		.workshop-card-description {
-			font-size: 0.9em;
-		}
-
-		#hosted-by,
-		#host-name {
-			font-size: medium;
-		}
-
-		a {
-			padding: 8px;
-			font-size: 0.85em;
-		}
-
-		#prerequisites-title {
-			font-size: small;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.workshop-card-title {
-			font-size: 1.2em;
-			margin-bottom: 15px;
-		}
-
-		.workshop-card-description {
-			font-size: 0.85em;
-		}
-
-		#hosted-by,
-		#host-name {
-			font-size: small;
-		}
-
-		a {
-			padding: 6px;
-			font-size: 0.75em;
-		}
-
-		#prerequisites-title {
-			font-size: small;
 		}
 	}
 }

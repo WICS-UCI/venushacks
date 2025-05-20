@@ -1,4 +1,4 @@
-@use "src/globals/vh-styles.scss";
+@use "../../../globals/vh-styles.scss" as *;
 
 $leftFishes: "/assets/images/left-fishes.svg";
 $rightFishes: "/assets/images/right-fishes.svg";

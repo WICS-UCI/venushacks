@@ -30,3 +30,12 @@
 		font-size: 1.25rem;
 	}
 }
+
+.disabled-primary-btn {
+	@extend .primary-button;
+
+	&:disabled {
+		background-color: #b586ad;
+		opacity: 100%;
+	}
+}

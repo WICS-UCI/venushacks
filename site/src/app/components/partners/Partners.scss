@@ -1,55 +1,169 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 
-#partners {
-	margin-top: 50px;
+:root {
+	--med-width: 750px;
+	--small-width: 450px;
+}
 
-	.section-title {
-		height: 250px;
-		@media screen and (max-width: $break-medium) {
-			height: 35vw;
-			max-height: 200px;
-		}
+#partners-carousel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	aspect-ratio: 3/1;
+	overflow: hidden;
+	position: relative;
+
+	@media screen and (max-width: 750px) {
+		aspect-ratio: 2/1;
+	}
+	@media screen and (max-width: 450px) {
+		aspect-ratio: 3/2;
+	}
+}
+
+#partners-view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	overflow: hidden;
+}
+
+.arrow {
+	background: none;
+	color: inherit;
+	border: none;
+	transform: scale(1, 2);
+	font-size: 25px;
+	font-weight: 1000;
+}
+
+.pop > img {
+	max-height: 50%;
+}
+
+.bubble {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 20%;
+	aspect-ratio: 1 / 1;
+
+	border-radius: 50%;
+	opacity: 0;
+	font-size: 0vw;
+	transition: all 1s ease;
+
+	@media screen and (max-width: 750px) {
+		visibility: hidden;
+		transition: 0.75s;
+	}
+}
+
+#nxt {
+	margin-left: 50%;
+	opacity: 0.5;
+	@media screen and (max-width: 750px) {
+		width: 0px;
+		opacity: 0;
+	}
+}
+
+#prv {
+	margin-right: 50%;
+	opacity: 0.5;
+	@media screen and (max-width: 750px) {
+		width: 0px;
+		opacity: 0;
+	}
+}
+
+.desc {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+
+	width: 55%;
+	aspect-ratio: 1/1;
+
+	border-radius: 50%;
+	opacity: 0;
+
+	@media screen and (max-width: 750px) {
+		width: 65%;
+		font-size: 2.5vw;
+	}
+	@media screen and (max-width: 450px) {
+		font-size: 3.5vw;
+	}
+	@media screen and (min-width: 1500px) {
+		font-size: 1.56rem;
+	}
+}
+
+.pop {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+
+	width: 90%;
+	aspect-ratio: 1/1;
+
+	border-radius: 50%;
+	background-image: radial-gradient(#c6ecf4 30%, #80d9ec 80%);
+}
+
+#cur {
+	display: flex;
+	width: 35%;
+	aspect-ratio: 1/1;
+
+	opacity: 1;
+	font-size: 1.65vw;
+
+	.pop {
+		width: 80%;
+		height: 80%;
 	}
 
-	#partners-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		margin: 0px 60px 50px 60px;
-		padding: 0px 20px;
-		border-radius: 20px;
-		color: #4767b1;
+	@media screen and (max-width: 750px) {
+		visibility: visible;
+		position: absolute;
+		width: 55%;
+	}
+	@media screen and (max-width: 450px) {
+		width: 75%;
+	}
+}
 
-		@media screen and (max-width: $break-small) {
-			margin: 10px 30px;
-			padding: 5px 20px 15px;
-		}
+#cur:hover {
+	.pop {
+		animation-name: bubble-pop;
+		animation-duration: 0.3s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+	.desc {
+		opacity: 1;
+	}
+}
 
-		.logo-wrapper .logo {
-			margin: 30px;
-			transition: all 0.2s ease;
-		}
+@keyframes bubble-pop {
+	from {
+		width: 80%;
+		aspect-ratio: 1/1;
+	}
 
-		.logo-wrapper .logo:hover {
-			cursor: pointer;
-			transform: scale(1.08);
-			height: auto;
-		}
+	to {
+		width: 90%;
+		aspect-ratio: 1/1;
 
-		.medium .logo {
-			max-width: 250px;
-			max-height: 100px;
-		}
-
-		.medium .logo,
-		.large .logo,
-		.largest .logo {
-			@media screen and (max-width: $break-medium) {
-				max-width: 90%;
-				max-height: 75px;
-				margin: 10px;
-			}
-		}
+		opacity: 0;
+		border: 20px solid #80d9ec;
 	}
 }

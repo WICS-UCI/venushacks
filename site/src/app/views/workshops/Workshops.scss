@@ -1,32 +1,147 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss";
+
+$dolphin-tail: "/assets/images/dolphin-tail.svg";
+$bubble: "/assets/images/bubble.svg";
 
 .workshops {
 	min-height: 100vh;
-	background-image: url("../../../assets/images/stars-background.svg");
-	background-attachment: fixed;
-	background-size: 100% auto;
+	position: relative;
 	display: flex;
 	flex-direction: column;
+	margin-top: 140px;
+	overflow: hidden;
 
-	h2 {
-		margin-top: 2em;
+	.workshops-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100vw;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding-bottom: 10vh;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			width: 85vw;
+			padding-bottom: 5vh;
+		}
 	}
 
-	h5 {
-		font-size: 1.1em;
-	}
-
-	#workshops_header {
+	.workshops-title {
+		margin-top: 5vh;
+		width: 100vw;
 		text-align: center;
-		color: $darkerPurple;
+		font-family: "Londrina Solid", sans-serif;
+		font-weight: 400;
+		font-size: 6.25rem;
+		color: white;
+		text-shadow: 9px 16px 10px #7c94c0;
+		letter-spacing: 0.56rem;
+		text-decoration: uppercase;
 
-		#title-img {
-			width: 50%;
-			margin-top: 50px;
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 6rem;
+		}
 
-			@media screen and (max-width: $break-small) {
-				margin-top: 75px;
-			}
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 3.5rem;
+		}
+	}
+
+	.workshops-subtitle {
+		text-align: center;
+		font-family: "Instrument Sans", serif;
+		font-weight: 600;
+		font-size: 2.25rem;
+		color: white;
+		text-shadow: 0px 6px 6px #69b3d7;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			font-size: 2rem;
+		}
+
+		@media screen and (max-width: vh-styles.$break-small) {
+			font-size: 1.5rem;
+		}
+	}
+
+	.workshop-card-wrapper {
+		position: relative;
+		width: fit-content;
+		margin: 0 auto;
+	}
+
+	// assets
+	// small bubble
+	#small-bubble {
+		position: absolute;
+		top: 3vh;
+		right: 30vw;
+		width: 35px;
+		height: 35px;
+		background: url($bubble);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -1;
+
+		@media screen and (max-width: vh-styles.$break-xlarge) {
+			top: -50px;
+			left: -50px;
+			width: 8vw;
+			height: 8vw;
+		}
+
+		@media screen and (max-width: vh-styles.$break-large) {
+			top: -30px;
+			left: -30px;
+			width: 6vw;
+			height: 6vw;
+		}
+	}
+
+	// big bubble
+	#big-bubble {
+		position: absolute;
+		top: 7vh;
+		right: 26vw;
+		width: 50px;
+		height: 50px;
+		background: url($bubble);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -1;
+
+		@media screen and (max-width: vh-styles.$break-xlarge) {
+			top: -50px;
+			left: -50px;
+			width: 8vw;
+			height: 8vw;
+		}
+
+		@media screen and (max-width: vh-styles.$break-large) {
+			top: -30px;
+			left: -30px;
+			width: 6vw;
+			height: 6vw;
+		}
+	}
+
+	#dolphin-tail {
+		position: absolute;
+		top: -200px;
+		right: -50px;
+		width: 200px;
+		height: 400px;
+		background: url($dolphin-tail);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -1;
+
+		@media screen and (max-width: vh-styles.$break-medium) {
+			width: 175px;
+			height: 350px;
 		}
 	}
 }

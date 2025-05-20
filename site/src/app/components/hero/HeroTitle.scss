@@ -1,0 +1,28 @@
+@use "src/globals/vh-styles.scss";
+
+.content-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	z-index: 10;
+}
+
+.button-row {
+	display: flex;
+	flex-direction: row;
+	gap: 50px;
+	margin-top: 30px;
+
+	@media screen and (max-width: vh-styles.$break-medium) {
+		gap: 30px;
+	}
+
+	@media screen and (max-width: vh-styles.$break-small) {
+		flex-direction: column;
+		gap: 20px;
+	}
+}

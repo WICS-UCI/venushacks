@@ -1,20 +1,16 @@
-@import "src/globals/vh-styles.scss";
+@use "src/globals/vh-styles.scss" as *;
 
-$boba: "/assets/images/vh-boba.png";
-$astronaut: "/assets/images/vh-astronaut.png";
-$laptop: "/assets/images/vh-laptop.png";
-$shiba: "/assets/images/VH_shiba_inu.png";
-$planet: "/assets/images/planet-3.svg";
-$stars_background: "/assets/images/stars.svg";
+html {
+	scroll-behavior: smooth;
+}
 
 body {
 	overflow-x: hidden;
 }
 
 .Home {
-	background-image: url($stars_background);
 	background-size: cover;
-	background-attachment: fixed;
+	background-attachment: scroll;
 	text-align: center;
 	min-height: 100vh;
 
@@ -24,16 +20,23 @@ body {
 
 	section {
 		.section-title {
-			max-width: 100vw;
-			height: 60px;
-			width: auto;
-			margin: 20px auto;
+			width: 100%;
+			font-family: "Londrina Solid", sans-serif;
+			font-weight: 400;
+			font-size: 6.25rem;
+			color: white;
+			text-shadow: 9px 16px 10px #48437b;
+			letter-spacing: 0.56rem;
+			text-align: left;
 
 			@media screen and (max-width: $break-medium) {
-				height: 9vw;
-				max-height: 40px;
+				text-align: center;
 			}
 		}
+	}
+
+	#hero {
+		margin-bottom: 45%;
 	}
 
 	// TODO: Remove once padding is removed
@@ -41,423 +44,96 @@ body {
 		min-height: 15vh;
 	}
 
-	.parallax-asset {
-		// hide constellations & planets on smaller screens
-		@media screen and (max-width: $break-medium) {
-			display: none;
-		}
-	}
-
-	#hero {
-		display: flex;
-		align-items: center;
-		margin: 10vw 15vw;
-		flex-direction: column;
-		background-color: #a8acf977;
-		border-radius: 50px;
-
-		@media screen and (max-width: $break-medium) {
-			margin: 12vw 5vw;
-		}
-
-		@media screen and (max-width: $break-small) {
-			margin: 20vw 5vw;
-		}
-
-		#astronaut-animation {
-			display: flex;
-			width: 45%;
-			justify-content: space-between;
-			max-width: 600px;
-			transform: translateY(-600px);
-
-			@media screen and (max-width: $break-medium) {
-				width: 100%;
-				max-width: 325px;
-				transform: translateY(-475px);
-			}
-
-			@media screen and (max-width: $break-small) {
-				width: 100%;
-				max-width: 325px;
-				transform: translateY(-325px);
-			}
-
-			@keyframes floatBoba {
-				0% {
-					transform: translatey(50px);
-				}
-				50% {
-					transform: translatey(70px);
-				}
-				100% {
-					transform: translatey(50px);
-				}
-			}
-			@keyframes floatAstronaut {
-				0% {
-					transform: translatey(0px);
-				}
-				50% {
-					transform: translatey(-20px);
-				}
-				100% {
-					transform: translatey(0px);
-				}
-			}
-			@keyframes floatLaptop {
-				0% {
-					transform: translatey(0px);
-				}
-				50% {
-					transform: translatey(20px);
-				}
-				100% {
-					transform: translatey(0px);
-				}
-			}
-
-			#boba {
-				float: left;
-				width: 18vw;
-				height: 18vw;
-				max-width: 15%;
-				background: url($boba);
-				background-size: contain;
-				background-repeat: no-repeat;
-				animation: floatBoba 4s ease-in-out infinite;
-
-				@media screen and (max-width: $break-small) {
-					width: 12vw;
-					height: 12vw;
-				}
-			}
-
-			#astronaut {
-				float: left;
-				width: 18vw;
-				height: 18vw;
-				max-width: 290px;
-				background: url($astronaut);
-				background-size: contain;
-				background-repeat: no-repeat;
-				animation: floatAstronaut 4s ease-in-out infinite;
-
-				@media screen and (max-width: $break-small) {
-					width: 25vw;
-					height: 25vw;
-				}
-			}
-
-			#laptop {
-				float: right;
-				width: 12vw;
-				height: 12vw;
-				max-width: 340px;
-				margin-left: -10%;
-				margin-top: -15%;
-				background: url($laptop);
-				background-size: contain;
-				background-repeat: no-repeat;
-				animation: floatLaptop 4s ease-in-out infinite;
-
-				@media screen and (max-width: $break-small) {
-					margin-top: -60px;
-					width: 30vw;
-					height: 30vw;
-				}
-			}
-
-			#shiba-inu {
-				float: right;
-				width: 12vw;
-				height: 12vw;
-				max-width: 360px;
-				margin-left: -15%;
-				margin-top: 12%;
-				background: url($shiba);
-				background-size: contain;
-				background-repeat: no-repeat;
-				animation: floatAstronaut 4s ease-in-out infinite;
-				transform: rotateY(180deg);
-				@media screen and (max-width: $break-small) {
-					width: 30vw;
-					height: 30vw;
-				}
-			}
-		} // END #astronaut-animation
-
-		#hero-right {
-			@media screen and (max-width: $break-medium) {
-				width: initial;
-			}
-
-			#venushacks-title {
-				width: 100%;
-				max-width: 800px;
-				margin-bottom: -5%;
-				margin-top: -7%;
-
-				@media screen and (max-width: $break-small) {
-					width: 100%;
-				}
-			}
-
-			#date {
-				transform: translateY(-200px);
-				color: $darkPurple;
-				font-family: var(--font-comfortaa);
-				font-weight: 700;
-				@media screen and (max-width: $break-medium) {
-					font-size: 20px;
-				}
-
-				@media screen and (max-width: $break-small) {
-					transform: translateY(-20px);
-				}
-			}
-
-			#tagline {
-				transform: translateY(-190px);
-				font-family: "Varela", sans-serif;
-				font-size: 22px;
-				color: $darkPurple;
-				margin-bottom: 0.5rem;
-				@media screen and (max-width: $break-medium) {
-					font-size: 18px;
-				}
-
-				@media screen and (max-width: $break-small) {
-					transform: translateY(-10px);
-				}
-			}
-
-			#apps {
-				font-family: "Varela", sans-serif;
-				font-size: 24px;
-				color: $darkPurple;
-				@media screen and (max-width: $break-medium) {
-					font-size: 18px;
-				}
-			}
-
-			.venus-btn {
-				color: $darkBlackBackground;
-				padding: 12px 24px;
-				font-family: "Varela", sans-serif;
-				font-size: 22px;
-				font-weight: 800;
-				letter-spacing: 0.25px;
-				margin-right: 10px;
-				margin-left: 10px;
-				margin-top: 10px;
-				margin-bottom: 10px;
-				background: linear-gradient($darkPurple, $lightPurple);
-				color: white;
-				border-radius: 50px;
-				border: none;
-				text-decoration: none;
-				transform: translateY(-190px);
-
-				@media screen and (max-width: $break-medium) {
-					font-size: 16px;
-				}
-
-				@media screen and (max-width: $break-small) {
-					margin-right: 2px;
-					margin-left: 2px;
-					transform: translateY(-20px);
-				}
-			}
-
-			.venus-btn:hover {
-				transition: all 0.2s ease;
-				transform: translateY(-190px) scale(1.08);
-
-				@media screen and (max-width: $break-small) {
-					transform: translateY(-20px) scale(1.08);
-				}
-			}
-		} // END #hero-right
-	} // END HERO
-
-	#planet {
-		width: 50vw;
-		height: 50vw;
-		background: url($planet);
-		background-size: contain;
-		background-repeat: no-repeat;
-		margin: auto;
-		margin-top: -55%;
-		margin-bottom: 50px;
-
-		@media screen and (max-width: $break-medium) {
-			margin-top: -80%;
-			width: 70vw;
-			height: 70vw;
-		}
-	}
-
-	#tanesha-moody-title {
-		color: $darkerPurple;
-
-		@media screen and (max-width: 700px) {
-			font-size: 36px;
-		}
-	}
-
-	#tanesha-moody {
-		width: 640px;
-		margin-bottom: 120px;
-
-		@media screen and (max-width: 700px) {
-			width: 80vw;
-			height: 60vw;
-		}
-	}
-
 	#about {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-
-		.section-title {
-			height: 90px;
-			margin: 20px auto 30px;
-
-			@media screen and (max-width: $break-medium) {
-				height: 15vw;
-				max-height: 100px;
-				margin: 20px auto;
-			}
-		}
-
-		.about-url {
-			font-weight: 700;
-		}
-
-		#about-text-container {
-			width: 60vw;
-			max-width: 1500px;
-			color: $darkPurple;
-			font-family: "Varela", sans-serif;
-			font-weight: 500;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 20px;
-
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 20px;
-			}
-
-			@media screen and (max-width: $break-medium) {
-				width: 80vw;
-			}
-
-			p {
-				@media screen and (max-width: $break-medium) {
-					font-size: 16px;
-				}
-				@media screen and (max-width: $break-small) {
-					font-size: 14px; // This line can prob be removed
-					// when we take out the psa
-				}
-			}
-
-			#asterisk-inclusive {
-				color: $pink;
-
-				@media screen and (max-width: $break-medium) {
-					font-size: 20px;
-				}
-			}
-		}
 	} // END ABOUT
 
 	#faq {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		font-family: "Varela", sans-serif;
-		color: $darkPurple;
+		font-family: "Londrina Solid", sans-serif;
+		color: white;
 		margin-top: 50px;
 
-		.section-title {
-			height: 140px;
-			@media screen and (max-width: $break-medium) {
-				height: 25vw;
-				max-height: 150px;
-			}
-		}
-
 		#faq-container {
+			width: 75%;
+			max-width: 1500px;
+			margin: 0 auto;
 			align-items: center;
-			margin: 20px 60px;
-			padding: 15px 20px;
-			border-radius: 20px;
 
-			@media screen and (max-width: $break-small) {
-				margin: 10px 30px;
-				padding: 5px 20px 20px;
+			.section-title {
+				text-shadow: 9px 16px 10px #8e7694;
+				letter-spacing: 0.56rem;
+				text-align: left;
+
+				@media screen and (max-width: $break-medium) {
+					text-align: center;
+				}
 			}
-		}
 
-		#faq-contact-us {
-			font-size: 20px;
-
-			@media screen and (max-width: $break-small) {
-				font-size: 15px;
-				margin: 10px 0 65px 0;
-				width: 80%;
+			@media screen and (max-width: $break-medium) {
+				width: 85%;
 			}
 		}
 	} // END FAQ
 
-	#speakers {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		margin-top: 50px;
-		color: $darkPurple;
+	#sponsors {
+		width: 75%;
+		max-width: 1500px;
+		margin: auto;
+		margin-top: 5em;
 
 		.section-title {
-			height: 250px;
+			text-shadow: 9px 16px 10px #35094159;
+
 			@media screen and (max-width: $break-medium) {
-				max-height: 150px;
+				text-align: center;
+				font-size: min(6.25rem, 16vw);
 			}
 		}
 
-		.subheader {
-			max-width: 85%;
-			font-size: 50px;
-
-			@media screen and (max-width: $break-medium) {
-				font-size: 30px;
-			}
+		@media screen and (max-width: $break-medium) {
+			width: 85%;
 		}
-	}
+	} // END SPONSORS
 
-	#meet-team {
+	#partner {
 		display: flex;
 		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		margin-top: 50px;
-		color: $darkPurple;
+		margin-top: 5em;
 
-		.section-title {
-			height: 250px;
+		#partners-container {
+			width: 75%;
+
+			.section-title {
+				text-shadow: 9px 16px 10px #140c475d;
+
+				@media screen and (max-width: $break-medium) {
+					font-size: min(6.25rem, 17vw);
+				}
+			}
+
 			@media screen and (max-width: $break-medium) {
-				// height: 15vw;
-				max-height: 150px;
+				width: 85%;
 			}
 		}
+	} // END PARTNERS
+
+	#meet-the-team-container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
 	}
 
-	#footer {
-		bottom: 0;
+	#meet-the-team {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		margin-top: 5em;
 	}
 }

@@ -1,0 +1,66 @@
+@use "src/globals/vh-styles.scss";
+
+.overflow-container {
+	height: 110vh;
+	width: 100%;
+	position: absolute;
+	overflow-y: hidden;
+}
+
+.coral-container {
+	width: 100%;
+	position: absolute;
+	height: 100vh;
+}
+
+.background-container {
+	@extend .coral-container;
+	margin-top: 10%;
+}
+
+.coral {
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	pointer-events: none;
+}
+
+#coral1 {
+	z-index: 10;
+	transform: translateY(54%);
+}
+
+#coral2 > img {
+	transform: translateY(-21%);
+}
+
+#coral3 > img {
+	transform: translateY(-32%);
+}
+
+#coral4 > img {
+	transform: translateY(-50%);
+}
+
+@media screen and (min-width: vh-styles.$break-small) {
+	.overflow-container {
+		height: 120vh;
+	}
+
+	#coral1 {
+		z-index: 10;
+		transform: translateY(54%);
+	}
+
+	#coral2 > img {
+		transform: translateY(-23%);
+	}
+
+	#coral3 > img {
+		transform: translateY(-38%);
+	}
+
+	#coral4 > img {
+		transform: translateY(-50%);
+	}
+}

@@ -9,9 +9,6 @@ import {
 } from "framer-motion";
 
 import vhLogo from "/assets/images/shell.svg";
-import instaIcon from "/assets/images/instagram_icon.svg";
-import emailIcon from "/assets/images/email_icon.svg";
-import tiktokIcon from "/assets/images/tikok_icon.svg";
 
 import "./Nav.scss";
 
@@ -22,7 +19,7 @@ const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 				initial: { opacity: 0 },
 				animate: { opacity: 1 },
 				exit: { opacity: 0 },
-				transition: { duration: 0.2 },
+				transition: { delay: isMobile ? 0 : 0.6, duration: 0.2 },
 			})}
 		>
 			{text}
@@ -31,26 +28,29 @@ const NavLink = ({ url, text, img, desc, reduceMotion, isMobile }) => (
 	</Link>
 );
 
-const NavLinks = ({ reduceMotion, showDivider, isMobile }) => (
+const NavLinks = ({ reduceMotion, isMobile }) => (
 	<>
+		<NavLink url="/" text="Home" {...{ isMobile, reduceMotion }} />
+		{/* <NavLink url="/apply" text="Apply" {...{ isMobile, reduceMotion }} /> */}
+		<NavLink url="/schedule" text="Schedule" {...{ isMobile, reduceMotion }} />
 		<NavLink
-			url="https://www.instagram.com/venushacksuci/"
-			desc="Instagram"
-			img={instaIcon}
+			url="/workshops"
+			text="Workshops"
 			{...{ isMobile, reduceMotion }}
 		/>
+		<NavLink url="/feedback" text="Feedback" {...{ isMobile, reduceMotion }} />
 		<NavLink
-			url="https://www.tiktok.com/@venushacksuci"
-			desc="TikTok"
-			img={tiktokIcon}
+			url="/report"
+			text="Incident Form"
 			{...{ isMobile, reduceMotion }}
 		/>
-		<NavLink
-			url="mailto:venushacks.uci@gmail.com"
-			desc="Email"
-			img={emailIcon}
+
+		{/* <NavLink
+			url="/resources"
+			text="Resources"
 			{...{ isMobile, reduceMotion }}
-		/>
+		/> */}
+		<NavLink url="/devpost" text="DevPost" {...{ isMobile, reduceMotion }} />
 	</>
 );
 
@@ -65,8 +65,6 @@ const Nav = () => {
 	const isHomepage = pathname == "/";
 	const reduceMotion = useReducedMotion();
 	const { scrollYProgress } = useScroll();
-
-	const [hover, setHover] = useState(false);
 
 	window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
 	useMotionValueEvent(scrollYProgress, "change", (latest) =>
@@ -88,53 +86,56 @@ const Nav = () => {
 				})}
 			>
 				<motion.div
-					onMouseLeave={() => setHover(false)}
 					className="nav-links-container"
 					{...(showDropdown && { style: { height: "auto" } })}
 				>
-					<Link
-						className="nav-vh-logo-link"
-						to="/"
-						{...(showDropdown && { style: { top: "-10%" } })}
-					>
-						<motion.img
-							onMouseEnter={() => setHover(true)}
-							className="nav-vh-logo"
-							src={vhLogo}
-						/>
-					</Link>
-
-					{hover && (
-						<>
-							{isMobile ? (
+					{!showDropdown && (
+						<Link
+							className="nav-vh-logo-link"
+							to="/"
+							{...(showDropdown && { style: { top: "-10%" } })}
+						>
+							<motion.img
+								className="nav-vh-logo"
+								src={vhLogo}
+								{...(!reduceMotion && {
+									initial: { scale: 0.5 },
+									animate: { scale: [null, 1.1, 0.8, 1.05, 1] },
+									exit: { scale: 0.5 },
+									transition: {
+										duration: 1,
+										times: [0.1, 0.11, 0.12, 0.2, 0.6, 0.7],
+										damping: 15,
+										restSpeed: 0.00001,
+										mass: 0.9,
+									},
+								})}
+							/>
+						</Link>
+					)}
+					{isMobile ? (
+						<div className={`bckgrd ${showDropdown && "open-bckgrd"}`}>
+							<motion.span
+								className={`nav-menu-span`}
+								{...(!reduceMotion && {
+									initial: { opacity: 0 },
+									animate: { opacity: 1 },
+									exit: { opacity: 0 },
+									transition: { delay: 0.5, duration: 0.2 },
+								})}
+							>
+								{showDropdown ? "x" : "≡"}
+							</motion.span>
+							{showDropdown && (
 								<div>
-									<motion.span
-										className={`nav-menu-span`}
-										{...(!reduceMotion && {
-											initial: { opacity: 0 },
-											animate: { opacity: 1 },
-											exit: { opacity: 0 },
-											transition: { delay: 0.5, duration: 0.2 },
-										})}
-									></motion.span>
-									{showDropdown && (
-										<div className="bckgrd">
-											<NavLinks
-												showDivider={false}
-												{...{ isMobile, reduceMotion }}
-											/>
-										</div>
-									)}
-								</div>
-							) : (
-								<div className="bckgrd">
-									<NavLinks
-										showDivider={true}
-										{...{ isMobile, reduceMotion }}
-									/>
+									<NavLinks {...{ isMobile, reduceMotion }} />
 								</div>
 							)}
-						</>
+						</div>
+					) : (
+						<div className="bckgrd">
+							<NavLinks {...{ isMobile, reduceMotion }} />
+						</div>
 					)}
 				</motion.div>
 			</motion.div>

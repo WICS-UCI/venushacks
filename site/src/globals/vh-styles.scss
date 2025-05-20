@@ -6,13 +6,12 @@ When graphics gives us their style guidelines we can look here.
 
 **/
 
-@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Londrina+Solid:wght@100;300;400;900&display=swap");
 
 // PX Sizing for Media queries
-$break-small: 500px;
-$break-medium: 900px;
-$break-large: 1250px;
+$break-small: 576px;
+$break-medium: 992px;
+$break-large: 1200px;
+$break-xlarge: 1400px;
 
 // Temporary Appwide Style Variables
 $fontColor: white;
