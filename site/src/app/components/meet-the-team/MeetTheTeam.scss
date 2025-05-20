@@ -4,12 +4,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 75vw;
+	width: 85vw;
 	max-width: 1500px;
+	margin-top: 1rem;
 	box-sizing: border-box;
-	@media screen and (max-width: $break-medium) {
-		width: 85vw;
-		margin-top: 1rem;
+
+	@media screen and (min-width: $break-medium) {
+		margin-top: 0;
+		width: 75vw;
 	}
 }
 
@@ -26,16 +28,8 @@
 	gap: 4% 10%;
 	justify-content: flex-start;
 	width: 100%;
-	min-height: 400px;
-}
 
-@media screen and (min-width: $break-small) {
-	#organizers-container {
-		// gap: 2.5rem;
-	}
-
-	.organizer-row {
+	@media screen and (min-width: $break-small) {
 		gap: 7%;
-		min-height: 500px;
 	}
 }

@@ -1,6 +1,17 @@
-const Partner = ({ imgId, imgSrc, addOn, desc }) => {
+const Partner = ({ imgId, imgSrc, addOn, desc, link }) => {
+	const handleClick = () => {
+		if (link) {
+			window.open(link, "_blank", "noopener,noreferrer");
+		}
+	};
+
 	return (
-		<div id={addOn} className="bubble">
+		<div
+			id={addOn}
+			className={`bubble ${link && "clickable"}`}
+			onClick={handleClick}
+			style={{ cursor: link ? "pointer" : "default" }}
+		>
 			<div className="pop">
 				<img
 					id={imgId}
@@ -9,7 +20,9 @@ const Partner = ({ imgId, imgSrc, addOn, desc }) => {
 					alt={"Sponsor: " + imgId}
 				/>
 			</div>
-			<div className="desc">{desc}</div>
+			<div className="desc">
+				{desc} {link && <>Learn more at {link}</>}
+			</div>
 		</div>
 	);
 };

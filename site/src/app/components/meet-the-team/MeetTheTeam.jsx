@@ -14,7 +14,6 @@ export default function MeetTheTeam() {
 	if (error) return <div>Error: {error.message}</div>;
 	if (!organizers) return <div>No organizers found.</div>;
 
-	// Group organizers into rows of 4
 	const organizerRows = [];
 	for (let i = 0; i < organizers[currDepartment].length; i += 4) {
 		organizerRows.push(organizers[currDepartment].slice(i, i + 4));
