@@ -8,6 +8,8 @@ $coral: "/assets/images/resources-coral.svg";
 	background: linear-gradient(180deg, #bfe6f2 0%, #258bbe 100%);
 	position: relative;
 	z-index: 10;
+	margin-top: 140px;
+	padding-top: 50px;
 }
 
 #left-fishes {
@@ -40,7 +42,6 @@ $coral: "/assets/images/resources-coral.svg";
 	z-index: -1;
 }
 
-.Resources h1,
 .Resources .category {
 	position: relative;
 	z-index: 20;
@@ -55,10 +56,12 @@ $coral: "/assets/images/resources-coral.svg";
 }
 
 .resources-title {
+	font-family: "Londrina Solid", sans-serif;
 	font-weight: 400;
 	font-size: 6.25rem;
 	letter-spacing: 0.5rem;
 	text-shadow: 9px 16px 10px #68b3d7;
+	text-align: center;
 
 	@media screen and (max-width: $break-medium) {
 		font-size: 4rem;

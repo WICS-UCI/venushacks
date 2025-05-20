@@ -23,9 +23,7 @@ export default function Resources() {
 			<div id="left-fishes" />
 			<div id="right-fishes" />
 
-			<center>
-				<h1 className="resources-title">RESOURCES</h1>
-			</center>
+			<h1 className="resources-title">RESOURCES</h1>
 			<img
 				src="/assets/images/resources-coral-top.svg"
 				alt="top coral"
