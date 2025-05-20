@@ -23,7 +23,7 @@ const backgroundImages = [
 ];
 
 export default function Resources() {
-	const { resources, isLoading, error } = useResources();
+	const { resources, resourcesLength, isLoading, error } = useResources();
 
 	if (isLoading) return <div>Loading...</div>;
 	if (error) return <div>Error: {error.message}</div>;
@@ -53,7 +53,11 @@ export default function Resources() {
 							<ResourceCarousel
 								resources={resources}
 								backgroundImage={
-									backgroundImages[index % backgroundImages.length]
+									backgroundImages[
+										Math.floor(
+											(index / resourcesLength) * backgroundImages.length
+										)
+									]
 								}
 								className="resource-carousel"
 							/>
