@@ -15,16 +15,27 @@ const Sponsors = () => {
 	if (error) return <div>Error: {error.message}</div>;
 	if (!sponsors) return <div>No sponsors found.</div>;
 	return (
-		<div id="all-sponsors">
-			{sponsors.map(({ icon, url, _key }, index) => (
-				<Sponsor
-					key={_key}
-					imgId={index}
-					imgSrc={builder.image(icon).url()}
-					url={url}
-				/>
-			))}
-		</div>
+		<>
+			<div id="all-sponsors">
+				{sponsors.map(({ icon, url, _key }, index) => (
+					<Sponsor
+						key={_key}
+						imgId={index}
+						imgSrc={builder.image(icon).url()}
+						url={url}
+					/>
+				))}
+			</div>
+			<div className="special-thanks">
+				<h3>Special Thanks to:</h3>
+				<p>
+					Kim Nguyen
+					<br />
+					Swarna Umesh
+					<br />
+				</p>
+			</div>
+		</>
 	);
 };
 
