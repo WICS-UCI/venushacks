@@ -15,12 +15,21 @@ export default function ScheduleCard() {
 	if (!schedule) return <div>No schedule found.</div>;
 	return (
 		<div className="schedule-container">
+			<div className="schedule-top-info">
+				<center>
+					VenusHacks 2025 will take place on the first floor of{" "}
+					<strong>Student Center</strong> in the{" "}
+					<strong>Pacific Ballroom!</strong>
+					<br />
+					<a href="/uci-student-center-map-level.pdf">Link to map</a>
+				</center>
+			</div>
+
 			<TabRadioButtons
 				tabFields={days}
 				selected={selectedDay}
 				onChange={setSelectedDay}
 			/>
-
 			<div className="schedule-card">
 				{Object.entries(grouped).map(([timeRange, eventGroup], i) => (
 					<div className="schedule-time-block" key={i}>
