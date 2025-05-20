@@ -31,8 +31,11 @@ const Sponsors = () => {
 				<p>
 					Kim Nguyen
 					<br />
+					Tiffany Cheung
+					<br />
 					Swarna Umesh
 					<br />
+					Paul Townsend
 				</p>
 			</div>
 		</>
