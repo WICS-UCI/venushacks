@@ -44,7 +44,7 @@ const Workshops = () => {
 	return (
 		<section>
 			<div className="workshops">
-				<h2 className="workshops-title">Workshops</h2>
+				<h2 className="workshops-title">WORKSHOPS</h2>
 
 				<div id="small-bubble" />
 				<div id="big-bubble" />
