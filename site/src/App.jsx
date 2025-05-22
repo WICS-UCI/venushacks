@@ -21,6 +21,7 @@ const App = () => (
 				{/* <Route path="/apply" element={<Apply />} /> */}
 				<Route path="/schedule" element={<Schedule />} />
 				<Route path="/workshops" element={<Workshops />} />
+				<Route path="/resources" element={<Resources />} />
 				<Route
 					path="/feedback"
 					element={
@@ -31,7 +32,6 @@ const App = () => (
 					path="/report"
 					element={<Redirect url="https://forms.gle/nvS7UQbGjceuxhU96" />}
 				/>
-				{/* /* <Route path="/resources" element={<Resources />} /> */}
 				<Route
 					path="/devpost"
 					element={<Redirect url="https://venus-hacks-2025.devpost.com" />}

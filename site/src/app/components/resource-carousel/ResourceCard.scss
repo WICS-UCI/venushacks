@@ -1,0 +1,59 @@
+@use "../../../globals/vh-styles.scss" as *;
+
+.resource-card {
+	min-width: 100%;
+	min-height: 350px;
+	text-align: center;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	padding: 40px 20px;
+	box-sizing: border-box;
+}
+
+.card-link {
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.card-link,
+.card-link:visited,
+.card-link:hover,
+.card-link:active {
+	color: #333b6d;
+}
+
+.resource-icon {
+	margin-top: 0%;
+	width: 159px;
+	height: 159px;
+	margin-bottom: 5%;
+}
+
+.resource-title {
+	font-size: 3rem;
+	font-weight: 700;
+	margin-bottom: 10px;
+
+	@media screen and (max-width: $break-medium) {
+		font-size: 2rem;
+	}
+}
+
+.resource-description {
+	font-size: 1.5rem;
+	font-weight: 400;
+	max-width: 100vw;
+
+	@media screen and (min-width: $break-medium) {
+		max-width: 60%;
+		font-size: 2rem;
+	}
+}

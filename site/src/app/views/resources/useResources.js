@@ -3,6 +3,7 @@ import { getResources } from "./getResources";
 
 export default function useResources() {
 	const [resources, setResources] = useState(null);
+	const [resourcesLength, setResourcesLength] = useState(1);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -14,6 +15,7 @@ export default function useResources() {
 				const data = await getResources();
 				if (isMounted) {
 					setResources(data);
+					setResourcesLength(data.order.length);
 					setIsLoading(false);
 				}
 			} catch (err) {
@@ -31,5 +33,5 @@ export default function useResources() {
 		};
 	}, []);
 
-	return { resources, isLoading, error };
+	return { resources, resourcesLength, isLoading, error };
 }
