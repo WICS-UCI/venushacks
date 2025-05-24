@@ -9,8 +9,8 @@ export default function HeroTitle() {
 		<Container className="d-flex flex-column align-items-center content-container">
 			<Title />
 			<div className="button-row">
-				<PrimaryButton href="/feedback" type="button">
-					Feedback Form
+				<PrimaryButton href="/midway" type="button">
+					Midway Checkin
 				</PrimaryButton>
 				<PrimaryButton href="/report" type="button">
 					Incident Form

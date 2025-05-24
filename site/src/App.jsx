@@ -37,7 +37,12 @@ const App = () => (
 					element={<Redirect url="https://venus-hacks-2025.devpost.com" />}
 				/>
 				{/* <Route path='/hackers-choice' element={<Redirect url="https://docs.google.com/forms/d/e/1FAIpQLSdpBIi6cxLu9m_b8qQoA8GfLMMJ_cIV7HuVbIjH7nHtPQljGg/viewform" />} /> */}
-				{/* <Route path='/midway' element={<Redirect url="https://docs.google.com/forms/d/e/1FAIpQLSdObzMrHpTjjcc5DhdXmuX8v485aDhsCqBRxCV3R66316htcg/viewform" />} /> */}
+				<Route
+					path="/midway"
+					element={
+						<Redirect url="https://docs.google.com/forms/d/1-HPI1XOMeq_0b_-TNgrlIf3O_58k6Jm_qGtIt2RAW_A" />
+					}
+				/>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
