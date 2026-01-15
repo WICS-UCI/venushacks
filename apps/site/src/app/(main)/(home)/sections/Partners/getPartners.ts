@@ -17,7 +17,7 @@ const Partners = SanityDocument.extend({
 
 export const getPartners = cache(async () => {
 	const partners = Partners.parse(
-		await client.fetch("*[_type == 'partners' && _id == 'partners'][0]"),
+		await client.fetch("*[_type == 'partners'][0]"),
 	);
 	return partners;
 });

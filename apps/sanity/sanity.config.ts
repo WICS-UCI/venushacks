@@ -7,9 +7,9 @@ import { ListOrdered, Folders, Globe, Newspaper } from "lucide-react";
 
 export default defineConfig({
 	name: "default",
-	title: "irvinehacks-site-2024",
+	title: "venushacks-site-2026",
 
-	projectId: "fosuyru0",
+	projectId: "u067uoln",
 	dataset: "production",
 
 	plugins: [
