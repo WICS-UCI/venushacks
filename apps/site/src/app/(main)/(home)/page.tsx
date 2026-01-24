@@ -7,6 +7,8 @@ import {
 	Organizers,
 } from "./sections";
 
+import ComingSoon from "./sections/Landing/ComingSoon";
+
 export const revalidate = 60;
 
 export default function Home() {
@@ -14,7 +16,7 @@ export default function Home() {
 	// otherwise show the rest of the sections
 	return process.env.MAINTENANCE_MODE_HOME ? (
 		<>
-			<Landing />
+			<ComingSoon />
 		</>
 	) : (
 		<>

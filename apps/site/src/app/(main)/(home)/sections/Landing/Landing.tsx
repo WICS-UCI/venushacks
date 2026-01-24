@@ -43,7 +43,7 @@ const Landing = () => {
 						<h1
 							className={`${styles.headingDropShadow} font-heading text-4xl md:text-7xl lg:text-5xl mb-12`}
 						>
-							IRVINEHACKS
+							VENUSHACKS
 						</h1>
 
 						<div
