@@ -23,7 +23,6 @@ jobs:
               with:
                   vercel-version: 32.6.1
                   github-comment: false
-                  working-directory: ./apps/site
                   vercel-args: "--prod --yes"
                   vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
                   vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
@@ -36,7 +35,6 @@ jobs:
               with:
                   vercel-version: 32.6.1
                   github-comment: false
-                  working-directory: ./apps/sanity
                   vercel-args: "--prod --yes"
                   vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
                   vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
