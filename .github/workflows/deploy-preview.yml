@@ -32,7 +32,7 @@ jobs:
               </tr>
             </table>
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
           vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_SITE}}
   Studio:
@@ -60,6 +60,6 @@ jobs:
               </tr>
             </table>
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
           vercel-org-id: ${{ vars.VERCEL_ORG_ID }}
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_STUDIO}}
