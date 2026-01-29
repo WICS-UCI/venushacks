@@ -43,6 +43,7 @@ jobs:
       - uses: amondnet/vercel-action@v25
         with:
           vercel-version: 32.6.1
+          vercel-args: "--yes"
           github-comment: |
             <table>
               <tr>
