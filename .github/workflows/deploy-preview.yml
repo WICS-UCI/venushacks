@@ -16,6 +16,7 @@ jobs:
         with:
           vercel-version: 32.6.1
           vercel-args: "--yes"
+          working-directory: ./apps/site
           github-comment: |
             <table>
               <tr>
@@ -44,6 +45,7 @@ jobs:
         with:
           vercel-version: 32.6.1
           vercel-args: "--yes"
+          working-directory: ./apps/sanity
           github-comment: |
             <table>
               <tr>
