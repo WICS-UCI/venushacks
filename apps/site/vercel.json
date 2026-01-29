@@ -1,5 +1,5 @@
 {
-	"buildCommand": "ls -la && cd ../.. && turbo run build --filter={apps/site} --filter={apps/api} && cd apps/site && ./copy-api.sh",
+	"buildCommand": "cd ../.. && turbo run build --filter={apps/site}",
 	"functions": {
 		"api/index.py": {
 			"memory": 512,
