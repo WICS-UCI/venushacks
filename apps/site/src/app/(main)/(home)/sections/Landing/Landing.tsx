@@ -30,8 +30,12 @@ const Landing = () => {
 	}
 
 	return (
-		<>
-			<section className="bg-[#00001c]">
+		<>	
+			<div className="flex flex-col justify-center items-center h-screen">
+				<p className="text-center text-4xl font-bold"> COMING SOON </p>
+				<p className="text-center text-2xl"> Irvine, CA </p>
+			</div>
+			{/* <section className="bg-[#00001c]">
 				<div
 					className={`min-h-screen absolute overflow-hidden z-10 w-full flex flex-col items-center justify-center`}
 				>
@@ -79,7 +83,7 @@ const Landing = () => {
 				</div>
 
 				<About />
-			</section>
+			</section> */}
 			<div ref={scrollTo} />
 		</>
 	);
