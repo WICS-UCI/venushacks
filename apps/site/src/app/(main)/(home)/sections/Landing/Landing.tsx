@@ -22,12 +22,12 @@ const Landing = () => {
 		scrollTo.current?.scrollIntoView({ behavior: "smooth" });
 	};
 
-	let applyButtonText = "COMING SOON";
-	if (deadlinePassed) {
-		applyButtonText = "CLOSED";
-	} else if (applicationsOpened) {
-		applyButtonText = "OPEN";
-	}
+	const applyButtonText = "COMING SOON";
+	// if (deadlinePassed) {
+	// 	applyButtonText = "CLOSED";
+	// } else if (applicationsOpened) {
+	// 	applyButtonText = "OPEN";
+	// }
 
 	return (
 		<>
@@ -37,24 +37,16 @@ const Landing = () => {
 				>
 					<div className="text-center relative p-10 flex flex-col items-center justify-center">
 						<h2 className="text-xl md:text-2xl mb-5 z-1">
-							February 27th{" "}
-							<span className="whitespace-nowrap">- March 1st, 2026</span>
+							may something
 						</h2>
 						<h1
 							className={`${styles.headingDropShadow} font-heading text-4xl md:text-7xl lg:text-5xl mb-12`}
 						>
-							IRVINEHACKS
+							VENUSHACKS
 						</h1>
 
 						<div
-							className={`${
-								!deadlinePassed &&
-								applicationsOpened &&
-								styles.applicationButton + " cursor-pointer"
-							} relative flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8 border-8 border-pink py-4 px-4`}
-							onClick={() => {
-								if (!deadlinePassed && applicationsOpened) applyClick();
-							}}
+							className={"relative flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8 border-8 border-pink py-4 px-4"}
 						>
 							<Image
 								src={ApplicationsButtonImage}
