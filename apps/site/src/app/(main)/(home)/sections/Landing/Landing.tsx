@@ -26,7 +26,7 @@ const Landing = () => {
 	if (deadlinePassed) {
 		applyButtonText = "CLOSED";
 	} else if (applicationsOpened) {
-		applyButtonText = "OPEN";
+		applyButtonText = "are not open, just wait a minute :)";
 	}
 
 	return (
@@ -37,13 +37,13 @@ const Landing = () => {
 				>
 					<div className="text-center relative p-10 flex flex-col items-center justify-center">
 						<h2 className="text-xl md:text-2xl mb-5 z-1">
-							February 27th{" "}
-							<span className="whitespace-nowrap">- March 1st, 2026</span>
+							during may i think?{" "}
+							<span className="whitespace-nowrap">- not june</span>
 						</h2>
 						<h1
 							className={`${styles.headingDropShadow} font-heading text-4xl md:text-7xl lg:text-5xl mb-12`}
 						>
-							IRVINEHACKS
+							venushacks :D
 						</h1>
 
 						<div
@@ -56,13 +56,13 @@ const Landing = () => {
 								if (!deadlinePassed && applicationsOpened) applyClick();
 							}}
 						>
-							<Image
+							{/* <Image
 								src={ApplicationsButtonImage}
 								alt="applications button"
 								className="relative z-10 w-20"
-							/>
+							/> */}
 							<p className="text-pink font-display text-xl sm:text-3xl z-10 m-0">
-								APPLICATIONS
+								applications
 								<br />
 								{applyButtonText}
 							</p>
