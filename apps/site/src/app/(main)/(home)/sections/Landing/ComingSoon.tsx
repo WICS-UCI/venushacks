@@ -16,7 +16,7 @@ const ComingSoon = () => {
 	return (
 		<>
 			<div className="min-h-screen flex items-center justify-center">
-                <h1 className={`${styles.headingDropShadow} font-heading text-4xl md:text-7xl lg:text-5xl mb-12 text-center`}>COMING SOON</h1>
+                <h1 className={`${styles.headingDropShadow} font-heading text-4xl md:text-7xl lg:text-5xl mb-12 text-center`}>COMING SOON test</h1>
             </div>
 		</>
 	);
