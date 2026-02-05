@@ -28,7 +28,7 @@ async function getUserIdentity(): Promise<Identity> {
 			console.error(`[getUserIdentity] ${err.message}`);
 		} else {
 			// Don't think this case is possible/relevant but for completeness
-			console.error(err);
+			console.error(`Unknown error while getting user identity: ${err}`);
 		}
 		return { uid: null, roles: [], status: null };
 	}
