@@ -7,6 +7,6 @@ export const metadata: Metadata = {
 };
 
 // This line will prevent statically generating the admin pages upon deploying.
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 export { default as default } from "./layout/AdminLayout";
