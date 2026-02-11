@@ -49,6 +49,7 @@ class Collection(str, Enum):
     EVENTS = "events"
     EMAILS = "emails"
     CODES = "codes"
+    MAILING_LIST = "mailing_list"
 
 
 def get_database() -> AgnosticDatabase[Any]:
