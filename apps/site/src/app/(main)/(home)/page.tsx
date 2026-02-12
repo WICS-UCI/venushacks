@@ -21,11 +21,11 @@ export default function Home() {
 	) : (
 		<>
 			<Landing />
-			<ChooseCharacter />
+			{/* <ChooseCharacter />
 			<FAQ />
 			<Sponsors />
 			<Partners />
-			<Organizers />
+			<Organizers /> */}
 		</>
 	);
 }
