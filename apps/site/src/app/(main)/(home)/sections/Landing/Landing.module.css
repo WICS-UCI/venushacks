@@ -21,22 +21,33 @@
 
 .cloudsWrapper {
 	position: absolute;
-	top: 50px; /* adjust vertical position */
+	top: 3%;
 	left: 0;
 	width: 100vw;
-	overflow: visible;
-	pointer-events: none; /* clouds don’t block clicks */
-  }
+	height: 500px;
+	overflow: hidden; /* important now */
+	pointer-events: none;
+	z-index: 0;
+}
   
-  @keyframes moveClouds {
-	0% {
-	  transform: translateX(-800px); /* start offscreen left, match cloud width */
-	}
-	100% {
-	  transform: translateX(100vw); /* move completely across screen */
-	}
-  }
+.cloudTrack {
+	display: flex;
+	width: max-content;
+	animation: scrollClouds 30s linear infinite;
+}
   
-  .cloudGroup {
-	animation: moveClouds 60s linear infinite; /* same speed for all clouds */
-  }
+.cloudGroup {
+	width: 100vw;
+	height: auto;
+	flex-shrink: 0;
+}
+  
+@keyframes scrollClouds {
+	from {
+	  transform: translateX(-50%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+}
+
