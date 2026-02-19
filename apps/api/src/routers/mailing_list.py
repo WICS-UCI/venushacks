@@ -26,7 +26,8 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
     if not isinstance(email_raw, str) or not isinstance(time_submitted, str):
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY,
-            "Invalid body. Expected JSON with fields: email (string), timeSubmitted (string).",
+            "Invalid body. Expected JSON with fields: 
+            email (string), timeSubmitted (string).",
         )
 
     try:
@@ -38,7 +39,6 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
         )
 
     return str(validated_email).lower(), time_submitted
-
 
 @router.post("", status_code=status.HTTP_201_CREATED)
 async def add_to_mailing_list(
