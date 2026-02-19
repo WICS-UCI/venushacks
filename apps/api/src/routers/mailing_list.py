@@ -39,6 +39,7 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
 
     return str(validated_email).lower(), time_submitted
 
+
 @router.post("", status_code=status.HTTP_201_CREATED)
 async def add_to_mailing_list(
     user: Annotated[User, Depends(require_organizer)],
@@ -52,7 +53,11 @@ async def add_to_mailing_list(
     log.info("%s adding %s to mailing list", user, email)
 
     # use email as _id to enforce uniqueness at the database level.
-    doc: Mapping[str, Any] = {"_id": email, "email": email, "timeSubmitted": time_submitted}
+    doc: Mapping[str, Any] = {
+        "_id": email,
+        "email": email,
+        "timeSubmitted": time_submitted,
+    }
 
     try:
         await mongodb_handler.insert(Collection.MAILING_LIST, doc)
