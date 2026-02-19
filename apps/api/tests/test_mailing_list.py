@@ -75,8 +75,7 @@ def test_post_mailing_list_invalid_body_returns_error(
 
     assert res.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
     assert (
-        res.json()["detail"]
-        == "Invalid body. Expected JSON with fields: "
+        res.json()["detail"] == "Invalid body. Expected JSON with fields: "
         "email (string), timeSubmitted (string)."
     )
     mock_mongodb_handler_insert.assert_not_awaited()
