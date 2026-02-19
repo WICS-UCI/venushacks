@@ -26,8 +26,8 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
     if not isinstance(email_raw, str) or not isinstance(time_submitted, str):
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY,
-            "Invalid body. Expected JSON with fields: 
-            email (string), timeSubmitted (string).",
+            "Invalid body. Expected JSON with fields: "
+            "email (string), timeSubmitted (string)."
         )
 
     try:
