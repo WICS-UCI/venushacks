@@ -71,11 +71,7 @@ const ComingSoon = () => {
 							className="flex h-11 w-11 items-center justify-center"
 						>
 							{/* INSTAGRAM SVG */}
-							<Image
-								src={MailImage}
-								alt=""
-								className="h-7 w-7 md:h-9 md:w-9"
-							/>
+							<Image src={MailImage} alt="" className="h-7 w-7 md:h-9 md:w-9" />
 						</a>
 					</li>
 				</ul>
