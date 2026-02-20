@@ -7,7 +7,7 @@ on:
         types:
             - completed
         branches:
-            - main
+            - vh-site-2026
 
 permissions:
     contents: read
