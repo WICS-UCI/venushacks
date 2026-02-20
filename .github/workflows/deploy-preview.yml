@@ -15,11 +15,12 @@ jobs:
       - uses: amondnet/vercel-action@v25
         with:
           vercel-version: 32.6.1
+          vercel-args: "--yes"
           github-comment: |
             <table>
               <tr>
                 <td><strong>Name</strong></td>
-                <td>IrvineHacks Site</td>
+                <td>VenusHacks Site</td>
               </tr>
               <tr>
                 <td><strong>Preview</strong></td>
@@ -31,7 +32,7 @@ jobs:
               </tr>
             </table>
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
           vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_SITE}}
   Studio:
@@ -42,6 +43,7 @@ jobs:
       - uses: amondnet/vercel-action@v25
         with:
           vercel-version: 32.6.1
+          vercel-args: "--yes"
           github-comment: |
             <table>
               <tr>
@@ -58,6 +60,6 @@ jobs:
               </tr>
             </table>
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
+          vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
+          vercel-org-id: ${{ vars.VERCEL_ORG_ID }}
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_STUDIO}}
