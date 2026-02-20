@@ -10,7 +10,6 @@ const ComingSoon = () => {
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		
 		// Basic email validation
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (!emailRegex.test(email)) {
@@ -54,7 +53,10 @@ const ComingSoon = () => {
 				</h1>
 
 				{/* Email Form */}
-				<form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3 md:gap-4 items-center justify-center">
+				<form
+					onSubmit={handleSubmit}
+					className="flex flex-col md:flex-row gap-3 md:gap-4 items-center justify-center"
+				>
 					<input
 						type="email"
 						value={email}
@@ -71,23 +73,23 @@ const ComingSoon = () => {
 					</button>
 				</form>
 
-			{/* Popup Messages */}
-			{showPopup && (
-				<div
-					className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
-						popupType === "success"
-							? "bg-green-500 text-white"
-							: "bg-red-500 text-white"
-					}`}
-				>
-					<p className="font-sniglet text-sm md:text-base text-center">
-						{popupType === "success"
-							? `Thanks for joining our mailing list! A confirmation was sent to ${submittedEmail}.`
-							: "Uh-oh, something went wrong! Please contact venushacks.uci@gmail.com for support."}
-					</p>
-				</div>
-			)}
-		</div>			<style jsx>{`
+				{/* Popup Messages */}
+				{showPopup && (
+					<div
+						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
+							popupType === "success"
+								? "bg-green-500 text-white"
+								: "bg-red-500 text-white"
+						}`}
+					>
+						<p className="font-sniglet text-sm md:text-base text-center">
+							{popupType === "success"
+								? `Thanks for joining our mailing list! A confirmation was sent to ${submittedEmail}.`
+								: "Uh-oh, something went wrong! Please contact venushacks.uci@gmail.com for support."}
+						</p>
+					</div>
+				)}
+			</div>			<style jsx>{`
 				@keyframes slideIn {
 					from {
 						transform: translateY(-100%);
