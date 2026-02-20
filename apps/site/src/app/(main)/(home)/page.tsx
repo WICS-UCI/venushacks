@@ -1,10 +1,10 @@
 import {
 	Landing,
-	ChooseCharacter,
-	FAQ,
-	Sponsors,
-	Partners,
-	Organizers,
+	// ChooseCharacter,
+	// FAQ,
+	// Sponsors,
+	// Partners,
+	// Organizers,
 } from "./sections";
 
 import ComingSoon from "./sections/Landing/ComingSoon";

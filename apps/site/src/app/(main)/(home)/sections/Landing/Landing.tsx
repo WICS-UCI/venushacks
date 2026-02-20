@@ -30,12 +30,8 @@ const Landing = () => {
 	}
 
 	return (
-		<>	
-			<div className="flex flex-col justify-center items-center h-screen">
-				<p className="text-center text-4xl font-bold"> COMING SOON </p>
-				<p className="text-center text-2xl"> Irvine, CA </p>
-			</div>
-			{/* <section className="bg-[#00001c]">
+		<>
+			<section className="bg-[#00001c]">
 				<div
 					className={`min-h-screen absolute overflow-hidden z-10 w-full flex flex-col items-center justify-center`}
 				>
@@ -51,11 +47,10 @@ const Landing = () => {
 						</h1>
 
 						<div
-							className={`${
-								!deadlinePassed &&
+							className={`${!deadlinePassed &&
 								applicationsOpened &&
 								styles.applicationButton + " cursor-pointer"
-							} relative flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8 border-8 border-pink py-4 px-4`}
+								} relative flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8 border-8 border-pink py-4 px-4`}
 							onClick={() => {
 								if (!deadlinePassed && applicationsOpened) applyClick();
 							}}
@@ -83,7 +78,7 @@ const Landing = () => {
 				</div>
 
 				<About />
-			</section> */}
+			</section> */
 			<div ref={scrollTo} />
 		</>
 	);

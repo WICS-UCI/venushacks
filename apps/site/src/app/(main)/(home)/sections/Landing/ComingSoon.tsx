@@ -1,14 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import Image from "next/image";
-
-import LandingBackground from "@/assets/backgrounds/landing-background.png";
-import ApplicationsButtonImage from "@/assets/icons/application-warning.svg";
-
-import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
-
-import styles from "./Landing.module.css";
 
 const ComingSoon = () => {
 	const [email, setEmail] = useState("");
@@ -35,7 +27,6 @@ const ComingSoon = () => {
 			//   headers: { 'Content-Type': 'application/json' },
 			//   body: JSON.stringify({ email }),
 			// });
-			
 			// Simulating successful submission
 			setSubmittedEmail(email);
 			setPopupType("success");
