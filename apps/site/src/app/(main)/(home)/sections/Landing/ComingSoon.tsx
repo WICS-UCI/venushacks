@@ -89,7 +89,8 @@ const ComingSoon = () => {
 						</p>
 					</div>
 				)}
-			</div>			<style jsx>{`
+			</div>
+			<style jsx>{`
 				@keyframes slideIn {
 					from {
 						transform: translateY(-100%);
