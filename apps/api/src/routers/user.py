@@ -372,8 +372,8 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
     # Fields that should always be lists, even with single values
     MULTI_SELECT_FIELDS = {
         "pronouns",
+        "majors_and_minors",
         "experienced_technologies",
-        "dietary_restrictions",
         "skills",
         "friday_availability",
         "saturday_availability",
@@ -401,14 +401,15 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
 def _add_auto_scores_if_any(
     processed_application_data: ProcessedApplicationDataUnion,
 ) -> None:
-    if not isinstance(
-        processed_application_data
-    ):
-        return
+    return
+    # if not isinstance(
+    #     processed_application_data, ProcessedHackerApplicationData
+    # ):
+    #     return
 
-    # Only hackathon_experience is auto-scored for now
-    processed_application_data.global_field_scores = {
-        "hackathon_experience": HACKATHON_EXPERIENCE_SCORE_MAP[
-            processed_application_data.hackathon_experience
-        ]
-    }
+    # # Only hackathon_experience is auto-scored for now
+    # processed_application_data.global_field_scores = {
+    #     "hackathon_experience": HACKATHON_EXPERIENCE_SCORE_MAP[
+    #         processed_application_data.hackathon_experience
+    #     ]
+    # }

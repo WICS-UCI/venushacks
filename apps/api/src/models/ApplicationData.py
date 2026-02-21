@@ -38,6 +38,7 @@ FIELDS_SUPPORTING_OTHER = [
     "school",
     "gender_identity",
     "dietary_restrictions",
+    "experienced_technologies",
 ]
 
 
@@ -58,7 +59,7 @@ class BaseApplicationData(BaseModel):
     shirt_size: str
     school: str
     majors_and_minors: list[str] = []
-    year: Enum["Freshman", "Sophomore", "Junior", "Senior", "Graduate", "Other"]
+    year: Literal["Freshman", "Sophomore", "Junior", "Senior", "Graduate", "Other"]
 
     previous_hackathons: int = Field(ge=0)
     previous_vh: bool = False
@@ -157,7 +158,7 @@ class ProcessedHackerApplicationData(BaseApplicationData):
     submission_time: datetime
     reviews: list[Review] = []
 
-    @field_serializer("linkedin", "portfolio", "resume_url")
+    @field_serializer("resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
         if val is not None:
             return str(val)
@@ -188,14 +189,14 @@ class ProcessedVolunteerApplication(BaseVolunteerApplicationData):
 # that doesn't appear in any other form
 def get_discriminator_value(v: Any) -> str:
     if isinstance(v, dict):
-        if "frq_video_game" in v:
+        if "frq_project" in v:
             return "hacker"
         if "mentor_prev_experience_saq1" in v:
             return "mentor"
         if "frq_volunteer" in v:
             return "volunteer"
 
-    if "frq_video_game" in dir(v):
+    if "frq_project" in dir(v):
         return "hacker"
     if "mentor_prev_experience_saq1" in dir(v):
         return "mentor"
@@ -216,11 +217,11 @@ ProcessedApplicationDataUnion = Annotated[
 
 def get_raw_hacker_discriminator_value(v: Any) -> str:
     """Discriminator function for raw hacker application data."""
-    if isinstance(v, dict) and "frq_video_game" in v:
+    if isinstance(v, dict) and "frq_project" in v:
         return "hacker"
 
     # For object instances, check attributes
-    if hasattr(v, "frq_video_game"):
+    if hasattr(v, "frq_project"):
         return "hacker"
     return ""
 
