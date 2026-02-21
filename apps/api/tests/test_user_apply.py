@@ -326,9 +326,9 @@ def test_apply_successfully_without_resume(
     )
 
 
-# def test_application_data_is_bson_encodable() -> None:
-#     """Test that application data model can be encoded into BSON to store in MongoDB."""
-#     encoded = bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
+def test_application_data_is_bson_encodable() -> None:
+    """Test that application data model can be encoded into BSON to store in MongoDB."""
+    encoded = bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
 
 
 # @patch("services.mongodb_handler.retrieve_one", autospec=True)
