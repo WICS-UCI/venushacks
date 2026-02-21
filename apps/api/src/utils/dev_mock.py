@@ -23,10 +23,6 @@ _FOLDER_MAP = {
         "Hacker": _HACKER_RESUMES_FOLDER_ID,
         "Mentor": _MENTOR_RESUMES_FOLDER_ID,
     },
-    HackathonName.ZOTHACKS: {
-        "Hacker": _HACKER_RESUMES_FOLDER_ID,
-        "Mentor": _MENTOR_RESUMES_FOLDER_ID,
-    },
 }
 
 
@@ -84,16 +80,6 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     patch.object(
         resume_handler,
         "IRVINEHACKS_MENTOR_RESUMES_FOLDER_ID",
-        new=_MENTOR_RESUMES_FOLDER_ID,
-    ).start()
-    patch.object(
-        resume_handler,
-        "ZOTHACKS_HACKER_RESUMES_FOLDER_ID",
-        new=_HACKER_RESUMES_FOLDER_ID,
-    ).start()
-    patch.object(
-        resume_handler,
-        "ZOTHACKS_MENTOR_RESUMES_FOLDER_ID",
         new=_MENTOR_RESUMES_FOLDER_ID,
     ).start()
 
