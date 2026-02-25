@@ -5,6 +5,8 @@ interface TimelineComponentProps {
 	text: string;
 	finished: boolean;
 	statusIcon: "Accepted" | "Rejected" | "Pending";
+	size?: "compact" | "default";
+    className?: string;
 }
 
 export const TimelineComponent: React.FC<TimelineComponentProps> = ({
