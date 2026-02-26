@@ -26,8 +26,7 @@ app.include_router(admin.router, prefix="/admin", tags=["admin"])
 app.include_router(director.router, prefix="/director", tags=["director"])
 app.include_router(mailing_list.router, prefix="/mailing-list", tags=["mailing-list"])
 
-app.add_middleware(HackathonContextMiddleware)
-
+# app.add_middleware(HackathonContextMiddleware)
 
 @app.get("/")
 async def root() -> dict[str, str]:

@@ -15,9 +15,6 @@ log = getLogger(__name__)
 
 router = APIRouter()
 
-# organizers (and directors, which commonly also include organizer)
-require_organizer = require_role({Role.ORGANIZER, Role.DIRECTOR})
-
 
 def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
     email_raw = body.get("email")
@@ -45,7 +42,6 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
 
 @router.post("", status_code=status.HTTP_201_CREATED)
 async def add_to_mailing_list(
-    user: Annotated[User, Depends(require_organizer)],
     body: dict[str, Any] = Body(),
 ) -> None:
     """Add an email to the mailing list.
@@ -53,7 +49,7 @@ async def add_to_mailing_list(
     Stores documents in the `mailing_list` collection with unique emails.
     """
     email, time_submitted = _validate_body(body)
-    log.info("%s adding %s to mailing list", user, email)
+    log.info("Adding %s to mailing list", email)
 
     # use email as _id to enforce uniqueness at the database level.
     doc: Mapping[str, Any] = {
