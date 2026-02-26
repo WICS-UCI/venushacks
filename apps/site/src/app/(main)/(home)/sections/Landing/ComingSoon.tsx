@@ -52,10 +52,10 @@ const ComingSoon = () => {
 	}, []);
 
 	return (
-		<>
+		<div className="relative">
 			<ComingSoonBackground />
 			<SocialLinks />
-			<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative -mt-8 md:-mt-12">
+			<div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 min-h-screen flex flex-col items-center justify-center px-4 py-8  -mt-8 md:-mt-12">
 				{/* Coming Soon Text */}
 				<p className="font-sniglet font-normal text-coming-soon text-dark-text mb-1 md:mb-2 text-center">
 					Coming Soon in Spring 2026...
@@ -90,7 +90,7 @@ const ComingSoon = () => {
 				{/* Popup Messages */}
 				{showPopup && (
 					<div
-						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
+						className={`fixed top-12 md:top-16 left-1/2 -translate-x-1/2 max-w-md px-6 pt-3 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
 							popupType === "success"
 								? "bg-green-500 text-white"
 								: "bg-red-500 text-white"
@@ -120,7 +120,7 @@ const ComingSoon = () => {
 					animation: slideIn 0.3s ease-out;
 				}
 			`}</style>
-		</>
+		</div>
 	);
 };
 
