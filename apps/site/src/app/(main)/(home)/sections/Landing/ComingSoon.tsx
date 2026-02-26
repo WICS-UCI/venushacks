@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 
 import SocialLinks from "./SocialLinks";
+import ComingSoonBackground from "./ComingSoonBackground";
 
 const ComingSoon = () => {
 	const [email, setEmail] = useState("");
@@ -41,8 +42,18 @@ const ComingSoon = () => {
 		}
 	};
 
+	useEffect(() => {
+		// Disable scroll while this component is mounted
+		const originalStyle = window.getComputedStyle(document.body).overflow;
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.body.style.overflow = originalStyle;
+		};
+	}, []);
+
 	return (
 		<>
+			<ComingSoonBackground />
 			<SocialLinks />
 			<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative -mt-8 md:-mt-12">
 				{/* Coming Soon Text */}
