@@ -94,7 +94,7 @@ const ComingSoon = () => {
 							popupType === "success"
 								? "bg-green-500 text-white"
 								: "bg-red-500 text-white"
-							}`}
+						}`}
 					>
 						<p className="font-sniglet text-sm md:text-base text-center">
 							{popupType === "success"

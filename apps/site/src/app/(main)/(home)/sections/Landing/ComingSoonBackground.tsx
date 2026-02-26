@@ -10,8 +10,16 @@ export default function ComingSoonBackground() {
 		<div className="relative min-h-screen md:h-screen overflow-hidden bg-[#B2EEE7]">
 			{/* Clouds */}
 			<div className={`${styles.cloudTrack} absolute top-[5%] md:top-0 left-0`}>
-				<Image src={CloudGroup} alt="Clouds" className="w-[180vw] md:w-screen h-auto flex-shrink-0" />
-				<Image src={CloudGroup} alt="Clouds" className="w-[180vw] md:w-screen h-auto flex-shrink-0" />
+				<Image
+					src={CloudGroup}
+					alt="Clouds"
+					className="w-[180vw] md:w-screen h-auto flex-shrink-0"
+				/>
+				<Image
+					src={CloudGroup}
+					alt="Clouds"
+					className="w-[180vw] md:w-screen h-auto flex-shrink-0"
+				/>
 			</div>
 
 			{/* Heading */}
