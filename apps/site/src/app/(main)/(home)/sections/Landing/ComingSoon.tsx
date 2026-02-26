@@ -3,7 +3,7 @@
 import { useState, useEffect, FormEvent } from "react";
 
 import SocialLinks from "./SocialLinks";
-import ComingSoonBackground from "./ComingSoonBackground"
+import ComingSoonBackground from "./ComingSoonBackground";
 
 const ComingSoon = () => {
 	const [email, setEmail] = useState("");
@@ -49,8 +49,6 @@ const ComingSoon = () => {
 		return () => {
 			document.body.style.overflow = originalStyle;
 		};
-
-
 	}, []);
 
 	return (
@@ -92,9 +90,10 @@ const ComingSoon = () => {
 				{/* Popup Messages */}
 				{showPopup && (
 					<div
-						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${popupType === "success"
-							? "bg-green-500 text-white"
-							: "bg-red-500 text-white"
+						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
+							popupType === "success"
+								? "bg-green-500 text-white"
+								: "bg-red-500 text-white"
 							}`}
 					>
 						<p className="font-sniglet text-sm md:text-base text-center">
