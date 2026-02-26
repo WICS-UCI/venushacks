@@ -26,12 +26,7 @@ const sniglet = Sniglet({
 });
 
 function Portal() {
-	//const identity = useUserIdentity();
-
-	const identity = {
-		status: Status.Accepted,
-		roles: ["Hacker"],
-	};
+	const identity = useUserIdentity();
 
 	if (!identity) {
 		return <div className="font-display text-4xl mt-5">Loading...</div>;
@@ -147,7 +142,7 @@ function Portal() {
 				{rejected && <ReturnHome />}
 
 				</div>
-			</div>
+				</div>
 			</section>
 		</div>
 		</div>
