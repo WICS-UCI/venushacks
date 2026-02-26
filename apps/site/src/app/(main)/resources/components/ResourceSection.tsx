@@ -7,7 +7,6 @@ import styles from "./ResourceSection.module.scss";
 
 export default async function ResourceSection() {
 	const resources = await getResources();
-
 	return (
 		<>
 			{resources.order.map(
@@ -19,14 +18,14 @@ export default async function ResourceSection() {
 								className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center lg:pr-[3.25vw]"
 							>
 								<ResourceCategory
-									iconUrl={iconUrl}
+									iconUrl={iconUrl ?? ""}
 									title={title}
 									isMobile={false}
 								/>
 								<div className="col-span-2 w-full max-w-5xl bg-black p-12 grow-[2] mb-12 border-[5px] border-white shadow-[9px_9px_0px_1px_#ffffff] select-none">
 									<ResourceDescription
 										title={title}
-										description={description}
+										description={description ?? ""}
 										isMobile={false}
 									/>
 									<div
@@ -56,13 +55,13 @@ export default async function ResourceSection() {
 							<div className="w-full max-w-5xl bg-black p-5 sm:p-7 grow-[2] mb-12 border-[5px] border-white shadow-[9px_9px_0px_1px_#ffffff] select-none">
 								<div className="flex justify-stretch select-none pointer-events-none">
 									<ResourceCategory
-										iconUrl={iconUrl}
+										iconUrl={iconUrl ?? ""}
 										title={title}
 										isMobile={true}
 									/>
 									<ResourceDescription
 										title={title}
-										description={description}
+										description={description ?? ""}
 										isMobile={true}
 									/>
 								</div>

@@ -89,7 +89,7 @@ const ComingSoon = () => {
 						</p>
 					</div>
 				)}
-			</div>{" "}
+			</div>
 			<style jsx>{`
 				@keyframes slideIn {
 					from {

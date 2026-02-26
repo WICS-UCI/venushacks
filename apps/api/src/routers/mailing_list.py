@@ -1,22 +1,16 @@
 from logging import getLogger
-from typing import Annotated, Any, Mapping
+from typing import Any, Mapping
 
-from fastapi import APIRouter, Body, Depends, HTTPException, status
+from fastapi import APIRouter, Body, HTTPException, status
 from pydantic import EmailStr, TypeAdapter, ValidationError
 from pymongo.errors import DuplicateKeyError
 
-from auth.authorization import require_role
-from auth.user_identity import User
-from models.user_record import Role
 from services import mongodb_handler
 from services.mongodb_handler import Collection
 
 log = getLogger(__name__)
 
 router = APIRouter()
-
-# organizers (and directors, which commonly also include organizer)
-require_organizer = require_role({Role.ORGANIZER, Role.DIRECTOR})
 
 
 def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
@@ -26,7 +20,10 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
     if not isinstance(email_raw, str) or not isinstance(time_submitted, str):
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY,
-            "Invalid body. Expected JSON with fields: email (string), timeSubmitted (string).",
+            (
+                "Invalid body. Expected JSON with fields: email (string), "
+                "timeSubmitted (string)."
+            ),
         )
 
     try:
@@ -39,9 +36,9 @@ def _validate_body(body: Mapping[str, Any]) -> tuple[str, str]:
 
     return str(validated_email).lower(), time_submitted
 
+
 @router.post("", status_code=status.HTTP_201_CREATED)
 async def add_to_mailing_list(
-    user: Annotated[User, Depends(require_organizer)],
     body: dict[str, Any] = Body(),
 ) -> None:
     """Add an email to the mailing list.
@@ -49,10 +46,14 @@ async def add_to_mailing_list(
     Stores documents in the `mailing_list` collection with unique emails.
     """
     email, time_submitted = _validate_body(body)
-    log.info("%s adding %s to mailing list", user, email)
+    log.info("Adding %s to mailing list", email)
 
     # use email as _id to enforce uniqueness at the database level.
-    doc: Mapping[str, Any] = {"_id": email, "email": email, "timeSubmitted": time_submitted}
+    doc: Mapping[str, Any] = {
+        "_id": email,
+        "email": email,
+        "timeSubmitted": time_submitted,
+    }
 
     try:
         await mongodb_handler.insert(Collection.MAILING_LIST, doc)
