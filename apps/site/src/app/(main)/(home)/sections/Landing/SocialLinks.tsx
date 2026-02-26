@@ -6,7 +6,7 @@ import TikTokImage from "@/assets/icons/tiktok.svg";
 import MailImage from "@/assets/icons/mail.svg";
 
 export default function SocialLinks() {
-    return (
+	return (
 		<div className="fixed top-4 right-4 md:top-8 md:right-8 z-10">
             <ul className="flex items-center gap-2 md:gap-4 md:gap-3">
                 <li>
