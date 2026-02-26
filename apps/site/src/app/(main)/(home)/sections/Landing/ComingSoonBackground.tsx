@@ -25,7 +25,8 @@ export default function ComingSoonBackground() {
 			{/* Heading */}
 			<h1
 				className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-				text-center font-heading text-4xl md:text-7xl lg:text-7xl drop-shadow-xl z-10">
+				text-center font-heading text-4xl md:text-7xl lg:text-7xl drop-shadow-xl z-10"
+			>
 				COMING SOON
 			</h1>
 
