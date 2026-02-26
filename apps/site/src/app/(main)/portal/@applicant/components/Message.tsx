@@ -1,11 +1,16 @@
 import { Status } from "@/lib/userRecord";
 
+type Role = "Hacker" | "Mentor" | "Volunteer";
+
 interface MessageProps {
 	status: Status;
+	role?: Role;
 }
 
-function Message({ status }: MessageProps) {
+function Message({ status, role }: MessageProps) {
 	let message: JSX.Element;
+
+	const roleText = role ? role.toLowerCase() : "participant";
 
 	switch (status) {
 		case Status.Pending:
@@ -22,11 +27,10 @@ function Message({ status }: MessageProps) {
 		case Status.Rejected: {
 			message = (
 				<p className="mt-4">
-					Thank you for applying to IrvineHacks this year. We have read through
-					many applications so far, and unfortunately are unable to offer you a
-					spot at our event. We highly encourage you to continue developing your
-					skills and passion for technology. We would love to see you apply
-					again next year!
+					Thank you for applying to VenusHacks 2026. After careful review,
+					we’re unable to offer you a spot this year. We truly appreciate the
+					time and effort you put into your application, and we encourage you to
+					apply again in the future.
 				</p>
 			);
 			break;
@@ -35,16 +39,25 @@ function Message({ status }: MessageProps) {
 		case Status.Waitlisted: {
 			message = (
 				<p className="mt-4">
-					Thank you for applying to IrvineHacks this year. We have read through
-					many applications so far, and are able to offer you a spot on the
-					event waitlist. Please check your email for more info about the
-					waitlist and waitlist walk-ins!
+					Thank you for applying to VenusHacks 2026. We’re able to offer you a
+					spot on the waitlist. Please check your email for more information
+					about the waitlist and next steps.
+
 				</p>
 			);
 			break;
 		}
 
-		case Status.Accepted:
+		case Status.Accepted: {
+			message = (
+				<p className="mt-4">
+				Congratulations! You’ve been accepted as a {roleText} at VenusHacks 2026!
+				We truly appreciate the time and effort you put into your application.
+				Please read through and sign the waiver, and confirm your attendance below.
+				</p>
+			);
+			break;
+		}
 		case Status.Signed:
 		case Status.Confirmed:
 		case Status.Attending: {
@@ -55,7 +68,7 @@ function Message({ status }: MessageProps) {
 		case Status.Void: {
 			message = (
 				<p className="mt-4">
-					Unfortunately, you are not able to RSVP for IrvineHacks at this time
+					Unfortunately, you are not able to RSVP for VenusHacks at this time
 					and will not be able to come to the event. However, we would love to
 					see you apply again next year!
 				</p>
@@ -70,8 +83,8 @@ function Message({ status }: MessageProps) {
 	}
 
 	return (
-		<div className="font-body text-[var(--color-white)] text-xs sm:text-base md:text-2xl">
-			{message}
+		<div className="font-body text-neutral-900 text-sm sm:text-base md:text-lg leading-relaxed px-3 sm:px- m5d:px-16">
+		{message}
 		</div>
 	);
 }

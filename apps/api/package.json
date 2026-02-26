@@ -7,11 +7,12 @@
 		"dev:default": "./run-docker.sh",
 		"test": "pytest",
 		"lint": "flake8 src tests && mypy src tests",
-		"build": "mkdir -p lib && pip3 install --target lib -r requirements.txt",
+		"build": "shx mkdir -p lib && pip install --target lib -r requirements.txt",
 		"format:write": "black src tests",
 		"format:check": "black --check src tests"
 	},
 	"devDependencies": {
-		"run-script-os": "^1.1.6"
+		"run-script-os": "^1.1.6",
+		"shx": "^0.4.0"
 	}
 }

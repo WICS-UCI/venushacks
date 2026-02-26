@@ -26,14 +26,12 @@ const sniglet = Sniglet({
 });
 
 function Portal() {
-	const identity = useUserIdentity();
+	//const identity = useUserIdentity();
 
-	/*
 	const identity = {
 		status: Status.Accepted,
 		roles: ["Hacker"],
 	};
-	*/
 
 	if (!identity) {
 		return <div className="font-display text-4xl mt-5">Loading...</div>;
@@ -57,6 +55,42 @@ function Portal() {
 	const needsToSignWaiver = status === Status.Accepted;
 	const rejected = status === Status.Rejected;
 
+	const getStatusLabel = () => {
+		switch (status) {
+			case Status.Accepted:
+			return "Accepted";
+			case Status.Rejected:
+			return "Rejected";
+			case Status.Signed:
+			return "Waiver Signed";
+			case Status.Confirmed:
+			return "Confirmed";
+			case Status.Attending:
+			return "Attending";
+			default:
+			return "Submitted";
+		}
+	};
+
+	const statusLabel = getStatusLabel();
+
+	const getStatusColor = () => {
+		switch (status) {
+			case Status.Accepted:
+			return "bg-green-200 text-green-900";
+			case Status.Rejected:
+			return "bg-red-200 text-red-900";
+			case Status.Signed:
+			case Status.Confirmed:
+			case Status.Attending:
+			return "bg-blue-200 text-blue-900";
+			default:
+			return "bg-[#9EC7F5] text-neutral-900";
+		}
+	};
+
+	const statusColor = getStatusColor();
+
 	return (
   <div className={`${figtree.className} mx-auto w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6`}>
 		{/* Title */}
@@ -73,40 +107,42 @@ function Portal() {
 			{/* Card 1: small status card */}
 			<section className="
 					w-full max-w-xl
-					rounded-2xl
+					rounded-3xl
 					bg-white
 					px-5 py-4
-					shadow-[0_15px_40px_rgba(0,0,0,0.12)]
+					shadow-[0_25px_60px_rgba(0,0,0,0.12)]
 					md:max-w-2xl md:px-10 md:py-6
-					md:shadow-[0_30px_70px_rgba(0,0,0,0.18)]
+					shadow-[0_25px_60px_rgba(0,0,0,0.12)]
 					">
 			<div className="flex items-center justify-between gap-4">
 				<div className="min-w-0">
 				<p className="truncate font-semibold text-neutral-900">
-					VenusHacks 2026 Hacker Application
+					VenusHacks 2026 {roleToDisplay} Application
 				</p>
 				<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
 				</div>
 
-				<span className="shrink-0 rounded-full bg-[#9EC7F5] px-4 py-2 text-sm font-semibold text-neutral-900
-								md:px-5">
-				Submitted
+				<span
+				className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
+				>
+				{statusLabel}
 				</span>
 			</div>
 			</section>
 
 			{/* Card 2 */}
-			<section className="w-full max-w-xl rounded-2xl bg-white shadow-[0_18px_45px_rgba(0,0,0,0.18)]
+			<section className="w-full max-w-xl rounded-3xl bg-white shadow-[0_25px_60px_rgba(0,0,0,0.12)]
 								flex flex-col
 								md:max-w-2xl">
 			<div className="p-2 flex-1 min-h-0 overflow-y-auto
 							md:p-6">
 				<div className="space-y-4 md:space-y-6">
-
+				<Message 
+					status={status as Status} 
+					role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
+				/>
 				<VerticalTimeline status={status as Status} />
-				<Message status={status as Status} />
 
-				{needsToSignWaiver && <SignWaiver />}
 				{submittedWaiver && <ConfirmAttendance status={status as Status} />}
 				{rejected && <ReturnHome />}
 
