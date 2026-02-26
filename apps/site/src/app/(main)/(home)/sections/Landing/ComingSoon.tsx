@@ -1,14 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-
-import LandingBackground from "@/assets/backgrounds/landing-background.png";
-import ApplicationsButtonImage from "@/assets/icons/application-warning.svg";
-
-import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
-
-
 import styles from "./Landing.module.css";
 
 const ComingSoon = () => {
