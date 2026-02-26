@@ -20,6 +20,7 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_BASICAUTH: "false"
 
   fastapi-dev:
     build: .
@@ -29,6 +30,9 @@ services:
       MONGODB_URI: mongodb://root:example@mongo:27017
       DEPLOYMENT: LOCAL
       UCI_SSO_ENABLED: "true"
+    depends_on:
+    - mongo
 
 volumes:
-  mongodb_data_volume: {}
+  mongodb_data_volume:
+    name: vh_mongodb_data

@@ -7,7 +7,7 @@ on:
         types:
             - completed
         branches:
-            - main
+            - vh-site-2026
 
 permissions:
     contents: read
@@ -22,8 +22,8 @@ jobs:
               with:
                   vercel-version: 32.6.1
                   github-comment: false
-                  vercel-args: "--prod"
-                  vercel-token: ${{ secrets.VERCEL_TOKEN }}
+                  vercel-args: "--prod --yes"
+                  vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
                   vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
                   vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_SITE}}
     Studio:
@@ -34,7 +34,7 @@ jobs:
               with:
                   vercel-version: 32.6.1
                   github-comment: false
-                  vercel-args: "--prod"
-                  vercel-token: ${{ secrets.VERCEL_TOKEN }}
+                  vercel-args: "--prod --yes"
+                  vercel-token: ${{ secrets.VERCEL_TOKEN_2026 }}
                   vercel-org-id: ${{ vars.VERCEL_ORG_ID}}
                   vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_STUDIO}}
