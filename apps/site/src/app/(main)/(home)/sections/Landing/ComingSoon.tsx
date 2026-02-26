@@ -4,9 +4,11 @@ import { useState, useEffect, FormEvent } from "react";
 import Image from "next/image";
 
 import SocialLinks from "./SocialLinks";
-        
+
 import LandingBackgroundGrass from "@/assets/backgrounds/coming-soon-background-grass.svg";
 import CloudGroup from "@/assets/backgrounds/coming-soon-clouds.svg";
+
+import styles from "./Landing.module.css";
 
 const ComingSoon = () => {
 	const [email, setEmail] = useState("");
@@ -25,37 +27,6 @@ const ComingSoon = () => {
 			return;
 		}
 
-    useEffect(() => {
-      // Disable scroll while this component is mounted
-      const originalStyle = window.getComputedStyle(document.body).overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalStyle;
-      };
-    }, []);
-
-    return (
-      <div className="relative min-h-screen md:h-screen overflow-hidden bg-[#B2EEE7]">
-    {/* Clouds */}
-    <div className={`${styles.cloudTrack} absolute top-[5%] md:top-0 left-0`}>
-      <Image src={CloudGroup} alt="Clouds" className="w-[180vw] md:w-screen h-auto flex-shrink-0" />
-      <Image src={CloudGroup} alt="Clouds" className="w-[180vw] md:w-screen h-auto flex-shrink-0" />
-    </div>
-
-    {/* Heading */}
-    <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-                  text-center font-heading text-4xl md:text-7xl lg:text-7xl drop-shadow-xl z-10">
-      COMING SOON
-    </h1>
-
-    {/* Grass at the bottom */}
-    <Image
-      src={LandingBackgroundGrass}
-      alt="Landing Background Grass"
-      className="absolute bottom-8 md:bottom-[-5%] w-full scale-150 md:scale-100 left-1/2 -translate-x-1/2"
-      />
-  </div>
-  );
 		try {
 			// TODO: Replace with actual API call
 			// const response = await fetch('/api/subscribe', {
@@ -76,9 +47,40 @@ const ComingSoon = () => {
 		}
 	};
 
+	useEffect(() => {
+		// Disable scroll while this component is mounted
+		const originalStyle = window.getComputedStyle(document.body).overflow;
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.body.style.overflow = originalStyle;
+		};
+
+
+	}, []);
+
 	return (
 		<>
 			<SocialLinks />
+			<div className="relative min-h-screen md:h-screen overflow-hidden bg-[#B2EEE7]">
+				{/* Clouds */}
+				<div className={`${styles.cloudTrack} absolute top-[5%] md:top-0 left-0`}>
+					<Image src={CloudGroup} alt="Clouds" className="w-[180vw] md:w-screen h-auto flex-shrink-0" />
+					<Image src={CloudGroup} alt="Clouds" className="w-[180vw] md:w-screen h-auto flex-shrink-0" />
+				</div>
+
+				{/* Heading */}
+				<h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+				text-center font-heading text-4xl md:text-7xl lg:text-7xl drop-shadow-xl z-10">
+					COMING SOON
+				</h1>
+
+				{/* Grass at the bottom */}
+				<Image
+					src={LandingBackgroundGrass}
+					alt="Landing Background Grass"
+					className="absolute bottom-8 md:bottom-[-5%] w-full scale-150 md:scale-100 left-1/2 -translate-x-1/2"
+				/>
+			</div>
 			<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative -mt-8 md:-mt-12">
 				{/* Coming Soon Text */}
 				<p className="font-sniglet font-normal text-coming-soon text-dark-text mb-1 md:mb-2 text-center">
@@ -114,11 +116,10 @@ const ComingSoon = () => {
 				{/* Popup Messages */}
 				{showPopup && (
 					<div
-						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
-							popupType === "success"
-								? "bg-green-500 text-white"
-								: "bg-red-500 text-white"
-						}`}
+						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${popupType === "success"
+							? "bg-green-500 text-white"
+							: "bg-red-500 text-white"
+							}`}
 					>
 						<p className="font-sniglet text-sm md:text-base text-center">
 							{popupType === "success"
