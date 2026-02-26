@@ -2,6 +2,8 @@
 
 import { useState, FormEvent } from "react";
 
+import SocialLinks from "./SocialLinks";
+
 const ComingSoon = () => {
 	const [email, setEmail] = useState("");
 	const [showPopup, setShowPopup] = useState(false);
@@ -41,6 +43,7 @@ const ComingSoon = () => {
 
 	return (
 		<>
+			<SocialLinks />
 			<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative -mt-8 md:-mt-12">
 				{/* Coming Soon Text */}
 				<p className="font-sniglet font-normal text-coming-soon text-dark-text mb-1 md:mb-2 text-center">
