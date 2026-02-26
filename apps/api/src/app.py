@@ -4,6 +4,7 @@ import os
 from fastapi import FastAPI
 
 from routers import admin, director, guest, mailing_list, saml, user
+
 # from middleware.hackathon_context_middleware import HackathonContextMiddleware
 
 logging.basicConfig(level=logging.INFO)

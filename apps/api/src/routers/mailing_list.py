@@ -1,13 +1,10 @@
 from logging import getLogger
-from typing import Annotated, Any, Mapping
+from typing import Any, Mapping
 
-from fastapi import APIRouter, Body, Depends, HTTPException, status
+from fastapi import APIRouter, Body, HTTPException, status
 from pydantic import EmailStr, TypeAdapter, ValidationError
 from pymongo.errors import DuplicateKeyError
 
-from auth.authorization import require_role
-from auth.user_identity import User
-from models.user_record import Role
 from services import mongodb_handler
 from services.mongodb_handler import Collection
 
