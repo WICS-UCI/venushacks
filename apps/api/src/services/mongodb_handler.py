@@ -10,8 +10,6 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, ConfigDict, Field
 from pymongo import UpdateMany, UpdateOne
 
-from utils.hackathon_context import hackathon_name_ctx, HackathonName
-
 log = getLogger(__name__)
 
 STAGING_ENV = os.getenv("DEPLOYMENT") == "STAGING"
@@ -25,8 +23,7 @@ MONGODB_CLIENT: AgnosticClient = AsyncIOMotorClient(MONGODB_URI)  # type: ignore
 # Resolve Vercel runtime issue
 MONGODB_CLIENT.get_io_loop = asyncio.get_event_loop  # type: ignore
 
-IRVINE_HACKS_DATABASE_NAME = "irvinehacks" if STAGING_ENV else "irvinehacks-prod"
-ZOTHACKS_DATABASE_NAME = "zothacks" if STAGING_ENV else "zothacks-prod"
+DB_NAME = "venushacks" if STAGING_ENV else "venushacks-prod"
 
 
 class BaseRecord(BaseModel):
@@ -53,15 +50,8 @@ class Collection(str, Enum):
 
 
 def get_database() -> AgnosticDatabase[Any]:
-    hackathon_name = hackathon_name_ctx.get()
-    if hackathon_name == HackathonName.IRVINEHACKS:
-        database_name = IRVINE_HACKS_DATABASE_NAME
-    elif hackathon_name == HackathonName.ZOTHACKS:
-        database_name = ZOTHACKS_DATABASE_NAME
-    else:
-        raise ValueError(
-            f"Hackathon name must be irvinehacks or zothacks, but was {hackathon_name}"
-        )
+    database_name = DB_NAME
+
     log.info(f"Using database: {database_name}")
 
     return MONGODB_CLIENT[database_name].with_options(

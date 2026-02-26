@@ -59,8 +59,9 @@ async def test_upload_single_file(
     mock_asServiceAccount: AsyncMock,
     mock_getCredentials: MagicMock,
 ) -> None:
-    """Test whether the Request object sent to the
-    Google Drive API is generated properly."""
+    """Test whether the Request object sent to the Google Drive API
+    is generated properly.
+    """
     mock_getCredentials.return_value = None
     mock_discover.return_value = _FakeDriveV3()
     mock_asServiceAccount.return_value = {"id": SAMPLE_OUTPUT_ID}

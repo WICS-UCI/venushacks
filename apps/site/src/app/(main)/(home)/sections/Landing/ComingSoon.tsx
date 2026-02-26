@@ -1,17 +1,53 @@
 "use client";
 
+import { useState, FormEvent } from "react";
+
 import Image from "next/image";
 import InstagramImage from "@/assets/icons/instagram.svg";
 import LinkedInImage from "@/assets/icons/linkedin.svg";
 import TikTokImage from "@/assets/icons/tiktok.svg";
 import MailImage from "@/assets/icons/mail.svg";
 
-import styles from "./Landing.module.css";
-
 const ComingSoon = () => {
+	const [email, setEmail] = useState("");
+	const [showPopup, setShowPopup] = useState(false);
+	const [popupType, setPopupType] = useState<"success" | "error">("success");
+	const [submittedEmail, setSubmittedEmail] = useState("");
+
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		// Basic email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			setPopupType("error");
+			setShowPopup(true);
+			setTimeout(() => setShowPopup(false), 5000);
+			return;
+		}
+
+		try {
+			// TODO: Replace with actual API call
+			// const response = await fetch('/api/subscribe', {
+			//   method: 'POST',
+			//   headers: { 'Content-Type': 'application/json' },
+			//   body: JSON.stringify({ email }),
+			// });
+			// Simulating successful submission
+			setSubmittedEmail(email);
+			setPopupType("success");
+			setShowPopup(true);
+			setEmail("");
+			setTimeout(() => setShowPopup(false), 5000);
+		} catch (error) {
+			setPopupType("error");
+			setShowPopup(true);
+			setTimeout(() => setShowPopup(false), 5000);
+		}
+	};
+
 	return (
 		<>
-			{/* Fixed social links */}
+      {/* Fixed social links */}
 			<div className="fixed top-4 right-4 md:top-8 md:right-8 z-10">
 				<ul className="flex items-center gap-2 md:gap-4 md:gap-3">
 					<li>
@@ -76,13 +112,72 @@ const ComingSoon = () => {
 					</li>
 				</ul>
 			</div>
-			<div className="min-h-screen flex items-center justify-center">
-				<h1
-					className={`${styles.headingDropShadow} font-heading text-4xl md:text-7xl lg:text-5xl mb-12 text-center`}
-				>
-					COMING SOON
+      
+			<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative -mt-8 md:-mt-12">
+				{/* Coming Soon Text */}
+				<p className="font-sniglet font-normal text-coming-soon text-dark-text mb-1 md:mb-2 text-center">
+					Coming Soon in Spring 2026...
+				</p>
+
+				{/* VenusHacks Title */}
+				<h1 className="font-torus font-bold text-venushacks-title text-dark-text mb-4 md:mb-6 text-center">
+					VENUSHACKS
 				</h1>
+
+				{/* Email Form */}
+				<form
+					onSubmit={handleSubmit}
+					className="flex flex-col md:flex-row gap-3 md:gap-4 items-center justify-center"
+				>
+					<input
+						type="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						placeholder="Email Address"
+						className="px-4 py-2 md:px-5 md:py-3 rounded-[35px] text-sm md:text-base font-sniglet bg-white/90 text-dark-text placeholder:text-dark-text/50 focus:outline-none focus:ring-2 focus:ring-button-bg w-auto min-w-[200px] md:min-w-[450px]"
+						required
+					/>
+					<button
+						type="submit"
+						className="px-4 py-2 md:px-5 md:py-3 rounded-[70px] text-sm md:text-base font-sniglet font-normal bg-button-bg text-button-text hover:bg-button-bg/90 transition-colors focus:outline-none focus:ring-2 focus:ring-button-text whitespace-nowrap"
+					>
+						Notify Me
+					</button>
+				</form>
+
+				{/* Popup Messages */}
+				{showPopup && (
+					<div
+						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
+							popupType === "success"
+								? "bg-green-500 text-white"
+								: "bg-red-500 text-white"
+						}`}
+					>
+						<p className="font-sniglet text-sm md:text-base text-center">
+							{popupType === "success"
+								? `Thanks for joining our mailing list! A confirmation was sent to ${submittedEmail}.`
+								: "Uh-oh, something went wrong! Please contact venushacks.uci@gmail.com for support."}
+						</p>
+					</div>
+				)}
 			</div>
+			<style jsx>{`
+				@keyframes slideIn {
+					from {
+						transform: translateY(-100%);
+						opacity: 0;
+					}
+					to {
+						transform: translateY(0);
+						opacity: 1;
+					}
+				}
+
+				.animate-slideIn {
+					animation: slideIn 0.3s ease-out;
+				}
+			`}</style>
 		</>
 	);
 };
