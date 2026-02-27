@@ -28,7 +28,9 @@ export default function ApplicantPortalBackground() {
 			</div>
 
 			{/* Cloud 2 - Bottom layer */}
-			<div className={`${styles.cloudTrack2} absolute top-[30%] md:top-[25%] left-[-100vw]`}>
+			<div
+				className={`${styles.cloudTrack2} absolute top-[30%] md:top-[25%] left-[-100vw]`}
+			>
 				<Image
 					src={Cloud2}
 					alt="Cloud 2"
