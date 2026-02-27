@@ -26,11 +26,10 @@ const ComingSoon = () => {
 
 		try {
 			setLoading(true);
-			await axios.post('/api/mailing-list', {
+			await axios.post("/api/mailing-list", {
 				email,
 				timeSubmitted: new Date(),
 			});
-
 			setSubmittedEmail(email);
 			setPopupType("success");
 			setShowPopup(true);
@@ -40,6 +39,7 @@ const ComingSoon = () => {
 		} catch (error) {
 			setPopupType("error");
 			setShowPopup(true);
+			setLoading(false);
 			setTimeout(() => setShowPopup(false), 5000);
 		}
 	};
@@ -84,6 +84,7 @@ const ComingSoon = () => {
 					<button
 						type="submit"
 						className="px-4 py-2 md:px-5 md:py-3 rounded-[70px] text-sm md:text-base font-sniglet font-normal bg-button-bg text-button-text hover:bg-button-bg/90 transition-colors focus:outline-none focus:ring-2 focus:ring-button-text whitespace-nowrap"
+						disabled={loading}
 					>
 						Notify Me
 					</button>
@@ -92,10 +93,11 @@ const ComingSoon = () => {
 				{/* Popup Messages */}
 				{showPopup && (
 					<div
-						className={`fixed top-12 md:top-16 left-1/2 -translate-x-1/2 max-w-md px-6 pt-3 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${popupType === "success"
+						className={`fixed top-12 md:top-16 left-1/2 -translate-x-1/2 max-w-md px-6 pt-3 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
+							popupType === "success"
 								? "bg-green-500 text-white"
 								: "bg-red-500 text-white"
-							}`}
+						}`}
 					>
 						<p className="font-sniglet text-sm md:text-base text-center">
 							{popupType === "success"
