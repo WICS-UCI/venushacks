@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
+import axios from "axios";
 
 import SocialLinks from "./SocialLinks";
 import ComingSoonBackground from "./ComingSoonBackground";
 
 const ComingSoon = () => {
 	const [email, setEmail] = useState("");
+	const [loading, setLoading] = useState(false);
 	const [showPopup, setShowPopup] = useState(false);
 	const [popupType, setPopupType] = useState<"success" | "error">("success");
 	const [submittedEmail, setSubmittedEmail] = useState("");
@@ -23,21 +25,21 @@ const ComingSoon = () => {
 		}
 
 		try {
-			// TODO: Replace with actual API call
-			// const response = await fetch('/api/subscribe', {
-			//   method: 'POST',
-			//   headers: { 'Content-Type': 'application/json' },
-			//   body: JSON.stringify({ email }),
-			// });
-			// Simulating successful submission
+			setLoading(true);
+			await axios.post("/api/mailing-list", {
+				email,
+				timeSubmitted: new Date(),
+			});
 			setSubmittedEmail(email);
 			setPopupType("success");
 			setShowPopup(true);
 			setEmail("");
+			setLoading(false);
 			setTimeout(() => setShowPopup(false), 5000);
 		} catch (error) {
 			setPopupType("error");
 			setShowPopup(true);
+			setLoading(false);
 			setTimeout(() => setShowPopup(false), 5000);
 		}
 	};
@@ -52,10 +54,10 @@ const ComingSoon = () => {
 	}, []);
 
 	return (
-		<>
+		<div className="relative">
 			<ComingSoonBackground />
 			<SocialLinks />
-			<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative -mt-8 md:-mt-12">
+			<div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 min-h-screen flex flex-col items-center justify-center px-4 py-8  -mt-8 md:-mt-12">
 				{/* Coming Soon Text */}
 				<p className="font-sniglet font-normal text-coming-soon text-dark-text mb-1 md:mb-2 text-center">
 					Coming Soon in Spring 2026...
@@ -82,6 +84,7 @@ const ComingSoon = () => {
 					<button
 						type="submit"
 						className="px-4 py-2 md:px-5 md:py-3 rounded-[70px] text-sm md:text-base font-sniglet font-normal bg-button-bg text-button-text hover:bg-button-bg/90 transition-colors focus:outline-none focus:ring-2 focus:ring-button-text whitespace-nowrap"
+						disabled={loading}
 					>
 						Notify Me
 					</button>
@@ -90,7 +93,7 @@ const ComingSoon = () => {
 				{/* Popup Messages */}
 				{showPopup && (
 					<div
-						className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 max-w-md mx-auto px-6 pt-3 md:px-8 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
+						className={`fixed top-12 md:top-16 left-1/2 -translate-x-1/2 max-w-md px-6 pt-3 md:pt-4 rounded-[35px] shadow-lg animate-slideIn z-50 flex items-center justify-center ${
 							popupType === "success"
 								? "bg-green-500 text-white"
 								: "bg-red-500 text-white"
@@ -120,7 +123,7 @@ const ComingSoon = () => {
 					animation: slideIn 0.3s ease-out;
 				}
 			`}</style>
-		</>
+		</div>
 	);
 };
 
