@@ -10,7 +10,9 @@ export default function ApplicantPortalBackground() {
 	return (
 		<div className="fixed inset-0 overflow-hidden bg-[#B2EEE7] -z-10">
 			{/* Cloud 1 - Top layer */}
-			<div className={`${styles.cloudTrack1} absolute top-[5%] md:top-[8%] left-[-100vw]`}>
+			<div
+				className={`${styles.cloudTrack1} absolute top-[5%] md:top-[8%] left-[-100vw]`}
+			>
 				<Image
 					src={Cloud1}
 					alt="Cloud 1"
