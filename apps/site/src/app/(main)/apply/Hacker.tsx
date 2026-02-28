@@ -19,7 +19,11 @@ export default async function Hacker() {
 	}
 
 	return (
-		<ApplicationFlow applicationType="Hacker" applyPath="/api/user/apply" identity={identity}>
+		<ApplicationFlow
+			applicationType="Hacker"
+			applyPath="/api/user/apply"
+			identity={identity}
+		>
 			<BasicInformation />
 			<SchoolInformation />
 			<ProfileInformation />

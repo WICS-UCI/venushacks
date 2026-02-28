@@ -27,11 +27,7 @@ export default function ApplicationFlow({
 	children,
 }: ApplicationFlowProps) {
 
-	const {
-		submitting,
-		sessionExpired,
-		handleSubmit
-	} = useForm(applyPath);
+	const { submitting, sessionExpired, handleSubmit } = useForm(applyPath);
 	const [pageIndex, setPageIndex] = useState<number>(0); // Used to change pages
 
 	const PAGE_COUNT = children.length;
@@ -89,13 +85,12 @@ export default function ApplicationFlow({
 							<button type="button">START APPLICATION</button>
 						) : (
 							// TODO: Implement prev button to navigate to prev page
-							<button type = "button">PREV</button>
+							<button type="button">PREV</button>
 						)}
 					{sessionExpired && sessionExpiredMessage}
-				</form>
+					</form>
 				</div>
-	)
-}
+			)}
 		</div >
 	);
 }
