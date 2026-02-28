@@ -1,0 +1,16 @@
+.header {
+	color: var(--color-brown);
+}
+
+.details {
+	background-color: #ffffff;
+	border-radius: 10px;
+
+	& > p {
+		color: #432810;
+	}
+}
+
+.policy {
+	color: var(--color-brown);
+}

@@ -1,12 +1,10 @@
 import Link from "next/link";
 
-import { Identity } from "@/lib/utils/getUserIdentity";
+import getUserIdentity from "@/lib/utils/getUserIdentity";
 
-interface ApplicationsClosedProps {
-	identity: Identity;
-}
+async function ApplicationsClosed() {
+	const identity = await getUserIdentity();
 
-async function ApplicationsClosed({ identity }: ApplicationsClosedProps) {
 	return (
 		<div className="rounded-2xl p-10 text-display text-[#432810] bg-white text-center w-8/12 max-[800px]:w-9/12 max-[400px]:w-11/12">
 			<h1 className="text-4xl p-10 font-semibold max-[800px]:p-0">
