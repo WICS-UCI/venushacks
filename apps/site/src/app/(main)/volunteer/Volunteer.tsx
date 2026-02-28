@@ -1,22 +1,36 @@
+import { redirect } from "next/navigation";
+
 import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
-import VolunteerForm from "./VolunteerForm";
+import getUserIdentity from "@/lib/utils/getUserIdentity";
+
+import BasicInformation from "./components/VolunteerBasicInformation";
+import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
+import SchoolInformation from "@/lib/components/forms/shared/SchoolInformation";
+import ShiftAvailability from "./components/ShiftAvailability";
+import VolunteerFRQ from "./components/VolunteerFRQ";
+import ExtraQuestions from "./components/ExtraQuestions";
 
 export const revalidate = 60;
 
-export default async function Volunteer({
-	searchParams,
-}: {
-	searchParams: {
-		prefaceAccepted?: string;
-	};
-}) {
+export default async function Volunteer() {
+	const identity = await getUserIdentity();
+
+	if (identity.status !== null) {
+		redirect("/portal");
+	}
+
 	return (
 		<ApplicationFlow
-			searchParams={searchParams}
 			applicationType="Volunteer"
-			applicationURL="/volunteer"
+			applyPath="/api/user/volunteer"
+			identity={identity}
 		>
-			<VolunteerForm />
+			<BasicInformation />
+			<SchoolInformation />
+			<VolunteerFRQ />
+			<ShiftAvailability />
+			<ExtraQuestions />
+			<AgeInformation />
 		</ApplicationFlow>
 	);
 }
