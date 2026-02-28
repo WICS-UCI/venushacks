@@ -28,6 +28,7 @@ export default function ApplicationFlow({
 }: ApplicationFlowProps) {
 	const { submitting, sessionExpired, handleSubmit } = useForm(applyPath);
 	const [pageIndex, setPageIndex] = useState<number>(0); // Used to change pages
+	console.log(setPageIndex); // REMOVE THIS LINE ONCE BUTTONS HAVE BEEN CONFIGURED
 
 	const PAGE_COUNT = children.length;
 	const isLastPage = () => pageIndex === PAGE_COUNT - 1;
