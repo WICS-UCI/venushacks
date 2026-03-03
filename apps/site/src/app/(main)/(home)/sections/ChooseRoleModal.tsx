@@ -56,15 +56,15 @@ export default function ChooseRoleModal() {
 							onClick={() => setSelected(role.key)}
 						>
 							<div className="px-2">
-                                <div className="relative flex-shrink-0 w-24 h-24">
-                                    <Image
-                                        src={role.image}
-                                        alt={role.title}
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                            </div>
+								<div className="relative flex-shrink-0 w-24 h-24">
+									<Image
+										src={role.image}
+										alt={role.title}
+										fill
+										className="object-contain"
+									/>
+								</div>
+							</div>
 							<div className="flex flex-col gap-1">
 								<p
 									className="mb-0 text-lg font-semibold"
