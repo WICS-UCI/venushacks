@@ -7,7 +7,7 @@
 		"dev:default": "./run-docker.sh",
 		"test": "pytest",
 		"lint": "flake8 src tests && mypy src tests",
-		"build": "mkdir -p lib && pip3 install --target lib -r requirements.txt",
+		"build": "mkdir lib 2>nul || echo lib exists && pip3 install --target lib -r requirements.txt",
 		"format:write": "black src tests",
 		"format:check": "black --check src tests"
 	},
