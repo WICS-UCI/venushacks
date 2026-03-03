@@ -8,9 +8,9 @@ const Resources = z.object({
 	order: z.array(
 		z.object({
 			_id: z.string(),
-			iconUrl: z.string(),
+			iconUrl: z.string().nullable(),
 			title: z.string(),
-			description: z.string(),
+			description: z.string().nullable(),
 			resources: z.array(
 				SanityDocument.extend({
 					_type: z.literal("resource"),
@@ -21,35 +21,39 @@ const Resources = z.object({
 					link: z.string(),
 					title: z.string(),
 					resourceIconUrl: z.string(),
-					resourceType: SanityReference,
+					resourceType: SanityReference.nullable(),
 				}).passthrough(),
 			),
 		}),
-	),
-});
+	).default([]),
+}).nullable();
 
 export const getResources = cache(async () => {
-	return Resources.parse(
-		await client.fetch(groq`
-			*[_type == 'resourceCategoryOrder' && _id == "resourceCategoryOrder"][0] {
-				order[]->{
+	const data = await client.fetch(groq`
+		*[_type == 'resourceCategoryOrder' && _id == "resourceCategoryOrder"][0] {
+			order[]->{
+				_id,
+				'iconUrl': icon.asset->url,
+				title,
+				description,
+				'resources': coalesce(*[_type == 'resource' && resourceType._ref == ^._id] | order(title asc) {
 					_id,
-					'iconUrl': icon.asset->url,
+					_createdAt,
+					_updatedAt,
+					_rev,
+					'_type': _type,
+					link,
 					title,
-					description,
-					'resources': *[_type == 'resource' && resourceType._ref == ^._id] | order(title asc) {
-						_id,
-						_createdAt,
-						_updatedAt,
-						_rev,
-						'_type': _type,
-						link,
-						title,
-						'resourceIconUrl': coalesce(icon.asset->url, ""),
-						resourceType
-					}
-				}
+					'resourceIconUrl': coalesce(icon.asset->url, ""),
+					resourceType
+				}, [])
 			}
-		`),
-	);
+		}
+	`);
+
+	if (!data) {
+		return { order: [] };
+	}
+
+	return Resources.parse(data) ?? { order: [] };
 });
