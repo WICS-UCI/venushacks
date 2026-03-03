@@ -62,7 +62,7 @@ export default function ChooseRoleModal() {
 									: "border-gray-100 hover:bg-gray-100"
 							}`}
 							type="button"
-							onClick={() => { setSelected(role.key); getSelectedRoute() }}
+							onClick={() => { setSelected(role.key) }}
 						>
 							<div className="px-2">
 								<div className="relative flex-shrink-0 w-24 h-24">
