@@ -3,12 +3,12 @@ from contextvars import ContextVar
 
 
 class HackathonName(str, Enum):
-    IRVINEHACKS = "irvinehacks"
+    VENUSHACK = "venushack"
     ZOTHACKS = "zothacks"
 
 
-ALLOWED_HACKATHONS = {HackathonName.IRVINEHACKS, HackathonName.ZOTHACKS}
+ALLOWED_HACKATHONS = {HackathonName.VENUSHACK, HackathonName.ZOTHACKS}
 
 hackathon_name_ctx: ContextVar[HackathonName] = ContextVar(
-    "hackathon_name", default=HackathonName.ZOTHACKS
+    "hackathon_name", default=HackathonName.VENUSHACK
 )

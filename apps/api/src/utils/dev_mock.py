@@ -19,7 +19,7 @@ _HACKER_RESUMES_FOLDER_ID = "1a_Hacker_Resumes"
 _MENTOR_RESUMES_FOLDER_ID = "1b_Mentor_Resumes"
 
 _FOLDER_MAP = {
-    HackathonName.IRVINEHACKS: {
+    HackathonName.VENUSHACK: {
         "Hacker": _HACKER_RESUMES_FOLDER_ID,
         "Mentor": _MENTOR_RESUMES_FOLDER_ID,
     },
@@ -64,7 +64,7 @@ async def mock_upload_file(
     )
     digest = base64.b64encode(hashlib.sha256(file_bytes).digest() + random.randbytes(7))
     file_id = digest.decode().replace("+", "_").replace("/", "_")
-    return f"https://drive.irvinehacks.com/file/NOT_REAL/1c{file_id}"
+    return f"https://drive.venushack.com/file/NOT_REAL/1c{file_id}"
 
 
 @asynccontextmanager
@@ -78,12 +78,12 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
     patch.object(
         resume_handler,
-        "IRVINEHACKS_HACKER_RESUMES_FOLDER_ID",
+        "VENUSHACK_HACKER_RESUMES_FOLDER_ID",
         new=_HACKER_RESUMES_FOLDER_ID,
     ).start()
     patch.object(
         resume_handler,
-        "IRVINEHACKS_MENTOR_RESUMES_FOLDER_ID",
+        "VENUSHACK_MENTOR_RESUMES_FOLDER_ID",
         new=_MENTOR_RESUMES_FOLDER_ID,
     ).start()
     patch.object(

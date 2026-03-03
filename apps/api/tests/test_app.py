@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 from app import app
 
 client = TestClient(app)
-client.headers.update({"X-Hackathon-Name": "irvinehacks"})
+client.headers.update({"X-Hackathon-Name": "venushack"})
 
 
 def test_user_identity_accessible() -> None:

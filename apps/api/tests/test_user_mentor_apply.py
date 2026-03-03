@@ -79,9 +79,9 @@ EXPECTED_USER = Applicant(
     status=Status.PENDING_REVIEW,
 )
 
-resume_handler.IRVINEHACKS_MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
-resume_handler.FOLDER_MAP[HackathonName.IRVINEHACKS]["Mentor"] = (
-    resume_handler.IRVINEHACKS_MENTOR_RESUMES_FOLDER_ID
+resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
+resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Mentor"] = (
+    resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID
 )
 
 app = FastAPI()
@@ -89,7 +89,7 @@ app.include_router(user.router)
 app.add_middleware(HackathonContextMiddleware)
 
 client = UserTestClient(USER_PKFIRE, app)
-client.headers.update({"X-Hackathon-Name": HackathonName.IRVINEHACKS.value})
+client.headers.update({"X-Hackathon-Name": HackathonName.VENUSHACK.value})
 
 
 @patch("utils.email_handler.send_application_confirmation_email", autospec=True)
@@ -114,7 +114,7 @@ def test_mentor_apply_successfully(
     res = client.post("/mentor", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.FOLDER_MAP[HackathonName.IRVINEHACKS]["Mentor"],
+        resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Mentor"],
         *EXPECTED_RESUME_UPLOAD,
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
