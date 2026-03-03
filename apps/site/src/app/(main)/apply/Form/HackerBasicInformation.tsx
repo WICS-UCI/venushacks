@@ -23,61 +23,171 @@ const ethnicity = [
 ];
 
 const yesNoOptions = [
-	{ labelText: "Yes", inputValue: "Yes" },
-	{ labelText: "No", inputValue: "No" },
+  { value: "Yes", text: "Yes" },
+  { value: "No", text: "No" },
+];
+
+const shirtSizes = [
+  { value: "small", text: "Small" },
+  { value: "medium", text: "Medium" },
+  { value: "large", text: "Large" },
+  { value: "other", text: "Other:" },
+];
+
+const universityOptions = [
+  { value: "UC Irvine", text: "UC Irvine" },
+  { value: "Cal Poly Pomona", text: "Cal Poly Pomona" },
+  { value: "Cal State Fullerton", text: "Cal State Fullerton" },
+  { value: "Cal State Long Beach", text: "Cal State Long Beach" },
+  { value: "UC Berkeley", text: "UC Berkeley" },
+  { value: "UCLA", text: "UCLA" },
+  { value: "UC Riverside", text: "UC Riverside" },
+  { value: "UC San Diego", text: "UC San Diego" },
+  { value: "UC Santa Barbara", text: "UC Santa Barbara" },
+  { value: "other", text: "Other" },
+];
+
+const majorOptions = [
+  { value: "Business Information Management", text: "Business Information Management" },
+  { value: "Computer Game Science", text: "Computer Game Science" },
+  { value: "Computer Science", text: "Computer Science" },
+  { value: "Computer Science and Engineering", text: "Computer Science and Engineering" },
+  { value: "Data Science", text: "Data Science" },
+  { value: "Informatics", text: "Informatics" },
+  { value: "Electrical Engineering", text: "Electrical Engineering" },
+  { value: "Software Engineering", text: "Software Engineering" },
+  { value: "N/A (High School)", text: "N/A (High School)" },
+  { value: "Undeclared", text: "Undeclared" },
+  { value: "other", text: "Other" },
+];
+
+const educationLevels = [
+  { value: "high school", text: "High School (18+)" },
+  { value: "first-year-undergrad", text: "First Year Undergraduate" },
+  { value: "second-year-undergrad", text: "Second Year Undergraduate" },
+  { value: "third-year-undergrad", text: "Third Year Undergraduate" },
+  { value: "fourth-year-undergrad", text: "Fourth Year Undergraduate" },
+  { value: "fifth-year-undergrad", text: "Fifth+ Year Undergraduate" },
+  { value: "graduate", text: "Graduate" },
 ];
 
 export default function BasicInformation() {
-	return (
-		<div className="flex flex-col gap-5 w-11/12">
-			<p className="text-4xl m-0 max-[700px]:text-3xl">Basic Information</p>
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<TextInput
-					name="first_name"
-					labelText="First Name"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					isRequired={true}
-					type="text"
-					placeholder="Peter"
-				/>
-				<TextInput
-					name="last_name"
-					labelText="Last Name"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					isRequired={true}
-					type="text"
-					placeholder="Anteater"
-				/>
-			</div>
+  return (
+    <div className="w-full flex flex-col gap-8">
+      <p className="text-4xl m-0 max-[700px]:text-3xl">I. Personal Information</p>
 
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<MultipleSelect
-					name="pronouns"
-					labelText="Pronouns"
-					inputType="checkbox"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					values={pronouns}
-				/>
-				<DropdownSelect
-					name="ethnicity"
-					labelText="Race / Ethnicity"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					values={ethnicity}
-				/>
-			</div>
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<SimpleRadio
-					name="is_first_hackathon"
-					values={yesNoOptions}
-					title="Is this your first Hackathon?"
-					titleClass="text-xl mb-0.5"
-					containerClassTotal="flex flex-col w-full max-[1000px]:w-full"
-					isRequired={true}
-					labelClass="text-xl"
-					containerClassInputLabels="flex gap-2 items-center"
-					containerClassValues="flex gap-5"
-				/>
-			</div>
-		</div>
-	);
+      {/* One grid for EVERYTHING in the screenshot */}
+      <div className="grid grid-cols-12 gap-x-6 gap-y-8">
+        {/* Row 1: First / Last / Preferred (3 columns on md+) */}
+        <TextInput
+          name="first_name"
+          labelText="First Name"
+          containerClass="col-span-12 md:col-span-4"
+          isRequired={true}
+          type="text"
+          placeholder="Enter your first name"
+        />
+        <TextInput
+          name="last_name"
+          labelText="Last Name"
+          containerClass="col-span-12 md:col-span-4"
+          isRequired={true}
+          type="text"
+          placeholder="Enter your last name"
+        />
+        <TextInput
+          name="preferred_name"
+          labelText="Preferred Name (optional)"
+          containerClass="col-span-12 md:col-span-4"
+          isRequired={false}
+          type="text"
+          placeholder="Enter your preferred name (optional)"
+        />
+
+        {/* Row 2: Email (full width) */}
+        <TextInput
+          name="email"
+          labelText="Email"
+          containerClass="col-span-12"
+          isRequired={true}
+          type="text"
+          placeholder="ex: peter@uci.edu"
+        />
+
+        {/* Row 3: DOB (left) + 18+ (right) */}
+        <TextInput
+          name="date_of_birth"
+          labelText="Date of Birth"
+          containerClass="col-span-12 md:col-span-6"
+          isRequired={true}
+          type="text"
+          placeholder="mm/dd/yyyy"
+        />
+        <DropdownSelect
+          name="18_or_older"
+          labelText="Will you be 18 years or older by May 16th, 2026?"
+          containerClass="col-span-12 md:col-span-6"
+          isRequired={true}
+          values={yesNoOptions}
+          placeholder="Yes"
+        />
+
+        {/* Row 4: Gender Identity (left) + Preferred Pronouns (right) */}
+        <TextInput
+          name="gender_identity"
+          labelText="Gender Identity"
+          containerClass="col-span-12 md:col-span-6"
+          isRequired={true}
+          type="text"
+          placeholder="Female"
+        />
+        <TextInput
+          name="pronoun"
+          labelText="Preferred Pronouns"
+          containerClass="col-span-12 md:col-span-6"
+          isRequired={true}
+          type="text"
+          placeholder="Enter your preferred pronouns"
+        />
+
+        {/* Row 5: Shirt size SHOULD BE FULL WIDTH like the image */}
+        <DropdownSelect
+          name="shirt_size"
+          labelText="Shirt Size (Unisex)"
+          containerClass="col-span-12"
+          isRequired={true}
+          values={shirtSizes}
+          placeholder="Small"
+        />
+
+        {/* Next rows: School / majors / year — all FULL WIDTH like the image */}
+        <DropdownSelect
+          name="school"
+          labelText="What university do you attend?"
+          values={universityOptions}
+          isRequired={true}
+          containerClass="col-span-12"
+          placeholder="UC Irvine"
+        />
+
+        <TextInput
+          name="majors_minors"
+          labelText="What major(s) and minor(s), if any, are you?"
+          containerClass="col-span-12"
+          isRequired={true}
+          type="text"
+          placeholder="ex: Computer Science, Psychology"
+        />
+
+        <DropdownSelect
+          name="education_level"
+          labelText="What year are you?"
+          values={educationLevels}
+          isRequired={true}
+          containerClass="col-span-12"
+          placeholder="Freshman"
+        />
+      </div>
+    </div>
+  );
 }

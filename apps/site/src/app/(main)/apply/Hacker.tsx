@@ -25,7 +25,6 @@ export default async function Hacker() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<SchoolInformation />
 			<ProfileInformation />
 			<ResumeInformation />
 			<AgeInformation />

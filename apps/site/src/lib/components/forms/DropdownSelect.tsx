@@ -8,7 +8,9 @@ interface SelectProps {
 	name: string;
 	labelText: string;
 	values: Array<{ value: string; text: string }>;
+	isRequired: boolean;
 	containerClass: string;
+	placeholder: string;
 }
 
 interface OtherProps {
@@ -40,6 +42,8 @@ export default function DropdownSelect({
 	labelText,
 	values,
 	containerClass,
+	isRequired,
+	placeholder
 }: SelectProps) {
 	const [value, setValue] = useState("");
 
@@ -54,7 +58,8 @@ export default function DropdownSelect({
 				id={name}
 				defaultValue={""}
 				onChange={(e) => setValue(e.target.value)}
-				required
+				required = {isRequired}
+				placeholder = {placeholder}
 			>
 				<option value="" disabled />
 				{values.map((item, i) => {
