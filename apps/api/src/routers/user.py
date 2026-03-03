@@ -157,8 +157,14 @@ async def mentor(
 @router.post("/volunteer", status_code=status.HTTP_201_CREATED)
 async def volunteer(
     user: Annotated[User, Depends(require_user_identity)],
-    raw_application_data: Annotated[RawVolunteerApplicationData, Form()],
+    request: Request,
 ) -> str:
+    form = await request.form()
+    data = _parsed_form(form)
+    try:
+        raw_application_data = RawVolunteerApplicationData.model_validate(data)
+    except ValidationError as e:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
     return await _apply_flow(user, raw_application_data)
 
 
@@ -386,6 +392,7 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
         "experienced_technologies",
         "dietary_restrictions",
         "skills",
+        "areas_of_development",
         "friday_availability",
         "saturday_availability",
         "sunday_availability",
