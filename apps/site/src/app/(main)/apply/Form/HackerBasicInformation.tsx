@@ -48,14 +48,6 @@ export default function BasicInformation() {
 					type="text"
 					placeholder="Anteater"
 				/>
-				<TextInput
-					name="preferred_name"
-					labelText="Preferred Name (optional)"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					isRequired={false}
-					type="text"
-					placeholder="Petr"
-				/>
 			</div>
 
 			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
