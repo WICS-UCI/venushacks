@@ -15,12 +15,7 @@ import BackgroundStars from "./components/BackgroundStars";
 const rolesArray = ["Mentor", "Hacker", "Volunteer"];
 
 function Portal() {
-	//const identity = useUserIdentity();
-	
-	const identity = {
-		status: Status.Accepted,
-		roles: ["Hacker"],
-	};
+	const identity = useUserIdentity();
 
 
 	if (!identity) {
