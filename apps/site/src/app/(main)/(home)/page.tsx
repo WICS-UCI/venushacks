@@ -5,7 +5,6 @@ import {
 	Sponsors,
 	Partners,
 	Organizers,
-	ChooseRoleModal,
 } from "./sections";
 
 import ComingSoon from "./sections/Landing/ComingSoon";
@@ -27,7 +26,6 @@ export default function Home() {
 			<Sponsors />
 			<Partners />
 			<Organizers />
-			<ChooseRoleModal />
 		</>
 	);
 }

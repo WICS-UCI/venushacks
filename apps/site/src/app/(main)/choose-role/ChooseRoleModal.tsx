@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+
 import hackerSprite from "@/assets/images/hacker_sprite.png";
 import mentorSprite from "@/assets/images/mentor_sprite.png";
 import volunteerSprite from "@/assets/images/volunteer_sprite.png";
@@ -13,6 +14,7 @@ const roles = [
 		description:
 			"A high school (18+) student, undergraduate, or graduate student of any experience level",
 		image: hackerSprite,
+		route: "/apply",
 	},
 	{
 		key: "mentor",
@@ -20,6 +22,7 @@ const roles = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
 		image: mentorSprite,
+		route: "/mentor",
 	},
 	{
 		key: "volunteer",
@@ -27,11 +30,17 @@ const roles = [
 		description:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
 		image: volunteerSprite,
+		route: "/volunteer",
 	},
 ];
 
 export default function ChooseRoleModal() {
 	const [selected, setSelected] = useState<string | null>(null);
+
+	const getSelectedRoute = () => {
+		if (!selected) return "";
+		return roles.filter((e) => e.key === selected)[0].route;
+	};
 
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -53,7 +62,7 @@ export default function ChooseRoleModal() {
 									: "border-gray-100 hover:bg-gray-100"
 							}`}
 							type="button"
-							onClick={() => setSelected(role.key)}
+							onClick={() => { setSelected(role.key); getSelectedRoute() }}
 						>
 							<div className="px-2">
 								<div className="relative flex-shrink-0 w-24 h-24">
@@ -80,7 +89,7 @@ export default function ChooseRoleModal() {
 					))}
 				</div>
 
-				<div className="flex justify-center mt-5">
+				<form action={getSelectedRoute()} className="flex justify-center mt-5">
 					<button
 						className={`px-8 py-3 text-base font-semibold border-[1px] rounded-full transition-opacity ${
 							selected
@@ -97,7 +106,7 @@ export default function ChooseRoleModal() {
 					>
 						Continue to Application →
 					</button>
-				</div>
+				</form>
 			</div>
 		</div>
 	);
