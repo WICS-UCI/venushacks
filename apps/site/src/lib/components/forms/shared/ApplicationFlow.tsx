@@ -66,6 +66,7 @@ export default function ApplicationFlow({
             onSubmit={handleSubmit}
               className="
               w-full bg-white text-slate-900
+
               rounded-[38px]
               shadow-[0_18px_35px_rgba(0,0,0,0.12)]
               px-5 py-6

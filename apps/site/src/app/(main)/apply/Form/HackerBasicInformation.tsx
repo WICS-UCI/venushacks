@@ -76,9 +76,7 @@ export default function BasicInformation() {
     <div className="w-full flex flex-col gap-8">
       <p className="text-4xl m-0 max-[700px]:text-3xl">I. Personal Information</p>
 
-      {/* One grid for EVERYTHING in the screenshot */}
       <div className="grid grid-cols-12 gap-x-6 gap-y-8">
-        {/* Row 1: First / Last / Preferred (3 columns on md+) */}
         <TextInput
           name="first_name"
           labelText="First Name"
@@ -129,17 +127,16 @@ export default function BasicInformation() {
           containerClass="col-span-12 md:col-span-6"
           isRequired={true}
           values={yesNoOptions}
-          placeholder="Yes"
+          placeholder="Female"
         />
 
-        {/* Row 4: Gender Identity (left) + Preferred Pronouns (right) */}
-        <TextInput
-          name="gender_identity"
-          labelText="Gender Identity"
-          containerClass="col-span-12 md:col-span-6"
-          isRequired={true}
-          type="text"
-          placeholder="Female"
+        <DropdownSelect
+			name="gender_pronouns"
+			labelText="Gender Pronouns"
+			containerClass="col-span-12 md:col-span-6"
+			isRequired={true}
+			values={pronouns}
+			placeholder="Yes"
         />
         <TextInput
           name="pronoun"
