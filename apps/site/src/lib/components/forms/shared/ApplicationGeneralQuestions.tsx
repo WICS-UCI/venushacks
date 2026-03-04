@@ -3,6 +3,7 @@
 import MultipleSelect from "../MultipleSelect";
 import DropdownSelect from "../DropdownSelect";
 import ResumeInformation from "./ResumeInformation";
+import LastSaved from "../LastSaved";
 
 export default function ApplicationGeneralQuestions() {
 	return (
@@ -92,6 +93,7 @@ export default function ApplicationGeneralQuestions() {
 						},
 					]}
 				/>
+				<LastSaved lastSaved={null} />
 			</div>
 		</div>
 	);
