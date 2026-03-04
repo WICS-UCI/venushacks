@@ -1,6 +1,5 @@
 from datetime import datetime
 from enum import Enum
-import json
 from typing import Annotated, Any, Literal, Union
 
 from fastapi import UploadFile
@@ -14,7 +13,6 @@ from pydantic import (
     HttpUrl,
     Tag,
     field_serializer,
-    field_validator,
 )
 
 
@@ -285,8 +283,6 @@ class ProcessedVenusHacksHackerApplicationData(BaseVenusHacksHackerApplicationDa
         if val is not None:
             return str(val)
         return val
-
-
 
 
 class ProcessedVenusHacksMentorApplication(BaseVenusHacksMentorApplicationData):

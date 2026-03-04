@@ -80,9 +80,9 @@ EXPECTED_USER = Applicant(
 )
 
 resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
-resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Mentor"] = (
-    resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID
-)
+resume_handler.FOLDER_MAP[HackathonName.VENUSHACK][
+    "Mentor"
+] = resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID
 
 app = FastAPI()
 app.include_router(user.router)

@@ -114,10 +114,13 @@ async def apply(
     discriminator = get_raw_hacker_discriminator_value(data)
     raw_application_data: Union[
         RawVenusHacksHackerApplicationData,
-        RawHackerApplicationData    ]
+        RawHackerApplicationData,
+    ]
     try:
         if discriminator == "venushack_hacker":
-            raw_application_data = RawVenusHacksHackerApplicationData.model_validate(data)
+            raw_application_data = RawVenusHacksHackerApplicationData.model_validate(
+                data
+            )
         elif discriminator == "hacker":
             raw_application_data = RawHackerApplicationData.model_validate(data)
         else:
@@ -144,7 +147,9 @@ async def mentor(
         if discriminator == "mentor":
             raw_application_data = RawMentorApplicationData.model_validate(data)
         elif discriminator == "venushack_mentor":
-            raw_application_data = RawVenusHacksMentorApplicationData.model_validate(data)
+            raw_application_data = RawVenusHacksMentorApplicationData.model_validate(
+                data
+            )
         else:
             raise ValueError("Cannot determine mentor application type")
     except ValidationError as e:
@@ -210,7 +215,7 @@ async def _apply_flow(
 
     resume = raw_application_data.resume
     # Browsers send an empty UploadFile when no file is selected (filename == "").
-    if resume is not None and getattr(resume, "filename", ""):
+    if resume is not None and resume.filename:
         try:
             resume_url = await resume_handler.upload_resume(
                 TypeAdapter(

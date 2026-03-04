@@ -71,7 +71,9 @@ SAMPLE_VENUSHACKS_HACKER_APPLICATION = {
     "acknowledge_transportation": "true",
     "acknowledge_in_person_attendance": "true",
     "project_passionate_about": "A small game I built.",
-    "diversity_inclusivity_experiences": "Team projects showed me diverse perspectives.",
+    "diversity_inclusivity_experiences": (
+        "Team projects showed me diverse perspectives."
+    ),
     "excited_to_work_on_10_years": "AI for education.",
     "three_must_haves_picnic": "Blanket, snacks, friends.",
     "how_did_you_hear": "Social Media",
@@ -114,15 +116,12 @@ EXPECTED_APPLICATION_DATA_WITHOUT_RESUME = ProcessedHackerApplicationData(
 
 EXPECTED_GLOBAL_FIELD_SCORES = {"hackathon_experience": -1000}
 
-EXPECTED_VENUSHACKS_HACKER_APPLICATION_DATA = (ProcessedVenusHacksHackerApplicationData(
-        **SAMPLE_VENUSHACKS_HACKER_APPLICATION,  # type: ignore[arg-type]
-        resume_url=SAMPLE_RESUME_URL,
-        submission_time=SAMPLE_SUBMISSION_TIME,
-        email=USER_EMAIL,
-    )
+EXPECTED_VENUSHACKS_HACKER_APPLICATION_DATA = ProcessedVenusHacksHackerApplicationData(
+    **SAMPLE_VENUSHACKS_HACKER_APPLICATION,  # type: ignore[arg-type]
+    resume_url=SAMPLE_RESUME_URL,
+    submission_time=SAMPLE_SUBMISSION_TIME,
+    email=USER_EMAIL,
 )
-
-
 
 EXPECTED_VENUSHACKS_HACKER_USER = Applicant(
     uid="edu.uci.pkfire",
