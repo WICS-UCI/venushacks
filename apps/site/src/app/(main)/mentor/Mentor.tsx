@@ -7,7 +7,6 @@ import Homepage from "./Form/MentorHomepage";
 import PersonalInformation from "./Form/MentorPersonalInformation";
 import ShortAnswers from "./Form/MentorShortAnswers";
 
-
 export const revalidate = 60;
 
 export default async function Mentor() {
