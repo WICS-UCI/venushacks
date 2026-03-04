@@ -4,7 +4,6 @@ import { ReactNode, useState } from "react";
 
 import useForm from "@/lib/utils/useForm";
 
-import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
 export const revalidate = 60;
@@ -42,7 +41,7 @@ export default function ApplicationFlow({
 	};
 
 	const sessionExpiredMessage = (
-		<p className="text-red-500 w-11/12">
+		<p className="w-11/12 text-red-500">
 			Your session has expired. Please{" "}
 			<a href="/login" target="_blank" className="text-blue-600 underline">
 				log in from a new tab
@@ -52,8 +51,8 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-10 min-h-screen">
-			<div className="my-8 w-full max-w-6xl px-4 sm:px-6 md:px-10">
+		<div className="flex flex-col items-center justify-center min-h-screen gap-10">
+			<div className="w-full max-w-6xl px-4 my-8 sm:px-6 md:px-10">
 				<form
 					method="post"
 					className="bg-white text-[var(--color-black)] w-full flex flex-col items-center py-12 gap-14 rounded-2xl shadow-xl"
@@ -69,37 +68,39 @@ export default function ApplicationFlow({
 						hidden
 					/>
 					{children[pageIndex]}
-					<div className="w-full flex justify-end items-center gap-3 px-4 sm:px-8">
+					<div className="flex items-center justify-end w-full gap-3 px-4 sm:px-8">
 						{isFirstPage() ? (
 							<button
 								type="button"
 								onClick={onNextPage}
-								className="bg-black text-white font-display text-lg px-8 py-2 border-2 border-black hover:bg-white hover:text-black transition-colors"
+								className="px-8 py-2 text-lg font-semibold transition-all border rounded-full shadow-md bg-button-bg text-button-text hover:brightness-95 border-button-text/30"
 							>
-								START
+								Start
 							</button>
 						) : (
 							<>
 								<button
 									type="button"
 									onClick={onPrevPage}
-									className="bg-white text-black font-display text-base sm:text-lg px-5 sm:px-8 py-2 border-2 border-black hover:bg-black hover:text-white transition-colors"
+									className="px-6 py-2 text-base font-semibold transition-all border rounded-full shadow-md bg-button-bg text-button-text sm:text-lg sm:px-8 hover:brightness-95 border-button-text/30"
 								>
-									PREV
+									← Prev
 								</button>
 								{isLastPage() ? (
-									<Button
-										text="Submit"
-										className="text-2xl !px-11 !py-2"
+									<button
+										type="submit"
 										disabled={submitting}
-									/>
+										className="px-6 py-2 text-base font-semibold transition-all border rounded-full shadow-md bg-button-bg text-button-text sm:text-lg sm:px-8 hover:brightness-95 disabled:opacity-50 border-button-text/30"
+									>
+										Submit
+									</button>
 								) : (
 									<button
 										type="button"
 										onClick={onNextPage}
-										className="bg-black text-white font-display text-base sm:text-lg px-5 sm:px-8 py-2 border-2 border-black hover:bg-white hover:text-black transition-colors"
+										className="px-6 py-2 text-base font-semibold transition-all border rounded-full shadow-md bg-button-bg text-button-text sm:text-lg sm:px-8 hover:brightness-95 border-button-text/30"
 									>
-										NEXT
+										Next →
 									</button>
 								)}
 							</>
