@@ -6,7 +6,6 @@ export interface RadioGridColumn {
 }
 
 export interface RadioGridRow {
-	/** Unique name used as the radio input group name */
 	name: string;
 	label: string;
 }
