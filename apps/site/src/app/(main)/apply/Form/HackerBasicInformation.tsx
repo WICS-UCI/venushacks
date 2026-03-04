@@ -1,6 +1,6 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
-import MultipleSelect from "@/lib/components/forms/MultipleSelect";
-import SimpleRadio from "@/lib/components/forms/SimpleRadio";
+{/*import MultipleSelect from "@/lib/components/forms/MultipleSelect";*/}
+{/*import SimpleRadio from "@/lib/components/forms/SimpleRadio";*/}
 import TextInput from "@/lib/components/forms/TextInput";
 
 const pronouns = [
@@ -8,17 +8,6 @@ const pronouns = [
 	{ value: "she", text: "She/her/hers" },
 	{ value: "they", text: "They/them/theirs" },
 	{ value: "ze", text: "Ze/zir/zirs" },
-	{ value: "other", text: "Other:" },
-];
-
-const ethnicity = [
-	{ value: "American", text: "American Indian or Alaskan" },
-	{ value: "Asian", text: "Asian or Pacific Islander" },
-	{ value: "Black", text: "Black or African American" },
-	{ value: "Hispanic", text: "Hispanic" },
-	{ value: "White", text: "White or Caucasian" },
-	{ value: "Two-or-more", text: "Two or more races" },
-	{ value: "Prefer not to answer", text: "Prefer not to answer" },
 	{ value: "other", text: "Other:" },
 ];
 
@@ -44,20 +33,6 @@ const universityOptions = [
   { value: "UC Riverside", text: "UC Riverside" },
   { value: "UC San Diego", text: "UC San Diego" },
   { value: "UC Santa Barbara", text: "UC Santa Barbara" },
-  { value: "other", text: "Other" },
-];
-
-const majorOptions = [
-  { value: "Business Information Management", text: "Business Information Management" },
-  { value: "Computer Game Science", text: "Computer Game Science" },
-  { value: "Computer Science", text: "Computer Science" },
-  { value: "Computer Science and Engineering", text: "Computer Science and Engineering" },
-  { value: "Data Science", text: "Data Science" },
-  { value: "Informatics", text: "Informatics" },
-  { value: "Electrical Engineering", text: "Electrical Engineering" },
-  { value: "Software Engineering", text: "Software Engineering" },
-  { value: "N/A (High School)", text: "N/A (High School)" },
-  { value: "Undeclared", text: "Undeclared" },
   { value: "other", text: "Other" },
 ];
 
