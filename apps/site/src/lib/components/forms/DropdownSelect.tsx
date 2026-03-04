@@ -21,7 +21,10 @@ const OtherPopup = ({ value, name }: OtherProps) => {
 	if (value === "other") {
 		return (
 			<div className="mt-2 flex flex-col gap-1">
-				<label htmlFor={`${name}-other-input`} className="text-sm font-medium text-gray-700">
+				<label
+					htmlFor={`${name}-other-input`}
+					className="text-sm font-medium text-gray-700"
+				>
 					Other: <RequiredAsterisk />
 				</label>
 				<input
