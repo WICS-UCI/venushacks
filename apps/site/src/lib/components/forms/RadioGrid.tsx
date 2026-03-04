@@ -31,7 +31,7 @@ export default function RadioGrid({
 				</p>
 			)}
 			<div className="w-full overflow-x-auto border border-gray-300 shadow-md rounded-xl">
-			<table className="min-w-full text-sm">
+				<table className="min-w-full text-sm">
 					<thead>
 						<tr className="border-b border-gray-200">
 							<th className="w-1/3 px-4 py-3 font-medium text-left text-gray-700" />
