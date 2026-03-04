@@ -25,7 +25,9 @@ const yearOptions = [
 export default function MentorPersonalInformation() {
 	return (
 		<div className="flex flex-col w-11/12 gap-5">
-			<p className="text-4xl m-0 max-[700px]:text-3xl">I. Personal Information</p>
+			<p className="text-4xl m-0 max-[700px]:text-3xl">
+				I. Personal Information
+			</p>
 
 			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
 				<TextInput
