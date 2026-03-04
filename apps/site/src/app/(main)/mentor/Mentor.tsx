@@ -5,14 +5,9 @@ import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 import Textfield from "@/lib/components/forms/Textfield";
 
-import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
-import SchoolInformation from "@/lib/components/forms/shared/SchoolInformation";
-import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
-import BasicInformation from "./Form/MentorBasicInformation";
-import ProfileInformation from "./Form/MentorProfileInformation";
-import ShortAnswers from "./Form/MentorShortAnswers";
-import ExperienceInformation from "./Form/MentorExperienceInformation";
-import MultipleSelect from "@/lib/components/forms/MultipleSelect";
+import MentorHomepage from "./Form/MentorHomepage";
+import PersonalInformation from "./Form/MentorPersonalInformation";
+
 
 export const revalidate = 60;
 
@@ -29,7 +24,10 @@ export default async function Mentor() {
 			applyPath="/api/user/mentor"
 			identity={identity}
 		>
-			<BasicInformation />
+			<MentorHomepage />
+			<PersonalInformation />
+
+			{/* <BasicInformation />
 			<SchoolInformation />
 			<ShortAnswers />
 			<ExperienceInformation />
@@ -51,7 +49,7 @@ export default async function Mentor() {
 				containerClass="flex flex-col w-11/12"
 				isRequired={false}
 			/>
-			<AgeInformation />
+			<AgeInformation /> */}
 		</ApplicationFlow>
 	);
 }
