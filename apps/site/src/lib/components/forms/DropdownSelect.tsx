@@ -48,7 +48,7 @@ export default function DropdownSelect({
 	isRequired = true,
 	placeholder = "",
 }: SelectProps) {
-	const [value, setValue] = useState(defaultValue);
+	const [value, setValue] = useState("");
 
 	return (
 		<div className={containerClass}>
