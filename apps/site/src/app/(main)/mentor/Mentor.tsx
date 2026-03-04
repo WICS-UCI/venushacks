@@ -26,7 +26,6 @@ export default async function Mentor() {
 			<Homepage />
 			<PersonalInformation />
 			<ShortAnswers />
-
 		</ApplicationFlow>
 	);
 }
