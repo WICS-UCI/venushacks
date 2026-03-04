@@ -11,7 +11,7 @@ from pydantic import HttpUrl
 from auth.user_identity import NativeUser, UserTestClient
 from models.ApplicationData import (
     ProcessedHackerApplicationData,
-    ProcessedZotHacksHackerApplicationData,
+    ProcessedVenusHacksHackerApplicationData,
 )
 
 from models.user_record import Applicant, Status, Role
@@ -52,22 +52,30 @@ SAMPLE_APPLICATION = {
     "email": "pkfire@uci.edu",
 }
 
-SAMPLE_ZOTHACKS_HACKER_APPLICATION = {
+SAMPLE_VENUSHACKS_HACKER_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
-    "pronouns": ["pk"],
-    "is_18_older": "false",
-    "school_year": "2nd Year",
-    "dietary_restrictions": ["No pork"],
-    "allergies": "s",
-    "major": "Computer Science",
-    "hackathon_experience": "veteran",
-    "elevator_pitch_saq": "s",
-    "tech_experience_saq": "ss",
-    "learn_about_self_saq": "s",
-    "pixel_art_saq": "sss",
-    "pixel_art_data": json.dumps([0] * 64),
-    "comments": "a",
+    "preferred_name": "",
+    "date_of_birth": "2000-01-15",
+    "is_18_or_older_by_event_date": "true",
+    "gender_identity": "Female",
+    "preferred_pronouns": "she/her",
+    "shirt_size": "M",
+    "university": "University of California, Irvine",
+    "major_minors": "Computer Science",
+    "year": "Freshman",
+    "num_hackathons_attended": "This is my first hackathon",
+    "attended_venushacks_previously": "false",
+    "share_resume_with_sponsors": "false",
+    "dietary_restrictions": ["None"],
+    "acknowledge_transportation": "true",
+    "acknowledge_in_person_attendance": "true",
+    "project_passionate_about": "A small game I built.",
+    "diversity_inclusivity_experiences": "Team projects showed me diverse perspectives.",
+    "excited_to_work_on_10_years": "AI for education.",
+    "three_must_haves_picnic": "Blanket, snacks, friends.",
+    "how_did_you_hear": "Social Media",
+    "questions_comments_concerns": "",
     "application_type": "Hacker",
 }
 
@@ -106,14 +114,23 @@ EXPECTED_APPLICATION_DATA_WITHOUT_RESUME = ProcessedHackerApplicationData(
 
 EXPECTED_GLOBAL_FIELD_SCORES = {"hackathon_experience": -1000}
 
-EXPECTED_ZOTHACKS_HACKER_APPLICATION_DATA = ProcessedZotHacksHackerApplicationData(
-    **SAMPLE_ZOTHACKS_HACKER_APPLICATION,  # type: ignore[arg-type]
-    resume_url=SAMPLE_RESUME_URL,
-    submission_time=SAMPLE_SUBMISSION_TIME,
-    reviews=[],
-    review_breakdown={},
-    global_field_scores=EXPECTED_GLOBAL_FIELD_SCORES,
-    email=USER_EMAIL,
+EXPECTED_VENUSHACKS_HACKER_APPLICATION_DATA = (ProcessedVenusHacksHackerApplicationData(
+        **SAMPLE_VENUSHACKS_HACKER_APPLICATION,  # type: ignore[arg-type]
+        resume_url=SAMPLE_RESUME_URL,
+        submission_time=SAMPLE_SUBMISSION_TIME,
+        email=USER_EMAIL,
+    )
+)
+
+
+
+EXPECTED_VENUSHACKS_HACKER_USER = Applicant(
+    uid="edu.uci.pkfire",
+    first_name="pk",
+    last_name="fire",
+    roles=(Role.APPLICANT, Role.HACKER),
+    status=Status.PENDING_REVIEW,
+    application_data=EXPECTED_VENUSHACKS_HACKER_APPLICATION_DATA,
 )
 
 EXPECTED_USER = Applicant(
@@ -134,16 +151,6 @@ EXPECTED_USER_WITHOUT_RESUME = Applicant(
     application_data=EXPECTED_APPLICATION_DATA_WITHOUT_RESUME,
 )
 
-EXPECTED_ZOTHACKS_HACKER_USER = Applicant(
-    uid="edu.uci.pkfire",
-    first_name="pk",
-    last_name="fire",
-    roles=(Role.APPLICANT, Role.HACKER),
-    status=Status.PENDING_REVIEW,
-    application_data=EXPECTED_ZOTHACKS_HACKER_APPLICATION_DATA,
-)
-
-
 resume_handler.FOLDER_MAP = {
     HackathonName.VENUSHACK: {
         "Hacker": "HACKER_RESUMES_FOLDER_ID",
@@ -160,7 +167,7 @@ app.include_router(user.router)
 app.add_middleware(HackathonContextMiddleware)
 
 client = UserTestClient(USER_PKFIRE, app)
-client.headers.update({"X-Hackathon-Name": HackathonName.VENUSHACK})
+client.headers.update({"X-Hackathon-Name": HackathonName.VENUSHACK.value})
 
 
 @patch("utils.email_handler.send_application_confirmation_email", autospec=True)
@@ -197,7 +204,7 @@ def test_apply_successfully(
     mock_send_application_confirmation_email.assert_awaited_once_with(
         USER_EMAIL, EXPECTED_USER, Role.HACKER
     )
-    assert res.status_code == 201
+    assert res.status_code == 201, res.text
 
 
 @patch("utils.email_handler.send_application_confirmation_email", autospec=True)
@@ -206,7 +213,7 @@ def test_apply_successfully(
 @patch("routers.user.datetime", autospec=True)
 @patch("services.gdrive_handler.upload_file", autospec=True)
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
-def test_zothacks_hacker_apply_successfully(
+def test_venushack_hacker_apply_successfully(
     mock_mongodb_handler_retrieve_one: AsyncMock,
     mock_gdrive_handler_upload_file: AsyncMock,
     mock_datetime: Mock,
@@ -214,27 +221,29 @@ def test_zothacks_hacker_apply_successfully(
     mock_mongodb_handler_update_one: AsyncMock,
     mock_send_application_confirmation_email: AsyncMock,
 ) -> None:
-    """Test that a valid application is submitted properly."""
+    """Test that a valid VenusHacks participant application is submitted properly."""
     mock_mongodb_handler_retrieve_one.return_value = None
     mock_gdrive_handler_upload_file.return_value = SAMPLE_RESUME_URL
     mock_datetime.now.return_value = SAMPLE_SUBMISSION_TIME
     mock_is_past_deadline.return_value = False
     res = client.post(
-        "/apply", data=SAMPLE_ZOTHACKS_HACKER_APPLICATION, files=SAMPLE_FILES
+        "/apply", data=SAMPLE_VENUSHACKS_HACKER_APPLICATION, files=SAMPLE_FILES
     )
 
+    assert res.status_code == 201
+
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.FOLDER_MAP[HackathonName.ZOTHACKS]["Hacker"],
+        resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Hacker"],
         *EXPECTED_RESUME_UPLOAD,
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
         Collection.USERS,
-        {"_id": EXPECTED_ZOTHACKS_HACKER_USER.uid},
-        EXPECTED_ZOTHACKS_HACKER_USER.model_dump(),
+        {"_id": EXPECTED_VENUSHACKS_HACKER_USER.uid},
+        EXPECTED_VENUSHACKS_HACKER_USER.model_dump(),
         upsert=True,
     )
     mock_send_application_confirmation_email.assert_awaited_once_with(
-        USER_EMAIL, EXPECTED_ZOTHACKS_HACKER_USER, Role.HACKER
+        USER_EMAIL, EXPECTED_VENUSHACKS_HACKER_USER, Role.HACKER
     )
     assert res.status_code == 201
 

@@ -42,6 +42,7 @@ FIELDS_SUPPORTING_OTHER = [
     "experienced_technologies",
     "dietary_restrictions",
     "areas_of_development",
+    "how_did_you_hear",
 ]
 
 
@@ -141,33 +142,44 @@ class BaseVolunteerApplicationData(BaseModel):
     sunday_availability: list[Hour] = []
 
 
-class BaseZotHacksHackerApplicationData(BaseModel):
+class BaseVenusHacksHackerApplicationData(BaseModel):
+    """VenusHacks participant application: I–IV sections from form."""
+
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=1024)
 
-    pronouns: list[str] = []
-    is_18_older: bool
-    school_year: str
+    preferred_name: Annotated[
+        Union[str, None], Field(None, max_length=254), BeforeValidator(make_empty_none)
+    ] = None
+    date_of_birth: str = Field(max_length=32)
+    is_18_or_older_by_event_date: bool
+    gender_identity: str = Field(max_length=254)
+    preferred_pronouns: str = Field(max_length=254)
+    shirt_size: str = Field(max_length=32)
+    university: str = Field(max_length=254)
+    major_minors: str = Field(max_length=512)
+    year: str = Field(max_length=64)
+
+    num_hackathons_attended: str = Field(max_length=64)
+    attended_venushacks_previously: bool
+    share_resume_with_sponsors: bool = False
     dietary_restrictions: list[str] = []
-    allergies: Union[str, None] = Field(None, max_length=2048)
-    major: str
-    hackathon_experience: Literal["first_time", "some_experience", "veteran"]
+    acknowledge_transportation: bool
+    acknowledge_in_person_attendance: bool
 
-    elevator_pitch_saq: str = Field(max_length=1024)
-    tech_experience_saq: str = Field(max_length=2048)
-    learn_about_self_saq: str = Field(max_length=2048)
-    pixel_art_saq: str = Field(max_length=2048)
-    pixel_art_data: list[int] = Field(..., min_length=64, max_length=64)
+    project_passionate_about: str = Field(max_length=1024)
+    diversity_inclusivity_experiences: str = Field(max_length=1024)
+    excited_to_work_on_10_years: str = Field(max_length=1024)
+    three_must_haves_picnic: str = Field(max_length=512)
 
-    comments: Union[str, None] = Field(None, max_length=2048)
-
-    @field_validator("pixel_art_data", mode="before")
-    def parse_pixel_art(cls, v: str) -> Any:
-        if isinstance(v, str):
-            return json.loads(v)
-        return v
+    how_did_you_hear: str = Field(max_length=254)
+    questions_comments_concerns: Annotated[
+        Union[str, None],
+        Field(None, max_length=2048),
+        BeforeValidator(make_empty_none),
+    ] = None
 
 
-class BaseZotHacksMentorApplicationData(BaseModel):
+class BaseVenusHacksMentorApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=1024)
 
     is_18_older: bool
@@ -215,14 +227,14 @@ class RawVolunteerApplicationData(BaseVolunteerApplicationData):
     application_type: Literal["Volunteer"]
 
 
-class RawZotHacksHackerApplicationData(BaseZotHacksHackerApplicationData):
+class RawVenusHacksHackerApplicationData(BaseVenusHacksHackerApplicationData):
     first_name: str
     last_name: str
     resume: Union[UploadFile, None] = None
     application_type: Literal["Hacker"]
 
 
-class RawZotHacksMentorApplicationData(BaseZotHacksMentorApplicationData):
+class RawVenusHacksMentorApplicationData(BaseVenusHacksMentorApplicationData):
     first_name: str
     last_name: str
     resume: UploadFile
@@ -262,17 +274,11 @@ class ProcessedVolunteerApplication(BaseVolunteerApplicationData):
     reviews: list[Review] = []
 
 
-class ProcessedZotHacksHackerApplicationData(BaseZotHacksHackerApplicationData):
+class ProcessedVenusHacksHackerApplicationData(BaseVenusHacksHackerApplicationData):
     email: EmailStr
     resume_url: Union[HttpUrl, None] = None
     submission_time: datetime
     reviews: list[Review] = []
-    review_breakdown: dict[str, dict[str, int]] = {}
-    # TODO: Create aliases for review_breakdown
-    # dict[reviewer_uid, dict[field_name, score]]
-    global_field_scores: dict[str, int] = {}
-    # TODO: Create aliases for these global_field_scores
-    # dict[field that can have detailed reviews, score]
 
     @field_serializer("resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
@@ -281,7 +287,9 @@ class ProcessedZotHacksHackerApplicationData(BaseZotHacksHackerApplicationData):
         return val
 
 
-class ProcessedZotHacksMentorApplication(BaseZotHacksMentorApplicationData):
+
+
+class ProcessedVenusHacksMentorApplication(BaseVenusHacksMentorApplicationData):
     email: EmailStr
     resume_url: Union[HttpUrl, None] = None
     submission_time: datetime
@@ -298,6 +306,8 @@ class ProcessedZotHacksMentorApplication(BaseZotHacksMentorApplicationData):
 # that doesn't appear in any other form
 def get_discriminator_value(v: Any) -> str:
     if isinstance(v, dict):
+        if "project_passionate_about" in v:
+            return "venushack_hacker"
         if "frq_video_game" in v:
             return "hacker"
         if "why_mentor_frq" in v:
@@ -307,8 +317,10 @@ def get_discriminator_value(v: Any) -> str:
         if "elevator_pitch_saq" in v:
             return "zothacks_hacker"
         if "help_participants_frq" in v:
-            return "zothacks_mentor"
+            return "venushack_mentor"
 
+    if "project_passionate_about" in dir(v):
+        return "venushack_hacker"
     if "frq_video_game" in dir(v):
         return "hacker"
     if "why_mentor_frq" in dir(v):
@@ -318,17 +330,17 @@ def get_discriminator_value(v: Any) -> str:
     if "elevator_pitch_saq" in dir(v):
         return "zothacks_hacker"
     if "help_participants_frq" in dir(v):
-        return "zothacks_mentor"
+        return "venushack_mentor"
     return ""
 
 
 ProcessedApplicationDataUnion = Annotated[
     Union[
+        Annotated[ProcessedVenusHacksHackerApplicationData, Tag("venushack_hacker")],
         Annotated[ProcessedHackerApplicationData, Tag("hacker")],
         Annotated[ProcessedMentorApplicationData, Tag("mentor")],
         Annotated[ProcessedVolunteerApplication, Tag("volunteer")],
-        Annotated[ProcessedZotHacksHackerApplicationData, Tag("zothacks_hacker")],
-        Annotated[ProcessedZotHacksMentorApplication, Tag("zothacks_mentor")],
+        Annotated[ProcessedVenusHacksMentorApplication, Tag("venushack_mentor")],
     ],
     Discriminator(get_discriminator_value),
 ]
@@ -337,12 +349,14 @@ ProcessedApplicationDataUnion = Annotated[
 def get_raw_hacker_discriminator_value(v: Any) -> str:
     """Discriminator function for raw hacker application data."""
     if isinstance(v, dict):
+        if "project_passionate_about" in v:
+            return "venushack_hacker"
         if "frq_video_game" in v:
             return "hacker"
         if "elevator_pitch_saq" in v:
             return "zothacks_hacker"
-
-    # For object instances, check attributes
+    if hasattr(v, "project_passionate_about"):
+        return "venushack_hacker"
     if hasattr(v, "frq_video_game"):
         return "hacker"
     if hasattr(v, "elevator_pitch_saq"):
@@ -352,8 +366,8 @@ def get_raw_hacker_discriminator_value(v: Any) -> str:
 
 RawHackerApplicationDataUnion = Annotated[
     Union[
+        Annotated[RawVenusHacksHackerApplicationData, Tag("venushack_hacker")],
         Annotated[RawHackerApplicationData, Tag("hacker")],
-        Annotated[RawZotHacksHackerApplicationData, Tag("zothacks_hacker")],
     ],
     Discriminator(get_raw_hacker_discriminator_value),
 ]
@@ -366,12 +380,12 @@ def get_raw_mentor_discriminator_value(v: Any) -> str:
         if "why_mentor_frq" in v:
             return "mentor"
         if "help_participants_frq" in v:
-            return "zothacks_mentor"
+            return "venushack_mentor"
     # For object instances, check attributes
     if hasattr(v, "why_mentor_frq"):
         return "mentor"
     if hasattr(v, "help_participants_frq"):
-        return "zothacks_mentor"
+        return "venushack_mentor"
 
     return ""
 
@@ -379,7 +393,7 @@ def get_raw_mentor_discriminator_value(v: Any) -> str:
 RawMentorApplicationDataUnion = Annotated[
     Union[
         Annotated[RawMentorApplicationData, Tag("mentor")],
-        Annotated[RawZotHacksMentorApplicationData, Tag("zothacks_mentor")],
+        Annotated[RawVenusHacksMentorApplicationData, Tag("venushack_mentor")],
     ],
     Discriminator(get_raw_mentor_discriminator_value),
 ]

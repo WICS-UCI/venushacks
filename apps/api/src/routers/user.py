@@ -22,12 +22,11 @@ from auth.user_identity import User, require_user_identity, use_user_identity
 from models.ApplicationData import (
     FIELDS_SUPPORTING_OTHER,
     ProcessedApplicationDataUnion,
-    ProcessedZotHacksHackerApplicationData,
     RawHackerApplicationData,
     RawMentorApplicationData,
+    RawVenusHacksHackerApplicationData,
     RawVolunteerApplicationData,
-    RawZotHacksHackerApplicationData,
-    RawZotHacksMentorApplicationData,
+    RawVenusHacksMentorApplicationData,
     get_raw_hacker_discriminator_value,
     get_raw_mentor_discriminator_value,
 )
@@ -114,13 +113,13 @@ async def apply(
 
     discriminator = get_raw_hacker_discriminator_value(data)
     raw_application_data: Union[
-        RawHackerApplicationData, RawZotHacksHackerApplicationData
-    ]
+        RawVenusHacksHackerApplicationData,
+        RawHackerApplicationData    ]
     try:
-        if discriminator == "hacker":
+        if discriminator == "venushack_hacker":
+            raw_application_data = RawVenusHacksHackerApplicationData.model_validate(data)
+        elif discriminator == "hacker":
             raw_application_data = RawHackerApplicationData.model_validate(data)
-        elif discriminator == "zothacks_hacker":
-            raw_application_data = RawZotHacksHackerApplicationData.model_validate(data)
         else:
             raise ValueError("Cannot determine hacker application type")
     except ValidationError as e:
@@ -139,13 +138,13 @@ async def mentor(
     # Manually determine model to use
     discriminator = get_raw_mentor_discriminator_value(data)
     raw_application_data: Union[
-        RawMentorApplicationData, RawZotHacksMentorApplicationData
+        RawMentorApplicationData, RawVenusHacksMentorApplicationData
     ]
     try:
         if discriminator == "mentor":
             raw_application_data = RawMentorApplicationData.model_validate(data)
-        elif discriminator == "zothacks_mentor":
-            raw_application_data = RawZotHacksMentorApplicationData.model_validate(data)
+        elif discriminator == "venushack_mentor":
+            raw_application_data = RawVenusHacksMentorApplicationData.model_validate(data)
         else:
             raise ValueError("Cannot determine mentor application type")
     except ValidationError as e:
@@ -171,11 +170,11 @@ async def volunteer(
 async def _apply_flow(
     user: User,
     raw_application_data: Union[
+        RawVenusHacksHackerApplicationData,
         RawHackerApplicationData,
         RawMentorApplicationData,
         RawVolunteerApplicationData,
-        RawZotHacksHackerApplicationData,
-        RawZotHacksMentorApplicationData,
+        RawVenusHacksMentorApplicationData,
     ],
 ) -> str:
     """Common flow for all three types of applications."""
@@ -210,16 +209,16 @@ async def _apply_flow(
             )
 
     resume = raw_application_data.resume
-    if resume is not None and resume.size and resume.size > 0:
+    # Browsers send an empty UploadFile when no file is selected (filename == "").
+    if resume is not None and getattr(resume, "filename", ""):
         try:
             resume_url = await resume_handler.upload_resume(
-                # TODO: reexamine why adapter is needed
                 TypeAdapter(
                     Union[
+                        RawVenusHacksHackerApplicationData,
                         RawHackerApplicationData,
                         RawMentorApplicationData,
-                        RawZotHacksHackerApplicationData,
-                        RawZotHacksMentorApplicationData,
+                        RawVenusHacksMentorApplicationData,
                     ]
                 ).validate_python(raw_application_data),
                 resume,
@@ -253,8 +252,6 @@ async def _apply_flow(
             "submission_time": now,
         }
     )
-
-    _add_auto_scores_if_any(processed_application_data)
 
     applicant = Applicant(
         uid=user.uid,
@@ -416,17 +413,3 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
     return data
 
 
-def _add_auto_scores_if_any(
-    processed_application_data: ProcessedApplicationDataUnion,
-) -> None:
-    if not isinstance(
-        processed_application_data, ProcessedZotHacksHackerApplicationData
-    ):
-        return
-
-    # Only hackathon_experience is auto-scored for now
-    processed_application_data.global_field_scores = {
-        "hackathon_experience": HACKATHON_EXPERIENCE_SCORE_MAP[
-            processed_application_data.hackathon_experience
-        ]
-    }
