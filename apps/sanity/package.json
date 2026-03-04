@@ -22,6 +22,7 @@
 		"@sanity/vision": "^5.13.0",
 		"lucide-react": "^0.271.0",
 		"react": "^18.2.0",
+		"react-compiler-runtime": "^1.0.0",
 		"react-dom": "^18.2.0",
 		"react-is": "^18.2.0",
 		"sanity": "^5.13.0",

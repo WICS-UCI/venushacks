@@ -5,4 +5,5 @@ export default defineCliConfig({
 		projectId: "fosuyru0",
 		dataset: "production",
 	},
+	reactCompiler: { target: "18" },
 });
