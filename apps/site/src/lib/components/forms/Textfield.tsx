@@ -18,12 +18,12 @@ export default function Textfield({
 	return (
 		<div className={containerClass}>
 			<div className="flex flex-col w-full">
-				<label className="text-lg mb-2" htmlFor={name}>
-					{`${labelText} `}
-					{isRequired && <RequiredAsterisk />}
-				</label>
-				<textarea
-					className="text-[var(--color-black)] bg-[#E1E1E1] p-3 h-48 resize-none rounded-xl"
+			<label className="mb-1 text-sm font-medium" htmlFor={name}>
+				{`${labelText} `}
+				{isRequired && <RequiredAsterisk />}
+			</label>
+			<textarea
+				className="w-full px-3 py-2 text-sm text-gray-900 bg-white border border-gray-300 shadow-md rounded-xl resize-none h-48"
 					id={name}
 					name={name}
 					required={isRequired}

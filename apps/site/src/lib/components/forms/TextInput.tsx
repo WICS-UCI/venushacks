@@ -19,11 +19,11 @@ export default function TextInput({
 }: TextProps) {
 	return (
 		<div className={containerClass}>
-			<label className="text-lg mb-2" htmlFor={name}>
+			<label className="mb-1 text-sm font-medium" htmlFor={name}>
 				{`${labelText} `} {isRequired && <RequiredAsterisk />}
 			</label>
 			<input
-				className="bg-[#e1e1e1] text-[var(--color-black)] text-lg h-10 p-1.5 rounded-md"
+				className="w-full px-3 py-2 text-sm text-gray-900 bg-white border border-gray-300 shadow-md rounded-xl placeholder:text-gray-400"
 				type={type}
 				name={name}
 				id={name}
