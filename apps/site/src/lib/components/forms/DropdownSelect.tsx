@@ -54,7 +54,9 @@ export default function DropdownSelect({
 			</label>
 			<div className="relative w-full">
 				<select
-					className="w-full font-figtree appearance-none text-[#8E8E8E] text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC]"
+					className={`w-full font-figtree appearance-none text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] ${
+						value === "" ? "text-[#8E8E8E]" : "text-black"
+					}`}
 					style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 					name={name}
 					id={name}
@@ -62,7 +64,9 @@ export default function DropdownSelect({
 					onChange={(e) => setValue(e.target.value)}
 					required={isRequired}
 				>
-					<option value="" disabled>{placeholder}</option>
+					<option value="" disabled>
+						{placeholder}
+					</option>
 					{values.map((item, i) => (
 						<option key={`option-${i}`} value={item.value}>
 							{item.text}
