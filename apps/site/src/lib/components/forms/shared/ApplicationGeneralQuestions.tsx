@@ -2,7 +2,7 @@
 
 import MultipleSelect from "../MultipleSelect";
 import DropdownSelect from "../DropdownSelect";
-import RequiredAsterisk from "../RequiredAsterisk";
+import ResumeInformation from "./ResumeInformation";
 
 export default function ApplicationGeneralQuestions() {
 	return (
@@ -37,6 +37,23 @@ export default function ApplicationGeneralQuestions() {
 						{ value: "yes", text: "Yes" },
 					]}
 				/>
+
+				{/* Resume Upload row */}
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+					<ResumeInformation isRequired={false} />
+
+					{/* Share with sponsors */}
+					<DropdownSelect
+						name="share_resume"
+						labelText="May we share your resume with sponsors? (optional)"
+						containerClass="flex flex-col gap-1"
+						isRequired={false}
+						values={[
+							{ value: "yes", text: "Yes" },
+							{ value: "no", text: "No" },
+						]}
+					/>
+				</div>
 			</div>
 		</div>
 	);

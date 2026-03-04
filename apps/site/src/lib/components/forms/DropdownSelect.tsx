@@ -9,6 +9,8 @@ interface SelectProps {
 	labelText: string;
 	values: Array<{ value: string; text: string }>;
 	containerClass: string;
+	isRequired?: boolean;
+	placeholder?: string;
 }
 
 interface OtherProps {
@@ -40,13 +42,15 @@ export default function DropdownSelect({
 	labelText,
 	values,
 	containerClass,
+	isRequired = true,
+	placeholder = "",
 }: SelectProps) {
 	const [value, setValue] = useState("");
 
 	return (
 		<div className={containerClass}>
 			<label className="font-figtree font-medium text-lg mb-2" htmlFor={name}>
-				{labelText} <RequiredAsterisk />
+				{labelText} {isRequired && <RequiredAsterisk />}
 			</label>
 			<div className="relative w-full">
 				<select
@@ -56,9 +60,9 @@ export default function DropdownSelect({
 					id={name}
 					defaultValue=""
 					onChange={(e) => setValue(e.target.value)}
-					required
+					required={isRequired}
 				>
-					<option value="" disabled />
+					<option value="" disabled>{placeholder}</option>
 					{values.map((item, i) => (
 						<option key={`option-${i}`} value={item.value}>
 							{item.text}
