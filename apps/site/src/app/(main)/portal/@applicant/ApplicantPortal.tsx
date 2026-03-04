@@ -17,7 +17,6 @@ const rolesArray = ["Mentor", "Hacker", "Volunteer"];
 function Portal() {
 	const identity = useUserIdentity();
 
-
 	if (!identity) {
 		return <div className="font-display text-4xl mt-5">Loading...</div>;
 	}
