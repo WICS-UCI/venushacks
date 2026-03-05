@@ -37,12 +37,12 @@ SAMPLE_APPLICATION = {
     "gender_identity": "Non-binary",
     "shirt_size": "M",
     "year": "Senior",
-    "is_18_older": True,
+    "is_18_older": "true",
     "school": "UC Irvine",
     "majors_and_minors": ["Computer Science"],
-    "previous_hackathons": 2,
-    "previous_vh": False,
-    "share_resume_with_sponsors": True,
+    "previous_hackathons": "2",
+    "previous_vh": "false",
+    "share_resume_with_sponsors": "true",
     "dietary_restrictions": "None",
     "frq_project": "I want to build a cool project",
     "frq_diversity": "Diversity is important",
@@ -111,7 +111,6 @@ resume_handler.FOLDER_MAP = {
 
 app = FastAPI()
 app.include_router(user.router)
-app.add_middleware(HackathonContextMiddleware)
 
 client = UserTestClient(USER_PKFIRE, app)
 
