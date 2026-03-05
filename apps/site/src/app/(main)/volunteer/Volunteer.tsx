@@ -5,7 +5,7 @@ import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 import BasicInformation from "./components/VolunteerBasicInformation";
 import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
-import SchoolInformation from "@/lib/components/forms/shared/SchoolInformation";
+import EssentialQuestions from "@/lib/components/forms/shared/SchoolInformation";
 import ShiftAvailability from "./components/ShiftAvailability";
 import VolunteerFRQ from "./components/VolunteerFRQ";
 import ExtraQuestions from "./components/ExtraQuestions";
@@ -27,11 +27,10 @@ export default async function Volunteer() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<SchoolInformation />
+			<EssentialQuestions/>
 			<VolunteerFRQ />
-			<ShiftAvailability />
 			<ExtraQuestions />
-			<AgeInformation />
+			<ShiftAvailability />
 		</ApplicationFlow>
 	);
 }

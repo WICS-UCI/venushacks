@@ -53,7 +53,7 @@ export default function ApplicationFlow({
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className=" my-32 mx-96 max-[1000px]:mx-56 max-[800px]:mx-12 max-[400px]:mx-4">
+				<div className="w-7/12">
 					<form
 						method="post"
 						className="bg-white shadow-lg rounded-2xl font-figtree p-10"
@@ -71,7 +71,8 @@ export default function ApplicationFlow({
 						{children[pageIndex]}
 						<div className="mt-8 flex justify-between">
 							{!isFirstPage() && (
-								<button type="button"
+								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
+								type="button"
 								onClick={() => setPageIndex(pageIndex-1)}>PREV</button>
 							)}
 							{isLastPage() ? (

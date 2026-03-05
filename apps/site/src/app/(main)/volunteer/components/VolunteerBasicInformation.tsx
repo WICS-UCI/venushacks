@@ -24,7 +24,7 @@
 export default function BasicInformation() {
 	return (
 		<div className="flex flex-col gap-3">
-			<p className="font-normal text-3xl m-0 mb-2 max-[700px]:text-3xl font-sniglet text-center">
+			<p className="font-normal text-3xl m-0 mb-2 font-sniglet text-center">
 				Volunteer Application
 			</p>
 
