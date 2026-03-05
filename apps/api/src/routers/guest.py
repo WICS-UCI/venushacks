@@ -21,7 +21,7 @@ def guest_email(email: Annotated[EmailStr, Form()]) -> EmailStr:
         raise HTTPException(
             status.HTTP_403_FORBIDDEN, "UCI affiliates must log in with SSO."
         )
-    if email.endswith("@irvinehacks.com"):
+    if email.endswith("@venushacks.com"):
         # TODO: sponsor authentication
         raise HTTPException(status.HTTP_501_NOT_IMPLEMENTED)
     if not email.endswith(".edu"):
