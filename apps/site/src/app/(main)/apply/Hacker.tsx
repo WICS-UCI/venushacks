@@ -4,7 +4,7 @@ import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 import BasicInformation from "./Form/HackerBasicInformation";
-import EssentialQuestions from "@/lib/components/forms/shared/SchoolInformation";
+import EssentialQuestions from "@/lib/components/forms/shared/PersonalInformation";
 import ProfileInformation from "./Form/ProfileInformation";
 import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
 import AgeInformation from "@/lib/components/forms/shared/AgeInformation";

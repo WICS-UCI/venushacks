@@ -6,7 +6,7 @@ import getUserIdentity from "@/lib/utils/getUserIdentity";
 import Textfield from "@/lib/components/forms/Textfield";
 
 import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
-import EssentialQuestions from "@/lib/components/forms/shared/SchoolInformation";
+import EssentialQuestions from "@/lib/components/forms/shared/PersonalInformation";
 import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
 import BasicInformation from "./Form/MentorBasicInformation";
 import ProfileInformation from "./Form/MentorProfileInformation";

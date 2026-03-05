@@ -3,7 +3,7 @@ import Textfield from "@/lib/components/forms/Textfield";
 export default function VolunteerFRQ() {
 	return (
 		<div className="flex flex-col items-start gap-5">
-			<div className="text-xl font-semibold">II. Free Response Questions</div>
+			<div className="text-xl font-semibold">III. Free Response Questions</div>
 			<Textfield
 				name="frq_volunteer"
 				labelText="Why do you want to be a volunteer at Venus Hacks? [max of 150 words]"

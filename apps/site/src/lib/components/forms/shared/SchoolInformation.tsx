@@ -1,5 +1,4 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
-import TextInput from "../TextInput";
 
 //these values can be edited if backend needs it later on
 
@@ -45,45 +44,14 @@ const majorOptions = [
 	{ value: "other", text: "Other" },
 ];
 
-export default function EssentialQuestions() {
+export default function SchoolInformation() {
 	return (
-		<div className="flex flex-col gap-5 w-full">
-			<div className="text-xl font-semibold ">I. Essential Questions</div>
-				<TextInput
-					name="essential_email"
-					type="email"
-					labelText="Email"
-					placeholder="ex: peter@uci.edu"
-					isRequired={true}
-					containerClass="w-full"
-				/>
-			<div className="flex flex-row gap-3">
-				<TextInput
-				name="essential_first_name"
-				type="text"
-				labelText="First Name"
-				placeholder="Enter your first name"
-				isRequired={true}
-				containerClass="w-full"
-				/>
-				<TextInput
-				name="essential_last_name"
-				type="text"
-				labelText="Last Name"
-				placeholder="Enter your last name"
-				isRequired={true}
-				containerClass="w-full"
-				/>
-				<TextInput
-				name="essential_preferred_name"
-				type="text"
-				labelText="Preferred Name (optional)"
-				placeholder="Enter your preferred name (optional)"
-				isRequired={false}
-				containerClass="w-full"
-				/>
-			</div>
-			{/* <div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
+		<div className="flex flex-col gap-5 w-11/12">
+			<p className="text-4xl m-0 font-bold max-[700px]:text-3xl">
+				School Information
+			</p>
+
+			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
 				<DropdownSelect
 					name="school"
 					labelText="School"
@@ -105,7 +73,7 @@ export default function EssentialQuestions() {
 					values={educationLevels}
 					containerClass="flex flex-col w-6/12 max-[1000px]:w-full"
 				/>
-			</div> */}
+			</div>
 		</div>
 	);
 }

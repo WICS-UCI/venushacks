@@ -37,7 +37,7 @@ const OtherInput = forwardRef<HTMLInputElement, OtherInputProps>(
 );
 OtherInput.displayName = "OtherInput";
 
-export default function MultipleSelect({
+export default function MultipleSelectYesFRQ({
 	name,
 	labelText,
 	inputType,

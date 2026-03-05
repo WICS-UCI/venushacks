@@ -19,7 +19,7 @@ export default function TextInput({
 }: TextProps) {
 	return (
 		<div className={containerClass}>
-			<label className="text-lg mb-2 flex" htmlFor={name}>
+			<label className="text-md mb-2" htmlFor={name}>
 				{`${labelText} `} {isRequired && <RequiredAsterisk />}
 			</label>
 			<input
