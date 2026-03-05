@@ -58,8 +58,6 @@ SAMPLE_APPLICATION = {
     "email": "pkfire@uci.edu",
 }
 
-
-
 SAMPLE_RESUME = ("my-resume.pdf", b"resume", "application/pdf")
 SAMPLE_FILES = {"resume": SAMPLE_RESUME}
 BAD_RESUME = ("bad-resume.doc", b"resume", "application/msword")
@@ -110,13 +108,9 @@ EXPECTED_USER_WITHOUT_RESUME = Applicant(
     application_data=EXPECTED_APPLICATION_DATA_WITHOUT_RESUME,
 )
 
-
-
 resume_handler.FOLDER_MAP = {
-    HackathonName.VENUSHACKS: {
-        "Hacker": "HACKER_RESUMES_FOLDER_ID",
-        "Mentor": "MENTOR_RESUMES_FOLDER_ID",
-    },
+    "Hacker": "HACKER_RESUMES_FOLDER_ID",
+    "Mentor": "MENTOR_RESUMES_FOLDER_ID",
 }
 
 app = FastAPI()
@@ -148,9 +142,9 @@ def test_apply_successfully(
     mock_is_past_deadline.return_value = False
     res = client.post("/apply", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
     assert res.status_code == 201
-    
+
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.FOLDER_MAP[HackathonName.VENUSHACKS]["Hacker"],
+        resume_handler.FOLDER_MAP["Hacker"],
         *EXPECTED_RESUME_UPLOAD,
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
@@ -163,7 +157,6 @@ def test_apply_successfully(
         USER_EMAIL, EXPECTED_USER, Role.HACKER
     )
     assert res.status_code == 201
-
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
@@ -328,7 +321,7 @@ def test_apply_successfully_without_resume(
 
 def test_application_data_is_bson_encodable() -> None:
     """Test that application data model can be encoded into BSON to store in MongoDB."""
-    encoded = bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
+    bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
 
 
 # @patch("services.mongodb_handler.retrieve_one", autospec=True)
