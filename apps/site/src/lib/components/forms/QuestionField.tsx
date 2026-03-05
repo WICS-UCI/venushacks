@@ -43,7 +43,7 @@ export default function QuestionField({
 					(maxWords ? `Answer in ${maxWords} words` : "Enter your answer")
 				}
 				required={required}
-				style={{ boxShadow: '0px 0px 5px 0px #00000033' }}
+				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 				className={`w-full min-h-[100px] rounded-[10px] border p-3 resize-none outline-none text-[15px] font-figtree text-black
         ${overLimit ? "border-red-400" : "border-[#D6D6D6]"}
         focus:ring-2 focus:ring-[#f3a5a5]`}
