@@ -28,13 +28,13 @@ export default async function Hacker() {
 		>
 			<ApplicationLandingPane applicationType="Hacker" />
 
-		<>
-			<BasicInformation />
-			<ApplicationGeneralQuestions/> {/* Second Pane of Application */}
-			<ProfileInformation />
-			<AgeInformation />
-			<ResumeInformation />
-		</>
+			<>
+				<BasicInformation />
+				<ApplicationGeneralQuestions /> {/* Second Pane of Application */}
+				<ProfileInformation />
+				<AgeInformation />
+				<ResumeInformation />
+			</>
 		</ApplicationFlow>
 	);
 }

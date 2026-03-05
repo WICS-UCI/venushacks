@@ -8,9 +8,9 @@ const sniglet = Sniglet({
 });
 
 const figtree = Figtree({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-figtree",
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-figtree",
 });
 
 export default function RootLayout({ children }: PropsWithChildren) {
