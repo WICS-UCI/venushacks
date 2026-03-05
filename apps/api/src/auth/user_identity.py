@@ -10,7 +10,7 @@ from pydantic import BaseModel, EmailStr
 JWT_ALGORITHM = "HS256"
 JWT_SECRET = os.getenv("JWT_SECRET", "")
 
-COOKIE_NAME = "irvinehacks_auth"
+COOKIE_NAME = "venushacks_auth"
 
 UCI_SSO_ENABLED = os.getenv("UCI_SSO_ENABLED", "true") == "true"
 
@@ -99,11 +99,11 @@ def issue_user_identity(user: User, response: Response) -> Response:
 
 
 def require_user_identity(
-    irvinehacks_auth: Annotated[Union[str, None], Cookie()] = None,
+    venushacks_auth: Annotated[Union[str, None], Cookie()] = None,
 ) -> User:
     """Provide the user decoded from the auth cookie.
     Raise status 401 if valid identity cannot be decoded."""
-    user_identity = _decode_user_identity(irvinehacks_auth)
+    user_identity = _decode_user_identity(venushacks_auth)
     if not user_identity:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Not authorized")
 
@@ -111,10 +111,10 @@ def require_user_identity(
 
 
 def use_user_identity(
-    irvinehacks_auth: Annotated[Union[str, None], Cookie()] = None,
+    venushacks_auth: Annotated[Union[str, None], Cookie()] = None,
 ) -> Union[User, None]:
     """Provide the user decoded from the auth cookie or `None` if invalid."""
-    return _decode_user_identity(irvinehacks_auth)
+    return _decode_user_identity(venushacks_auth)
 
 
 def _decode_user_identity(user_token: Union[str, None]) -> Union[User, None]:
