@@ -79,7 +79,7 @@ EXPECTED_USER = Applicant(
     status=Status.PENDING_REVIEW,
 )
 
-resume_handler.IRVINEHACKS_MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
+resume_handler.MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
 
 app = FastAPI()
 app.include_router(user.router)
@@ -109,7 +109,7 @@ def test_mentor_apply_successfully(
     res = client.post("/mentor", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.IRVINEHACKS_MENTOR_RESUMES_FOLDER_ID, *EXPECTED_RESUME_UPLOAD
+        resume_handler.MENTOR_RESUMES_FOLDER_ID, *EXPECTED_RESUME_UPLOAD
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
         Collection.USERS,
@@ -265,7 +265,9 @@ def test_mentor_application_data_with_other_throws_422(
 ) -> None:
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["pronouns"].append("other")  # type: ignore[attr-defined]
+    contains_other["experienced_technologies"].append(  # type: ignore[attr-defined]
+        "other"
+    )
     res = client.post("/mentor", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 

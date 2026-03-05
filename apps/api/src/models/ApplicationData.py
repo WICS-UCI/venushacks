@@ -1,6 +1,5 @@
 from datetime import datetime
 from enum import Enum
-import json
 from typing import Annotated, Any, Literal, Union
 
 from fastapi import UploadFile
@@ -14,7 +13,6 @@ from pydantic import (
     HttpUrl,
     Tag,
     field_serializer,
-    field_validator,
 )
 
 
@@ -35,12 +33,11 @@ def make_empty_none(val: Union[str, None]) -> Union[str, None]:
 
 
 FIELDS_SUPPORTING_OTHER = [
-    "pronouns",
-    "ethnicity",
     "school",
-    "major",
-    "experienced_technologies",
+    "gender_identity",
     "dietary_restrictions",
+    "experienced_technologies",
+    "majors_and_minors",
 ]
 
 
@@ -51,18 +48,31 @@ NullableHttpUrl = Annotated[Union[None, HttpUrl], BeforeValidator(make_empty_non
 class BaseApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
+    date_of_birth: datetime
+    is_18_older: bool
+    gender_identity: str
     pronouns: list[str] = []
 
-    ethnicity: str
-    is_18_older: bool
+    shirt_size: str
     school: str
-    education_level: str
-    major: str
-    is_first_hackathon: bool
-    linkedin: NullableHttpUrl = None
-    portfolio: NullableHttpUrl = None
-    frq_change: str = Field(max_length=2048)
-    frq_video_game: str = Field(max_length=2048)
+    majors_and_minors: list[str] = []
+    year: Literal["Freshman", "Sophomore", "Junior", "Senior", "Graduate", "Other"]
+
+    previous_hackathons: int = Field(ge=0)
+    previous_vh: bool = False
+
+    share_resume_with_sponsors: bool = True
+
+    dietary_restrictions: Union[str, None] = Field(None, max_length=2048)
+
+    frq_project: str = Field(max_length=2048)
+    frq_diversity: str = Field(max_length=2048)
+    frq_excited: str = Field(max_length=2048)
+    frq_picnic: str = Field(max_length=2048)
+
+    how_did_you_hear_about_us: str = Field(max_length=64)
+
+    questions_comments_concerns: Union[str, None] = Field(None, max_length=2048)
 
 
 class BaseMentorApplicationData(BaseModel):
@@ -110,53 +120,6 @@ class BaseVolunteerApplicationData(BaseModel):
     sunday_availability: list[Hour] = []
 
 
-class BaseZotHacksHackerApplicationData(BaseModel):
-    model_config = ConfigDict(str_strip_whitespace=True, str_max_length=1024)
-
-    pronouns: list[str] = []
-    is_18_older: bool
-    school_year: str
-    dietary_restrictions: list[str] = []
-    allergies: Union[str, None] = Field(None, max_length=2048)
-    major: str
-    hackathon_experience: Literal["first_time", "some_experience", "veteran"]
-
-    elevator_pitch_saq: str = Field(max_length=1024)
-    tech_experience_saq: str = Field(max_length=2048)
-    learn_about_self_saq: str = Field(max_length=2048)
-    pixel_art_saq: str = Field(max_length=2048)
-    pixel_art_data: list[int] = Field(..., min_length=64, max_length=64)
-
-    comments: Union[str, None] = Field(None, max_length=2048)
-
-    @field_validator("pixel_art_data", mode="before")
-    def parse_pixel_art(cls, v: str) -> Any:
-        if isinstance(v, str):
-            return json.loads(v)
-        return v
-
-
-class BaseZotHacksMentorApplicationData(BaseModel):
-    model_config = ConfigDict(str_strip_whitespace=True, str_max_length=1024)
-
-    is_18_older: bool
-    pronouns: str
-    degree: str
-    major: str
-    graduation_year: int
-    mentoring_experience: str = Field(max_length=2048)
-    help_participants_frq: str = Field(max_length=2048)
-    new_team_help_frq: str = Field(max_length=2048)
-    tech_stack_frq: str = Field(max_length=2048)
-    frontend_backend_frq: str = Field(max_length=2048)
-    skills: list[str] = []
-
-    github: NullableHttpUrl = None
-    portfolio: NullableHttpUrl = None
-    linkedin: NullableHttpUrl = None
-    comments: Union[str, None] = Field(None, max_length=2048)
-
-
 class RawHackerApplicationData(BaseApplicationData):
     """Expected to be sent by the form on the site."""
 
@@ -184,27 +147,13 @@ class RawVolunteerApplicationData(BaseVolunteerApplicationData):
     application_type: Literal["Volunteer"]
 
 
-class RawZotHacksHackerApplicationData(BaseZotHacksHackerApplicationData):
-    first_name: str
-    last_name: str
-    resume: Union[UploadFile, None] = None
-    application_type: Literal["Hacker"]
-
-
-class RawZotHacksMentorApplicationData(BaseZotHacksMentorApplicationData):
-    first_name: str
-    last_name: str
-    resume: UploadFile
-    application_type: Literal["Mentor"]
-
-
 class ProcessedHackerApplicationData(BaseApplicationData):
     email: EmailStr
     resume_url: Union[HttpUrl, None] = None
     submission_time: datetime
     reviews: list[Review] = []
 
-    @field_serializer("linkedin", "portfolio", "resume_url")
+    @field_serializer("resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
         if val is not None:
             return str(val)
@@ -231,63 +180,23 @@ class ProcessedVolunteerApplication(BaseVolunteerApplicationData):
     reviews: list[Review] = []
 
 
-class ProcessedZotHacksHackerApplicationData(BaseZotHacksHackerApplicationData):
-    email: EmailStr
-    resume_url: Union[HttpUrl, None] = None
-    submission_time: datetime
-    reviews: list[Review] = []
-    review_breakdown: dict[str, dict[str, int]] = {}
-    # TODO: Create aliases for review_breakdown
-    # dict[reviewer_uid, dict[field_name, score]]
-    global_field_scores: dict[str, int] = {}
-    # TODO: Create aliases for these global_field_scores
-    # dict[field that can have detailed reviews, score]
-
-    @field_serializer("resume_url")
-    def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
-        if val is not None:
-            return str(val)
-        return val
-
-
-class ProcessedZotHacksMentorApplication(BaseZotHacksMentorApplicationData):
-    email: EmailStr
-    resume_url: Union[HttpUrl, None] = None
-    submission_time: datetime
-    reviews: list[Review] = []
-
-    @field_serializer("linkedin", "github", "portfolio", "resume_url")
-    def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
-        if val is not None:
-            return str(val)
-        return val
-
-
 # To add more discriminating values, add a string
 # that doesn't appear in any other form
 def get_discriminator_value(v: Any) -> str:
     if isinstance(v, dict):
-        if "frq_video_game" in v:
+        if "frq_project" in v:
             return "hacker"
         if "mentor_prev_experience_saq1" in v:
             return "mentor"
         if "frq_volunteer" in v:
             return "volunteer"
-        if "elevator_pitch_saq" in v:
-            return "zothacks_hacker"
-        if "help_participants_frq" in v:
-            return "zothacks_mentor"
 
-    if "frq_video_game" in dir(v):
+    if "frq_project" in dir(v):
         return "hacker"
     if "mentor_prev_experience_saq1" in dir(v):
         return "mentor"
     if "frq_volunteer" in dir(v):
         return "volunteer"
-    if "elevator_pitch_saq" in dir(v):
-        return "zothacks_hacker"
-    if "help_participants_frq" in dir(v):
-        return "zothacks_mentor"
     return ""
 
 
@@ -296,8 +205,6 @@ ProcessedApplicationDataUnion = Annotated[
         Annotated[ProcessedHackerApplicationData, Tag("hacker")],
         Annotated[ProcessedMentorApplicationData, Tag("mentor")],
         Annotated[ProcessedVolunteerApplication, Tag("volunteer")],
-        Annotated[ProcessedZotHacksHackerApplicationData, Tag("zothacks_hacker")],
-        Annotated[ProcessedZotHacksMentorApplication, Tag("zothacks_mentor")],
     ],
     Discriminator(get_discriminator_value),
 ]
@@ -305,25 +212,17 @@ ProcessedApplicationDataUnion = Annotated[
 
 def get_raw_hacker_discriminator_value(v: Any) -> str:
     """Discriminator function for raw hacker application data."""
-    if isinstance(v, dict):
-        if "frq_video_game" in v:
-            return "hacker"
-        if "elevator_pitch_saq" in v:
-            return "zothacks_hacker"
+    if isinstance(v, dict) and "frq_project" in v:
+        return "hacker"
 
     # For object instances, check attributes
-    if hasattr(v, "frq_video_game"):
+    if hasattr(v, "frq_project"):
         return "hacker"
-    if hasattr(v, "elevator_pitch_saq"):
-        return "zothacks_hacker"
     return ""
 
 
 RawHackerApplicationDataUnion = Annotated[
-    Union[
-        Annotated[RawHackerApplicationData, Tag("hacker")],
-        Annotated[RawZotHacksHackerApplicationData, Tag("zothacks_hacker")],
-    ],
+    Union[Annotated[RawHackerApplicationData, Tag("hacker")],],
     Discriminator(get_raw_hacker_discriminator_value),
 ]
 
@@ -334,22 +233,15 @@ def get_raw_mentor_discriminator_value(v: Any) -> str:
         # Check for unique fields to distinguish between the two types
         if "mentor_prev_experience_saq1" in v:
             return "mentor"
-        if "help_participants_frq" in v:
-            return "zothacks_mentor"
 
     # For object instances, check attributes
     if hasattr(v, "mentor_prev_experience_saq1"):
         return "mentor"
-    if hasattr(v, "help_participants_frq"):
-        return "zothacks_mentor"
 
     return ""
 
 
 RawMentorApplicationDataUnion = Annotated[
-    Union[
-        Annotated[RawMentorApplicationData, Tag("mentor")],
-        Annotated[RawZotHacksMentorApplicationData, Tag("zothacks_mentor")],
-    ],
+    Union[Annotated[RawMentorApplicationData, Tag("mentor")],],
     Discriminator(get_raw_mentor_discriminator_value),
 ]
