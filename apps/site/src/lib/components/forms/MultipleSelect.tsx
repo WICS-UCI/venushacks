@@ -78,7 +78,10 @@ export default function MultipleSelect({
 									style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 									onChange={(e) => setIsOtherChecked(e.target.checked)}
 								/>
-								<label className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug" htmlFor={inputId}>
+								<label
+									className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug"
+									htmlFor={inputId}
+								>
 									{item.text}
 								</label>
 								<OtherInput

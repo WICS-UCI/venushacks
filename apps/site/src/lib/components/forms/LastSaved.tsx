@@ -21,11 +21,11 @@ export default function LastSaved({ lastSaved }: LastSavedProps) {
           })
         : "mm/dd/yyyy at 00:00:00";
 
-    return (
-        <div className="mt-8 flex items-center justify-between">
-            <span className="w-full font-figtree appearance-none text-[#8E8E8E] text-lg italic">
-                Last saved {formatted}.
-            </span>
-        </div>
-    );
+	return (
+		<div className="mt-8 flex items-center justify-between">
+			<span className="w-full font-figtree appearance-none text-[#8E8E8E] text-lg italic">
+				Last saved {formatted}.
+			</span>
+		</div>
+	);
 }
