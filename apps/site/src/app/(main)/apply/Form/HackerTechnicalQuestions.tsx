@@ -13,7 +13,10 @@ export default function TechnicalQuestions() {
 
 	return (
 		<div className="w-full flex justify-center px-4 py-10">
-			<div className="w-full max-w-[820px] bg-[#FCFCFC] border border-[#D6D6D6] rounded-[30px] p-[40px] flex flex-col gap-[30px]" style={{ boxShadow: '0px 4px 20px 0px #00000040' }}>
+			<div
+				className="w-full max-w-[820px] bg-[#FCFCFC] border border-[#D6D6D6] rounded-[30px] p-[40px] flex flex-col gap-[30px]"
+				style={{ boxShadow: "0px 4px 20px 0px #00000040" }}
+			>
 				<h2 className="font-figtree text-[20px] font-semibold text-black">
 					III. Technical Questions
 				</h2>
