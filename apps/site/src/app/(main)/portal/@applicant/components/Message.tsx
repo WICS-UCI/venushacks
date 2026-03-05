@@ -27,10 +27,10 @@ function Message({ status, role }: MessageProps) {
 		case Status.Rejected: {
 			message = (
 				<p className="mt-4">
-					Thank you for applying to VenusHacks 2026. After careful review,
-					we’re unable to offer you a spot this year. We truly appreciate the
-					time and effort you put into your application, and we encourage you to
-					apply again in the future.
+					Thank you for applying to VenusHacks 2026. After careful review, we’re
+					unable to offer you a spot this year. We truly appreciate the time and
+					effort you put into your application, and we encourage you to apply
+					again in the future.
 				</p>
 			);
 			break;
