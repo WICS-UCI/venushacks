@@ -1,5 +1,4 @@
 "use client";
-
 import { ChangeEvent, useState } from "react";
 
 class InvalidFile extends Error {
@@ -17,7 +16,6 @@ export default function ResumeInformation({
 	isRequired,
 }: ResumeInformationProps) {
 	const [resumePath, setResumePath] = useState<string>("");
-	const [hasUploaded, setHasUploaded] = useState<boolean>(false);
 	const [errorMessage, setErrorMessage] = useState<string>("");
 
 	const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +30,6 @@ export default function ResumeInformation({
 		} catch (error) {
 			event.target.value = "";
 		}
-		setHasUploaded(true);
 	};
 
 	const handleFile = (file: File | null) => {
@@ -65,7 +62,9 @@ export default function ResumeInformation({
 				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 			>
 				{errorMessage ? (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">{errorMessage}</span>
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
+						{errorMessage}
+					</span>
 				) : resumePath ? (
 					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
 						{"Selected " + resumePath}
