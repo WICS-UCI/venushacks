@@ -22,9 +22,9 @@ export default async function Hacker() {
 
 	return (
 		<ApplicationFlow
-		applicationType="Hacker"
-		applyPath="/api/user/apply"
-		identity={identity}
+			applicationType="Hacker"
+			applyPath="/api/user/apply"
+			identity={identity}
 		>
 		<ApplicationLandingPane applicationType="Hacker" />
 
