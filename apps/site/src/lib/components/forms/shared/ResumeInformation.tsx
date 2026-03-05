@@ -71,7 +71,9 @@ export default function ResumeInformation({
 						{"Selected " + resumePath}
 					</span>
 				) : (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg text-[#8E8E8E]">Upload from computer</span>
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg text-[#8E8E8E]">
+						Upload from computer
+					</span>
 				)}
 			</label>
 			<input
