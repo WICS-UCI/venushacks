@@ -26,7 +26,7 @@ export default async function Hacker() {
 			applyPath="/api/user/apply"
 			identity={identity}
 		>
-		<ApplicationLandingPane applicationType="Hacker" />
+			<ApplicationLandingPane applicationType="Hacker" />
 
 		<>
 			<BasicInformation />
