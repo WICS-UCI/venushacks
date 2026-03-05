@@ -110,9 +110,8 @@ async def apply(
     data = _parsed_form(form)
 
     discriminator = get_raw_hacker_discriminator_value(data)
-    raw_application_data: Union[
-        RawHackerApplicationData
-    ]
+    raw_application_data: Union[RawHackerApplicationData]
+
     try:
         if discriminator == "hacker":
             raw_application_data = RawHackerApplicationData.model_validate(data)
@@ -133,9 +132,7 @@ async def mentor(
 
     # Manually determine model to use
     discriminator = get_raw_mentor_discriminator_value(data)
-    raw_application_data: Union[
-        RawMentorApplicationData
-    ]
+    raw_application_data: Union[RawMentorApplicationData]
     try:
         if discriminator == "mentor":
             raw_application_data = RawMentorApplicationData.model_validate(data)

@@ -1,6 +1,5 @@
 from datetime import datetime
 from enum import Enum
-import json
 from typing import Annotated, Any, Literal, Union
 
 from fastapi import UploadFile
@@ -14,7 +13,6 @@ from pydantic import (
     HttpUrl,
     Tag,
     field_serializer,
-    field_validator,
 )
 
 
@@ -49,8 +47,6 @@ NullableHttpUrl = Annotated[Union[None, HttpUrl], BeforeValidator(make_empty_non
 class BaseApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
-    
-
     date_of_birth: datetime
     is_18_older: bool
     gender_identity: str
@@ -76,7 +72,6 @@ class BaseApplicationData(BaseModel):
     how_did_you_hear_about_us: str = Field(max_length=64)
 
     questions_comments_concerns: Union[str, None] = Field(None, max_length=2048)
-
 
 
 class BaseMentorApplicationData(BaseModel):
@@ -149,7 +144,6 @@ class RawVolunteerApplicationData(BaseVolunteerApplicationData):
     last_name: str
     resume: None = None  # to simplify usage of union
     application_type: Literal["Volunteer"]
-
 
 
 class ProcessedHackerApplicationData(BaseApplicationData):
@@ -227,9 +221,7 @@ def get_raw_hacker_discriminator_value(v: Any) -> str:
 
 
 RawHackerApplicationDataUnion = Annotated[
-    Union[
-        Annotated[RawHackerApplicationData, Tag("hacker")],
-    ],
+    Union[Annotated[RawHackerApplicationData, Tag("hacker")],],
     Discriminator(get_raw_hacker_discriminator_value),
 ]
 
@@ -249,8 +241,6 @@ def get_raw_mentor_discriminator_value(v: Any) -> str:
 
 
 RawMentorApplicationDataUnion = Annotated[
-    Union[
-        Annotated[RawMentorApplicationData, Tag("mentor")],
-    ],
+    Union[Annotated[RawMentorApplicationData, Tag("mentor")],],
     Discriminator(get_raw_mentor_discriminator_value),
 ]
