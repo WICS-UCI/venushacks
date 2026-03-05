@@ -11,7 +11,7 @@ const FIELDS_WITH_OTHER = [
 	"school",
 	"major",
 	"experienced_technologies",
-	"majors_and_minors"
+	"majors_and_minors",
 ];
 
 export default function useForm(applyPath: string) {
