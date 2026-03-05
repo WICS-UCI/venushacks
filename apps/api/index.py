@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from app import app as api
 from auth.guest_auth import AUTH_KEY_SALT
 from auth.user_identity import JWT_SECRET
+
 # from services.docusign_handler import DOCUSIGN_HMAC_KEY
 
 if not JWT_SECRET:
