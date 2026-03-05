@@ -1,4 +1,4 @@
-# IrvineHacks Site API
+# VenusHacks Site API
 
 This "app" contains the source code for the backend API used by the site.
 
