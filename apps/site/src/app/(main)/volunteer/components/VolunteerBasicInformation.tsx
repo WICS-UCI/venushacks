@@ -51,6 +51,8 @@ export default function BasicInformation() {
 					name="ethnicity"
 					labelText="Race / Ethnicity"
 					containerClass="flex flex-col w-full max-[1000px]:w-full"
+					isRequired={true}
+					placeholder="temp"
 					values={ethnicity}
 				/>
 			</div>
