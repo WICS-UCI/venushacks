@@ -10,6 +10,7 @@ import ShiftAvailability from "./components/ShiftAvailability";
 import VolunteerFRQ from "./components/VolunteerFRQ";
 import ExtraQuestions from "./components/ExtraQuestions";
 
+
 export const revalidate = 60;
 
 export default async function Volunteer() {

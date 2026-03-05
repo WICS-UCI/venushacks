@@ -30,6 +30,7 @@ const config: Config = {
 				sans: ["Lexend Giga"],
 				sniglet: ["Sniglet"],
 				torus: ["Torus Pro"],
+				figtree: ["Figtree"],
 			},
 			fontSize: {
 				"coming-soon": ["clamp(14px, 2.5vw, 28px)", { lineHeight: "100%", letterSpacing: "0.19em" }],

@@ -11,6 +11,7 @@ import Title from "./Title/Title";
 import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
+
 export const revalidate = 60;
 
 interface ApplicationFlowProps {
@@ -52,11 +53,10 @@ export default function ApplicationFlow({
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="my-32">
-					<Title applicationType={applicationType} />
+				<div className=" my-32 mx-96 max-[1000px]:mx-56 max-[800px]:mx-12 max-[400px]:mx-4">
 					<form
 						method="post"
-						className="bg-black border-[5px] border-white text-[var(--color-white)] w-8/12 flex flex-col items-center py-12 gap-14 z-1 max-[800px]:w-9/12 max-[400px]:w-11/12 drop-shadow-[25px_33px_0px_rgba(255,255,255,1)]"
+						className="bg-white shadow-lg rounded-2xl font-figtree p-10"
 						action={applyPath}
 						encType="multipart/form-data"
 						onSubmit={handleSubmit}
@@ -69,24 +69,30 @@ export default function ApplicationFlow({
 							hidden
 						/>
 						{children[pageIndex]}
-						{isLastPage() ? (
-							<Button
-								text="Submit"
-								className="text-2xl !px-11 !py-2"
-								isLightVersion={true}
-								disabled={submitting}
-							/>
-						) : (
-							// TODO: Implement next button to navigate to next page
-							<button type="button">NEXT</button>
-						)}
-						{isFirstPage() ? (
-							// TODO: Implement start application button (basically just a next button with different text)
-							<button type="button">START APPLICATION</button>
-						) : (
-							// TODO: Implement prev button to navigate to prev page
-							<button type="button">PREV</button>
-						)}
+						<div className="mt-8 flex justify-between">
+							{!isFirstPage() && (
+								<button type="button"
+								onClick={() => setPageIndex(pageIndex-1)}>PREV</button>
+							)}
+							{isLastPage() ? (
+								<Button
+									text="Submit"
+									className="text-2xl !px-11 !py-2"
+									isLightVersion={true}
+									disabled={submitting}
+								/>
+							) : isFirstPage() ? (
+								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto" 
+									type="button"
+									onClick={() => setPageIndex(1)}>
+									Start Application →
+								</button>
+							) : (
+								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
+								type="button"
+								onClick={() => setPageIndex(pageIndex+1)}>NEXT</button>
+							)}
+						</div>
 						{sessionExpired && sessionExpiredMessage}
 					</form>
 				</div>
