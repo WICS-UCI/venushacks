@@ -28,12 +28,13 @@ export default function QuestionField({
 
 	return (
 		<div className="flex flex-col gap-2 w-full font-figtree">
-		<label className="text-[16px] font-medium text-black">
-			{label}
-			{maxWords && ` (${maxWords} words)`}
-			{required && <span className="text-red-500"> *</span>}
-			{optional && <span className="text-black"> (optional)</span>}
-		</label>			<textarea
+			<label className="text-[16px] font-medium text-black">
+				{label}
+				{maxWords && ` (${maxWords} words)`}
+				{required && <span className="text-red-500"> *</span>}
+				{optional && <span className="text-black"> (optional)</span>}
+			</label>{" "}
+			<textarea
 				name={name}
 				value={value}
 				onChange={(e) => onChange?.(e.target.value)}
