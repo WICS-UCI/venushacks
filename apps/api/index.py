@@ -11,8 +11,8 @@ if not JWT_SECRET:
     raise RuntimeError("JWT_SECRET is not defined")
 if not AUTH_KEY_SALT:
     raise RuntimeError("AUTH_KEY_SALT is not defined")
-if not DOCUSIGN_HMAC_KEY:
-    raise RuntimeError("DOCUSIGN_HMAC_KEY is not defined")
+# if not DOCUSIGN_HMAC_KEY:
+#     raise RuntimeError("DOCUSIGN_HMAC_KEY is not defined")
 
 # Override AWS Lambda logging configuration
 logging.basicConfig(level=logging.INFO, force=True)
