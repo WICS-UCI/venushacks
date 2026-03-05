@@ -36,7 +36,8 @@ FIELDS_SUPPORTING_OTHER = [
     "school",
     "gender_identity",
     "dietary_restrictions",
-    "experienced_technologies",
+    "experienced_technologies", 
+    "majors_and_minors",
 ]
 
 

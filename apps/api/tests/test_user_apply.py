@@ -324,7 +324,7 @@ def test_application_data_with_other_throws_422(
 ) -> None:
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["gender_identity"].append("other")  # type: ignore[attr-defined]
+    contains_other["majors_and_minors"].append("other")  # type: ignore[attr-defined]
     res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 
