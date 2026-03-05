@@ -402,7 +402,7 @@ async def check_in_participant(
     uid: str,
     associate: Annotated[User, Depends(require_organizer)],
 ) -> None:
-    """Check in participant at IrvineHacks."""
+    """Check in participant"""
     try:
         await participant_manager.check_in_participant(uid, associate)
     except ValueError:

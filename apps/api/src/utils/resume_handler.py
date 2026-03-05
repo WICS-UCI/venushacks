@@ -9,8 +9,6 @@ from pydantic import HttpUrl
 
 from services import gdrive_handler
 
-from utils.hackathon_context import hackathon_name_ctx, HackathonName
-
 log = getLogger(__name__)
 
 HACKER_RESUMES_FOLDER_ID = os.getenv("HACKER_RESUMES_FOLDER_ID")
@@ -35,7 +33,6 @@ async def upload_resume(person: Person, resume_upload: UploadFile) -> HttpUrl:
     """Upload resume file to Google Drive and provide url to uploaded file.
     Reject files larger than size limit"""
 
-    hackathon_name = hackathon_name_ctx.get()
     RESUME_FOLDER_ID = FOLDER_MAP[person.application_type]
     if not RESUME_FOLDER_ID:
         raise RuntimeError("RESUMES_FOLDER_ID is not defined")

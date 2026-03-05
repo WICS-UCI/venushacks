@@ -17,9 +17,6 @@ from routers import user
 from services.mongodb_handler import Collection
 from utils import resume_handler
 
-from utils.hackathon_context import HackathonName
-from middleware.hackathon_context_middleware import HackathonContextMiddleware
-
 # Tests will break again next year, tech should notice and fix :P
 TEST_DEADLINE = datetime(2026, 10, 1, 8, 0, 0, tzinfo=timezone.utc)
 user.DEADLINE = TEST_DEADLINE
@@ -117,7 +114,6 @@ app.include_router(user.router)
 app.add_middleware(HackathonContextMiddleware)
 
 client = UserTestClient(USER_PKFIRE, app)
-client.headers.update({"X-Hackathon-Name": HackathonName.VENUSHACKS})
 
 
 @patch("utils.email_handler.send_application_confirmation_email", autospec=True)
