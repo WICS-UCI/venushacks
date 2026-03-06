@@ -8,13 +8,11 @@ from fastapi import FastAPI
 from pydantic import HttpUrl
 
 from auth.user_identity import NativeUser, UserTestClient
-from middleware.hackathon_context_middleware import HackathonContextMiddleware
 from models.ApplicationData import ProcessedMentorApplicationData
 from models.user_record import Applicant, Status, Role
 from routers import user
 from services.mongodb_handler import Collection
 from utils import resume_handler
-from utils.hackathon_context import HackathonName
 
 # Tests will break again next year, tech should notice and fix :P
 TEST_DEADLINE = datetime(2026, 10, 1, 8, 0, 0, tzinfo=timezone.utc)
@@ -43,6 +41,7 @@ SAMPLE_APPLICATION = {
     "proficiency_javascript": "beginner",
     "other_skills_technologies": "",
     "areas_of_development": ["Frontend", "Backend"],
+    "experienced_technologies": ["Python", "JavaScript"],
     "why_mentor_frq": "I want to help beginners.",
     "contribute_inclusive_frq": "I will be welcoming.",
     "available_entire_duration": "true",
@@ -79,17 +78,12 @@ EXPECTED_USER = Applicant(
     status=Status.PENDING_REVIEW,
 )
 
-resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
-resume_handler.FOLDER_MAP[HackathonName.VENUSHACK][
-    "Mentor"
-] = resume_handler.VENUSHACK_MENTOR_RESUMES_FOLDER_ID
+resume_handler.MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
 
 app = FastAPI()
 app.include_router(user.router)
-app.add_middleware(HackathonContextMiddleware)
 
 client = UserTestClient(USER_PKFIRE, app)
-client.headers.update({"X-Hackathon-Name": HackathonName.VENUSHACK.value})
 
 
 @patch("utils.email_handler.send_application_confirmation_email", autospec=True)
@@ -114,8 +108,7 @@ def test_mentor_apply_successfully(
     res = client.post("/mentor", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Mentor"],
-        *EXPECTED_RESUME_UPLOAD,
+        resume_handler.MENTOR_RESUMES_FOLDER_ID, *EXPECTED_RESUME_UPLOAD
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
         Collection.USERS,
@@ -269,7 +262,9 @@ def test_mentor_application_data_with_other_throws_422(
 ) -> None:
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["areas_of_development"] = ["Frontend", "other"]
+    contains_other["experienced_technologies"].append(  # type: ignore[attr-defined]
+        "other"
+    )
     res = client.post("/mentor", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 

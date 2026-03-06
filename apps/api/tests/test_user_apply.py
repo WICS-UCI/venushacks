@@ -1,5 +1,4 @@
 import copy
-import json
 from datetime import datetime, timezone
 from unittest.mock import AsyncMock, Mock, patch
 
@@ -9,18 +8,11 @@ from fastapi import FastAPI
 from pydantic import HttpUrl
 
 from auth.user_identity import NativeUser, UserTestClient
-from models.ApplicationData import (
-    ProcessedHackerApplicationData,
-    ProcessedVenusHacksHackerApplicationData,
-)
-
+from models.ApplicationData import ProcessedHackerApplicationData
 from models.user_record import Applicant, Status, Role
 from routers import user
 from services.mongodb_handler import Collection
 from utils import resume_handler
-
-from utils.hackathon_context import HackathonName
-from middleware.hackathon_context_middleware import HackathonContextMiddleware
 
 # Tests will break again next year, tech should notice and fix :P
 TEST_DEADLINE = datetime(2026, 10, 1, 8, 0, 0, tzinfo=timezone.utc)
@@ -38,49 +30,26 @@ SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
     "pronouns": ["pk"],
-    "ethnicity": "fire",
+    "date_of_birth": "2000-01-01T00:00:00Z",
+    "gender_identity": "Non-binary",
+    "shirt_size": "M",
+    "year": "Senior",
     "is_18_older": "true",
     "school": "UC Irvine",
-    "education_level": "Fifth+ Year Undergraduate",
-    "major": "Computer Science",
-    "is_first_hackathon": "false",
-    "linkedin": "",
-    "portfolio": "https://github.com",
-    "frq_change": "I am pkfire",
-    "frq_video_game": "I am pkfire",
+    "majors_and_minors": ["Computer Science"],
+    "previous_hackathons": "2",
+    "previous_vh": "false",
+    "share_resume_with_sponsors": "true",
+    "dietary_restrictions": "None",
+    "frq_project": "I want to build a cool project",
+    "frq_diversity": "Diversity is important",
+    "frq_excited": "I am excited to learn",
+    "frq_picnic": "I love picnics",
+    "how_did_you_hear_about_us": "Instagram",
+    "questions_comments_concerns": "No comments",
     "application_type": "Hacker",
     "email": "pkfire@uci.edu",
 }
-
-SAMPLE_VENUSHACKS_HACKER_APPLICATION = {
-    "first_name": "pk",
-    "last_name": "fire",
-    "preferred_name": "",
-    "date_of_birth": "2000-01-15",
-    "is_18_or_older_by_event_date": "true",
-    "gender_identity": "Female",
-    "preferred_pronouns": "she/her",
-    "shirt_size": "M",
-    "university": "University of California, Irvine",
-    "major_minors": "Computer Science",
-    "year": "Freshman",
-    "num_hackathons_attended": "This is my first hackathon",
-    "attended_venushacks_previously": "false",
-    "share_resume_with_sponsors": "false",
-    "dietary_restrictions": ["None"],
-    "acknowledge_transportation": "true",
-    "acknowledge_in_person_attendance": "true",
-    "project_passionate_about": "A small game I built.",
-    "diversity_inclusivity_experiences": (
-        "Team projects showed me diverse perspectives."
-    ),
-    "excited_to_work_on_10_years": "AI for education.",
-    "three_must_haves_picnic": "Blanket, snacks, friends.",
-    "how_did_you_hear": "Social Media",
-    "questions_comments_concerns": "",
-    "application_type": "Hacker",
-}
-
 
 SAMPLE_RESUME = ("my-resume.pdf", b"resume", "application/pdf")
 SAMPLE_FILES = {"resume": SAMPLE_RESUME}
@@ -97,39 +66,17 @@ EMPTY_RESUME = (
 EXPECTED_RESUME_UPLOAD = ("pk-fire-69f2afc2.pdf", b"resume", "application/pdf")
 SAMPLE_RESUME_URL = HttpUrl("https://drive.google.com/file/d/...")
 SAMPLE_SUBMISSION_TIME = datetime(2024, 1, 12, 8, 1, 21, tzinfo=timezone.utc)
-SAMPLE_VERDICT_TIME = None
 
 EXPECTED_APPLICATION_DATA = ProcessedHackerApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=SAMPLE_RESUME_URL,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
 )
-assert EXPECTED_APPLICATION_DATA.linkedin is None
 
 EXPECTED_APPLICATION_DATA_WITHOUT_RESUME = ProcessedHackerApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=None,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
-)
-
-EXPECTED_GLOBAL_FIELD_SCORES = {"hackathon_experience": -1000}
-
-EXPECTED_VENUSHACKS_HACKER_APPLICATION_DATA = ProcessedVenusHacksHackerApplicationData(
-    **SAMPLE_VENUSHACKS_HACKER_APPLICATION,  # type: ignore[arg-type]
-    resume_url=SAMPLE_RESUME_URL,
-    submission_time=SAMPLE_SUBMISSION_TIME,
-    email=USER_EMAIL,
-)
-
-EXPECTED_VENUSHACKS_HACKER_USER = Applicant(
-    uid="edu.uci.pkfire",
-    first_name="pk",
-    last_name="fire",
-    roles=(Role.APPLICANT, Role.HACKER),
-    status=Status.PENDING_REVIEW,
-    application_data=EXPECTED_VENUSHACKS_HACKER_APPLICATION_DATA,
 )
 
 EXPECTED_USER = Applicant(
@@ -150,23 +97,16 @@ EXPECTED_USER_WITHOUT_RESUME = Applicant(
     application_data=EXPECTED_APPLICATION_DATA_WITHOUT_RESUME,
 )
 
+resume_handler.HACKER_RESUMES_FOLDER_ID = "HACKER_RESUMES_FOLDER_ID"
 resume_handler.FOLDER_MAP = {
-    HackathonName.VENUSHACK: {
-        "Hacker": "HACKER_RESUMES_FOLDER_ID",
-        "Mentor": "MENTOR_RESUMES_FOLDER_ID",
-    },
-    HackathonName.ZOTHACKS: {
-        "Hacker": "HACKER_RESUMES_FOLDER_ID",
-        "Mentor": "MENTOR_RESUMES_FOLDER_ID",
-    },
+    "Hacker": resume_handler.HACKER_RESUMES_FOLDER_ID,
+    "Mentor": "MENTOR_RESUMES_FOLDER_ID",
 }
 
 app = FastAPI()
 app.include_router(user.router)
-app.add_middleware(HackathonContextMiddleware)
 
 client = UserTestClient(USER_PKFIRE, app)
-client.headers.update({"X-Hackathon-Name": HackathonName.VENUSHACK.value})
 
 
 @patch("utils.email_handler.send_application_confirmation_email", autospec=True)
@@ -189,9 +129,10 @@ def test_apply_successfully(
     mock_datetime.now.return_value = SAMPLE_SUBMISSION_TIME
     mock_is_past_deadline.return_value = False
     res = client.post("/apply", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
+    assert res.status_code == 201
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Hacker"],
+        resume_handler.FOLDER_MAP["Hacker"],
         *EXPECTED_RESUME_UPLOAD,
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
@@ -204,47 +145,6 @@ def test_apply_successfully(
         USER_EMAIL, EXPECTED_USER, Role.HACKER
     )
     assert res.status_code == 201, res.text
-
-
-@patch("utils.email_handler.send_application_confirmation_email", autospec=True)
-@patch("services.mongodb_handler.update_one", autospec=True)
-@patch("routers.user._is_past_deadline", autospec=True)
-@patch("routers.user.datetime", autospec=True)
-@patch("services.gdrive_handler.upload_file", autospec=True)
-@patch("services.mongodb_handler.retrieve_one", autospec=True)
-def test_venushack_hacker_apply_successfully(
-    mock_mongodb_handler_retrieve_one: AsyncMock,
-    mock_gdrive_handler_upload_file: AsyncMock,
-    mock_datetime: Mock,
-    mock_is_past_deadline: Mock,
-    mock_mongodb_handler_update_one: AsyncMock,
-    mock_send_application_confirmation_email: AsyncMock,
-) -> None:
-    """Test that a valid VenusHacks participant application is submitted properly."""
-    mock_mongodb_handler_retrieve_one.return_value = None
-    mock_gdrive_handler_upload_file.return_value = SAMPLE_RESUME_URL
-    mock_datetime.now.return_value = SAMPLE_SUBMISSION_TIME
-    mock_is_past_deadline.return_value = False
-    res = client.post(
-        "/apply", data=SAMPLE_VENUSHACKS_HACKER_APPLICATION, files=SAMPLE_FILES
-    )
-
-    assert res.status_code == 201
-
-    mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.FOLDER_MAP[HackathonName.VENUSHACK]["Hacker"],
-        *EXPECTED_RESUME_UPLOAD,
-    )
-    mock_mongodb_handler_update_one.assert_awaited_once_with(
-        Collection.USERS,
-        {"_id": EXPECTED_VENUSHACKS_HACKER_USER.uid},
-        EXPECTED_VENUSHACKS_HACKER_USER.model_dump(),
-        upsert=True,
-    )
-    mock_send_application_confirmation_email.assert_awaited_once_with(
-        USER_EMAIL, EXPECTED_VENUSHACKS_HACKER_USER, Role.HACKER
-    )
-    assert res.status_code == 201
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
@@ -409,10 +309,7 @@ def test_apply_successfully_without_resume(
 
 def test_application_data_is_bson_encodable() -> None:
     """Test that application data model can be encoded into BSON to store in MongoDB."""
-    data = EXPECTED_APPLICATION_DATA.model_copy()
-    data.linkedin = HttpUrl("https://linkedin.com")
-    encoded = bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
-    assert len(encoded) == 404
+    bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
@@ -421,7 +318,7 @@ def test_application_data_with_other_throws_422(
 ) -> None:
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["pronouns"].append("other")  # type: ignore[attr-defined]
+    contains_other["majors_and_minors"].append("other")  # type: ignore[attr-defined]
     res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 

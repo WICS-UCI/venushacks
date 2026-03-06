@@ -9,24 +9,14 @@ from pydantic import HttpUrl
 
 from services import gdrive_handler
 
-from utils.hackathon_context import hackathon_name_ctx, HackathonName
-
 log = getLogger(__name__)
 
-VENUSHACK_HACKER_RESUMES_FOLDER_ID = os.getenv("VENUSHACK_HACKER_RESUMES_FOLDER_ID")
-VENUSHACK_MENTOR_RESUMES_FOLDER_ID = os.getenv("VENUSHACK_MENTOR_RESUMES_FOLDER_ID")
-ZOTHACKS_HACKER_RESUMES_FOLDER_ID = os.getenv("ZOTHACKS_HACKER_RESUMES_FOLDER_ID")
-ZOTHACKS_MENTOR_RESUMES_FOLDER_ID = os.getenv("ZOTHACKS_MENTOR_RESUMES_FOLDER_ID")
+HACKER_RESUMES_FOLDER_ID = os.getenv("HACKER_RESUMES_FOLDER_ID")
+MENTOR_RESUMES_FOLDER_ID = os.getenv("MENTOR_RESUMES_FOLDER_ID")
 
 FOLDER_MAP = {
-    HackathonName.VENUSHACK: {
-        "Hacker": VENUSHACK_HACKER_RESUMES_FOLDER_ID,
-        "Mentor": VENUSHACK_MENTOR_RESUMES_FOLDER_ID,
-    },
-    HackathonName.ZOTHACKS: {
-        "Hacker": ZOTHACKS_HACKER_RESUMES_FOLDER_ID,
-        "Mentor": ZOTHACKS_MENTOR_RESUMES_FOLDER_ID,
-    },
+    "Hacker": HACKER_RESUMES_FOLDER_ID,
+    "Mentor": MENTOR_RESUMES_FOLDER_ID,
 }
 
 SIZE_LIMIT = 1 * 1024 * 1024  # 1MB
@@ -43,8 +33,7 @@ async def upload_resume(person: Person, resume_upload: UploadFile) -> HttpUrl:
     """Upload resume file to Google Drive and provide url to uploaded file.
     Reject files larger than size limit"""
 
-    hackathon_name = hackathon_name_ctx.get()
-    RESUME_FOLDER_ID = FOLDER_MAP[hackathon_name][person.application_type]
+    RESUME_FOLDER_ID = FOLDER_MAP[person.application_type]
     if not RESUME_FOLDER_ID:
         raise RuntimeError("RESUMES_FOLDER_ID is not defined")
 
