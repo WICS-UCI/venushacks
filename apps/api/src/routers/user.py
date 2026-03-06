@@ -136,7 +136,10 @@ async def mentor(
         if discriminator == "mentor":
             raw_application_data = RawMentorApplicationData.model_validate(data)
         else:
-            raise ValueError("Cannot determine mentor application type")
+            raise HTTPException(
+                status.HTTP_422_UNPROCESSABLE_ENTITY,
+                "Cannot determine mentor application type",
+            )
     except ValidationError as e:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
 

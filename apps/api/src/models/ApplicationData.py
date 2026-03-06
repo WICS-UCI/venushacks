@@ -38,6 +38,7 @@ FIELDS_SUPPORTING_OTHER = [
     "dietary_restrictions",
     "experienced_technologies",
     "majors_and_minors",
+    "areas_of_development",
 ]
 
 
@@ -87,7 +88,7 @@ ProficiencyOptional = Annotated[
     BeforeValidator(_empty_to_none_proficiency),
 ]
 
-
+# mentor application model
 class BaseMentorApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
@@ -143,7 +144,7 @@ class BaseVolunteerApplicationData(BaseModel):
     frq_volunteer: str = Field(max_length=2048)
     frq_utensil: str = Field(max_length=2048)
     allergies: Union[str, None] = Field(None, max_length=2048)
-    extra_questions: Union[str, None] = Field(None, max_length=2048)
+    other_questions: Union[str, None] = Field(None, max_length=2048)
 
     friday_availability: list[Hour] = []
     saturday_availability: list[Hour] = []
