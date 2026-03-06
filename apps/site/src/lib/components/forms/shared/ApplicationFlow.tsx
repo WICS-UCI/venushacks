@@ -71,9 +71,9 @@ export default function ApplicationFlow({
 						{children[pageIndex]}
 						<div className="mt-8 flex justify-between">
 							{!isFirstPage() && (
-								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
+								<button className="px-3 py-2 bg-[#FFECEC80] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
 								type="button"
-								onClick={() => setPageIndex(pageIndex-1)}>PREV</button>
+								onClick={() => setPageIndex(pageIndex-1)}>← 	Back</button>
 							)}
 							{isLastPage() ? (
 								<Button
@@ -91,9 +91,14 @@ export default function ApplicationFlow({
 							) : (
 								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
 								type="button"
-								onClick={() => setPageIndex(pageIndex+1)}>NEXT</button>
+								onClick={() => setPageIndex(pageIndex+1)}>Next →</button>
 							)}
 						</div>
+						{pageIndex > 0 && 
+							<div className=" mt-8">
+								<p className="italic text-gray-400"> Last saved mm/dd/yyyy at 00:00:00.</p>
+							</div>
+						}
 						{sessionExpired && sessionExpiredMessage}
 					</form>
 				</div>
