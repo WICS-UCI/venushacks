@@ -67,7 +67,7 @@ export default function EssentialQuestions() {
 					isRequired={true}
 					containerClass="w-full"
 				/>
-			<div className="flex flex-row gap-3">
+			<div className="flex lg:flex-row md:flex-col sm:flex-col gap-3">
 				<TextInput
 				name="first_name"
 				type="text"

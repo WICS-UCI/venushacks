@@ -1,26 +1,3 @@
-// import DropdownSelect from "@/lib/components/forms/DropdownSelect";
-// import MultipleSelect from "@/lib/components/forms/MultipleSelect";
-// import TextInput from "@/lib/components/forms/TextInput";
-
-// const pronouns = [
-// 	{ value: "he", text: "He/him/his" },
-// 	{ value: "she", text: "She/her/hers" },
-// 	{ value: "they", text: "They/them/theirs" },
-// 	{ value: "ze", text: "Ze/zir/zirs" },
-// 	{ value: "other", text: "Other:" },
-// ];
-
-// const ethnicity = [
-// 	{ value: "American", text: "American Indian or Alaskan" },
-// 	{ value: "Asian", text: "Asian or Pacific Islander" },
-// 	{ value: "Black", text: "Black or African American" },
-// 	{ value: "Hispanic", text: "Hispanic" },
-// 	{ value: "White", text: "White or Caucasian" },
-// 	{ value: "Two-or-more", text: "Two or more races" },
-// 	{ value: "Prefer not to answer", text: "Prefer not to answer" },
-// 	{ value: "other", text: "Other:" },
-// ];
-
 export default function BasicInformation() {
 	return (
 		<div className="flex flex-col gap-3">

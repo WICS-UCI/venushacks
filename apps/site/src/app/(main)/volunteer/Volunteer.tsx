@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
-import BasicInformation from "./components/VolunteerBasicInformation";
+import BasicInformation from "./components/VolunteerDescription";
 import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
 import EssentialQuestions from "@/lib/components/forms/shared/PersonalInformation";
 import ShiftAvailability from "./components/ShiftAvailability";
@@ -31,8 +31,8 @@ export default async function Volunteer() {
 			<EssentialQuestions/>
 			<VolunteerGeneralQuestions/>
 			<VolunteerFRQ />
-			<ExtraQuestions />
 			<ShiftAvailability />
+			<ExtraQuestions />
 		</ApplicationFlow>
 	);
 }
