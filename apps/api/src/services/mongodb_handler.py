@@ -16,6 +16,10 @@ STAGING_ENV = os.getenv("DEPLOYMENT") == "STAGING"
 
 MONGODB_URI = os.getenv("MONGODB_URI")
 
+if MONGODB_URI:
+    log.info("MongoDB URI env detected.")
+    log.info(MONGODB_URI[:6])
+
 # Mypy thinks AgnosticClient is a generic type, but providing type parameters to it
 # raises a TypeError.
 MONGODB_CLIENT: AgnosticClient = AsyncIOMotorClient(MONGODB_URI)  # type: ignore
