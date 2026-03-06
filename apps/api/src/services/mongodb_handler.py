@@ -72,8 +72,16 @@ async def insert(
     """Insert a document into the specified collection of the database"""
     DB = get_database()
 
+    log.info("checkpoint 1")
+
     COLLECTION = DB[collection.value]
+
+    log.info("checkpoint 2")
+
     result = await COLLECTION.insert_one(data)
+
+    log.info("checkpoint 3")
+
     if not result.acknowledged:
         log.error("MongoDB document insertion was not acknowledged")
         raise RuntimeError("Could not insert document into MongoDB collection")
