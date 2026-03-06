@@ -16,15 +16,6 @@ STAGING_ENV = os.getenv("DEPLOYMENT") == "STAGING"
 
 MONGODB_URI = os.getenv("MONGODB_URI")
 
-if MONGODB_URI:
-    print("MongoDB URI env detected")
-    log.info("MongoDB URI env detected.")
-    log.info(MONGODB_URI[:6])
-else:
-    print("MongoDB URI env not detected")
-
-    log.info("MongoDB URI env not detected.")
-
 # Mypy thinks AgnosticClient is a generic type, but providing type parameters to it
 # raises a TypeError.
 MONGODB_CLIENT: AgnosticClient = AsyncIOMotorClient(MONGODB_URI)  # type: ignore
@@ -63,6 +54,13 @@ def get_database() -> AgnosticDatabase[Any]:
 
     log.info(f"Using database: {database_name}")
 
+    if MONGODB_URI:
+        log.info("MongoDB URI env detected.")
+        print(MONGODB_CLIENT)
+        log.info(MONGODB_URI[:6])
+    else:
+        log.info("MongoDB URI env not detected.")
+
     return MONGODB_CLIENT[database_name].with_options(
         codec_options=CodecOptions(tz_aware=True)
     )
@@ -73,6 +71,7 @@ async def insert(
 ) -> Union[str, bool]:
     """Insert a document into the specified collection of the database"""
     DB = get_database()
+
     COLLECTION = DB[collection.value]
     result = await COLLECTION.insert_one(data)
     if not result.acknowledged:
