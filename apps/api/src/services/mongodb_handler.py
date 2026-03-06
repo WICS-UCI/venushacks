@@ -1,4 +1,3 @@
-import asyncio
 import os
 from enum import Enum
 from logging import getLogger
@@ -19,9 +18,6 @@ MONGODB_URI = os.getenv("MONGODB_URI")
 # Mypy thinks AgnosticClient is a generic type, but providing type parameters to it
 # raises a TypeError.
 MONGODB_CLIENT: AgnosticClient = AsyncIOMotorClient(MONGODB_URI)  # type: ignore
-
-# Resolve Vercel runtime issue
-MONGODB_CLIENT.get_io_loop = asyncio.get_event_loop  # type: ignore
 
 DB_NAME = "venushacks" if STAGING_ENV else "venushacks-prod"
 
