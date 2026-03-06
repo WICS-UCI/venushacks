@@ -1,17 +1,17 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import TextInput from "../TextInput";
-import MultipleSelect from "../MultipleSelect";
-import DropdownSelectYesFRQ from "../DropdownSelectYesFRQ";
+// import MultipleSelect from "../MultipleSelect";
+// import DropdownSelectYesFRQ from "../DropdownSelectYesFRQ";
 
-//these values can be edited if backend needs it later on
+// //these values can be edited if backend needs it later on
 
-const pronouns = [
-	{ value: "he", text: "He/him/his" },
-	{ value: "she", text: "She/her/hers" },
-	{ value: "they", text: "They/them/theirs" },
-	{ value: "ze", text: "Ze/zir/zirs" },
-	{ value: "other", text: "Other:" },
-];
+// const pronouns = [
+// 	{ value: "he", text: "He/him/his" },
+// 	{ value: "she", text: "She/her/hers" },
+// 	{ value: "they", text: "They/them/theirs" },
+// 	{ value: "ze", text: "Ze/zir/zirs" },
+// 	{ value: "other", text: "Other:" },
+// ];
 
 // const educationLevels = [
 // 	{ value: "high school", text: "High School (18+)" },
@@ -67,7 +67,7 @@ export default function EssentialQuestions() {
 					isRequired={true}
 					containerClass="w-full"
 				/>
-			<div className="flex lg:flex-row md:flex-col sm:flex-col gap-3">
+			<div className="flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3">
 				<TextInput
 				name="first_name"
 				type="text"
@@ -93,7 +93,7 @@ export default function EssentialQuestions() {
 				containerClass="w-full"
 				/>
 			</div>
-			<div className="flex flex-row gap-3">
+			<div className="flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3">
 				<TextInput
 					name="pronouns"
 					type="text"
@@ -115,7 +115,7 @@ export default function EssentialQuestions() {
 					containerClass="w-full"
 				/>
 			</div>
-			<div className="flex flex-row gap-3">
+			<div className="flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3">
 				<TextInput
 					type="date"
 					name="birthday"

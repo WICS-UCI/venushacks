@@ -53,7 +53,7 @@ export default function ApplicationFlow({
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="w-7/12">
+				<div className="w-11/12 lg:w-8/12 md:w-8/12 sm:w-10/12">
 					<form
 						method="post"
 						className="bg-white shadow-lg rounded-2xl font-figtree p-10"

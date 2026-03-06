@@ -46,7 +46,7 @@ export default function DropdownSelect({
 	return (
 		<div className={containerClass}>
 			<div className="flex flex-col">
-				<label className="text-md mb-2" htmlFor={name}>
+				<label className="text-md" htmlFor={name}>
 					{labelText} <RequiredAsterisk />
 				</label>
 				<select
