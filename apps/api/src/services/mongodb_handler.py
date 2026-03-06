@@ -50,13 +50,6 @@ def get_database() -> AgnosticDatabase[Any]:
 
     log.info(f"Using database: {database_name}")
 
-    if MONGODB_URI:
-        log.info("MongoDB URI env detected.")
-        print(MONGODB_CLIENT)
-        log.info(MONGODB_URI[:6])
-    else:
-        log.info("MongoDB URI env not detected.")
-
     return MONGODB_CLIENT[database_name].with_options(
         codec_options=CodecOptions(tz_aware=True)
     )
@@ -68,15 +61,9 @@ async def insert(
     """Insert a document into the specified collection of the database"""
     DB = get_database()
 
-    log.info("checkpoint 1")
-
     COLLECTION = DB[collection.value]
 
-    log.info("checkpoint 2")
-
     result = await COLLECTION.insert_one(data)
-
-    log.info("checkpoint 3")
 
     if not result.acknowledged:
         log.error("MongoDB document insertion was not acknowledged")
