@@ -88,6 +88,7 @@ ProficiencyOptional = Annotated[
     BeforeValidator(_empty_to_none_proficiency),
 ]
 
+
 # mentor application model
 class BaseMentorApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)

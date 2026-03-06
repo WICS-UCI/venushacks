@@ -144,7 +144,9 @@ def test_mentor_apply_without_why_mentor_frq_causes_422(
 ) -> None:
     """Test that data without why_mentor_frq (mentor discriminator) is unprocessable."""
     mock_mongodb_handler_retrieve_one.return_value = None
-    bad_application = {k: v for k, v in SAMPLE_APPLICATION.items() if k != "why_mentor_frq"}
+    bad_application = {
+        k: v for k, v in SAMPLE_APPLICATION.items() if k != "why_mentor_frq"
+    }
     res = client.post("/mentor", data=bad_application, files=SAMPLE_FILES)
 
     mock_mongodb_handler_retrieve_one.assert_not_called()
@@ -276,7 +278,9 @@ def test_mentor_application_data_is_bson_encodable() -> None:
 def test_mentor_application_data_with_other_throws_422(
     mock_mongodb_handler_retrieve_one: AsyncMock,
 ) -> None:
-    """Test that mentor data with unprocessed 'other' in areas_of_development causes 422."""
+    """Test that mentor data with unprocessed 'other' in areas_of_development
+    causes 422.
+    """
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
     contains_other["areas_of_development"].append("other")  # type: ignore[attr-defined]
