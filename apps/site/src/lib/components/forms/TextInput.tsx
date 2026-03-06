@@ -48,5 +48,5 @@ export default function TextInput({
 				placeholder={placeholder}
 			/>
 		</div>
-	)
+	);
 }
