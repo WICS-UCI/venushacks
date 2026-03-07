@@ -34,7 +34,6 @@ function VolunteerApplication({
 }) {
 	return (
 		<Container header={<Header variant="h2">Volunteer Application</Header>}>
-			
 			<SpaceBetween direction="vertical" size="m">
 				{Object.entries(VOLUNTEER_APPLICATION_SECTIONS).map(
 					([section, questions]) => (
