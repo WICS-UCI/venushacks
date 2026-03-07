@@ -11,11 +11,11 @@ export default function BasicInformation() {
 			</p>
 
 			<p>
-				VenusHacks is UCI’s largest women-centric hackathon that includes 
-				networking, fun activities, educational workshops, and lots of coding! 
-				Our mission is to empower underrepresented groups by providing an 
-				inclusive community to foster growth and creativity in computing. This 
-				event will take place from{" "} 
+				VenusHacks is UCI’s largest women-centric hackathon that includes
+				networking, fun activities, educational workshops, and lots of coding!
+				Our mission is to empower underrepresented groups by providing an
+				inclusive community to foster growth and creativity in computing. This
+				event will take place from{" "}
 				<b>
 					May 15th - May 17th (not overnight) at UC Irvine in the Donald Bren 
 					Hall. 
