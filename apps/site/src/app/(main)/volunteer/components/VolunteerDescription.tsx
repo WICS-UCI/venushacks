@@ -20,7 +20,6 @@ export default function BasicInformation() {
 					May 15th - May 17th (not overnight) at UC Irvine in the Donald Bren
 					Hall.
 				</b>
-
 			</p>
 			<p>
 				As a volunteer, you will be assigned to various roles throughout the 
