@@ -22,8 +22,8 @@ export default function BasicInformation() {
 				</b>
 			</p>
 			<p>
-				As a volunteer, you will be assigned to various roles throughout the 
-				event, which include but are not limited to: 
+				As a volunteer, you will be assigned to various roles throughout the
+				event, which include but are not limited to:
 			</p>
 
 			<ol className="list-decimal list-inside">
