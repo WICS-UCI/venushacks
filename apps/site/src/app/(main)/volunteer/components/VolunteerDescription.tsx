@@ -36,7 +36,7 @@ export default function BasicInformation() {
 			<p>Details about the role:</p>
 			<ul className="list-disc list-inside">
 				<li>Volunteers will be scheduled for specific time slots </li>
-				<li>Volunteers will also be given free food & swag!  </li>
+				<li>Volunteers will also be given free food & swag! </li>
 				<li>
 					There will be a <b>mandatory </b>volunteer orientation prior to the 
 					first day of the hackathon (Time TBD). If you are unable to attend, 
