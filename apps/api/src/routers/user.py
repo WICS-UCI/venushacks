@@ -22,12 +22,9 @@ from auth.user_identity import User, require_user_identity, use_user_identity
 from models.ApplicationData import (
     FIELDS_SUPPORTING_OTHER,
     ProcessedApplicationDataUnion,
-    ProcessedZotHacksHackerApplicationData,
     RawHackerApplicationData,
     RawMentorApplicationData,
     RawVolunteerApplicationData,
-    RawZotHacksHackerApplicationData,
-    RawZotHacksMentorApplicationData,
     get_raw_hacker_discriminator_value,
     get_raw_mentor_discriminator_value,
 )
@@ -113,14 +110,11 @@ async def apply(
     data = _parsed_form(form)
 
     discriminator = get_raw_hacker_discriminator_value(data)
-    raw_application_data: Union[
-        RawHackerApplicationData, RawZotHacksHackerApplicationData
-    ]
+    raw_application_data: Union[RawHackerApplicationData]
+
     try:
         if discriminator == "hacker":
             raw_application_data = RawHackerApplicationData.model_validate(data)
-        elif discriminator == "zothacks_hacker":
-            raw_application_data = RawZotHacksHackerApplicationData.model_validate(data)
         else:
             raise ValueError("Cannot determine hacker application type")
     except ValidationError as e:
@@ -138,14 +132,10 @@ async def mentor(
 
     # Manually determine model to use
     discriminator = get_raw_mentor_discriminator_value(data)
-    raw_application_data: Union[
-        RawMentorApplicationData, RawZotHacksMentorApplicationData
-    ]
+    raw_application_data: Union[RawMentorApplicationData]
     try:
         if discriminator == "mentor":
             raw_application_data = RawMentorApplicationData.model_validate(data)
-        elif discriminator == "zothacks_mentor":
-            raw_application_data = RawZotHacksMentorApplicationData.model_validate(data)
         else:
             raise ValueError("Cannot determine mentor application type")
     except ValidationError as e:
@@ -168,8 +158,6 @@ async def _apply_flow(
         RawHackerApplicationData,
         RawMentorApplicationData,
         RawVolunteerApplicationData,
-        RawZotHacksHackerApplicationData,
-        RawZotHacksMentorApplicationData,
     ],
 ) -> str:
     """Common flow for all three types of applications."""
@@ -212,8 +200,6 @@ async def _apply_flow(
                     Union[
                         RawHackerApplicationData,
                         RawMentorApplicationData,
-                        RawZotHacksHackerApplicationData,
-                        RawZotHacksMentorApplicationData,
                     ]
                 ).validate_python(raw_application_data),
                 resume,
@@ -283,8 +269,8 @@ async def _apply_flow(
 
     log.info("%s submitted an application", user.uid)
     return (
-        "Thank you for submitting an application to ZotHacks 2025! Please "
-        + "visit https://zothacks.com/portal to see your application status."
+        "Thank you for submitting an application to VenusHacks 2026! Please "
+        + "visit https://venushacks.com/portal to see your application status."
     )
 
 
@@ -383,8 +369,8 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
     # Fields that should always be lists, even with single values
     MULTI_SELECT_FIELDS = {
         "pronouns",
+        "majors_and_minors",
         "experienced_technologies",
-        "dietary_restrictions",
         "skills",
         "friday_availability",
         "saturday_availability",
@@ -412,14 +398,15 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
 def _add_auto_scores_if_any(
     processed_application_data: ProcessedApplicationDataUnion,
 ) -> None:
-    if not isinstance(
-        processed_application_data, ProcessedZotHacksHackerApplicationData
-    ):
-        return
+    return
+    # if not isinstance(
+    #     processed_application_data, ProcessedHackerApplicationData
+    # ):
+    #     return
 
-    # Only hackathon_experience is auto-scored for now
-    processed_application_data.global_field_scores = {
-        "hackathon_experience": HACKATHON_EXPERIENCE_SCORE_MAP[
-            processed_application_data.hackathon_experience
-        ]
-    }
+    # # Only hackathon_experience is auto-scored for now
+    # processed_application_data.global_field_scores = {
+    #     "hackathon_experience": HACKATHON_EXPERIENCE_SCORE_MAP[
+    #         processed_application_data.hackathon_experience
+    #     ]
+    # }
