@@ -4,13 +4,11 @@ import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 import BasicInformation from "./components/VolunteerDescription";
-import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
 import EssentialQuestions from "@/lib/components/forms/shared/PersonalInformation";
 import ShiftAvailability from "./components/ShiftAvailability";
 import VolunteerFRQ from "./components/VolunteerFRQ";
 import ExtraQuestions from "./components/ExtraQuestions";
 import VolunteerGeneralQuestions from "./components/VolunteerGeneralQuestions";
-
 
 export const revalidate = 60;
 
@@ -28,8 +26,8 @@ export default async function Volunteer() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<EssentialQuestions/>
-			<VolunteerGeneralQuestions/>
+			<EssentialQuestions />
+			<VolunteerGeneralQuestions />
 			<VolunteerFRQ />
 			<ShiftAvailability />
 			<ExtraQuestions />

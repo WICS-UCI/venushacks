@@ -77,7 +77,9 @@ export default function DayShift({
 							/>
 						),
 				)}
-				<div className="w-full text-2xl text-center pb-5 font-sniglet">{shiftText}</div>
+				<div className="w-full text-2xl text-center pb-5 font-sniglet">
+					{shiftText}
+				</div>
 				{availability.map((available, i) => {
 					return (
 						<div
