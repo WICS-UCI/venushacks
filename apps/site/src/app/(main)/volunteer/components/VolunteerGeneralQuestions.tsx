@@ -1,5 +1,6 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import DropdownSelectYesFRQ from "@/lib/components/forms/DropdownSelectYesFRQ";
+import SimpleCheckBox from "@/lib/components/forms/SimpleCheckBox";
 
 const yesNoValues = [
                     {value: "yes", text: "Yes"},
@@ -16,17 +17,21 @@ export default function VolunteerGeneralQuestions() {
                 containerClass="w-full"
                 values={yesNoValues}
             />
-            <DropdownSelect
+            <SimpleCheckBox
                 name="transportation"
                 labelText="I acknowledge that I am responsible for my own transportation to UC Irvine and overnight stay between event days."
                 containerClass="w-full"
-                values={yesNoValues}
+                isRequired={true}
+                labelClass=""
+
             />
-            <DropdownSelect
+            <SimpleCheckBox
                 name="availability_confirmation"
-                labelText="Will you be available to volunteer a combined amount of 5 hours minimum across Friday, May 15th, through May 17th, Sunday?"
+                labelText="I will be available to volunteer a combined amount of 5 hours minimum across Friday, May 15th, through May 17th, Sunday."
                 containerClass="w-full"
-                values={yesNoValues}
+                isRequired={true}
+                labelClass=""
+
             />
         </div>
     );
