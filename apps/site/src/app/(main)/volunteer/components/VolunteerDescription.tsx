@@ -38,8 +38,8 @@ export default function BasicInformation() {
 				<li>Volunteers will be scheduled for specific time slots </li>
 				<li>Volunteers will also be given free food & swag! </li>
 				<li>
-					There will be a <b>mandatory </b>volunteer orientation prior to the 
-					first day of the hackathon (Time TBD). If you are unable to attend, 
+					There will be a <b>mandatory </b>volunteer orientation prior to the
+					first day of the hackathon (Time TBD). If you are unable to attend,
 					you must watch the recording that will be sent out.
 				</li>
 			</ul>
