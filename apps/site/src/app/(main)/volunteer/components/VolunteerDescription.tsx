@@ -41,10 +41,6 @@ export default function BasicInformation() {
 				<b>IMPORTANT NOTE:</b> Please only apply if you are sure about your availability. 
 				In addition, there will be no travel reimbursements for this role.
 			</p>
-			<p><b>Application Due Date: Friday, April 24, 2026 at 11:59 PM</b></p>
-			<p>If you have any questions about VenusHacks, please check out our <a className="underline hover:text-blue-800"
-				style={{ color: 'rgb(37, 99, 235)' }}
-				href="https://venushacks.com/">website</a> or email us at venushacks.uci@gmail.com :)</p>
 		</div>
 	);
 }
