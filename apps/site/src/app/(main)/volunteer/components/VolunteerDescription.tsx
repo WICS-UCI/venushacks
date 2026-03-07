@@ -17,8 +17,8 @@ export default function BasicInformation() {
 				inclusive community to foster growth and creativity in computing. This
 				event will take place from{" "}
 				<b>
-					May 15th - May 17th (not overnight) at UC Irvine in the Donald Bren 
-					Hall. 
+					May 15th - May 17th (not overnight) at UC Irvine in the Donald Bren
+					Hall.
 				</b>
 
 			</p>
