@@ -6,7 +6,7 @@ export default function BasicInformation() {
 			</p>
 
 			<p>
-				Interested in volunteering during VenusHacks 2026? Please fill in the 
+				Interested in volunteering during VenusHacks 2026? Please fill in the
 				application below!
 			</p>
 
