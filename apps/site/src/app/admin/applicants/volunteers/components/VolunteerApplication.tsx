@@ -7,7 +7,6 @@ import VolunteerApplicationSection from "@/app/admin/applicants/volunteers/compo
 
 import { VolunteerApplicationData } from "@/lib/admin/useApplicant";
 
-
 interface VolunteerApplicationSections {
 	[key: string]: VolunteerApplicationQuestion[];
 }
