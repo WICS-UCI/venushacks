@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
 			<button
 				type="submit"
 				className={clsx(
-					"px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto"
+					"px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto",
 				)}
 				disabled={disabled}
 				style={style}

@@ -86,22 +86,30 @@ export default function ApplicationFlow({
 									disabled={submitting}
 								/>
 							) : isFirstPage() ? (
-								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto" 
+								<button
+									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto" 
 									type="button"
-									onClick={() => setPageIndex(1)}>
+									onClick={() => setPageIndex(1)}
+								>
 									Start Application →
 								</button>
 							) : (
-								<button className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
-								type="button"
-								onClick={() => setPageIndex(pageIndex+1)}>Next →</button>
+								<button 
+									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
+									type="button"
+									onClick={() => setPageIndex(pageIndex+1)}
+								>
+									Next →
+								</button>
 							)}
 						</div>
-						{pageIndex > 0 && 
+						{pageIndex > 0 && (
 							<div className=" mt-8">
-								<p className="italic text-gray-400"> Last saved mm/dd/yyyy at 00:00:00.</p>
+								<p className="italic text-gray-400">
+									Last saved mm/dd/yyyy at 00:00:00.
+								</p>
 							</div>
-						}
+						)}
 						{sessionExpired && sessionExpiredMessage}
 					</form>
 				</div>

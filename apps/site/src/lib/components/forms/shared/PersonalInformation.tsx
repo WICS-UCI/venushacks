@@ -108,9 +108,9 @@ export default function EssentialQuestions() {
 					values={[
 						{ value: "female", text: "Female" },
 						{ value: "non-binary", text: "Non-binary" },
-						{ value: "male", text: "Male"},
-						{ value: "prefer not to say", text: "Prefer not to say"},
-						{ value: "other", text: "Other"},
+						{ value: "male", text: "Male" },
+						{ value: "prefer not to say", text: "Prefer not to say" },
+						{ value: "other", text: "Other" },
 					]}
 					containerClass="w-full"
 				/>
@@ -139,10 +139,13 @@ export default function EssentialQuestions() {
 				labelText="Please select the option that you most identify with."
 				containerClass="w-full"
 				values={[
-					{value: "any", text: "I eat anything, including the following (chicken, beef, pork)."},
-					{value: "chicken_only", text: "I eat meat, but only chicken."},
-					{value: "vegetarian", text: "I am vegetarian."},
-					{value: "vegan", text: "I am vegan."},
+					{
+						value: "any", 
+						text: "I eat anything, including the following (chicken, beef, pork)."
+					},
+					{ value: "chicken_only", text: "I eat meat, but only chicken." },
+					{ value: "vegetarian", text: "I am vegetarian." },
+					{ value: "vegan", text: "I am vegan." },
 				]}
 			/>
 			<TextInput
@@ -153,27 +156,25 @@ export default function EssentialQuestions() {
 				containerClass="w-full"
 				placeholder="ex. vegetarian, nut allergy, gluten-free"
 			/>
-			
 			<DropdownSelect
 				name="shirt_size"
 				labelText="What is your t-shirt size?"
 				containerClass="w-full"
 				values={[
-					{value: "xs", text: "XL"},
-					{value: "s", text: "S"},
-					{value: "m", text: "M"},
-					{value: "l", text: "L"},
-					{value: "xl", text: "XL"},
+					{ value: "xs", text: "XL" },
+					{ value: "s", text: "S" },
+					{ value: "m", text: "M" },
+					{ value: "l", text: "L" },
+					{ value: "xl", text: "XL" },
 				]}
 			/>
-			
 			<DropdownSelect
 				name="commitment"
 				labelText="Will you be available to volunteer a combined amount of 5 hours minimum across Friday, May 15th, through May 17th, Sunday?"
 				containerClass="w-full"
 				values={[
-					{value: "yes", text: "Yes"},
-					{value: "no", text: "No"},
+					{ value: "yes", text: "Yes" },
+					{ value: "no", text: "No" },
 				]}
 			/>
 		</div>
