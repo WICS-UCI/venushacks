@@ -10,7 +10,6 @@ import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
-
 export const revalidate = 60;
 
 interface ApplicationFlowProps {
@@ -87,17 +86,17 @@ export default function ApplicationFlow({
 								/>
 							) : isFirstPage() ? (
 								<button
-									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto" 
+									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto"
 									type="button"
 									onClick={() => setPageIndex(1)}
 								>
 									Start Application →
 								</button>
 							) : (
-								<button 
+								<button
 									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
 									type="button"
-									onClick={() => setPageIndex(pageIndex+1)}
+									onClick={() => setPageIndex(pageIndex + 1)}
 								>
 									Next →
 								</button>

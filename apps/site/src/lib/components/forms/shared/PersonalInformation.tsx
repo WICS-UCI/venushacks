@@ -2,9 +2,9 @@ import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import TextInput from "../TextInput";
 
 const yesNoValues = [
-        { value: "yes", text: "Yes" },
-        { value: "no", text: "No" },
-    ];
+	{ value: "yes", text: "Yes" },
+	{ value: "no", text: "No" },
+];
 // import MultipleSelect from "../MultipleSelect";
 // import DropdownSelectYesFRQ from "../DropdownSelectYesFRQ";
 
@@ -64,14 +64,14 @@ export default function EssentialQuestions() {
 	return (
 		<div className="flex flex-col gap-8 w-full">
 			<div className="text-xl font-semibold ">I. Personal Information</div>
-				<TextInput
-					name="email"
-					type="email"
-					labelText="Email"
-					placeholder="ex: peter@uci.edu"
-					isRequired={true}
-					containerClass="w-full"
-				/>
+			<TextInput
+				name="email"
+				type="email"
+				labelText="Email"
+				placeholder="ex: peter@uci.edu"
+				isRequired={true}
+				containerClass="w-full"
+			/>
 			<div className="flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3">
 				<TextInput
 					name="first_name"

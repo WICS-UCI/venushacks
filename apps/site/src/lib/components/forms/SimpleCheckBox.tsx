@@ -26,9 +26,9 @@ export default function SimpleCheckBox({
 					className="h-5 w-5 appearance-none rounded shadow-lg border border-gray-300"
 				/>
 				<p className={labelClass}>
-				{`${labelText} `}
-				{isRequired && <RequiredAsterisk />}
-			</p>
+					{`${labelText} `}
+					{isRequired && <RequiredAsterisk />}
+				</p>
 			</div>
 		</div>
 	);
