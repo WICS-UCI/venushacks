@@ -1,5 +1,10 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import TextInput from "../TextInput";
+
+const yesNoValues = [
+        { value: "yes", text: "Yes" },
+        { value: "no", text: "No" },
+    ];
 // import MultipleSelect from "../MultipleSelect";
 // import DropdownSelectYesFRQ from "../DropdownSelectYesFRQ";
 
@@ -69,28 +74,28 @@ export default function EssentialQuestions() {
 				/>
 			<div className="flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3">
 				<TextInput
-				name="first_name"
-				type="text"
-				labelText="First Name"
-				placeholder="Enter your first name"
-				isRequired={true}
-				containerClass="w-full"
+					name="first_name"
+					type="text"
+					labelText="First Name"
+					placeholder="Enter your first name"
+					isRequired={true}
+					containerClass="w-full"
 				/>
 				<TextInput
-				name="last_name"
-				type="text"
-				labelText="Last Name"
-				placeholder="Enter your last name"
-				isRequired={true}
-				containerClass="w-full"
+					name="last_name"
+					type="text"
+					labelText="Last Name"
+					placeholder="Enter your last name"
+					isRequired={true}
+					containerClass="w-full"
 				/>
 				<TextInput
-				name="preferred_name"
-				type="text"
-				labelText="Preferred Name (optional)"
-				placeholder="Enter your preferred name (optional)"
-				isRequired={false}
-				containerClass="w-full"
+					name="preferred_name"
+					type="text"
+					labelText="Preferred Name (optional)"
+					placeholder="Enter your preferred name (optional)"
+					isRequired={false}
+					containerClass="w-full"
 				/>
 			</div>
 			<div className="flex flex-col lg:flex-row md:flex-col sm:flex-col gap-3">
@@ -128,10 +133,7 @@ export default function EssentialQuestions() {
 					name="valid_age"
 					labelText="Will you be 18 years or oder by May 16th, 2026?"
 					containerClass="w-full"
-					values={[
-						{value: "yes", text: "Yes"},
-						{value: "no", text: "No"},
-					]}
+					values={yesNoValues}
 				/>
 			</div>
 			<DropdownSelect
@@ -140,8 +142,8 @@ export default function EssentialQuestions() {
 				containerClass="w-full"
 				values={[
 					{
-						value: "any", 
-						text: "I eat anything, including the following (chicken, beef, pork)."
+						value: "any",
+						text: "I eat anything, including the following (chicken, beef, pork).",
 					},
 					{ value: "chicken_only", text: "I eat meat, but only chicken." },
 					{ value: "vegetarian", text: "I am vegetarian." },
@@ -166,15 +168,6 @@ export default function EssentialQuestions() {
 					{ value: "m", text: "M" },
 					{ value: "l", text: "L" },
 					{ value: "xl", text: "XL" },
-				]}
-			/>
-			<DropdownSelect
-				name="commitment"
-				labelText="Will you be available to volunteer a combined amount of 5 hours minimum across Friday, May 15th, through May 17th, Sunday?"
-				containerClass="w-full"
-				values={[
-					{ value: "yes", text: "Yes" },
-					{ value: "no", text: "No" },
 				]}
 			/>
 		</div>

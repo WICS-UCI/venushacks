@@ -53,12 +53,13 @@ export default function BasicInformation() {
 			</p>
 			<p>
 				If you have any questions about VenusHacks, please check out our{" "}
-				<a 
+				<a
 					className="underline hover:text-blue-800"
 					style={{ color: "rgb(37, 99, 235)" }}
-					href="https://venushacks.com/">
+					href="https://venushacks.com/"
+				>
 					website
-				</a>{" "} 
+				</a>{" "}
 				or email us at venushacks.uci@gmail.com :)
 			</p>
 		</div>

@@ -2,8 +2,8 @@ import DropdownSelectYesFRQ from "@/lib/components/forms/DropdownSelectYesFRQ";
 import SimpleCheckBox from "@/lib/components/forms/SimpleCheckBox";
 
 const yesNoValues = [
-        {value: "yes", text: "Yes"},
-        {value: "no", text: "No"},
+        { value: "yes", text: "Yes" },
+        { value: "no", text: "No" },
     ];
 
 export default function VolunteerGeneralQuestions() {
