@@ -7,7 +7,6 @@ import haveApplicationsOpened from "@/lib/utils/haveApplicationsOpened";
 import useForm from "@/lib/utils/useForm";
 
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
-import Title from "./Title/Title";
 import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
@@ -52,11 +51,10 @@ export default function ApplicationFlow({
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="my-32">
-					<Title applicationType={applicationType} />
+				<div className="w-11/12 lg:w-8/12 md:w-8/12 sm:w-10/12">
 					<form
 						method="post"
-						className="bg-black border-[5px] border-white text-[var(--color-white)] w-8/12 flex flex-col items-center py-12 gap-14 z-1 max-[800px]:w-9/12 max-[400px]:w-11/12 drop-shadow-[25px_33px_0px_rgba(255,255,255,1)]"
+						className="bg-white shadow-lg rounded-2xl font-figtree p-10"
 						action={applyPath}
 						encType="multipart/form-data"
 						onSubmit={handleSubmit}
@@ -69,23 +67,47 @@ export default function ApplicationFlow({
 							hidden
 						/>
 						{children[pageIndex]}
-						{isLastPage() ? (
-							<Button
-								text="Submit"
-								className="text-2xl !px-11 !py-2"
-								isLightVersion={true}
-								disabled={submitting}
-							/>
-						) : (
-							// TODO: Implement next button to navigate to next page
-							<button type="button">NEXT</button>
-						)}
-						{isFirstPage() ? (
-							// TODO: Implement start application button (basically just a next button with different text)
-							<button type="button">START APPLICATION</button>
-						) : (
-							// TODO: Implement prev button to navigate to prev page
-							<button type="button">PREV</button>
+						<div className="mt-8 flex justify-between">
+							{!isFirstPage() && (
+								<button
+									className="px-3 py-2 bg-[#FFECEC80] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
+									type="button"
+									onClick={() => setPageIndex(pageIndex - 1)}
+								>
+									← Back
+								</button>
+							)}
+							{isLastPage() ? (
+								<Button
+									text="Submit"
+									className="text-2xl !px-11 !py-2"
+									isLightVersion={true}
+									disabled={submitting}
+								/>
+							) : isFirstPage() ? (
+								<button
+									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto"
+									type="button"
+									onClick={() => setPageIndex(1)}
+								>
+									Start Application →
+								</button>
+							) : (
+								<button
+									className="px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-40 text-button-text font-bold"
+									type="button"
+									onClick={() => setPageIndex(pageIndex + 1)}
+								>
+									Next →
+								</button>
+							)}
+						</div>
+						{pageIndex > 0 && (
+							<div className=" mt-8">
+								<p className="italic text-gray-400">
+									Last saved mm/dd/yyyy at 00:00:00.
+								</p>
+							</div>
 						)}
 						{sessionExpired && sessionExpiredMessage}
 					</form>

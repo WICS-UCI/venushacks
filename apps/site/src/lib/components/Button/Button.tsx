@@ -54,11 +54,7 @@ const Button: React.FC<ButtonProps> = ({
 			<button
 				type="submit"
 				className={clsx(
-					styles.button,
-					isLightVersion && styles.lightButton,
-					isLightVersion ? "font-body" : "font-display",
-					"text-2xl",
-					className,
+					"px-3 py-2 bg-[#F8C4C4] border border-[#CF6868] rounded-full w-56 text-button-text font-bold ml-auto",
 				)}
 				disabled={disabled}
 				style={style}

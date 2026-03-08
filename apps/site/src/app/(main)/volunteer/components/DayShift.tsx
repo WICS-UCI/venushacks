@@ -62,7 +62,7 @@ export default function DayShift({
 	}
 
 	return (
-		<div className="flex flex-col items-start w-11/12">
+		<div className="flex flex-col items-start w-9/12">
 			<div className="flex flex-col relative w-full">
 				{/* TODO: use actual checkboxes in a table */}
 				{availability.map(
@@ -77,7 +77,9 @@ export default function DayShift({
 							/>
 						),
 				)}
-				<div className="w-full text-2xl text-center pb-5">{shiftText}</div>
+				<div className="w-full text-2xl text-center pb-5 font-sniglet">
+					{shiftText}
+				</div>
 				{availability.map((available, i) => {
 					return (
 						<div
@@ -90,7 +92,7 @@ export default function DayShift({
 							<div
 								className={`h-[50px] w-full ${
 									i === num_hours ? "" : "border-black border-b-2"
-								} ${available ? "bg-blue-500" : "bg-gray-200"}`}
+								} ${available ? "bg-blue-500" : "bg-green-100"}`}
 								onMouseDown={(e) => onMouseDown(e, i)}
 								onMouseUp={onMouseUp}
 								onMouseOver={() => onMouseOver(i)}

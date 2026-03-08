@@ -11,23 +11,24 @@ interface SelectProps {
 	containerClass: string;
 }
 
-interface OtherProps {
+interface YesProps {
 	value: string;
 	name: string;
 }
 
-const OtherPopup = ({ value, name }: OtherProps) => {
-	if (value === "other") {
+const YesPopup = ({ value, name }: YesProps) => {
+	if (value === "yes") {
 		return (
 			<div className="mt-2 flex flex-row gap-2">
 				<label htmlFor={`${name}-other-input`} className="text-lg">
-					Other: <RequiredAsterisk />
+					Provide your experience: <RequiredAsterisk />
 				</label>
 				<input
 					type="text"
 					name={`_other_${name}`}
 					id={`${name}-other-input`}
-					className="text-[var(--color-black)] text-sm border shadow-lg p-2 h-10 resize-none rounded-xl flex flex-col"
+					className="text-[var(--color-black)] text-sm border shadow-lg p-2 h-10 rounded-xl w-7/12"
+					placeholder="ex. VH 2025"
 					required
 				/>
 			</div>
@@ -35,7 +36,7 @@ const OtherPopup = ({ value, name }: OtherProps) => {
 	}
 };
 
-export default function DropdownSelect({
+export default function DropdownSelectYesFRQ({
 	name,
 	labelText,
 	values,
@@ -46,7 +47,7 @@ export default function DropdownSelect({
 	return (
 		<div className={containerClass}>
 			<div className="flex flex-col">
-				<label className="text-md" htmlFor={name}>
+				<label className="text-md mb-2" htmlFor={name}>
 					{labelText} <RequiredAsterisk />
 				</label>
 				<select
@@ -67,7 +68,7 @@ export default function DropdownSelect({
 					})}
 				</select>
 			</div>
-			<OtherPopup value={value} name={name} />
+			<YesPopup value={value} name={name} />
 		</div>
 	);
 }

@@ -6,6 +6,7 @@ interface TextfieldProps {
 	containerClass: string;
 	isRequired: boolean;
 	maxLength?: number;
+	placeholder?: string;
 }
 
 export default function Textfield({
@@ -14,20 +15,22 @@ export default function Textfield({
 	containerClass,
 	isRequired,
 	maxLength,
+	placeholder,
 }: TextfieldProps) {
 	return (
 		<div className={containerClass}>
 			<div className="flex flex-col w-full">
-				<label className="text-lg mb-2" htmlFor={name}>
+				<label className="text-base mb-2" htmlFor={name}>
 					{`${labelText} `}
 					{isRequired && <RequiredAsterisk />}
 				</label>
 				<textarea
-					className="text-[var(--color-black)] bg-[#E1E1E1] p-3 h-48 resize-none rounded-xl"
+					className="text-[var(--color-black)] text-sm border shadow-lg p-3 h-36 resize-none rounded-xl"
 					id={name}
 					name={name}
 					required={isRequired}
 					maxLength={maxLength}
+					placeholder={placeholder}
 				/>
 			</div>
 		</div>

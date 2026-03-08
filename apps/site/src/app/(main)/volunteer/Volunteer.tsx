@@ -3,12 +3,12 @@ import { redirect } from "next/navigation";
 import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
-import BasicInformation from "./components/VolunteerBasicInformation";
-import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
-import SchoolInformation from "@/lib/components/forms/shared/SchoolInformation";
+import BasicInformation from "./components/VolunteerDescription";
+import EssentialQuestions from "@/lib/components/forms/shared/PersonalInformation";
 import ShiftAvailability from "./components/ShiftAvailability";
 import VolunteerFRQ from "./components/VolunteerFRQ";
 import ExtraQuestions from "./components/ExtraQuestions";
+import VolunteerGeneralQuestions from "./components/VolunteerGeneralQuestions";
 
 export const revalidate = 60;
 
@@ -26,11 +26,11 @@ export default async function Volunteer() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<SchoolInformation />
+			<EssentialQuestions />
+			<VolunteerGeneralQuestions />
 			<VolunteerFRQ />
 			<ShiftAvailability />
 			<ExtraQuestions />
-			<AgeInformation />
 		</ApplicationFlow>
 	);
 }
