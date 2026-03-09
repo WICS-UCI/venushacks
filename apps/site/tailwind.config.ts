@@ -29,6 +29,7 @@ const config: Config = {
 				display: ["NicoMoji"],
 				sans: ["Lexend Giga"],
 				sniglet: ["Sniglet"],
+				figtree: ["var(--font-figtree)"],
 				torus: ["Torus Pro"],
 				figtree: ["Figtree", "sans-serif"],
 			},

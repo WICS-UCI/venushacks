@@ -17,6 +17,7 @@ which will start a Uvicorn server with auto-reload.
 For deployment, the following environment variables need to be set:
 
 - `PYTHONPATH=src/api` to properly import Python modules
+- `MONGODB_URI` MongoDB connection string for prod database
 - `SP_KEY`, the private key for SAML authentication
 - `JWT_KEY`, the secret key used to sign JWTs
 - `AUTH_KEY_SALT`, the salt used when encrypting guest authentication tokens
