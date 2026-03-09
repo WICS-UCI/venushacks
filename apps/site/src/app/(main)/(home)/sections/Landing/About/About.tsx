@@ -1,17 +1,19 @@
 import Image from "next/image";
-import basketGraphic from "@/assets/images/picnic_basket.png"; // replace with your asset
+import basketGraphic from "@/assets/images/picnic_basket.png";
+import grass from "@/assets/images/grass.png";
+import flower from "@/assets/images/flower.png";
 
 const About = () => {
 	return (
-		<section className="w-full bg-[#bcc06f] px-6 py-16 md:px-10 lg:px-16">
+		<section className="relative w-full bg-[#bcc06f] px-6 pt-16 pb-48 md:px-10 lg:px-16">
 			<div className="mx-auto flex items-center justify-between gap-10">
 				{/* Text Card */}
-				<div className="w-full max-w-[642px] max-h-[453px] rounded-[32px] border-[4px] border-[#de8c8c] bg-[#e8dfa0] px-8 py-8 md:px-10 md:py-10">
-					<h2 className="mb-6 font-display text-4xl text-[#2f3152] md:text-5xl lg:text-6xl">
+				<div className="w-full max-w-[700px] lg:ml-20 rounded-[34px] border-[5px] border-[#d77676] bg-[#e8dfa0] px-10 py-10 md:px-12 md:py-12 lg:px-14 lg:py-12">
+					<h2 className="mb-6 font-display text-4xl text-[#2f3152] md:text-5xl">
 						About Us
 					</h2>
 
-					<p className="text-base leading-8 text-[#2f3152] md:text-lg">
+					<p className="max-w-[520px] text-base leading-8 text-[#2f3152] md:text-[1.15rem]">
 						VenusHacks is UCI&apos;s largest women-centric hackathon, an annual
 						event empowering women, gender minorities, and other
 						underrepresented groups in tech. Hosted by{" "}
@@ -38,9 +40,8 @@ const About = () => {
 						support to grow and express their creativity in computing.
 					</p>
 				</div>
-
-				<div className="hidden md:flex absolute right-0 flex-1 justify-end">
-					<div className="relative w-full max-w-[595.5px] aspect-[595.5/366.97]">
+				<div className="hidden lg:flex flex-1 justify-end">
+					<div className="relative w-full max-w-[750px] aspect-[510/366.97] ml-auto -mr-14">
 						<Image
 							src={basketGraphic}
 							alt="Picnic basket illustration"
@@ -49,6 +50,16 @@ const About = () => {
 						/>
 					</div>
 				</div>
+				<Image
+					src={flower}
+					alt="Flower decoration"
+					className="absolute bottom-32 right-56 w-20 h-auto"
+				/>
+				<Image
+					src={grass}
+					alt="Grass decoration"
+					className="absolute bottom-4 left-48 w-14 h-auto"
+				/>
 			</div>
 		</section>
 	);
