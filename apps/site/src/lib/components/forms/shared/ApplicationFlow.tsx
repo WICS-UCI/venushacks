@@ -1,57 +1,128 @@
-import { PropsWithChildren } from "react";
-import { redirect } from "next/navigation";
+"use client";
+
+import React, { ReactNode, useMemo, useState, Children } from "react";
 
 import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
 import haveApplicationsOpened from "@/lib/utils/haveApplicationsOpened";
+import useForm from "@/lib/utils/useForm";
 
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
-import ApplyConfirm from "./ApplyConfirmation/ApplyConfirm";
 import Title from "./Title/Title";
-import getUserIdentity from "@/lib/utils/getUserIdentity";
+import Button from "../../Button/Button";
+import { Identity } from "@/lib/utils/getUserIdentity";
 
 export const revalidate = 60;
 
 interface ApplicationFlowProps {
-	searchParams: {
-		prefaceAccepted?: string;
-	};
 	applicationType: "Hacker" | "Mentor" | "Volunteer";
-	applicationURL: "/apply" | "/mentor" | "/volunteer";
+	applyPath: string;
+	identity: Identity;
+	children: ReactNode; // changed
 }
 
-export default async function ApplicationFlow({
-	searchParams,
+export default function ApplicationFlow({
 	applicationType,
-	applicationURL,
+	applyPath,
+	identity,
 	children,
-}: ApplicationFlowProps & PropsWithChildren) {
-	const hasAcceptedQueryParam = searchParams.prefaceAccepted === "true";
-	const identity = await getUserIdentity();
+}: ApplicationFlowProps) {
+	const { submitting, sessionExpired, handleSubmit } = useForm(applyPath);
 
-	if (identity.status !== null) {
-		redirect("/portal");
-	}
+	const pages = useMemo(() => Children.toArray(children), [children]);
+	const [pageIndex, setPageIndex] = useState<number>(0);
 
-	if (hasAcceptedQueryParam && identity.uid === null) {
-		redirect("/login");
-	}
+	const PAGE_COUNT = pages.length;
+	const isLastPage = pageIndex === PAGE_COUNT - 1;
+	const isFirstPage = pageIndex === 0;
+
+	const goNext = () => setPageIndex((i) => Math.min(i + 1, PAGE_COUNT - 1));
+	const goPrev = () => setPageIndex((i) => Math.max(i - 1, 0));
 
 	const deadlinePassed = hasDeadlinePassed();
 	const applicationsOpened = haveApplicationsOpened();
-	const applyBody = hasAcceptedQueryParam ? (
-		<div className="my-32">
-			<Title applicationType={applicationType} />
-			<div className="flex justify-center">{children}</div>
-		</div>
-	) : (
-		<ApplyConfirm applicationURL={applicationURL} role={applicationType} />
+
+	const sessionExpiredMessage = (
+		<p className="text-red-500 w-11/12">
+			Your session has expired. Please{" "}
+			<a href="/login" target="_blank" className="text-blue-600 underline">
+				log in from a new tab
+			</a>{" "}
+			to restore your session and then try submitting again.
+		</p>
 	);
+
 	return (
-		<div className="flex flex-col items-center justify-center gap-10 min-h-screen">
+		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-12">
 			{!applicationsOpened || deadlinePassed ? (
-				<ApplicationsClosed />
+				<ApplicationsClosed identity={identity} />
 			) : (
-				applyBody
+				<div className="w-full max-w-5xl">
+					<Title applicationType={applicationType} />
+
+					<form
+						method="post"
+						action={applyPath}
+						encType="multipart/form-data"
+						onSubmit={handleSubmit}
+						className="
+              w-full bg-white text-slate-900
+              rounded-[38px]
+              shadow-[0_18px_35px_rgba(0,0,0,0.12)]
+              px-10 py-10
+            "
+					>
+						<input
+							type="text"
+							name="application_type"
+							value={applicationType}
+							readOnly
+							hidden
+						/>
+
+						{/* Page content */}
+						{pages[pageIndex]}
+
+						{/* Navigation */}
+						<div className="mt-10 flex items-center justify-between">
+							{!isFirstPage ? (
+								<button
+									type="button"
+									onClick={goPrev}
+									className="text-sm font-medium text-slate-600 hover:text-slate-900"
+								>
+									← Prev
+								</button>
+							) : (
+								<span />
+							)}
+
+							{isLastPage ? (
+								<Button
+									text="Submit"
+									className="text-base !px-8 !py-3"
+									isLightVersion={true}
+									disabled={submitting}
+								/>
+							) : (
+								<button
+									type="button"
+									onClick={goNext}
+									className="
+                    rounded-full bg-rose-200 px-8 py-3
+                    text-sm font-semibold text-rose-700
+                    shadow-sm hover:bg-rose-300
+                  "
+								>
+									{isFirstPage ? "Start Application →" : "Next →"}
+								</button>
+							)}
+						</div>
+
+						{sessionExpired && (
+							<div className="mt-6">{sessionExpiredMessage}</div>
+						)}
+					</form>
+				</div>
 			)}
 		</div>
 	);

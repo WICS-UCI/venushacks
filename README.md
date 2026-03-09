@@ -1,4 +1,4 @@
-# irvinehacks-site
+# venushacks-site
 
 ## Overview
 
@@ -8,7 +8,7 @@ This monorepo uses [turborepo](https://turbo.build/repo) with [pnpm](https://pnp
 
 A [Next.js](https://nextjs.org/) 13 project that uses the new app router.
 
-This app contains the IrvineHacks site.
+This app contains the VenusHacks site.
 
 The development server runs at `http://localhost:3000`. If this port is taken, the next available port will be used.
 
@@ -16,7 +16,7 @@ The development server runs at `http://localhost:3000`. If this port is taken, t
 
 A [FastAPI](https://fastapi.tiangolo.com/) project.
 
-This app contains the api for the IrvineHacks site.
+This app contains the api for the VenusHacks site.
 
 The development server runs at `http://localhost:8000`. If this port is taken, the next available port will be used.
 

@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - vh-site-2026
   pull_request:
     branches:
       - main
+      - vh-site-2026
 
 jobs:
   check-api:
