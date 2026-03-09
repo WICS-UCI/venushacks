@@ -74,7 +74,7 @@ export default function ApplicationSubmittedModal({
 
 					<button
 						onClick={() => router.push("/portal")}
-						className={`w-full md:flex-1 px-8 py-3 text-base font-bold border-[1px] rounded-full whitespace-nowrap transition-opacity`}
+						className={`w-full md:flex-1 px-8 py-3 text-base font-bold border-[1px] rounded-full md:whitespace-nowrap transition-opacity`}
 						type="submit"
 						style={{
 							background: "#F8C4C4",
