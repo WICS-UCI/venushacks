@@ -3,11 +3,44 @@
 		box-shadow 0.25s ease,
 		transform 0.25s ease;
 }
-
 .applicationButton:hover {
 	box-shadow:
 		0 0 8px rgba(255, 77, 239, 0.6),
 		0 0 16px rgba(255, 77, 239, 0.4),
 		0 0 32px rgba(255, 77, 239, 0.25);
 	transform: translateY(-2px);
+}
+.landingImage {
+	position: absolute;
+	bottom: -5%;
+	width: 100%;
+	opacity: 1;
+}
+.cloudsWrapper {
+	position: absolute;
+	top: 3%;
+	left: 0;
+	width: 100vw;
+	height: 500px;
+	overflow: hidden; /* important now */
+	pointer-events: none;
+	z-index: 0;
+}
+.cloudTrack {
+	display: flex;
+	width: max-content;
+	animation: scrollClouds 30s linear infinite;
+}
+.cloudGroup {
+	width: 100vw;
+	height: auto;
+	flex-shrink: 0;
+}
+@keyframes scrollClouds {
+	from {
+		transform: translateX(-50%);
+	}
+	to {
+		transform: translateX(0);
+	}
 }

@@ -20,6 +20,20 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: "Sniglet";
+	src: url("/fonts/Sniglet-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Torus Pro";
+	src: url("/fonts/Fontspring-DEMO-toruspro-bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+
 :root {
 	/* 2025 colors, remove later */
 	--color-white: #fff;
@@ -39,7 +53,7 @@
 
 body {
 	color: var(--color-turquoise);
-	background-color: var(--color-blue);
+	background-color: #c5e7e1;
 }
 
 /* based on Bootstrap Reboot */
