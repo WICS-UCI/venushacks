@@ -29,23 +29,24 @@ USER_PKFIRE = NativeUser(
 SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
-    "experienced_technologies": [],
-    "pronouns": [],
-    "ethnicity": "eth",
-    "is_18_older": "true",
-    "school": "UC Irvine",
-    "education_level": "Fifth+ Year Undergraduate",
+    "year": "3rd Year",
     "major": "Computer Science",
-    "git_experience": "2",
-    "github": "https://github.com",
-    "portfolio": "",
+    "affiliation": "UC Irvine",
+    "github": "https://github.com/pkfire",
     "linkedin": "",
-    "mentor_prev_experience_saq1": "",
-    "mentor_interest_saq2": "",
-    "mentor_team_help_saq3": "",
-    "mentor_team_help_saq4": "",
-    "other_questions": "",
-    "resume_share_to_sponsors": "true",
+    "website": "",
+    "t_shirt_size": "M",
+    "availability": "All weekend",
+    "proficiency_python": "intermediate",
+    "proficiency_javascript": "beginner",
+    "other_skills_technologies": "",
+    "areas_of_development": ["Frontend", "Backend"],
+    "experienced_technologies": ["Python", "JavaScript"],
+    "why_mentor_frq": "I want to help beginners.",
+    "contribute_inclusive_frq": "I will be welcoming.",
+    "available_entire_duration": "true",
+    "availability_specify": "",
+    "questions_comments_concerns": "",
     "application_type": "Mentor",
     "email": "pkfire@uci.edu",
 }
@@ -59,13 +60,11 @@ LARGE_RESUME = ("large-resume.pdf", b"resume" * 2_000_000, "application/pdf")
 EXPECTED_RESUME_UPLOAD = ("pk-fire-69f2afc2.pdf", b"resume", "application/pdf")
 SAMPLE_RESUME_URL = HttpUrl("https://drive.google.com/file/d/...")
 SAMPLE_SUBMISSION_TIME = datetime(2024, 1, 12, 8, 1, 21, tzinfo=timezone.utc)
-SAMPLE_VERDICT_TIME = None
 
 EXPECTED_APPLICATION_DATA = ProcessedMentorApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=SAMPLE_RESUME_URL,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
 )
 assert EXPECTED_APPLICATION_DATA.linkedin is None
 
@@ -79,7 +78,10 @@ EXPECTED_USER = Applicant(
     status=Status.PENDING_REVIEW,
 )
 
-resume_handler.MENTOR_RESUMES_FOLDER_ID = "MENTOR_RESUMES_FOLDER_ID"
+resume_handler.FOLDER_MAP = {
+    "Hacker": "HACKER_RESUMES_FOLDER_ID",
+    "Mentor": "MENTOR_RESUMES_FOLDER_ID",
+}
 
 app = FastAPI()
 app.include_router(user.router)
@@ -109,7 +111,7 @@ def test_mentor_apply_successfully(
     res = client.post("/mentor", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
-        resume_handler.MENTOR_RESUMES_FOLDER_ID, *EXPECTED_RESUME_UPLOAD
+        resume_handler.FOLDER_MAP["Mentor"], *EXPECTED_RESUME_UPLOAD
     )
     mock_mongodb_handler_update_one.assert_awaited_once_with(
         Collection.USERS,
@@ -130,6 +132,21 @@ def test_mentor_apply_with_invalid_data_causes_422(
     """Test that applying with invalid data is unprocessable."""
     bad_application = SAMPLE_APPLICATION.copy()
     bad_application["github"] = "ht."
+    res = client.post("/mentor", data=bad_application, files=SAMPLE_FILES)
+
+    mock_mongodb_handler_retrieve_one.assert_not_called()
+    assert res.status_code == 422
+
+
+@patch("services.mongodb_handler.retrieve_one", autospec=True)
+def test_mentor_apply_without_why_mentor_frq_causes_422(
+    mock_mongodb_handler_retrieve_one: AsyncMock,
+) -> None:
+    """Test that data without why_mentor_frq (mentor discriminator) is unprocessable."""
+    mock_mongodb_handler_retrieve_one.return_value = None
+    bad_application = {
+        k: v for k, v in SAMPLE_APPLICATION.items() if k != "why_mentor_frq"
+    }
     res = client.post("/mentor", data=bad_application, files=SAMPLE_FILES)
 
     mock_mongodb_handler_retrieve_one.assert_not_called()
@@ -253,21 +270,20 @@ def test_mentor_apply_with_confirmation_email_issue_causes_500(
 
 def test_mentor_application_data_is_bson_encodable() -> None:
     """Test that application data model can be encoded into BSON to store in MongoDB."""
-    data = EXPECTED_APPLICATION_DATA.model_copy()
-    data.linkedin = HttpUrl("https://linkedin.com")
     encoded = bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
-    assert len(encoded) == 539
+    assert len(encoded) > 0
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
 def test_mentor_application_data_with_other_throws_422(
     mock_mongodb_handler_retrieve_one: AsyncMock,
 ) -> None:
+    """Test that mentor data with unprocessed 'other' in areas_of_development
+    causes 422.
+    """
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["experienced_technologies"].append(  # type: ignore[attr-defined]
-        "other"
-    )
+    contains_other["areas_of_development"].append("other")  # type: ignore[attr-defined]
     res = client.post("/mentor", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 

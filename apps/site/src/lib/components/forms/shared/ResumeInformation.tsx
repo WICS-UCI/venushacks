@@ -2,11 +2,6 @@
 
 import { ChangeEvent, useState } from "react";
 
-import { FileCheck, FileText, FileWarning } from "lucide-react";
-
-import OutputFeedBack from "./ResumeOutputFeedback";
-import RequiredAsterisk from "@/lib/components/forms/RequiredAsterisk";
-
 class InvalidFile extends Error {
 	constructor(message: string) {
 		super(message);
@@ -59,22 +54,29 @@ export default function ResumeInformation({
 	};
 
 	return (
-		<div className="flex flex-col items-start w-11/12">
-			<label className="text-lg mb-2">
-				Resume (PDF, 0.5 MB max) {isRequired && <RequiredAsterisk />}
+		<div className="flex flex-col gap-1 w-full">
+			<label className="font-figtree font-medium text-lg mb-2">
+				Attach your Resume{" "}
+				<span className="font-normal text-[#8E8E8E]">(optional)</span>
 			</label>
 			<label
 				htmlFor="resume_upload"
-				className="cursor-pointer mb-3 p-5 rounded-xl text-[#000] bg-[#e1e1e1]"
+				className="cursor-pointer flex items-center w-full appearance-none text-[#8E8E8E] text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC]"
+				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 			>
-				{!hasUploaded ? (
-					<FileText className="m-auto" width={50} height={50} />
-				) : errorMessage === "" ? (
-					<FileCheck className="m-auto" width={50} height={50} color="green" />
+				{errorMessage ? (
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
+						{errorMessage}
+					</span>
+				) : resumePath ? (
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
+						{"Selected " + resumePath}
+					</span>
 				) : (
-					<FileWarning className="m-auto" width={50} height={50} color="red" />
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg text-[#8E8E8E]">
+						Upload from computer
+					</span>
 				)}
-				<h2 className="text-center">Upload file</h2>
 			</label>
 			<input
 				className="opacity-0 absolute"
@@ -85,7 +87,6 @@ export default function ResumeInformation({
 				onChange={handleFileUpload}
 				required={isRequired}
 			/>
-			<OutputFeedBack errorMessage={errorMessage} resumePath={resumePath} />
 		</div>
 	);
 }
