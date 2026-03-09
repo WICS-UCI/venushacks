@@ -59,9 +59,8 @@ export default function MultipleSelect({
 		<div className={containerClass}>
 			<p className="m-0 text-lg mb-4">{labelText}</p>
 			<div
-				className={`w-full flex ${
-					horizontal ? "flex-wrap gap-10" : "flex-col gap-6"
-				}`}
+				className={`w-full flex ${horizontal ? "flex-wrap gap-10" : "flex-col gap-6"
+					}`}
 			>
 				{values.map((item, i) => {
 					const inputId = `${name}-${i}`;

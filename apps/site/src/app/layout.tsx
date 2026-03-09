@@ -2,15 +2,15 @@ import { PropsWithChildren } from "react";
 import { Sniglet, Figtree } from "next/font/google";
 
 const sniglet = Sniglet({
-  subsets: ["latin"],
-  weight: ["400", "800"],
-  variable: "--font-sniglet",
+	subsets: ["latin"],
+	weight: ["400", "800"],
+	variable: "--font-sniglet",
 });
 
 const figtree = Figtree({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-figtree",
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-figtree",
 });
 
 export default function RootLayout({ children }: PropsWithChildren) {
