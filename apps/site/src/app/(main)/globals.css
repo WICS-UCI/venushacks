@@ -12,20 +12,6 @@ body {
 }
 
 @font-face {
-	font-family: "NicoMoji";
-	src: url("/fonts/NicoMoji-Regular.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Ethnocentric";
-	src: url("/fonts/Ethnocentric-Regular.otf") format("opentype");
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: "Sniglet";
 	src: url("/fonts/Sniglet-Regular.ttf") format("truetype");
 	font-weight: 400;
