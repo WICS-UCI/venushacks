@@ -28,6 +28,13 @@ const config: Config = {
 				heading: ["Ethnocentric"],
 				display: ["NicoMoji"],
 				sans: ["Lexend Giga"],
+				sniglet: ["Sniglet"],
+				figtree: ["var(--font-figtree)"],
+				torus: ["Torus Pro"],
+			},
+			fontSize: {
+				"coming-soon": ["clamp(14px, 2.5vw, 28px)", { lineHeight: "100%", letterSpacing: "0.19em" }],
+				"venushacks-title": ["clamp(36px, 7vw, 100px)", { lineHeight: "100%", letterSpacing: "0.19em" }],
 			},
 			colors: {
 				white: "var(--color-white)",
@@ -42,6 +49,9 @@ const config: Config = {
 				"dark-blue": "var(--color-dark-blue)",
 				blue: "var(--color-blue)",
 				turquoise: "var(--color-turquoise)",
+				"dark-text": "#2F3248",
+				"button-bg": "#F8C4C4",
+				"button-text": "#CF6868",
 			},
 		},
 		screens: {
