@@ -7,7 +7,6 @@ interface SelectProps {
 	name: string;
 	labelText: string;
 	values: Array<{ value: string; text: string }>;
-	isRequired: boolean;
 	containerClass: string;
 	isRequired?: boolean;
 	placeholder?: string;
@@ -16,10 +15,9 @@ interface SelectProps {
 interface OtherProps {
 	value: string;
 	name: string;
-	isRequired: boolean;
 }
 
-const OtherPopup = ({ value, name, isRequired }: OtherProps) => {
+const OtherPopup = ({ value, name }: OtherProps) => {
 	if (value !== "other") return null;
 
 	return (
@@ -28,7 +26,7 @@ const OtherPopup = ({ value, name, isRequired }: OtherProps) => {
 				htmlFor={`${name}-other-input`}
 				className="block text-sm font-semibold text-slate-900"
 			>
-				Other{isRequired && <RequiredAsterisk />}
+				Other: <RequiredAsterisk />
 			</label>
 
 			<input
@@ -48,7 +46,7 @@ const OtherPopup = ({ value, name, isRequired }: OtherProps) => {
 			outline-none
 			focus:border-slate-300 focus:ring-2 focus:ring-slate-200
 			"
-				required={isRequired}
+				required
 			/>
 		</div>
 	);
