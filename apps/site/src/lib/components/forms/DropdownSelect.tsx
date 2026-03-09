@@ -62,7 +62,9 @@ export default function DropdownSelect({
 					onChange={(e) => setValue(e.target.value)}
 					required={isRequired}
 				>
-					<option value="" disabled>{placeholder}</option>
+					<option value="" disabled>
+						{placeholder}
+					</option>
 					{values.map((item, i) => (
 						<option key={`option-${i}`} value={item.value}>
 							{item.text}

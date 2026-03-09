@@ -65,13 +65,17 @@ export default function ResumeInformation({
 				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 			>
 				{errorMessage ? (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">{errorMessage}</span>
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
+						{errorMessage}
+					</span>
 				) : resumePath ? (
 					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
 						{"Selected " + resumePath}
 					</span>
 				) : (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg text-[#8E8E8E]">Upload from computer</span>
+					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg text-[#8E8E8E]">
+						Upload from computer
+					</span>
 				)}
 			</label>
 			<input

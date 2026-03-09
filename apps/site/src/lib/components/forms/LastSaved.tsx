@@ -4,7 +4,7 @@ interface LastSavedProps {
 	lastSaved: Date | null;
 }
 
-// Track saved time with useState in a parent Component. 
+// Track saved time with useState in a parent Component.
 export default function LastSaved({ lastSaved }: LastSavedProps) {
 	const formatted = lastSaved
 		? lastSaved.toLocaleDateString("en-US", {

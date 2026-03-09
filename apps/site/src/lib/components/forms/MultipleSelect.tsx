@@ -59,8 +59,9 @@ export default function MultipleSelect({
 		<div className={containerClass}>
 			<p className="m-0 text-lg mb-4">{labelText}</p>
 			<div
-				className={`w-full flex ${horizontal ? "flex-wrap gap-10" : "flex-col gap-6"
-					}`}
+				className={`w-full flex ${
+					horizontal ? "flex-wrap gap-10" : "flex-col gap-6"
+				}`}
 			>
 				{values.map((item, i) => {
 					const inputId = `${name}-${i}`;
@@ -77,7 +78,10 @@ export default function MultipleSelect({
 									style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 									onChange={(e) => setIsOtherChecked(e.target.checked)}
 								/>
-								<label className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug" htmlFor={inputId}>
+								<label
+									className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug"
+									htmlFor={inputId}
+								>
 									{item.text}
 								</label>
 								<OtherInput
@@ -98,7 +102,10 @@ export default function MultipleSelect({
 								className="mt-1 flex-shrink-0 appearance-none w-4 h-4 rounded-sm bg-white border border-[#D6D6D6] checked:bg-blue-500 checked:border-blue-500 cursor-pointer"
 								style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 							/>
-							<label className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug" htmlFor={inputId}>
+							<label
+								className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug"
+								htmlFor={inputId}
+							>
 								{item.text}
 								{isRequired && <RequiredAsterisk />}
 							</label>

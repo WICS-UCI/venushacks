@@ -20,7 +20,6 @@ export default async function Hacker() {
 		redirect("/portal");
 	}
 
-
 	return (
 		<ApplicationFlow
 			applicationType="Hacker"
