@@ -93,6 +93,10 @@ ProficiencyOptional = Annotated[
 class BaseMentorApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
+    date_of_birth: datetime
+    is_18_older: bool
+    gender_identity: str
+    pronouns: list[str] = []
     year: str
     major: str
     affiliation: str
