@@ -13,7 +13,7 @@ async def impersonate(ucinetid: str) -> RedirectResponse:
     user = NativeUser(
         ucinetid=ucinetid,
         display_name="Local Dev",
-        email="dev@irvinehacks.com",
+        email="dev@venushacks.com",
         affiliations=[],
     )
 

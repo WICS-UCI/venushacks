@@ -38,7 +38,7 @@ def test_logout() -> None:
     res = client.get("/logout")
     assert res.status_code == status.HTTP_303_SEE_OTHER
     assert res.headers["location"] == "/"
-    assert res.headers["Set-Cookie"].startswith('irvinehacks_auth=""; Max-Age=0;')
+    assert res.headers["Set-Cookie"].startswith('venushacks_auth=""; Max-Age=0;')
 
 
 def test_no_identity_when_unauthenticated() -> None:
