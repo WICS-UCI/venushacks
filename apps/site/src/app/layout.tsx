@@ -17,7 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 	return (
 		<html lang="en">
 			<body className={`${figtree.variable} ${sniglet.variable} font-sans`}>
-				{children}{" "}
+				{children}
 			</body>
 		</html>
 	);

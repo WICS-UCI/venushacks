@@ -1,5 +1,22 @@
 "use client";
 
+function formatAutoSaveDate(date: Date): string {
+	const s1 = date.toLocaleDateString("en-US", {
+		month: "2-digit",
+		day: "2-digit",
+		year: "numeric",
+	});
+
+	const s2 = date.toLocaleTimeString("en-US", {
+		hour: "2-digit",
+		minute: "2-digit",
+		second: "2-digit",
+		hour12: false,
+	});
+
+	return `${s1} at ${s2}`;
+}
+
 interface LastSavedProps {
 	lastSaved: Date | null;
 }
@@ -7,18 +24,7 @@ interface LastSavedProps {
 // Track saved time with useState in a parent Component.
 export default function LastSaved({ lastSaved }: LastSavedProps) {
 	const formatted = lastSaved
-		? lastSaved.toLocaleDateString("en-US", {
-				month: "2-digit",
-				day: "2-digit",
-				year: "numeric",
-		  }) +
-		  " at " +
-		  lastSaved.toLocaleTimeString("en-US", {
-				hour: "2-digit",
-				minute: "2-digit",
-				second: "2-digit",
-				hour12: false,
-		  })
+		? formatAutoSaveDate(lastSaved)
 		: "mm/dd/yyyy at 00:00:00";
 
 	return (

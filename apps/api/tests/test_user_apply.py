@@ -8,10 +8,7 @@ from fastapi import FastAPI
 from pydantic import HttpUrl
 
 from auth.user_identity import NativeUser, UserTestClient
-from models.ApplicationData import (
-    ProcessedHackerApplicationData,
-)
-
+from models.ApplicationData import ProcessedHackerApplicationData
 from models.user_record import Applicant, Status, Role
 from routers import user
 from services.mongodb_handler import Collection
@@ -69,22 +66,18 @@ EMPTY_RESUME = (
 EXPECTED_RESUME_UPLOAD = ("pk-fire-69f2afc2.pdf", b"resume", "application/pdf")
 SAMPLE_RESUME_URL = HttpUrl("https://drive.google.com/file/d/...")
 SAMPLE_SUBMISSION_TIME = datetime(2024, 1, 12, 8, 1, 21, tzinfo=timezone.utc)
-SAMPLE_VERDICT_TIME = None
 
 EXPECTED_APPLICATION_DATA = ProcessedHackerApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=SAMPLE_RESUME_URL,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
 )
 
 EXPECTED_APPLICATION_DATA_WITHOUT_RESUME = ProcessedHackerApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=None,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
 )
-
 
 EXPECTED_USER = Applicant(
     uid="edu.uci.pkfire",
@@ -104,8 +97,9 @@ EXPECTED_USER_WITHOUT_RESUME = Applicant(
     application_data=EXPECTED_APPLICATION_DATA_WITHOUT_RESUME,
 )
 
+resume_handler.HACKER_RESUMES_FOLDER_ID = "HACKER_RESUMES_FOLDER_ID"
 resume_handler.FOLDER_MAP = {
-    "Hacker": "HACKER_RESUMES_FOLDER_ID",
+    "Hacker": resume_handler.HACKER_RESUMES_FOLDER_ID,
     "Mentor": "MENTOR_RESUMES_FOLDER_ID",
 }
 
@@ -150,7 +144,7 @@ def test_apply_successfully(
     mock_send_application_confirmation_email.assert_awaited_once_with(
         USER_EMAIL, EXPECTED_USER, Role.HACKER
     )
-    assert res.status_code == 201
+    assert res.status_code == 201, res.text
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)

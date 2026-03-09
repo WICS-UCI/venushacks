@@ -111,7 +111,6 @@ async def apply(
 
     discriminator = get_raw_hacker_discriminator_value(data)
     raw_application_data: Union[RawHackerApplicationData]
-
     try:
         if discriminator == "hacker":
             raw_application_data = RawHackerApplicationData.model_validate(data)
@@ -137,7 +136,10 @@ async def mentor(
         if discriminator == "mentor":
             raw_application_data = RawMentorApplicationData.model_validate(data)
         else:
-            raise ValueError("Cannot determine mentor application type")
+            raise HTTPException(
+                status.HTTP_422_UNPROCESSABLE_ENTITY,
+                "Cannot determine mentor application type",
+            )
     except ValidationError as e:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
 
@@ -147,8 +149,14 @@ async def mentor(
 @router.post("/volunteer", status_code=status.HTTP_201_CREATED)
 async def volunteer(
     user: Annotated[User, Depends(require_user_identity)],
-    raw_application_data: Annotated[RawVolunteerApplicationData, Form()],
+    request: Request,
 ) -> str:
+    form = await request.form()
+    data = _parsed_form(form)
+    try:
+        raw_application_data = RawVolunteerApplicationData.model_validate(data)
+    except ValidationError as e:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
     return await _apply_flow(user, raw_application_data)
 
 
@@ -192,10 +200,10 @@ async def _apply_flow(
             )
 
     resume = raw_application_data.resume
-    if resume is not None and resume.size and resume.size > 0:
+    # Browsers send an empty UploadFile when no file is selected (filename == "").
+    if resume is not None and resume.filename:
         try:
             resume_url = await resume_handler.upload_resume(
-                # TODO: reexamine why adapter is needed
                 TypeAdapter(
                     Union[
                         RawHackerApplicationData,
@@ -233,8 +241,6 @@ async def _apply_flow(
             "submission_time": now,
         }
     )
-
-    _add_auto_scores_if_any(processed_application_data)
 
     applicant = Applicant(
         uid=user.uid,
@@ -372,6 +378,7 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
         "majors_and_minors",
         "experienced_technologies",
         "skills",
+        "areas_of_development",
         "friday_availability",
         "saturday_availability",
         "sunday_availability",
