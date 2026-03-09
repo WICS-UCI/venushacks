@@ -83,7 +83,7 @@ async def get_participants() -> list[Participant]:
 
 
 async def check_in_participant(uid: str, associate: User) -> None:
-    """Check in participant at IrvineHacks"""
+    """Check in participant"""
     record: Optional[dict[str, object]] = await mongodb_handler.retrieve_one(
         Collection.USERS, {"_id": uid, "roles": {"$exists": True}}, ["status"]
     )

@@ -14,7 +14,7 @@ def test_impersonate() -> None:
     assert res.headers["location"] == "/portal"
     set_cookie = res.headers["Set-Cookie"].split(";")[0]
     cookie_name, cookie_value = set_cookie.split("=")
-    assert cookie_name == "irvinehacks_auth"
+    assert cookie_name == "venushacks_auth"
 
     # Confirm identity is valid and decodable
     identity = user_identity._decode_user_identity(cookie_value)
