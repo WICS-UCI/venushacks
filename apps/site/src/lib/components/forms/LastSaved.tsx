@@ -23,7 +23,8 @@ interface LastSavedProps {
 
 // Track saved time with useState in a parent Component.
 export default function LastSaved({ lastSaved }: LastSavedProps) {
-	const formatted = lastSaved ? formatAutoSaveDate(lastSaved)
+	const formatted = lastSaved
+		? formatAutoSaveDate(lastSaved)
 		: "mm/dd/yyyy at 00:00:00";
 
 	return (
