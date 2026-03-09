@@ -54,7 +54,9 @@ export default function DropdownSelect({
 			</label>
 			<div className="relative w-full">
 				<select
-					className="w-full font-figtree appearance-none text-[#8E8E8E] text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC]"
+					className={`w-full font-figtree appearance-none text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] ${
+						value === "" ? "text-[#8E8E8E]" : "text-black"
+					}`}
 					style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 					name={name}
 					id={name}
