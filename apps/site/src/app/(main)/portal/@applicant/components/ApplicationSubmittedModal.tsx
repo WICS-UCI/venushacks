@@ -60,7 +60,7 @@ export default function ApplicationSubmittedModal({
 				{/* Div containing Buttons */}
 				<div className="flex flex-col md:flex-row gap-4 w-full">
 					<button
-                        onClick={() => router.push("/")}
+						onClick={() => router.push("/")}
 						className={`w-full md:flex-1 px-8 py-3 text-[16px] font-bold border rounded-full transition-opacity`}
 						type="submit"
 						style={{
