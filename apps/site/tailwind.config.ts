@@ -26,7 +26,6 @@ const config: Config = {
 			},
 			fontFamily: {
 				sniglet: ["Sniglet"],
-				figtree: ["var(--font-figtree)"],
 				torus: ["Torus Pro"],
 				figtree: ["Figtree", "sans-serif"],
 			},

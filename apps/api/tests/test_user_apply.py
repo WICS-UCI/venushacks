@@ -36,7 +36,7 @@ SAMPLE_APPLICATION = {
     "year": "Senior",
     "is_18_older": "true",
     "school": "UC Irvine",
-    "majors_and_minors": ["Computer Science"],
+    "majors_and_minors": "Computer Science",
     "previous_hackathons": "2",
     "previous_vh": "false",
     "share_resume_with_sponsors": "true",
@@ -318,7 +318,7 @@ def test_application_data_with_other_throws_422(
 ) -> None:
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["majors_and_minors"].append("other")  # type: ignore[attr-defined]
+    contains_other["school"].append("other")  # type: ignore[attr-defined]
     res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 
