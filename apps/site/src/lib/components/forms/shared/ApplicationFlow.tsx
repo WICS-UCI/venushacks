@@ -1,5 +1,4 @@
 "use client";
-
 import { ReactNode, useState } from "react";
 
 import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
@@ -10,6 +9,8 @@ import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import Title from "./Title/Title";
 import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
+
+import ApplicationProgressBar from "@/lib/components/forms/shared/ApplicationProgressBar/ApplicationProgressBar";
 
 export const revalidate = 60;
 
@@ -26,6 +27,7 @@ export default function ApplicationFlow({
 	identity,
 	children,
 }: ApplicationFlowProps) {
+
 	const { submitting, sessionExpired, handleSubmit } = useForm(applyPath);
 	const [pageIndex, setPageIndex] = useState<number>(0); // Used to change pages
 	console.log(setPageIndex); // REMOVE THIS LINE ONCE BUTTONS HAVE BEEN CONFIGURED
@@ -48,11 +50,33 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-10 min-h-screen">
+		
+		<div className="flex flex-col items-center justify-center gap-6 md:gap-10 min-h-screen px-4 md:px-0">
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="my-32">
+				<div className="mt-16 mb-32 flex flex-col items-center gap-8">
+					
+					<div className="flex items-center bg-[#FFFFFF99] rounded-full p-3 shadow-sm text-sm md:text-base">
+						<span className="px-4 md:px-6 py-2 bg-white rounded-full text-black">
+							Application
+						</span>
+
+						<form method="post" action="/logout">
+							<button
+								type="submit"
+								className="px-4 md:px-6 py-2 text-black"
+							>
+								Logout
+							</button>
+						</form>
+					</div>
+
+					<ApplicationProgressBar
+						pageIndex={pageIndex}
+						pageCount={PAGE_COUNT}
+					/>
+
 					<Title applicationType={applicationType} />
 					<form
 						method="post"
@@ -78,14 +102,18 @@ export default function ApplicationFlow({
 							/>
 						) : (
 							// TODO: Implement next button to navigate to next page
-							<button type="button">NEXT</button>
+							<button type="button" onClick={() => setPageIndex((prev) => Math.min(prev + 1, PAGE_COUNT - 1))} >
+								NEXT
+							</button>
 						)}
 						{isFirstPage() ? (
 							// TODO: Implement start application button (basically just a next button with different text)
-							<button type="button">START APPLICATION</button>
+							<button type="button" onClick={() => setPageIndex(1)}>START APPLICATION</button>
 						) : (
 							// TODO: Implement prev button to navigate to prev page
-							<button type="button">PREV</button>
+							<button type="button" onClick={() => setPageIndex((prev) => Math.max(prev - 1, 0))}>
+								PREV
+							</button>
 						)}
 						{sessionExpired && sessionExpiredMessage}
 					</form>
