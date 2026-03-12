@@ -32,6 +32,7 @@ export default function Partners() {
 
 	const handleTouchStart = (e: TouchEvent) => {
 		touchStartX.current = e.touches[0].clientX;
+		touchEndX.current = e.touches[0].clientX;
 	};
 
 	const handleTouchMove = (e: TouchEvent) => {
@@ -39,28 +40,34 @@ export default function Partners() {
 	};
 
 	const handleTouchEnd = () => {
-		if (touchStartX.current - touchEndX.current > 50) {
+		const swipeDistance = touchStartX.current - touchEndX.current;
+		
+		if (swipeDistance > 50) {
 			// Swiped left
 			handleNext();
-		}
-
-		if (touchStartX.current - touchEndX.current < -50) {
+		} else if (swipeDistance < -50) {
 			// Swiped right
 			handlePrev();
 		}
+		
+		// Reset for next gesture
+		touchStartX.current = 0;
+		touchEndX.current = 0;
 	};
 
 	return (
 		<div className="w-full flex justify-center items-center p-4 md:p-8 gap-0 md:gap-1">
 			{/* Left Arrow - Hidden on mobile */}
 			<button
+				type="button"
 				onClick={handlePrev}
 				disabled={activeIndex === 0}
+				aria-label="Previous partner"
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
 				<Image
 					src={ArrowButton}
-					alt="Previous"
+					alt=""
 					className="w-8 h-8 md:w-12 md:h-12 rotate-180"
 				/>
 			</button>
@@ -101,7 +108,7 @@ export default function Partners() {
 								<div
 									className="absolute inset-[60px] pointer-events-none"
 									style={{ backgroundColor: "#88888863" }}
-								></div>
+								/>
 							</div>
 						</div>
 					)}
@@ -127,7 +134,7 @@ export default function Partners() {
 						<div
 							className="absolute transition-all duration-300 ease-in-out"
 							style={{
-								right: '30px',
+								right: "30px",
 								zIndex: 10,
 							}}
 						>
@@ -140,7 +147,7 @@ export default function Partners() {
 								<div
 									className="absolute inset-[60px] pointer-events-none"
 									style={{ backgroundColor: "#88888863" }}
-								></div>
+								/>
 							</div>
 						</div>
 					)}
@@ -149,11 +156,17 @@ export default function Partners() {
 
 			{/* Right Arrow - Hidden on mobile */}
 			<button
+				type="button"
 				onClick={handleNext}
 				disabled={activeIndex === partners.length - 1}
+				aria-label="Next partner"
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<Image src={ArrowButton} alt="Next" className="w-8 h-8 md:w-12 md:h-12" />
+				<Image
+					src={ArrowButton}
+					alt=""
+					className="w-8 h-8 md:w-12 md:h-12"
+				/>
 			</button>
 		</div>
 	);
