@@ -162,11 +162,7 @@ export default function Partners() {
 				aria-label="Next partner"
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<Image
-					src={ArrowButton}
-					alt=""
-					className="w-8 h-8 md:w-12 md:h-12"
-				/>
+				<Image src={ArrowButton} alt="" className="w-8 h-8 md:w-12 md:h-12" />
 			</button>
 		</div>
 	);
