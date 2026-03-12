@@ -62,7 +62,7 @@ export default function ApplicationFlow({
 							Application
 						</span>
 
-						<form method="post" action="/logout">
+						<form method="post" action="api/user/logout">
 							<button
 								type="submit"
 								className="px-4 md:px-6 py-2 text-black"

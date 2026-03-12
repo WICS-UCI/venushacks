@@ -18,6 +18,7 @@ import bar1 from "@/assets/icons/am_bar.svg";
 import bar2 from "@/assets/icons/mb_bar.svg";
 import bar3 from "@/assets/icons/bs_bar.svg";
 import bar4 from "@/assets/icons/sl_bar.svg";
+import bar5 from "@/assets/icons/la_bar.svg";
 import barGray from "@/assets/icons/gray_bar.svg";
 
 interface Props {
@@ -28,7 +29,7 @@ interface Props {
 const activeIcons = [apple, mango, blueberry, strawberry_tree_fruit, lychee];
 const inactiveIcons = [gray_apple, gray_mango, gray_blueberry, gray_strawberry, gray_lychee];
 
-const barsColored = [bar1, bar2, bar3, bar4];
+const barsColored = [bar1, bar2, bar3, bar4, bar5];
 const barsGray = [barGray, barGray, barGray, barGray];
 
 export default function ApplicationProgressBar({ pageIndex, pageCount }: Props) {
