@@ -56,7 +56,9 @@ export default function SchoolInformation() {
 					name="school"
 					labelText="School"
 					values={universityOptions}
+					isRequired
 					containerClass="flex flex-col w-full max-[1000px]:w-full"
+					placeholder="UCI"
 				/>
 			</div>
 
@@ -65,13 +67,17 @@ export default function SchoolInformation() {
 					name="major"
 					labelText="Major"
 					values={majorOptions}
+					isRequired={true}
 					containerClass="flex flex-col w-6/12 max-[1000px]:w-full"
+					placeholder="CS"
 				/>
 				<DropdownSelect
 					name="education_level"
 					labelText="Education Level"
 					values={educationLevels}
+					isRequired={true}
 					containerClass="flex flex-col w-6/12 max-[1000px]:w-full"
+					placeholder="freshamn"
 				/>
 			</div>
 		</div>

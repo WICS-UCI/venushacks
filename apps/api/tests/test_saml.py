@@ -106,7 +106,7 @@ def test_saml_acs_succeeds(
         ANY,  # the redirect response
     )
     # response sets appropriate JWT cookie for user identity
-    assert res.headers["Set-Cookie"].startswith("irvinehacks_auth=ey")
+    assert res.headers["Set-Cookie"].startswith("venushacks_auth=ey")
 
 
 # One-time code tests
@@ -258,4 +258,4 @@ def test_exchange_code_with_valid_code(
     mock_issue_user_identity.assert_called_once_with(user, ANY)
 
     # Verify JWT cookie was set
-    assert res.headers["Set-Cookie"].startswith("irvinehacks_auth=ey")
+    assert res.headers["Set-Cookie"].startswith("venushacks_auth=ey")
