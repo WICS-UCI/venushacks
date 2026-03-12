@@ -58,7 +58,11 @@ export default function Partners() {
 				disabled={activeIndex === 0}
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<Image src={ArrowButton} alt="Previous" className="w-8 h-8 md:w-12 md:h-12 rotate-180" />
+				<Image
+					src={ArrowButton}
+					alt="Previous"
+					className="w-8 h-8 md:w-12 md:h-12 rotate-180"
+				/>
 			</button>
 
 			{/* Partners Display */}
