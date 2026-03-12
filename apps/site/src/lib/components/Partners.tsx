@@ -20,13 +20,13 @@ export default function Partners() {
 
 	const handlePrev = () => {
 		if (activeIndex > 0) {
-			setActiveIndex(activeIndex - 1);
+			setActiveIndex((prevIndex) => prevIndex - 1);
 		}
 	};
 
 	const handleNext = () => {
 		if (activeIndex < partners.length - 1) {
-			setActiveIndex(activeIndex + 1);
+			setActiveIndex((prevIndex) => prevIndex + 1);
 		}
 	};
 
