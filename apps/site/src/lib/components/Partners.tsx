@@ -66,7 +66,7 @@ export default function Partners() {
 			</button>
 
 			{/* Partners Display */}
-			<div 
+			<div
 				className="relative flex items-center justify-center w-full md:w-[800px] h-[300px] md:h-[450px] overflow-hidden"
 				onTouchStart={handleTouchStart}
 				onTouchMove={handleTouchMove}
