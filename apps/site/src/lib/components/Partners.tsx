@@ -107,8 +107,8 @@ export default function Partners() {
 					<div
 						className="absolute transition-all duration-300 ease-in-out"
 						style={{
-							left: '50%',
-							transform: 'translateX(-50%)',
+							left: "50%",
+							transform: "translateX(-50%)",
 							zIndex: 30,
 						}}
 					>
