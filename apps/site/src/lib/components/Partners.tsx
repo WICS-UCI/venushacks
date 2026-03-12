@@ -41,7 +41,6 @@ export default function Partners() {
 
 	const handleTouchEnd = () => {
 		const swipeDistance = touchStartX.current - touchEndX.current;
-		
 		if (swipeDistance > 50) {
 			// Swiped left
 			handleNext();
