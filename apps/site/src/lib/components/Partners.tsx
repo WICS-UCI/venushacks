@@ -88,7 +88,7 @@ export default function Partners() {
 						<div
 							className="absolute transition-all duration-300 ease-in-out"
 							style={{
-								left: '30px',
+								left: "30px",
 								zIndex: 10,
 							}}
 						>
