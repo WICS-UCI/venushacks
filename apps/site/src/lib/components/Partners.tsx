@@ -98,7 +98,10 @@ export default function Partners() {
 									alt={partners[activeIndex - 1].alt}
 									className="w-full h-full object-contain"
 								/>
-								<div className="absolute inset-[60px] pointer-events-none" style={{ backgroundColor: '#88888863' }}></div>
+								<div
+									className="absolute inset-[60px] pointer-events-none"
+									style={{ backgroundColor: "#88888863" }}
+								></div>
 							</div>
 						</div>
 					)}
