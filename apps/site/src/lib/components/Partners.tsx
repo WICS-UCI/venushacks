@@ -49,7 +49,6 @@ export default function Partners() {
 			// Swiped right
 			handlePrev();
 		}
-		
 		// Reset for next gesture
 		touchStartX.current = 0;
 		touchEndX.current = 0;
