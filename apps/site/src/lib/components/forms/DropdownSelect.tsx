@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import RequiredAsterisk from "./RequiredAsterisk";
 
 interface SelectProps {
@@ -19,22 +18,38 @@ interface OtherProps {
 }
 
 const OtherPopup = ({ value, name }: OtherProps) => {
-	if (value === "other") {
-		return (
-			<div className="mt-2 flex gap-2">
-				<label htmlFor={`${name}-other-input`} className="text-lg">
-					Other: <RequiredAsterisk />
-				</label>
-				<input
-					type="text"
-					name={`_other_${name}`}
-					id={`${name}-other-input`}
-					className="text-black border-b-2 p-1 h-6 border-black w-6/12"
-					required
-				/>
-			</div>
-		);
-	}
+	if (value !== "other") return null;
+
+	return (
+		<div className="mt-3">
+			<label
+				htmlFor={`${name}-other-input`}
+				className="block text-sm font-semibold text-slate-900"
+			>
+				Other: <RequiredAsterisk />
+			</label>
+
+			<input
+				type="text"
+				name={`_other_${name}`}
+				id={`${name}-other-input`}
+				className="
+			mt-2 w-full
+			h-12
+			rounded-xl
+			bg-white
+			px-4
+			text-slate-900
+			placeholder:text-slate-100
+			border border-slate-200
+			shadow-[0_2px_10px_rgba(0,0,0,0.06)]
+			outline-none
+			focus:border-slate-300 focus:ring-2 focus:ring-slate-200
+			"
+				required
+			/>
+		</div>
+	);
 };
 
 export default function DropdownSelect({

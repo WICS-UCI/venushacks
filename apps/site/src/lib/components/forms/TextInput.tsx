@@ -19,11 +19,28 @@ export default function TextInput({
 }: TextProps) {
 	return (
 		<div className={containerClass}>
-			<label className="text-lg mb-2" htmlFor={name}>
-				{`${labelText} `} {isRequired && <RequiredAsterisk />}
+			<label
+				className="block text-md font-semibold text-slate-900 mb-2"
+				htmlFor={name}
+			>
+				{labelText} {isRequired && <RequiredAsterisk />}
 			</label>
+
 			<input
-				className="bg-[#e1e1e1] text-[var(--color-black)] text-lg h-10 p-1.5 rounded-md"
+				className="
+					w-full
+					h-12
+					rounded-2xl
+					bg-white
+					px-4
+					text-slate-700
+					border border-gray-200				
+					bg-white shadow-[0_0_5px_rgba(0,0,0,0.4)] 
+					outline-none
+					placeholder:text-gray-400
+					focus:border-gray-300
+					focus:ring-2 focus:ring-gray-200
+				"
 				type={type}
 				name={name}
 				id={name}
