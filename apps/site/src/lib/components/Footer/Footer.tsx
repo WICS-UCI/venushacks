@@ -37,43 +37,59 @@ const socialLinks = [
 const creamFilter =
 	"brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(400%) hue-rotate(330deg) brightness(105%)";
 
-const textStyle: React.CSSProperties = {
-	color: "#F2E5D4",
-	fontFamily: "'Torus Pro', sans-serif",
-	fontWeight: 700,
-	fontSize: "18px",
-	lineHeight: "100%",
-	letterSpacing: "0.2em",
-	margin: 0,
-};
-
 const Footer = () => {
 	return (
 		<footer className={styles.footer} style={{ backgroundColor: "#2C4725" }}>
-			<div className="flex flex-row items-center justify-between w-full px-10 py-6">
+			<div className="flex flex-col md:flex-row md:items-center md:justify-between w-full px-6 md:px-10 pt-8 pb-5 md:py-6 gap-3 md:gap-0">
 				{/* Left: Made with text */}
-				<div className="flex flex-row items-center">
-					<p style={textStyle}>Made with</p>
+				<div className="flex flex-row items-center justify-center md:justify-start">
+					<p
+						style={{
+							color: "#F2E5D4",
+							fontFamily: "'Torus Pro', sans-serif",
+							fontWeight: 700,
+							fontSize: "clamp(14px, 2.5vw, 18px)",
+							lineHeight: "100%",
+							letterSpacing: "0.2em",
+							margin: 0,
+							whiteSpace: "nowrap",
+						}}
+					>
+						Made with
+					</p>
 					<Image
 						src={HeartImage}
 						alt="Heart icon"
-						width={16}
-						height={16}
+						width={14}
+						height={14}
 						style={{
 							filter: creamFilter,
 							display: "block",
 							position: "relative",
-							top: "1px", 
-							marginLeft: "6px", 
-							marginRight: "9px", 
+							top: "1px",
+							marginLeft: "6px",
+							marginRight: "9px",
 						}}
 					/>
-					<p style={textStyle}>by VenusHacks Organizers</p>
+					<p
+						style={{
+							color: "#F2E5D4",
+							fontFamily: "'Torus Pro', sans-serif",
+							fontWeight: 700,
+							fontSize: "clamp(14px, 2.5vw, 18px)",
+							lineHeight: "100%",
+							letterSpacing: "0.2em",
+							margin: 0,
+							whiteSpace: "nowrap",
+						}}
+					>
+						by VenusHacks Organizers
+					</p>
 				</div>
 				{/* Right: Social media links */}
 				<ul
-					className="flex items-center list-none p-0 m-0"
-					style={{ gap: "8px" }}
+					className="flex items-center justify-center md:justify-end list-none p-0 m-0"
+					style={{ gap: "clamp(4px, 1.5vw, 8px)" }}
 				>
 					{socialLinks.map(({ href, label, src, className }) => (
 						<li key={label}>
