@@ -56,6 +56,8 @@ export default function MentorBasicInformation() {
 					name="ethnicity"
 					labelText="Race / Ethnicity"
 					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
+					isRequired={true}
+					placeholder="temp"
 					values={ethnicity}
 				/>
 			</div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import React, { ReactNode, useMemo, useState, Children } from "react";
 
 import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
 import haveApplicationsOpened from "@/lib/utils/haveApplicationsOpened";
@@ -17,7 +17,7 @@ interface ApplicationFlowProps {
 	applicationType: "Hacker" | "Mentor" | "Volunteer";
 	applyPath: string;
 	identity: Identity;
-	children: ReactNode[];
+	children: ReactNode; // changed
 }
 
 export default function ApplicationFlow({
@@ -27,12 +27,16 @@ export default function ApplicationFlow({
 	children,
 }: ApplicationFlowProps) {
 	const { submitting, sessionExpired, handleSubmit } = useForm(applyPath);
-	const [pageIndex, setPageIndex] = useState<number>(0); // Used to change pages
-	console.log(setPageIndex); // REMOVE THIS LINE ONCE BUTTONS HAVE BEEN CONFIGURED
 
-	const PAGE_COUNT = children.length;
-	const isLastPage = () => pageIndex === PAGE_COUNT - 1;
-	const isFirstPage = () => pageIndex === 0;
+	const pages = useMemo(() => Children.toArray(children), [children]);
+	const [pageIndex, setPageIndex] = useState<number>(0);
+
+	const PAGE_COUNT = pages.length;
+	const isLastPage = pageIndex === PAGE_COUNT - 1;
+	const isFirstPage = pageIndex === 0;
+
+	const goNext = () => setPageIndex((i) => Math.min(i + 1, PAGE_COUNT - 1));
+	const goPrev = () => setPageIndex((i) => Math.max(i - 1, 0));
 
 	const deadlinePassed = hasDeadlinePassed();
 	const applicationsOpened = haveApplicationsOpened();
@@ -48,18 +52,26 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-10 min-h-screen">
+		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-12">
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="my-32">
+				<div className="w-full max-w-5xl">
 					<Title applicationType={applicationType} />
+
 					<form
 						method="post"
-						className="bg-black border-[5px] border-white text-[var(--color-white)] w-8/12 flex flex-col items-center py-12 gap-14 z-1 max-[800px]:w-9/12 max-[400px]:w-11/12 drop-shadow-[25px_33px_0px_rgba(255,255,255,1)]"
 						action={applyPath}
 						encType="multipart/form-data"
 						onSubmit={handleSubmit}
+						className="
+              w-full bg-white text-slate-900
+
+              rounded-[38px]
+              shadow-[0_18px_35px_rgba(0,0,0,0.12)]
+              px-5 py-6
+              md:px-12 md:py-10
+            "
 					>
 						<input
 							type="text"
@@ -68,26 +80,49 @@ export default function ApplicationFlow({
 							readOnly
 							hidden
 						/>
-						{children[pageIndex]}
-						{isLastPage() ? (
-							<Button
-								text="Submit"
-								className="text-2xl !px-11 !py-2"
-								isLightVersion={true}
-								disabled={submitting}
-							/>
-						) : (
-							// TODO: Implement next button to navigate to next page
-							<button type="button">NEXT</button>
+
+						{/* Page content */}
+						{pages[pageIndex]}
+
+						{/* Navigation */}
+						<div className="mt-10 flex items-center justify-between">
+							{!isFirstPage ? (
+								<button
+									type="button"
+									onClick={goPrev}
+									className="text-sm font-medium text-slate-600 hover:text-slate-900"
+								>
+									← Prev
+								</button>
+							) : (
+								<span />
+							)}
+
+							{isLastPage ? (
+								<Button
+									text="Submit"
+									className="text-base !px-8 !py-3"
+									isLightVersion={true}
+									disabled={submitting}
+								/>
+							) : (
+								<button
+									type="button"
+									onClick={goNext}
+									className="
+                    rounded-full bg-rose-200 px-8 py-3
+                    text-sm font-semibold text-rose-700
+                    shadow-sm hover:bg-rose-300
+                  "
+								>
+									{isFirstPage ? "Start Application →" : "Next →"}
+								</button>
+							)}
+						</div>
+
+						{sessionExpired && (
+							<div className="mt-6">{sessionExpiredMessage}</div>
 						)}
-						{isFirstPage() ? (
-							// TODO: Implement start application button (basically just a next button with different text)
-							<button type="button">START APPLICATION</button>
-						) : (
-							// TODO: Implement prev button to navigate to prev page
-							<button type="button">PREV</button>
-						)}
-						{sessionExpired && sessionExpiredMessage}
 					</form>
 				</div>
 			)}
