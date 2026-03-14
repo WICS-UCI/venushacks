@@ -53,12 +53,13 @@ const About = () => {
 				<Image
 					src={flower}
 					alt="Flower decoration"
-					className="absolute bottom-32 right-56 w-20 h-auto"
+					className="absolute bottom-[8vh] right-[13vw] w-[5vw] h-auto"
 				/>
+
 				<Image
 					src={grass}
 					alt="Grass decoration"
-					className="absolute bottom-4 left-48 w-14 h-auto"
+					className="absolute bottom-[2vh] left-[10vw] w-[3vw] h-auto"
 				/>
 			</div>
 		</section>
