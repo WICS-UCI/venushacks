@@ -100,6 +100,7 @@ export default function ApplicationFlow({
 							{isLastPage ? (
 								<button
 									type="submit"
+									disabled={submitting}
 									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
 									style={{
 										paddingTop: "12px",
