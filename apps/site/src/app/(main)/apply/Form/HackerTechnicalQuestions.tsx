@@ -13,7 +13,6 @@ export default function TechnicalQuestions() {
 
 	return (
 		<div className="w-full flex justify-center bg-[#FCFCFC] flex-col gap-[20px]">
-
 			<h2 className="font-figtree text-[20px] font-semibold text-black">
 				III. Technical Questions
 			</h2>

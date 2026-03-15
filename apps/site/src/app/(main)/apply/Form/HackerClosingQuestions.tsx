@@ -10,7 +10,7 @@ export default function ClosingQuestions() {
 	});
 
 	return (
-		<div className="w-full flex justify-center bg-[#FCFCFC] flex-col gap-[20px]">
+		<div className="w-full flex justify-center flex-col gap-[20px]">
 			<h2 className="font-figtree text-[20px] font-semibold text-black">
 				IV. Closing Questions
 			</h2>

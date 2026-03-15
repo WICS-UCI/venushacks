@@ -8,7 +8,6 @@ import useForm from "@/lib/utils/useForm";
 
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import Title from "./Title/Title";
-import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
 export const revalidate = 60;
