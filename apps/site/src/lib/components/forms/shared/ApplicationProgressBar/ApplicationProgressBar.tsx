@@ -27,12 +27,21 @@ interface Props {
 }
 
 const activeIcons = [apple, mango, blueberry, strawberry_tree_fruit, lychee];
-const inactiveIcons = [gray_apple, gray_mango, gray_blueberry, gray_strawberry, gray_lychee];
+const inactiveIcons = [
+	gray_apple,
+	gray_mango,
+	gray_blueberry,
+	gray_strawberry,
+	gray_lychee
+];
 
 const barsColored = [bar1, bar2, bar3, bar4, bar5];
 const barsGray = [barGray, barGray, barGray, barGray];
 
-export default function ApplicationProgressBar({ pageIndex, pageCount }: Props) {
+export default function ApplicationProgressBar({
+	pageIndex,
+	pageCount
+}: Props) {
 	return (
 		<div className="w-full flex justify-center mb-6">
 			<div className="overflow-x-auto max-w-[260px] md:max-w-none">
