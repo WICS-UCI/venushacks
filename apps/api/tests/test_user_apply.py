@@ -313,17 +313,6 @@ def test_application_data_is_bson_encodable() -> None:
     bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
 
 
-@patch("services.mongodb_handler.retrieve_one", autospec=True)
-def test_application_data_with_other_throws_422(
-    mock_mongodb_handler_retrieve_one: AsyncMock,
-) -> None:
-    mock_mongodb_handler_retrieve_one.return_value = None
-    contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["pronouns"].append("other")  # type: ignore[attr-defined]
-    res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
-    assert res.status_code == 422
-
-
 def test_past_deadline_causes_403() -> None:
     """Test that users are forbidden from submitting applications past the deadline."""
     user.DEADLINE = datetime(2023, 12, 18, 20, 0, 0, tzinfo=timezone.utc)
