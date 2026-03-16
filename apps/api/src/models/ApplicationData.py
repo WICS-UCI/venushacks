@@ -37,11 +37,17 @@ FIELDS_SUPPORTING_OTHER = [
     "gender_identity",
     "dietary_restrictions",
     "experienced_technologies",
-    "majors_and_minors",
+    "areas_of_development",
 ]
 
 
 NullableHttpUrl = Annotated[Union[None, HttpUrl], BeforeValidator(make_empty_none)]
+
+
+def _empty_to_none_proficiency(val: Union[str, None]) -> Union[str, None]:
+    if val == "" or val is None:
+        return None
+    return val
 
 
 # hacker application model
@@ -55,7 +61,7 @@ class BaseApplicationData(BaseModel):
 
     shirt_size: str
     school: str
-    majors_and_minors: list[str] = []
+    majors_and_minors: str
     year: Literal["Freshman", "Sophomore", "Junior", "Senior", "Graduate", "Other"]
 
     previous_hackathons: int = Field(ge=0)
@@ -75,27 +81,56 @@ class BaseApplicationData(BaseModel):
     questions_comments_concerns: Union[str, None] = Field(None, max_length=2048)
 
 
+ProficiencyLevel = Literal["no_experience", "beginner", "intermediate", "advanced"]
+ProficiencyOptional = Annotated[
+    Union[ProficiencyLevel, None],
+    BeforeValidator(_empty_to_none_proficiency),
+]
+
+
+# mentor application model
 class BaseMentorApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
-    experienced_technologies: list[str] = []
-    pronouns: list[str] = []
-
-    ethnicity: str
-    school: str
-    major: str
-    education_level: str
+    date_of_birth: datetime
     is_18_older: bool
-    git_experience: str
-    github: NullableHttpUrl = None
-    portfolio: NullableHttpUrl = None
+    gender_identity: str
+    pronouns: list[str] = []
+    year: str
+    major: str
+    affiliation: str
     linkedin: NullableHttpUrl = None
-    mentor_prev_experience_saq1: Union[str, None] = Field(None, max_length=2048)
-    mentor_interest_saq2: str = Field(max_length=2048)
-    mentor_team_help_saq3: str = Field(max_length=2048)
-    mentor_team_help_saq4: str = Field(max_length=2048)
-    resume_share_to_sponsors: bool = False
-    other_questions: Union[str, None] = Field(None, max_length=2048)
+    github: NullableHttpUrl = None
+    website: NullableHttpUrl = None
+    t_shirt_size: str
+    availability: str = Field(max_length=2048)
+
+    proficiency_figma: ProficiencyOptional = None
+    proficiency_java: ProficiencyOptional = None
+    proficiency_cpp: ProficiencyOptional = None
+    proficiency_c: ProficiencyOptional = None
+    proficiency_python: ProficiencyOptional = None
+    proficiency_nodejs: ProficiencyOptional = None
+    proficiency_mongodb: ProficiencyOptional = None
+    proficiency_html_css: ProficiencyOptional = None
+    proficiency_javascript: ProficiencyOptional = None
+    proficiency_flask: ProficiencyOptional = None
+    proficiency_django: ProficiencyOptional = None
+    proficiency_rest_apis: ProficiencyOptional = None
+    proficiency_firebase: ProficiencyOptional = None
+    proficiency_sql: ProficiencyOptional = None
+    proficiency_sass: ProficiencyOptional = None
+    proficiency_expressjs: ProficiencyOptional = None
+    proficiency_nosql: ProficiencyOptional = None
+
+    other_skills_technologies: Union[str, None] = Field(None, max_length=2048)
+    areas_of_development: list[str] = []
+
+    why_mentor_frq: str = Field(max_length=2048)
+    contribute_inclusive_frq: str = Field(max_length=2048)
+    available_entire_duration: bool
+    availability_specify: Union[str, None] = Field(None, max_length=2048)
+    questions_comments_concerns: Union[str, None] = Field(None, max_length=2048)
 
 
 Hour = Annotated[int, Field(ge=7, lt=24)]
@@ -113,7 +148,7 @@ class BaseVolunteerApplicationData(BaseModel):
     frq_volunteer: str = Field(max_length=2048)
     frq_utensil: str = Field(max_length=2048)
     allergies: Union[str, None] = Field(None, max_length=2048)
-    extra_questions: Union[str, None] = Field(None, max_length=2048)
+    other_questions: Union[str, None] = Field(None, max_length=2048)
 
     friday_availability: list[Hour] = []
     saturday_availability: list[Hour] = []
@@ -166,7 +201,7 @@ class ProcessedMentorApplicationData(BaseMentorApplicationData):
     submission_time: datetime
     reviews: list[Review] = []
 
-    @field_serializer("linkedin", "github", "portfolio", "resume_url")
+    @field_serializer("linkedin", "github", "website", "resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
         if val is not None:
             return str(val)
@@ -186,14 +221,14 @@ def get_discriminator_value(v: Any) -> str:
     if isinstance(v, dict):
         if "frq_project" in v:
             return "hacker"
-        if "mentor_prev_experience_saq1" in v:
+        if "why_mentor_frq" in v:
             return "mentor"
         if "frq_volunteer" in v:
             return "volunteer"
 
     if "frq_project" in dir(v):
         return "hacker"
-    if "mentor_prev_experience_saq1" in dir(v):
+    if "why_mentor_frq" in dir(v):
         return "mentor"
     if "frq_volunteer" in dir(v):
         return "volunteer"
@@ -231,11 +266,11 @@ def get_raw_mentor_discriminator_value(v: Any) -> str:
     """Discriminator function for raw mentor application data."""
     if isinstance(v, dict):
         # Check for unique fields to distinguish between the two types
-        if "mentor_prev_experience_saq1" in v:
+        if "why_mentor_frq" in v:
             return "mentor"
 
     # For object instances, check attributes
-    if hasattr(v, "mentor_prev_experience_saq1"):
+    if hasattr(v, "why_mentor_frq"):
         return "mentor"
 
     return ""

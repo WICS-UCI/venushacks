@@ -25,11 +25,9 @@ const config: Config = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			fontFamily: {
-				heading: ["Ethnocentric"],
-				display: ["NicoMoji"],
-				sans: ["Lexend Giga"],
 				sniglet: ["Sniglet"],
 				torus: ["Torus Pro"],
+				figtree: ["Figtree", "sans-serif"],
 			},
 			fontSize: {
 				"coming-soon": ["clamp(14px, 2.5vw, 28px)", { lineHeight: "100%", letterSpacing: "0.19em" }],

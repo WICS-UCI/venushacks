@@ -8,10 +8,7 @@ from fastapi import FastAPI
 from pydantic import HttpUrl
 
 from auth.user_identity import NativeUser, UserTestClient
-from models.ApplicationData import (
-    ProcessedHackerApplicationData,
-)
-
+from models.ApplicationData import ProcessedHackerApplicationData
 from models.user_record import Applicant, Status, Role
 from routers import user
 from services.mongodb_handler import Collection
@@ -39,7 +36,7 @@ SAMPLE_APPLICATION = {
     "year": "Senior",
     "is_18_older": "true",
     "school": "UC Irvine",
-    "majors_and_minors": ["Computer Science"],
+    "majors_and_minors": "Computer Science",
     "previous_hackathons": "2",
     "previous_vh": "false",
     "share_resume_with_sponsors": "true",
@@ -69,22 +66,18 @@ EMPTY_RESUME = (
 EXPECTED_RESUME_UPLOAD = ("pk-fire-69f2afc2.pdf", b"resume", "application/pdf")
 SAMPLE_RESUME_URL = HttpUrl("https://drive.google.com/file/d/...")
 SAMPLE_SUBMISSION_TIME = datetime(2024, 1, 12, 8, 1, 21, tzinfo=timezone.utc)
-SAMPLE_VERDICT_TIME = None
 
 EXPECTED_APPLICATION_DATA = ProcessedHackerApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=SAMPLE_RESUME_URL,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
 )
 
 EXPECTED_APPLICATION_DATA_WITHOUT_RESUME = ProcessedHackerApplicationData(
     **SAMPLE_APPLICATION,  # type: ignore[arg-type]
     resume_url=None,
     submission_time=SAMPLE_SUBMISSION_TIME,
-    verdict_time=SAMPLE_VERDICT_TIME,
 )
-
 
 EXPECTED_USER = Applicant(
     uid="edu.uci.pkfire",
@@ -104,8 +97,9 @@ EXPECTED_USER_WITHOUT_RESUME = Applicant(
     application_data=EXPECTED_APPLICATION_DATA_WITHOUT_RESUME,
 )
 
+resume_handler.HACKER_RESUMES_FOLDER_ID = "HACKER_RESUMES_FOLDER_ID"
 resume_handler.FOLDER_MAP = {
-    "Hacker": "HACKER_RESUMES_FOLDER_ID",
+    "Hacker": resume_handler.HACKER_RESUMES_FOLDER_ID,
     "Mentor": "MENTOR_RESUMES_FOLDER_ID",
 }
 
@@ -135,6 +129,7 @@ def test_apply_successfully(
     mock_datetime.now.return_value = SAMPLE_SUBMISSION_TIME
     mock_is_past_deadline.return_value = False
     res = client.post("/apply", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
+    print(res.text)
     assert res.status_code == 201
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
@@ -150,7 +145,7 @@ def test_apply_successfully(
     mock_send_application_confirmation_email.assert_awaited_once_with(
         USER_EMAIL, EXPECTED_USER, Role.HACKER
     )
-    assert res.status_code == 201
+    assert res.status_code == 201, res.text
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
@@ -316,17 +311,6 @@ def test_apply_successfully_without_resume(
 def test_application_data_is_bson_encodable() -> None:
     """Test that application data model can be encoded into BSON to store in MongoDB."""
     bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
-
-
-@patch("services.mongodb_handler.retrieve_one", autospec=True)
-def test_application_data_with_other_throws_422(
-    mock_mongodb_handler_retrieve_one: AsyncMock,
-) -> None:
-    mock_mongodb_handler_retrieve_one.return_value = None
-    contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["majors_and_minors"].append("other")  # type: ignore[attr-defined]
-    res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
-    assert res.status_code == 422
 
 
 def test_past_deadline_causes_403() -> None:
