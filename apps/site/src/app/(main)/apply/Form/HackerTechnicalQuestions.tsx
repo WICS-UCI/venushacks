@@ -12,10 +12,10 @@ export default function TechnicalQuestions() {
 	});
 
 	return (
-		<div className="w-full flex justify-center bg-[#FCFCFC] flex-col gap-[20px]">
-			<h2 className="font-figtree text-[20px] font-semibold text-black">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 				III. Technical Questions
-			</h2>
+			</h1>
 
 			<QuestionField
 				name="frq_project"

@@ -18,9 +18,9 @@ export default function TextInput({
 	isRequired,
 }: TextProps) {
 	return (
-		<div className={containerClass}>
+		<div className={`${containerClass} font-figtree`}>
 			<label
-				className="block text-md font-semibold text-slate-900 mb-2"
+				className="block text-sm md:text-base font-figtree mb-2"
 				htmlFor={name}
 			>
 				{labelText} {isRequired && <RequiredAsterisk />}
@@ -29,15 +29,14 @@ export default function TextInput({
 			<input
 				className="
 					w-full
-					h-12
-					rounded-2xl
-					bg-white
-					px-4
-					text-slate-700
+					rounded-xl
+					px-4 py-2
 					border border-gray-200				
-					bg-white shadow-[0_0_5px_rgba(0,0,0,0.4)] 
+					bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)] 
 					outline-none
-					placeholder:text-gray-400
+					text-sm md:text-base
+					placeholder:text-[#8E8E8E] text-black
+					focus:bg-white
 					focus:border-gray-300
 					focus:ring-2 focus:ring-gray-200
 				"

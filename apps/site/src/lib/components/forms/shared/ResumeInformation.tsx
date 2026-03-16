@@ -51,26 +51,25 @@ export default function ResumeInformation({
 	};
 
 	return (
-		<div className="flex flex-col gap-1 w-full">
-			<label className="font-figtree font-medium text-lg mb-2">
+		<div className="flex flex-col w-full">
+			<label className="block font-figtree text-sm md:text-base mb-2">
 				Attach your Resume{" "}
-				<span className="font-normal text-[#8E8E8E]">(optional)</span>
+				<span className="text-[#8E8E8E]">(optional)</span>
 			</label>
 			<label
 				htmlFor="resume_upload"
-				className="cursor-pointer flex items-center w-full appearance-none text-[#8E8E8E] text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC]"
-				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
+				className="cursor-pointer flex items-center w-full appearance-none text-[#8E8E8E] text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]"
 			>
 				{errorMessage ? (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
+					<span>
 						{errorMessage}
 					</span>
 				) : resumePath ? (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg">
+					<span>
 						{"Selected " + resumePath}
 					</span>
 				) : (
-					<span className="font-figtree appearance-none text-[#8E8E8E] text-lg text-[#8E8E8E]">
+					<span>
 						Upload from computer
 					</span>
 				)}

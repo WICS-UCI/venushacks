@@ -64,15 +64,18 @@ export default function DropdownSelect({
 
 	return (
 		<div className={containerClass}>
-			<label className="font-figtree font-medium text-lg mb-2" htmlFor={name}>
-				{labelText} {isRequired && <RequiredAsterisk />}
+			<label className="block text-sm md:text-base font-figtree mb-2" htmlFor={name}>
+				{labelText} {isRequired ? (
+					<RequiredAsterisk />
+				) : (
+					<span className="text-[#8E8E8E]">(optional)</span>
+				)}
 			</label>
 			<div className="relative w-full">
 				<select
-					className={`w-full font-figtree appearance-none text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] ${
+					className={`w-full font-figtree outline-none appearance-none text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)] ${
 						value === "" ? "text-[#8E8E8E]" : "text-black"
 					}`}
-					style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 					name={name}
 					id={name}
 					defaultValue=""

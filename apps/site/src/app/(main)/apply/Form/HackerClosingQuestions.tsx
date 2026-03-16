@@ -2,6 +2,15 @@
 
 import React, { useState } from "react";
 import QuestionField from "@/lib/components/forms/QuestionField";
+import DropdownSelect from "@/lib/components/forms/DropdownSelect";
+
+const vhReference = [
+	{ value: "social media", text: "Social Media" },
+	{ value: "friend", text: "Friend" },
+	{ value: "university", text: "University" },
+	{ value: "discord", text: "Discord" },
+	{ value: "other", text: "Other:" },
+];
 
 export default function ClosingQuestions() {
 	const [answers, setAnswers] = useState({
@@ -10,37 +19,20 @@ export default function ClosingQuestions() {
 	});
 
 	return (
-		<div className="w-full flex justify-center flex-col gap-[20px]">
-			<h2 className="font-figtree text-[20px] font-semibold text-black">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 				IV. Closing Questions
-			</h2>
+			</h1>
 
-			{/* Required dropdown */}
-			<div className="flex flex-col gap-2">
-				<label className="text-[16px] font-medium text-black font-figtree">
-					How did you hear about VenusHacks?
-					<span className="text-red-500"> *</span>
-				</label>
+			<DropdownSelect
+				name="how_did_you_hear"
+				labelText="How did you hear about VenusHacks?"
+				containerClass="flex flex-col"
+				isRequired={true}
+				values={vhReference}
+				placeholder="Select an option"
+			/>
 
-				<select
-					name="hear_about"
-					required
-					value={answers.hearAbout}
-					onChange={(e) =>
-						setAnswers({ ...answers, hearAbout: e.target.value })
-					}
-					className="border border-[#D6D6D6] rounded-[10px] p-3 bg-white text-black font-figtree"
-				>
-					<option value="">Select an option</option>
-					<option>Social Media</option>
-					<option>Friend</option>
-					<option>University</option>
-					<option>Discord</option>
-					<option>Other</option>
-				</select>
-			</div>
-
-			{/* Optional textarea */}
 			<QuestionField
 				name="frq_comments"
 				label="Any questions, comments, or concerns?"

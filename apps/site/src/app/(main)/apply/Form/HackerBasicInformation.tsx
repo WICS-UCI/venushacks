@@ -52,12 +52,12 @@ const educationLevels = [
 
 export default function BasicInformation() {
 	return (
-		<div className="w-full flex flex-col gap-8">
-			<p className="text-4xl m-0 max-[700px]:text-3xl">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 				I. Personal Information
-			</p>
+			</h1>
 
-			<div className="grid grid-cols-12 gap-x-6 gap-y-8">
+			<div className="grid grid-cols-12 gap-x-6 gap-y-6">
 				<TextInput
 					name="first_name"
 					labelText="First Name"

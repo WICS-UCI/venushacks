@@ -57,7 +57,7 @@ export default function MultipleSelect({
 
 	return (
 		<div className={containerClass}>
-			<p className="m-0 text-lg mb-4">{labelText}</p>
+			<p className="m-0 text-sm md:text-base mb-4">{labelText}</p>
 			<div
 				className={`w-full flex ${
 					horizontal ? "flex-wrap gap-10" : "flex-col gap-6"
@@ -79,7 +79,7 @@ export default function MultipleSelect({
 									onChange={(e) => setIsOtherChecked(e.target.checked)}
 								/>
 								<label
-									className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug"
+									className="w-full font-figtree font-medium appearance-none text-[#000000] text-sm md:text-base leading-snug"
 									htmlFor={inputId}
 								>
 									{item.text}
@@ -103,7 +103,7 @@ export default function MultipleSelect({
 								style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 							/>
 							<label
-								className="w-full font-figtree font-medium appearance-none text-[#000000] text-lg leading-snug"
+								className="w-full font-figtree font-medium appearance-none text-[#000000] text-sm md:text-base leading-snug"
 								htmlFor={inputId}
 							>
 								{item.text}

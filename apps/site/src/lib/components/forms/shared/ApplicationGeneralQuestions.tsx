@@ -9,18 +9,18 @@ export default function ApplicationGeneralQuestions() {
 	return (
 		<div className="w-full">
 			<div className="flex flex-col items-left">
-				<h1 className="font-sniglet text-2xl font-semibold tracking-tight mb-2">
+				<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 					II. General Questions
 				</h1>
 			</div>
 
 			{/* General questions block */}
-			<div className="flex flex-col gap-5 text-slate-800 mt-4">
+			<div className="flex flex-col gap-6 text-slate-800 mt-4">
 				{/* How many hackathons */}
 				<DropdownSelect
 					name="hackathons_attended"
 					labelText="How many hackathons have you attended before?"
-					containerClass="flex flex-col gap-1"
+					containerClass="flex flex-col"
 					placeholder="This is my first hackathon"
 					values={[
 						{ value: "0", text: "This is my first hackathon" },
@@ -33,7 +33,7 @@ export default function ApplicationGeneralQuestions() {
 				<DropdownSelect
 					name="attended_venushacks"
 					labelText="Have you attended VenusHacks previously?"
-					containerClass="flex flex-col gap-1"
+					containerClass="flex flex-col"
 					placeholder="No"
 					values={[
 						{ value: "no", text: "No" },
@@ -48,8 +48,8 @@ export default function ApplicationGeneralQuestions() {
 					{/* Share with sponsors */}
 					<DropdownSelect
 						name="share_resume"
-						labelText="May we share your resume with sponsors? (optional)"
-						containerClass="flex flex-col gap-1"
+						labelText="May we share your resume with sponsors?"
+						containerClass="flex flex-col"
 						isRequired={false}
 						placeholder="Yes"
 						values={[
@@ -64,7 +64,7 @@ export default function ApplicationGeneralQuestions() {
 				<DropdownSelect
 					name="dietary_Restrictions"
 					labelText="What are your dietary restrictions?"
-					containerClass="flex flex-col gap-1"
+					containerClass="flex flex-col"
 					placeholder="None"
 					values={[
 						{ value: "none", text: "None" },

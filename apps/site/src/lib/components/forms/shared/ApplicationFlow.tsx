@@ -7,7 +7,6 @@ import haveApplicationsOpened from "@/lib/utils/haveApplicationsOpened";
 import useForm from "@/lib/utils/useForm";
 
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
-import Title from "./Title/Title";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
 import ApplicationProgressBar from "@/lib/components/forms/shared/ApplicationProgressBar/ApplicationProgressBar";
@@ -27,6 +26,8 @@ export default function ApplicationFlow({
 	identity,
 	children,
 }: ApplicationFlowProps) {
+	const buttonClass = "py-[12px] px-[50px] rounded-full hover:opacity-90 active:opacity-100 active:shadow-md border font-figtree font-semibold text-[16px] leading-none text-center duration-200 shadow-sm";
+	
 	const { submitting, sessionExpired, handleSubmit } = useForm(applyPath);
 
 	const pages = useMemo(() => Children.toArray(children), [children]);
@@ -53,13 +54,13 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-6 md:gap-10 min-h-screen px-4 md:px-0">
+		<div className="flex flex-col items-center gap-6 md:gap-10 min-h-screen px-4 md:px-12">
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="mt-16 mb-32 max-w-5xl flex flex-col items-center gap-8">
-					<div className="flex items-center bg-[#FFFFFF99] rounded-full p-3 shadow-sm text-sm md:text-base">
-						<span className="px-4 md:px-6 py-2 bg-white rounded-full text-black">
+				<div className="mt-16 mb-32 w-full max-w-5xl flex flex-col items-center gap-8">
+					<div className="flex items-center bg-[rgba(255,255,255,0.6)] rounded-full p-3 shadow-md text-sm md:text-base font-figtree">
+						<span className="px-4 md:px-6 py-2 bg-white rounded-full text-black pointer-events-none">
 							Application
 						</span>
 
@@ -75,19 +76,16 @@ export default function ApplicationFlow({
 						pageCount={PAGE_COUNT}
 					/>
 
-					<Title applicationType={applicationType} />
-
 					<form
 						method="post"
 						action={applyPath}
 						encType="multipart/form-data"
 						onSubmit={handleSubmit}
 						className="
-              w-full bg-white text-slate-900
-
-              rounded-[38px]
+              w-auto min-w-full bg-white text-slate-900
+              rounded-[25px] md:rounded-[38px]
               shadow-[0_18px_35px_rgba(0,0,0,0.12)]
-              px-5 py-6
+              px-5 py-8
               md:px-12 md:py-10
             "
 					>
@@ -108,7 +106,7 @@ export default function ApplicationFlow({
 								<button
 									type="button"
 									onClick={goPrev}
-									className="text-sm font-medium text-slate-600 hover:text-slate-900"
+									className={`${buttonClass} text-indian-red border-indian-red bg-linen`}
 								>
 									← Prev
 								</button>
@@ -120,13 +118,7 @@ export default function ApplicationFlow({
 								<button
 									type="submit"
 									disabled={submitting}
-									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
-									style={{
-										paddingTop: "12px",
-										paddingRight: "50px",
-										paddingBottom: "12px",
-										paddingLeft: "50px",
-									}}
+									className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
 								>
 									Submit Application →
 								</button>
@@ -134,13 +126,7 @@ export default function ApplicationFlow({
 								<button
 									type="button"
 									onClick={goNext}
-									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
-									style={{
-										paddingTop: "12px",
-										paddingRight: "50px",
-										paddingBottom: "12px",
-										paddingLeft: "50px",
-									}}
+									className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
 								>
 									{isFirstPage ? "Start Application →" : "Next →"}
 								</button>
