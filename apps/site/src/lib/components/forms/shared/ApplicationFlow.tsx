@@ -10,6 +10,8 @@ import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import Title from "./Title/Title";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
+import ApplicationProgressBar from "@/lib/components/forms/shared/ApplicationProgressBar/ApplicationProgressBar";
+
 export const revalidate = 60;
 
 interface ApplicationFlowProps {
@@ -51,11 +53,28 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-12">
+		<div className="flex flex-col items-center justify-center gap-6 md:gap-10 min-h-screen px-4 md:px-0">
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="w-full max-w-5xl">
+				<div className="mt-16 mb-32 max-w-5xl flex flex-col items-center gap-8">
+					<div className="flex items-center bg-[#FFFFFF99] rounded-full p-3 shadow-sm text-sm md:text-base">
+						<span className="px-4 md:px-6 py-2 bg-white rounded-full text-black">
+							Application
+						</span>
+
+						<form method="post" action="api/user/logout">
+							<button type="submit" className="px-4 md:px-6 py-2 text-black">
+								Logout
+							</button>
+						</form>
+					</div>
+
+					<ApplicationProgressBar
+						pageIndex={pageIndex}
+						pageCount={PAGE_COUNT}
+					/>
+
 					<Title applicationType={applicationType} />
 
 					<form
