@@ -8,7 +8,6 @@ import useForm from "@/lib/utils/useForm";
 
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import Title from "./Title/Title";
-import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
 export const revalidate = 60;
@@ -99,21 +98,30 @@ export default function ApplicationFlow({
 							)}
 
 							{isLastPage ? (
-								<Button
-									text="Submit"
-									className="text-base !px-8 !py-3"
-									isLightVersion={true}
+								<button
+									type="submit"
 									disabled={submitting}
-								/>
+									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
+									style={{
+										paddingTop: "12px",
+										paddingRight: "50px",
+										paddingBottom: "12px",
+										paddingLeft: "50px",
+									}}
+								>
+									Submit Application →
+								</button>
 							) : (
 								<button
 									type="button"
 									onClick={goNext}
-									className="
-                    rounded-full bg-rose-200 px-8 py-3
-                    text-sm font-semibold text-rose-700
-                    shadow-sm hover:bg-rose-300
-                  "
+									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
+									style={{
+										paddingTop: "12px",
+										paddingRight: "50px",
+										paddingBottom: "12px",
+										paddingLeft: "50px",
+									}}
 								>
 									{isFirstPage ? "Start Application →" : "Next →"}
 								</button>

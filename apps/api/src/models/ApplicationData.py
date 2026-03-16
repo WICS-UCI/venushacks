@@ -37,7 +37,6 @@ FIELDS_SUPPORTING_OTHER = [
     "gender_identity",
     "dietary_restrictions",
     "experienced_technologies",
-    "majors_and_minors",
     "areas_of_development",
 ]
 
@@ -62,7 +61,7 @@ class BaseApplicationData(BaseModel):
 
     shirt_size: str
     school: str
-    majors_and_minors: list[str] = []
+    majors_and_minors: str
     year: Literal["Freshman", "Sophomore", "Junior", "Senior", "Graduate", "Other"]
 
     previous_hackathons: int = Field(ge=0)
