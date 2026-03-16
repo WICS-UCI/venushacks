@@ -129,6 +129,7 @@ def test_apply_successfully(
     mock_datetime.now.return_value = SAMPLE_SUBMISSION_TIME
     mock_is_past_deadline.return_value = False
     res = client.post("/apply", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
+    print(res.text)
     assert res.status_code == 201
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
@@ -318,7 +319,7 @@ def test_application_data_with_other_throws_422(
 ) -> None:
     mock_mongodb_handler_retrieve_one.return_value = None
     contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["school"].append("other")  # type: ignore[attr-defined]
+    contains_other["pronouns"].append("other")  # type: ignore[attr-defined]
     res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
     assert res.status_code == 422
 
