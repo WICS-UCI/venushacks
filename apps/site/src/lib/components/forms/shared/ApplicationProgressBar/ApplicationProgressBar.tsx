@@ -32,7 +32,7 @@ const inactiveIcons = [
 	gray_mango,
 	gray_blueberry,
 	gray_strawberry,
-	gray_lychee
+	gray_lychee,
 ];
 
 const barsColored = [bar1, bar2, bar3, bar4, bar5];
@@ -40,7 +40,7 @@ const barsGray = [barGray, barGray, barGray, barGray];
 
 export default function ApplicationProgressBar({
 	pageIndex,
-	pageCount
+	pageCount,
 }: Props) {
 	return (
 		<div className="w-full flex justify-center mb-6">
