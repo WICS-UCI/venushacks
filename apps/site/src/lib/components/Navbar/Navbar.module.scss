@@ -27,21 +27,22 @@
 	text-transform: uppercase;
 	color: #b86c6a;
 	font-weight: 600;
-	padding: 0.35rem 0.9rem;
+	padding: 0.5rem 1.25rem;
 	border-radius: 9999px;
 	transition:
-		color 200ms ease,
-		transform 200ms ease;
+		color 160ms ease,
+		background-color 160ms ease,
+		font-weight 160ms ease;
 
 	&:hover {
-		color: #7b2a2a;
-		transform: translateY(-1px);
+		color: #9b4f4d;
+		background-color: #f9c2bf;
 	}
 
 	&[data-state="active"] {
 		color: #7b2a2a;
-		transform: translateY(-1px);
 		font-weight: 700;
+		background-color: #f9c2bf;
 	}
 }
 
@@ -52,7 +53,7 @@
 	transform: translateY(-50%)
 		translateX(var(--radix-navigation-menu-indicator-x));
 	width: var(--radix-navigation-menu-indicator-width);
-	height: 2.1rem;
+	height: 2.5rem;
 	border-radius: 9999px;
 	background: #f9c2bf;
 	box-shadow:
