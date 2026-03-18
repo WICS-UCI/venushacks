@@ -27,9 +27,11 @@ const Button: React.FC<ButtonProps> = ({
 	usePrefetch = true,
 	newWindow = false,
 }) => {
+	const wrapWithButtonBox = !isLightVersion && !isNavButton;
+
 	if (href) {
 		return (
-			<div className={clsx(!isLightVersion && styles.buttonBox)}>
+			<div className={clsx(wrapWithButtonBox && styles.buttonBox)}>
 				<Link
 					href={href}
 					target={newWindow ? "_blank" : "_self"}
@@ -50,7 +52,7 @@ const Button: React.FC<ButtonProps> = ({
 		);
 	}
 	return (
-		<div className={clsx(!isLightVersion && styles.buttonBox)}>
+		<div className={clsx(wrapWithButtonBox && styles.buttonBox)}>
 			<button
 				type="submit"
 				className={clsx(
