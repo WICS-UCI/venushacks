@@ -16,12 +16,7 @@ export default function Navbar({ identity }: NavbarProps) {
 		<>
 			<BaseNavbar>
 				{status !== null && (
-					<Button
-						text="Portal"
-						href="/portal"
-						usePrefetch={false}
-						isNavButton
-					/>
+					<Button text="Portal" href="/portal" usePrefetch={false} isNavButton />
 				)}
 				{isLoggedIn ? (
 					<Button
@@ -31,12 +26,7 @@ export default function Navbar({ identity }: NavbarProps) {
 						isNavButton
 					/>
 				) : (
-					<Button
-						text="Apply"
-						href="/#apply"
-						usePrefetch={false}
-						isNavButton
-					/>
+					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
 				)}
 			</BaseNavbar>
 
@@ -49,12 +39,7 @@ export default function Navbar({ identity }: NavbarProps) {
 						isNavButton
 					/>
 				) : (
-					<Button
-						text="Apply"
-						href="/#apply"
-						usePrefetch={false}
-						isNavButton
-					/>
+					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
 				)}
 			</div>
 		</>

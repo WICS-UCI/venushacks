@@ -1,24 +1,12 @@
 "use client";
 
 import * as NavMenu from "@radix-ui/react-navigation-menu";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren } from "react";
 
 import styles from "./Navbar.module.scss";
 import NavLinkItem from "./NavbarHelpers";
 
 export default function BaseNavbar({ children }: PropsWithChildren) {
-	const [hasScrolled, setHasScrolled] = useState(false);
-
-	useEffect(() => {
-		const scrollHandler = () => {
-			setHasScrolled(window.scrollY !== 0);
-		};
-
-		window.addEventListener("scroll", scrollHandler);
-
-		return () => window.removeEventListener("scroll", scrollHandler);
-	}, []);
-
 	return (
 		<NavMenu.Root
 			className={`hidden md:flex fixed top-6 left-0 right-0 z-40 justify-center`}
