@@ -33,9 +33,15 @@
 		color 200ms ease,
 		transform 200ms ease;
 
+	&:hover {
+		color: #7b2a2a;
+		transform: translateY(-1px);
+	}
+
 	&[data-state="active"] {
 		color: #7b2a2a;
 		transform: translateY(-1px);
+		font-weight: 700;
 	}
 }
 

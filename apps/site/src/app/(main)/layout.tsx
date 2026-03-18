@@ -20,9 +20,11 @@ export default function Layout({ children }: PropsWithChildren) {
 			style={{ backgroundImage: `url(${stars.src})` }}
 			className="overflow-x-hidden bg-top bg-repeat-y bg-[length:100%] relative"
 		>
-			<Suspense fallback={<BaseNavbar />}>
-				<NavbarParent />
-			</Suspense>
+			{!process.env.MAINTENANCE_MODE_HOME && (
+				<Suspense fallback={<BaseNavbar />}>
+					<NavbarParent />
+				</Suspense>
+			)}
 			{children}
 			{/* <Footer /> */}
 		</div>
