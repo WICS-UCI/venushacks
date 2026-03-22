@@ -29,6 +29,10 @@ USER_PKFIRE = NativeUser(
 SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
+    "date_of_birth": "2000-01-01T00:00:00Z",
+    "is_18_older": "true",
+    "gender_identity": "Non-binary",
+    "pronouns": ["they"],
     "year": "3rd Year",
     "major": "Computer Science",
     "affiliation": "UC Irvine",
