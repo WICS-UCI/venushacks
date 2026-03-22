@@ -20,7 +20,7 @@ export default function TextInput({
 	return (
 		<div className={containerClass}>
 			<label
-				className="block text-md font-semibold text-slate-900 mb-2"
+				className="font-figtree font-medium text-lg mb-2 block"
 				htmlFor={name}
 			>
 				{labelText} {isRequired && <RequiredAsterisk />}
@@ -28,19 +28,9 @@ export default function TextInput({
 
 			<input
 				className="
-					w-full
-					h-12
-					rounded-2xl
-					bg-white
-					px-4
-					text-slate-700
-					border border-gray-200				
-					bg-white shadow-[0_0_5px_rgba(0,0,0,0.4)] 
-					outline-none
-					placeholder:text-gray-400
-					focus:border-gray-300
-					focus:ring-2 focus:ring-gray-200
+					w-full font-figtree text-lg h-10 pl-3 pr-4 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] text-black placeholder:text-[#8E8E8E] outline-none focus:border-slate-300 focus:ring-2 focus:ring-slate-200
 				"
+				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 				type={type}
 				name={name}
 				id={name}

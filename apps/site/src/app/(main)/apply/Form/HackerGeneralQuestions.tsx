@@ -3,6 +3,7 @@
 import MultipleSelect from "@/lib/components/forms/MultipleSelect";
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
+import TextInput from "@/lib/components/forms/TextInput";
 import LastSaved from "@/lib/components/forms/LastSaved";
 
 export default function GeneralQuestions() {
@@ -61,17 +62,13 @@ export default function GeneralQuestions() {
 
 				{/* Dietary Restrctions - more options / change to multiple 
 				select component can be implemented in the future */}
-				<DropdownSelect
-					name="dietary_Restrictions"
-					labelText="What are your dietary restrictions?"
+				<TextInput
+					name="dietary_restrictions"
+					labelText="What are your dietary restrictions? Include your allergies (if any)."
 					containerClass="flex flex-col gap-1"
-					placeholder="None"
-					values={[
-						{ value: "none", text: "None" },
-						{ value: "vegetarian", text: "Vegetarian" },
-						{ value: "vegan", text: "Vegan" },
-						{ value: "gluten-free", text: "Gluten-free" },
-					]}
+					isRequired={true}
+					type="text"
+					placeholder="e.g. Vegetarian, nut allergy... or leave blank if none"
 				/>
 
 				{/* Acknowledgements */}
