@@ -1,11 +1,11 @@
 "use client";
 
-import MultipleSelect from "../MultipleSelect";
-import DropdownSelect from "../DropdownSelect";
-import ResumeInformation from "./ResumeInformation";
-import LastSaved from "../LastSaved";
+import MultipleSelect from "@/lib/components/forms/MultipleSelect";
+import DropdownSelect from "@/lib/components/forms/DropdownSelect";
+import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
+import LastSaved from "@/lib/components/forms/LastSaved";
 
-export default function ApplicationGeneralQuestions() {
+export default function GeneralQuestions() {
 	return (
 		<div className="w-full">
 			<div className="flex flex-col items-left">
