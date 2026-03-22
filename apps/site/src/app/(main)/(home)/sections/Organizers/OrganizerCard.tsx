@@ -28,7 +28,8 @@ export default function OrganizerCard({
 }: OrganizerCardProps) {
 	const [line1, line2] = splitName(name);
 	const labelDept = displayDepartment ?? department;
-	const roleLabel = role === "Co-President" ? "Co-President" : `${role} – ${labelDept}`;
+	const roleLabel =
+		role === "Co-President" ? "Co-President" : `${role} – ${labelDept}`;
 
 	const linkedInIcon = (
 		<Image
@@ -85,12 +86,11 @@ export default function OrganizerCard({
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label={`${name} LinkedIn`}
-					
 				>
 					{linkedInIcon}
 				</a>
 			) : (
-				<div >{linkedInIcon}</div>
+				<div>{linkedInIcon}</div>
 			)}
 		</div>
 	);
