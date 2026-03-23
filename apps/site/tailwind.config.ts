@@ -26,8 +26,8 @@ const config: Config = {
 			},
 			fontFamily: {
 				sniglet: ["Sniglet"],
-				figtree: ["var(--font-figtree)"],
 				torus: ["Torus Pro"],
+				figtree: ["Figtree", "sans-serif"],
 			},
 			fontSize: {
 				"coming-soon": ["clamp(14px, 2.5vw, 28px)", { lineHeight: "100%", letterSpacing: "0.19em" }],

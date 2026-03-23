@@ -375,7 +375,6 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
     # Fields that should always be lists, even with single values
     MULTI_SELECT_FIELDS = {
         "pronouns",
-        "majors_and_minors",
         "experienced_technologies",
         "skills",
         "areas_of_development",

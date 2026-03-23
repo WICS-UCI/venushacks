@@ -8,8 +8,9 @@ import useForm from "@/lib/utils/useForm";
 
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import Title from "./Title/Title";
-import Button from "../../Button/Button";
 import { Identity } from "@/lib/utils/getUserIdentity";
+
+import ApplicationProgressBar from "@/lib/components/forms/shared/ApplicationProgressBar/ApplicationProgressBar";
 
 export const revalidate = 60;
 
@@ -52,11 +53,28 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-12">
+		<div className="flex flex-col items-center justify-center gap-6 md:gap-10 min-h-screen px-4 md:px-0">
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="w-full max-w-5xl">
+				<div className="mt-16 mb-32 max-w-5xl flex flex-col items-center gap-8">
+					<div className="flex items-center bg-[#FFFFFF99] rounded-full p-3 shadow-sm text-sm md:text-base">
+						<span className="px-4 md:px-6 py-2 bg-white rounded-full text-black">
+							Application
+						</span>
+
+						<form method="post" action="api/user/logout">
+							<button type="submit" className="px-4 md:px-6 py-2 text-black">
+								Logout
+							</button>
+						</form>
+					</div>
+
+					<ApplicationProgressBar
+						pageIndex={pageIndex}
+						pageCount={PAGE_COUNT}
+					/>
+
 					<Title applicationType={applicationType} />
 
 					<form
@@ -99,21 +117,30 @@ export default function ApplicationFlow({
 							)}
 
 							{isLastPage ? (
-								<Button
-									text="Submit"
-									className="text-base !px-8 !py-3"
-									isLightVersion={true}
+								<button
+									type="submit"
 									disabled={submitting}
-								/>
+									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
+									style={{
+										paddingTop: "12px",
+										paddingRight: "50px",
+										paddingBottom: "12px",
+										paddingLeft: "50px",
+									}}
+								>
+									Submit Application →
+								</button>
 							) : (
 								<button
 									type="button"
 									onClick={goNext}
-									className="
-                    rounded-full bg-rose-200 px-8 py-3
-                    text-sm font-semibold text-rose-700
-                    shadow-sm hover:bg-rose-300
-                  "
+									className="rounded-full bg-[#F4B6B6] text-[#8C3A3A] hover:opacity-90 border border-[#CF6868] font-figtree font-semibold text-[16px] leading-none text-center"
+									style={{
+										paddingTop: "12px",
+										paddingRight: "50px",
+										paddingBottom: "12px",
+										paddingLeft: "50px",
+									}}
 								>
 									{isFirstPage ? "Start Application →" : "Next →"}
 								</button>
