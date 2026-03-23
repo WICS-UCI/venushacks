@@ -53,7 +53,14 @@ export default function Organizers() {
 		loadOrganizers();
 	}, []);
 
-	const filtered = organizers.filter((o) => o.department === activeTab);
+	const filtered =
+		activeTab === "Board"
+			? organizers.filter(
+					(o) => o.role === "Co-President" || o.role === "Co-Chair",
+			)
+			: organizers.filter(
+					(o) => o.department === activeTab && o.role === "Organizer",
+			);
 
 	if (isLoading) {
 		return null;

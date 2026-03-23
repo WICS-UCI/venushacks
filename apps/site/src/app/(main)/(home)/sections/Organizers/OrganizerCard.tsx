@@ -49,7 +49,7 @@ export default function OrganizerCard({
 					src={image ?? checkerImage}
 					alt={name}
 					fill
-					className="object-cover"
+					className="object-contain"
 				/>
 			</div>
 
