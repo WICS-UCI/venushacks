@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import pond from "./assets/Pond.svg";
 import rainbow from "./assets/Rainbow.svg";
@@ -14,6 +16,8 @@ import blue from "./assets/HappyBlueCapy.svg";
 import red from "./assets/HappyRedCapy.svg";
 import cherry from "./assets/Cherries.svg";
 import shadow from "./assets/Shadows.svg";
+
+import { motion } from "framer-motion";
 
 const FooterGraphic = () => {
 	return (
@@ -33,18 +37,26 @@ const FooterGraphic = () => {
                 alt="Pond"
                 className={"absolute left-1/2 top-1/2  w-[80%] -translate-x-1/2 -translate-y-1/2"}
             />
-            <div>
+            <motion.div
+            className={"absolute left-[50%] top-[34%] w-[17%] -translate-x-1/2 -translate-y-1/2"}
+            animate={{ y: [0, -12, 0] }}
+            transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+            }}
+            >
                 <Image
                     src={float}
                     alt="Floating Capybara"
-                    className={"absolute left-[58%] top-[42%] w-[17%] -translate-x-1/2 -translate-y-1/2"}
+                    className={""}
                 />
                 <Image
                     src={apple}
                     alt="Apple"
-                    className={"absolute left-[58.5%] top-[34%] w-[3.5%] -translate-x-1/2 -translate-y-1/2"}
+                    className={"absolute left-[50%] top-[13%] w-[22%] -translate-x-1/2 -translate-y-1/2"}
                 />
-            </div>
+            </motion.div>
             <Image
                 src={yellow}
                 alt="Yellow Capybara"
