@@ -97,7 +97,7 @@ const FooterGraphic = () => {
             className={"absolute left-[28%] top-[47%] w-[26%]"}
             animate={{ scale: [1.1,1,1.1] }}
             transition={{
-                duration: 5,
+                duration: 3,
                 repeat: Infinity,
                 ease: "easeInOut",
             }}
