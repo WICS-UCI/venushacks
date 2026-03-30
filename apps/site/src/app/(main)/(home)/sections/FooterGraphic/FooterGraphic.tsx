@@ -77,16 +77,38 @@ const FooterGraphic = () => {
                 alt="ant1"
                 className={"absolute left-[90%] top-[70%] w-[15%] -translate-x-1/2 -translate-y-1/2"}
             />
-            <Image
-                src={orange}
-                alt="Orange Capybara"
-                className={"absolute left-[38%] top-[50%] w-[18%] -translate-x-1/2 -translate-y-1/2"}
-            />
-            <Image
-                src={splash}
-                alt="Splash"
-                className={"absolute left-[40%] top-[52%] w-[26%] -translate-x-1/2 -translate-y-1/2"}
-            />
+
+            <motion.div
+            className={"absolute left-[30%] top-[43%] w-[18%] -translate-x-1/2 -translate-y-1/2"}
+            animate={{ rotate: [-3,3,-3] }}
+            transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+            }}
+            >
+                <Image
+                    src={orange}
+                    alt="Orange Capybara"
+                    className={""}
+                />
+            </motion.div>
+            <motion.div
+            className={"absolute left-[28%] top-[47%] w-[26%]"}
+            animate={{ scale: [1.1,1,1.1] }}
+            transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+            }}
+            >
+
+                <Image
+                    src={splash}
+                    alt="Splash"
+                    className={""}
+                />
+            </motion.div>
             <Image
                 src={ant2}
                 alt="Ant2"
