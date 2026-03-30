@@ -15,6 +15,8 @@ const TIERS = [
 	// "in-kind",
 ];
 
+const tempSponsors = ["sponsor1", "sponsor2", "sponsor3", "sponsor4", "sponsor5", "sponsor6"];
+
 const Sponsors = async () => {
 	const sponsors = await getSponsors();
 	const names = Array.from(sponsors.values()).flat().map(sponsor => sponsor.name);
@@ -25,7 +27,7 @@ const Sponsors = async () => {
 				Sponsors
 			</h2>
 			<InfiniteMovingAnts
-				items={names}
+				items={tempSponsors}
 				direction="left"
 				speed="slow"
 				pauseOnHover={true}

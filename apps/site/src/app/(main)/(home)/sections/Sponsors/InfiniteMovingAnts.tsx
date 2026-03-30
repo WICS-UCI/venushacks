@@ -10,7 +10,7 @@ import melon from "./assets/melon_ant.svg";
 import orange from "./assets/orange_ant.svg";
 import pineapple from "./assets/pineapple_ant.svg";
 
-const sponsorGraphics = [apple, melon, orange, pineapple];
+const sponsorGraphics = [melon, orange, pineapple];
 
 export const InfiniteMovingAnts = ({
     items,
@@ -29,6 +29,8 @@ export const InfiniteMovingAnts = ({
     const [start, setStart] = useState(false);
 
     useEffect(() => {
+        let iterations = 0;
+        const maxIterations = 10;  //prevent too many loops that'll crash the site
         if (!containerRef.current || !scrollerRef.current) return;
 
         // Clone items multiple times to ensure smooth infinite scroll
@@ -38,9 +40,12 @@ export const InfiniteMovingAnts = ({
         let totalWidth = scroller.scrollWidth;
 
         // Clone until scroller is at least 2x container width
-        while (totalWidth < containerWidth * 2) {
-            children.forEach((child) => scroller.appendChild(child.cloneNode(true)));
+        while (totalWidth < containerWidth * 2 && iterations < maxIterations) {
+            children.forEach((child) =>
+                scroller.appendChild(child.cloneNode(true))
+            );
             totalWidth = scroller.scrollWidth;
+            iterations++;
         }
 
         const observer = new IntersectionObserver(
@@ -60,7 +65,7 @@ export const InfiniteMovingAnts = ({
     }, [items]);
 
     const duration =
-        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "230s";
+        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "370s";
 
     return (
         <div
@@ -73,12 +78,14 @@ export const InfiniteMovingAnts = ({
             }
         >
             <ul
+                key={duration}
                 ref={scrollerRef}
-                className={`flex min-w-full shrink-0 gap-10 w-max flex-nowrap items-center justify-center ${
+                className={`flex min-w-full shrink-0  w-max flex-nowrap items-center justify-center ${
                     start ? "animate-scroll" : ""
                 } ${pauseOnHover ? "hover:[animation-play-state:paused]" : ""} ${
                     direction === "right" ? "[animation-direction:reverse]" : ""
-                }`}
+                }`
+            }
             >
                 {items.map((item, idx) => {
                     const graphic = sponsorGraphics[idx % sponsorGraphics.length]; // cycle through graphics
@@ -89,14 +96,16 @@ export const InfiniteMovingAnts = ({
                         >
                             <a href={item} target="_blank" className="w-full h-full">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <h2 className={"absolute z-[20] text-center top-[60%] left-[30%]"}>
+                                <h2 className={"absolute z-[20] text-center top-[60%] left-[43%]"}>
                                     {item}
                                 </h2>
-                                <Image
-                                    src={graphic}
-                                    alt={item}
-                                    className="w-full h-full"
-                                />
+                                <div className={"aspect-[6/7.5] flex items-end justify-center"}>
+                                    <Image
+                                        src={graphic}
+                                        alt={item}
+                                        className="w-[90%] max-h-full"
+                                    />
+                                </div>
                             </a>
                         </li>
                     );
