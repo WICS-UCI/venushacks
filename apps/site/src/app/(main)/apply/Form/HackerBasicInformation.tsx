@@ -9,8 +9,8 @@ const genderIdentity = [
 ];
 
 const yesNoOptions = [
-	{ value: true, text: "Yes" },
-	{ value: false, text: "No" },
+	{ value: "true", text: "Yes" },
+	{ value: "false", text: "No" },
 ];
 
 const shirtSizes = [
