@@ -5,9 +5,6 @@ import { getSchedule } from "./components/getSchedule";
 
 import Image from "next/image";
 
-import starry_bg from "@/assets/images/starry_bg_1.svg";
-import clouds_bg from "@/assets/images/cloud_bg_2.png";
-
 import ShiftingCountdown from "./components/ShiftingCountdown/ShiftingCountdown";
 import SchedulePage from "./sections/SchedulePage";
 
