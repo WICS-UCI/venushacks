@@ -69,7 +69,7 @@ export default function OrganizerCard({
 
 			{/* Role – Department */}
 			<p
-				className="text-[#000000] text-[10px] sm:text-[13px] lg:text-[16px] leading-[0px] lg:leading-[4px] text-center mt-0.5"
+				className="text-[#000000] text-[10px] sm:text-[13px] lg:text-[16px] leading-tight text-center mt-0.5"
 				style={{
 					fontFamily: "'Sniglet', cursive",
 					fontWeight: 400,
