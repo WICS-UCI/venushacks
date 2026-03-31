@@ -60,3 +60,7 @@ hr {
 	border-top: 1px solid;
 	opacity: 0.25;
 }
+
+html {
+	scroll-behavior: smooth;
+}
