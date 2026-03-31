@@ -1,77 +1,116 @@
-import mail from "@/assets/logos/mail.svg";
-import discord from "@/assets/logos/discord.svg";
-import instagram from "@/assets/logos/instagram.svg";
 import Image from "next/image";
-import tiktok from "@/assets/logos/tiktok.svg";
-import redHeart from "@/assets/icons/red-heart.svg";
-import hack from "@/assets/logos/hack.svg";
 import styles from "./Footer.module.scss";
 
-const imageArray = [
+import TikTokImage from "@/assets/icons/tiktok.svg";
+import InstagramImage from "@/assets/icons/instagram.svg";
+import LinkedInImage from "@/assets/icons/linkedin.svg";
+import MailImage from "@/assets/icons/mail.svg";
+import HeartImage from "@/assets/icons/heart.svg";
+
+const socialLinks = [
 	{
-		logo: hack,
-		alt: "Hack logo that links to Hack at UCI's website",
-		link: "https://hack.ics.uci.edu/",
+		href: "https://www.tiktok.com/@venushacksuci",
+		label: "VenusHacks on TikTok",
+		src: TikTokImage,
+		className: "h-6 w-6 md:h-8 md:w-8",
 	},
 	{
-		logo: mail,
-		alt: "Email that directs to contact@irvinehacks.com",
-		link: "mailto:contact@irvinehacks.com",
+		href: "https://www.instagram.com/venushacksuci/",
+		label: "VenusHacks on Instagram",
+		src: InstagramImage,
+		className: "h-7 w-7 md:h-9 md:w-9",
 	},
 	{
-		logo: discord,
-		alt: "Discord logo that links to Hack at UCI's Discord invite",
-		link: "https://discord.com/invite/pvkGxq2AWM",
+		href: "https://www.linkedin.com/company/venushacks/",
+		label: "VenusHacks on LinkedIn",
+		src: LinkedInImage,
+		className: "h-8 w-8 md:h-11 md:w-11",
 	},
 	{
-		logo: instagram,
-		alt: "Instagram logo that links to Hack at UCI's instagram",
-		link: "https://www.instagram.com/hackatuci/",
-	},
-	{
-		logo: tiktok,
-		alt: "Tiktok logo that links to Hack at UCI's tiktok",
-		link: "https://www.tiktok.com/@hackatuci",
+		href: "mailto:venushacks.uci@gmail.com",
+		label: "Email VenusHacks",
+		src: MailImage,
+		className: "h-7 w-7 md:h-10 md:w-10",
 	},
 ];
 
+const creamFilter =
+	"brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(400%) hue-rotate(330deg) brightness(105%)";
+
 const Footer = () => {
 	return (
-		<footer className={`${styles.footer} flex flex-col items-center`}>
-			<div className="flex flex-row footer-logos items-center gap-10 mt-12 max-[340px]:mt-5">
-				{imageArray.map((item, index) => {
-					return (
-						<a
-							key={`footer-logo-${index}`}
-							href={item.link}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Image src={item.logo} width="35" alt={item.alt} />
-						</a>
-					);
-				})}
-			</div>
-			<div className="flex flex-row gap-1 items-center mt-2 max-[600px]:flex-col max-[210px]:gap-0 max-[210px]:mt-0">
-				<div className="flex flex-row gap-1 items-center max-[210px]:flex-col max-[210px]:gap-0">
-					<p className="m-0">Made with</p>
-					<Image src={redHeart} alt="Red heart icon" layout="intrinsic" />
-
-					<p className="m-0">
-						by Hack at UCI <span className="max-[600px]:hidden">•</span>
+		<footer className={styles.footer} style={{ backgroundColor: "#2C4725" }}>
+			<div className="flex flex-col md:flex-row md:items-center md:justify-between w-full px-6 md:px-10 pt-8 pb-5 md:py-6 gap-3 md:gap-0">
+				{/* Left: Made with text */}
+				<div className="flex flex-row items-center justify-center md:justify-start">
+					<p
+						style={{
+							color: "#F2E5D4",
+							fontFamily: "'Torus Pro', sans-serif",
+							fontWeight: 700,
+							fontSize: "clamp(14px, 2.5vw, 18px)",
+							lineHeight: "100%",
+							letterSpacing: "0.2em",
+							margin: 0,
+							whiteSpace: "nowrap",
+						}}
+					>
+						Made with
+					</p>
+					<Image
+						src={HeartImage}
+						alt="Heart icon"
+						width={14}
+						height={14}
+						style={{
+							filter: creamFilter,
+							display: "block",
+							position: "relative",
+							top: "1px",
+							marginLeft: "6px",
+							marginRight: "9px",
+						}}
+					/>
+					<p
+						style={{
+							color: "#F2E5D4",
+							fontFamily: "'Torus Pro', sans-serif",
+							fontWeight: 700,
+							fontSize: "clamp(14px, 2.5vw, 18px)",
+							lineHeight: "100%",
+							letterSpacing: "0.2em",
+							margin: 0,
+							whiteSpace: "nowrap",
+						}}
+					>
+						by VenusHacks Organizers
 					</p>
 				</div>
-
-				<p className="m-0 flex gap-1 whitespace-nowrap max-[340px]:flex-col max-[340px]:items-center">
-					Learn more about the{" "}
-					<a
-						href="https://hack.ics.uci.edu"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<span style={{ color: "#FBA80A" }}>Hack @ UCI Team</span>
-					</a>
-				</p>
+				{/* Right: Social media links */}
+				<ul
+					className="flex items-center justify-center md:justify-end list-none p-0 m-0"
+					style={{ gap: "clamp(4px, 1.5vw, 8px)" }}
+				>
+					{socialLinks.map(({ href, label, src, className }) => (
+						<li key={label}>
+							<a
+								href={href}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={label}
+								className="flex h-11 w-11 items-center justify-center transition-opacity"
+								style={{ opacity: 0.85 }}
+							>
+								<Image
+									src={src}
+									alt=""
+									className={className}
+									style={{ filter: creamFilter }}
+								/>
+							</a>
+						</li>
+					))}
+				</ul>
 			</div>
 		</footer>
 	);
