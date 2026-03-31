@@ -29,7 +29,6 @@ export default async function Schedule() {
 	return (
 		<>
 			<section className="h-full w-full mb-12 relative">
-
 				<div className="p-36 relative">
 					<ShiftingCountdown />
 				</div>
