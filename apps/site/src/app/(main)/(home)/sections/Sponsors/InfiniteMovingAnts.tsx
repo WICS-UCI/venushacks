@@ -9,6 +9,7 @@ import apple from "./assets/apple_ant.svg";
 import melon from "./assets/melon_ant.svg";
 import orange from "./assets/orange_ant.svg";
 import pineapple from "./assets/pineapple_ant.svg";
+import { urlFor } from "@/lib/sanity/image";
 
 const sponsorGraphics = [blueberry, melon, orange, pineapple];
 
@@ -69,7 +70,7 @@ export const InfiniteMovingAnts = ({
     }, [items]);
 
     const duration =
-        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "650s";
+        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "450s";
 
     return (
         <div
@@ -98,22 +99,31 @@ export const InfiniteMovingAnts = ({
                             key={`${item}-${idx}`}
                             className="relative flex transition-transform hover:scale-105"
                         >
-                            <a href={item.url} target="_blank" className="w-full h-full">
+                            <a href={item.url} target="_blank" className="flex w-full h-full  justify-center items-center border-2">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <div className={"relative aspect-[6/7.5] flex items-end justify-center"}>
-                                    <h2 className={"absolute text-black z-[20] text-center w-[20%] top-[55%] left-[43%]"}>
-                                        {item.logo}
-                                    </h2>
-                                    {/* <Image
-                                        src={item.logo}
-                                        alt={item.name}
-                                        fill
-                                    /> */}
+                                    
                                     <Image
                                         src={graphic}
                                         alt={item.name}
                                         className="w-[90%] max-h-full"
                                     />
+                                </div>
+                                <div className={"absolute z-10 flex justify-center h-1/2 w-1/2 top-[35%] left-[27%]"}>
+                                    {item.logo ? 
+                                
+                                        <Image
+                                            src={urlFor(item.logo).url()}
+                                            alt={item.name}
+                                            width={150}
+                                            height={100}
+                                            className="object-contain top-[90%]"
+                                        />
+                                        :
+                                       <h2 className={"absolute text-black z-[20] text-center w-[20%] top-[55%] left-[43%]"}>
+                                        {item.name}
+                                        </h2>
+                                    }
                                 </div>
                             </a>
                         </li>
