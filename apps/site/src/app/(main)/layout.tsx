@@ -1,6 +1,9 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, Suspense } from "react";
 
 import type { Metadata } from "next";
+
+import NavbarParent from "@/lib/components/Navbar/NavbarParent";
+import BaseNavbar from "@/lib/components/Navbar/BaseNavbar";
 
 import "./globals.css";
 
@@ -13,9 +16,11 @@ export const metadata: Metadata = {
 export default function Layout({ children }: PropsWithChildren) {
 	return (
 		<div className="overflow-x-hidden bg-top bg-repeat-y bg-[length:100%] relative">
-			{/* <Suspense fallback={<BaseNavbar />}>
-				<NavbarParent />
-			</Suspense> */}
+			{!process.env.MAINTENANCE_MODE_HOME && (
+				<Suspense fallback={<BaseNavbar />}>
+					<NavbarParent />
+				</Suspense>
+			)}
 			{children}
 			{/* <Footer /> */}
 		</div>
