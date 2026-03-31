@@ -77,7 +77,7 @@ export default function SchoolInformation() {
 					values={educationLevels}
 					isRequired={true}
 					containerClass="flex flex-col w-6/12 max-[1000px]:w-full"
-					placeholder="freshamn"
+					placeholder="High School (18+)"
 				/>
 			</div>
 		</div>

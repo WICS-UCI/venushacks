@@ -9,9 +9,7 @@ const FIELDS_WITH_OTHER = [
 	"pronouns",
 	"ethnicity",
 	"school",
-	"major",
 	"experienced_technologies",
-	"majors_and_minors",
 ];
 
 export default function useForm(applyPath: string) {

@@ -1,10 +1,12 @@
 import {
 	Landing,
+	FooterGraphic,
 	ChooseCharacter,
 	FAQ,
 	Sponsors,
 	Partners,
 	Organizers,
+	Footer,
 } from "./sections";
 
 import ComingSoon from "./sections/Landing/ComingSoon";
@@ -36,6 +38,8 @@ export default function Home() {
 			<section id="team">
 				<Organizers />
 			</section>
+			<FooterGraphic />
+      <Footer />
 		</>
 	);
 }
