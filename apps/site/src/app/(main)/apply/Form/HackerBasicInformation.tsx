@@ -1,30 +1,22 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
-{
-	/*import MultipleSelect from "@/lib/components/forms/MultipleSelect";*/
-}
-{
-	/*import SimpleRadio from "@/lib/components/forms/SimpleRadio";*/
-}
 import TextInput from "@/lib/components/forms/TextInput";
 
-const pronouns = [
-	{ value: "he", text: "He/him/his" },
-	{ value: "she", text: "She/her/hers" },
-	{ value: "they", text: "They/them/theirs" },
-	{ value: "ze", text: "Ze/zir/zirs" },
+const genderIdentity = [
+	{ value: "female", text: "Female" },
+	{ value: "male", text: "Male" },
+	{ value: "non-binary", text: "Non-binary" },
 	{ value: "other", text: "Other:" },
 ];
 
 const yesNoOptions = [
-	{ value: "Yes", text: "Yes" },
-	{ value: "No", text: "No" },
+	{ value: true, text: "Yes" },
+	{ value: false, text: "No" },
 ];
 
 const shirtSizes = [
 	{ value: "small", text: "Small" },
 	{ value: "medium", text: "Medium" },
 	{ value: "large", text: "Large" },
-	{ value: "other", text: "Other:" },
 ];
 
 const universityOptions = [
@@ -37,7 +29,7 @@ const universityOptions = [
 	{ value: "UC Riverside", text: "UC Riverside" },
 	{ value: "UC San Diego", text: "UC San Diego" },
 	{ value: "UC Santa Barbara", text: "UC Santa Barbara" },
-	{ value: "other", text: "Other" },
+	{ value: "other", text: "Other:" },
 ];
 
 const educationLevels = [
@@ -100,27 +92,28 @@ export default function BasicInformation() {
 					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
 					type="text"
+					isDate
 					placeholder="mm/dd/yyyy"
 				/>
 				<DropdownSelect
-					name="18_or_older"
+					name="is_18_older"
 					labelText="Will you be 18 years or older by May 16th, 2026?"
 					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
 					values={yesNoOptions}
-					placeholder="Female"
+					placeholder="Select an option"
 				/>
 
 				<DropdownSelect
-					name="gender_pronouns"
-					labelText="Gender Pronouns"
+					name="gender_identity"
+					labelText="Gender Identity"
 					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
-					values={pronouns}
-					placeholder="Yes"
+					values={genderIdentity}
+					placeholder="Select an option"
 				/>
 				<TextInput
-					name="pronoun"
+					name="pronouns"
 					labelText="Preferred Pronouns"
 					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
@@ -135,7 +128,7 @@ export default function BasicInformation() {
 					containerClass="col-span-12"
 					isRequired={true}
 					values={shirtSizes}
-					placeholder="Small"
+					placeholder="Select an option"
 				/>
 
 				{/* Next rows: School / majors / year — all FULL WIDTH like the image */}
@@ -145,11 +138,11 @@ export default function BasicInformation() {
 					values={universityOptions}
 					isRequired={true}
 					containerClass="col-span-12"
-					placeholder="UC Irvine"
+					placeholder="Select an option"
 				/>
 
 				<TextInput
-					name="majors_minors"
+					name="majors_and_minors"
 					labelText="What major(s) and minor(s), if any, are you?"
 					containerClass="col-span-12"
 					isRequired={true}
@@ -158,12 +151,12 @@ export default function BasicInformation() {
 				/>
 
 				<DropdownSelect
-					name="education_level"
+					name="year"
 					labelText="What year are you?"
 					values={educationLevels}
 					isRequired={true}
 					containerClass="col-span-12"
-					placeholder="Freshman"
+					placeholder="Select an option"
 				/>
 			</div>
 		</div>

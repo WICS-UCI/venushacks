@@ -26,7 +26,7 @@ SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
     "ethnicity": "E#",
-    "pronouns": ["adjectives"],
+    "pronouns": "adjectives",
     "is_18_older": "true",
     "school": "UC Irvine",
     "education_level": "Fifth+ Year Undergraduate",

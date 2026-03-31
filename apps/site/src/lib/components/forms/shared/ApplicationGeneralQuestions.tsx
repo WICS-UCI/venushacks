@@ -2,8 +2,13 @@
 
 import MultipleSelect from "../MultipleSelect";
 import DropdownSelect from "../DropdownSelect";
+import SimpleRadio from "../SimpleRadio";
 import ResumeInformation from "./ResumeInformation";
 import LastSaved from "../LastSaved";
+
+const yesNoOptions = [
+	{ labelText: "", inputValue: "Yes" },
+];
 
 export default function ApplicationGeneralQuestions() {
 	return (
@@ -18,23 +23,24 @@ export default function ApplicationGeneralQuestions() {
 			<div className="flex flex-col gap-6 text-slate-800 mt-4">
 				{/* How many hackathons */}
 				<DropdownSelect
-					name="hackathons_attended"
+					name="previous_hackathons"
 					labelText="How many hackathons have you attended before?"
 					containerClass="flex flex-col"
-					placeholder="This is my first hackathon"
+					placeholder="Select an option"
 					values={[
 						{ value: "0", text: "This is my first hackathon" },
-						{ value: "1-3", text: "1–3" },
-						{ value: "4-6", text: "4–6" },
-						{ value: "7+", text: "7+" },
+						{ value: "1", text: "1" },
+						{ value: "2", text: "2" },
+						{ value: "3", text: "3" },
+						{ value: "4+", text: "4+" },
 					]}
 				/>
 				{/* VenusHacks previously */}
 				<DropdownSelect
-					name="attended_venushacks"
+					name="previous_vh"
 					labelText="Have you attended VenusHacks previously?"
 					containerClass="flex flex-col"
-					placeholder="No"
+					placeholder="Select an option"
 					values={[
 						{ value: "no", text: "No" },
 						{ value: "yes", text: "Yes" },
@@ -51,7 +57,7 @@ export default function ApplicationGeneralQuestions() {
 						labelText="May we share your resume with sponsors?"
 						containerClass="flex flex-col"
 						isRequired={false}
-						placeholder="Yes"
+						placeholder="Select an option"
 						values={[
 							{ value: "yes", text: "Yes" },
 							{ value: "no", text: "No" },
@@ -62,10 +68,10 @@ export default function ApplicationGeneralQuestions() {
 				{/* Dietary Restrctions - more options / change to multiple 
 				select component can be implemented in the future */}
 				<DropdownSelect
-					name="dietary_Restrictions"
+					name="dietary_restrictions"
 					labelText="What are your dietary restrictions?"
 					containerClass="flex flex-col"
-					placeholder="None"
+					placeholder="Select an option"
 					values={[
 						{ value: "none", text: "None" },
 						{ value: "vegetarian", text: "Vegetarian" },
@@ -82,6 +88,7 @@ export default function ApplicationGeneralQuestions() {
 					isRequired={true}
 					containerClass="flex flex-col"
 					horizontal={false}
+					allChecked
 					values={[
 						{
 							value: "transportation",
@@ -93,8 +100,8 @@ export default function ApplicationGeneralQuestions() {
 						},
 					]}
 				/>
-				{/* TODO: Implement client-side application autosave */}
-				<LastSaved lastSaved={null} />
+
+				{/* <LastSaved lastSaved={null} /> */}
 			</div>
 		</div>
 	);

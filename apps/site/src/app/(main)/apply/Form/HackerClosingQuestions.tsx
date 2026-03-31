@@ -25,7 +25,7 @@ export default function ClosingQuestions() {
 			</h1>
 
 			<DropdownSelect
-				name="how_did_you_hear"
+				name="how_did_you_hear_about_us"
 				labelText="How did you hear about VenusHacks?"
 				containerClass="flex flex-col"
 				isRequired={true}
@@ -34,7 +34,7 @@ export default function ClosingQuestions() {
 			/>
 
 			<QuestionField
-				name="frq_comments"
+				name="questions_comments_concerns"
 				label="Any questions, comments, or concerns?"
 				optional
 				value={answers.comments}

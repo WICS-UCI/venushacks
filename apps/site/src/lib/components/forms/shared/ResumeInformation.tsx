@@ -58,7 +58,7 @@ export default function ResumeInformation({
 			</label>
 			<label
 				htmlFor="resume_upload"
-				className="cursor-pointer flex items-center w-full appearance-none text-[#8E8E8E] text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]"
+				className={`cursor-pointer flex items-center w-full appearance-none text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)] file:text-black ${resumePath ? "text-black" : "text-[#8E8E8E]"}`}
 			>
 				{errorMessage ? (
 					<span>
@@ -75,7 +75,7 @@ export default function ResumeInformation({
 				)}
 			</label>
 			<input
-				className="opacity-0 absolute"
+				className="opacity-0 absolute file:text-black"
 				name="resume"
 				id="resume_upload"
 				type="file"

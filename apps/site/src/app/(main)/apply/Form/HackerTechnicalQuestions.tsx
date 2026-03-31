@@ -36,7 +36,7 @@ export default function TechnicalQuestions() {
 			/>
 
 			<QuestionField
-				name="frq_future"
+				name="frq_excited"
 				label="What's something you're excited to work on in the next 10 years? Dream big!"
 				maxWords={100}
 				required
