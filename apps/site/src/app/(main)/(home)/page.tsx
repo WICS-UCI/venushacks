@@ -1,5 +1,6 @@
 import {
 	Landing,
+	FooterGraphic,
 	ChooseCharacter,
 	FAQ,
 	Sponsors,
@@ -26,6 +27,7 @@ export default function Home() {
 			<Sponsors />
 			<Partners />
 			<Organizers />
+			<FooterGraphic />
 		</>
 	);
 }
