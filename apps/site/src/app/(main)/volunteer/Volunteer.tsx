@@ -24,11 +24,9 @@ export default async function Volunteer() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<SchoolInformation />
 			<VolunteerFRQ />
 			<ShiftAvailability />
 			<ExtraQuestions />
-			<AgeInformation />
 		</ApplicationFlow>
 	);
 }

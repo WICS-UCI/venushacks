@@ -28,7 +28,6 @@ export default async function Mentor() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<SchoolInformation />
 			<ShortAnswers />
 			<ExperienceInformation />
 			<ResumeInformation isRequired />
@@ -49,7 +48,6 @@ export default async function Mentor() {
 				containerClass="flex flex-col w-11/12"
 				isRequired={false}
 			/>
-			<AgeInformation />
 		</ApplicationFlow>
 	);
 }
