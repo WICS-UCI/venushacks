@@ -1,3 +1,8 @@
+import Image from "next/image";
+import basketGraphic from "@/assets/images/picnic_basket.png";
+import grass from "@/assets/images/grass.png";
+import flower from "@/assets/images/flower.png";
+
 const About = () => {
 	return (
 		<div className="w-full pb-40 flex flex-col justify-center items-center">
