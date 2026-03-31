@@ -43,7 +43,7 @@ export default function ApplicationProgressBar({
 	pageCount,
 }: Props) {
 	return (
-		<div className="w-full flex justify-center mb-6">
+		<div className="w-full hidden md:flex justify-center mb-6">
 			<div className="overflow-x-auto max-w-[260px] md:max-w-none">
 				<div className="flex w-max items-center gap-2 md:gap-4">
 					{Array.from({ length: pageCount }).map((_, index) => {

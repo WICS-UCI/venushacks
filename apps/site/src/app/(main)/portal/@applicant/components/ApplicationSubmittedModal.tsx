@@ -3,21 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { Sniglet, Figtree } from "next/font/google";
-
 import submitImage from "@/assets/images/vh_submit.png";
-
-// Custom fonts
-
-const sniglet = Sniglet({
-	subsets: ["latin"],
-	weight: ["400"],
-});
-
-const figtree = Figtree({
-	subsets: ["latin"],
-	weight: ["500", "700"],
-});
 
 // Component signature can be declared with roles for dynamic span text
 export default function ApplicationSubmittedModal({
@@ -31,7 +17,7 @@ export default function ApplicationSubmittedModal({
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center px-4">
 			<div
-				className={`w-full max-w-[659px] md:w-[659px] md:h-[525px] bg-white rounded-[30px] shadow-xl p-6 md:p-[40px] flex flex-col gap-6 md:gap-[30px] text-center ${figtree.className}`}
+				className={`w-full max-w-[659px] md:w-[659px] md:h-[525px] bg-white rounded-[30px] shadow-xl p-6 md:p-[40px] flex flex-col gap-6 md:gap-[30px] text-center font-figtree`}
 			>
 				<div className="relative mx-auto w-full max-w-[314px] aspect-[314/199]">
 					<Image
@@ -44,7 +30,7 @@ export default function ApplicationSubmittedModal({
 				</div>
 				{/* Header Text */}
 				<h2
-					className={`${sniglet.className} text-[30px] leading-[100%] tracking-[0.05em] font-normal text-center text-black`}
+					className={`font-sniglet text-[30px] leading-[100%] tracking-[0.05em] font-normal text-center text-black`}
 				>
 					Application Successfully Submitted
 				</h2>
@@ -64,9 +50,9 @@ export default function ApplicationSubmittedModal({
 						className={`w-full md:flex-1 px-8 py-3 text-[16px] font-bold border rounded-full transition-opacity`}
 						type="submit"
 						style={{
-							background: "#FFECEC",
-							color: "#CF6868",
-							borderColor: "#CF6868",
+							background: "var(--color-linen)",
+							color: "var(--color-indian-red)",
+							borderColor: "var(--color-indian-red)",
 						}}
 					>
 						← Back to Home Page
@@ -77,9 +63,9 @@ export default function ApplicationSubmittedModal({
 						className={`w-full md:flex-1 px-8 py-3 text-base font-bold border-[1px] rounded-full md:whitespace-nowrap transition-opacity`}
 						type="submit"
 						style={{
-							background: "#F8C4C4",
-							color: "#CF6868",
-							borderColor: "#CF6868",
+							background: "var(--color-pale-rose)",
+							color: "var(--color-indian-red)",
+							borderColor: "var(--color-indian-red)",
 						}}
 					>
 						Visit Application Dashboard →
