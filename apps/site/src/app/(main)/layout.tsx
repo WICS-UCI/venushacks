@@ -12,9 +12,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: PropsWithChildren) {
 	return (
-		<div
-			className="overflow-x-hidden bg-top bg-repeat-y bg-[length:100%] relative"
-		>
+		<div className="overflow-x-hidden bg-top bg-repeat-y bg-[length:100%] relative">
 			{/* <Suspense fallback={<BaseNavbar />}>
 				<NavbarParent />
 			</Suspense> */}

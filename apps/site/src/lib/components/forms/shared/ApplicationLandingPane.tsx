@@ -13,7 +13,11 @@ export default function ApplicationLandingPane({
 		<div className="w-full font-figtree">
 			<div className="flex flex-col items-center">
 				{/* Grey circle avatar placeholder */}
-				<Image src={brown_bear} alt="Brown bear" className="w-24 h-24 md:h-32 md:w-32" />
+				<Image
+					src={brown_bear}
+					alt="Brown bear"
+					className="w-24 h-24 md:h-32 md:w-32"
+				/>
 
 				<h1 className="font-sniglet text-3xl md:text-4xl font-extrabold tracking-tight my-4 md:my-8">
 					{applicationType} Application

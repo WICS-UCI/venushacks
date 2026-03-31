@@ -2,13 +2,7 @@
 
 import MultipleSelect from "../MultipleSelect";
 import DropdownSelect from "../DropdownSelect";
-import SimpleRadio from "../SimpleRadio";
 import ResumeInformation from "./ResumeInformation";
-import LastSaved from "../LastSaved";
-
-const yesNoOptions = [
-	{ labelText: "", inputValue: "Yes" },
-];
 
 export default function ApplicationGeneralQuestions() {
 	return (

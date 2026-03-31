@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useRef } from "react";
 import RequiredAsterisk from "./RequiredAsterisk";
@@ -65,7 +65,10 @@ export default function TextInput({
 		} else if (digitsOnly.length <= 4) {
 			formatted = `${digitsOnly.slice(0, 2)}/${digitsOnly.slice(2)}`;
 		} else {
-			formatted = `${digitsOnly.slice(0, 2)}/${digitsOnly.slice(2, 4)}/${digitsOnly.slice(4, 8)}`;
+			formatted = `${digitsOnly.slice(0, 2)}/${digitsOnly.slice(
+				2,
+				4,
+			)}/${digitsOnly.slice(4, 8)}`;
 		}
 
 		setDateValue(formatted);
@@ -107,9 +110,10 @@ export default function TextInput({
 		focus:bg-white
 		focus:ring-2
 		transition-colors duration-150
-		${dateError
-			? "border-red-400 focus:border-red-400 focus:ring-red-100"
-			: "border-gray-200 focus:border-gray-300 focus:ring-gray-200"
+		${
+			dateError
+				? "border-red-400 focus:border-red-400 focus:ring-red-100"
+				: "border-gray-200 focus:border-gray-300 focus:ring-gray-200"
 		}
 	`;
 
@@ -128,9 +132,7 @@ export default function TextInput({
 					type="hidden"
 					name={name}
 					value={
-						isValidDate(dateValue)
-							? new Date(dateValue).toISOString()
-							: ""
+						isValidDate(dateValue) ? new Date(dateValue).toISOString() : ""
 					}
 				/>
 
@@ -149,7 +151,9 @@ export default function TextInput({
 					ref={(el) => {
 						if (el) {
 							if (dateValue.length > 0 && !isValidDate(dateValue)) {
-								el.setCustomValidity("Please enter a valid date in MM/DD/YYYY format.");
+								el.setCustomValidity(
+									"Please enter a valid date in MM/DD/YYYY format."
+								);
 							} else {
 								el.setCustomValidity("");
 							}

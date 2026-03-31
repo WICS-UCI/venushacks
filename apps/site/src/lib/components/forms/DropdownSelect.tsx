@@ -52,7 +52,10 @@ export default function DropdownSelect({
 
 	return (
 		<div className={containerClass}>
-			<label className="block text-sm md:text-base font-figtree mb-2" htmlFor={name}>
+			<label
+				className="block text-sm md:text-base font-figtree mb-2"
+				htmlFor={name}
+			>
 				{labelText} {isRequired ? (
 					<RequiredAsterisk />
 				) : (
@@ -61,8 +64,9 @@ export default function DropdownSelect({
 			</label>
 			<div className="relative w-full">
 				<select
-					className={`w-full font-figtree outline-none appearance-none text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)] ${value === "" ? "text-[#8E8E8E]" : "text-black"
-						}`}
+					className={`w-full font-figtree outline-none appearance-none text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)] ${
+						value === "" ? "text-[#8E8E8E]" : "text-black"
+					}`}
 					name={name}
 					id={name}
 					defaultValue=""

@@ -75,7 +75,6 @@ export default function ApplicationFlow({
 	const goNext = (e?: React.MouseEvent<HTMLButtonElement>) => {
 		e?.preventDefault();
 		e?.stopPropagation();
-		console.log("goNext called, pageIndex:", pageIndex, "isLastPage:", isLastPage);
 
 		if (!validateCurrentPage()) return;
 		setPageIndex((i) => Math.min(i + 1, PAGE_COUNT - 1));
