@@ -15,11 +15,15 @@ const TIERS = [
 	// "in-kind",
 ];
 
-// const tempSponsors = ["sponsor1", "sponsor2", "sponsor3", "sponsor4", "sponsor5", "sponsor6"];
+const tempSponsors = ["sponsor1", "sponsor2", "sponsor3", "sponsor4", "sponsor5", "sponsor6"];
 
 const Sponsors = async () => {
 	const sponsors = await getSponsors();
-	const names = Array.from(sponsors.values()).flat().map(sponsor => sponsor.name);
+	const items = Array.from(sponsors.values()).flat().map(sponsor => ({
+		name: sponsor.name,
+		logo: sponsor.logo.asset._ref,
+		url: sponsor.url
+	}));
 
 	return (
 		<section className="container py-24 md:my-16 relative items-center flex flex-col md:p-8 w-4/5 mx-auto text-center">
@@ -27,7 +31,7 @@ const Sponsors = async () => {
 				Sponsors
 			</h2>
 			<InfiniteMovingAnts
-				items={names}
+				items={items}
 				direction="left"
 				speed="slow"
 				pauseOnHover={true}

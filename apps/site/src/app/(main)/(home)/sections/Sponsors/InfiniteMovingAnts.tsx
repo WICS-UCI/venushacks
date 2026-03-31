@@ -10,7 +10,7 @@ import melon from "./assets/melon_ant.svg";
 import orange from "./assets/orange_ant.svg";
 import pineapple from "./assets/pineapple_ant.svg";
 
-const sponsorGraphics = [melon, orange, pineapple];
+const sponsorGraphics = [blueberry, melon, orange, pineapple];
 
 export const InfiniteMovingAnts = ({
     items,
@@ -18,7 +18,11 @@ export const InfiniteMovingAnts = ({
     speed = "fast",
     pauseOnHover = true,
 }: {
-    items: string[];
+    items: {
+        name: string,
+        logo: string,
+        url: string | undefined
+    }[];
     direction?: "left" | "right";
     speed?: "fast" | "normal" | "slow";
     pauseOnHover?: boolean;
@@ -94,15 +98,20 @@ export const InfiniteMovingAnts = ({
                             key={`${item}-${idx}`}
                             className="relative flex transition-transform hover:scale-105"
                         >
-                            <a href={item} target="_blank" className="w-full h-full">
+                            <a href={item.url} target="_blank" className="w-full h-full">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <h2 className={"absolute text-black z-[20] text-center w-[20%] top-[50%] left-[40%]"}>
-                                    {item}
-                                </h2>
-                                <div className={"aspect-[6/7.5] flex items-end justify-center"}>
+                                <div className={"relative aspect-[6/7.5] flex items-end justify-center"}>
+                                    <h2 className={"absolute text-black z-[20] text-center w-[20%] top-[55%] left-[43%]"}>
+                                        {item.logo}
+                                    </h2>
+                                    {/* <Image
+                                        src={item.logo}
+                                        alt={item.name}
+                                        fill
+                                    /> */}
                                     <Image
                                         src={graphic}
-                                        alt={item}
+                                        alt={item.name}
                                         className="w-[90%] max-h-full"
                                     />
                                 </div>
