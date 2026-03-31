@@ -6,6 +6,7 @@ import {
 	Sponsors,
 	Partners,
 	Organizers,
+	Footer,
 } from "./sections";
 
 import ComingSoon from "./sections/Landing/ComingSoon";
@@ -28,6 +29,7 @@ export default function Home() {
 			<Partners />
 			<Organizers />
 			<FooterGraphic />
+      <Footer />
 		</>
 	);
 }
