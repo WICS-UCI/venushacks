@@ -5,3 +5,4 @@ export { default as Sponsors } from "./Sponsors/Sponsors";
 export { default as Partners } from "./Partners/Partners";
 export { default as Organizers } from "./Organizers/Organizers";
 export { default as Footer } from "@/lib/components/Footer/Footer";
+export { default as FooterGraphic } from "./FooterGraphic/FooterGraphic";
