@@ -65,7 +65,7 @@ export const InfiniteMovingAnts = ({
     }, [items]);
 
     const duration =
-        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "370s";
+        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "650s";
 
     return (
         <div
@@ -96,7 +96,7 @@ export const InfiniteMovingAnts = ({
                         >
                             <a href={item} target="_blank" className="w-full h-full">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <h2 className={"absolute z-[20] text-center top-[60%] left-[43%]"}>
+                                <h2 className={"absolute text-black z-[20] text-center w-[20%] top-[50%] left-[40%]"}>
                                     {item}
                                 </h2>
                                 <div className={"aspect-[6/7.5] flex items-end justify-center"}>
