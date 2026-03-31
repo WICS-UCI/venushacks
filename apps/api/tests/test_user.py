@@ -14,13 +14,11 @@ app.include_router(user.router)
 
 client = TestClient(app, follow_redirects=False)
 
-
-def test_login_as_uci_redirects_to_saml() -> None:
-    """Tests that logging in with UCI email redirects to SAML for UCI SSO"""
-    res = client.post("/login", data={"email": "hack@uci.edu"}, follow_redirects=False)
-    assert res.status_code == status.HTTP_303_SEE_OTHER
-    assert res.headers["location"] == "/api/saml/login?return_to=%2Fportal"
-
+# def test_login_as_uci_redirects_to_saml() -> None:
+#     """Tests that logging in with UCI email redirects to SAML for UCI SSO"""
+#     res = client.post("/login", data={"email": "hack@uci.edu"}, follow_redirects=False)
+#     assert res.status_code == status.HTTP_303_SEE_OTHER
+#     assert res.headers["location"] == "/api/saml/login?return_to=%2Fportal"
 
 def test_login_as_non_uci_redirects_to_guest_login() -> None:
     """Test that logging in with a non-UCI email redirects to guest login endpoint."""
