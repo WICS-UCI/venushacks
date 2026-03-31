@@ -1,4 +1,3 @@
-/*
 import { z } from "zod";
 import { cache } from "react";
 import { client } from "@/lib/sanity/client";
@@ -66,4 +65,3 @@ export const getSchedule = cache(async () => {
 
 	return Array.from(eventsByDay.values());
 });
-*/

@@ -1,3 +1,8 @@
+import Image from "next/image";
+import basketGraphic from "@/assets/images/picnic_basket.png";
+import grass from "@/assets/images/grass.png";
+import flower from "@/assets/images/flower.png";
+
 const About = () => {
 	return (
 		<section className="relative w-full bg-[#bcc06f] px-6 pt-16 pb-48 md:px-10 lg:px-16">
@@ -35,6 +40,27 @@ const About = () => {
 						support to grow and express their creativity in computing.
 					</p>
 				</div>
+				<div className="hidden lg:flex flex-1 justify-end">
+					<div className="relative w-full max-w-[750px] aspect-[510/366.97] ml-auto -mr-14">
+						<Image
+							src={basketGraphic}
+							alt="Picnic basket illustration"
+							fill
+							className="object-contain"
+						/>
+					</div>
+				</div>
+				<Image
+					src={flower}
+					alt="Flower decoration"
+					className="absolute bottom-[8vh] right-[13vw] w-[5vw] h-auto"
+				/>
+
+				<Image
+					src={grass}
+					alt="Grass decoration"
+					className="absolute bottom-[2vh] left-[10vw] w-[3vw] h-auto"
+				/>
 			</div>
 		</section>
 	);
