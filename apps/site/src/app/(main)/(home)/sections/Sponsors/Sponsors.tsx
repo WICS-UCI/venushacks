@@ -1,21 +1,17 @@
 import { getSponsors } from "./getSponsors";
-import SponsorTier from "./components/SponsorTier/SponsorTier";
+// import SponsorTier from "./components/SponsorTier/SponsorTier";
 import styles from "./Sponsors.module.scss";
-import { motion } from "framer-motion";	
 import { InfiniteMovingAnts } from "./InfiniteMovingAnts";
 
-
 // no sponsors under bronze for IH 2025
-const TIERS = [
-	"platinum",
-	"gold",
-	"silver",
-	// "bronze",
-	// "sponsored-prize",
-	// "in-kind",
-];
-
-const tempSponsors = ["sponsor1", "sponsor2", "sponsor3", "sponsor4", "sponsor5", "sponsor6"];
+// const TIERS = [
+// 	"platinum",
+// 	"gold",
+// 	"silver",
+// 	// "bronze",
+// 	// "sponsored-prize",
+// 	// "in-kind",
+// ];
 
 const Sponsors = async () => {
 	const sponsors = await getSponsors();

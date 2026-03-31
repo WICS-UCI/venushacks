@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import box from "@/assets/images/center_chat_box.svg";
-import boxBG from "@/assets/images/center_chat_box_bg.svg";
 import Image from "next/image";
 import blueberry from "./assets/blueberry_ant.svg";
 import apple from "./assets/apple_ant.svg";
@@ -99,7 +97,7 @@ export const InfiniteMovingAnts = ({
                             key={`${item}-${idx}`}
                             className="relative flex transition-transform hover:scale-105"
                         >
-                            <a href={item.url} target="_blank" className="flex w-full h-full  justify-center items-center border-2">
+                            <a href={item.url} target="_blank" className="flex w-full h-full  justify-center items-center">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <div className={"relative aspect-[6/7.5] flex items-end justify-center"}>
                                     
