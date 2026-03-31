@@ -56,7 +56,8 @@ export default function DropdownSelect({
 				className="block text-sm md:text-base font-figtree mb-2"
 				htmlFor={name}
 			>
-				{labelText} {isRequired ? (
+				{labelText}{" "}
+				{isRequired ? (
 					<RequiredAsterisk />
 				) : (
 					<span className="text-[#8E8E8E]">(optional)</span>

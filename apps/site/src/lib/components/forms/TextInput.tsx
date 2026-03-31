@@ -152,7 +152,7 @@ export default function TextInput({
 						if (el) {
 							if (dateValue.length > 0 && !isValidDate(dateValue)) {
 								el.setCustomValidity(
-									"Please enter a valid date in MM/DD/YYYY format."
+									"Please enter a valid date in MM/DD/YYYY format.",
 								);
 							} else {
 								el.setCustomValidity("");

@@ -53,7 +53,7 @@ export default function ResumeInformation({
 	return (
 		<div className="flex flex-col w-full">
 			<label className="block font-figtree text-sm md:text-base mb-2">
-				Attach your Resume{" "}<span className="text-[#8E8E8E]">(optional)</span>
+				Attach your Resume <span className="text-[#8E8E8E]">(optional)</span>
 			</label>
 			<label
 				htmlFor="resume_upload"
