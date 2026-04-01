@@ -1,10 +1,11 @@
 "use client";
 
-import MultipleSelect from "../MultipleSelect";
-import DropdownSelect from "../DropdownSelect";
-import ResumeInformation from "./ResumeInformation";
+import MultipleSelect from "@/lib/components/forms/MultipleSelect";
+import DropdownSelect from "@/lib/components/forms/DropdownSelect";
+import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
+import TextInput from "@/lib/components/forms/TextInput";
 
-export default function ApplicationGeneralQuestions() {
+export default function GeneralQuestions() {
 	return (
 		<div className="w-full">
 			<div className="flex flex-col items-left">
@@ -61,17 +62,13 @@ export default function ApplicationGeneralQuestions() {
 
 				{/* Dietary Restrctions - more options / change to multiple 
 				select component can be implemented in the future */}
-				<DropdownSelect
+				<TextInput
 					name="dietary_restrictions"
-					labelText="What are your dietary restrictions?"
-					containerClass="flex flex-col"
-					placeholder="Select an option"
-					values={[
-						{ value: "none", text: "None" },
-						{ value: "vegetarian", text: "Vegetarian" },
-						{ value: "vegan", text: "Vegan" },
-						{ value: "gluten-free", text: "Gluten-free" },
-					]}
+					labelText="What are your dietary restrictions? Include your allergies (if any)."
+					containerClass="flex flex-col gap-1"
+					isRequired={true}
+					type="text"
+					placeholder="e.g. Vegetarian, nut allergy... or leave blank if none"
 				/>
 
 				{/* Acknowledgements */}
@@ -94,8 +91,6 @@ export default function ApplicationGeneralQuestions() {
 						},
 					]}
 				/>
-
-				{/* <LastSaved lastSaved={null} /> */}
 			</div>
 		</div>
 	);
