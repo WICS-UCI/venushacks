@@ -1,5 +1,5 @@
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 
 export default function convertToPST(date: Date) {
-	return utcToZonedTime(date, "America/Los_Angeles");
+	return toZonedTime(date, "America/Los_Angeles");
 }
