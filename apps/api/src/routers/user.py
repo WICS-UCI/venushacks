@@ -219,14 +219,14 @@ async def _apply_flow(
                 user,
                 err,
             )
-            raise HTTPException(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE, err)
+            raise HTTPException(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
         except ValueError as err:
             log.info(
                 "An error occurred while submitting an application for %s: %s",
                 user,
                 err,
             )
-            raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, err)
+            raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE)
         except RuntimeError as err:
             log.error("During user %s apply, resume upload: %s", user.uid, err)
             raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
