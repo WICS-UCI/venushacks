@@ -72,7 +72,7 @@ export default function QuestionField({
 					}
 				}}
 				className={`w-full min-h-[100px] rounded-xl border px-3 py-2 resize-none outline-none text-sm md:text-base font-figtree text-black bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]
-        		${
+				${
 					overLimit
 						? "border-red-400 focus:border-red-400 focus:ring-red-100"
 						: "border-[#D6D6D6] focus:border-gray-300 focus:ring-gray-200"
