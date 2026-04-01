@@ -8,7 +8,7 @@ import GreenCapybara from "./assets/Melon Capy.svg";
 import BlueCapybara from "./assets/blueberry capy.svg";
 import BrownCapybara from "./assets/Main Capy.svg";
 import PinkCapybaraLeft from "./assets/cherry_1.svg";
-import PinkCapybaraRight from "./assets/cherry_2.svg";
+import PinkCapybaraRight from "./assets/Cherry_2.svg";
 import Basket from "./assets/picnic_basket.svg";
 import Blanket from "./assets/thick_picnic_blanket 1.svg";
 import Flower from "./assets/flower.svg";
