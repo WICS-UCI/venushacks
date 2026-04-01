@@ -36,7 +36,8 @@ body {
 }
 
 body {
-	background-color: var(--color-ice-cold);
+	color: var(--color-turquoise);
+	background-color: #C5C771;
 }
 
 /* based on Bootstrap Reboot */
