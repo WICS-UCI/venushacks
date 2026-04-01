@@ -37,13 +37,10 @@ export const InfiniteMovingAnts = ({
 		// Clone items multiple times to ensure smooth infinite scroll
 		const scroller = scrollerRef.current;
 		const children = Array.from(scroller.children);
-		const containerWidth = containerRef.current.offsetWidth;
-		let totalWidth = scroller.scrollWidth;
 
 		// Clone until scroller is at least 2x container width
 		for (let i: number = 0; i < 4; i++) {
 			children.forEach((child) => scroller.appendChild(child.cloneNode(true)));
-			totalWidth = scroller.scrollWidth;
 		}
 
 		const observer = new IntersectionObserver(
