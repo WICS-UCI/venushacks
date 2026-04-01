@@ -36,7 +36,8 @@ export default function QuestionField({
 
 	const handleChange = (newValue: string) => {
 		onChange?.(newValue);
-		const count = newValue.trim() === "" ? 0 : newValue.trim().split(/\s+/).length;
+		const count =
+			newValue.trim() === "" ? 0 : newValue.trim().split(/\s+/).length;
 		if (maxWords && count <= maxWords) setWordError("");
 	};
 
@@ -71,7 +72,11 @@ export default function QuestionField({
 					}
 				}}
 				className={`w-full min-h-[100px] rounded-xl border px-3 py-2 resize-none outline-none text-sm md:text-base font-figtree text-black bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]
-        		${overLimit ? "border-red-400 focus:border-red-400 focus:ring-red-100" : "border-[#D6D6D6] focus:border-gray-300 focus:ring-gray-200"}
+        		${
+					overLimit
+						? "border-red-400 focus:border-red-400 focus:ring-red-100"
+						: "border-[#D6D6D6] focus:border-gray-300 focus:ring-gray-200"
+				}
 				focus:bg-white focus:ring-2`}
 			/>
 

@@ -47,7 +47,7 @@ export default function Home() {
 				<Organizers />
 			</section>
 			<FooterGraphic />
-      <Footer />
+			<Footer />
 		</>
 	);
 }
