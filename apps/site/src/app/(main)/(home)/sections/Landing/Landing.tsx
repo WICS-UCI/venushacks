@@ -1,11 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import About from "./About/About";
 import PicnicScene from "./PicnicScene";
+import bg from "./assets/Hero-BG-Assets.svg";
 
 const Landing = () => {
     return (
         <>
+			<Image
+				src={bg}
+				alt="cloud background"
+				className={"absolute -z-10"}
+			/>
             <section className="relative overflow-hidden bg-[#cfe8e4]">
                 <div className="relative w-full">
                     <div className="relative z-10 flex flex-col items-center pt-12 mb-[-4rem]">
