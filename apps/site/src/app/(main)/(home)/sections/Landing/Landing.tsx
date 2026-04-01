@@ -8,13 +8,13 @@ import bg from "./assets/Hero-BG-Assets.svg";
 const Landing = () => {
     return (
         <>
-			<Image
-				src={bg}
-				alt="cloud background"
-				className={"absolute -z-10"}
-			/>
-            <section className="relative overflow-hidden bg-[#cfe8e4]">
-                <div className="relative w-full">
+            <section className="relative overflow-hidden">
+				<Image
+					src={bg}
+					alt="cloud background"
+					className={"absolute top-0 left-0 w-full object-cover z-10"}
+				/>
+                <div className="relative w-full bg-[#C5C771]">
                     <div className="relative z-10 flex flex-col items-center pt-12 mb-[-4rem]">
                         <h2 className="font-sniglet text-center text-[#2d3150] text-[clamp(0.9rem,1.8vw,1.5rem)] tracking-wide mb-3 mt-[clamp(3rem,8vw,6rem)] px-4">
                             UCI&apos;s Women-Centric Hackathon

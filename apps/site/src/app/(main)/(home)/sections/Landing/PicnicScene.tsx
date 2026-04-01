@@ -20,7 +20,7 @@ import ShadowWide from "./assets/shadow-wide.svg";
 
 const PicnicScene = () => {
     return (
-        <div className="w-full flex justify-center overflow-hidden pb-20 -mt-12">
+        <div className="w-full flex justify-center overflow-hidden pb-20 -mt-12 z-15">
             <div className="relative w-full max-w-[1700px] aspect-[17/8]">
                 {/* blanket hidden below md */}
                 <div className="hidden md:block absolute bottom-[3%] left-1/2 -translate-x-1/2 w-[90.5%] z-10">
