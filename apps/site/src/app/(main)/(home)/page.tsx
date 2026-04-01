@@ -1,8 +1,3 @@
-import { Suspense } from "react";
-
-import NavbarParent from "@/lib/components/Navbar/NavbarParent";
-import BaseNavbar from "@/lib/components/Navbar/BaseNavbar";
-
 import {
 	Landing,
 	FooterGraphic,
@@ -26,11 +21,6 @@ export default function Home() {
 		</>
 	) : (
 		<>
-			{!process.env.MAINTENANCE_MODE_HOME && (
-				<Suspense fallback={<BaseNavbar />}>
-					<NavbarParent />
-				</Suspense>
-			)}
 			<section id="home">
 				<Landing />
 			</section>
