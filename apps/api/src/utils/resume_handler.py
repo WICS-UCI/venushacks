@@ -36,7 +36,6 @@ async def upload_resume(person: Person, resume_upload: UploadFile) -> HttpUrl:
     log.info(f"person.application_type: {person.application_type}")
     log.info(f"FOLDER_MAP[Hacker]: {FOLDER_MAP['Hacker']}")
 
-
     RESUME_FOLDER_ID = FOLDER_MAP[person.application_type]
     if not RESUME_FOLDER_ID:
         raise RuntimeError("RESUMES_FOLDER_ID is not defined")
