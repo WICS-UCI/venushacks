@@ -27,8 +27,8 @@ export default function QuestionField({
 	const overLimit = maxWords && wordCount > maxWords;
 
 	return (
-		<div className="flex flex-col gap-2 w-full font-figtree">
-			<label className="text-[16px] font-medium text-black">
+		<div className="flex flex-col gap-2 w-full">
+			<label className="block text-sm md:text-base mb-2 font-figtree">
 				{label}
 				{maxWords && ` (${maxWords} words)`}
 				{required && <span className="text-red-500"> *</span>}
@@ -43,10 +43,11 @@ export default function QuestionField({
 					(maxWords ? `Answer in ${maxWords} words` : "Enter your answer")
 				}
 				required={required}
-				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
-				className={`w-full min-h-[100px] rounded-[10px] border p-3 resize-none outline-none text-[15px] font-figtree text-black
+				className={`w-full min-h-[100px] rounded-xl border px-3 py-2 resize-none outline-none text-sm md:text-base font-figtree text-black bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]
         ${overLimit ? "border-red-400" : "border-[#D6D6D6]"}
-        focus:ring-2 focus:ring-[#f3a5a5]`}
+		focus:bg-white
+		focus:border-gray-300
+		focus:ring-2 focus:ring-gray-200`}
 			/>
 		</div>
 	);

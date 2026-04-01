@@ -24,10 +24,10 @@ SAMPLE_PASSPHRASE = "correct-horse-battery-staple"
 #     assert res.status_code == 403
 
 
-def test_uci_email_forbidden_as_guest() -> None:
-    """Test that a UCI email cannot be used with guest authentication."""
-    res = client.post("/login", data={"email": "hack@uci.edu"})
-    assert res.status_code == 403
+# def test_uci_email_forbidden_as_guest() -> None:
+#     """Test that a UCI email cannot be used with guest authentication."""
+#     res = client.post("/login", data={"email": "hack@uci.edu"})
+#     assert res.status_code == 403
 
 
 @patch("utils.email_handler.send_guest_login_email", autospec=True)

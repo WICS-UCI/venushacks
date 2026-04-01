@@ -29,7 +29,7 @@ USER_PKFIRE = NativeUser(
 SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
-    "pronouns": ["pk"],
+    "pronouns": "pk",
     "date_of_birth": "2000-01-01T00:00:00Z",
     "gender_identity": "Non-binary",
     "shirt_size": "M",

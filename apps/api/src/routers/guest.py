@@ -16,11 +16,11 @@ router = APIRouter()
 
 def guest_email(email: Annotated[EmailStr, Form()]) -> EmailStr:
     """Require a university guest (non-UCI) email as a form field."""
-    if user_identity.uci_email(email) and user_identity.UCI_SSO_ENABLED:
-        log.info("%s attempted to log in as guest.", email)
-        raise HTTPException(
-            status.HTTP_403_FORBIDDEN, "UCI affiliates must log in with SSO."
-        )
+    # if user_identity.uci_email(email) and user_identity.UCI_SSO_ENABLED:
+    #     log.info("%s attempted to log in as guest.", email)
+    #     raise HTTPException(
+    #         status.HTTP_403_FORBIDDEN, "UCI affiliates must log in with SSO."
+    #     )
     if email.endswith("@venushacks.com"):
         # TODO: sponsor authentication
         raise HTTPException(status.HTTP_501_NOT_IMPLEMENTED)

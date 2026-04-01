@@ -12,10 +12,10 @@ export default function TechnicalQuestions() {
 	});
 
 	return (
-		<div className="w-full flex justify-center bg-[#FCFCFC] flex-col gap-[20px]">
-			<h2 className="font-figtree text-[20px] font-semibold text-black">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 				III. Technical Questions
-			</h2>
+			</h1>
 
 			<QuestionField
 				name="frq_project"
@@ -36,7 +36,7 @@ export default function TechnicalQuestions() {
 			/>
 
 			<QuestionField
-				name="frq_future"
+				name="frq_excited"
 				label="What's something you're excited to work on in the next 10 years? Dream big!"
 				maxWords={100}
 				required
