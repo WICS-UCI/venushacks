@@ -1,7 +1,6 @@
 import {
 	Landing,
 	FooterGraphic,
-	ChooseCharacter,
 	FAQ,
 	Sponsors,
 	Partners,
