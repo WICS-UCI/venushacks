@@ -30,8 +30,14 @@ const config: Config = {
 				figtree: ["Figtree", "sans-serif"],
 			},
 			fontSize: {
-				"coming-soon": ["clamp(14px, 2.5vw, 28px)", { lineHeight: "100%", letterSpacing: "0.19em" }],
-				"venushacks-title": ["clamp(36px, 7vw, 100px)", { lineHeight: "100%", letterSpacing: "0.19em" }],
+				"coming-soon": [
+					"clamp(14px, 2.5vw, 28px)",
+					{ lineHeight: "100%", letterSpacing: "0.19em" },
+				],
+				"venushacks-title": [
+					"clamp(36px, 7vw, 100px)",
+					{ lineHeight: "100%", letterSpacing: "0.19em" },
+				],
 			},
 			colors: {
 				white: "var(--color-white)",

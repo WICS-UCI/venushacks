@@ -184,6 +184,9 @@ importers:
       postcss-nesting:
         specifier: ^12.0.1
         version: 12.0.1(postcss@8.4.31)
+      prettier:
+        specifier: 3.8.1
+        version: 3.8.1
       sass:
         specifier: ^1.69.5
         version: 1.69.5
@@ -198,7 +201,7 @@ importers:
     devDependencies:
       '@vercel/style-guide':
         specifier: ^5.0.0
-        version: 5.0.0(eslint@8.54.0)(prettier@3.1.0)(typescript@4.9.5)
+        version: 5.0.0(eslint@8.54.0)(prettier@3.8.1)(typescript@4.9.5)
       eslint-config-turbo:
         specifier: ^1.10.12
         version: 1.10.12(eslint@8.54.0)
@@ -4643,6 +4646,11 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   pretty-ms@7.0.1:
     resolution: {integrity: sha512-973driJZvxiGOQ5ONsFhOF/DtzPMOMtgC11kCpUrPGMTgqp2q/1gwzCquocrN33is0VZ5GFHXZYMM9l6h67v2Q==}
     engines: {node: '>=10'}
@@ -8243,7 +8251,7 @@ snapshots:
 
   '@vercel/stega@0.1.0': {}
 
-  '@vercel/style-guide@5.0.0(eslint@8.54.0)(prettier@3.1.0)(typescript@4.9.5)':
+  '@vercel/style-guide@5.0.0(eslint@8.54.0)(prettier@3.8.1)(typescript@4.9.5)':
     dependencies:
       '@babel/core': 7.23.3
       '@babel/eslint-parser': 7.22.11(@babel/core@7.23.3)(eslint@8.54.0)
@@ -8263,10 +8271,10 @@ snapshots:
       eslint-plugin-testing-library: 6.0.1(eslint@8.54.0)(typescript@4.9.5)
       eslint-plugin-tsdoc: 0.2.17
       eslint-plugin-unicorn: 48.0.1(eslint@8.54.0)
-      prettier-plugin-packagejson: 2.4.5(prettier@3.1.0)
+      prettier-plugin-packagejson: 2.4.5(prettier@3.8.1)
     optionalDependencies:
       eslint: 8.54.0
-      prettier: 3.1.0
+      prettier: 3.8.1
       typescript: 4.9.5
     transitivePeerDependencies:
       - eslint-import-resolver-node
@@ -10983,16 +10991,18 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-packagejson@2.4.5(prettier@3.1.0):
+  prettier-plugin-packagejson@2.4.5(prettier@3.8.1):
     dependencies:
       sort-package-json: 2.5.1
       synckit: 0.8.5
     optionalDependencies:
-      prettier: 3.1.0
+      prettier: 3.8.1
 
   prettier@2.8.8: {}
 
   prettier@3.1.0: {}
+
+  prettier@3.8.1: {}
 
   pretty-ms@7.0.1:
     dependencies:
