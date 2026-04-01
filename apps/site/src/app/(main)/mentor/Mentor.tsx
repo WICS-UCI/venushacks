@@ -5,8 +5,6 @@ import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 import Textfield from "@/lib/components/forms/Textfield";
 
-import AgeInformation from "@/lib/components/forms/shared/AgeInformation";
-import SchoolInformation from "@/lib/components/forms/shared/SchoolInformation";
 import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
 import BasicInformation from "./Form/MentorBasicInformation";
 import ProfileInformation from "./Form/MentorProfileInformation";
@@ -30,7 +28,6 @@ export default async function Mentor() {
 			identity={identity}
 		>
 			<BasicInformation />
-			<SchoolInformation />
 			<ShortAnswers />
 			<ExperienceInformation />
 			<ResumeInformation isRequired />
@@ -51,7 +48,6 @@ export default async function Mentor() {
 				containerClass="flex flex-col w-11/12"
 				isRequired={false}
 			/>
-			<AgeInformation />
 		</ApplicationFlow>
 	);
 }
