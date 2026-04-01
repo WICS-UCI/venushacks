@@ -91,7 +91,6 @@ export default function GeneralQuestions() {
 						},
 					]}
 				/>
-
 			</div>
 		</div>
 	);
