@@ -29,4 +29,3 @@ export default function BaseNavbar({ children }: PropsWithChildren) {
 		</NavMenu.Root>
 	);
 }
-

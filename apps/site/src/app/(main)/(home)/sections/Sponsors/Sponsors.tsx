@@ -27,21 +27,12 @@ const Sponsors = async () => {
 		}));
 
 	return (
-		<section className="w-full bg-[#C5C771] py-10">
-			<div className={"w-[115%]"}>
-				<Image
-					src={flyLine}
-					alt="fly line"
-					className={"w-full"}
-				/>
+		<section className="w-full py-10 container mx-auto">
+			<div className={"scale-125 -z-10 flex justify-center"}>
+				<Image src={flyLine} alt="fly line" />
 			</div>
-			<Image
-				src={flower}
-				alt="flower"
-				className={"absolute w-[4%] left-[20%]"}
-			/>
-			<div className="container relative items-center text-center lg:scale-90">
-				<div className="absolute z-10 left-[50%] top-[10%]">
+			<div className="container relative items-center">
+				<div className="absolute z-10 left-1/2 -translate-x-1/2 top-[15%]">
 					<h2
 						className={`font-torus font-display font-bold sm:text-[3rem] text-[#2F3248] text-3xl text-center`}
 					>
@@ -58,21 +49,15 @@ const Sponsors = async () => {
 					/>
 				</div>
 			</div>
-			<Image
-				src={flower}
-				alt="flower"
-				className={"absolute left-[80%]"}
-			/>
-			<Image
-				src={flower}
-				alt="flower"
-				className={"absolute left-[80%]"}
-			/>
-			<Image
-				src={grass}
-				alt="grass"
-				className={"absolute left-[20%]"}
-			/>
+			<div className={"relative -top-96 -z-10 h-auto"}>
+				<Image src={flower} alt="flower" />
+			</div>
+			<div className="relative left-[80%] w-[5%] h-auto">
+				<Image src={flower} alt="Flower decoration" />
+			</div>
+			<div className={"relative left-[20%] w-[5%] h-auto"}>
+				<Image src={grass} alt="grass" />
+			</div>
 		</section>
 	);
 };
