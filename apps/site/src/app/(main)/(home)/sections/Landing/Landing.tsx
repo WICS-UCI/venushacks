@@ -8,12 +8,13 @@ import bg from "./assets/Hero-BG-Assets.svg"
 const Landing = () => {
     return (
         <>
-            <section className="relative overflow-hidden">
+			<div className="scale-110 w-screen absolute -z-10 flex justify-center">
 				<Image
-					src={bg}
-					alt="background"
-					className={"absolute w-full -z-10"}
+				src={bg}
+				alt="background"
 				/>
+			</div>
+            <section className="relative overflow-hidden max-w-screens mx-auto">
                 <div className="relative w-full">
                     <div className="relative z-10 flex flex-col items-center pt-12 mb-[-4rem]">
                         <h2 className="font-sniglet text-center text-[#2d3150] text-[clamp(0.9rem,1.8vw,1.5rem)] tracking-wide mb-3 mt-[clamp(3rem,8vw,6rem)] px-4">
