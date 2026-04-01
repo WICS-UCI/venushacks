@@ -213,16 +213,20 @@ async def _apply_flow(
                 ).validate_python(raw_application_data),
                 resume,
             )
-        except TypeError:
-            log.info("%s provided invalid resume type.", user)
-            raise HTTPException(
-                status.HTTP_415_UNSUPPORTED_MEDIA_TYPE, "Invalid resume file type"
+        except TypeError as err:
+            log.info(
+                "An error occurred while submitting an application for %s: %s",
+                user,
+                err,
             )
-        except ValueError:
-            log.info("%s provided too large resume.", user)
-            raise HTTPException(
-                status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, "Resume upload is too large"
+            raise HTTPException(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
+        except ValueError as err:
+            log.info(
+                "An error occurred while submitting an application for %s: %s",
+                user,
+                err,
             )
+            raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE)
         except RuntimeError as err:
             log.error("During user %s apply, resume upload: %s", user.uid, err)
             raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)

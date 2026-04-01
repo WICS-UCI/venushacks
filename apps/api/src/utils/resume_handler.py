@@ -33,9 +33,6 @@ async def upload_resume(person: Person, resume_upload: UploadFile) -> HttpUrl:
     """Upload resume file to Google Drive and provide url to uploaded file.
     Reject files larger than size limit"""
 
-    log.info(f"person.application_type: {person.application_type}")
-    log.info(f"FOLDER_MAP[Hacker]: {FOLDER_MAP['Hacker']}")
-
     RESUME_FOLDER_ID = FOLDER_MAP[person.application_type]
     if not RESUME_FOLDER_ID:
         raise RuntimeError("RESUMES_FOLDER_ID is not defined")
