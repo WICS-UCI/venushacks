@@ -214,13 +214,15 @@ async def _apply_flow(
                 resume,
             )
         except TypeError as err:
-            log.info("An error occurred while submitting an application for %s: %s",
+            log.info(
+                "An error occurred while submitting an application for %s: %s",
                 user,
                 err,
             )
             raise HTTPException(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE, err)
         except ValueError as err:
-            log.info("An error occurred while submitting an application for %s: %s",
+            log.info(
+                "An error occurred while submitting an application for %s: %s",
                 user,
                 err,
             )
