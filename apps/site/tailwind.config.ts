@@ -15,9 +15,15 @@ const config: Config = {
 					from: { transform: "translateX(0)" },
 					to: { transform: "translateX(calc(-50%))" },
 				},
+				capyBounce: {
+					"0%, 100%": { transform: "translateY(0)" },
+					"30%": { transform: "translateY(-12%)" },
+					"60%": { transform: "translateY(4%)" },
+				},
 			},
 			animation: {
 				scroll: "scroll var(--duration) linear infinite",
+				capyBounce: "capyBounce 0.6s ease",
 			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -30,8 +36,14 @@ const config: Config = {
 				figtree: ["Figtree", "sans-serif"],
 			},
 			fontSize: {
-				"coming-soon": ["clamp(14px, 2.5vw, 28px)", { lineHeight: "100%", letterSpacing: "0.19em" }],
-				"venushacks-title": ["clamp(36px, 7vw, 100px)", { lineHeight: "100%", letterSpacing: "0.19em" }],
+				"coming-soon": [
+					"clamp(14px, 2.5vw, 28px)",
+					{ lineHeight: "100%", letterSpacing: "0.19em" },
+				],
+				"venushacks-title": [
+					"clamp(36px, 7vw, 100px)",
+					{ lineHeight: "100%", letterSpacing: "0.19em" },
+				],
 			},
 			colors: {
 				white: "var(--color-white)",
