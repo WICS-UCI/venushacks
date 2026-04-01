@@ -56,7 +56,6 @@ const About = () => {
 				<div className="absolute bottom-[2vh] left-[10vw] w-[3vw] h-auto">
 					<Image src={grass} alt="Grass decoration" />
 				</div>
-
 			</div>
 		</section>
 	);
