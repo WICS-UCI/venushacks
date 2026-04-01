@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 
-import OrangeCapybara from "./assets/Orange_Capy.svg";
+import OrangeCapybara from "./assets/Orange Capy.svg";
 import YellowCapybara from "./assets/Pineapple Capy.svg";
 import GreenCapybara from "./assets/Melon Capy.svg";
 import BlueCapybara from "./assets/blueberry capy.svg";
 import BrownCapybara from "./assets/Main Capy.svg";
 import PinkCapybaraLeft from "./assets/cherry_1.svg";
-import PinkCapybaraRight from "./assets/Cherry_2.svg";
+import PinkCapybaraRight from "./assets/Cherry 2.svg";
 import Basket from "./assets/picnic_basket.svg";
 import Blanket from "./assets/thick_picnic_blanket 1.svg";
 import Flower from "./assets/flower.svg";
@@ -20,7 +20,7 @@ import ShadowWide from "./assets/shadow-wide.svg";
 
 const PicnicScene = () => {
     return (
-        <div className="w-full flex justify-center overflow-hidden pb-20 -mt-12 z-15">
+        <div className="w-full flex justify-center overflow-hidden pb-20 -mt-12">
             <div className="relative w-full max-w-[1700px] aspect-[17/8]">
                 {/* blanket hidden below md */}
                 <div className="hidden md:block absolute bottom-[3%] left-1/2 -translate-x-1/2 w-[90.5%] z-10">

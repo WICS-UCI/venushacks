@@ -16,12 +16,23 @@ import blue from "./assets/HappyBlueCapy.svg";
 import red from "./assets/HappyRedCapy.svg";
 import cherry from "./assets/Cherries.svg";
 import shadow from "./assets/Shadows.svg";
+import flower from "./assets/flower.svg";
+import grass1 from "./assets/grass.svg";
+import grass2 from "./assets/grass2.svg";
+import flyLine from "./assets/dotted-line.svg"
 
 import { motion } from "framer-motion";
 
 const FooterGraphic = () => {
 	return (
 		<section className="relative flex w-full aspect-[1280/1000]">
+            <Image
+                src={flyLine}
+                alt="butterfly line"
+                className={
+                    "absolute inset-0 object-cover -top-[10%]"
+                }
+            />
             <Image
                 src={shadow}
                 alt="Shadows"
@@ -88,7 +99,7 @@ const FooterGraphic = () => {
                 src={ant}
                 alt="ant1"
                 className={
-                    "absolute left-[90%] top-[70%] w-[15%] -translate-x-1/2 -translate-y-1/2"
+                    "absolute left-[90%] top-[80%] w-[15%] -translate-x-1/2 -translate-y-1/2"
                 }
             />
             <motion.div
@@ -141,7 +152,41 @@ const FooterGraphic = () => {
                     "absolute left-[41%] top-[69%] w-[5%] -translate-x-1/2 -translate-y-1/2"
                 }
             />
-
+            <Image
+                src={flower}
+                alt="flower"
+                className={
+                    "absolute top-[25%] left-[10%]"
+                }
+            />
+            <Image
+                src={flower}
+                alt="flower"
+                className={
+                    "absolute top-[78%] left-[55%]"
+                }
+            />
+            <Image
+                src={grass1}
+                alt="grass"
+                className={
+                    "absolute top-[25%] left-[80%]"
+                }
+            />
+            <Image
+                src={grass2}
+                alt="grass"
+                className={
+                    "absolute top-[70%] left-[90%]"
+                }
+            />
+            <Image
+                src={grass2}
+                alt="grass"
+                className={
+                    "absolute top-[75%] left-[10%]"
+                }
+            />
 		</section>
 	);
 };
