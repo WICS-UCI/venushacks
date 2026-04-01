@@ -12,7 +12,7 @@ from services.sendgrid_handler import (
     Template,
 )
 
-IH_SENDER = ("apply@irvinehacks.com", "IrvineHacks 2025 Applications")
+VH_SENDER = ("info@venushacks.com", "VenusHacks 2026 Applications")
 
 DECISION_TEMPLATES: dict[Role, dict[Decision, ApplicationUpdateTemplates]] = {
     Role.HACKER: {
@@ -50,7 +50,7 @@ async def send_application_confirmation_email(
     Will propagate exceptions from SendGrid."""
     await sendgrid_handler.send_email(
         Template.CONFIRMATION_EMAIL,
-        IH_SENDER,
+        VH_SENDER,
         {
             "email": email,
             "first_name": user.first_name,
@@ -64,7 +64,7 @@ async def send_guest_login_email(email: EmailStr, passphrase: str) -> None:
     """Email login passphrase to guest."""
     await sendgrid_handler.send_email(
         Template.GUEST_TOKEN,
-        IH_SENDER,
+        VH_SENDER,
         {
             "email": email,
             "passphrase": passphrase,
@@ -84,7 +84,7 @@ async def send_decision_email(
     ]
 
     template = DECISION_TEMPLATES[application_type][decision]
-    await sendgrid_handler.send_email(template, IH_SENDER, personalizations, True)
+    await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True)
 
 
 async def send_waitlist_release_email(first_name: str, email: EmailStr) -> None:
@@ -95,7 +95,7 @@ async def send_waitlist_release_email(first_name: str, email: EmailStr) -> None:
 
     await sendgrid_handler.send_email(
         Template.WAITLIST_RELEASE_EMAIL,
-        IH_SENDER,
+        VH_SENDER,
         personalization,
         send_to_multiple=False,
     )
@@ -122,7 +122,7 @@ async def send_logistics_email(
 
     template = LOGISTICS_TEMPLATES[application_type]
     if len(records) > 0:
-        await sendgrid_handler.send_email(template, IH_SENDER, personalizations, True)
+        await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True)
 
 
 def recover_email_from_uid(uid: str) -> str:

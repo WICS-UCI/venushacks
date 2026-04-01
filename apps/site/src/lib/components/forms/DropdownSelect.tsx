@@ -21,10 +21,10 @@ const OtherPopup = ({ value, name }: OtherProps) => {
 	if (value !== "other") return null;
 
 	return (
-		<div className="mt-3">
+		<div className="mt-6">
 			<label
 				htmlFor={`${name}-other-input`}
-				className="block text-sm font-semibold text-slate-900"
+				className="block text-sm md:text-base font-figtree mb-2"
 			>
 				Other: <RequiredAsterisk />
 			</label>
@@ -33,19 +33,7 @@ const OtherPopup = ({ value, name }: OtherProps) => {
 				type="text"
 				name={`_other_${name}`}
 				id={`${name}-other-input`}
-				className="
-			mt-2 w-full
-			h-12
-			rounded-xl
-			bg-white
-			px-4
-			text-slate-900
-			placeholder:text-slate-100
-			border border-slate-200
-			shadow-[0_2px_10px_rgba(0,0,0,0.06)]
-			outline-none
-			focus:border-slate-300 focus:ring-2 focus:ring-slate-200
-			"
+				className="w-full font-figtree outline-none appearance-none text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]"
 				required
 			/>
 		</div>
@@ -64,15 +52,22 @@ export default function DropdownSelect({
 
 	return (
 		<div className={containerClass}>
-			<label className="font-figtree font-medium text-lg mb-2" htmlFor={name}>
-				{labelText} {isRequired && <RequiredAsterisk />}
+			<label
+				className="block text-sm md:text-base font-figtree mb-2"
+				htmlFor={name}
+			>
+				{labelText}{" "}
+				{isRequired ? (
+					<RequiredAsterisk />
+				) : (
+					<span className="text-[#8E8E8E]">(optional)</span>
+				)}
 			</label>
 			<div className="relative w-full">
 				<select
-					className={`w-full font-figtree appearance-none text-lg h-10 pl-3 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] ${
+					className={`w-full font-figtree outline-none appearance-none text-sm md:text-base py-2 pl-4 pr-12 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)] ${
 						value === "" ? "text-[#8E8E8E]" : "text-black"
 					}`}
-					style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
 					name={name}
 					id={name}
 					defaultValue=""

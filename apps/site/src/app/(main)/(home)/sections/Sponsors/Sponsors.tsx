@@ -1,58 +1,78 @@
 import { getSponsors } from "./getSponsors";
-import SponsorTier from "./components/SponsorTier/SponsorTier";
-import styles from "./Sponsors.module.scss";
+// import SponsorTier from "./components/SponsorTier/SponsorTier";
+import Image from "next/image";
+import { InfiniteMovingAnts } from "./InfiniteMovingAnts";
+import flyLine from "./assets/fly-line.svg";
+import flower from "./assets/flower.svg";
+import grass from "./assets/grass.svg";
 
 // no sponsors under bronze for IH 2025
-const TIERS = [
-	"platinum",
-	"gold",
-	"silver",
-	// "bronze",
-	// "sponsored-prize",
-	// "in-kind",
-];
+// const TIERS = [
+// 	"platinum",
+// 	"gold",
+// 	"silver",
+// 	// "bronze",
+// 	// "sponsored-prize",
+// 	// "in-kind",
+// ];
 
 const Sponsors = async () => {
 	const sponsors = await getSponsors();
+	const items = Array.from(sponsors.values())
+		.flat()
+		.map((sponsor) => ({
+			name: sponsor.name,
+			logo: sponsor.logo.asset._ref,
+			url: sponsor.url,
+		}));
 
 	return (
-		<section className="container py-24 md:my-16 relative items-center flex flex-col md:p-8 w-4/5 mx-auto text-center">
-			<h2
-				className={`my-12 font-display font-bold sm:text-[3rem] text-white text-3xl text-center`}
-			>
-				Sponsors
-			</h2>
-
-			<div className={styles.sponsorsContainer}>
-				<div className="absolute w-full left-0 top-[1rem] flex gap-4 px-8 ">
-					<div className="h-[2px] bg-white flex-grow  ml-[2rem] mt-[0.5rem]" />
-					<p className="text-xs lg:text-sm text-center">
-						Interested in sponsoring IrvineHacks 2025? Email us at{" "}
-						<a href="mailto:hack@uci.edu" className="underline">
-							hack@uci.edu
-						</a>
-						.
-					</p>
-					<div className="h-[2px] bg-white flex-grow mr-[2rem] mt-[0.5rem]" />
+		<section className="w-full bg-[#C5C771] py-10">
+			<div className={"w-[115%]"}>
+				<Image
+					src={flyLine}
+					alt="fly line"
+					className={"w-full"}
+				/>
+			</div>
+			<Image
+				src={flower}
+				alt="flower"
+				className={"absolute w-[4%] left-[20%]"}
+			/>
+			<div className="container relative items-center text-center lg:scale-90">
+				<div className="absolute z-10 left-[50%] top-[10%]">
+					<h2
+						className={`font-torus font-display font-bold sm:text-[3rem] text-[#2F3248] text-3xl text-center`}
+					>
+						Sponsors
+					</h2>
 				</div>
-
-				{TIERS.map((tier) => (
-					<div key={tier}>
-						<SponsorTier
-							sponsors={sponsors.get(tier)}
-							className={styles[tier]}
-						/>
-					</div>
-				))}
-
-				<div className={`${styles.horizontalLine} ${styles.bottom}`} />
-				<div className={styles.cornerSquares}>
-					<div className={styles.topLeft} />
-					<div className={styles.topRight} />
-					<div className={styles.bottomLeft} />
-					<div className={styles.bottomRight} />
+				<div className="flex justify-center relative w-full z-0">
+					<InfiniteMovingAnts
+						items={items}
+						direction="left"
+						speed="slow"
+						pauseOnHover={true}
+						className={""}
+					/>
 				</div>
 			</div>
+			<Image
+				src={flower}
+				alt="flower"
+				className={"absolute left-[80%]"}
+			/>
+			<Image
+				src={flower}
+				alt="flower"
+				className={"absolute left-[80%]"}
+			/>
+			<Image
+				src={grass}
+				alt="grass"
+				className={"absolute left-[20%]"}
+			/>
 		</section>
 	);
 };
