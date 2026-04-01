@@ -39,78 +39,80 @@ const creamFilter =
 
 const Footer = () => {
 	return (
-		<footer className={styles.footer} style={{ backgroundColor: "#2C4725" }}>
-			<div className="flex flex-col md:flex-row md:items-center md:justify-between w-full px-6 md:px-10 pt-8 pb-5 md:py-6 gap-3 md:gap-0">
-				{/* Left: Made with text */}
-				<div className="flex flex-row items-center justify-center md:justify-start">
-					<p
-						style={{
-							color: "#F2E5D4",
-							fontFamily: "'Torus Pro', sans-serif",
-							fontWeight: 700,
-							fontSize: "clamp(14px, 2.5vw, 18px)",
-							lineHeight: "100%",
-							letterSpacing: "0.2em",
-							margin: 0,
-							whiteSpace: "nowrap",
-						}}
+		<footer className={`${styles.footer} w-full`} style={{ backgroundColor: "#2C4725" }}>
+			<div className="mx-auto w-full max-w-screen px-6 md:px-10 pt-8 pb-5 md:py-6">
+				<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-0">
+					{/* Left: Made with text */}
+					<div className="flex flex-row items-center justify-center md:justify-start">
+						<p
+							style={{
+								color: "#F2E5D4",
+								fontFamily: "'Torus Pro', sans-serif",
+								fontWeight: 700,
+								fontSize: "clamp(14px, 2.5vw, 18px)",
+								lineHeight: "100%",
+								letterSpacing: "0.2em",
+								margin: 0,
+								whiteSpace: "nowrap",
+							}}
+						>
+							Made with
+						</p>
+						<Image
+							src={HeartImage}
+							alt="Heart icon"
+							width={14}
+							height={14}
+							style={{
+								filter: creamFilter,
+								display: "block",
+								position: "relative",
+								top: "1px",
+								marginLeft: "6px",
+								marginRight: "9px",
+							}}
+						/>
+						<p
+							style={{
+								color: "#F2E5D4",
+								fontFamily: "'Torus Pro', sans-serif",
+								fontWeight: 700,
+								fontSize: "clamp(14px, 2.5vw, 18px)",
+								lineHeight: "100%",
+								letterSpacing: "0.2em",
+								margin: 0,
+								whiteSpace: "nowrap",
+							}}
+						>
+							by VenusHacks Organizers
+						</p>
+					</div>
+					{/* Right: Social media links */}
+					<ul
+						className="flex items-center justify-center md:justify-end list-none p-0 m-0"
+						style={{ gap: "clamp(4px, 1.5vw, 8px)" }}
 					>
-						Made with
-					</p>
-					<Image
-						src={HeartImage}
-						alt="Heart icon"
-						width={14}
-						height={14}
-						style={{
-							filter: creamFilter,
-							display: "block",
-							position: "relative",
-							top: "1px",
-							marginLeft: "6px",
-							marginRight: "9px",
-						}}
-					/>
-					<p
-						style={{
-							color: "#F2E5D4",
-							fontFamily: "'Torus Pro', sans-serif",
-							fontWeight: 700,
-							fontSize: "clamp(14px, 2.5vw, 18px)",
-							lineHeight: "100%",
-							letterSpacing: "0.2em",
-							margin: 0,
-							whiteSpace: "nowrap",
-						}}
-					>
-						by VenusHacks Organizers
-					</p>
+						{socialLinks.map(({ href, label, src, className }) => (
+							<li key={label}>
+								<a
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={label}
+									className="flex h-11 w-11 items-center justify-center transition-opacity"
+									style={{ opacity: 0.85 }}
+								>
+									<Image
+										src={src}
+										alt=""
+										className={className}
+										style={{ filter: creamFilter }}
+									/>
+								</a>
+							</li>
+						))}
+					</ul>
 				</div>
-				{/* Right: Social media links */}
-				<ul
-					className="flex items-center justify-center md:justify-end list-none p-0 m-0"
-					style={{ gap: "clamp(4px, 1.5vw, 8px)" }}
-				>
-					{socialLinks.map(({ href, label, src, className }) => (
-						<li key={label}>
-							<a
-								href={href}
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label={label}
-								className="flex h-11 w-11 items-center justify-center transition-opacity"
-								style={{ opacity: 0.85 }}
-							>
-								<Image
-									src={src}
-									alt=""
-									className={className}
-									style={{ filter: creamFilter }}
-								/>
-							</a>
-						</li>
-					))}
-				</ul>
 			</div>
 		</footer>
 	);
