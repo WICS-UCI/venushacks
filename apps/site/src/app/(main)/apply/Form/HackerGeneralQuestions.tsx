@@ -4,7 +4,6 @@ import MultipleSelect from "@/lib/components/forms/MultipleSelect";
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
 import TextInput from "@/lib/components/forms/TextInput";
-import LastSaved from "@/lib/components/forms/LastSaved";
 
 export default function GeneralQuestions() {
 	return (
@@ -93,7 +92,6 @@ export default function GeneralQuestions() {
 					]}
 				/>
 
-				{/* <LastSaved lastSaved={null} /> */}
 			</div>
 		</div>
 	);
