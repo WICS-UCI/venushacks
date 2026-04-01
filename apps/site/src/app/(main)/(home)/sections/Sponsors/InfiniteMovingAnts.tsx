@@ -89,7 +89,7 @@ export const InfiniteMovingAnts = ({
 					return (
 						<li
 							key={`${item}-${idx}`}
-							className="border-2 relative flex-none transition-transform hover:scale-105"
+							className="relative flex-none transition-transform hover:scale-105"
 						>
 							<a
 								href={item.url}
