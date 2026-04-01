@@ -32,7 +32,7 @@ SAMPLE_APPLICATION = {
     "date_of_birth": "2000-01-01T00:00:00Z",
     "is_18_older": "true",
     "gender_identity": "Non-binary",
-    "pronouns": ["they"],
+    "pronouns": "they",
     "year": "3rd Year",
     "major": "Computer Science",
     "affiliation": "UC Irvine",
