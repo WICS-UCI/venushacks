@@ -19,21 +19,18 @@ export default function useForm(applyPath: string) {
 	const handleSubmit = async (
 		event: FormEvent<HTMLFormElement>,
 	): Promise<void> => {
-		// Disable native post submission
 		event.preventDefault();
 
-		// On the chance that a user presses submit after the deadline,
-		// this check is to prevent the application from submitting
-		// and to show the message that applications have closed
 		if (hasDeadlinePassed()) {
 			window.location.reload();
 			return;
 		}
 
+		const formElement = event.currentTarget;
+		const formData = new FormData(formElement);
+
 		setSubmitting(true);
 		setSessionExpired(false);
-
-		const formData = new FormData(event.currentTarget);
 
 		// Use other values when selected
 		for (const field of FIELDS_WITH_OTHER) {
