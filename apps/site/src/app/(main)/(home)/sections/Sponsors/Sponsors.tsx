@@ -22,7 +22,7 @@ const Sponsors = async () => {
 	}));
 
 	return (
-		<section className="container py-24 md:my-16 relative items-center flex flex-col md:p-8 w-4/5 mx-auto text-center">
+		<section className="container md:my-16 relative items-center flex flex-col md:p-8 w-4/5 mx-auto text-center  lg:scale-90">
 			<h2 className={`font-torus my-12 font-display font-bold sm:text-[3rem] text-[#2F3248] text-3xl text-center`}>
 				Sponsors
 			</h2>
@@ -31,7 +31,7 @@ const Sponsors = async () => {
 				direction="left"
 				speed="slow"
 				pauseOnHover={true}
-				className={styles.carousel}
+				className={`${styles.carousel}`}
 			/>
 		</section>
 	);

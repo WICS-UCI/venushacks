@@ -29,11 +29,9 @@ export const InfiniteMovingAnts = ({
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
-    const [start, setStart] = useState(false);
+    const [start, setStart] = useState(true);
 
     useEffect(() => {
-        let iterations = 0;
-        const maxIterations = 10;  //prevent too many loops that'll crash the site
         if (!containerRef.current || !scrollerRef.current) return;
 
         // Clone items multiple times to ensure smooth infinite scroll
@@ -43,12 +41,11 @@ export const InfiniteMovingAnts = ({
         let totalWidth = scroller.scrollWidth;
 
         // Clone until scroller is at least 2x container width
-        while (totalWidth < containerWidth * 2 && iterations < maxIterations) {
+        for(let i:number = 0; i < 4; i++) {
             children.forEach((child) =>
                 scroller.appendChild(child.cloneNode(true))
             );
             totalWidth = scroller.scrollWidth;
-            iterations++;
         }
 
         const observer = new IntersectionObserver(
@@ -68,7 +65,7 @@ export const InfiniteMovingAnts = ({
     }, [items]);
 
     const duration =
-        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "450s";
+        speed === "fast" ? "30s" : speed === "normal" ? "150s" : "500s";
 
     return (
         <div
@@ -83,7 +80,7 @@ export const InfiniteMovingAnts = ({
             <ul
                 key={duration}
                 ref={scrollerRef}
-                className={`flex min-w-full shrink-0  w-max flex-nowrap items-center justify-center ${
+                className={`flex shrink-0  w-max flex-nowrap items-center justify-center ${
                     start ? "animate-scroll" : ""
                 } ${pauseOnHover ? "hover:[animation-play-state:paused]" : ""} ${
                     direction === "right" ? "[animation-direction:reverse]" : ""
@@ -95,9 +92,9 @@ export const InfiniteMovingAnts = ({
                     return (
                         <li
                             key={`${item}-${idx}`}
-                            className="relative flex transition-transform hover:scale-105"
+                            className="border-2 relative flex-none transition-transform hover:scale-105"
                         >
-                            <a href={item.url} target="_blank" className="flex w-full h-full  justify-center items-center">
+                            <a href={item.url} target="_blank" className="relative flex w-[180px] lg:w-full aspect-[3/2] lg:aspect-[6/7.5] justify-center items-center">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <div className={"relative aspect-[6/7.5] flex items-end justify-center"}>
                                     
@@ -107,7 +104,10 @@ export const InfiniteMovingAnts = ({
                                         className="w-[90%] max-h-full"
                                     />
                                 </div>
-                                <div className={"absolute z-10 flex justify-center h-1/2 w-1/2 top-[35%] left-[27%]"}>
+                                <div className={"absolute z-10 flex justify-center \
+                                    w-[67px] lg:h-1/2 lg:w-1/2  \
+                                    left-[60px] top-[53%] lg:top-[35%] lg:left-[27%]"
+                                }>
                                     {item.logo ? 
                                 
                                         <Image
@@ -115,10 +115,10 @@ export const InfiniteMovingAnts = ({
                                             alt={item.name}
                                             width={150}
                                             height={100}
-                                            className="object-contain top-[90%]"
+                                            className=" object-contain top-[50%]"
                                         />
                                         :
-                                       <h2 className={"absolute text-black z-[20] text-center w-[20%] top-[55%] left-[43%]"}>
+                                       <h2 className={"absolute text-black z-[20] text-center w-[20%]"}>
                                         {item.name}
                                         </h2>
                                     }
