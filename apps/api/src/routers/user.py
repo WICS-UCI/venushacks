@@ -38,7 +38,7 @@ log = getLogger(__name__)
 
 router = APIRouter()
 
-DEADLINE = datetime(2025, 10, 28, 8, 1, tzinfo=timezone.utc)
+DEADLINE = datetime(2026, 4, 24, 23, 59, tzinfo=timezone.utc)
 
 HACKATHON_EXPERIENCE_SCORE_MAP = {
     "first_time": 5,
@@ -64,11 +64,11 @@ async def login(
     log.info("%s requested to log in", email)
     query = urlencode({"return_to": return_to})
 
-    if user_identity.uci_email(email) and user_identity.UCI_SSO_ENABLED:
-        # redirect user for UCI SSO, changing to GET method
-        return RedirectResponse(
-            URL(path="/api/saml/login", query=query), status.HTTP_303_SEE_OTHER
-        )
+    # if user_identity.uci_email(email) and user_identity.UCI_SSO_ENABLED:
+    #     # redirect user for UCI SSO, changing to GET method
+    #     return RedirectResponse(
+    #         URL(path="/api/saml/login", query=query), status.HTTP_303_SEE_OTHER
+    #     )
 
     # Forward POST request to guest login
     return RedirectResponse(
@@ -113,11 +113,12 @@ async def apply(
     raw_application_data: Union[RawHackerApplicationData]
     try:
         if discriminator == "hacker":
+            log.info(data)
             raw_application_data = RawHackerApplicationData.model_validate(data)
         else:
             raise ValueError("Cannot determine hacker application type")
     except ValidationError as e:
-        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, e.errors())
 
     return await _apply_flow(user, raw_application_data)
 
@@ -374,8 +375,6 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
 
     # Fields that should always be lists, even with single values
     MULTI_SELECT_FIELDS = {
-        "pronouns",
-        "majors_and_minors",
         "experienced_technologies",
         "skills",
         "areas_of_development",

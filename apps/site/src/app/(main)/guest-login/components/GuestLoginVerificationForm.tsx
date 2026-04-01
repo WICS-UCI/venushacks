@@ -52,7 +52,7 @@ export default function GuestLoginVerificationForm({
 					<span className="text-[#FF2222]">
 						If you cannot find the passphrase, please check your spam. If the
 						email is still missing, try again later, use a different email, or
-						contact us at contact@irvinehacks.com for assistance.
+						contact us at contact@venushacks.com for assistance.
 					</span>
 					<p className={clsx(styles.invalidFeedback, "text-red-500")}>
 						Sorry, that passphrase is invalid.

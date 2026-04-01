@@ -1,12 +1,6 @@
 "use client";
 
-import clsx from "clsx";
-
 import Button from "@/lib/components/Button/Button";
-import NavLinkItem from "./NavbarHelpers";
-
-// import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
-import buttonStyles from "@/lib/components/Button/Button.module.scss";
 import { Identity } from "@/lib/utils/getUserIdentity";
 import BaseNavbar from "./BaseNavbar";
 
@@ -19,18 +13,35 @@ export default function Navbar({ identity }: NavbarProps) {
 	const isLoggedIn = uid !== null;
 
 	return (
-		<BaseNavbar>
-			{status !== null && <NavLinkItem href="/portal">Portal</NavLinkItem>}
-			{isLoggedIn ? (
-				<a
-					href="/logout"
-					className={clsx(buttonStyles.buttonBox, buttonStyles.navButton)}
-				>
-					Log Out
-				</a>
-			) : (
-				<Button text="Log In" href="/login" usePrefetch={false} isNavButton />
-			)}
-		</BaseNavbar>
+		<>
+			<BaseNavbar>
+				{status !== null && (
+					<Button text="Portal" href="/portal" usePrefetch={false} isNavButton />
+				)}
+				{isLoggedIn ? (
+					<Button
+						text="Logout"
+						href="/logout"
+						usePrefetch={false}
+						isNavButton
+					/>
+				) : (
+					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
+				)}
+			</BaseNavbar>
+
+			<div className="fixed top-4 right-4 z-40 md:hidden">
+				{isLoggedIn ? (
+					<Button
+						text="Logout"
+						href="/logout"
+						usePrefetch={false}
+						isNavButton
+					/>
+				) : (
+					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
+				)}
+			</div>
+		</>
 	);
 }
