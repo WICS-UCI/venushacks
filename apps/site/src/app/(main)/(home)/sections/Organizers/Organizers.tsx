@@ -67,7 +67,7 @@ export default function Organizers() {
 	}
 
 	return (
-		<section className="w-full flex justify-center px-6 py-12">
+		<section className="w-full flex justify-center px-6 py-12 mb-36">
 			<div
 				className="w-full max-w-[1286px] flex flex-col items-center gap-6 sm:gap-8 px-4 sm:px-8 lg:px-10 py-6 sm:py-8 lg:py-10"
 				style={{

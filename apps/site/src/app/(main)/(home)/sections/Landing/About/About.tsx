@@ -5,7 +5,7 @@ import flower from "./assets/flower.svg";
 
 const About = () => {
 	return (
-		<section className="relative w-full bg-[#bcc06f] px-6 pt-16 pb-48 md:px-10 lg:px-16">
+		<section className="relative w-full px-6 pt-16 pb-48 md:px-10 lg:px-16">
 			<div className="mx-auto flex items-center justify-between gap-10">
 				{/* Text Card */}
 				<div className="w-full max-w-[700px] lg:ml-20 rounded-[34px] border-[5px] border-[#d77676] bg-[#e8dfa0] px-10 py-10 md:px-12 md:py-12 lg:px-14 lg:py-12">
