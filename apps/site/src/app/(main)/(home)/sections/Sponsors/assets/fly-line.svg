@@ -1,14 +1,14 @@
-<svg width="1440" height="224" viewBox="0 0 1440 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_g_675_3004)">
-<path d="M-186 122.204C-29.6667 167.303 330.5 229.407 488.5 78.7658C504.14 63.854 525.701 -17.5057 450 9.26465C409 23.7636 453.5 72.7657 489 99.4217C560.5 140.492 736.9 207.288 870.5 145.916C1004.1 84.5436 1055.33 145.286 1056 189.766C1056 220.766 1030.1 224.68 1002.5 214.266C968 201.247 994.5 130.573 1114 126.853C1233.5 123.134 1484.5 127.783 1607 39.4442" stroke="#2F3248" stroke-width="4" stroke-dasharray="16 16"/>
+<svg width="1799" height="224" viewBox="0 0 1799 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_g_32_23)">
+<path d="M2.45435 122.204C158.788 167.303 518.954 229.407 676.954 78.7658C692.595 63.8539 714.155 -17.5058 638.454 9.26456C597.454 23.7635 641.954 72.7656 677.454 99.4216C748.954 140.491 925.354 207.288 1058.95 145.916C1192.55 84.5435 1243.79 145.286 1244.45 189.765C1244.45 220.765 1218.55 224.68 1190.95 214.265C1156.45 201.247 1182.95 130.573 1302.45 126.853C1421.95 123.134 1672.95 127.783 1795.45 39.4441" stroke="#2F3248" stroke-width="4" stroke-dasharray="16 16"/>
 </g>
 <defs>
-<filter id="filter0_g_675_3004" x="-188.454" y="2.44379e-05" width="1798.52" height="223.318" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_g_32_23" x="2.44379e-05" y="-6.07967e-06" width="1798.52" height="223.318" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feTurbulence type="fractalNoise" baseFrequency="0.58823525905609131 0.58823525905609131" numOctaves="3" seed="7643" />
 <feDisplacementMap in="shape" scale="3.7999999523162842" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
-<feMerge result="effect1_texture_675_3004">
+<feMerge result="effect1_texture_32_23">
 <feMergeNode in="displacedImage"/>
 </feMerge>
 </filter>

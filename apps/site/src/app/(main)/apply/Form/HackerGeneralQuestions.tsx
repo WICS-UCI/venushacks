@@ -60,12 +60,13 @@ export default function GeneralQuestions() {
 					/>
 				</div>
 
-				{/* Dietary Restrctions */}
+				{/* Dietary Restrctions - more options / change to multiple 
+				select component can be implemented in the future */}
 				<TextInput
 					name="dietary_restrictions"
 					labelText="What are your dietary restrictions? Include your allergies (if any)."
 					containerClass="flex flex-col gap-1"
-					isRequired={false}
+					isRequired={true}
 					type="text"
 					placeholder="e.g. Vegetarian, nut allergy... or leave blank if none"
 				/>

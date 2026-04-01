@@ -24,7 +24,7 @@ function Portal() {
 	const status = identity.status;
 
 	if (status === null) {
-		redirect("/choose-role");
+		redirect("/#apply");
 	}
 
 	const roleToDisplay = identity.roles.find((role) =>
