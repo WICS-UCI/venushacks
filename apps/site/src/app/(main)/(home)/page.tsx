@@ -25,7 +25,6 @@ export default function Home() {
 			<section id="home">
 				<Landing />
 			</section>
-			<ChooseCharacter />
 			<section id="faqs">
 				<FAQ />
 			</section>
