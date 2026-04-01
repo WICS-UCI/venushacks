@@ -9,10 +9,7 @@ const Landing = () => {
     return (
         <>
 			<div className="scale-110 w-screen absolute -z-10 flex justify-center">
-				<Image
-				src={bg}
-				alt="background"
-				/>
+				<Image src={bg} alt="background" />
 			</div>
             <section className="relative overflow-hidden max-w-screens mx-auto">
                 <div className="relative w-full">
