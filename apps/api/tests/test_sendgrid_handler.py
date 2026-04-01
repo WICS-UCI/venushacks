@@ -7,7 +7,7 @@ from httpx import HTTPStatusError, Request, Response
 from services import sendgrid_handler
 from services.sendgrid_handler import ConfirmationPersonalization, Template
 
-SAMPLE_SENDER = ("noreply@irvinehacks.com", "No Reply IrvineHacks")
+SAMPLE_SENDER = ("noreply@venushacks.com", "No Reply VenusHacks")
 SAMPLE_RECIPIENTS: list[ConfirmationPersonalization] = [
     {
         "email": "hacker0@uci.edu",
