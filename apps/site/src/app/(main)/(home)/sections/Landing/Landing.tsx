@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import PicnicScene from "./PicnicScene";
-import Hill from "./Hill"
+import Hill from "./Hill";
 import CloudGroup from "@/assets/backgrounds/coming-soon-clouds.svg";
 
 const Landing = () => {
@@ -11,7 +11,9 @@ const Landing = () => {
 			<div className="absolute inset-0 -z-20">
 				<div className="relative min-h-screen md:h-screen overflow-hidden bg-[#BEE7E1] flex justify-center">
 					{/* Clouds */}
-					<div className={`relative top-[5%] md:top-0 flex items-start justify-center w-[clamp(700px,90vw,1400px)]`}>
+					<div
+						className={`relative top-[5%] md:top-0 flex items-start justify-center w-[clamp(700px,90vw,1400px)]`}
+					>
 						<Image
 							src={CloudGroup}
 							alt="Clouds"
@@ -41,7 +43,7 @@ const Landing = () => {
 				</div>
 			</div>
 			<div className="absolute -z-10 top-1/2 translate-y-[10%]">
-				<div className="scale-[120%]">	
+				<div className="scale-[120%]">
 					<Hill />
 				</div>
 			</div>
