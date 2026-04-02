@@ -26,8 +26,6 @@ const Landing = () => {
 						<PicnicScene />
 					</div>
 				</div>
-
-				<About />
 			</section>
 		</>
 	);
