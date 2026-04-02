@@ -3,7 +3,7 @@ import {
 	FooterGraphic,
 	FAQ,
 	Sponsors,
-	Partners,
+	// Partners,
 	Organizers,
 	Footer,
 } from "./sections";
