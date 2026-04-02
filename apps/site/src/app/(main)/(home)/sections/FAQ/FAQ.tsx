@@ -34,7 +34,7 @@ const FAQ = async () => {
 					</div>
 					<div className="flex flex-col flex-1 gap-4">
 						{faq.filter((_, i) => i % 2 === 1).map((item, i) => (
-							<FAQItem key={item._key} faq={item} index={i * 2 + 3} />
+							<FAQItem key={item._key} faq={item} index={i * 2 + 1} />
 						))}
 					</div>
 				</div>
