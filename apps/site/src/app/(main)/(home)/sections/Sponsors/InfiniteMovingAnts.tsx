@@ -31,7 +31,7 @@ export const InfiniteMovingAnts = ({
 	const scrollerRef = React.useRef<HTMLUListElement>(null);
 	const [start, setStart] = useState(true);
 	const hasClonedRef = React.useRef(false);
-	
+
 	useEffect(() => {
 		if (!containerRef.current || !scrollerRef.current) return;
 
