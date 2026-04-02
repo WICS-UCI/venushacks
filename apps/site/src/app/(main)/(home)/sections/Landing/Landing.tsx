@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import About from "./About/About";
 import PicnicScene from "./PicnicScene";
 import bg from "./assets/Hero-BG-Assets.svg";
 
