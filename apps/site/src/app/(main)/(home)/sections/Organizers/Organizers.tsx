@@ -60,10 +60,10 @@ export default function Organizers() {
 		activeTab === "Board"
 			? organizers.filter(
 					(o) => o.role === "Co-President" || o.role === "Co-Chair",
-			)
+				)
 			: organizers.filter(
 					(o) => o.department === activeTab && o.role === "Organizer",
-			);
+				);
 
 	if (isLoading) {
 		return null;
