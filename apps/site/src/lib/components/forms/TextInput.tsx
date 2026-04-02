@@ -195,9 +195,6 @@ export default function TextInput({
 
 			<input
 				className={inputClass}
-
-
-
 				type={type}
 				name={name}
 				id={name}
