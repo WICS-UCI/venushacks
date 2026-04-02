@@ -20,8 +20,6 @@ const FAQ = async () => {
 		answer: <PortableText value={answer} />,
 	}));
 
-	// TODO: pineapple resizing
-
 	return (
 		<section className="w-full px-6 py-16 md:px-10 lg:px-16">
 			<div className="max-w-[1200px] mx-auto">

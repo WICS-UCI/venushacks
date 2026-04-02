@@ -39,11 +39,11 @@ export default function FAQItem({ faq, index }: Readonly<{ faq: FAQ; index: numb
 		<div className="rounded-[28px] border-[3px] border-[#d77676] bg-white overflow-hidden transition-all duration-300">
 			<button
 				type="button"
-				className="flex items-center w-full gap-4 px-5 py-4 text-left cursor-pointer"
+				className="flex items-center w-full gap-4 px-5 py-4 text-left cursor-pointer min-h-[5rem]"
 				onClick={() => setIsOpen(!isOpen)}
 			>
-				<span className="flex-shrink-0">
-					<Image src={fruit} alt={fruitAlt} width={40} height={40} />
+				<span className="flex-shrink-0 w-[40px] h-[40px] flex items-center justify-center">
+					<Image src={fruit} alt={fruitAlt} width={50} height={50} className="w-[50px] h-[50px] object-contain" />
 				</span>
 				<span className="font-sniglet text-[#2f3152] flex-1 text-base leading-snug">
 					{faq.question}
