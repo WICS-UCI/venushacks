@@ -28,14 +28,18 @@ const FAQ = async () => {
 				</h2>
 				<div className="flex flex-col gap-4 md:flex-row">
 					<div className="flex flex-col flex-1 gap-4">
-						{faq.filter((_, i) => i % 2 === 0).map((item, i) => (
-							<FAQItem key={item._key} faq={item} index={i * 2} />
-						))}
+						{faq
+							.filter((_, i) => i % 2 === 0)
+							.map((item, i) => (
+								<FAQItem key={item._key} faq={item} index={i * 2} />
+							))}
 					</div>
 					<div className="flex flex-col flex-1 gap-4">
-						{faq.filter((_, i) => i % 2 === 1).map((item, i) => (
-							<FAQItem key={item._key} faq={item} index={i * 2 + 1} />
-						))}
+						{faq
+							.filter((_, i) => i % 2 === 1)
+							.map((item, i) => (
+								<FAQItem key={item._key} faq={item} index={i * 2 + 1} />
+							))}
 					</div>
 				</div>
 			</div>

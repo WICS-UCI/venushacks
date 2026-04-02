@@ -12,7 +12,14 @@ import melon from "./assets/melon.svg";
 import blueberry from "./assets/blueberry.svg";
 
 const FRUITS = [cherry, apple, orange, pineapple, melon, blueberry];
-const FRUIT_ALTS = ["cherry", "apple", "orange", "pineapple", "melon", "blueberry"];
+const FRUIT_ALTS = [
+	"cherry",
+	"apple",
+	"orange",
+	"pineapple",
+	"melon",
+	"blueberry",
+];
 
 const ChevronIcon = ({ open }: Readonly<{ open: boolean }>) => (
 	<svg
@@ -23,13 +30,18 @@ const ChevronIcon = ({ open }: Readonly<{ open: boolean }>) => (
 		strokeWidth="2.5"
 		strokeLinecap="round"
 		strokeLinejoin="round"
-		className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-90" : ""}`}
+		className={`w-4 h-4 transition-transform duration-300 ${
+			open ? "rotate-90" : ""
+		}`}
 	>
 		<polyline points="9 18 15 12 9 6" />
 	</svg>
 );
 
-export default function FAQItem({ faq, index }: Readonly<{ faq: FAQ; index: number }>) {
+export default function FAQItem({
+	faq,
+	index,
+}: Readonly<{ faq: FAQ; index: number }>) {
 	const [isOpen, setIsOpen] = useState(false);
 	const fruitIndex = index % FRUITS.length;
 	const fruit = FRUITS[fruitIndex];
@@ -43,7 +55,13 @@ export default function FAQItem({ faq, index }: Readonly<{ faq: FAQ; index: numb
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				<span className="flex-shrink-0 w-[40px] h-[40px] flex items-center justify-center">
-					<Image src={fruit} alt={fruitAlt} width={50} height={50} className="w-[50px] h-[50px] object-contain" />
+					<Image
+						src={fruit}
+						alt={fruitAlt}
+						width={50}
+						height={50}
+						className="w-[50px] h-[50px] object-contain"
+					/>
 				</span>
 				<span className="font-sniglet text-[#2f3152] flex-1 text-xl leading-snug">
 					{faq.question}
@@ -53,7 +71,9 @@ export default function FAQItem({ faq, index }: Readonly<{ faq: FAQ; index: numb
 				</div>
 			</button>
 			<div
-				className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+				className={`grid transition-all duration-300 ease-in-out ${
+					isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+				}`}
 			>
 				<div className="overflow-hidden">
 					<div className="px-5 pb-5">
