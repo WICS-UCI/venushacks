@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { getQuestions } from "./getQuestions";
 import FAQItem from "./FAQItem";
 import { PortableText } from "@portabletext/react";
+import grass from "./assets/grass.svg";
 
 export interface FAQAccordion {
 	faq: FAQ[];
@@ -41,6 +43,9 @@ const FAQ = async () => {
 								<FAQItem key={item._key} faq={item} index={i * 2 + 1} />
 							))}
 					</div>
+				</div>
+				<div className="relative -z-10 left-[90%] top-20">
+					<Image src={grass} alt="grass" />
 				</div>
 			</div>
 		</section>
