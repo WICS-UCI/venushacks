@@ -78,7 +78,7 @@ export default function FAQItem({
 				<div className="overflow-hidden">
 					<div className="px-5 pb-5">
 						<hr className="mt-0 mb-4 border-gray-200 opacity-100" />
-						<div className="font-sniglet text-[#2f3152] text-sm leading-relaxed">
+						<div className="font-sniglet text-[#2f3152] text-md leading-relaxed">
 							{faq.answer}
 						</div>
 					</div>
