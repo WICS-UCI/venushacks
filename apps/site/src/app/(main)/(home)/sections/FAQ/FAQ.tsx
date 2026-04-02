@@ -26,10 +26,17 @@ const FAQ = async () => {
 				<h2 className="font-torus text-[#2f3152] text-5xl md:text-6xl text-center mb-10 tracking-wide">
 					FAQs
 				</h2>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-					{faq.map((item, index) => (
-						<FAQItem key={item._key} faq={item} index={index} />
-					))}
+				<div className="flex flex-col md:flex-row gap-4">
+					<div className="flex flex-col flex-1 gap-4">
+						{faq.filter((_, i) => i % 2 === 0).map((item, i) => (
+							<FAQItem key={item._key} faq={item} index={i * 2} />
+						))}
+					</div>
+					<div className="flex flex-col flex-1 gap-4">
+						{faq.filter((_, i) => i % 2 === 1).map((item, i) => (
+							<FAQItem key={item._key} faq={item} index={i * 2 + 1} />
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

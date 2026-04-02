@@ -1,11 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { FAQ } from "./FAQ";
 
-const FRUITS = ["🍒", "🍎", "🍊", "🍍", "🍈", "🫐"];
+import cherry from "./assets/cherry.svg";
+import apple from "./assets/apple.svg";
+import orange from "./assets/orange.svg";
+import pineapple from "./assets/pineapple.svg";
+import melon from "./assets/melon.svg";
+import blueberry from "./assets/blueberry.svg";
 
-const ChevronIcon = ({ open }: { open: boolean }) => (
+const FRUITS = [cherry, apple, orange, pineapple, melon, blueberry];
+const FRUIT_ALTS = ["cherry", "apple", "orange", "pineapple", "melon", "blueberry"];
+
+const ChevronIcon = ({ open }: Readonly<{ open: boolean }>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -20,35 +29,39 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 	</svg>
 );
 
-export default function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
+export default function FAQItem({ faq, index }: Readonly<{ faq: FAQ; index: number }>) {
 	const [isOpen, setIsOpen] = useState(false);
-	const fruit = FRUITS[index % FRUITS.length];
+	const fruitIndex = index % FRUITS.length;
+	const fruit = FRUITS[fruitIndex];
+	const fruitAlt = FRUIT_ALTS[fruitIndex];
 
 	return (
-		<div
-			className={`rounded-[28px] border-[3px] border-[#d77676] bg-white overflow-hidden transition-all duration-300`}
-		>
+		<div className="rounded-[28px] border-[3px] border-[#d77676] bg-white overflow-hidden transition-all duration-300">
 			<button
 				type="button"
-				className="flex items-center w-full px-5 py-4 gap-4 text-left cursor-pointer"
+				className="flex items-center w-full gap-4 px-5 py-4 text-left cursor-pointer"
 				onClick={() => setIsOpen(!isOpen)}
 			>
-				<span className="text-3xl flex-shrink-0 leading-none">{fruit}</span>
+				<span className="flex-shrink-0">
+					<Image src={fruit} alt={fruitAlt} width={40} height={40} />
+				</span>
 				<span className="font-sniglet text-[#2f3152] flex-1 text-base leading-snug">
 					{faq.question}
 				</span>
-				<div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#f8c4c4] border border-[#d77676] flex items-center justify-center">
+				<div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#f8c4c4] flex items-center justify-center">
 					<ChevronIcon open={isOpen} />
 				</div>
 			</button>
-			{isOpen && (
+			<div
+				className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96" : "max-h-0"}`}
+			>
 				<div className="px-5 pb-5">
-					<hr className="border-gray-200 mb-4 mt-0 opacity-100" />
+					<hr className="mt-0 mb-4 border-gray-200 opacity-100" />
 					<div className="font-sniglet text-[#2f3152] text-sm leading-relaxed">
 						{faq.answer}
 					</div>
 				</div>
-			)}
+			</div>
 		</div>
 	);
 }

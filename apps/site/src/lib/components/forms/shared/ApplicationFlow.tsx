@@ -94,7 +94,7 @@ export default function ApplicationFlow({
 	const applicationsOpened = haveApplicationsOpened();
 
 	const sessionExpiredMessage = (
-		<p className="text-red-500 w-11/12">
+		<p className="w-11/12 text-red-500">
 			Your session has expired. Please{" "}
 			<a href="/login" target="_blank" className="text-blue-600 underline">
 				log in from a new tab
@@ -104,18 +104,18 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center gap-6 md:gap-10 min-h-screen px-4 md:px-12">
+		<div className="flex flex-col items-center min-h-screen gap-6 px-4 md:gap-10 md:px-12">
 			{!applicationsOpened || deadlinePassed ? (
 				<ApplicationsClosed identity={identity} />
 			) : (
-				<div className="mt-16 mb-32 w-full max-w-5xl flex flex-col items-center gap-8">
+				<div className="flex flex-col items-center w-full max-w-5xl gap-8 mt-16 mb-32">
 					<div className="flex items-center bg-[rgba(255,255,255,0.6)] rounded-full p-3 shadow-md text-sm md:text-base font-figtree">
-						<span className="px-4 md:px-6 py-2 bg-white rounded-full text-black pointer-events-none">
+						<span className="px-4 py-2 text-black bg-white rounded-full pointer-events-none md:px-6">
 							Application
 						</span>
 
 						<form method="post" action="api/user/logout">
-							<button type="submit" className="px-4 md:px-6 py-2 text-black">
+							<button type="submit" className="px-4 py-2 text-black md:px-6">
 								Logout
 							</button>
 						</form>
@@ -165,7 +165,7 @@ export default function ApplicationFlow({
 						)}
 
 						{/* Navigation */}
-						<div className="mt-10 flex items-center justify-between">
+						<div className="flex items-center justify-between mt-10">
 							{!isFirstPage ? (
 								<button
 									type="button"
