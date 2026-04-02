@@ -26,7 +26,7 @@ const FAQ = async () => {
 				<h2 className="font-torus text-[#2f3152] text-5xl md:text-6xl text-center mb-10 tracking-wide">
 					FAQs
 				</h2>
-				<div className="flex flex-col md:flex-row gap-4">
+				<div className="flex flex-col gap-4 md:flex-row">
 					<div className="flex flex-col flex-1 gap-4">
 						{faq.filter((_, i) => i % 2 === 0).map((item, i) => (
 							<FAQItem key={item._key} faq={item} index={i * 2} />
@@ -34,7 +34,7 @@ const FAQ = async () => {
 					</div>
 					<div className="flex flex-col flex-1 gap-4">
 						{faq.filter((_, i) => i % 2 === 1).map((item, i) => (
-							<FAQItem key={item._key} faq={item} index={i * 2 + 1} />
+							<FAQItem key={item._key} faq={item} index={i * 2 + 3} />
 						))}
 					</div>
 				</div>

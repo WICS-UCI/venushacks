@@ -53,12 +53,14 @@ export default function FAQItem({ faq, index }: Readonly<{ faq: FAQ; index: numb
 				</div>
 			</button>
 			<div
-				className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96" : "max-h-0"}`}
+				className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
 			>
-				<div className="px-5 pb-5">
-					<hr className="mt-0 mb-4 border-gray-200 opacity-100" />
-					<div className="font-sniglet text-[#2f3152] text-sm leading-relaxed">
-						{faq.answer}
+				<div className="overflow-hidden">
+					<div className="px-5 pb-5">
+						<hr className="mt-0 mb-4 border-gray-200 opacity-100" />
+						<div className="font-sniglet text-[#2f3152] text-sm leading-relaxed">
+							{faq.answer}
+						</div>
 					</div>
 				</div>
 			</div>
