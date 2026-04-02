@@ -28,10 +28,10 @@ const FooterGraphic = () => {
 		<section className="relative flex w-full aspect-[1280/1000] max-w-[1600px] mx-auto">
 			<div className="">
 				<div className={"scale-125 -z-10 flex justify-center"}>
-                    <Image src={flyLine} alt="fly line" />
+					<Image src={flyLine} alt="fly line" />
 				</div>
 				<Image
-                    src={shadow}
+					src={shadow}
 					alt="Shadows"
 					className="absolute left-[49%] top-[67%] w-[90%] -translate-x-1/2 -translate-y-1/2"
 				/>
