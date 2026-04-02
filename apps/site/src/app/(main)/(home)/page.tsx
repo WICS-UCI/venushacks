@@ -1,3 +1,9 @@
+import { Suspense } from "react";
+
+import NavbarParent from "@/lib/components/Navbar/NavbarParent";
+import BaseNavbar from "@/lib/components/Navbar/BaseNavbar";
+import ComingSoon from "./sections/Landing/ComingSoon";
+
 import {
 	Landing,
 	About,
@@ -8,8 +14,6 @@ import {
 	Organizers,
 	Footer,
 } from "./sections";
-
-import ComingSoon from "./sections/Landing/ComingSoon";
 
 export const revalidate = 60;
 
@@ -22,6 +26,11 @@ export default function Home() {
 		</>
 	) : (
 		<>
+			{!process.env.MAINTENANCE_MODE_HOME && (
+				<Suspense fallback={<BaseNavbar />}>
+					<NavbarParent />
+				</Suspense>
+			)}
 			<section id="home">
 				<Landing />
 			</section>
