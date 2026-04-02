@@ -44,7 +44,7 @@ const FAQ = async () => {
 							))}
 					</div>
 				</div>
-				<div className="relative -z-10 left-[90%] top-20">
+				<div className="relative -z-10 left-[90%] top-20 w-[clamp(10px,3%,60px)]">
 					<Image src={grass} alt="grass" />
 				</div>
 			</div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import About from "./About/About";
 import PicnicScene from "./PicnicScene";
 import bg from "./assets/Hero-BG-Assets.svg";
 
@@ -22,11 +21,10 @@ const Landing = () => {
 							VENUSHACKS
 						</h1>
 					</div>
-
-					<PicnicScene />
+					<div className="w-full relative top-10 lg:top-0">
+						<PicnicScene />
+					</div>
 				</div>
-
-				<About />
 			</section>
 		</>
 	);

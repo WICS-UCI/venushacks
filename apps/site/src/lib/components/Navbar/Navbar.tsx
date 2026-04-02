@@ -13,7 +13,7 @@ export default function Navbar({ identity }: NavbarProps) {
 	const isLoggedIn = uid !== null;
 
 	return (
-		<>
+		<div className="w-full flex justify-center">
 			<BaseNavbar>
 				{status !== null && (
 					<Button
@@ -47,6 +47,6 @@ export default function Navbar({ identity }: NavbarProps) {
 					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
 				)}
 			</div>
-		</>
+		</div>
 	);
 }

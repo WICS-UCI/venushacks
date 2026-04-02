@@ -1,5 +1,6 @@
 import {
 	Landing,
+	About,
 	FooterGraphic,
 	FAQ,
 	Sponsors,
@@ -23,6 +24,9 @@ export default function Home() {
 		<>
 			<section id="home">
 				<Landing />
+			</section>
+			<section id="about">
+				<About />
 			</section>
 			<section id="faqs">
 				<FAQ />
