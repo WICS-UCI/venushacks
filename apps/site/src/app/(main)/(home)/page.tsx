@@ -3,7 +3,7 @@ import {
 	FooterGraphic,
 	FAQ,
 	Sponsors,
-	Partners,
+	// Partners,
 	Organizers,
 	Footer,
 } from "./sections";
@@ -30,9 +30,9 @@ export default function Home() {
 			<section id="sponsors">
 				<Sponsors />
 			</section>
-			<section id="partners">
+			{/* <section id="partners">
 				<Partners />
-			</section>
+			</section> */}
 			<section id="team">
 				<Organizers />
 			</section>
