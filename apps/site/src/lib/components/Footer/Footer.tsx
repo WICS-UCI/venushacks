@@ -40,7 +40,7 @@ const creamFilter =
 const Footer = () => {
 	return (
 		<footer className={`${styles.footer} w-full`} style={{ backgroundColor: "#2C4725" }}>
-			<div className="mx-auto w-full max-w-screen px-6 md:px-10 pt-8 pb-5 md:py-6">
+			<div className="mx-auto w-full max-w-screen-2xl px-6 md:px-10 pt-8 pb-5 md:py-6">
 				<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-0">
 					{/* Left: Made with text */}
 					<div className="flex flex-row items-center justify-center md:justify-start">
