@@ -113,18 +113,20 @@ export const InfiniteMovingAnts = ({
 								<div
 									className={
 										"absolute z-10 flex justify-center \
-                                    w-[67px] lg:h-1/2 lg:w-1/2  \
-                                    left-[60px] top-[53%] lg:top-[35%] lg:left-[27%]"
+                                    w-[67px] lg:h-1/2 lg:w-[60%] h-[60px]\
+                                    left-[60px] top-[50%] lg:top-[35%] lg:left-[22%] translate-y-5"
 									}
 								>
 									{item.logo ? (
-										<Image
-											src={urlFor(item.logo).url()}
-											alt={item.name}
-											width={150}
-											height={100}
-											className="absolute object-contain top-[45%]"
-										/>
+										<div className=" flex items-start lg:items-center justify-center">
+											<Image
+												src={urlFor(item.logo).url()}
+												alt={item.name}
+												width={150}
+												height={100}
+												className="absolute max-h-full max-w-full object-contain "
+											/>
+										</div>
 									) : (
 										<h2
 											className={
