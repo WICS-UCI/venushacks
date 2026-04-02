@@ -15,33 +15,35 @@ const Landing = () => {
 						<Image
 							src={CloudGroup}
 							alt="Clouds"
-							className="relative h-auto flex-shrink-0"
+							className="relative h-auto flex-shrink-0 mt-32"
 						/>
 						<Image
 							src={CloudGroup}
 							alt="Clouds"
-							className="relative left-10 h-auto flex-shrink-0"
+							className="relative mt-20 h-auto flex-shrink-0"
 						/>
 						<Image
 							src={CloudGroup}
 							alt="Clouds"
-							className="relative mt-10 left-48 h-auto flex-shrink-0"
+							className="relative mt-14 left-52 ml-64 scale-[120%] h-auto flex-shrink-0"
 						/>
 						<Image
 							src={CloudGroup}
 							alt="Clouds"
-							className="relative ml-72 top-10 h-auto flex-shrink-0"
+							className="relative mt-20 ml-96 top-10 left-11 h-auto flex-shrink-0"
 						/>
 						<Image
 							src={CloudGroup}
 							alt="Clouds"
-							className="relative right-96 top-10 h-auto flex-shrink-0"
+							className="relative mt-32 top-40 h-auto flex-shrink-0"
 						/>
 					</div>
 				</div>
 			</div>
-			<div className="absolute scale-[120%] -z-10 top-1/2">
-				<Hill />
+			<div className="absolute -z-10 top-1/2 translate-y-[10%]">
+				<div className="scale-[120%]">	
+					<Hill />
+				</div>
 			</div>
 			<div className="relative w-full">
 				<div className="relative z-10 flex flex-col items-center pt-12 mb-[-4rem]">
