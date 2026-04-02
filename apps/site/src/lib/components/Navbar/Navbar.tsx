@@ -31,7 +31,7 @@ export default function Navbar({ identity }: NavbarProps) {
 						isNavButton
 					/>
 				) : (
-					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
+					<Button text="Apply" href="/choose-role" usePrefetch={false} isNavButton />
 				)}
 			</BaseNavbar>
 
@@ -44,7 +44,7 @@ export default function Navbar({ identity }: NavbarProps) {
 						isNavButton
 					/>
 				) : (
-					<Button text="Apply" href="/#apply" usePrefetch={false} isNavButton />
+					<Button text="Apply" href="/choose-role" usePrefetch={false} isNavButton />
 				)}
 			</div>
 		</div>
