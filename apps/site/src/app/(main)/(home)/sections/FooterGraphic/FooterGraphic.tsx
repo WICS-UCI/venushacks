@@ -25,7 +25,7 @@ import { motion } from "framer-motion";
 
 const FooterGraphic = () => {
 	return (
-		<section className="relative flex w-full aspect-[1280/1000] container mx-auto">
+		<section className="relative flex w-full aspect-[1280/1000] max-w-[1600px] mx-auto">
 			<div className="">
 				<div className={"scale-125 -z-10 flex justify-center"}>
                     <Image src={flyLine} alt="fly line" />
