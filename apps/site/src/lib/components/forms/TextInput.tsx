@@ -187,17 +187,17 @@ export default function TextInput({
 	return (
 		<div className={`${containerClass} font-figtree`}>
 			<label
-				className="font-figtree font-medium text-lg mb-2 block"
+				className="block text-sm md:text-base font-figtree mb-2"
 				htmlFor={name}
 			>
 				{labelText} {isRequired && <RequiredAsterisk />}
 			</label>
 
 			<input
-				className="
-					w-full font-figtree text-lg h-10 pl-3 pr-4 rounded-xl border border-[#D6D6D6] bg-[#FCFCFC] text-black placeholder:text-[#8E8E8E] outline-none focus:border-slate-300 focus:ring-2 focus:ring-slate-200
-				"
-				style={{ boxShadow: "0px 0px 5px 0px #00000033" }}
+				className={inputClass}
+
+
+
 				type={type}
 				name={name}
 				id={name}

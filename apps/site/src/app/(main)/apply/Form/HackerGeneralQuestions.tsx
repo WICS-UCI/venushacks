@@ -66,7 +66,7 @@ export default function GeneralQuestions() {
 					name="dietary_restrictions"
 					labelText="What are your dietary restrictions? Include your allergies (if any)."
 					containerClass="flex flex-col gap-1"
-					isRequired={true}
+					isRequired={false}
 					type="text"
 					placeholder="e.g. Vegetarian, nut allergy... or leave blank if none"
 				/>
