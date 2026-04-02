@@ -29,6 +29,9 @@ const Sponsors = async () => {
 	return (
 		<section className="w-full py-10 mx-auto">
 			<div className="mx-auto w-full max-w-screen-2xl px-0">
+				<div className={"relative left-[20%] top-24 md:top-40 lg:top-60 -z-10 w-[clamp(10px,5%,60px)]"}>
+					<Image src={flower} alt="flower" />
+				</div>
 				<div className={"scale-125 -z-10 flex justify-center"}>
 					<Image src={flyLine} alt="fly line" />
 				</div>
@@ -60,10 +63,7 @@ const Sponsors = async () => {
 						</div>
 					</div>
 				</div>
-				<div className={"relative -top-96 -z-10 h-auto"}>
-					<Image src={flower} alt="flower" />
-				</div>
-				<div className="relative left-[80%] w-[5%] h-auto">
+				<div className="relative left-[80%] top-28 w-[5%] h-auto">
 					<Image src={flower} alt="Flower decoration" />
 				</div>
 				<div className={"relative left-[20%] w-[5%] h-auto"}>
