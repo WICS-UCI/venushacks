@@ -96,7 +96,7 @@ export const InfiniteMovingAnts = ({
 							<a
 								href={item.url}
 								target="_blank"
-								className="border-2 relative flex w-[180px] lg:w-[470px] aspect-[3/2] lg:aspect-[4/3] justify-center items-center"
+								className="relative flex w-[180px] lg:w-[470px] aspect-[3/2] lg:aspect-[4/3] justify-center items-center"
 							>
 								{/* eslint-disable-next-line @next/next/no-img-element */}
 								<div
