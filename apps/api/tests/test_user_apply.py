@@ -29,14 +29,14 @@ USER_PKFIRE = NativeUser(
 SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
-    "pronouns": ["pk"],
+    "pronouns": "pk",
     "date_of_birth": "2000-01-01T00:00:00Z",
     "gender_identity": "Non-binary",
     "shirt_size": "M",
     "year": "Senior",
     "is_18_older": "true",
     "school": "UC Irvine",
-    "majors_and_minors": ["Computer Science"],
+    "majors_and_minors": "Computer Science",
     "previous_hackathons": "2",
     "previous_vh": "false",
     "share_resume_with_sponsors": "true",
@@ -129,6 +129,7 @@ def test_apply_successfully(
     mock_datetime.now.return_value = SAMPLE_SUBMISSION_TIME
     mock_is_past_deadline.return_value = False
     res = client.post("/apply", data=SAMPLE_APPLICATION, files=SAMPLE_FILES)
+    print(res.text)
     assert res.status_code == 201
 
     mock_gdrive_handler_upload_file.assert_awaited_once_with(
@@ -310,17 +311,6 @@ def test_apply_successfully_without_resume(
 def test_application_data_is_bson_encodable() -> None:
     """Test that application data model can be encoded into BSON to store in MongoDB."""
     bson.encode(EXPECTED_APPLICATION_DATA.model_dump())
-
-
-@patch("services.mongodb_handler.retrieve_one", autospec=True)
-def test_application_data_with_other_throws_422(
-    mock_mongodb_handler_retrieve_one: AsyncMock,
-) -> None:
-    mock_mongodb_handler_retrieve_one.return_value = None
-    contains_other = copy.deepcopy(SAMPLE_APPLICATION)
-    contains_other["majors_and_minors"].append("other")  # type: ignore[attr-defined]
-    res = client.post("/apply", data=contains_other, files=SAMPLE_FILES)
-    assert res.status_code == 422
 
 
 def test_past_deadline_causes_403() -> None:

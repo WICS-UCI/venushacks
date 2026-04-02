@@ -37,7 +37,6 @@ FIELDS_SUPPORTING_OTHER = [
     "gender_identity",
     "dietary_restrictions",
     "experienced_technologies",
-    "majors_and_minors",
     "areas_of_development",
 ]
 
@@ -58,14 +57,14 @@ class BaseApplicationData(BaseModel):
     date_of_birth: datetime
     is_18_older: bool
     gender_identity: str
-    pronouns: list[str] = []
+    pronouns: str
 
     shirt_size: str
     school: str
-    majors_and_minors: list[str] = []
-    year: Literal["Freshman", "Sophomore", "Junior", "Senior", "Graduate", "Other"]
+    majors_and_minors: str
+    year: str
 
-    previous_hackathons: int = Field(ge=0)
+    previous_hackathons: Literal["0", "1", "2", "3", "4+"]
     previous_vh: bool = False
 
     share_resume_with_sponsors: bool = True
@@ -93,6 +92,10 @@ ProficiencyOptional = Annotated[
 class BaseMentorApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
+    date_of_birth: datetime
+    is_18_older: bool
+    gender_identity: str
+    pronouns: str
     year: str
     major: str
     affiliation: str
@@ -136,7 +139,7 @@ Hour = Annotated[int, Field(ge=7, lt=24)]
 class BaseVolunteerApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=1024)
 
-    pronouns: list[str] = []
+    pronouns: str
     ethnicity: str
     is_18_older: bool
     school: str

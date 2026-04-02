@@ -29,11 +29,12 @@ export default defineType({
 							validation: (Rule) => Rule.required(),
 							options: {
 								list: [
-									{ title: "Tech", value: "Tech" },
-									{ title: "Marketing", value: "Marketing" },
-									{ title: "Logistics", value: "Logistics" },
+									{ title: "Board", value: "Board" },
 									{ title: "Corporate", value: "Corporate" },
-									{ title: "Graphics", value: "Graphics" },
+									{ title: "Design", value: "Design" },
+									{ title: "Logistics", value: "Logistics" },
+									{ title: "Marketing", value: "Marketing" },
+									{ title: "Tech", value: "Tech" },
 								],
 							},
 						}),
@@ -44,10 +45,9 @@ export default defineType({
 							validation: (Rule) => Rule.required(),
 							options: {
 								list: [
-									{ title: "Director", value: "Director" },
+									{ title: "Co-President", value: "Co-President" },
+									{ title: "Co-Chair", value: "Co-Chair" },
 									{ title: "Organizer", value: "Organizer" },
-									{ title: "Intern", value: "Intern" },
-									{ title: "Advisor", value: "Advisor" },
 								],
 							},
 						}),

@@ -1,10 +1,11 @@
 import {
 	Landing,
-	ChooseCharacter,
+	FooterGraphic,
 	FAQ,
 	Sponsors,
 	Partners,
 	Organizers,
+	Footer,
 } from "./sections";
 
 import ComingSoon from "./sections/Landing/ComingSoon";
@@ -20,12 +21,23 @@ export default function Home() {
 		</>
 	) : (
 		<>
-			<Landing />
-			<ChooseCharacter />
-			<FAQ />
-			<Sponsors />
-			<Partners />
-			<Organizers />
+			<section id="home">
+				<Landing />
+			</section>
+			<section id="faqs">
+				<FAQ />
+			</section>
+			<section id="sponsors">
+				<Sponsors />
+			</section>
+			<section id="partners">
+				<Partners />
+			</section>
+			<section id="team">
+				<Organizers />
+			</section>
+			<FooterGraphic />
+			<Footer />
 		</>
 	);
 }
