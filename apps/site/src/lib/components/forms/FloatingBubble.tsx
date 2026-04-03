@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 interface FloatingBubbleProps {
 	navText: string;
 }
@@ -9,7 +11,9 @@ export default function FloatingBubble({ navText }: FloatingBubbleProps) {
 				{navText}
 			</span>
 
-			<form method="post" action="/logout">
+			<form method="post" onSubmit={() => {
+				redirect("/logout");
+			}}>
 				<button type="submit" className="px-4 py-2 text-black md:px-6">
 					Logout
 				</button>
