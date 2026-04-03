@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import clsx from "clsx";
-import Image from "next/image";
 
 import EventPlaque from "./EventPlaque";
 import EventProps from "../EventProps";
