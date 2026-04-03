@@ -31,7 +31,10 @@ function LoginForm({ return_to }: { return_to?: string }) {
 					<h2 className="mb-4 text-2xl text-center text-black font-sniglet tracking-wide">
 						Log In
 					</h2>
-					<ValidatingForm method="post" action={LOGIN_PATH + `?${searchParams}`}>
+					<ValidatingForm
+						method="post"
+						action={LOGIN_PATH + `?${searchParams}`}
+					>
 						<div className="flex flex-col mb-12">
 							<label htmlFor="email" className="mb-2 font-figtree">
 								Email <RequiredAsterisk />
@@ -58,8 +61,8 @@ function LoginForm({ return_to }: { return_to?: string }) {
 								required
 							/>
 							<small id="email-description" className="font-figtree">
-								Enter your email for a one-time login passphrase. This can be your
-								UCI email or personal email.
+								Enter your email for a one-time login passphrase. This can be
+								your UCI email or personal email.
 							</small>
 							<p
 								className={clsx(

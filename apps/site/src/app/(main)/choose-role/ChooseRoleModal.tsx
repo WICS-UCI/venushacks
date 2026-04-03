@@ -60,10 +60,11 @@ export default function ChooseRoleModal() {
 						{roles.map((role) => (
 							<button
 								key={role.key}
-								className={`flex items-center w-full gap-4 p-4 text-left transition-colors border-[3px] rounded-2xl ${selected === role.key
+								className={`flex items-center w-full gap-4 p-4 text-left transition-colors border-[3px] rounded-2xl ${
+									selected === role.key
 										? "bg-gray-100"
 										: "border-gray-100 hover:bg-gray-100"
-									}`}
+								}`}
 								type="button"
 								onClick={() => setSelected(role.key)}
 							>
@@ -92,12 +93,16 @@ export default function ChooseRoleModal() {
 						))}
 					</div>
 
-					<form action={getSelectedRoute()} className="flex justify-center mt-5">
+					<form
+						action={getSelectedRoute()}
+						className="flex justify-center mt-5"
+					>
 						<button
-							className={`px-8 py-3 text-base font-semibold border-[1px] rounded-full transition-opacity ${selected
+							className={`px-8 py-3 text-base font-semibold border-[1px] rounded-full transition-opacity ${
+								selected
 									? "hover:opacity-90 cursor-pointer"
 									: "opacity-40 cursor-not-allowed"
-								}`}
+							}`}
 							type="submit"
 							disabled={!selected}
 							style={{
