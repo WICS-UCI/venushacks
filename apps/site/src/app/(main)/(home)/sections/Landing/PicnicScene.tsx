@@ -46,7 +46,6 @@ const PicnicScene = () => {
 				</div>
 
 				{/* basket */}
-<<<<<<< home/add-open-basket
 				<div
 					className={`absolute bottom-[19%] left-[47%] -translate-x-1/2 z-30 ${
 						isBasketOpen ? "w-[25%]" : "w-[19.5%]"
@@ -60,13 +59,6 @@ const PicnicScene = () => {
 							isAnimating ? "animate-basketBounce" : ""
 						}`}
 						onAnimationEnd={handleBasketAnimationEnd}
-=======
-				<div className="absolute bottom-[19%] left-[47%] -translate-x-1/2 w-[19.5%] z-30">
-					<Image
-						src={Basket}
-						alt="picnic basket"
-						className="w-full h-auto cursor-pointer"
->>>>>>> vh-site-2026
 					/>
 				</div>
 
