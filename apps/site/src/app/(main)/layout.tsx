@@ -2,8 +2,6 @@ import { PropsWithChildren } from "react";
 
 import type { Metadata } from "next";
 
-import stars from "@/assets/backgrounds/starry_repeatable.png";
-
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,15 +12,8 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: PropsWithChildren) {
 	return (
-		<div
-			style={{ backgroundImage: `url(${stars.src})` }}
-			className="overflow-x-hidden bg-top bg-repeat-y bg-[length:100%] relative"
-		>
-			{/* <Suspense fallback={<BaseNavbar />}>
-				<NavbarParent />
-			</Suspense> */}
+		<div className="overflow-x-hidden bg-top bg-repeat-y bg-[length:100%] relative">
 			{children}
-			{/* <Footer /> */}
 		</div>
 	);
 }

@@ -78,12 +78,12 @@ const ComingSoon = () => {
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Email Address"
-						className="px-4 py-2 md:px-5 md:py-3 rounded-[35px] text-sm md:text-base font-sniglet bg-white/90 text-dark-text placeholder:text-dark-text/50 focus:outline-none focus:ring-2 focus:ring-button-bg w-auto min-w-[200px] md:min-w-[450px]"
+						className="px-4 py-2 md:px-5 md:py-3 rounded-[35px] text-sm md:text-base font-sniglet bg-white/90 text-dark-text placeholder:text-dark-text/50 focus:outline-none focus:ring-2 focus:ring-pale-rose w-auto min-w-[200px] md:min-w-[450px]"
 						required
 					/>
 					<button
 						type="submit"
-						className="px-4 py-2 md:px-5 md:py-3 rounded-[70px] text-sm md:text-base font-sniglet font-normal bg-button-bg text-button-text hover:bg-button-bg/90 transition-colors focus:outline-none focus:ring-2 focus:ring-button-text whitespace-nowrap"
+						className="px-4 py-2 md:px-5 md:py-3 rounded-[70px] text-sm md:text-base font-sniglet font-normal bg-pale-rose text-indian-red hover:bg-pale-rose/90 transition-colors focus:outline-none focus:ring-2 focus:ring-indian-red whitespace-nowrap"
 						disabled={loading}
 					>
 						Notify Me

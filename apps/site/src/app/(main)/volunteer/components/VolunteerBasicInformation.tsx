@@ -18,7 +18,7 @@ const ethnicity = [
 	{ value: "White", text: "White or Caucasian" },
 	{ value: "Two-or-more", text: "Two or more races" },
 	{ value: "Prefer not to answer", text: "Prefer not to answer" },
-	{ value: "other", text: "Other:" },
+	{ value: "other", text: "Other" },
 ];
 
 export default function BasicInformation() {
@@ -51,6 +51,8 @@ export default function BasicInformation() {
 					name="ethnicity"
 					labelText="Race / Ethnicity"
 					containerClass="flex flex-col w-full max-[1000px]:w-full"
+					isRequired={true}
+					placeholder="Select your Ethnicity"
 					values={ethnicity}
 				/>
 			</div>

@@ -10,7 +10,7 @@ from models.user_record import Role, Status
 from routers import director
 from services.mongodb_handler import Collection
 from services.sendgrid_handler import Template
-from utils.email_handler import IH_SENDER
+from utils.email_handler import VH_SENDER
 
 
 USER_REVIEWER = NativeUser(
@@ -145,7 +145,7 @@ def test_apply_reminder_emails(
 
     mock_sendgrid_handler_send_email.assert_awaited_once_with(
         Template.APPLY_REMINDER,
-        IH_SENDER,
+        VH_SENDER,
         [
             {"email": "petr@uci.edu"},
             {"email": "albert@uci.edu"},

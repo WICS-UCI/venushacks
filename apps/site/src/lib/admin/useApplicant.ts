@@ -26,7 +26,7 @@ interface ReviewBreakdown {
 }
 export interface ZotHacksHackerApplicationData extends BaseApplicationData {
 	school_year: string;
-	dietary_restrictions: string[];
+	dietary_restrictions: string;
 	allergies: string | null;
 	hackathon_experience: HackathonExperience;
 	elevator_pitch_saq: string;

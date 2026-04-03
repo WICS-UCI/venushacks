@@ -51,11 +51,25 @@
 }
 
 .navButton {
-	border: 3px solid #fff;
-	background: var(--color-black);
-	padding: 0.3rem 0.75rem;
-	font-size: 1.125rem;
-	border-radius: 5px;
+	border: 2px solid #f2b3b0;
+	background: #f28f8a;
+	color: #fff;
+	padding: 0.45rem 1.4rem;
+	font-size: 0.95rem;
+	font-weight: 600;
+	border-radius: 9999px;
 	cursor: pointer;
-	transition: all 0.3s ease;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	transition:
+		background-color 180ms ease,
+		transform 180ms ease,
+		box-shadow 180ms ease;
+
+	&:hover {
+		background: #f59b96;
+		transform: translateY(-1px);
+		box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+	}
 }

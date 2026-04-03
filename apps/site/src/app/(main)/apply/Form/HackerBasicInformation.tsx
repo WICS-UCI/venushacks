@@ -1,81 +1,163 @@
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
-import MultipleSelect from "@/lib/components/forms/MultipleSelect";
-import SimpleRadio from "@/lib/components/forms/SimpleRadio";
 import TextInput from "@/lib/components/forms/TextInput";
 
-const pronouns = [
-	{ value: "he", text: "He/him/his" },
-	{ value: "she", text: "She/her/hers" },
-	{ value: "they", text: "They/them/theirs" },
-	{ value: "ze", text: "Ze/zir/zirs" },
-	{ value: "other", text: "Other:" },
-];
-
-const ethnicity = [
-	{ value: "American", text: "American Indian or Alaskan" },
-	{ value: "Asian", text: "Asian or Pacific Islander" },
-	{ value: "Black", text: "Black or African American" },
-	{ value: "Hispanic", text: "Hispanic" },
-	{ value: "White", text: "White or Caucasian" },
-	{ value: "Two-or-more", text: "Two or more races" },
-	{ value: "Prefer not to answer", text: "Prefer not to answer" },
+const genderIdentity = [
+	{ value: "female", text: "Female" },
+	{ value: "male", text: "Male" },
+	{ value: "non-binary", text: "Non-binary" },
 	{ value: "other", text: "Other:" },
 ];
 
 const yesNoOptions = [
-	{ labelText: "Yes", inputValue: "Yes" },
-	{ labelText: "No", inputValue: "No" },
+	{ value: "true", text: "Yes" },
+	{ value: "false", text: "No" },
+];
+
+const shirtSizes = [
+	{ value: "small", text: "Small" },
+	{ value: "medium", text: "Medium" },
+	{ value: "large", text: "Large" },
+	{ value: "xl", text: "Extra Large" },
+];
+
+const universityOptions = [
+	{ value: "UC Irvine", text: "UC Irvine" },
+	{ value: "Cal Poly Pomona", text: "Cal Poly Pomona" },
+	{ value: "Cal State Fullerton", text: "Cal State Fullerton" },
+	{ value: "Cal State Long Beach", text: "Cal State Long Beach" },
+	{ value: "UC Berkeley", text: "UC Berkeley" },
+	{ value: "UCLA", text: "UCLA" },
+	{ value: "UC Riverside", text: "UC Riverside" },
+	{ value: "UC San Diego", text: "UC San Diego" },
+	{ value: "UC Santa Barbara", text: "UC Santa Barbara" },
+	{ value: "other", text: "Other:" },
+];
+
+const educationLevels = [
+	{ value: "high school", text: "High School (18+)" },
+	{ value: "first-year-undergrad", text: "First Year Undergraduate" },
+	{ value: "second-year-undergrad", text: "Second Year Undergraduate" },
+	{ value: "third-year-undergrad", text: "Third Year Undergraduate" },
+	{ value: "fourth-year-undergrad", text: "Fourth Year Undergraduate" },
+	{ value: "fifth-year-undergrad", text: "Fifth+ Year Undergraduate" },
+	{ value: "graduate", text: "Graduate" },
 ];
 
 export default function BasicInformation() {
 	return (
-		<div className="flex flex-col gap-5 w-11/12">
-			<p className="text-4xl m-0 max-[700px]:text-3xl">Basic Information</p>
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
+				I. Personal Information
+			</h1>
+
+			<div className="grid grid-cols-12 gap-x-6 gap-y-6">
 				<TextInput
 					name="first_name"
 					labelText="First Name"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
+					containerClass="col-span-12 md:col-span-4"
 					isRequired={true}
 					type="text"
-					placeholder="Peter"
+					placeholder="Enter your first name"
 				/>
 				<TextInput
 					name="last_name"
 					labelText="Last Name"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
+					containerClass="col-span-12 md:col-span-4"
 					isRequired={true}
 					type="text"
-					placeholder="Anteater"
+					placeholder="Enter your last name"
 				/>
-			</div>
+				<TextInput
+					name="preferred_name"
+					labelText="Preferred Name (optional)"
+					containerClass="col-span-12 md:col-span-4"
+					isRequired={false}
+					type="text"
+					placeholder="Enter your preferred name (optional)"
+				/>
 
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<MultipleSelect
-					name="pronouns"
-					labelText="Pronouns"
-					inputType="checkbox"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					values={pronouns}
+				{/* Row 2: Email (full width) */}
+				<TextInput
+					name="email"
+					labelText="Email"
+					containerClass="col-span-12"
+					isRequired={true}
+					type="text"
+					placeholder="ex: peter@uci.edu"
+				/>
+
+				{/* Row 3: DOB (left) + 18+ (right) */}
+				<TextInput
+					name="date_of_birth"
+					labelText="Date of Birth"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					type="text"
+					isDate
+					placeholder="mm/dd/yyyy"
 				/>
 				<DropdownSelect
-					name="ethnicity"
-					labelText="Race / Ethnicity"
-					containerClass="flex flex-col w-1/2 max-[1000px]:w-full"
-					values={ethnicity}
-				/>
-			</div>
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<SimpleRadio
-					name="is_first_hackathon"
-					values={yesNoOptions}
-					title="Is this your first Hackathon?"
-					titleClass="text-xl mb-0.5"
-					containerClassTotal="flex flex-col w-full max-[1000px]:w-full"
+					name="is_18_older"
+					labelText="Will you be 18 years or older by May 16th, 2026?"
+					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
-					labelClass="text-xl"
-					containerClassInputLabels="flex gap-2 items-center"
-					containerClassValues="flex gap-5"
+					values={yesNoOptions}
+					placeholder="Select an option"
+				/>
+
+				<DropdownSelect
+					name="gender_identity"
+					labelText="Gender Identity"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					values={genderIdentity}
+					placeholder="Select an option"
+				/>
+				<TextInput
+					name="pronouns"
+					labelText="Preferred Pronouns"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					type="text"
+					placeholder="Enter your preferred pronouns"
+				/>
+
+				{/* Row 5: Shirt size SHOULD BE FULL WIDTH like the image */}
+				<DropdownSelect
+					name="shirt_size"
+					labelText="Shirt Size (Unisex)"
+					containerClass="col-span-12"
+					isRequired={true}
+					values={shirtSizes}
+					placeholder="Select an option"
+				/>
+
+				{/* Next rows: School / majors / year — all FULL WIDTH like the image */}
+				<DropdownSelect
+					name="school"
+					labelText="What university do you attend?"
+					values={universityOptions}
+					isRequired={true}
+					containerClass="col-span-12"
+					placeholder="Select an option"
+				/>
+
+				<TextInput
+					name="majors_and_minors"
+					labelText="What major(s) and minor(s), if any, are you?"
+					containerClass="col-span-12"
+					isRequired={true}
+					type="text"
+					placeholder="ex: Computer Science, Psychology"
+				/>
+
+				<DropdownSelect
+					name="year"
+					labelText="What year are you?"
+					values={educationLevels}
+					isRequired={true}
+					containerClass="col-span-12"
+					placeholder="Select an option"
 				/>
 			</div>
 		</div>
