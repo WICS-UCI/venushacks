@@ -68,10 +68,10 @@ export default function GuestLoginVerificationForm({
 						/>
 						<small id="passphrase-description" className="font-figtree">
 							A login passphrase was sent to your email. Please enter the
-							passphrase.
-							If you cannot find the passphrase, please check your spam. If the
-							email is still missing, try again later, use a different email, or
-							contact us at contact@venushacks.com for assistance.
+							passphrase. If you cannot find the passphrase, please check your
+							spam. If the email is still missing, try again later, use a
+							different email, or contact us at contact@venushacks.com for
+							assistance.
 						</small>
 						<p
 							className={clsx(
