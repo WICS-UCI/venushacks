@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, PropsWithChildren, useState } from "react";
-import Button from "@/lib/components/Button/Button";
 
 import styles from "./ValidatingForm.module.scss";
 
@@ -11,6 +10,9 @@ interface FormProps {
 }
 
 function ValidatingForm(props: PropsWithChildren<FormProps>) {
+	const buttonClass =
+		"py-[12px] px-[50px] rounded-full hover:opacity-90 active:opacity-100 active:shadow-md border font-figtree font-semibold text-[16px] leading-none text-center duration-200 shadow-sm";
+
 	const [validated, setValidated] = useState<boolean>(false);
 	const [submitting, setSubmitting] = useState<boolean>(false);
 
@@ -38,12 +40,13 @@ function ValidatingForm(props: PropsWithChildren<FormProps>) {
 		>
 			{children}
 			<div className="w-1/3">
-				<Button
-					className="text-xs sm:text-base md:text-2xl"
-					text="Continue"
+				<button
+					type="submit"
 					disabled={submitting}
-					isLightVersion
-				/>
+					className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
+				>
+					Continue
+				</button>
 			</div>
 		</form>
 	);

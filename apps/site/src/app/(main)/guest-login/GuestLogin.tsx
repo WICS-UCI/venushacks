@@ -18,14 +18,7 @@ async function GuestLogin({
 		redirect(return_to ?? "/portal");
 	}
 
-	return (
-		<div className="min-h-screen flex flex-col items-center justify-center">
-			<h1 className="font-display text-3xl md:text-5xl mb-20">
-				Enter Passphrase
-			</h1>
-			<GuestLoginVerificationForm email={email} return_to={return_to} />
-		</div>
-	);
+	return <GuestLoginVerificationForm email={email} return_to={return_to} />;
 }
 
 export default GuestLogin;
