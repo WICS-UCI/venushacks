@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
 
 import OrangeCapybara from "./assets/Orange Capy.svg";
 import YellowCapybara from "./assets/Pineapple Capy.svg";
@@ -18,24 +17,8 @@ import GrassTuftFlipped from "./assets/grass2.svg";
 import Melon from "./assets/Melon.svg";
 import Shadow from "./assets/shadow.svg";
 import ShadowWide from "./assets/shadow-wide.svg";
-import OpenBasket from "./assets/open_basket.svg";
 
 const PicnicScene = () => {
-	const [isBasketOpen, setIsBasketOpen] = useState(false);
-	const [isAnimating, setIsAnimating] = useState(false);
-
-	const handleBasketHover = () => {
-		if (!isAnimating) {
-			setIsAnimating(true);
-		}
-	};
-
-	const handleBasketAnimationEnd = () => {
-		if (isAnimating) {
-			setIsBasketOpen((prev) => !prev);
-			setIsAnimating(false);
-		}
-	};
 	return (
 		<div className="w-full flex justify-center overflow-hidden pb-20 -mt-12">
 			<div className="relative w-full max-w-[1700px] aspect-[17/8]">
@@ -45,19 +28,11 @@ const PicnicScene = () => {
 				</div>
 
 				{/* basket */}
-				<div
-					className={`absolute bottom-[19%] left-[47%] -translate-x-1/2 z-30 ${
-						isBasketOpen ? "w-[25%]" : "w-[19.5%]"
-					}`}
-					onMouseEnter={handleBasketHover}
-				>
+				<div className="absolute bottom-[19%] left-[47%] -translate-x-1/2 w-[19.5%] z-30">
 					<Image
-						src={isBasketOpen ? OpenBasket : Basket}
+						src={Basket}
 						alt="picnic basket"
-						className={`w-full h-auto cursor-pointer ${
-							isAnimating ? "animate-basketBounce" : ""
-						}`}
-						onAnimationEnd={handleBasketAnimationEnd}
+						className="w-full h-auto cursor-pointer"
 					/>
 				</div>
 
