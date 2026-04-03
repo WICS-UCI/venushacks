@@ -9,7 +9,7 @@ import NavLinkItem from "./NavbarHelpers";
 export default function BaseNavbar({ children }: PropsWithChildren) {
 	return (
 		<NavMenu.Root
-			className={`hidden md:flex fixed top-6 left-0 right-0 z-40 justify-center`}
+			className={`hidden md:flex fixed top-6  z-40 justify-between`}
 		>
 			<div className="flex w-full max-w-5xl items-center px-6 gap-8">
 				<div className={styles.navMenuListWrapper}>
@@ -18,13 +18,13 @@ export default function BaseNavbar({ children }: PropsWithChildren) {
 						<NavLinkItem href="/#about">About</NavLinkItem>
 						<NavLinkItem href="/#faqs">FAQs</NavLinkItem>
 						<NavLinkItem href="/#sponsors">Sponsors</NavLinkItem>
-						<NavLinkItem href="/#partners">Partners</NavLinkItem>
+						{/* <NavLinkItem href="/#partners">Partners</NavLinkItem> */}
 						<NavLinkItem href="/#team">Team</NavLinkItem>
 					</NavMenu.List>
 					<NavMenu.Indicator className={styles.navMenuIndicator} />
 				</div>
 
-				<div className="ml-auto">{children}</div>
+				<div className="">{children}</div>
 			</div>
 		</NavMenu.Root>
 	);

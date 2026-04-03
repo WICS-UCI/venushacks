@@ -17,6 +17,7 @@ const shirtSizes = [
 	{ value: "small", text: "Small" },
 	{ value: "medium", text: "Medium" },
 	{ value: "large", text: "Large" },
+	{ value: "xl", text: "Extra Large" },
 ];
 
 const universityOptions = [

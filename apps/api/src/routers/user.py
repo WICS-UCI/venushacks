@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from logging import getLogger
 from typing import Annotated, Any, Union
 from urllib.parse import urlencode
+import traceback
 
 from fastapi import (
     APIRouter,
@@ -215,16 +216,18 @@ async def _apply_flow(
             )
         except TypeError as err:
             log.info(
-                "An error occurred while submitting an application for %s: %s",
+                "An error occurred while submitting an application for %s: %s\n%s",
                 user,
                 err,
+                traceback.format_exc(),
             )
             raise HTTPException(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
         except ValueError as err:
             log.info(
-                "An error occurred while submitting an application for %s: %s",
+                "An error occurred while submitting an application for %s: %s\n%s",
                 user,
                 err,
+                traceback.format_exc(),
             )
             raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE)
         except RuntimeError as err:

@@ -9,7 +9,7 @@ const About = () => {
 			<div className="mx-auto flex items-center justify-between gap-10 w-full">
 				{/* Text Card */}
 				<div className="w-full flex-1 lg:ml-20 rounded-[34px] border-[5px] border-[#d77676] bg-[#e8dfa0] px-10 py-10 md:px-12 md:py-12 lg:px-14 lg:py-12">
-					<h2 className="font-torus mb-6 font-display text-4xl text-[#2f3152] md:text-5xl">
+					<h2 className="tracking-[20%] font-torus mb-6 font-display text-4xl text-[#2f3152] md:text-5xl">
 						About Us
 					</h2>
 

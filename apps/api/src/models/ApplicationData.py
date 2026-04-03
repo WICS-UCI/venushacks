@@ -35,7 +35,6 @@ def make_empty_none(val: Union[str, None]) -> Union[str, None]:
 FIELDS_SUPPORTING_OTHER = [
     "school",
     "gender_identity",
-    "dietary_restrictions",
     "experienced_technologies",
     "areas_of_development",
 ]
@@ -69,7 +68,7 @@ class BaseApplicationData(BaseModel):
 
     share_resume_with_sponsors: bool = True
 
-    dietary_restrictions: Union[str, None] = Field(None, max_length=2048)
+    dietary_restrictions: str
 
     frq_project: str = Field(max_length=2048)
     frq_diversity: str = Field(max_length=2048)
@@ -102,7 +101,7 @@ class BaseMentorApplicationData(BaseModel):
     linkedin: NullableHttpUrl = None
     github: NullableHttpUrl = None
     website: NullableHttpUrl = None
-    t_shirt_size: str
+    shirt_size: str
     availability: str = Field(max_length=2048)
 
     proficiency_figma: ProficiencyOptional = None

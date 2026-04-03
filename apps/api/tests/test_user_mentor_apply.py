@@ -39,7 +39,7 @@ SAMPLE_APPLICATION = {
     "github": "https://github.com/pkfire",
     "linkedin": "",
     "website": "",
-    "t_shirt_size": "M",
+    "shirt_size": "M",
     "availability": "All weekend",
     "proficiency_python": "intermediate",
     "proficiency_javascript": "beginner",
