@@ -9,7 +9,7 @@ export default function FloatingBubble({ navText }: FloatingBubbleProps) {
 				{navText}
 			</span>
 
-			<form method="post" action="api/user/logout">
+			<form method="post" action="/logout">
 				<button type="submit" className="px-4 py-2 text-black md:px-6">
 					Logout
 				</button>
