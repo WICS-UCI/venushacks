@@ -25,13 +25,13 @@ import { motion } from "framer-motion";
 
 const FooterGraphic = () => {
 	return (
-		<section className="relative flex w-full aspect-[1280/1000] container mx-auto">
-			<div className="container mx-auto">
+		<section className="relative flex w-full aspect-[1280/1000] max-w-[1600px] mx-auto">
+			<div className="">
 				<div className={"scale-125 -z-10 flex justify-center"}>
-                    <Image src={flyLine} alt="fly line" />
+					<Image src={flyLine} alt="fly line" />
 				</div>
 				<Image
-                    src={shadow}
+					src={shadow}
 					alt="Shadows"
 					className="absolute left-[49%] top-[67%] w-[90%] -translate-x-1/2 -translate-y-1/2"
 				/>
@@ -128,27 +128,27 @@ const FooterGraphic = () => {
 				<Image
 					src={flower}
 					alt="flower"
-					className={"absolute top-[25%] left-[10%]"}
+					className={"absolute top-[25%] left-[10%] w-[clamp(10px,5%,60px)]"}
 				/>
 				<Image
 					src={flower}
 					alt="flower"
-					className={"absolute top-[78%] left-[55%]"}
+					className={"absolute top-[78%] left-[55%] w-[clamp(10px,5%,60px)]"}
 				/>
 				<Image
 					src={grass1}
 					alt="grass"
-					className={"absolute top-[25%] left-[80%]"}
+					className={"absolute top-[25%] left-[80%] w-[clamp(10px,3%,60px)]"}
 				/>
 				<Image
 					src={grass2}
 					alt="grass"
-					className={"absolute top-[70%] left-[90%]"}
+					className={"absolute top-[70%] left-[90%] w-[clamp(10px,3%,60px)]"}
 				/>
 				<Image
 					src={grass2}
 					alt="grass"
-					className={"absolute top-[75%] left-[10%]"}
+					className={"absolute top-[75%] left-[10%] w-[clamp(10px,3%,60px)]"}
 				/>
 			</div>
 		</section>

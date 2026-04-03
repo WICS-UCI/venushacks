@@ -30,6 +30,7 @@ export const InfiniteMovingAnts = ({
 	const containerRef = React.useRef<HTMLDivElement>(null);
 	const scrollerRef = React.useRef<HTMLUListElement>(null);
 	const [start, setStart] = useState(true);
+	const hasClonedRef = React.useRef(false);
 
 	useEffect(() => {
 		if (!containerRef.current || !scrollerRef.current) return;
@@ -37,11 +38,15 @@ export const InfiniteMovingAnts = ({
 		// Clone items multiple times to ensure smooth infinite scroll
 		const scroller = scrollerRef.current;
 		const children = Array.from(scroller.children);
+		if (hasClonedRef.current) return;
 
 		// Clone until scroller is at least 2x container width
 		for (let i: number = 0; i < 4; i++) {
 			children.forEach((child) => scroller.appendChild(child.cloneNode(true)));
 		}
+		console.log("Copies: " + children.length);
+
+		hasClonedRef.current = true;
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -57,10 +62,10 @@ export const InfiniteMovingAnts = ({
 		observer.observe(containerRef.current);
 
 		return () => observer.disconnect();
-	}, [items]);
+	}, []);
 
 	const duration =
-		speed === "fast" ? "30s" : speed === "normal" ? "150s" : "500s";
+		speed === "fast" ? "30s" : speed === "normal" ? "70s" : "100s";
 
 	return (
 		<div
@@ -91,7 +96,7 @@ export const InfiniteMovingAnts = ({
 							<a
 								href={item.url}
 								target="_blank"
-								className="relative flex w-[180px] lg:w-full aspect-[3/2] lg:aspect-[6/7.5] justify-center items-center"
+								className="relative flex w-[180px] lg:w-[470px] aspect-[3/2] lg:aspect-[4/3] justify-center items-center"
 							>
 								{/* eslint-disable-next-line @next/next/no-img-element */}
 								<div
@@ -102,24 +107,26 @@ export const InfiniteMovingAnts = ({
 									<Image
 										src={graphic}
 										alt={item.name}
-										className="w-[90%] max-h-full"
+										className="w-[80%] max-h-full"
 									/>
 								</div>
 								<div
 									className={
 										"absolute z-10 flex justify-center \
-                                    w-[67px] lg:h-1/2 lg:w-1/2  \
-                                    left-[60px] top-[53%] lg:top-[35%] lg:left-[27%]"
+                                    w-[67px] lg:h-1/2 lg:w-[60%] h-[60px]\
+                                    left-[60px] top-[50%] lg:top-[35%] lg:left-[22%] translate-y-5"
 									}
 								>
 									{item.logo ? (
-										<Image
-											src={urlFor(item.logo).url()}
-											alt={item.name}
-											width={150}
-											height={100}
-											className=" object-contain top-[50%]"
-										/>
+										<div className=" flex items-start lg:items-center justify-center">
+											<Image
+												src={urlFor(item.logo).url()}
+												alt={item.name}
+												width={150}
+												height={100}
+												className="absolute max-h-full max-w-full object-contain "
+											/>
+										</div>
 									) : (
 										<h2
 											className={

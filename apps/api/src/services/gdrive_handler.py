@@ -1,5 +1,7 @@
 import json
 import os
+import base64
+
 
 from aiogoogle import Aiogoogle
 from aiogoogle.auth.creds import ServiceAccountCreds
@@ -17,8 +19,8 @@ def _get_credentials() -> ServiceAccountCreds:
         with open(service_account_file) as f:
             service_account_key = json.load(f)
     elif service_account_credentials:
-        service_account_credentials = service_account_credentials.replace("\n", "\\n")
-        service_account_key = json.loads(service_account_credentials)
+        service_account_key = json.loads(base64.b64decode(service_account_credentials))
+        service_account_key.pop("universe_domain", None)
     else:
         raise RuntimeError("Service account credentials not found")
 

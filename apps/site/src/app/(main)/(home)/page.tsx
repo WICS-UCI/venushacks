@@ -1,14 +1,19 @@
+import { Suspense } from "react";
+
+import NavbarParent from "@/lib/components/Navbar/NavbarParent";
+import BaseNavbar from "@/lib/components/Navbar/BaseNavbar";
+import ComingSoon from "./sections/Landing/ComingSoon";
+
 import {
 	Landing,
+	About,
 	FooterGraphic,
 	FAQ,
 	Sponsors,
-	Partners,
+	// Partners,
 	Organizers,
 	Footer,
 } from "./sections";
-
-import ComingSoon from "./sections/Landing/ComingSoon";
 
 export const revalidate = 60;
 
@@ -21,8 +26,16 @@ export default function Home() {
 		</>
 	) : (
 		<>
+			{!process.env.MAINTENANCE_MODE_HOME && (
+				<Suspense fallback={<BaseNavbar />}>
+					<NavbarParent />
+				</Suspense>
+			)}
 			<section id="home">
 				<Landing />
+			</section>
+			<section id="about">
+				<About />
 			</section>
 			<section id="faqs">
 				<FAQ />
@@ -30,9 +43,9 @@ export default function Home() {
 			<section id="sponsors">
 				<Sponsors />
 			</section>
-			<section id="partners">
+			{/* <section id="partners">
 				<Partners />
-			</section>
+			</section> */}
 			<section id="team">
 				<Organizers />
 			</section>
