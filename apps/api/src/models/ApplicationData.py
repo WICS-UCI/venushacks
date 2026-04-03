@@ -101,7 +101,7 @@ class BaseMentorApplicationData(BaseModel):
     linkedin: NullableHttpUrl = None
     github: NullableHttpUrl = None
     website: NullableHttpUrl = None
-    t_shirt_size: str
+    shirt_size: str
     availability: str = Field(max_length=2048)
 
     proficiency_figma: ProficiencyOptional = None
