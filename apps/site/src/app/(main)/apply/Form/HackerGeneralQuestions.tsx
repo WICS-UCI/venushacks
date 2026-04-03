@@ -87,7 +87,7 @@ export default function GeneralQuestions() {
 						},
 						{
 							value: "in_person",
-							text: "I acknowledge that VenusHacks is a 100% in-person event and that I must attend all 3 event days (Friday night, Saturday, and Sunday morning) in order to enter the competition and receive prizes.",
+							text: "I acknowledge that VenusHacks is a 100% in-person event and that I must attend all 2 event days (Saturday and Sunday) in order to enter the competition and receive prizes.",
 						},
 					]}
 				/>
