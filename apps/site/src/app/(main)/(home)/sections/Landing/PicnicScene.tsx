@@ -9,7 +9,7 @@ import BlueCapybara from "./assets/blueberry capy.svg";
 import BrownCapybara from "./assets/Main Capy.svg";
 import PinkCapybaraLeft from "./assets/cherry_1.svg";
 import PinkCapybaraRight from "./assets/Cherry 2.svg";
-import Basket from "./assets/picnic_basket.svg";
+//import Basket from "./assets/picnic_basket.svg";
 import Blanket from "./assets/thick_picnic_blanket 1.svg";
 import Flower from "./assets/flower.svg";
 import GrassTuft from "./assets/grass.svg";
@@ -17,6 +17,7 @@ import GrassTuftFlipped from "./assets/grass2.svg";
 import Melon from "./assets/Melon.svg";
 import Shadow from "./assets/shadow.svg";
 import ShadowWide from "./assets/shadow-wide.svg";
+import OpenBasket from "./assets/open_basket.svg";
 
 const PicnicScene = () => {
 	return (
@@ -29,7 +30,11 @@ const PicnicScene = () => {
 
 				{/* basket */}
 				<div className="absolute bottom-[19%] left-[47%] -translate-x-1/2 w-[19.5%] z-30">
-					<Image src={Basket} alt="picnic basket" className="w-full h-auto" />
+					<Image
+						src={OpenBasket}
+						alt="picnic basket"
+						className="w-full h-auto"
+					/>
 				</div>
 
 				{/* back row */}
