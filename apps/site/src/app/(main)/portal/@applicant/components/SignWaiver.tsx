@@ -14,7 +14,7 @@ function SignWaiver() {
 			</p>
 			<div className="mt-6 md:mt-12">
 				<Button
-					text="Sign Waiver to attend IrvineHacks 2025"
+					text="Sign Waiver to attend VenusHacks 2026"
 					href="/api/user/waiver"
 					newWindow={true}
 					usePrefetch={false}

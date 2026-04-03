@@ -25,7 +25,7 @@ const FAQ = async () => {
 	return (
 		<section className="w-full px-6 py-16 md:px-10 lg:px-16">
 			<div className="max-w-[1200px] mx-auto">
-				<h2 className="font-torus text-[#2f3152] text-5xl md:text-6xl text-center mb-10 tracking-wide">
+				<h2 className="font-torus text-[#2f3152] text-5xl md:text-6xl text-center mb-10 tracking-[20%]">
 					FAQs
 				</h2>
 				<div className="flex flex-col gap-4 md:flex-row">

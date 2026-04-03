@@ -22,7 +22,7 @@ function Message({ status }: MessageProps) {
 		case Status.Rejected: {
 			message = (
 				<p className="mt-4">
-					Thank you for applying to IrvineHacks this year. We have read through
+					Thank you for applying to VenusHacks this year. We have read through
 					many applications so far, and unfortunately are unable to offer you a
 					spot at our event. We highly encourage you to continue developing your
 					skills and passion for technology. We would love to see you apply
@@ -35,7 +35,7 @@ function Message({ status }: MessageProps) {
 		case Status.Waitlisted: {
 			message = (
 				<p className="mt-4">
-					Thank you for applying to IrvineHacks this year. We have read through
+					Thank you for applying to VenusHacks this year. We have read through
 					many applications so far, and are able to offer you a spot on the
 					event waitlist. Please check your email for more info about the
 					waitlist and waitlist walk-ins!
@@ -55,7 +55,7 @@ function Message({ status }: MessageProps) {
 		case Status.Void: {
 			message = (
 				<p className="mt-4">
-					Unfortunately, you are not able to RSVP for IrvineHacks at this time
+					Unfortunately, you are not able to RSVP for VenusHacks at this time
 					and will not be able to come to the event. However, we would love to
 					see you apply again next year!
 				</p>

@@ -42,7 +42,7 @@ const Sponsors = async () => {
 				<div className="relative items-center">
 					<div className="absolute z-10 left-1/2 -translate-x-1/2">
 						<h2
-							className={`font-torus font-display font-bold sm:text-[3rem] text-[#2F3248] text-3xl text-center`}
+							className={`tracking-[20%] font-torus font-display font-bold sm:text-[3rem] text-[#2F3248] text-3xl text-center`}
 						>
 							Sponsors
 						</h2>

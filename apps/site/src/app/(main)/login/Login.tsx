@@ -16,12 +16,7 @@ async function Login({
 		redirect(return_to ?? "/portal");
 	}
 
-	return (
-		<div className="min-h-screen flex flex-col items-center justify-center">
-			<h1 className="font-display text-3xl md:text-5xl mb-20">Log In</h1>
-			<LoginForm return_to={return_to} />
-		</div>
-	);
+	return <LoginForm return_to={return_to} />;
 }
 
 export default Login;
