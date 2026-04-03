@@ -62,6 +62,15 @@ const PicnicScene = () => {
 					/>
 				</div>
 
+				{/* back row */}
+				<div className="absolute bottom-[30.5%] left-[33.5%] w-[19.5%] z-20">
+					<Image
+						src={YellowCapybara}
+						alt="yellow capybara"
+						className="w-full h-auto hover:animate-capyBounce cursor-pointer"
+					/>
+				</div>
+
 				<div className="absolute bottom-[30%] left-[17%] w-[22%] z-20">
 					<Image
 						src={OrangeCapybara}
