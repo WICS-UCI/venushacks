@@ -18,7 +18,7 @@ export default function FloatingBubble({ navText }: FloatingBubbleProps) {
 			<button
 				type="button"
 				onClick={async () => {
-					await fetch("/api/user/logout", { method: "POST" });
+					await fetch("/api/user/logout");
 					router.push("/login");
 				}}
 				className="px-4 py-2 text-black md:px-6"
