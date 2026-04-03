@@ -46,16 +46,19 @@ const PicnicScene = () => {
 				</div>
 
 				{/* basket */}
-				<div className="absolute bottom-[19%] left-[47%] -translate-x-1/2 w-[19.5%] z-30">
-					<Image src={Basket} alt="picnic basket" className="w-full h-auto" />
-				</div>
-
-				{/* back row */}
-				<div className="absolute bottom-[30.5%] left-[33.5%] w-[19.5%] z-20">
+				<div
+					className={`absolute bottom-[19%] left-[47%] -translate-x-1/2 z-30 ${
+						isBasketOpen ? "w-[25%]" : "w-[19.5%]"
+					}`}
+					onMouseEnter={handleBasketHover}
+				>
 					<Image
-						src={YellowCapybara}
-						alt="yellow capybara"
-						className="w-full h-auto hover:animate-capyBounce cursor-pointer"
+						src={isBasketOpen ? OpenBasket : Basket}
+						alt="picnic basket"
+						className={`w-full h-auto cursor-pointer ${
+							isAnimating ? "animate-basketBounce" : ""
+						}`}
+						onAnimationEnd={handleBasketAnimationEnd}
 					/>
 				</div>
 
