@@ -55,7 +55,8 @@ function LoginForm({ return_to }: { return_to?: string }) {
 							required
 						/>
 						<small id="email-description" className="font-figtree">
-							Enter your email for a one-time login passphrase. This can be your UCI email or personal email.
+							Enter your email for a one-time login passphrase. This can be your
+							UCI email or personal email.
 						</small>
 						<p
 							className={clsx(
