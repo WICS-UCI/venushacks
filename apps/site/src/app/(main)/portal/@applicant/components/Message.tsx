@@ -16,9 +16,10 @@ function Message({ status, role }: MessageProps) {
 		case Status.Pending:
 		case Status.Reviewed: {
 			message = (
-				<p>
-					Thank you for submitting your application! We are currently reviewing
-					applications on a rolling basis, and you will hear back from us soon!
+				<p className="font-figtree font-medium leading-tight">
+					Thank you for submitting your VenusHacks 2026 application! We’re still
+					looking through applications, but keep an eye out for an email from
+					{" "}<span className="underline">venushacks.uci@gmail.com</span>.
 				</p>
 			);
 			break;

@@ -1,6 +1,7 @@
 "use client";
 
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 import useUserIdentity from "@/lib/utils/useUserIdentity";
 import { Status } from "@/lib/userRecord";
@@ -10,20 +11,11 @@ import Message from "./components/Message";
 import SignWaiver from "./components/SignWaiver";
 import ReturnHome from "./components/ReturnHome";
 import VerticalTimeline from "./components/timeline/VerticalTimeline";
-import BackgroundStars from "./components/BackgroundStars";
-import { Figtree } from "next/font/google";
-import { Sniglet } from "next/font/google";
+import FloatingBubble from "@/lib/components/forms/FloatingBubble";
+
+import picnicSceneImg from "@/assets/images/portal-picnic-scene.png";
 
 const rolesArray = ["Mentor", "Hacker", "Volunteer"];
-const figtree = Figtree({
-	subsets: ["latin"],
-	weight: ["400", "500", "600", "700", "800"],
-});
-
-const sniglet = Sniglet({
-	subsets: ["latin"],
-	weight: ["400", "800"],
-});
 
 function Portal() {
 	const identity = useUserIdentity();
@@ -88,72 +80,55 @@ function Portal() {
 
 	return (
 		<div
-			className={`${figtree.className} mx-auto w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6`}
+			className="font-figtree mx-auto items-center w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6"
 		>
-			{/* Title */}
+			<FloatingBubble navText="Application" />
+
 			<h1
-				style={{ fontFamily: sniglet.style.fontFamily }}
-				className="pt-5 text-center text-[var(--color-white)] text-3xl leading-tight md:pt-10 md:text-5xl"
+				className="font-sniglet text-center text-3xl leading-tight md:text-5xl mt-12 mb-8"
 			>
 				Applicant Dashboard
 			</h1>
 
-			{/* Cards */}
 			<div
-				className="mt-4 flex flex-1 flex-col items-center gap-4 min-h-0
+				className="flex flex-1 flex-col items-center gap-4 min-h-0
 						md:mt-8 md:gap-6"
 			>
 				{/* Card 1: small status card */}
 				<section
-					className="
-					w-full max-w-xl
-					rounded-3xl
-					bg-white
-					px-5 py-4
-					shadow-[0_25px_60px_rgba(0,0,0,0.12)]
-					md:max-w-2xl md:px-10 md:py-6
-					shadow-[0_25px_60px_rgba(0,0,0,0.12)]
-					"
+					className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4"
 				>
-					<div className="flex items-center justify-between gap-4">
-						<div className="min-w-0">
-							<p className="truncate font-semibold text-neutral-900">
-								VenusHacks 2026 {roleToDisplay} Application
-							</p>
-							<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
-						</div>
-
-						<span
-							className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
-						>
-							{statusLabel}
-						</span>
+					<div className="">
+						<p className="font-semibold md:text-lg mb-1">
+							VenusHacks 2026 {roleToDisplay} Application
+						</p>
+						<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
 					</div>
+
+					<span
+						className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
+					>
+						{statusLabel}
+					</span>
 				</section>
 
 				{/* Card 2 */}
 				<section
-					className="w-full max-w-xl rounded-3xl bg-white shadow-[0_25px_60px_rgba(0,0,0,0.12)]
-								flex flex-col
-								md:max-w-2xl"
+					className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl"
 				>
-					<div
-						className="p-2 flex-1 min-h-0 overflow-y-auto
-							md:p-6"
-					>
-						<div className="space-y-4 md:space-y-6">
-							<Message
-								status={status as Status}
-								role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
-							/>
-							<VerticalTimeline status={status as Status} />
-
-							{submittedWaiver && (
-								<ConfirmAttendance status={status as Status} />
-							)}
-							{rejected && <ReturnHome />}
-						</div>
+					<Message
+						status={status as Status}
+						role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
+					/>
+					<VerticalTimeline status={status as Status} />
+					<div className="w-full flex justify-center mt-8">
+						<Image src={picnicSceneImg} alt="Picnic scene" />
 					</div>
+
+					{submittedWaiver && (
+						<ConfirmAttendance status={status as Status} />
+					)}
+					{rejected && <ReturnHome />}
 				</section>
 			</div>
 		</div>
