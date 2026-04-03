@@ -13,6 +13,7 @@ import ReturnHome from "./components/ReturnHome";
 import VerticalTimeline from "./components/timeline/VerticalTimeline";
 import FloatingBubble from "@/lib/components/forms/FloatingBubble";
 
+import ApplicantPortalBackground from "@/lib/components/ApplicantPortalBackground/ApplicantPortalBackground";
 import picnicSceneImg from "@/assets/images/portal-picnic-scene.png";
 
 const rolesArray = ["Mentor", "Hacker", "Volunteer"];
@@ -79,44 +80,47 @@ function Portal() {
 	const statusColor = getStatusColor();
 
 	return (
-		<div className="font-figtree mx-auto items-center w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6">
-			<FloatingBubble navText="Application" />
+		<>
+			<ApplicantPortalBackground />
+			<div className="font-figtree mx-auto items-center w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6">
+				<FloatingBubble navText="Application" />
 
-			<h1 className="font-sniglet text-center text-3xl leading-tight md:text-5xl mt-12 mb-8">
-				Applicant Dashboard
-			</h1>
+				<h1 className="font-sniglet text-center text-3xl leading-tight md:text-5xl mt-12 mb-8">
+					Applicant Dashboard
+				</h1>
 
-			<div className="flex flex-1 flex-col items-center gap-4 min-h-0 md:mt-8 md:gap-6">
-				<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4">
-					<div>
-						<p className="font-semibold md:text-lg mb-1">
-							VenusHacks 2026 {roleToDisplay} Application
-						</p>
-						<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
-					</div>
+				<div className="flex flex-1 flex-col items-center gap-4 min-h-0 md:mt-8 md:gap-6">
+					<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4">
+						<div>
+							<p className="font-semibold md:text-lg mb-1">
+								VenusHacks 2026 {roleToDisplay} Application
+							</p>
+							<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
+						</div>
 
-					<span
-						className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
-					>
-						{statusLabel}
-					</span>
-				</section>
+						<span
+							className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
+						>
+							{statusLabel}
+						</span>
+					</section>
 
-				<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl">
-					<Message
-						status={status as Status}
-						role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
-					/>
-					<VerticalTimeline status={status as Status} />
-					<div className="w-full flex justify-center mt-8">
-						<Image src={picnicSceneImg} alt="Picnic scene" />
-					</div>
+					<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl">
+						<Message
+							status={status as Status}
+							role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
+						/>
+						<VerticalTimeline status={status as Status} />
+						<div className="w-full flex justify-center mt-8">
+							<Image src={picnicSceneImg} alt="Picnic scene" />
+						</div>
 
-					{submittedWaiver && <ConfirmAttendance status={status as Status} />}
-					{rejected && <ReturnHome />}
-				</section>
+						{submittedWaiver && <ConfirmAttendance status={status as Status} />}
+						{rejected && <ReturnHome />}
+					</section>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 

@@ -9,6 +9,7 @@ import useForm from "@/lib/utils/useForm";
 import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
+import ApplicantPortalBackground from "../../ApplicantPortalBackground/ApplicantPortalBackground";
 import ApplicationProgressBar from "@/lib/components/forms/shared/ApplicationProgressBar/ApplicationProgressBar";
 import FloatingBubble from "../FloatingBubble";
 
@@ -105,95 +106,98 @@ export default function ApplicationFlow({
 	);
 
 	return (
-		<div className="flex flex-col items-center min-h-screen gap-6 px-4 md:gap-10 md:px-12">
-			{!applicationsOpened || deadlinePassed ? (
-				<ApplicationsClosed identity={identity} />
-			) : (
-				<div className="flex flex-col items-center w-full max-w-5xl gap-8 mt-16 mb-32">
-					<FloatingBubble navText="Application" />
+		<>
+			<ApplicantPortalBackground />
+			<div className="flex flex-col items-center min-h-screen gap-6 px-4 md:gap-10 md:px-12">
+				{!applicationsOpened || deadlinePassed ? (
+					<ApplicationsClosed identity={identity} />
+				) : (
+					<div className="flex flex-col items-center w-full max-w-5xl gap-8 mt-16 mb-32">
+						<FloatingBubble navText="Application" />
 
-					<ApplicationProgressBar
-						pageIndex={pageIndex}
-						pageCount={PAGE_COUNT}
-					/>
+						<ApplicationProgressBar
+							pageIndex={pageIndex}
+							pageCount={PAGE_COUNT}
+						/>
 
-					<form
-						ref={formRef}
-						method="post"
-						action={applyPath}
-						encType="multipart/form-data"
-						onSubmit={handleSubmit}
-						// Disable native browser validation so we can control when it fires
-						noValidate
-						className="
+						<form
+							ref={formRef}
+							method="post"
+							action={applyPath}
+							encType="multipart/form-data"
+							onSubmit={handleSubmit}
+							// Disable native browser validation so we can control when it fires
+							noValidate
+							className="
               w-auto min-w-full bg-white text-slate-900
               rounded-[25px] md:rounded-[38px]
               shadow-[0_18px_35px_rgba(0,0,0,0.12)]
               px-5 py-8
               md:px-12 md:py-10
             "
-					>
-						<input
-							type="text"
-							name="application_type"
-							value={applicationType}
-							readOnly
-							hidden
-						/>
+						>
+							<input
+								type="text"
+								name="application_type"
+								value={applicationType}
+								readOnly
+								hidden
+							/>
 
-						{/* Page content — all pages stay mounted to preserve form data */}
-						{pages.map((page, i) => (
-							<div key={i} className={i === pageIndex ? undefined : "hidden"}>
-								{page}
+							{/* Page content — all pages stay mounted to preserve form data */}
+							{pages.map((page, i) => (
+								<div key={i} className={i === pageIndex ? undefined : "hidden"}>
+									{page}
+								</div>
+							))}
+
+							{/* Validation error message */}
+							{validationError && (
+								<p className="mt-6 text-sm text-red-500 font-figtree">
+									{validationError}
+								</p>
+							)}
+
+							{/* Navigation */}
+							<div className="flex items-center justify-between mt-10">
+								{!isFirstPage ? (
+									<button
+										type="button"
+										onClick={goPrev}
+										className={`${buttonClass} text-indian-red border-indian-red bg-linen`}
+									>
+										← Prev
+									</button>
+								) : (
+									<span />
+								)}
+
+								{isLastPage ? (
+									<button
+										type="submit"
+										disabled={submitting}
+										className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
+									>
+										Submit Application →
+									</button>
+								) : (
+									<button
+										type="button"
+										onClick={goNext}
+										className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
+									>
+										{isFirstPage ? "Start Application →" : "Next →"}
+									</button>
+								)}
 							</div>
-						))}
 
-						{/* Validation error message */}
-						{validationError && (
-							<p className="mt-6 text-sm text-red-500 font-figtree">
-								{validationError}
-							</p>
-						)}
-
-						{/* Navigation */}
-						<div className="flex items-center justify-between mt-10">
-							{!isFirstPage ? (
-								<button
-									type="button"
-									onClick={goPrev}
-									className={`${buttonClass} text-indian-red border-indian-red bg-linen`}
-								>
-									← Prev
-								</button>
-							) : (
-								<span />
+							{sessionExpired && (
+								<div className="mt-6">{sessionExpiredMessage}</div>
 							)}
-
-							{isLastPage ? (
-								<button
-									type="submit"
-									disabled={submitting}
-									className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
-								>
-									Submit Application →
-								</button>
-							) : (
-								<button
-									type="button"
-									onClick={goNext}
-									className={`${buttonClass} text-indian-red border-indian-red bg-pale-rose`}
-								>
-									{isFirstPage ? "Start Application →" : "Next →"}
-								</button>
-							)}
-						</div>
-
-						{sessionExpired && (
-							<div className="mt-6">{sessionExpiredMessage}</div>
-						)}
-					</form>
-				</div>
-			)}
-		</div>
+						</form>
+					</div>
+				)}
+			</div>
+		</>
 	);
 }

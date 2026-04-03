@@ -1,20 +1,18 @@
-.cloudTrack1 {
+.cloudTrack {
 	display: flex;
 	width: max-content;
-	animation: scrollClouds 20s linear infinite -10s;
+	animation: scrollClouds 30s linear infinite;
 }
-
-.cloudTrack2 {
-	display: flex;
-	width: max-content;
-	animation: scrollClouds 20s linear infinite;
+.cloudGroup {
+	width: 100vw;
+	height: auto;
+	flex-shrink: 0;
 }
-
 @keyframes scrollClouds {
 	from {
-		transform: translateX(0);
+		transform: translateX(-50%);
 	}
 	to {
-		transform: translateX(50%);
+		transform: translateX(0);
 	}
 }

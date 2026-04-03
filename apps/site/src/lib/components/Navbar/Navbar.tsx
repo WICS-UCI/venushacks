@@ -9,24 +9,15 @@ interface NavbarProps {
 }
 
 export default function Navbar({ identity }: NavbarProps) {
-	const { uid, status } = identity;
-	const isLoggedIn = uid !== null;
+	const isLoggedIn = !!identity && identity.uid !== null;
 
 	return (
 		<div className="w-full flex justify-center">
 			<BaseNavbar>
-				{status !== null && (
+				{isLoggedIn ? (
 					<Button
 						text="Portal"
 						href="/portal"
-						usePrefetch={false}
-						isNavButton
-					/>
-				)}
-				{isLoggedIn ? (
-					<Button
-						text="Logout"
-						href="/logout"
 						usePrefetch={false}
 						isNavButton
 					/>
@@ -43,8 +34,8 @@ export default function Navbar({ identity }: NavbarProps) {
 			<div className="fixed top-4 right-4 z-40 md:hidden">
 				{isLoggedIn ? (
 					<Button
-						text="Logout"
-						href="/logout"
+						text="Portal"
+						href="/portal"
 						usePrefetch={false}
 						isNavButton
 					/>
