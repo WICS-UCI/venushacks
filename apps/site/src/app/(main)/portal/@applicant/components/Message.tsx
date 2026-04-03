@@ -18,8 +18,8 @@ function Message({ status, role }: MessageProps) {
 			message = (
 				<p className="font-figtree font-medium leading-tight">
 					Thank you for submitting your VenusHacks 2026 application! We’re still
-					looking through applications, but keep an eye out for an email from
-					{" "}<span className="underline">venushacks.uci@gmail.com</span>.
+					looking through applications, but keep an eye out for an email from{" "}
+					<span className="underline">venushacks.uci@gmail.com</span>.
 				</p>
 			);
 			break;

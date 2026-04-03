@@ -8,7 +8,7 @@ import { Status } from "@/lib/userRecord";
 
 import ConfirmAttendance from "./components/ConfirmAttendance";
 import Message from "./components/Message";
-import SignWaiver from "./components/SignWaiver";
+// import SignWaiver from "./components/SignWaiver";
 import ReturnHome from "./components/ReturnHome";
 import VerticalTimeline from "./components/timeline/VerticalTimeline";
 import FloatingBubble from "@/lib/components/forms/FloatingBubble";
@@ -39,7 +39,7 @@ function Portal() {
 		status === Status.Confirmed ||
 		status === Status.Attending;
 
-	const needsToSignWaiver = status === Status.Accepted;
+	// const needsToSignWaiver = status === Status.Accepted;
 	const rejected = status === Status.Rejected;
 
 	const getStatusLabel = () => {
@@ -79,43 +79,28 @@ function Portal() {
 	const statusColor = getStatusColor();
 
 	return (
-		<div
-			className="font-figtree mx-auto items-center w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6"
-		>
+		<div className="font-figtree mx-auto items-center w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6">
 			<FloatingBubble navText="Application" />
 
-			<h1
-				className="font-sniglet text-center text-3xl leading-tight md:text-5xl mt-12 mb-8"
-			>
+			<h1 className="font-sniglet text-center text-3xl leading-tight md:text-5xl mt-12 mb-8">
 				Applicant Dashboard
 			</h1>
 
-			<div
-				className="flex flex-1 flex-col items-center gap-4 min-h-0
-						md:mt-8 md:gap-6"
-			>
-				{/* Card 1: small status card */}
-				<section
-					className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4"
-				>
-					<div className="">
+			<div className="flex flex-1 flex-col items-center gap-4 min-h-0 md:mt-8 md:gap-6">
+				<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4">
+					<div>
 						<p className="font-semibold md:text-lg mb-1">
 							VenusHacks 2026 {roleToDisplay} Application
 						</p>
 						<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
 					</div>
 
-					<span
-						className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
-					>
+					<span className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}>
 						{statusLabel}
 					</span>
 				</section>
 
-				{/* Card 2 */}
-				<section
-					className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl"
-				>
+				<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl">
 					<Message
 						status={status as Status}
 						role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
@@ -125,9 +110,7 @@ function Portal() {
 						<Image src={picnicSceneImg} alt="Picnic scene" />
 					</div>
 
-					{submittedWaiver && (
-						<ConfirmAttendance status={status as Status} />
-					)}
+					{submittedWaiver && <ConfirmAttendance status={status as Status} />}
 					{rejected && <ReturnHome />}
 				</section>
 			</div>
