@@ -5,7 +5,6 @@ import TikTokImage from "@/assets/icons/tiktok.svg";
 import InstagramImage from "@/assets/icons/instagram.svg";
 import LinkedInImage from "@/assets/icons/linkedin.svg";
 import MailImage from "@/assets/icons/mail.svg";
-import HeartImage from "@/assets/icons/heart.svg";
 
 const socialLinks = [
 	{
@@ -61,20 +60,7 @@ const Footer = () => {
 						>
 							Made with
 						</p>
-						<Image
-							src={HeartImage}
-							alt="Heart icon"
-							width={14}
-							height={14}
-							style={{
-								filter: creamFilter,
-								display: "block",
-								position: "relative",
-								top: "1px",
-								marginLeft: "6px",
-								marginRight: "9px",
-							}}
-						/>
+						
 						<p
 							style={{
 								color: "#F2E5D4",
