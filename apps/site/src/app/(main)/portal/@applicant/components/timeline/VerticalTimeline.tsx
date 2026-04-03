@@ -1,7 +1,5 @@
 import React from "react";
 import { Status } from "@/lib/userRecord";
-import { SubmissionComponent } from "./SubmissionComponent";
-import { VerdictComponent } from "./VerdictComponent";
 import { WaiverComponent } from "./WaiverComponent";
 import { RSVPComponent } from "./RSVPComponent";
 

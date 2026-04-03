@@ -122,7 +122,7 @@ async def apply(
         log.info(
             "An error occurred while submitting an application for %s: %s\n%s",
             user,
-            err,
+            e,
             traceback.format_exc(),
         )
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, e.errors())

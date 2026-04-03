@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusImage } from "./StatusImage";
+// import { StatusImage } from "./StatusImage";
 
 interface TimelineComponentProps {
 	text: string;
@@ -12,7 +12,7 @@ interface TimelineComponentProps {
 export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 	text,
 	finished,
-	statusIcon,
+	// statusIcon,
 	size = "default",
 	className = "",
 }) => {
