@@ -4,7 +4,7 @@ import Image from "next/image";
 import ValidatingForm from "@/lib/components/ValidatingForm/ValidatingForm";
 import RequiredAsterisk from "@/lib/components/forms/RequiredAsterisk";
 
-import picnicBasketImg from "@/assets/images/picnic_basket.svg"
+import picnicBasketImg from "@/assets/images/picnic_basket.svg";
 
 import styles from "@/lib/components/ValidatingForm/ValidatingForm.module.scss";
 
@@ -31,7 +31,7 @@ export default function GuestLoginVerificationForm({
 		<div className="min-h-screen flex flex-col items-center justify-center">
 			<div className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-lg rounded-3xl">
 				<div className="w-full flex items-center justify-center mt-4 mb-8">
-					<Image src={picnicBasketImg} alt="Picnic basket" className="w-32"/>
+					<Image src={picnicBasketImg} alt="Picnic basket" className="w-32" />
 				</div>
 				<h2 className="mb-4 text-2xl text-center text-black font-sniglet tracking-wide">
 					Enter Passphrase
@@ -73,7 +73,12 @@ export default function GuestLoginVerificationForm({
 							email is still missing, try again later, use a different email, or
 							contact us at contact@venushacks.com for assistance.
 						</small>
-						<p className={clsx(styles.invalidFeedback, "text-red-500 font-figtree mt-4")}>
+						<p
+							className={clsx(
+								styles.invalidFeedback,
+								"text-red-500 font-figtree mt-4",
+							)}
+						>
 							Sorry, that passphrase is invalid.
 						</p>
 					</div>

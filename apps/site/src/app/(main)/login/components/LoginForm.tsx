@@ -4,7 +4,7 @@ import Image from "next/image";
 import ValidatingForm from "@/lib/components/ValidatingForm/ValidatingForm";
 import RequiredAsterisk from "@/lib/components/forms/RequiredAsterisk";
 
-import picnicBasketImg from "@/assets/images/picnic_basket.svg"
+import picnicBasketImg from "@/assets/images/picnic_basket.svg";
 
 import styles from "@/lib/components/ValidatingForm/ValidatingForm.module.scss";
 
@@ -23,7 +23,7 @@ function LoginForm({ return_to }: { return_to?: string }) {
 		<div className="min-h-screen flex flex-col items-center justify-center">
 			<div className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-lg rounded-3xl">
 				<div className="w-full flex items-center justify-center mt-4 mb-8">
-					<Image src={picnicBasketImg} alt="Picnic basket" className="w-32"/>
+					<Image src={picnicBasketImg} alt="Picnic basket" className="w-32" />
 				</div>
 				<h2 className="mb-4 text-2xl text-center text-black font-sniglet tracking-wide">
 					Log In
@@ -57,7 +57,12 @@ function LoginForm({ return_to }: { return_to?: string }) {
 						<small id="email-description" className="font-figtree">
 							Enter your email for a one-time login passphrase. This can be your UCI email or personal email.
 						</small>
-						<p className={clsx(styles.invalidFeedback, "text-red-500 font-figtree mt-4")}>
+						<p
+							className={clsx(
+								styles.invalidFeedback,
+								"text-red-500 font-figtree mt-4",
+							)}
+						>
 							Sorry, that email address is invalid.
 						</p>
 					</div>
