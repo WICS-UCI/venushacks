@@ -20,10 +20,16 @@ const config: Config = {
 					"30%": { transform: "translateY(-12%)" },
 					"60%": { transform: "translateY(4%)" },
 				},
+				basketBounce: {
+					"0%": { transform: "translateY(0px)" },
+					"50%": { transform: "translateY(-15px)" },
+					"100%": { transform: "translateY(0px)" },
+				},
 			},
 			animation: {
 				scroll: "scroll var(--duration) linear infinite",
 				capyBounce: "capyBounce 0.6s ease",
+				basketBounce: "basketBounce 0.5s ease-out forwards",
 			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
