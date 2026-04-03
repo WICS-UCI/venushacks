@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import clsx from "clsx";
 
 import BarLoader from "../BarLoader";
