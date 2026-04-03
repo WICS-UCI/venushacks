@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 import { hasAdminRole } from "@/lib/admin/authorization";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
-
 // TODO: include separate portals for Mentors and Volunteers
 interface PortalLayoutProps {
 	admin: ReactNode;

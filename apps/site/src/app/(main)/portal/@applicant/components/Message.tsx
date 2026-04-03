@@ -42,7 +42,6 @@ function Message({ status, role }: MessageProps) {
 					Thank you for applying to VenusHacks 2026. We’re able to offer you a
 					spot on the waitlist. Please check your email for more information
 					about the waitlist and next steps.
-
 				</p>
 			);
 			break;
@@ -51,9 +50,9 @@ function Message({ status, role }: MessageProps) {
 		case Status.Accepted: {
 			message = (
 				<p className="mt-4">
-				Congratulations! You’ve been accepted as a {roleText} at VenusHacks 2026!
-				We truly appreciate the time and effort you put into your application.
-				Please read through and sign the waiver, and confirm your attendance below.
+					Congratulations! You’ve been accepted as a {roleText} at VenusHacks 2026!
+					We truly appreciate the time and effort you put into your application.
+					Please read through and sign the waiver, and confirm your attendance below.
 				</p>
 			);
 			break;
@@ -84,7 +83,7 @@ function Message({ status, role }: MessageProps) {
 
 	return (
 		<div className="font-body text-neutral-900 text-sm sm:text-base md:text-lg leading-relaxed px-3 sm:px- m5d:px-16">
-		{message}
+			{message}
 		</div>
 	);
 }
