@@ -37,6 +37,7 @@ FIELDS_SUPPORTING_OTHER = [
     "gender_identity",
     "experienced_technologies",
     "areas_of_development",
+    "how_did_you_hear_about_us",
 ]
 
 
