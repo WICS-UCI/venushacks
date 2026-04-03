@@ -11,6 +11,8 @@ export const Partner = z.object({
 	logo: SanityImageReference,
 });
 
+export type PartnerItem = z.infer<typeof Partner>;
+
 const Partners = SanityDocument.extend({
 	partners: z.array(Partner),
 });
