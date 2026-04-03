@@ -95,7 +95,9 @@ function Portal() {
 						<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
 					</div>
 
-					<span className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}>
+					<span
+						className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
+					>
 						{statusLabel}
 					</span>
 				</section>
