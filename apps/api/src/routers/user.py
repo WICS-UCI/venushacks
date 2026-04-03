@@ -119,6 +119,12 @@ async def apply(
         else:
             raise ValueError("Cannot determine hacker application type")
     except ValidationError as e:
+        log.info(
+            "An error occurred while submitting an application for %s: %s\n%s",
+            user,
+            err,
+            traceback.format_exc(),
+        )
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, e.errors())
 
     return await _apply_flow(user, raw_application_data)
