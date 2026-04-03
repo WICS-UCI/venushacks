@@ -50,9 +50,10 @@ function Message({ status, role }: MessageProps) {
 		case Status.Accepted: {
 			message = (
 				<p className="mt-4">
-					Congratulations! You’ve been accepted as a {roleText} at VenusHacks 2026!
-					We truly appreciate the time and effort you put into your application.
-					Please read through and sign the waiver, and confirm your attendance below.
+					Congratulations! You’ve been accepted as a {roleText} at VenusHacks
+					2026! We truly appreciate the time and effort you put into your
+					application. Please read through and sign the waiver, and confirm your
+					attendance below.
 				</p>
 			);
 			break;
