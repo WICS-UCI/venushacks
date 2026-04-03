@@ -57,7 +57,10 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 
 	const renderPartnerCard = (
 		partner: PartnerItem,
-		{ compact = false, faded = false }: { compact?: boolean; faded?: boolean } = {},
+		{
+			compact = false,
+			faded = false,
+		}: { compact?: boolean; faded?: boolean } = {},
 	) => {
 		const cardSize = compact ? "w-[320px] h-[320px]" : "w-[420px] h-[420px]";
 		const logoSize = compact ? "w-[90px] h-[90px]" : "w-[120px] h-[120px]";
@@ -79,7 +82,9 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 					alt=""
 					className="w-full h-full object-contain"
 				/>
-				<div className={`absolute inset-0 flex flex-col items-center justify-center px-8 ${contentOffsetClass}`}>
+				<div
+					className={`absolute inset-0 flex flex-col items-center justify-center px-8 ${contentOffsetClass}`}
+				>
 					<img
 						src={urlFor(partner.logo).format("webp").url()}
 						alt={`${partner.name} logo`}
@@ -203,11 +208,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				aria-label="Next partner"
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<Image
-					src={ArrowButton}
-					alt=""
-					className="w-8 h-8 md:w-12 md:h-12"
-				/>
+				<Image src={ArrowButton} alt="" className="w-8 h-8 md:w-12 md:h-12" />
 			</button>
 		</div>
 	);
