@@ -12,6 +12,7 @@
 		"format:check": "black --check src tests"
 	},
 	"devDependencies": {
-		"run-script-os": "^1.1.6"
+		"run-script-os": "^1.1.6",
+		"shx": "^0.4.0"
 	}
 }

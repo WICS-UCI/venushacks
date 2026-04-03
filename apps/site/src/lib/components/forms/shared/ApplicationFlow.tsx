@@ -10,6 +10,7 @@ import ApplicationsClosed from "./ApplicationsClosed/ApplicationsClosed";
 import { Identity } from "@/lib/utils/getUserIdentity";
 
 import ApplicationProgressBar from "@/lib/components/forms/shared/ApplicationProgressBar/ApplicationProgressBar";
+import FloatingBubble from "../FloatingBubble";
 
 export const revalidate = 60;
 
@@ -109,17 +110,7 @@ export default function ApplicationFlow({
 				<ApplicationsClosed identity={identity} />
 			) : (
 				<div className="flex flex-col items-center w-full max-w-5xl gap-8 mt-16 mb-32">
-					<div className="flex items-center bg-[rgba(255,255,255,0.6)] rounded-full p-3 shadow-md text-sm md:text-base font-figtree">
-						<span className="px-4 py-2 text-black bg-white rounded-full pointer-events-none md:px-6">
-							Application
-						</span>
-
-						<form method="post" action="api/user/logout">
-							<button type="submit" className="px-4 py-2 text-black md:px-6">
-								Logout
-							</button>
-						</form>
-					</div>
+					<FloatingBubble navText="Application" />
 
 					<ApplicationProgressBar
 						pageIndex={pageIndex}

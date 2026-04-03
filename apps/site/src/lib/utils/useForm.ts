@@ -58,7 +58,7 @@ export default function useForm(applyPath: string) {
 				// Use window.location instead of router.push in order
 				// to force reload the page to allow user identity to
 				// update with the new status
-				window.location.href = "/portal";
+				window.location.href = "/submission-confirmation";
 				return;
 			}
 		} catch (err) {

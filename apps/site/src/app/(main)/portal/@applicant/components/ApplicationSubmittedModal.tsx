@@ -41,7 +41,8 @@ export default function ApplicationSubmittedModal({
 					VenusHacks 2026! Keep an eye out for an email from us when an update
 					is made to your application. Please give us a few weeks to go through
 					all the applications, and if you have any further questions, feel free
-					to email us at venushacks.uci@gmail.com.
+					to email us at{" "}
+					<span className="underline">venushacks.uci@gmail.com</span>.
 				</p>
 				{/* Div containing Buttons */}
 				<div className="flex flex-col md:flex-row gap-4 w-full">
