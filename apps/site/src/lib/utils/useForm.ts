@@ -9,9 +9,7 @@ const FIELDS_WITH_OTHER = [
 	"pronouns",
 	"ethnicity",
 	"school",
-	"major",
 	"experienced_technologies",
-	"majors_and_minors",
 ];
 
 export default function useForm(applyPath: string) {
@@ -21,21 +19,18 @@ export default function useForm(applyPath: string) {
 	const handleSubmit = async (
 		event: FormEvent<HTMLFormElement>,
 	): Promise<void> => {
-		// Disable native post submission
 		event.preventDefault();
 
-		// On the chance that a user presses submit after the deadline,
-		// this check is to prevent the application from submitting
-		// and to show the message that applications have closed
 		if (hasDeadlinePassed()) {
 			window.location.reload();
 			return;
 		}
 
+		const formElement = event.currentTarget;
+		const formData = new FormData(formElement);
+
 		setSubmitting(true);
 		setSessionExpired(false);
-
-		const formData = new FormData(event.currentTarget);
 
 		// Use other values when selected
 		for (const field of FIELDS_WITH_OTHER) {
@@ -63,7 +58,7 @@ export default function useForm(applyPath: string) {
 				// Use window.location instead of router.push in order
 				// to force reload the page to allow user identity to
 				// update with the new status
-				window.location.href = "/portal";
+				window.location.href = "/submission-confirmation";
 				return;
 			}
 		} catch (err) {

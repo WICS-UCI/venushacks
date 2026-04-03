@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from logging import getLogger
 from typing import Annotated, Any, Union
 from urllib.parse import urlencode
+import traceback
 
 from fastapi import (
     APIRouter,
@@ -38,7 +39,7 @@ log = getLogger(__name__)
 
 router = APIRouter()
 
-DEADLINE = datetime(2025, 10, 28, 8, 1, tzinfo=timezone.utc)
+DEADLINE = datetime(2026, 4, 24, 23, 59, tzinfo=timezone.utc)
 
 HACKATHON_EXPERIENCE_SCORE_MAP = {
     "first_time": 5,
@@ -64,11 +65,11 @@ async def login(
     log.info("%s requested to log in", email)
     query = urlencode({"return_to": return_to})
 
-    if user_identity.uci_email(email) and user_identity.UCI_SSO_ENABLED:
-        # redirect user for UCI SSO, changing to GET method
-        return RedirectResponse(
-            URL(path="/api/saml/login", query=query), status.HTTP_303_SEE_OTHER
-        )
+    # if user_identity.uci_email(email) and user_identity.UCI_SSO_ENABLED:
+    #     # redirect user for UCI SSO, changing to GET method
+    #     return RedirectResponse(
+    #         URL(path="/api/saml/login", query=query), status.HTTP_303_SEE_OTHER
+    #     )
 
     # Forward POST request to guest login
     return RedirectResponse(
@@ -113,11 +114,18 @@ async def apply(
     raw_application_data: Union[RawHackerApplicationData]
     try:
         if discriminator == "hacker":
+            log.info(data)
             raw_application_data = RawHackerApplicationData.model_validate(data)
         else:
             raise ValueError("Cannot determine hacker application type")
     except ValidationError as e:
-        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
+        log.info(
+            "An error occurred while submitting an application for %s: %s\n%s",
+            user,
+            e,
+            traceback.format_exc(),
+        )
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, e.errors())
 
     return await _apply_flow(user, raw_application_data)
 
@@ -212,16 +220,22 @@ async def _apply_flow(
                 ).validate_python(raw_application_data),
                 resume,
             )
-        except TypeError:
-            log.info("%s provided invalid resume type.", user)
-            raise HTTPException(
-                status.HTTP_415_UNSUPPORTED_MEDIA_TYPE, "Invalid resume file type"
+        except TypeError as err:
+            log.info(
+                "An error occurred while submitting an application for %s: %s\n%s",
+                user,
+                err,
+                traceback.format_exc(),
             )
-        except ValueError:
-            log.info("%s provided too large resume.", user)
-            raise HTTPException(
-                status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, "Resume upload is too large"
+            raise HTTPException(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
+        except ValueError as err:
+            log.info(
+                "An error occurred while submitting an application for %s: %s\n%s",
+                user,
+                err,
+                traceback.format_exc(),
             )
+            raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE)
         except RuntimeError as err:
             log.error("During user %s apply, resume upload: %s", user.uid, err)
             raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -374,8 +388,6 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
 
     # Fields that should always be lists, even with single values
     MULTI_SELECT_FIELDS = {
-        "pronouns",
-        "majors_and_minors",
         "experienced_technologies",
         "skills",
         "areas_of_development",
@@ -393,6 +405,14 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
                 data[k] = [data[k], v]
         else:
             data[k] = v
+
+    OTHER_PREFIX = "_other_"
+    for k in list(data.keys()):
+        if k.startswith(OTHER_PREFIX):
+            actual_field = k[len(OTHER_PREFIX):]
+            if actual_field in data and data[actual_field] == "other":
+                data[actual_field] = data[k]
+            del data[k]
 
     # Ensure multi-select fields are always lists
     for field in MULTI_SELECT_FIELDS:

@@ -6,6 +6,7 @@ export const SubmissionComponent = () => {
 			text="Application Submitted"
 			finished={true}
 			statusIcon="Accepted"
+			size="compact"
 		/>
 	);
 };

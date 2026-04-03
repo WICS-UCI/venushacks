@@ -1,7 +1,5 @@
 import React from "react";
 import { Status } from "@/lib/userRecord";
-import { SubmissionComponent } from "./SubmissionComponent";
-import { VerdictComponent } from "./VerdictComponent";
 import { WaiverComponent } from "./WaiverComponent";
 import { RSVPComponent } from "./RSVPComponent";
 
@@ -11,9 +9,7 @@ interface VerticalTimelineProps {
 
 function VerticalTimeline({ status }: VerticalTimelineProps) {
 	return (
-		<div>
-			<SubmissionComponent />
-			<VerdictComponent status={status} />
+		<div className="space-y-3 md:space-y-4">
 			<WaiverComponent status={status} />
 			<RSVPComponent status={status} />
 		</div>

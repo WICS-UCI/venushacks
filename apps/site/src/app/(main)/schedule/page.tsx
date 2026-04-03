@@ -3,18 +3,13 @@ import { redirect } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { getSchedule } from "./components/getSchedule";
 
-import Image from "next/image";
-
-import starry_bg from "@/assets/images/starry_bg_1.svg";
-import clouds_bg from "@/assets/images/cloud_bg_2.png";
-
 import ShiftingCountdown from "./components/ShiftingCountdown/ShiftingCountdown";
 import SchedulePage from "./sections/SchedulePage";
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-	title: "Schedule | IrvineHacks 2025",
+	title: "Schedule | VenusHacks 2026",
 };
 
 export default async function Schedule() {
@@ -34,13 +29,6 @@ export default async function Schedule() {
 	return (
 		<>
 			<section className="h-full w-full mb-12 relative">
-				<div className="absolute top-0 left-0 w-full h-full overflow-hidden z-[-1] min-w-[1000px]">
-					<Image
-						src={starry_bg}
-						alt=""
-						className="absolute top-0 left-0 w-full"
-					/>
-				</div>
 				<div className="p-36 relative">
 					<ShiftingCountdown />
 				</div>
@@ -48,13 +36,6 @@ export default async function Schedule() {
 					<SchedulePage schedule={schedule} />
 				</div>
 			</section>
-			<div className="absolute bottom-0 left-0 w-full h-[100vh] overflow-hidden z-[-1] min-w-[1000px]">
-				<Image
-					src={clouds_bg}
-					alt=""
-					className="absolute translate-y-[40%] left-0 w-full bottom-0 opacity-75"
-				/>
-			</div>
 		</>
 	);
 }

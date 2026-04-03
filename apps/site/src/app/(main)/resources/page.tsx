@@ -5,7 +5,7 @@ import ResourceSection from "./components/ResourceSection";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-	title: "Resources | IrvineHacks 2025",
+	title: "Resources | VenusHacks 2026",
 };
 
 export default async function Resources() {

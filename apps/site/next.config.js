@@ -42,7 +42,7 @@ const nextConfig = {
 			},
 			{
 				source: "/devpost",
-				destination: "https://irvinehacks-2025.devpost.com/",
+				destination: "https://venus-hacks-2025.devpost.com/",
 				permanent: true,
 			},
 			{
@@ -53,6 +53,14 @@ const nextConfig = {
 			},
 		];
 	},
+	images: {
+		remotePatterns: [
+		{
+			protocol: "https",
+			hostname: "cdn.sanity.io",
+		},
+		],
+  	},
 };
 
 module.exports = nextConfig;

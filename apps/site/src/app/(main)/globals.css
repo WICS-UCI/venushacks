@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -26,25 +23,21 @@ body {
 }
 
 :root {
-	/* 2025 colors, remove later */
-	--color-white: #fff;
-	--color-offwhite: #fffce2;
-	--color-black: #0c071b;
-	--color-brown: #432810;
-	--color-light-blue: #39befd;
-	--color-midnight: #0c071b;
+	/* VenusHacks 2026 Site Colors */
+	/* Color names derived from https://colors.artyclick.com/color-name-finder/ */
+	--color-linen: #ffecec;
+	--color-pale-rose: #f8c4c4;
+	--color-indian-red: #cf6868;
 
-	/* 2026 colors */
-	--color-yellow: #e5f200;
-	--color-pink: #ff4def;
-	--color-dark-blue: #170f51;
-	--color-blue: #0a0e8f;
-	--color-turquoise: #00ffff;
+	--color-ice-cold: #b2eee7;
+
+	--color-white: #fff;
+	--color-black: #000;
 }
 
 body {
 	color: var(--color-turquoise);
-	background-color: #c5e7e1;
+	background-color: #C5C771;
 }
 
 /* based on Bootstrap Reboot */
@@ -59,4 +52,8 @@ hr {
 	border: 0;
 	border-top: 1px solid;
 	opacity: 0.25;
+}
+
+html {
+	scroll-behavior: smooth;
 }
