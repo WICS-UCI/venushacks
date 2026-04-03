@@ -8,8 +8,6 @@ import EventPlaque from "./EventPlaque";
 import EventProps from "../EventProps";
 import EventCard from "./EventCard";
 
-import star from "@/assets/images/large_star.svg";
-
 import styles from "./EventSidebar.module.scss";
 
 export default function EventSidebar({
@@ -127,15 +125,6 @@ export default function EventSidebar({
 							</div>
 						);
 					})}
-					<div className="h-[300px] w-full flex justify-center items-center">
-						<Image
-							src={star}
-							width={80}
-							height={80}
-							alt="✦"
-							className="opacity-60"
-						/>
-					</div>
 				</div>
 			</div>
 		</div>

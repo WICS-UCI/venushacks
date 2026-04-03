@@ -7,9 +7,9 @@ interface PageProps {
 }
 
 export default function SubmissionConfirmationPage({
-	searchParams
+	searchParams,
 }: PageProps) {
 	const role = searchParams.role;
 
-	return <ApplicationSubmittedModal role={role} />
+	return <ApplicationSubmittedModal role={role} />;
 }

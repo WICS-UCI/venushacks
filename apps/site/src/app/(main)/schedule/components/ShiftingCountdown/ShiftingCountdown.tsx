@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-import LgStar from "@/assets/images/large_star.svg";
-
-import QuestBox from "@/assets/images/text_box_with_title.svg";
 import BarLoader from "../BarLoader";
 import CountdownItem from "./CountdownItem";
 import FinalAnimation from "./FinalAnimation";
@@ -117,27 +114,10 @@ const ShiftingCountdown = () => {
 				)}
 			</AnimatePresence>
 
-			<div className="absolute top-[20%] left-16 max-md:hidden">
-				<Image src={LgStar} alt="✦" className="w-[70px]" />
-				<Image
-					src={LgStar}
-					alt="✦"
-					className="absolute top-22 left-10 w-[50px]"
-				/>
-			</div>
-			<div className="absolute top-[50%] right-14 max-md:hidden">
-				<Image src={LgStar} alt="✦" className="w-[70px] left-14" />
-				<Image src={LgStar} alt="✦" className="absolute top-22 w-[50px]" />
-			</div>
 			<div className="p-4">
 				<div className="w-full mx-auto flex items-center justify-center max-sm:w-full max-sm:h-[200px]">
 					<div className="relative max-sm:w-full max-sm:h-full">
 						<div className="w-full h-full bg-white absolute mt-5 left-5 max-sm:hidden" />
-						<Image
-							src={QuestBox}
-							alt="quest box"
-							className="relative z-0 min-w-[600px] max-sm:hidden"
-						/>
 						<div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
 							{!countdown.showTimer ? (
 								<div className="w-full flex justify-center">
