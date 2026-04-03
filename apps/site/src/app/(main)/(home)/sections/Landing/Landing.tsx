@@ -49,7 +49,7 @@ const Landing = () => {
 			</div>
 			<div className="relative w-full">
 				<div className="relative z-10 flex flex-col items-center pt-12 mb-[-4rem]">
-					<h2 className="font-sniglet text-center text-[#2d3150] text-[clamp(0.9rem,1.8vw,1.5rem)] tracking-wide mb-3 mt-[clamp(3rem,8vw,6rem)] px-4">
+					<h2 className="tracking-[19%] font-sniglet text-center text-[#2d3150] text-[clamp(0.9rem,1.8vw,1.5rem)] mb-3 mt-[clamp(3rem,8vw,6rem)] px-4">
 						UCI&apos;s Women-Centric Hackathon
 					</h2>
 
