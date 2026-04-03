@@ -13,7 +13,7 @@ export default function Hill() {
 			<div>
 				<Image src={hill} alt="hill fill" />
 			</div>
-			<div className="absolute bg-[#C5C771] w-full h-full" />
+			<div className="absolute bg-[#C5C771] w-full h-full scale-[200%]" />
 		</div>
 	);
 }
