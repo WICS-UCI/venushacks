@@ -1,7 +1,10 @@
 import clsx from "clsx";
+import Image from "next/image";
 
 import ValidatingForm from "@/lib/components/ValidatingForm/ValidatingForm";
 import RequiredAsterisk from "@/lib/components/forms/RequiredAsterisk";
+
+import picnicBasketImg from "@/assets/images/picnic_basket.svg"
 
 import styles from "@/lib/components/ValidatingForm/ValidatingForm.module.scss";
 
@@ -25,40 +28,57 @@ export default function GuestLoginVerificationForm({
 	}
 
 	return (
-		<div className="mx-8 md:m-0 p-6 md:px-10 md:py-8 border-[2px] md:border-[5px] border-[var(--color-white)] text-[var(--color-white)] bg-[var(--color-black)] max-w-[800px]">
-			<ValidatingForm
-				method="post"
-				action={VERIFICATION_PATH + `?${newSearchParams}`}
-			>
-				<div className="flex flex-col mb-12 gap-2">
-					<input type="email" name="email" value={email} readOnly hidden />
-					<label htmlFor="passphrase">
-						Passphrase <RequiredAsterisk />
-					</label>
-					<input
-						id="passphrase"
-						className="bg-[#e1e1e1] p-1 rounded-2 text-black placeholder-gray-500"
-						type="text"
-						pattern={PASSPHRASE_REGEX.source}
-						required
-						name="passphrase"
-						placeholder="Enter passphrase"
-						aria-describedby="passphrase-description"
-					/>
-					<small id="passphrase-description">
-						A login passphrase was sent to your email. Please enter the
-						passphrase.
-					</small>
-					<span className="text-[#FF2222]">
-						If you cannot find the passphrase, please check your spam. If the
-						email is still missing, try again later, use a different email, or
-						contact us at contact@venushacks.com for assistance.
-					</span>
-					<p className={clsx(styles.invalidFeedback, "text-red-500")}>
-						Sorry, that passphrase is invalid.
-					</p>
+		<div className="min-h-screen flex flex-col items-center justify-center">
+			<div className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-lg rounded-3xl">
+				<div className="w-full flex items-center justify-center mt-4 mb-8">
+					<Image src={picnicBasketImg} alt="Picnic basket" className="w-32"/>
 				</div>
-			</ValidatingForm>
+				<h2 className="mb-4 text-2xl text-center text-black font-sniglet tracking-wide">
+					Enter Passphrase
+				</h2>
+				<ValidatingForm
+					method="post"
+					action={VERIFICATION_PATH + `?${newSearchParams}`}
+				>
+					<div className="flex flex-col mb-12 gap-2">
+						<input type="email" name="email" value={email} readOnly hidden />
+						<label htmlFor="passphrase" className="mb-2 font-figtree">
+							Passphrase <RequiredAsterisk />
+						</label>
+						<input
+							id="passphrase"
+							className="w-full
+								rounded-xl
+								px-4 py-2 mb-6
+								border
+								bg-[#FCFCFC] shadow-[0_0_5px_rgba(0,0,0,0.4)]
+								outline-none
+								text-sm md:text-base
+								placeholder:text-[#8E8E8E] text-black
+								focus:bg-white
+								focus:ring-2
+								transition-colors duration-150
+							"
+							type="text"
+							pattern={PASSPHRASE_REGEX.source}
+							required
+							name="passphrase"
+							placeholder="Enter passphrase"
+							aria-describedby="passphrase-description"
+						/>
+						<small id="passphrase-description" className="font-figtree">
+							A login passphrase was sent to your email. Please enter the
+							passphrase.
+							If you cannot find the passphrase, please check your spam. If the
+							email is still missing, try again later, use a different email, or
+							contact us at contact@venushacks.com for assistance.
+						</small>
+						<p className={clsx(styles.invalidFeedback, "text-red-500 font-figtree mt-4")}>
+							Sorry, that passphrase is invalid.
+						</p>
+					</div>
+				</ValidatingForm>
+			</div>
 		</div>
 	);
 }
