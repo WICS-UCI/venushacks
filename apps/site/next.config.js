@@ -42,7 +42,7 @@ const nextConfig = {
 			},
 			{
 				source: "/devpost",
-				destination: "https://irvinehacks-2025.devpost.com/",
+				destination: "https://venus-hacks-2025.devpost.com/",
 				permanent: true,
 			},
 			{

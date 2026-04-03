@@ -9,7 +9,7 @@ const Landing = () => {
 	return (
 		<section className="relative mx-auto">
 			<div className="absolute inset-0 -z-20">
-				<div className="relative min-h-screen md:h-screen overflow-hidden bg-[#BEE7E1] flex justify-center">
+				<div className="relative h-30 md:h-screen overflow-hidden bg-[#BEE7E1] flex justify-center">
 					{/* Clouds */}
 					<div
 						className={`relative top-[5%] md:top-0 flex items-start justify-center w-[clamp(700px,90vw,1400px)]`}
