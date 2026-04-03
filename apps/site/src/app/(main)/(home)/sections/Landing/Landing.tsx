@@ -53,7 +53,10 @@ const Landing = () => {
 						UCI&apos;s Women-Centric Hackathon
 					</h2>
 
-					<h1 className="font-torus text-center text-[#2d3150] font-heading text-[clamp(2.5rem,8vw,8rem)] leading-[0.95] px-4">
+					<h1
+						className="font-torus text-center text-[#2d3150] font-heading text-[clamp(2.5rem,8vw,8rem)] leading-[0.95] px-4"
+						style={{ letterSpacing: "0.2em" }}
+					>
 						VENUSHACKS
 					</h1>
 				</div>
