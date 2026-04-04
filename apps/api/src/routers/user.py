@@ -119,6 +119,12 @@ async def apply(
         else:
             raise ValueError("Cannot determine hacker application type")
     except ValidationError as e:
+        log.info(
+            "An error occurred while submitting an application for %s: %s\n%s",
+            user,
+            e,
+            traceback.format_exc(),
+        )
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, e.errors())
 
     return await _apply_flow(user, raw_application_data)
@@ -399,6 +405,14 @@ def _parsed_form(form: FormData) -> dict[str, Any]:
                 data[k] = [data[k], v]
         else:
             data[k] = v
+
+    OTHER_PREFIX = "_other_"
+    for k in list(data.keys()):
+        if k.startswith(OTHER_PREFIX):
+            actual_field = k[len(OTHER_PREFIX):]
+            if actual_field in data and data[actual_field] == "other":
+                data[actual_field] = data[k]
+            del data[k]
 
     # Ensure multi-select fields are always lists
     for field in MULTI_SELECT_FIELDS:

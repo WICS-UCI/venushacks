@@ -48,7 +48,7 @@ export default function ApplicationLandingPane({
 				<div>VenusHacks 2026</div>
 
 				<div className="font-extrabold">WHEN</div>
-				<div>May 15, 2026 - May 16, 2026</div>
+				<div>May 16, 2026 - May 17, 2026</div>
 
 				<div className="font-extrabold">WHERE</div>
 				<div>UC Irvine (Donald Bren Hall)</div>
