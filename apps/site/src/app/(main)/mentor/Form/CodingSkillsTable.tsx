@@ -7,6 +7,12 @@ const COLUMNS = [
 	{ value: "advanced", label: "Advanced" },
 ];
 
+const NAME_OVERRIDES: Record<string, string> = {
+	"C++": "proficiency_cpp",
+	"Node.js": "proficiency_nodejs",
+	"Express.js": "proficiency_expressjs",
+};
+
 const SKILLS = [
 	"Figma",
 	"Java",
@@ -28,7 +34,7 @@ const SKILLS = [
 	"React",
 ].map((skill) => ({
 	label: skill,
-	name: `skill_${skill.toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
+	name: NAME_OVERRIDES[skill] ?? `proficiency_${skill.toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
 }));
 
 export default function CodingSkillsTable() {

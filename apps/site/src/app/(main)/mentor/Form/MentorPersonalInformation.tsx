@@ -8,6 +8,18 @@ import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import QuestionField from "@/lib/components/forms/QuestionField";
 import TextInput from "@/lib/components/forms/TextInput";
 
+const genderIdentity = [
+	{ value: "female", text: "Female" },
+	{ value: "male", text: "Male" },
+	{ value: "non-binary", text: "Non-binary" },
+	{ value: "other", text: "Other:" },
+];
+
+const yesNoOptions = [
+	{ value: "true", text: "Yes" },
+	{ value: "false", text: "No" },
+];
+
 const shirtSizeOptions = [
 	{ value: "small", text: "Small" },
 	{ value: "medium", text: "Medium" },
@@ -25,7 +37,8 @@ const yearOptions = [
 ];
 
 export default function MentorPersonalInformation() {
-	const [textAreaAnswer, setTextAreaAnswer] = useState("");
+	const [textAreaAnswer1, setTextAreaAnswer1] = useState("");
+	const [textAreaAnswer2, setTextAreaAnswer2] = useState("");
 
 	return (
 		<div className="w-full flex flex-col gap-6">
@@ -61,8 +74,44 @@ export default function MentorPersonalInformation() {
 				placeholder="ex: peter@uci.edu"
 			/>
 
+			<div className="grid grid-cols-12 gap-x-6 gap-y-6">
+				<TextInput
+					name="date_of_birth"
+					labelText="Date of Birth"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					type="text"
+					isDate
+					placeholder="mm/dd/yyyy"
+				/>
+				<DropdownSelect
+					name="is_18_older"
+					labelText="Will you be 18 years or older by May 16th, 2026?"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					values={yesNoOptions}
+					placeholder="Select an option"
+				/>
+				<DropdownSelect
+					name="gender_identity"
+					labelText="Gender Identity"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					values={genderIdentity}
+					placeholder="Select an option"
+				/>
+				<TextInput
+					name="pronouns"
+					labelText="Preferred Pronouns"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					type="text"
+					placeholder="Enter your preferred pronouns"
+				/>
+			</div>
+
 			<DropdownSelect
-				name="school_year"
+				name="year"
 				labelText="What year are you?"
 				placeholder="Select an option"
 				containerClass="flex flex-col w-full"
@@ -70,7 +119,7 @@ export default function MentorPersonalInformation() {
 			/>
 
 			<TextInput
-				name="major_minor"
+				name="major"
 				labelText='Major (If you have graduated or are working full-time, you can put "N/A")'
 				containerClass="flex flex-col w-full"
 				isRequired={true}
@@ -79,7 +128,7 @@ export default function MentorPersonalInformation() {
 			/>
 
 			<TextInput
-				name="university"
+				name="affiliation"
 				labelText="Affiliation (If you are still a student, this is your university (full name please); If you have graduated or are working full-time, this is your company or organization! e.g. University of California, Irvine)"
 				containerClass="flex flex-col w-full"
 				isRequired={true}
@@ -127,14 +176,23 @@ export default function MentorPersonalInformation() {
 				label="Availability — For orientation / pre-meeting / for event? (Please describe when you are available during the event, May 16–17, 2026)"
 				maxWords={300}
 				required
-				value={textAreaAnswer}
-				onChange={(v) => setTextAreaAnswer(v)}
+				value={textAreaAnswer1}
+				onChange={(v) => setTextAreaAnswer1(v)}
 			/>
 
 			<CodingSkillsTable />
 
+			<QuestionField
+				name="additional_skills_technologies"
+				label="Are there any other skills/technologies you want to mention?"
+				maxWords={300}
+				required
+				value={textAreaAnswer2}
+				onChange={(v) => setTextAreaAnswer2(v)}
+			/>
+
 			<CheckboxList
-				name="dev_areas"
+				name="areas_of_development"
 				labelText="Select which areas of development you are most comfortable with"
 				isRequired={true}
 				includeOther={true}

@@ -142,6 +142,7 @@ async def mentor(
     raw_application_data: Union[RawMentorApplicationData]
     try:
         if discriminator == "mentor":
+            log.info(data)
             raw_application_data = RawMentorApplicationData.model_validate(data)
         else:
             raise HTTPException(
@@ -149,6 +150,7 @@ async def mentor(
                 "Cannot determine mentor application type",
             )
     except ValidationError as e:
+        log.error(e.errors())
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
 
     return await _apply_flow(user, raw_application_data)

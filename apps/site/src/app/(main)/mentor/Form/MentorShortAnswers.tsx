@@ -18,7 +18,7 @@ export default function ShortAnswers() {
 				II. Short Answers
 			</h1>
 			<QuestionField
-				name="mentor_why_saq1"
+				name="why_mentor_frq"
 				label="Why do you want to be a mentor for VenusHacks? What are you hoping to gain from this experience?"
 				maxWords={300}
 				required
@@ -26,7 +26,7 @@ export default function ShortAnswers() {
 				onChange={(v) => setAnswers({ ...answers, why: v })}
 			/>
 			<QuestionField
-				name="mentor_inclusive_saq2"
+				name="contribute_inclusive_frq"
 				label="How do you hope to contribute to VenusHacks' inclusive environment?"
 				maxWords={300}
 				required
@@ -34,7 +34,7 @@ export default function ShortAnswers() {
 				onChange={(v) => setAnswers({ ...answers, inclusive: v })}
 			/>
 			<QuestionField
-				name="mentor_availability_saq3"
+				name="availability_specify"
 				label="Are you available to commit to the entire duration of VenusHacks 2026? If not, please specify your availability."
 				maxWords={300}
 				required
@@ -42,7 +42,7 @@ export default function ShortAnswers() {
 				onChange={(v) => setAnswers({ ...answers, availability: v })}
 			/>
 			<QuestionField
-				name="mentor_questions_saq4"
+				name="questions_comments_concerns"
 				label="Questions, comments, concerns?"
 				maxWords={300}
 				required
