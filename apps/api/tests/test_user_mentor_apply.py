@@ -70,7 +70,7 @@ EXPECTED_APPLICATION_DATA = ProcessedMentorApplicationData(
     resume_url=SAMPLE_RESUME_URL,
     submission_time=SAMPLE_SUBMISSION_TIME,
 )
-assert EXPECTED_APPLICATION_DATA.linkedin is None
+assert EXPECTED_APPLICATION_DATA.linkedin == ""
 
 
 EXPECTED_USER = Applicant(
@@ -135,7 +135,7 @@ def test_mentor_apply_with_invalid_data_causes_422(
 ) -> None:
     """Test that applying with invalid data is unprocessable."""
     bad_application = SAMPLE_APPLICATION.copy()
-    bad_application["github"] = "ht."
+    bad_application["is_18_older"] = "maybe"
     res = client.post("/mentor", data=bad_application, files=SAMPLE_FILES)
 
     mock_mongodb_handler_retrieve_one.assert_not_called()

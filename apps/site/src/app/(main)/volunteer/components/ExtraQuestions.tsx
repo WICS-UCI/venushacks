@@ -1,9 +1,7 @@
-import Textfield from "@/lib/components/forms/Textfield";
-
 export default function ExtraQuestions() {
 	return (
 		<>
-			<Textfield
+			{/* <Textfield
 				name="allergies"
 				labelText="If you are tasked to serve food, do you have any allergies we should be aware of? If so, please explain the severity of each allergy."
 				containerClass="w-11/12 flex flex-col gap-5"
@@ -16,7 +14,7 @@ export default function ExtraQuestions() {
 				containerClass="w-11/12 flex flex-col gap-5"
 				isRequired={false}
 				maxLength={1500}
-			/>
+			/> */}
 		</>
 	);
 }
