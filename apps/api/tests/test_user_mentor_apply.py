@@ -70,7 +70,7 @@ EXPECTED_APPLICATION_DATA = ProcessedMentorApplicationData(
     resume_url=SAMPLE_RESUME_URL,
     submission_time=SAMPLE_SUBMISSION_TIME,
 )
-assert EXPECTED_APPLICATION_DATA.linkedin is None
+assert EXPECTED_APPLICATION_DATA.linkedin is ""
 
 
 EXPECTED_USER = Applicant(
