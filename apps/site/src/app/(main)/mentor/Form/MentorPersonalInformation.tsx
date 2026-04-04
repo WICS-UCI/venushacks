@@ -1,16 +1,18 @@
+"use client";
+
+import { useState } from "react";
+
 import CheckboxList from "@/lib/components/forms/CheckboxList";
 import CodingSkillsTable from "./CodingSkillsTable";
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
-import Textfield from "@/lib/components/forms/Textfield";
+import QuestionField from "@/lib/components/forms/QuestionField";
 import TextInput from "@/lib/components/forms/TextInput";
 
 const shirtSizeOptions = [
-	{ value: "xs", text: "XS" },
-	{ value: "s", text: "Small" },
-	{ value: "m", text: "Medium" },
-	{ value: "l", text: "Large" },
-	{ value: "xl", text: "XL" },
-	{ value: "xxl", text: "XXL" },
+	{ value: "small", text: "Small" },
+	{ value: "medium", text: "Medium" },
+	{ value: "large", text: "Large" },
+	{ value: "xl", text: "Extra Large" },
 ];
 
 const yearOptions = [
@@ -23,11 +25,13 @@ const yearOptions = [
 ];
 
 export default function MentorPersonalInformation() {
+	const [textAreaAnswer, setTextAreaAnswer] = useState("");
+
 	return (
-		<div className="flex flex-col w-11/12 gap-5">
-			<p className="text-4xl m-0 max-[700px]:text-3xl">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 				I. Personal Information
-			</p>
+			</h1>
 
 			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
 				<TextInput
@@ -60,6 +64,7 @@ export default function MentorPersonalInformation() {
 			<DropdownSelect
 				name="school_year"
 				labelText="What year are you?"
+				placeholder="Select an option"
 				containerClass="flex flex-col w-full"
 				values={yearOptions}
 			/>
@@ -114,14 +119,16 @@ export default function MentorPersonalInformation() {
 				labelText="T-Shirt Size (Unisex)"
 				containerClass="flex flex-col w-full"
 				values={shirtSizeOptions}
-				defaultValue="s"
+				placeholder="Select an option"
 			/>
 
-			<Textfield
+			<QuestionField
 				name="availability"
-				labelText="Availability — For orientation / pre-meeting / for event? (Please describe when you are available during the event, May 15–17, 2026)"
-				containerClass="flex flex-col w-full"
-				isRequired={true}
+				label="Availability — For orientation / pre-meeting / for event? (Please describe when you are available during the event, May 16–17, 2026)"
+				maxWords={300}
+				required
+				value={textAreaAnswer}
+				onChange={(v) => setTextAreaAnswer(v)}
 			/>
 
 			<CodingSkillsTable />

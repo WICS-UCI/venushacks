@@ -4,6 +4,12 @@ import Image from "next/image";
 
 import brown_bear from "@/assets/images/brown_bear.svg";
 
+const whoTextMap = {
+	"Hacker": "You! A high school (18+) student, undergraduate, or graduate student of any experience level!",
+	"Mentor": "You! A professional, student, or industry member who is ready to help and share their expertise!",
+	"Volunteer": "You! A professional, student, or industry member who is ready to help and share their expertise!",
+}
+
 export default function ApplicationLandingPane({
 	applicationType,
 }: {
@@ -39,10 +45,7 @@ export default function ApplicationLandingPane({
 			{/* WHO/WHAT/WHEN/WHERE block */}
 			<div className="grid gap-2 md:gap-4 text-slate-800 grid-cols-[80px_1fr] md:grid-cols-[120px_1fr]">
 				<div className="font-extrabold">WHO</div>
-				<div>
-					You! A high school (18+) student, undergraduate, or graduate student
-					of any experience level!
-				</div>
+				<div>{whoTextMap[applicationType]}</div>
 
 				<div className="font-extrabold">WHAT</div>
 				<div>VenusHacks 2026</div>

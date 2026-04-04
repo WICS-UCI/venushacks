@@ -22,7 +22,7 @@ const roles = [
 		key: "mentor",
 		title: "Mentor",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+			"Support hackers by answering questions and providing guidance throughout the event.",
 		image: mentorSprite,
 		route: "/mentor",
 	},
@@ -30,7 +30,7 @@ const roles = [
 		key: "volunteer",
 		title: "Volunteer",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+			"Support the hackathon by helping with event tasks (food, check in, and more!) and set up/tear down.",
 		image: volunteerSprite,
 		route: "/volunteer",
 	},

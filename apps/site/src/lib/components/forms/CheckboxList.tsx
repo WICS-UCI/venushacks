@@ -33,7 +33,7 @@ export default function CheckboxList({
 
 	return (
 		<div className="flex flex-col w-full gap-2">
-			<p className="mb-1 text-sm font-medium">
+			<p className="block text-sm md:text-base mb-2 font-figtree">
 				{labelText} {isRequired && <RequiredAsterisk />}
 			</p>
 			<div className="flex flex-col w-full gap-2 px-4 py-3 bg-white border border-gray-300 shadow-md rounded-xl">

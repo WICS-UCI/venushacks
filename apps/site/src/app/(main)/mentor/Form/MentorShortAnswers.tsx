@@ -1,38 +1,53 @@
-import Textfield from "@/lib/components/forms/Textfield";
+"use client";
+
+import { useState } from "react";
+
+import QuestionField from "@/lib/components/forms/QuestionField";
 
 export default function ShortAnswers() {
+	const [answers, setAnswers] = useState({
+		why: "",
+		inclusive: "",
+		availability: "",
+		questions: "",
+	});
+
 	return (
-		<div className="flex flex-col w-11/12 gap-5">
-			<p className="text-4xl m-0 font-bold max-[700px]:text-3xl">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
 				II. Short Answers
-			</p>
-			<Textfield
+			</h1>
+			<QuestionField
 				name="mentor_why_saq1"
-				labelText="Why do you want to be a mentor for VenusHacks? What are you hoping to gain from this experience?"
-				containerClass="flex flex-col w-full"
-				isRequired={true}
-				maxLength={1500}
+				label="Why do you want to be a mentor for VenusHacks? What are you hoping to gain from this experience?"
+				maxWords={300}
+				required
+				value={answers.why}
+				onChange={(v) => setAnswers({ ...answers, why: v })}
 			/>
-			<Textfield
+			<QuestionField
 				name="mentor_inclusive_saq2"
-				labelText="How do you hope to contribute to VenusHacks' inclusive environment?"
-				containerClass="flex flex-col w-full"
-				isRequired={true}
-				maxLength={1500}
+				label="How do you hope to contribute to VenusHacks' inclusive environment?"
+				maxWords={300}
+				required
+				value={answers.inclusive}
+				onChange={(v) => setAnswers({ ...answers, inclusive: v })}
 			/>
-			<Textfield
+			<QuestionField
 				name="mentor_availability_saq3"
-				labelText="Are you available to commit to the entire duration of VenusHacks 2026? If not, please specify your availability."
-				containerClass="flex flex-col w-full"
-				isRequired={true}
-				maxLength={1500}
+				label="Are you available to commit to the entire duration of VenusHacks 2026? If not, please specify your availability."
+				maxWords={300}
+				required
+				value={answers.availability}
+				onChange={(v) => setAnswers({ ...answers, availability: v })}
 			/>
-			<Textfield
+			<QuestionField
 				name="mentor_questions_saq4"
-				labelText="Questions, comments, concerns?"
-				containerClass="flex flex-col w-full"
-				isRequired={false}
-				maxLength={1500}
+				label="Questions, comments, concerns?"
+				maxWords={300}
+				required
+				value={answers.questions}
+				onChange={(v) => setAnswers({ ...answers, questions: v })}
 			/>
 		</div>
 	);
