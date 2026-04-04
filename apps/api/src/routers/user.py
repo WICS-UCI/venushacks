@@ -166,6 +166,7 @@ async def volunteer(
     try:
         raw_application_data = RawVolunteerApplicationData.model_validate(data)
     except ValidationError as e:
+        log.error(e.errors())
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(e))
     return await _apply_flow(user, raw_application_data)
 

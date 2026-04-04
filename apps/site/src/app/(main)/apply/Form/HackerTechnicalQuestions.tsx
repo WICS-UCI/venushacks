@@ -14,7 +14,7 @@ export default function TechnicalQuestions() {
 	return (
 		<div className="w-full flex flex-col gap-6">
 			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
-				III. Technical Questions
+				III. Insight Questions
 			</h1>
 
 			<QuestionField

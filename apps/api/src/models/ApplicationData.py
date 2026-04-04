@@ -141,20 +141,24 @@ Hour = Annotated[int, Field(ge=7, lt=24)]
 class BaseVolunteerApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=1024)
 
-    pronouns: str
-    ethnicity: str
+    date_of_birth: datetime
     is_18_older: bool
-    school: str
-    education_level: str
-    major: str
-    frq_volunteer: str = Field(max_length=2048)
-    frq_utensil: str = Field(max_length=2048)
-    allergies: Union[str, None] = Field(None, max_length=2048)
-    other_questions: Union[str, None] = Field(None, max_length=2048)
+    gender_identity: str
+    pronouns: str
+    shirt_size: str
+    dietary_restrictions: str
 
-    friday_availability: list[Hour] = []
+    prior_experience: str
+    minimum_5_hours: bool
+    
     saturday_availability: list[Hour] = []
     sunday_availability: list[Hour] = []
+
+    questions_comments_concerns: Union[str, None] = Field(None, max_length=2048)
+
+    frq_volunteer: str = Field(max_length=2048)
+    frq_expect_to_gain: str = Field(max_length=2048)
+    frq_picnic: str = Field(max_length=2048)
 
 
 class RawHackerApplicationData(BaseApplicationData):
