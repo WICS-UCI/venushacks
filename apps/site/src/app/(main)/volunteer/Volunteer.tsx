@@ -4,15 +4,16 @@ import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 import BasicInformation from "./components/VolunteerBasicInformation";
-import ShiftAvailability from "./components/ShiftAvailability";
 import VolunteerFRQ from "./components/VolunteerFRQ";
-import ExtraQuestions from "./components/ExtraQuestions";
+import ApplicationLandingPane from "@/lib/components/forms/shared/ApplicationLandingPane";
 
 export const revalidate = 60;
 
 export default async function Volunteer() {
 	const identity = await getUserIdentity();
-
+	if (!identity || identity.uid === null) {
+		redirect("/login");
+	}
 	if (identity.status !== null) {
 		redirect("/portal");
 	}
@@ -23,10 +24,9 @@ export default async function Volunteer() {
 			applyPath="/api/user/volunteer"
 			identity={identity}
 		>
+			<ApplicationLandingPane applicationType="Volunteer" />
 			<BasicInformation />
 			<VolunteerFRQ />
-			<ShiftAvailability />
-			<ExtraQuestions />
 		</ApplicationFlow>
 	);
 }

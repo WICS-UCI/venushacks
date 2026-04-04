@@ -77,20 +77,20 @@ export default function DayShift({
 							/>
 						),
 				)}
-				<div className="w-full text-2xl text-center pb-5">{shiftText}</div>
+				<div className="w-full text-center pb-5 font-figtree">{shiftText}</div>
 				{availability.map((available, i) => {
 					return (
 						<div
 							key={`shift_${i}`}
 							className="relative w-full flex justify-end"
 						>
-							<div className=" top-[-7px] text-xs left-0 pr-2 mt-[-7px] min-w-[45px]">
+							<div className=" top-[-7px] text-xs left-0 pr-2 mt-[-7px] min-w-[45px] font-figtree">
 								{as12Hour(startHour + i)}
 							</div>
 							<div
 								className={`h-[50px] w-full ${
 									i === num_hours ? "" : "border-black border-b-2"
-								} ${available ? "bg-blue-500" : "bg-gray-200"}`}
+								} ${available ? "bg-green-400" : "bg-gray-200"}`}
 								onMouseDown={(e) => onMouseDown(e, i)}
 								onMouseUp={onMouseUp}
 								onMouseOver={() => onMouseOver(i)}

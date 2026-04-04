@@ -1,21 +1,45 @@
+"use client";
+
+import { useState } from "react";
+
+import QuestionField from "@/lib/components/forms/QuestionField";
+
 export default function VolunteerFRQ() {
+	const [answers, setAnswers] = useState({
+		why: "",
+		gain: "",
+		picnic: "",
+	});
+
 	return (
-		<div className="flex flex-col items-start w-11/12 gap-5">
-			<div className="text-4xl font-bold">Volunteer Information</div>
-			{/* <Textfield
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
+				II. Volunteer Questions
+			</h1>
+			<QuestionField
 				name="frq_volunteer"
-				labelText="Why are you interested in volunteering, and what do you expect to gain from this experience?"
-				containerClass="w-full"
-				isRequired={true}
-				maxLength={1500}
+				label="Why do you want to be a volunteer at Venus Hacks?"
+				maxWords={150}
+				required
+				value={answers.why}
+				onChange={(v) => setAnswers({ ...answers, why: v })}
 			/>
-			<Textfield
-				name="frq_utensil"
-				labelText="If you were a kitchen utensil, what would you be and why?"
-				containerClass="w-full"
-				isRequired={true}
-				maxLength={1500}
-			/> */}
+			<QuestionField
+				name="frq_expect_to_gain"
+				label="What do you expect to gain from this experience?"
+				maxWords={150}
+				required
+				value={answers.gain}
+				onChange={(v) => setAnswers({ ...answers, gain: v })}
+			/>
+			<QuestionField
+				name="frq_picnic"
+				label="What would you bring to your ideal picnic outing and why? Who would be there?"
+				maxWords={100}
+				required
+				value={answers.picnic}
+				onChange={(v) => setAnswers({ ...answers, picnic: v })}
+			/>
 		</div>
 	);
 }

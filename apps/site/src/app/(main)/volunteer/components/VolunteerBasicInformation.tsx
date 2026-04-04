@@ -1,69 +1,181 @@
+"use client";
+
+import { useState } from "react";
+
 import DropdownSelect from "@/lib/components/forms/DropdownSelect";
 import MultipleSelect from "@/lib/components/forms/MultipleSelect";
 import TextInput from "@/lib/components/forms/TextInput";
+import QuestionField from "@/lib/components/forms/QuestionField";
+import DayShift from "./DayShift";
 
-const pronouns = [
-	{ value: "he", text: "He/him/his" },
-	{ value: "she", text: "She/her/hers" },
-	{ value: "they", text: "They/them/theirs" },
-	{ value: "ze", text: "Ze/zir/zirs" },
+const genderIdentity = [
+	{ value: "female", text: "Female" },
+	{ value: "male", text: "Male" },
+	{ value: "non-binary", text: "Non-binary" },
 	{ value: "other", text: "Other:" },
 ];
 
-const ethnicity = [
-	{ value: "American", text: "American Indian or Alaskan" },
-	{ value: "Asian", text: "Asian or Pacific Islander" },
-	{ value: "Black", text: "Black or African American" },
-	{ value: "Hispanic", text: "Hispanic" },
-	{ value: "White", text: "White or Caucasian" },
-	{ value: "Two-or-more", text: "Two or more races" },
-	{ value: "Prefer not to answer", text: "Prefer not to answer" },
-	{ value: "other", text: "Other" },
+const yesNoOptions = [
+	{ value: "true", text: "Yes" },
+	{ value: "false", text: "No" },
+];
+
+const shirtSizes = [
+	{ value: "small", text: "Small" },
+	{ value: "medium", text: "Medium" },
+	{ value: "large", text: "Large" },
+	{ value: "xl", text: "Extra Large" },
 ];
 
 export default function BasicInformation() {
+	const [answers, setAnswers] = useState({
+		prior: "",
+		comments: "",
+	});
+
 	return (
-		<div className="flex flex-col gap-5 w-11/12">
-			<p className="text-4xl m-0 max-[700px]:text-3xl font-bold">
-				Basic Information
-			</p>
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
+				I. General Information
+			</h1>
+
+			<div className="grid grid-cols-12 gap-x-6 gap-y-6">
 				<TextInput
 					name="first_name"
 					labelText="First Name"
-					containerClass="flex flex-col w-6/12 max-[1000px]:w-full"
+					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
 					type="text"
-					placeholder="Peter"
+					placeholder="Enter your first name"
 				/>
 				<TextInput
 					name="last_name"
 					labelText="Last Name"
-					containerClass="flex flex-col w-6/12 max-[1000px]:w-full"
+					containerClass="col-span-12 md:col-span-6"
 					isRequired={true}
 					type="text"
-					placeholder="Anteater"
+					placeholder="Enter your last name"
 				/>
-			</div>
-
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<DropdownSelect
-					name="ethnicity"
-					labelText="Race / Ethnicity"
-					containerClass="flex flex-col w-full max-[1000px]:w-full"
+				<TextInput
+					name="email"
+					labelText="Email"
+					containerClass="col-span-12"
 					isRequired={true}
-					placeholder="Select your Ethnicity"
-					values={ethnicity}
+					type="text"
+					placeholder="ex: peter@uci.edu"
 				/>
-			</div>
-
-			<div className="flex gap-5 w-full max-[1000px]:flex-col max-[1000px]:items-center">
-				<MultipleSelect
+				<TextInput
+					name="date_of_birth"
+					labelText="Date of Birth"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					type="text"
+					isDate
+					placeholder="mm/dd/yyyy"
+				/>
+				<DropdownSelect
+					name="is_18_older"
+					labelText="Will you be 18 years or older by May 16th, 2026?"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					values={yesNoOptions}
+					placeholder="Select an option"
+				/>
+				<DropdownSelect
+					name="gender_identity"
+					labelText="Gender Identity"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					values={genderIdentity}
+					placeholder="Select an option"
+				/>
+				<TextInput
 					name="pronouns"
 					labelText="Preferred Pronouns"
-					containerClass="flex flex-col w-full"
+					containerClass="col-span-12 md:col-span-6"
+					isRequired={true}
+					type="text"
+					placeholder="Enter your preferred pronouns"
+				/>
+				<DropdownSelect
+					name="shirt_size"
+					labelText="Shirt Size (Unisex)"
+					containerClass="col-span-12"
+					isRequired={true}
+					values={shirtSizes}
+					placeholder="Select an option"
+				/>
+				<TextInput
+					name="dietary_restrictions"
+					labelText="What are your dietary restrictions? Include your allergies (if any)."
+					containerClass="col-span-12 md:col-span-12"
+					isRequired={false}
+					type="text"
+					placeholder="e.g. Vegetarian, nut allergy... or leave blank if none"
+				/>
+				<div className="w-full flex flex-col gap-6 col-span-12">
+					<QuestionField
+						name="prior_experience"
+						label="Any prior hackathon volunteer experience (ex. VH 2025)? Enter N/A if none."
+						maxWords={300}
+						required
+						value={answers.prior}
+						onChange={(v) => setAnswers({ ...answers, prior: v })}
+					/>
+				</div>
+
+				<DropdownSelect
+					name="minimum_5_hours"
+					labelText="Will you be available to volunteer a combined amount of 5 hours minimum across Saturday, May 16th, through Sunday, May 17th?"
+					containerClass="col-span-12"
+					isRequired={true}
+					values={yesNoOptions}
+					placeholder="Select an option"
+				/>
+				<label className="w-full block col-span-12 text-sm md:text-base mb-2 font-figtree">
+					Please select your availability for Saturday and Sunday.
+					<span className="text-red-500"> *</span>
+				</label>
+				<div className="w-full flex flex-col gap-6 col-span-12 md:col-span-6">
+					<DayShift
+						shiftText="May 16 - Saturday Shift"
+						shiftLabel="saturday_availability"
+						startHour={7}
+						endHour={24}
+					/>
+				</div>
+				<div className="w-full flex flex-col gap-6 col-span-12 md:col-span-6">
+					<DayShift
+						shiftText="May 17 - Sunday Shift"
+						shiftLabel="sunday_availability"
+						startHour={7}
+						endHour={18}
+					/>
+				</div>
+				<div className="w-full flex flex-col gap-6 col-span-12">
+					<QuestionField
+						name="questions_comments_concerns"
+						label="Any questions, comments, or concerns?"
+						optional
+						value={answers.comments}
+						onChange={(v) => setAnswers({ ...answers, comments: v })}
+						placeholder="Enter a question, comment, or concern (optional)"
+					/>
+				</div>
+				<MultipleSelect
+					name="acknowledgements"
+					labelText=""
 					inputType="checkbox"
-					values={pronouns}
+					isRequired={true}
+					containerClass="flex flex-col col-span-12"
+					horizontal={false}
+					allChecked
+					values={[
+						{
+							value: "transportation",
+							text: "I acknowledge that I am responsible for my own transportation to UC Irvine and overnight stay between event days.",
+						},
+					]}
 				/>
 			</div>
 		</div>

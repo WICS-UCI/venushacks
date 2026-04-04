@@ -15,7 +15,7 @@ export default function ShortAnswers() {
 	return (
 		<div className="w-full flex flex-col gap-6">
 			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
-				II. Short Answers
+				II. Insight Questions
 			</h1>
 			<QuestionField
 				name="why_mentor_frq"

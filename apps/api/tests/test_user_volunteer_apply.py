@@ -25,17 +25,19 @@ USER_PKFIRE = NativeUser(
 SAMPLE_APPLICATION = {
     "first_name": "pk",
     "last_name": "fire",
-    "ethnicity": "E#",
+    "date_of_birth": "2000-01-01T00:00:00Z",
     "pronouns": "adjectives",
     "is_18_older": "true",
-    "school": "UC Irvine",
-    "education_level": "Fifth+ Year Undergraduate",
-    "major": "Computer Science",
+    "gender_identity": "Female",
+    "shirt_size": "M",
+    "dietary_restrictions": "sdflj",
+    "prior_experience": "i have no prior experience",
+    "minimum_5_hours": "true",
     "frq_volunteer": "",
-    "frq_utensil": "",
-    "other_questions": "",
+    "frq_expect_to_gain": "",
+    "frq_picnic": "",
+    "questions_comments_concerns": "some questions",
     "application_type": "Volunteer",
-    "friday_availability": ["12", "13"],
     "saturday_availability": ["14", "18"],
     "sunday_availability": ["9", "10"],
     "email": USER_EMAIL,
@@ -109,7 +111,7 @@ def test_volunteer_apply_with_invalid_availability_causes_422(
     mock_mongodb_handler_retrieve_one.return_value = None
 
     bad_application = SAMPLE_APPLICATION.copy()
-    bad_application["friday_availability"] = ["24"]
+    bad_application["sunday_availability"] = ["6"]
     res = client.post("/volunteer", data=bad_application)
 
     assert res.status_code == 422
