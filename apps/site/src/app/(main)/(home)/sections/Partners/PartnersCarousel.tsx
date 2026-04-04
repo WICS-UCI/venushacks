@@ -3,8 +3,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useRef, useState, type TouchEvent } from "react";
-import ArrowButton from "@/assets/partner-icons/ArrowButton.png";
-import PartnersBackground from "@/assets/partner-icons/PartnersBackground.png";
+import ArrowButton from "@/assets/partner-icons/ArrowButton.svg";
+import PartnersBackground from "@/assets/partner-icons/PartnersBackground.svg";
 import { urlFor } from "@/lib/sanity/image";
 import type { PartnerItem } from "./getPartners";
 
@@ -63,17 +63,30 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 		}: { compact?: boolean; faded?: boolean } = {},
 	) => {
 		const cardSize = compact ? "w-[320px] h-[320px]" : "w-[420px] h-[420px]";
-		const logoSize = compact ? "w-[90px] h-[90px]" : "w-[120px] h-[120px]";
-		const contentOffsetClass = compact ? "-translate-y-10" : "-translate-y-12";
+		const logoSize = compact ? "w-[72px] h-[72px]" : "w-[120px] h-[120px]";
+		const contentOffsetClass = compact ? "translate-y-1" : "translate-y-1";
 		const nameStyle = compact
 			? {
-					fontSize: "40px",
-					lineHeight: "40px",
-				}
+					fontSize: "30px",
+					lineHeight: "30px",
+			  }
 			: {
 					fontSize: "40px",
 					lineHeight: "40px",
-				};
+			  };
+		const descriptionStyle = compact
+			? {
+					width: "220px",
+					height: "66px",
+					fontSize: "11px",
+					lineHeight: "17px",
+			  }
+			: {
+					width: "355.96px",
+					height: "100px",
+					fontSize: "14.17px",
+					lineHeight: "24.79px",
+			  };
 
 		return (
 			<div className={`relative ${cardSize}`}>
@@ -104,6 +117,22 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 					>
 						{partner.name}
 					</p>
+					{partner.description && (
+						<p
+							className="mt-0 text-center"
+							style={{
+								fontFamily: "Sniglet",
+								fontWeight: 400,
+								fontStyle: "normal",
+								letterSpacing: "0.05em",
+								textAlign: "center",
+								color: "#2F3248",
+								...descriptionStyle,
+							}}
+						>
+							{partner.description}
+						</p>
+					)}
 				</div>
 				{faded && (
 					<div

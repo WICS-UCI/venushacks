@@ -5,7 +5,7 @@ import Image from "next/image";
 import BlockChain from "@/assets/partner-icons/BlockChain.png";
 import CTC from "@/assets/partner-icons/CTC.png";
 import Design from "@/assets/partner-icons/Design.png";
-import ArrowButton from "@/assets/partner-icons/ArrowButton.png";
+import ArrowButton from "@/assets/partner-icons/ArrowButton.svg";
 
 const partners = [
 	{ src: CTC, alt: "CTC" },
