@@ -1,38 +1,53 @@
-import Textfield from "@/lib/components/forms/Textfield";
+"use client";
+
+import { useState } from "react";
+
+import QuestionField from "@/lib/components/forms/QuestionField";
 
 export default function ShortAnswers() {
+	const [answers, setAnswers] = useState({
+		why: "",
+		inclusive: "",
+		availability: "",
+		questions: "",
+	});
+
 	return (
-		<div className="flex flex-col gap-5 w-11/12">
-			<p className="text-4xl m-0 font-bold max-[700px]:text-3xl">
-				Profile Information
-			</p>
-			<Textfield
-				name="mentor_prev_experience_saq1"
-				labelText="Have you participated or mentored at a hackathon before? If so, please list which ones. e.g. IrvineHacks 2024 (Hacker), ZotHacks 2024 (Mentor)"
-				containerClass="flex flex-col w-full"
-				isRequired={false}
-				maxLength={1500}
+		<div className="w-full flex flex-col gap-6">
+			<h1 className="font-figtree text-xl md:text-2xl font-semibold mb-2">
+				II. Short Answers
+			</h1>
+			<QuestionField
+				name="why_mentor_frq"
+				label="Why do you want to be a mentor for VenusHacks? What are you hoping to gain from this experience?"
+				maxWords={300}
+				required
+				value={answers.why}
+				onChange={(v) => setAnswers({ ...answers, why: v })}
 			/>
-			<Textfield
-				name="mentor_interest_saq2"
-				labelText="Why are you interested in being a mentor for IrvineHacks 2025? (100+ words recommended)"
-				containerClass="flex flex-col w-full"
-				isRequired={true}
-				maxLength={1500}
+			<QuestionField
+				name="contribute_inclusive_frq"
+				label="How do you hope to contribute to VenusHacks' inclusive environment?"
+				maxWords={300}
+				required
+				value={answers.inclusive}
+				onChange={(v) => setAnswers({ ...answers, inclusive: v })}
 			/>
-			<Textfield
-				name="mentor_team_help_saq3"
-				labelText="How would you go about helping a team that is struggling with a bug?"
-				containerClass="flex flex-col w-full"
-				isRequired={true}
-				maxLength={1500}
+			<QuestionField
+				name="availability_specify"
+				label="Are you available to commit to the entire duration of VenusHacks 2026? If not, please specify your availability."
+				maxWords={300}
+				required
+				value={answers.availability}
+				onChange={(v) => setAnswers({ ...answers, availability: v })}
 			/>
-			<Textfield
-				name="mentor_team_help_saq4"
-				labelText="How would you go about helping a team that is struggling to work together?"
-				containerClass="flex flex-col w-full"
-				isRequired={true}
-				maxLength={1500}
+			<QuestionField
+				name="questions_comments_concerns"
+				label="Questions, comments, concerns?"
+				maxWords={300}
+				required
+				value={answers.questions}
+				onChange={(v) => setAnswers({ ...answers, questions: v })}
 			/>
 		</div>
 	);

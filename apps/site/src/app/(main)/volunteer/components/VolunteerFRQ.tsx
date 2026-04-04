@@ -1,10 +1,8 @@
-import Textfield from "@/lib/components/forms/Textfield";
-
 export default function VolunteerFRQ() {
 	return (
 		<div className="flex flex-col items-start w-11/12 gap-5">
 			<div className="text-4xl font-bold">Volunteer Information</div>
-			<Textfield
+			{/* <Textfield
 				name="frq_volunteer"
 				labelText="Why are you interested in volunteering, and what do you expect to gain from this experience?"
 				containerClass="w-full"
@@ -17,7 +15,7 @@ export default function VolunteerFRQ() {
 				containerClass="w-full"
 				isRequired={true}
 				maxLength={1500}
-			/>
+			/> */}
 		</div>
 	);
 }
