@@ -14,7 +14,7 @@ export default async function Partners() {
 
 	return (
 		<section className="container py-24 relative mx-auto w-full ">
-			<Image
+			{/* <Image
 				src={SmallStar}
 				alt=""
 				className="absolute left-16 top-32 hidden lg:block"
@@ -48,7 +48,7 @@ export default async function Partners() {
 				className="absolute right-24 bottom-48 hidden lg:block"
 				width={42}
 				height={42}
-			/>
+			/> */}
 
 			<h2
 				className="mx-auto mb-16 flex items-center justify-center text-center"
