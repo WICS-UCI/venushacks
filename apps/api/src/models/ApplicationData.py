@@ -35,6 +35,7 @@ def make_empty_none(val: Union[str, None]) -> Union[str, None]:
 FIELDS_SUPPORTING_OTHER = [
     "school",
     "gender_identity",
+    "dev_areas",
     "experienced_technologies",
     "areas_of_development",
     "how_did_you_hear_about_us",
@@ -54,6 +55,7 @@ def _empty_to_none_proficiency(val: Union[str, None]) -> Union[str, None]:
 class BaseApplicationData(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, str_max_length=254)
 
+    preferred_name: Union[str, None] = Field(None, max_length=2048)
     date_of_birth: datetime
     is_18_older: bool
     gender_identity: str
@@ -99,9 +101,9 @@ class BaseMentorApplicationData(BaseModel):
     year: str
     major: str
     affiliation: str
-    linkedin: NullableHttpUrl = None
-    github: NullableHttpUrl = None
-    website: NullableHttpUrl = None
+    linkedin: Union[str, None] = Field(None, max_length=2048)
+    github: Union[str, None] = Field(None, max_length=2048)
+    website: Union[str, None] = Field(None, max_length=2048)
     shirt_size: str
     availability: str = Field(max_length=2048)
 
@@ -122,13 +124,13 @@ class BaseMentorApplicationData(BaseModel):
     proficiency_sass: ProficiencyOptional = None
     proficiency_expressjs: ProficiencyOptional = None
     proficiency_nosql: ProficiencyOptional = None
+    proficiency_react: ProficiencyOptional = None
 
-    other_skills_technologies: Union[str, None] = Field(None, max_length=2048)
+    additional_skills_technologies: Union[str, None] = Field(None, max_length=2048)
     areas_of_development: list[str] = []
 
     why_mentor_frq: str = Field(max_length=2048)
     contribute_inclusive_frq: str = Field(max_length=2048)
-    available_entire_duration: bool
     availability_specify: Union[str, None] = Field(None, max_length=2048)
     questions_comments_concerns: Union[str, None] = Field(None, max_length=2048)
 
@@ -169,7 +171,7 @@ class RawMentorApplicationData(BaseMentorApplicationData):
 
     first_name: str
     last_name: str
-    resume: UploadFile
+    resume: Union[UploadFile, None] = None
     application_type: Literal["Mentor"]
 
 

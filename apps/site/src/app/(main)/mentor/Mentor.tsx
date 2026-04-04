@@ -2,20 +2,18 @@ import { redirect } from "next/navigation";
 
 import ApplicationFlow from "@/lib/components/forms/shared/ApplicationFlow";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
+import ApplicationLandingPane from "@/lib/components/forms/shared/ApplicationLandingPane";
 
-import Textfield from "@/lib/components/forms/Textfield";
-
-import ResumeInformation from "@/lib/components/forms/shared/ResumeInformation";
-import BasicInformation from "./Form/MentorBasicInformation";
-import ProfileInformation from "./Form/MentorProfileInformation";
+import PersonalInformation from "./Form/MentorPersonalInformation";
 import ShortAnswers from "./Form/MentorShortAnswers";
-import ExperienceInformation from "./Form/MentorExperienceInformation";
-import MultipleSelect from "@/lib/components/forms/MultipleSelect";
 
 export const revalidate = 60;
 
 export default async function Mentor() {
 	const identity = await getUserIdentity();
+	if (!identity || identity.uid === null) {
+		redirect("/login");
+	}
 
 	if (identity.status !== null) {
 		redirect("/portal");
@@ -27,27 +25,9 @@ export default async function Mentor() {
 			applyPath="/api/user/mentor"
 			identity={identity}
 		>
-			<BasicInformation />
+			<ApplicationLandingPane applicationType="Mentor" />
+			<PersonalInformation />
 			<ShortAnswers />
-			<ExperienceInformation />
-			<ResumeInformation isRequired />
-			<MultipleSelect
-				name="resume_share_to_sponsors"
-				containerClass="w-11/12"
-				labelText="Would you like us to share your resume with our sponsors?"
-				values={[
-					{ value: "yes", text: "Yes" },
-					{ value: "no", text: "No" },
-				]}
-				inputType="radio"
-			/>
-			<ProfileInformation />
-			<Textfield
-				name="other_questions"
-				labelText="Questions/comments/concerns?"
-				containerClass="flex flex-col w-11/12"
-				isRequired={false}
-			/>
 		</ApplicationFlow>
 	);
 }
