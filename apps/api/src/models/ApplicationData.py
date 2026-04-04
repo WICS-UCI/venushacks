@@ -150,7 +150,7 @@ class BaseVolunteerApplicationData(BaseModel):
 
     prior_experience: str
     minimum_5_hours: bool
-    
+
     saturday_availability: list[Hour] = []
     sunday_availability: list[Hour] = []
 

@@ -27,7 +27,6 @@ const shirtSizes = [
 	{ value: "xl", text: "Extra Large" },
 ];
 
-
 export default function BasicInformation() {
 	const [answers, setAnswers] = useState({
 		prior: "",
