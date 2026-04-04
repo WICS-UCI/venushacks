@@ -111,7 +111,7 @@ def test_volunteer_apply_with_invalid_availability_causes_422(
     mock_mongodb_handler_retrieve_one.return_value = None
 
     bad_application = SAMPLE_APPLICATION.copy()
-    bad_application["sunday"] = ["24"]
+    bad_application["sunday_availability"] = ["24"]
     res = client.post("/volunteer", data=bad_application)
 
     assert res.status_code == 422
