@@ -7,9 +7,12 @@ export const Partner = z.object({
 	_type: z.literal("partner"),
 	_key: z.string(),
 	name: z.string(),
+	description: z.string().optional(),
 	url: z.string().url().optional(),
 	logo: SanityImageReference,
 });
+
+export type PartnerItem = z.infer<typeof Partner>;
 
 const Partners = SanityDocument.extend({
 	partners: z.array(Partner),
