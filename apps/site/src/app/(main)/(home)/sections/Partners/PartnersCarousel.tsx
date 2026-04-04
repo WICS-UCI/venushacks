@@ -87,7 +87,6 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 					fontSize: "14.17px",
 					lineHeight: "24.79px",
 			  };
-
 		return (
 			<div className={`relative ${cardSize}`}>
 				<Image
