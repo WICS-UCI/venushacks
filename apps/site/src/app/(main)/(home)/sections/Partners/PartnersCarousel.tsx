@@ -155,7 +155,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				<Image
 					src={ArrowButton}
 					alt=""
-					className="w-8 h-8 md:w-12 md:h-12 rotate-180"
+					className="w-8 md:w-[80%] rotate-180"
 				/>
 			</button>
 
@@ -236,7 +236,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				aria-label="Next partner"
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<Image src={ArrowButton} alt="" className="w-8 h-8 md:w-12 md:h-12" />
+				<Image src={ArrowButton} alt="" className="w-8 md:w-[80%]" />
 			</button>
 		</div>
 	);

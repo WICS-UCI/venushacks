@@ -3,6 +3,8 @@ import PartnersCarousel from "./PartnersCarousel";
 
 import { getPartners } from "./getPartners";
 
+import flower from "@/assets/icons/flower.svg";
+import grass from "@/assets/icons/right_grass.svg";
 import SmallStar from "@/assets/icons/small_star.svg";
 
 export default async function Partners() {
@@ -13,7 +15,7 @@ export default async function Partners() {
 	}
 
 	return (
-		<section className="container py-24 relative mx-auto w-full ">
+		<section className="container py-24 relative mx-auto max-w-screen-2xl ">
 			{/* <Image
 				src={SmallStar}
 				alt=""
@@ -68,6 +70,10 @@ export default async function Partners() {
 			</h2>
 
 			<PartnersCarousel partners={partners} />
+
+			<div className="relative left-56">
+				<Image src={flower} alt="flower" />
+			</div>
 		</section>
 	);
 }
