@@ -34,7 +34,9 @@ const SKILLS = [
 	"React",
 ].map((skill) => ({
 	label: skill,
-	name: NAME_OVERRIDES[skill] ?? `proficiency_${skill.toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
+	name:
+		NAME_OVERRIDES[skill] ??
+		`proficiency_${skill.toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
 }));
 
 export default function CodingSkillsTable() {

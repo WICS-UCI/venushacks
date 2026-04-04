@@ -11,7 +11,6 @@ export const revalidate = 60;
 
 export default async function Mentor() {
 	const identity = await getUserIdentity();
-	
 	if (!identity || identity.uid === null) {
 		redirect("/login");
 	}
