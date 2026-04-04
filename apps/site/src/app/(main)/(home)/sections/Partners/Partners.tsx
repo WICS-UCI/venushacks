@@ -16,6 +16,9 @@ export default async function Partners() {
 
 	return (
 		<section className="container py-24 relative mx-auto max-w-screen-2xl ">
+			<div className="absolute md:w-[5%] -z-10 left-[10%] top-[30%] md:top-24">
+				<Image src={flower} alt="flower" />
+			</div>
 			{/* <Image
 				src={SmallStar}
 				alt=""
@@ -68,11 +71,12 @@ export default async function Partners() {
 			>
 				Partners
 			</h2>
-
 			<PartnersCarousel partners={partners} />
-
-			<div className="relative left-56">
+			<div className="absolute w-[10%] md:w-[5%] left-[20%]">
 				<Image src={flower} alt="flower" />
+			</div>
+			<div className="relative w-[10%] md:w-[3%] left-[80%]">
+				<Image src={grass} alt="grass" />
 			</div>
 		</section>
 	);
