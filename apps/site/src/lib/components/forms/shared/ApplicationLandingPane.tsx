@@ -5,10 +5,13 @@ import Image from "next/image";
 import brown_bear from "@/assets/images/brown_bear.svg";
 
 const whoTextMap = {
-	"Hacker": "You! A high school (18+) student, undergraduate, or graduate student of any experience level!",
-	"Mentor": "You! A professional, student, or industry member who is ready to help and share their expertise!",
-	"Volunteer": "You! A professional, student, or industry member who is ready to help and share their expertise!",
-}
+	Hacker:
+		"You! A high school (18+) student, undergraduate, or graduate student of any experience level!",
+	Mentor:
+		"You! A professional, student, or industry member who is ready to help and share their expertise!",
+	Volunteer:
+		"You! A professional, student, or industry member who is ready to help and share their expertise!",
+};
 
 export default function ApplicationLandingPane({
 	applicationType,
