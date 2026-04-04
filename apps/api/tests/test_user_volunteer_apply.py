@@ -36,7 +36,7 @@ SAMPLE_APPLICATION = {
     "frq_volunteer": "",
     "frq_expect_to_gain": "",
     "frq_picnic": "",
-    "questions_comments_concerns": "sdklfj"
+    "questions_comments_concerns": "some questions",
     "application_type": "Volunteer",
     "saturday_availability": ["14", "18"],
     "sunday_availability": ["9", "10"],
