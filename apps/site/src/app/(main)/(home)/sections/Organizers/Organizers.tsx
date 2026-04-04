@@ -28,6 +28,9 @@ export default function Organizers() {
 	const [activeTab, setActiveTab] = useState<Department>("Board");
 	const [isLoading, setIsLoading] = useState(true);
 
+	const filter1 = (o: OrganizerData) => o.role === "Co-President" || o.role === "Co-Chair";
+	const filter2 = (o: OrganizerData) => o.department === activeTab && o.role === "Organizer";
+
 	useEffect(() => {
 		const loadOrganizers = async () => {
 			try {
@@ -58,12 +61,8 @@ export default function Organizers() {
 
 	const filtered =
 		activeTab === "Board"
-			? organizers.filter(
-				(o) => o.role === "Co-President" || o.role === "Co-Chair",
-			)
-			: organizers.filter(
-				(o) => o.department === activeTab && o.role === "Organizer",
-			);
+			? organizers.filter(filter1)
+			: organizers.filter(filter2);
 
 	if (isLoading) {
 		return null;
