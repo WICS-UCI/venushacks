@@ -1,6 +1,6 @@
 import Image from "next/image";
 import LinkedInImage from "@/assets/images/linkedin.png";
-import checkerImage from "@/assets/images/checker.png";
+import hackerSprite from "@/assets/images/volunteer_sprite.png";
 
 interface OrganizerCardProps {
 	name: string;
@@ -46,7 +46,7 @@ export default function OrganizerCard({
 			{/* Circular photo — scales from 80px on mobile to 168px on desktop */}
 			<div className="relative w-[80px] h-[80px] sm:w-[120px] sm:h-[120px] lg:w-[168px] lg:h-[168px] rounded-full border-[2px] sm:border-[3px] lg:border-[3.63px] border-[#CF6868] overflow-hidden flex-shrink-0">
 				<Image
-					src={image ?? checkerImage}
+					src={image ?? hackerSprite}
 					alt={name}
 					fill
 					className="object-contain"
