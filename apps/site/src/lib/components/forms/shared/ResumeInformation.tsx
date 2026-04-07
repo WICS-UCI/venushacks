@@ -77,7 +77,7 @@ export default function ResumeInformation({
 				type="file"
 				accept="application/pdf"
 				onChange={handleFileUpload}
-				required
+				required={isRequired}
 			/>
 		</div>
 	);

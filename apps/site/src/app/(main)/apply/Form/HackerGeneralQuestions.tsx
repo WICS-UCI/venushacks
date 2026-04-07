@@ -44,7 +44,7 @@ export default function GeneralQuestions() {
 
 				{/* Resume Upload row */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
-					<ResumeInformation isRequired={false} />
+					<ResumeInformation isRequired={true} />
 
 					{/* Share with sponsors */}
 					<DropdownSelect
