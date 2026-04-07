@@ -36,15 +36,6 @@ export default function TechnicalQuestions() {
 			/>
 
 			<QuestionField
-				name="frq_excited"
-				label="What's something you're excited to work on in the next 10 years? Dream big!"
-				maxWords={100}
-				required
-				value={answers.future}
-				onChange={(v) => setAnswers({ ...answers, future: v })}
-			/>
-
-			<QuestionField
 				name="frq_picnic"
 				label="What are your 3 must-haves at a picnic?"
 				maxWords={50}
