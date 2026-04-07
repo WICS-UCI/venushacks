@@ -75,7 +75,6 @@ class BaseApplicationData(BaseModel):
 
     frq_project: str = Field(max_length=2048)
     frq_diversity: str = Field(max_length=2048)
-    frq_excited: str = Field(max_length=2048)
     frq_picnic: str = Field(max_length=2048)
 
     how_did_you_hear_about_us: str = Field(max_length=64)

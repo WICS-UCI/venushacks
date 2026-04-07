@@ -43,7 +43,6 @@ SAMPLE_APPLICATION = {
     "dietary_restrictions": "None",
     "frq_project": "I want to build a cool project",
     "frq_diversity": "Diversity is important",
-    "frq_excited": "I am excited to learn",
     "frq_picnic": "I love picnics",
     "how_did_you_hear_about_us": "Instagram",
     "questions_comments_concerns": "No comments",
