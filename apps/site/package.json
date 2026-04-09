@@ -21,7 +21,7 @@
 		"@radix-ui/react-tabs": "^1.0.4",
 		"@radix-ui/react-toast": "^1.1.5",
 		"@sanity/image-url": "^1.0.2",
-		"axios": "^1.6.2",
+		"axios": "^1.15.0",
 		"clsx": "^2.0.0",
 		"date-fns-tz": "^2.0.0",
 		"dayjs": "^1.11.10",
