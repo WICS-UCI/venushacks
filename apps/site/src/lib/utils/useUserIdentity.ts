@@ -7,6 +7,7 @@ export interface Identity {
 	uid: Uid | null;
 	roles: ReadonlyArray<Role>;
 	status: string | null;
+	submission_time: string;
 }
 
 const fetcher = async (url: string) => {

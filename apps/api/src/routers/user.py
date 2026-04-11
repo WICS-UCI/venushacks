@@ -52,6 +52,7 @@ class IdentityResponse(BaseModel):
     uid: Union[str, None] = None
     status: Union[str, None] = None
     roles: list[Role] = []
+    submission_time: Union[datetime, None] = None
 
 
 def _is_past_deadline(now: datetime) -> bool:
@@ -93,13 +94,24 @@ async def me(
     if not user:
         return IdentityResponse()
     user_record = await mongodb_handler.retrieve_one(
-        Collection.USERS, {"_id": user.uid}, ["roles", "status"]
+        Collection.USERS, {"_id": user.uid}, ["roles", "status", "application_data"]
     )
 
     if not user_record:
         return IdentityResponse(uid=user.uid)
+    
+    submission_time = None
 
-    return IdentityResponse(uid=user.uid, **user_record)
+    app_data = user_record.get("application_data")
+    if app_data:
+        submission_time = app_data.get("submission_time")
+
+    return IdentityResponse(
+        uid=user.uid,
+        roles=user_record.get("roles", []),
+        status=user_record.get("status"),
+        submission_time=submission_time,
+    )
 
 
 @router.post("/apply", status_code=status.HTTP_201_CREATED)
