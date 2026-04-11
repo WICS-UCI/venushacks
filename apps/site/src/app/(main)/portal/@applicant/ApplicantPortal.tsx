@@ -79,7 +79,13 @@ function Portal() {
 
 	const getSubmitDate = () => {
 		if (!identity.submission_time) return null;
-		return identity.submission_time;
+		const date = new Date(identity.submission_time);
+
+		return date.toLocaleDateString("en-US", {
+			month: "2-digit",
+			day: "2-digit",
+			year: "numeric",
+		});
 	};
 
 	const submissionDate = getSubmitDate();
