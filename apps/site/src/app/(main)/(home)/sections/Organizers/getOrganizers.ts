@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { cache } from "react";
 import { client } from "@/lib/sanity/client";
 import { SanityDocument, SanityImageReference } from "@/lib/sanity/types";
 
@@ -17,7 +16,7 @@ const Organizers = SanityDocument.extend({
 	organizers: z.array(Organizer),
 });
 
-export const getOrganizers = cache(async () => {
+export const getOrganizers = async () => {
 	const result = await client.fetch(
 		"*[_type == 'organizers' && _id == 'organizers'][0]",
 	);
@@ -36,4 +35,4 @@ export const getOrganizers = cache(async () => {
 		console.error("Error parsing organizers:", error);
 		return [];
 	}
-});
+};
