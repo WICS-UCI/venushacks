@@ -44,7 +44,7 @@ async def applications_by_school() -> dict[str, dict[date, int]]:
     """Get daily number of applications by school."""
     records = await mongodb_handler.retrieve(
         Collection.USERS,
-        {"roles": Role.APPLICANT},
+        {"roles": [Role.APPLICANT, Role.HACKER]},
         ["application_data.school", "application_data.submission_time"],
     )
 
