@@ -48,7 +48,7 @@ def test_no_identity_when_unauthenticated() -> None:
     """Test that identity is empty when not authenticated."""
     res = client.get("/me")
     data = res.json()
-    assert data == {"uid": None, "status": None, "roles": []}
+    assert data == {"uid": None, "status": None, "roles": [], "submission_time": None}
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
@@ -61,10 +61,10 @@ def test_plain_identity_when_no_user_record(
     res = client.get("/me")
 
     mock_mongodb_handler_retrieve_one.assert_awaited_once_with(
-        Collection.USERS, {"_id": "edu.stanford.tree"}, ["roles", "status"]
+        Collection.USERS, {"_id": "edu.stanford.tree"}, ["roles", "status", "application_data"], 
     )
     data = res.json()
-    assert data == {"uid": "edu.stanford.tree", "status": None, "roles": []}
+    assert data == {"uid": "edu.stanford.tree", "status": None, "roles": [], "submission_time": None}
 
 
 @patch("services.mongodb_handler.update_one", autospec=True)
@@ -149,6 +149,9 @@ def test_user_me_route_returns_correct_type(
     mock_mongodb_handler_retrieve_one.return_value = {
         "status": Status.WAIVER_SIGNED,
         "roles": [Role.VOLUNTEER],
+        "application_data": {
+            "submission_time": "2024-01-01T00:00:00"
+        },
     }
 
     client = UserTestClient(GuestUser(email="tree@stanford.edu"), app)
@@ -159,4 +162,5 @@ def test_user_me_route_returns_correct_type(
         "uid": "edu.stanford.tree",
         "status": Status.WAIVER_SIGNED,
         "roles": [Role.VOLUNTEER],
+        "submission_time": "2024-01-01T00:00:00",
     }
