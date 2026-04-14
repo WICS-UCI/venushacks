@@ -17,7 +17,7 @@ const Organizers = SanityDocument.extend({
 	organizers: z.array(Organizer),
 });
 
-export const getOrganizers = cache(async () => {
+export const getOrganizers = async () => {
 	const result = await client.fetch(
 		"*[_type == 'organizers' && _id == 'organizers'][0]",
 	);
@@ -36,4 +36,4 @@ export const getOrganizers = cache(async () => {
 		console.error("Error parsing organizers:", error);
 		return [];
 	}
-});
+};
