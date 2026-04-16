@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useContext, useEffect, useState, useCallback } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Box from "@cloudscape-design/components/box";
 import Cards from "@cloudscape-design/components/cards";
@@ -28,17 +28,7 @@ import { OVERQUALIFIED_SCORE } from "@/lib/decisionScores";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Badge from "@cloudscape-design/components/badge";
 
-type ColumnDef = {
-	id: string;
-	header: string;
-	content: (applicant: HackerApplicantSummary) => ReactNode;
-};
-
-interface HackerApplicantsListProps {
-	hackathonName: "irvinehacks" | "zothacks";
-}
-
-function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
+function HackerApplicantsList() {
 	const router = useRouter();
 	const { roles } = useContext(UserContext);
 
@@ -145,33 +135,14 @@ function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
 		</Box>
 	);
 
-	const zothacksExtraColumn: ColumnDef = {
-		id: "year",
-		header: "Year",
-		content: ({ application_data }) => application_data.school_year,
-	};
-
-	const irvinehacksExtraColumn: ColumnDef = {
-		id: "school",
-		header: "School",
-		content: ({ application_data }) => application_data.school,
-	};
-
-	const extraColumn =
-		hackathonName === "zothacks" ? zothacksExtraColumn : irvinehacksExtraColumn;
-
-	const renderHeader = useCallback(
-		({ _id, first_name, last_name, avg_score }: HackerApplicantSummary) => (
-			<CardHeader
-				_id={_id}
-				first_name={first_name}
-				last_name={last_name}
-				hackathonName={hackathonName}
-				avg_score={avg_score}
-			/>
-		),
-		[hackathonName],
-	);
+	const header = ({ _id, first_name, last_name, avg_score }: HackerApplicantSummary) => (
+		<CardHeader
+			_id={_id}
+			first_name={first_name}
+			last_name={last_name}
+			avg_score={avg_score}
+		/>
+	)
 
 	const avgScore = ({ avg_score }: { avg_score: number }) => {
 		if (avg_score === -1) return "-";
@@ -183,14 +154,18 @@ function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
 	return (
 		<Cards
 			cardDefinition={{
-				header: renderHeader,
+				header: header,
 				sections: [
 					{
 						id: "uid",
 						header: "UID",
 						content: ({ _id }) => _id,
 					},
-					extraColumn,
+					{
+						id: "school",
+						header: "School",
+						content: ({ application_data }) => application_data.school,
+					},
 					{
 						id: "status",
 						header: "Status",
@@ -297,19 +272,13 @@ const CardHeader = ({
 	_id,
 	first_name,
 	last_name,
-	hackathonName,
 	avg_score,
 }: Pick<
 	HackerApplicantSummary,
 	"_id" | "first_name" | "last_name" | "avg_score"
-> & {
-	hackathonName: "irvinehacks" | "zothacks";
-}) => {
+>) => {
 	const followWithNextLink = useFollowWithNextLink();
-	const href =
-		hackathonName === "zothacks"
-			? `/admin/applicants/zothacks-hackers/${_id}`
-			: `/admin/applicants/hackers/${_id}`;
+	const href = `/admin/applicants/hackers/${_id}`;
 	return (
 		<SpaceBetween direction="horizontal" size="s">
 			<Link href={href} fontSize="inherit" onFollow={followWithNextLink}>

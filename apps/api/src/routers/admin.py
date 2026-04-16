@@ -52,17 +52,7 @@ require_organizer = require_role({Role.ORGANIZER})
 
 
 class ApplicationDataSummary(BaseModel):
-    school: str
     submission_time: datetime
-
-
-class ZotHacksApplicationDataSummary(BaseModel):
-    school_year: str
-    submission_time: Any
-    normalized_scores: Optional[dict[str, float]] = None
-    extra_points: Optional[float] = None
-    email: str
-    resume_url: str
 
 
 class ApplicantSummary(BaseRecord):
@@ -81,21 +71,12 @@ class HackerApplicantSummary(BaseRecord):
     reviewers: list[str] = []
     resume_reviewed: bool = False
     avg_score: float
-    application_data: Union[ApplicationDataSummary, ZotHacksApplicationDataSummary]
+    application_data: ApplicationDataSummary
 
 
 class ReviewRequest(BaseModel):
     applicant: str
     score: float
-
-
-class ZotHacksHackerDetailedScores(BaseModel):
-    resume: Optional[int] = None
-    elevator_pitch_saq: int
-    tech_experience_saq: int
-    learn_about_self_saq: int
-    pixel_art_saq: int
-    hackathon_experience: Optional[int] = None
 
 
 class GlobalScores(BaseModel):
@@ -105,7 +86,7 @@ class GlobalScores(BaseModel):
 
 class DetailedReviewRequest(BaseModel):
     applicant: str
-    scores: Union[GlobalScores, ZotHacksHackerDetailedScores]
+    scores: GlobalScores
 
 
 async def mentor_volunteer_applicants(
@@ -120,9 +101,7 @@ async def mentor_volunteer_applicants(
             "status",
             "first_name",
             "last_name",
-            "application_data.school",
-            "application_data.submission_time",
-            "application_data.reviews",
+            "application_data",
         ],
     )
 
@@ -333,16 +312,9 @@ async def submit_detailed_review(
     reviewer: User = Depends(require_reviewer),
 ) -> None:
     """Submit a review decision from the reviewer for the given hacker applicant."""
-    if isinstance(applicant_review.scores, GlobalScores):
-        await _handle_global_only_review(
-            applicant_review.applicant, applicant_review.scores, reviewer
-        )
-    elif isinstance(applicant_review.scores, ZotHacksHackerDetailedScores):
-        await _handle_detailed_scores_review(
-            applicant_review.applicant, applicant_review.scores, reviewer
-        )
-    else:
-        assert_never(applicant_review.scores)
+    await _handle_global_only_review(
+        applicant_review.applicant, applicant_review.scores, reviewer
+    )
 
 
 @router.get("/get-thresholds")
@@ -478,96 +450,6 @@ async def _handle_global_only_review(
         {"application_data.global_field_scores": scores.model_dump()},
         upsert=True,
     )
-
-
-async def _handle_detailed_scores_review(
-    applicant: str, scores: ZotHacksHackerDetailedScores, reviewer: User
-) -> None:
-    """Handle detailed scores review submission."""
-    score_breakdown = scores.model_dump(exclude_none=True)
-    total_score = max(sum(score_breakdown.get(k, 0) for k in scores.model_fields), -3)
-
-    if total_score < -3 or total_score > 100:
-        log.error("Invalid review score submitted.")
-        raise HTTPException(status.HTTP_400_BAD_REQUEST)
-
-    review: Review = (utc_now(), reviewer.uid, total_score)
-
-    applicant_record = await mongodb_handler.retrieve_one(
-        Collection.USERS,
-        {"_id": applicant},
-        [
-            "_id",
-            "application_data.reviews",
-            "roles",
-        ],
-    )
-    if not applicant_record:
-        log.error("Could not retrieve applicant after submitting review")
-        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    if Role.HACKER in applicant_record["roles"]:
-        unique_reviewers = applicant_review_processor.get_unique_reviewers(
-            applicant_record
-        )
-
-        # Only add a review if there are either less than 2 reviewers
-        # or reviewer is one of the reviewers
-        if len(unique_reviewers) >= 2 and reviewer.uid not in unique_reviewers:
-            log.error(
-                "%s tried to submit a review, but %s already has two reviewers",
-                reviewer,
-                applicant,
-            )
-            raise HTTPException(status.HTTP_403_FORBIDDEN)
-
-        update_query: dict[str, object] = {
-            "$push": {"application_data.reviews": review}
-        }
-        # Because reviewing a hacker requires 2 reviewers, only set the
-        # applicant's status to REVIEWED if there are at least 2 reviewers
-        if len(unique_reviewers | {reviewer.uid}) >= 2:
-            update_query.update({"$set": {"status": "REVIEWED"}})
-
-        await _try_update_applicant_with_query(
-            applicant,
-            update_query=update_query,
-            err_msg=f"{reviewer} could not submit review for {applicant}",
-        )
-    else:
-        await _try_update_applicant_with_query(
-            applicant,
-            update_query={
-                "$push": {"application_data.reviews": review},
-                "$set": {"status": "REVIEWED"},
-            },
-            err_msg=f"{reviewer} could not submit review for {applicant}",
-        )
-
-    uid_no_domain = reviewer.uid.split(".")[-1]
-    await _try_update_applicant_with_query(
-        applicant,
-        update_query={
-            "$set": {
-                f"application_data.review_breakdown.{uid_no_domain}": (score_breakdown)
-            }
-        },
-        err_msg=f"{reviewer} could not submit review for {applicant}",
-    )
-
-    # If user has Lead role, also update global field scores
-    try:
-        await require_lead(reviewer)
-        global_scores = GlobalScores(
-            resume=scores.resume or 0,
-            hackathon_experience=scores.hackathon_experience or 0,
-        )
-        await _handle_global_only_review(applicant, global_scores, reviewer)
-    except HTTPException:
-        # User doesn't have Lead role, skip global field scores update
-        pass
-
-    log.info("%s reviewed hacker %s", reviewer, applicant)
 
 
 async def _try_update_applicant_with_query(
