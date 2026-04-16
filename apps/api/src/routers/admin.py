@@ -52,6 +52,7 @@ require_organizer = require_role({Role.ORGANIZER})
 
 
 class ApplicationDataSummary(BaseModel):
+    school: Optional[str] = None
     submission_time: datetime
 
 
