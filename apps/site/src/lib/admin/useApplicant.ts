@@ -9,11 +9,10 @@ export type Review = [string, Uid, Score];
 interface BaseApplicationData {
 	email: string;
 	pronouns: string[];
-	ethnicity: string;
 	is_18_older: boolean;
 	school: string;
-	education_level: string;
-	major: string;
+	year: string;
+	majors_and_minors: string;
 }
 
 export type HackathonExperience = "first_time" | "some_experience" | "veteran";
@@ -43,11 +42,14 @@ export interface ZotHacksHackerApplicationData extends BaseApplicationData {
 }
 
 export interface HackerApplicationData extends BaseApplicationData {
-	is_first_hackathon: boolean;
-	portfolio: string | null;
-	linkedin: string | null;
-	frq_change: string;
-	frq_video_game: string;
+	how_did_you_hear_about_us: string;
+	share_resume_with_sponsors: boolean;
+	previous_hackathons: string;
+	previous_vh: boolean;
+	frq_diversity: string;
+	frq_picnic: string;
+	frq_project: string;
+	questions_comments_concerns: string;
 	resume_url: string;
 	submission_time: string;
 	reviews: Review[];

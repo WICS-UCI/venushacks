@@ -12,10 +12,10 @@ interface HackerApplicationSections {
 }
 
 const HACKER_APPLICATION_SECTIONS: HackerApplicationSections = {
-	"Personal Information": ["pronouns", "ethnicity", "is_18_older"],
-	Education: ["school", "education_level", "major", "is_first_hackathon"],
-	Experience: ["portfolio", "linkedin", "resume_url"],
-	"Free Response Questions": ["frq_change", "frq_video_game"],
+	"Personal Information": ["is_18_older", "how_did_you_hear_about_us"],
+	Education: ["school", "year", "majors_and_minors"],
+	Experience: ["resume_url", "share_resume_with_sponsors", "previous_hackathons", "previous_vh"],
+	"Free Response Questions": ["frq_diversity", "frq_picnic", "frq_project", "questions_comments_concerns"],
 };
 
 function HackerApplication({
@@ -23,6 +23,8 @@ function HackerApplication({
 }: {
 	application_data: HackerApplicationData;
 }) {
+	console.log(application_data)
+
 	return (
 		<Container header={<Header variant="h2">Hacker Application</Header>}>
 			<SpaceBetween direction="vertical" size="m">
