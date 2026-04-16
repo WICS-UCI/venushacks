@@ -1,10 +1,7 @@
 import ColumnLayout from "@cloudscape-design/components/column-layout";
 import TextContent from "@cloudscape-design/components/text-content";
 
-import {
-	HackerApplicationData,
-	ZotHacksHackerApplicationData,
-} from "@/lib/admin/useApplicant";
+import { HackerApplicationData } from "@/lib/admin/useApplicant";
 
 interface ApplicationResponseProps {
 	value: string | boolean | string[] | null;
@@ -45,7 +42,7 @@ function ApplicationResponse({ value }: ApplicationResponseProps) {
 					<p>
 						{
 							HACKATHON_EXPERIENCE_LABELS[
-								value as keyof typeof HACKATHON_EXPERIENCE_LABELS
+							value as keyof typeof HACKATHON_EXPERIENCE_LABELS
 							]
 						}
 					</p>
@@ -65,9 +62,7 @@ function ApplicationResponse({ value }: ApplicationResponseProps) {
 	}
 }
 
-type BaseData =
-	| Omit<HackerApplicationData, "reviews">
-	| Omit<ZotHacksHackerApplicationData, "reviews">;
+type BaseData = Omit<HackerApplicationData, "reviews">;
 
 function HackerApplicationSection<
 	T extends BaseData,

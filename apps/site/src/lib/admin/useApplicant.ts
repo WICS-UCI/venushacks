@@ -16,30 +16,6 @@ interface BaseApplicationData {
 }
 
 export type HackathonExperience = "first_time" | "some_experience" | "veteran";
-interface ReviewBreakdown {
-	resume: number;
-	elevator_pitch_saq: number;
-	tech_experience_saq: number;
-	learn_about_self_saq: number;
-	pixel_art_saq: number;
-}
-export interface ZotHacksHackerApplicationData extends BaseApplicationData {
-	school_year: string;
-	dietary_restrictions: string;
-	allergies: string | null;
-	hackathon_experience: HackathonExperience;
-	elevator_pitch_saq: string;
-	tech_experience_saq: string;
-	learn_about_self_saq: string;
-	pixel_art_saq: string;
-	pixel_art_data: number[];
-	comments: string | null;
-	resume_url: string | null;
-	submission_time: string;
-	reviews: Review[];
-	review_breakdown: { [reviewer_uid: string]: ReviewBreakdown };
-	global_field_scores?: { resume?: number };
-}
 
 export interface HackerApplicationData extends BaseApplicationData {
 	how_did_you_hear_about_us: string;
@@ -99,16 +75,10 @@ export type VolunteerApplicationQuestion = Exclude<
 	"reviews"
 >;
 
-export type ZotHacksHackerApplicationQuestion = Exclude<
-	keyof ZotHacksHackerApplicationData,
-	"reviews"
->;
-
 type ApplicationData =
 	| HackerApplicationData
 	| MentorApplicationData
-	| VolunteerApplicationData
-	| ZotHacksHackerApplicationData;
+	| VolunteerApplicationData;
 
 export interface Applicant {
 	_id: Uid;

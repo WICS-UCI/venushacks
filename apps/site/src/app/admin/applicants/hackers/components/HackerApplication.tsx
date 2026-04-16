@@ -23,8 +23,6 @@ function HackerApplication({
 }: {
 	application_data: HackerApplicationData;
 }) {
-	console.log(application_data)
-
 	return (
 		<Container header={<Header variant="h2">Hacker Application</Header>}>
 			<SpaceBetween direction="vertical" size="m">
