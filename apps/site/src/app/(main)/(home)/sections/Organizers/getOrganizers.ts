@@ -19,6 +19,8 @@ const Organizers = SanityDocument.extend({
 export const getOrganizers = async () => {
 	const result = await client.fetch(
 		"*[_type == 'organizers' && _id == 'organizers'][0]",
+		{},
+		{ cache: "no-store" },
 	);
 
 	if (!result) {
