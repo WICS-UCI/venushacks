@@ -139,7 +139,7 @@ function HackerApplicantsList() {
 		_id,
 		first_name,
 		last_name,
-		avg_score
+		avg_score,
 	}: HackerApplicantSummary) => (
 		<CardHeader
 			_id={_id}
