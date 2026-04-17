@@ -77,6 +77,19 @@ function Portal() {
 		}
 	};
 
+	const getSubmitDate = () => {
+		if (!identity.submission_time) return null;
+		const date = new Date(identity.submission_time);
+
+		return date.toLocaleDateString("en-US", {
+			month: "2-digit",
+			day: "2-digit",
+			year: "numeric",
+		});
+	};
+
+	const submissionDate = getSubmitDate();
+
 	const statusColor = getStatusColor();
 
 	return (
@@ -95,7 +108,7 @@ function Portal() {
 							<p className="font-semibold md:text-lg mb-1">
 								VenusHacks 2026 {roleToDisplay} Application
 							</p>
-							<p className="text-sm text-neutral-400">Submitted mm/dd/yy</p>
+							<p className="text-sm text-neutral-400">Submitted {submissionDate ? submissionDate: '-'}</p>
 						</div>
 
 						<span
