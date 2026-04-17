@@ -12,16 +12,15 @@ interface VolunteerApplicationSections {
 }
 
 const VOLUNTEER_APPLICATION_SECTIONS: VolunteerApplicationSections = {
-	"Personal Information": ["pronouns", "ethnicity", "is_18_older"],
-	Education: ["school", "education_level", "major"],
+	"Personal Information": ["is_18_older", "minimum_5_hours"],
+	Education: ["prior_experience"],
 	"Free Response Questions": [
+		"frq_expect_to_gain",
+		"frq_picnic",
 		"frq_volunteer",
-		"frq_utensil",
-		"allergies",
-		"extra_questions",
+		"questions_comments_concerns",
 	],
 	Availability: [
-		"friday_availability",
 		"saturday_availability",
 		"sunday_availability",
 	],

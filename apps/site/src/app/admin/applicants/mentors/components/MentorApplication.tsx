@@ -12,21 +12,40 @@ interface MentorApplicationSections {
 }
 
 const MENTOR_APPLICATION_SECTIONS: MentorApplicationSections = {
-	"Personal Information": ["pronouns", "ethnicity", "is_18_older"],
-	Education: ["school", "education_level", "major"],
+	"Personal Information": ["is_18_older"],
+	Education: ["affiliation", "year", "major"],
 	Experience: [
-		"git_experience",
-		"portfolio",
-		"linkedin",
 		"resume_url",
-		"resume_share_to_sponsors",
+		"linkedin",
+		"github",
+		"website",
+		"areas_of_development",
+		"additional_skills_technologies",
+		"proficiency_c",
+		"proficiency_cpp",
+		"proficiency_django",
+		"proficiency_expressjs",
+		"proficiency_figma",
+		"proficiency_firebase",
+		"proficiency_flask",
+		"proficiency_html_css",
+		"proficiency_java",
+		"proficiency_javascript",
+		"proficiency_mongodb",
+		"proficiency_nodejs",
+		"proficiency_nosql",
+		"proficiency_python",
+		"proficiency_react",
+		"proficiency_rest_apis",
+		"proficiency_sass",
+		"proficiency_sql"
 	],
 	"Free Response Questions": [
-		"mentor_prev_experience_saq1",
-		"mentor_interest_saq2",
-		"mentor_team_help_saq3",
-		"mentor_team_help_saq4",
-		"other_questions",
+		"why_mentor_frq",
+		"contribute_inclusive_frq",
+		"questions_comments_concerns",
+		"availability",
+		"availability_specify"
 	],
 };
 

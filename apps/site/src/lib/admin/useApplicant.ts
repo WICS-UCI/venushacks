@@ -32,28 +32,54 @@ export interface HackerApplicationData extends BaseApplicationData {
 }
 
 export interface MentorApplicationData extends BaseApplicationData {
-	git_experience: string;
-	github: string | null;
-	portfolio: string | null;
-	linkedin: string | null;
-	mentor_prev_experience_saq1: string | null;
-	mentor_interest_saq2: string;
-	mentor_team_help_saq3: string;
-	mentor_team_help_saq4: string;
-	resume_share_to_sponsors: boolean;
-	other_questions: string | null;
+	is_18_older: boolean;
+	affiliation: string;
+	year: string;
+	major: string;
 	resume_url: string;
+	linkedin: string | null;
+	github: string | null;
+	website: string | null;
+	areas_of_development: string;
+	additional_skills_technologies: string;
+	proficiency_c: number;
+	proficiency_cpp: number;
+	proficiency_django: number;
+	proficiency_expressjs: number;
+	proficiency_figma: number;
+	proficiency_firebase: number;
+	proficiency_flask: number;
+	proficiency_html_css: number;
+	proficiency_java: number;
+	proficiency_javascript: number;
+	proficiency_mongodb: number;
+	proficiency_nodejs: number;
+	proficiency_nosql: number;
+	proficiency_python: number;
+	proficiency_react: number;
+	proficiency_rest_apis: number;
+	proficiency_sass: number;
+	proficiency_sql: number;
+	why_mentor_frq: string;
+	contribute_inclusive_frq: string;
+	questions_comments_concerns: string;
+	availability: string;
+	availability_specify: string | null;
 	submission_time: string;
 	reviews: Review[];
 }
 
 export interface VolunteerApplicationData extends BaseApplicationData {
+	is_18_older: boolean;
+	minimum_5_hours: boolean;
+	school: string;
+	education_level: string;
+	major: string;
+	prior_experience: string;
+	frq_expect_to_gain: string;
+	frq_picnic: string;
 	frq_volunteer: string;
-	frq_utensil: string;
-	allergies: string | null;
-	extra_questions: string | null;
-	other_questions: string | null;
-	friday_availability: ReadonlyArray<number>;
+	questions_comments_concerns: string;
 	saturday_availability: ReadonlyArray<number>;
 	sunday_availability: ReadonlyArray<number>;
 	submission_time: string;
