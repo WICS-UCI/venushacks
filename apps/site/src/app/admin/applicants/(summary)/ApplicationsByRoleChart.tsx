@@ -6,8 +6,8 @@ import { ParticipantRole } from "@/lib/userRecord";
 import useApplicationsSummary from "./useApplicationsSummary";
 
 const TIME_SPEC = "T00:00:00-08:00";
-const START_DAY = new Date("2024-12-10" + TIME_SPEC);
-const END_DAY = new Date("2025-01-11" + TIME_SPEC);
+const START_DAY = new Date("2026-04-06" + TIME_SPEC);
+const END_DAY = new Date("2026-05-06" + TIME_SPEC);
 
 const ROLES = [
 	ParticipantRole.Hacker,

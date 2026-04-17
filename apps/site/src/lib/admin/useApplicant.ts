@@ -9,73 +9,77 @@ export type Review = [string, Uid, Score];
 interface BaseApplicationData {
 	email: string;
 	pronouns: string[];
-	ethnicity: string;
 	is_18_older: boolean;
 	school: string;
-	education_level: string;
-	major: string;
+	year: string;
+	majors_and_minors: string;
 }
 
 export type HackathonExperience = "first_time" | "some_experience" | "veteran";
-interface ReviewBreakdown {
-	resume: number;
-	elevator_pitch_saq: number;
-	tech_experience_saq: number;
-	learn_about_self_saq: number;
-	pixel_art_saq: number;
-}
-export interface ZotHacksHackerApplicationData extends BaseApplicationData {
-	school_year: string;
-	dietary_restrictions: string;
-	allergies: string | null;
-	hackathon_experience: HackathonExperience;
-	elevator_pitch_saq: string;
-	tech_experience_saq: string;
-	learn_about_self_saq: string;
-	pixel_art_saq: string;
-	pixel_art_data: number[];
-	comments: string | null;
-	resume_url: string | null;
-	submission_time: string;
-	reviews: Review[];
-	review_breakdown: { [reviewer_uid: string]: ReviewBreakdown };
-	global_field_scores?: { resume?: number };
-}
 
 export interface HackerApplicationData extends BaseApplicationData {
-	is_first_hackathon: boolean;
-	portfolio: string | null;
-	linkedin: string | null;
-	frq_change: string;
-	frq_video_game: string;
+	how_did_you_hear_about_us: string;
+	share_resume_with_sponsors: boolean;
+	previous_hackathons: string;
+	previous_vh: boolean;
+	frq_diversity: string;
+	frq_picnic: string;
+	frq_project: string;
+	questions_comments_concerns: string;
 	resume_url: string;
 	submission_time: string;
 	reviews: Review[];
 }
 
 export interface MentorApplicationData extends BaseApplicationData {
-	git_experience: string;
-	github: string | null;
-	portfolio: string | null;
-	linkedin: string | null;
-	mentor_prev_experience_saq1: string | null;
-	mentor_interest_saq2: string;
-	mentor_team_help_saq3: string;
-	mentor_team_help_saq4: string;
-	resume_share_to_sponsors: boolean;
-	other_questions: string | null;
+	is_18_older: boolean;
+	affiliation: string;
+	year: string;
+	major: string;
 	resume_url: string;
+	linkedin: string | null;
+	github: string | null;
+	website: string | null;
+	areas_of_development: string;
+	additional_skills_technologies: string;
+	proficiency_c: string;
+	proficiency_cpp: string;
+	proficiency_django: string;
+	proficiency_expressjs: string;
+	proficiency_figma: string;
+	proficiency_firebase: string;
+	proficiency_flask: string;
+	proficiency_html_css: string;
+	proficiency_java: string;
+	proficiency_javascript: string;
+	proficiency_mongodb: string;
+	proficiency_nodejs: string;
+	proficiency_nosql: string;
+	proficiency_python: string;
+	proficiency_react: string;
+	proficiency_rest_apis: string;
+	proficiency_sass: string;
+	proficiency_sql: string;
+	why_mentor_frq: string;
+	contribute_inclusive_frq: string;
+	questions_comments_concerns: string;
+	availability: string;
+	availability_specify: string | null;
 	submission_time: string;
 	reviews: Review[];
 }
 
 export interface VolunteerApplicationData extends BaseApplicationData {
+	is_18_older: boolean;
+	minimum_5_hours: boolean;
+	school: string;
+	education_level: string;
+	major: string;
+	prior_experience: string;
+	frq_expect_to_gain: string;
+	frq_picnic: string;
 	frq_volunteer: string;
-	frq_utensil: string;
-	allergies: string | null;
-	extra_questions: string | null;
-	other_questions: string | null;
-	friday_availability: ReadonlyArray<number>;
+	questions_comments_concerns: string;
 	saturday_availability: ReadonlyArray<number>;
 	sunday_availability: ReadonlyArray<number>;
 	submission_time: string;
@@ -97,16 +101,10 @@ export type VolunteerApplicationQuestion = Exclude<
 	"reviews"
 >;
 
-export type ZotHacksHackerApplicationQuestion = Exclude<
-	keyof ZotHacksHackerApplicationData,
-	"reviews"
->;
-
 type ApplicationData =
 	| HackerApplicationData
 	| MentorApplicationData
-	| VolunteerApplicationData
-	| ZotHacksHackerApplicationData;
+	| VolunteerApplicationData;
 
 export interface Applicant {
 	_id: Uid;

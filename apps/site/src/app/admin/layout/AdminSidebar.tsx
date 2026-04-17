@@ -9,6 +9,8 @@ import SideNavigation, {
 import {
 	isApplicationManager,
 	isHackerReviewer,
+	isMentorReviewer,
+	isVolunteerReviewer,
 	isDirector,
 	isLead,
 } from "@/lib/admin/authorization";
@@ -36,26 +38,26 @@ function AdminSidebar() {
 	if (isHackerReviewer(roles)) {
 		applicationLinks.push({
 			type: "link",
-			text: "ZotHacks Hacker Applications",
-			href: "/admin/applicants/zothacks-hackers",
+			text: "Hacker Applications",
+			href: "/admin/applicants/hackers",
 		});
 	}
 
-	// if (isMentorReviewer(roles)) {
-	// 	applicationLinks.push({
-	// 		type: "link",
-	// 		text: "Mentor Applications",
-	// 		href: "/admin/applicants/mentors",
-	// 	});
-	// }
+	if (isMentorReviewer(roles)) {
+		applicationLinks.push({
+			type: "link",
+			text: "Mentor Applications",
+			href: "/admin/applicants/mentors",
+		});
+	}
 
-	// if (isVolunteerReviewer(roles)) {
-	// 	applicationLinks.push({
-	// 		type: "link",
-	// 		text: "Volunteer Applications",
-	// 		href: "/admin/applicants/volunteers",
-	// 	});
-	// }
+	if (isVolunteerReviewer(roles)) {
+		applicationLinks.push({
+			type: "link",
+			text: "Volunteer Applications",
+			href: "/admin/applicants/volunteers",
+		});
+	}
 
 	if (isLead(roles) || isDirector(roles)) {
 		navigationItems.splice(1, 0, {
