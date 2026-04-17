@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from logging import getLogger
-from typing import Annotated, Any, Literal, Mapping, Optional, Union
+from typing import Annotated, Any, Literal, Mapping, Optional
 
 from fastapi import APIRouter, Body, Depends, HTTPException, status
 from pydantic import BaseModel, TypeAdapter, ValidationError

@@ -14,8 +14,18 @@ interface HackerApplicationSections {
 const HACKER_APPLICATION_SECTIONS: HackerApplicationSections = {
 	"Personal Information": ["is_18_older", "how_did_you_hear_about_us"],
 	Education: ["school", "year", "majors_and_minors"],
-	Experience: ["resume_url", "share_resume_with_sponsors", "previous_hackathons", "previous_vh"],
-	"Free Response Questions": ["frq_diversity", "frq_picnic", "frq_project", "questions_comments_concerns"],
+	Experience: [
+		"resume_url",
+		"share_resume_with_sponsors",
+		"previous_hackathons",
+		"previous_vh",
+	],
+	"Free Response Questions": [
+		"frq_diversity",
+		"frq_picnic",
+		"frq_project",
+		"questions_comments_concerns",
+	],
 };
 
 function HackerApplication({

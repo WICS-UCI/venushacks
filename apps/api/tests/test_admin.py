@@ -10,10 +10,8 @@ from auth.user_identity import NativeUser, UserTestClient
 from models.ApplicationData import Decision
 from routers import admin
 from routers.admin import (
-    _handle_detailed_scores_review,
     _handle_global_only_review,
     GlobalScores,
-    HackerDetailedScores,
 )
 from services.mongodb_handler import Collection
 from services.sendgrid_handler import Template

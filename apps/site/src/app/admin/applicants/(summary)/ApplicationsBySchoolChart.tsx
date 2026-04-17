@@ -44,7 +44,7 @@ function ApplicationsBySchoolChart() {
 
 	const xDomain = [];
 	for (let d = new Date(START_DAY); d <= end; d.setDate(d.getDate() + 1)) {
-		xDomain.push(d.toISOString().slice(0, 10)); 
+		xDomain.push(d.toISOString().slice(0, 10));
 	}
 
 	return (
@@ -53,7 +53,7 @@ function ApplicationsBySchoolChart() {
 				title: school,
 				type: "bar",
 				data: Object.entries(events).map(([d, count]) => ({
-					x: d,       // already "2026-03-31"
+					x: d, // already "2026-03-31"
 					y: count,
 				})),
 			}))}

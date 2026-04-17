@@ -20,10 +20,7 @@ const VOLUNTEER_APPLICATION_SECTIONS: VolunteerApplicationSections = {
 		"frq_volunteer",
 		"questions_comments_concerns",
 	],
-	Availability: [
-		"saturday_availability",
-		"sunday_availability",
-	],
+	Availability: ["saturday_availability", "sunday_availability"],
 };
 
 function VolunteerApplication({

@@ -38,14 +38,14 @@ const MENTOR_APPLICATION_SECTIONS: MentorApplicationSections = {
 		"proficiency_react",
 		"proficiency_rest_apis",
 		"proficiency_sass",
-		"proficiency_sql"
+		"proficiency_sql",
 	],
 	"Free Response Questions": [
 		"why_mentor_frq",
 		"contribute_inclusive_frq",
 		"questions_comments_concerns",
 		"availability",
-		"availability_specify"
+		"availability_specify",
 	],
 };
 

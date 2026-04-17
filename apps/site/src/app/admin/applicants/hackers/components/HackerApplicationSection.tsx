@@ -42,7 +42,7 @@ function ApplicationResponse({ value }: ApplicationResponseProps) {
 					<p>
 						{
 							HACKATHON_EXPERIENCE_LABELS[
-							value as keyof typeof HACKATHON_EXPERIENCE_LABELS
+								value as keyof typeof HACKATHON_EXPERIENCE_LABELS
 							]
 						}
 					</p>

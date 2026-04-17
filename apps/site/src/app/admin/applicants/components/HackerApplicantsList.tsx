@@ -135,14 +135,19 @@ function HackerApplicantsList() {
 		</Box>
 	);
 
-	const header = ({ _id, first_name, last_name, avg_score }: HackerApplicantSummary) => (
+	const header = ({
+		_id,
+		first_name,
+		last_name,
+		avg_score
+	}: HackerApplicantSummary) => (
 		<CardHeader
 			_id={_id}
 			first_name={first_name}
 			last_name={last_name}
 			avg_score={avg_score}
 		/>
-	)
+	);
 
 	const avgScore = ({ avg_score }: { avg_score: number }) => {
 		if (avg_score === -1) return "-";
