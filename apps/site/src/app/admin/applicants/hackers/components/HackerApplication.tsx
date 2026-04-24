@@ -242,11 +242,7 @@ interface HackerApplicationProps {
 }
 
 function HackerApplication({ application_data, uid }: HackerApplicationProps) {
-	const {
-		loading,
-		error,
-		submitDetailedReview,
-	} = useApplicant(uid, "hacker");
+	const { loading, error, submitDetailedReview } = useApplicant(uid, "hacker");
 
 	const [filled, setFilled] = useState({
 		experience: false,
@@ -263,11 +259,14 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 	const [isExperienced, setIsExperienced] = useState(false);
 	const [notes, setNotes] = useState("");
 	const [submitting, setSubmitting] = useState(false);
-	const [flashMessages, setFlashMessages] = useState<React.ComponentProps<typeof Flashbar>["items"]>([]);
+	const [flashMessages, setFlashMessages] = useState<
+		React.ComponentProps<typeof Flashbar>["items"]
+	>([]);
 
-	const handleFilledChange = (key: keyof typeof filled) => (isFilled: boolean) => {
-		setFilled((prev) => ({ ...prev, [key]: isFilled }));
-	};
+	const handleFilledChange =
+		(key: keyof typeof filled) => (isFilled: boolean) => {
+			setFilled((prev) => ({ ...prev, [key]: isFilled }));
+		};
 
 	const handleScoreChange = (key: keyof typeof scores) => (score: number) => {
 		setScores((prev) => ({ ...prev, [key]: score }));
@@ -275,28 +274,39 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 
 	const allFilled = Object.values(filled).every(Boolean);
 
-	const onSubmit: ButtonProps["onClick"] = async (e: CustomEvent<ButtonProps.ClickDetail>) => {
+	const onSubmit: ButtonProps["onClick"] = async (
+		e: CustomEvent<ButtonProps.ClickDetail>
+	) => {
 		e.preventDefault();
 		setSubmitting(true);
 		setFlashMessages([]);
 		try {
-			await submitDetailedReview(uid, scores, notes.trim() || null, isExperienced);
+			await submitDetailedReview(
+				uid,
+				scores,
+				notes.trim() || null,
+				isExperienced,
+			);
 			setNotes("");
-			setFlashMessages([{
-				type: "success",
-				content: "Review submitted successfully!",
-				dismissible: true,
-				onDismiss: () => setFlashMessages([]),
-				id: "submit-success",
-			}]);
+			setFlashMessages([
+					{
+					type: "success",
+					content: "Review submitted successfully!",
+					dismissible: true,
+					onDismiss: () => setFlashMessages([]),
+					id: "submit-success",
+				}
+			]);
 		} catch (err) {
-			setFlashMessages([{
-				type: "error",
-				content: "Failed to submit review. Please try again.",
-				dismissible: true,
-				onDismiss: () => setFlashMessages([]),
-				id: "submit-error",
-			}]);
+			setFlashMessages([
+					{
+					type: "error",
+					content: "Failed to submit review. Please try again.",
+					dismissible: true,
+					onDismiss: () => setFlashMessages([]),
+					id: "submit-error",
+				}
+			]);
 		} finally {
 			setSubmitting(false);
 		}
@@ -316,7 +326,15 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 
 	return (
 		<SpaceBetween direction="vertical" size="m">
-			<div style={{ position: "fixed", bottom: "1rem", right: "1rem", zIndex: 1000, width: "400px" }}>
+			<div
+				style={{
+					position: "fixed",
+					bottom: "1rem",
+					right: "1rem",
+					zIndex: 1000,
+					width: "400px",
+				}}
+			>
 				<Flashbar items={flashMessages ?? []} />
 			</div>
 
@@ -325,14 +343,16 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				headerText="Hacker Application Information"
 			>
 				<SpaceBetween direction="vertical" size="m">
-					{Object.entries(HACKER_APPLICATION_SECTIONS).map(([section, questions]) => (
-						<HackerApplicationSection
-							key={section}
-							title={section}
-							data={application_data}
-							propsToShow={questions}
-						/>
-					))}
+					{Object.entries(HACKER_APPLICATION_SECTIONS).map(
+						([section, questions]) => (
+							<HackerApplicationSection
+								key={section}
+								title={section}
+								data={application_data}
+								propsToShow={questions}
+							/>
+						),
+					)}
 				</SpaceBetween>
 			</ExpandableSection>
 
@@ -382,9 +402,21 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 			<ScoreSummary
 				sections={[
 					{ label: "Resume", score: scores.experience, maxPoints: 2 },
-					{ label: "Written Response 1", score: scores.frq_project, maxPoints: 10 },
-					{ label: "Written Response 2", score: scores.frq_diversity, maxPoints: 15 },
-					{ label: "Written Response 3", score: scores.frq_picnic, maxPoints: 3 },
+					{
+						label: "Written Response 1",
+						score: scores.frq_project,
+						maxPoints: 10,
+					},
+					{
+						label: "Written Response 2",
+						score: scores.frq_diversity,
+						maxPoints: 15,
+					},
+					{
+						label: "Written Response 3",
+						score: scores.frq_picnic,
+						maxPoints: 3,
+					},
 				]}
 				onSubmit={onSubmit}
 				disabled={!allFilled || submitting}

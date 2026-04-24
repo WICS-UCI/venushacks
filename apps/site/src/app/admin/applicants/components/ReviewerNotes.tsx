@@ -5,7 +5,6 @@ import {
 	Header,
 	Textarea,
 	SpaceBetween,
-	TextContent,
 	Box,
 } from "@cloudscape-design/components";
 import { Review } from "@/lib/admin/useApplicant";

@@ -39,7 +39,10 @@ export function RubricRow({
 	namePrefix: string;
 	onValueChange: (criterion: string, value: number, filled: boolean) => void;
 }) {
-	const inputName = `${namePrefix}_${row.criterion.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "")}`;
+	const inputName = `${namePrefix}_${row.criterion
+		.toLowerCase()
+		.replace(/\s+/g, "_")
+		.replace(/[^a-z0-9_]/g, "")}`;
 	const [value, setValue] = useState("");
 	const [touched, setTouched] = useState(false);
 
@@ -47,7 +50,11 @@ export function RubricRow({
 		const num = Number(detail.value);
 		if (detail.value === "" || (num >= 0 && num <= row.maxPoints)) {
 			setValue(detail.value);
-			onValueChange(row.criterion, detail.value === "" ? 0 : num, detail.value !== "");
+			onValueChange(
+				row.criterion,
+				detail.value === "" ? 0 : num,
+				detail.value !== "",
+			);
 		}
 	};
 
@@ -85,7 +92,12 @@ export function RubricRow({
 						placeholder="0"
 						invalid={touched && isEmpty}
 					/>
-					<Box color={touched && isEmpty ? "text-status-error" : "text-body-secondary"} fontSize="body-s">
+					<Box
+						color={
+							touched && isEmpty ? "text-status-error" : "text-body-secondary"
+						}
+						fontSize="body-s"
+					>
 						{touched && isEmpty ? "Required" : `out of ${row.maxPoints}`}
 					</Box>
 				</SpaceBetween>
@@ -103,20 +115,26 @@ export default function WRRubricContainer({
 	onScoreChange,
 	onFilledChange,
 }: WRRubricContainerProps) {
-	const [criterionScores, setCriterionScores] = useState<Record<string, number>>(
-		Object.fromEntries(rubric.map((r) => [r.criterion, 0]))
-	);
+	const [criterionScores, setCriterionScores] = useState<
+		Record<string, number>
+	>(Object.fromEntries(rubric.map((r) => [r.criterion, 0])));
 	const [filledCriteria, setFilledCriteria] = useState<Record<string, boolean>>(
-		Object.fromEntries(rubric.map((r) => [r.criterion, false]))
+		Object.fromEntries(rubric.map((r) => [r.criterion, false])),
 	);
 
-	const handleValueChange = (criterion: string, value: number, filled: boolean) => {
+	const handleValueChange = (
+		criterion: string,
+		value: number,
+		filled: boolean,
+	) => {
 		setCriterionScores((prev) => ({ ...prev, [criterion]: value }));
 		setFilledCriteria((prev) => ({ ...prev, [criterion]: filled }));
 	};
 
 	useEffect(() => {
-		onScoreChange(Object.values(criterionScores).reduce((sum, v) => sum + v, 0));
+		onScoreChange(
+			Object.values(criterionScores).reduce((sum, v) => sum + v, 0),
+		);
 	}, [criterionScores, onScoreChange]);
 
 	useEffect(() => {
@@ -128,7 +146,13 @@ export default function WRRubricContainer({
 		: 0;
 
 	return (
-		<Container header={<Header variant="h2" description={description}>{title}</Header>}>
+		<Container
+			header={
+				<Header variant="h2" description={description}>
+					{title}
+				</Header>
+			}
+		>
 			<SpaceBetween direction="vertical" size="m">
 				<Textarea
 					value={applicantResponse || "No response provided."}
@@ -140,19 +164,43 @@ export default function WRRubricContainer({
 				</Box>
 
 				<SpaceBetween direction="vertical" size="s">
-					<Grid gridDefinition={[{ colspan: 3 }, { colspan: 7 }, { colspan: 2 }]}>
-						<Box fontWeight="bold" color="text-body-secondary">Criterion</Box>
-						<Box fontWeight="bold" color="text-body-secondary">Descriptors</Box>
-						<Box fontWeight="bold" color="text-body-secondary">Score</Box>
+					<Grid
+						gridDefinition={[{ colspan: 3 }, { colspan: 7 }, { colspan: 2 }]}
+					>
+						<Box fontWeight="bold" color="text-body-secondary">
+							Criterion
+						</Box>
+						<Box fontWeight="bold" color="text-body-secondary">
+							Descriptors
+						</Box>
+						<Box fontWeight="bold" color="text-body-secondary">
+							Score
+						</Box>
 					</Grid>
 
-					<hr style={{ border: "none", borderTop: "1px solid var(--color-border-divider-default)", margin: 0 }} />
+					<hr
+						style={{
+							border: "none",
+							borderTop: "1px solid var(--color-border-divider-default)",
+							margin: 0,
+						}}
+					/>
 
 					{rubric.map((row, i) => (
 						<React.Fragment key={row.criterion}>
-							<RubricRow row={row} namePrefix={namePrefix} onValueChange={handleValueChange} />
+							<RubricRow
+								row={row}
+								namePrefix={namePrefix}
+								onValueChange={handleValueChange}
+							/>
 							{i < rubric.length - 1 && (
-								<hr style={{ border: "none", borderTop: "1px solid var(--color-border-divider-default)", margin: 0 }} />
+								<hr
+									style={{
+										border: "none",
+										borderTop: "1px solid var(--color-border-divider-default)",
+										margin: 0,
+									}}
+								/>
 							)}
 						</React.Fragment>
 					))}

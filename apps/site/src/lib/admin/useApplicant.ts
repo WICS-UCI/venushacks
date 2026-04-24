@@ -3,10 +3,10 @@ import useSWR from "swr";
 
 import { ParticipantRole, Status, Uid, Score } from "@/lib/userRecord";
 
-export type Review = 
-    | [string, Uid, Score]
-    | [string, Uid, Score, string | null]
-    | [string, Uid, Score, string | null, boolean];
+export type Review =
+	| [string, Uid, Score]
+	| [string, Uid, Score, string | null]
+	| [string, Uid, Score, string | null, boolean];
 
 // The application responses submitted by an applicant
 interface BaseApplicationData {
