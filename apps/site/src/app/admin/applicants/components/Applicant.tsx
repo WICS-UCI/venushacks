@@ -26,7 +26,7 @@ interface ApplicantProps {
 }
 
 function Applicant({ uid, applicationType }: ApplicantProps) {
-	const { applicant, loading, submitReview, } = useApplicant(
+	const { applicant, loading, submitReview } = useApplicant(
 		uid,
 		applicationType,
 	);

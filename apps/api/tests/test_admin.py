@@ -365,7 +365,7 @@ def test_hacker_applicants_returns_correct_applicants(
                         "frq_picnic": 2,
                     },
                 },
-                "global_field_scores": {"experience": 1},
+                "global_field_scores": {"resume": 1},
             },
         }
     ]

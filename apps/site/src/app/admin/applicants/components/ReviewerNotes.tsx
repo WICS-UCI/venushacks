@@ -37,10 +37,7 @@ export default function ReviewerNotes({
 					const reviewer = review[1];
 					const note = review[3];
 					return (
-						<li
-							key={originalIdx}
-							style={{ marginBottom: "0.5rem" }}
-						>
+						<li key={originalIdx} style={{ marginBottom: "0.5rem" }}>
 							<div
 								style={{
 									display: "flex",

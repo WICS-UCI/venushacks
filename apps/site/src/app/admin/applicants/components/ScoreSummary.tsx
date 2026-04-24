@@ -15,25 +15,29 @@ interface SectionScore {
 
 interface ScoreSummaryProps {
 	sections: SectionScore[];
-	onSubmit: ButtonProps['onClick'];
+	onSubmit: ButtonProps["onClick"];
 	disabled?: boolean;
 	loading?: boolean;
 }
 
 const HR = () => (
-	<hr style={{
-		border: "none",
-		borderTop: "1px solid var(--color-border-divider-default)",
-		margin: 0,
-	}} />
+	<hr
+		style={{
+			border: "none",
+			borderTop: "1px solid var(--color-border-divider-default)",
+			margin: 0,
+		}}
+	/>
 );
 
 const BoldHR = () => (
-	<hr style={{
-		border: "none",
-		borderTop: "2px solid var(--color-border-divider-default)",
-		margin: 0,
-	}} />
+	<hr
+		style={{
+			border: "none",
+			borderTop: "2px solid var(--color-border-divider-default)",
+			margin: 0,
+		}}
+	/>
 );
 
 export default function ScoreSummary({
@@ -48,21 +52,24 @@ export default function ScoreSummary({
 	return (
 		<Container>
 			<SpaceBetween direction="vertical" size="xs">
-
-				{/* Header */}
 				<ColumnLayout columns={2} variant="text-grid">
-					<Box fontWeight="bold" color="text-body-secondary" fontSize="body-s">Section</Box>
-					<Box fontWeight="bold" color="text-body-secondary" fontSize="body-s">Score</Box>
+					<Box fontWeight="bold" color="text-body-secondary" fontSize="body-s">
+						Section
+					</Box>
+					<Box fontWeight="bold" color="text-body-secondary" fontSize="body-s">
+						Score
+					</Box>
 				</ColumnLayout>
 
 				<HR />
 
-				{/* Section rows */}
 				{sections.map((s, i) => (
 					<SpaceBetween key={s.label} direction="vertical" size="xs">
 						<ColumnLayout columns={2} variant="text-grid">
 							<Box>{s.label}</Box>
-							<Box color="text-body-secondary">{s.score} / {s.maxPoints}</Box>
+							<Box color="text-body-secondary">
+								{s.score} / {s.maxPoints}
+							</Box>
 						</ColumnLayout>
 						{i < sections.length - 1 && <HR />}
 					</SpaceBetween>
@@ -70,20 +77,28 @@ export default function ScoreSummary({
 
 				<BoldHR />
 
-				{/* Total + Submit */}
 				<ColumnLayout columns={2} variant="text-grid">
 					<SpaceBetween direction="horizontal" size="xxl" alignItems="center">
-						<Box fontWeight="bold" fontSize="heading-s">Total</Box>
+						<Box fontWeight="bold" fontSize="heading-s">
+							Total
+						</Box>
 					</SpaceBetween>
-					<Box fontWeight="bold" fontSize="heading-s">{total} / {totalMax}</Box>
+					<Box fontWeight="bold" fontSize="heading-s">
+						{total} / {totalMax}
+					</Box>
 				</ColumnLayout>
 
 				<SpaceBetween direction="horizontal" size="xs" alignItems="center">
-					<Button variant="primary" onClick={onSubmit} disabled={disabled} loading={loading}>Submit</Button>
+					<Button
+						variant="primary"
+						onClick={onSubmit}
+						disabled={disabled}
+						loading={loading}
+					>
+						Submit
+					</Button>
 					{disabled && (
-						<Box fontSize="body-s">
-							Fill out all fields before submitting.
-						</Box>
+						<Box fontSize="body-s">Fill out all fields before submitting.</Box>
 					)}
 				</SpaceBetween>
 			</SpaceBetween>

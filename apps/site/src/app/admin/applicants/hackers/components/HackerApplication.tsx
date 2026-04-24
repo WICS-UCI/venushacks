@@ -13,7 +13,9 @@ import useApplicant, {
 	HackerApplicationData,
 } from "@/lib/admin/useApplicant";
 import HackerApplicationSection from "@/app/admin/applicants/hackers/components/HackerApplicationSection";
-import WRRubricContainer, { RubricRow } from "../../components/WRRubricContainer";
+import WRRubricContainer, {
+	RubricRow,
+} from "../../components/WRRubricContainer";
 import ResumeRubricContainer from "../../components/ResumeRubricContainer";
 import ReviewerNotes from "../../components/ReviewerNotes";
 import ScoreSummary from "../../components/ScoreSummary";
@@ -46,11 +48,13 @@ const RESUME_INEXPERIENCED_RUBRIC: RubricRow[] = [
 		descriptors: [
 			{
 				points: 2,
-				description: "1+ relevant experiences with descriptions. Effort shown towards formatting and presentation.",
+				description:
+					"1+ relevant experiences with descriptions. Effort shown towards formatting and presentation.",
 			},
 			{
 				points: 1,
-				description: "Experience with descriptions. Formatting could use some work.",
+				description:
+					"Experience with descriptions. Formatting could use some work.",
 			},
 			{
 				points: 0,
@@ -67,7 +71,8 @@ const RESUME_EXPERIENCED_RUBRIC: RubricRow[] = [
 		descriptors: [
 			{
 				points: 2,
-				description: "2+ relevant experiences with descriptions. Professional formatting.",
+				description:
+					"2+ relevant experiences with descriptions. Professional formatting.",
 			},
 			{
 				points: 1,
@@ -129,7 +134,8 @@ const WR1_RUBRIC: RubricRow[] = [
 		descriptors: [
 			{
 				points: 4,
-				description: "Project is very well communicated. Around 150-word limit.",
+				description:
+					"Project is very well communicated. Around 150-word limit.",
 			},
 			{
 				points: "2-3",

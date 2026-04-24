@@ -43,7 +43,7 @@ export default function ResumeRubricContainer({
 	>(Object.fromEntries(activeRubric.map((r) => [r.criterion, 0])));
 
 	const [filledCriteria, setFilledCriteria] = useState<Record<string, boolean>>(
-		Object.fromEntries(activeRubric.map((r) => [r.criterion, false]))
+		Object.fromEntries(activeRubric.map((r) => [r.criterion, false])),
 	);
 
 	useEffect(() => {
@@ -68,11 +68,11 @@ export default function ResumeRubricContainer({
 		onScoreChange(
 			Object.values(criterionScores).reduce((sum, v) => sum + v, 0),
 		);
-	}, [criterionScores]);
+	}, [criterionScores, onScoreChange]);
 
 	useEffect(() => {
 		onFilledChange?.(Object.values(filledCriteria).every(Boolean));
-	}, [filledCriteria]);
+	}, [filledCriteria, onFilledChange]);
 
 	return (
 		<Container header={<Header variant="h2">{title}</Header>}>
@@ -93,7 +93,9 @@ export default function ResumeRubricContainer({
 				</Checkbox>
 
 				<SpaceBetween direction="vertical" size="s">
-					<Grid gridDefinition={[{ colspan: 3 }, { colspan: 7 }, { colspan: 2 }]}>
+					<Grid
+						gridDefinition={[{ colspan: 3 }, { colspan: 7 }, { colspan: 2 }]}
+					>
 						<Box fontWeight="bold" color="text-body-secondary">
 							Criterion
 						</Box>
