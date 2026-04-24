@@ -2,17 +2,12 @@ from datetime import datetime
 from typing import Any
 from unittest.mock import ANY, AsyncMock, patch
 
-import pytest
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 
 from auth import user_identity
 from auth.user_identity import NativeUser, UserTestClient
 from models.ApplicationData import Decision
 from routers import admin
-from routers.admin import (
-    _handle_global_only_review,
-    GlobalScores,
-)
 from services.mongodb_handler import Collection
 from services.sendgrid_handler import Template
 
@@ -360,26 +355,28 @@ def test_hacker_applicants_returns_correct_applicants(
                 ],
                 "review_breakdown": {
                     "alicia": {
-                        "resume": 15,
-                        "elevator_pitch_saq": 6,
-                        "tech_experience_saq": 6,
-                        "learn_about_self_saq": 8,
-                        "pixel_art_saq": 16,
-                        "hackathon_experience": -1000,
+                        "frq_project": 5,
+                        "frq_diversity": 8,
+                        "frq_picnic": 2,
                     },
                     "alicia2": {
-                        "resume": 15,
-                        "elevator_pitch_saq": 10,
-                        "tech_experience_saq": 10,
-                        "learn_about_self_saq": 10,
-                        "pixel_art_saq": 10,
-                        "hackathon_experience": 5,
+                        "frq_project": 6,
+                        "frq_diversity": 9,
+                        "frq_picnic": 2,
                     },
                 },
-                "global_field_scores": {"resume": 15, "hackathon_experience": 5},
+                "global_field_scores": {"resume": 1},
             },
         }
     ]
+
+    # Calculation:
+    # global: 2 * 1 = 2
+    # alicia (excludes experience): 5 + 8 + 2 = 15
+    # alicia2 (excludes experience): 6 + 9 + 2 = 17
+    # total = 2 + 15 + 17 = 34
+    # avg = 34 / 2 = 17
+    # scaled = (17 / 30) * 100 = 56.666...
 
     expected_records = [
         {
@@ -388,8 +385,8 @@ def test_hacker_applicants_returns_correct_applicants(
             "last_name": "unknown",
             "resume_reviewed": True,
             "status": "REVIEWED",
-            "decision": "ACCEPTED",
-            "avg_score": 58.0,
+            "decision": "ACCEPTED",  # 56.67 >= accept threshold 50
+            "avg_score": 56.666666666666664,
             "reviewers": ["edu.uci.alicia", "edu.uci.alicia2"],
             "application_data": {
                 "school": "Hamburger University",
@@ -398,7 +395,7 @@ def test_hacker_applicants_returns_correct_applicants(
         },
     ]
 
-    returned_thresholds: dict[str, object] = {"accept": 12, "waitlist": 5}
+    returned_thresholds: dict[str, object] = {"accept": 50, "waitlist": 30}
 
     mock_mongodb_handler_retrieve.return_value = returned_records
     mock_mongodb_handler_retrieve_one.side_effect = [
@@ -472,51 +469,3 @@ def test_error_on_hacker_invalid_value(
     res = reviewer_client.post("/review", json=post_data)
 
     assert res.status_code == 400
-
-
-@patch("routers.admin.require_lead", autospec=True)
-@patch("services.mongodb_handler.update_one", autospec=True)
-async def test_handle_global_only_review_success(
-    mock_mongodb_handler_update_one: AsyncMock,
-    mock_require_lead: AsyncMock,
-) -> None:
-    """Test successful resume-only review submission."""
-    applicant = "edu.uci.test"
-    scores = GlobalScores(resume=8, hackathon_experience=10)
-    reviewer = USER_REVIEWER
-
-    mock_require_lead.return_value = None
-    mock_mongodb_handler_update_one.return_value = True
-
-    await _handle_global_only_review(applicant, scores, reviewer)
-
-    mock_require_lead.assert_awaited_once_with(reviewer)
-    mock_mongodb_handler_update_one.assert_awaited_once_with(
-        Collection.USERS,
-        {"_id": applicant},
-        {
-            "application_data.global_field_scores": {
-                "resume": 8,
-                "hackathon_experience": 10,
-            }
-        },
-        upsert=True,
-    )
-
-
-@patch("routers.admin.require_lead", autospec=True)
-async def test_handle_global_only_review_forbidden(
-    mock_require_lead: AsyncMock,
-) -> None:
-    """Test resume-only review submission fails without LEAD role."""
-    applicant = "edu.uci.test"
-    scores = GlobalScores(resume=8, hackathon_experience=10)
-    reviewer = USER_REVIEWER
-
-    mock_require_lead.side_effect = HTTPException(status_code=403, detail="Forbidden")
-
-    with pytest.raises(HTTPException) as exc_info:
-        await _handle_global_only_review(applicant, scores, reviewer)
-
-    assert exc_info.value.status_code == 403
-    mock_require_lead.assert_awaited_once_with(reviewer)

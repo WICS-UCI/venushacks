@@ -338,9 +338,9 @@ async def set_hacker_score_thresholds(
 
     if (
         accept < -1
-        or accept > 10
+        or accept > 100
         or waitlist < -1
-        or waitlist > 10
+        or waitlist > 100
         or (accept != -1 and waitlist != -1 and waitlist > accept)
         or (thresholds and thresholds["waitlist"] > thresholds["accept"])
     ):

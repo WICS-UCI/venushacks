@@ -71,6 +71,7 @@ function Applicant({ uid, applicationType }: ApplicantProps) {
 				{applicant.roles.includes(ParticipantRole.Hacker) ? (
 					<HackerApplication
 						application_data={application_data as HackerApplicationData}
+						uid={uid}
 					/>
 				) : applicant.roles.includes(ParticipantRole.Mentor) ? (
 					<MentorApplication

@@ -149,11 +149,11 @@ function HackerApplicantsList() {
 		/>
 	);
 
-	const avgScore = ({ avg_score }: { avg_score: number }) => {
+	const avgScore = ({ avg_score }: HackerApplicantSummary) => {
 		if (avg_score === -1) return "-";
 		if (avg_score === OVERQUALIFIED_SCORE)
 			return <Box color="text-status-error">OVERQUALIFIED</Box>;
-		return avg_score;
+		return Math.round(avg_score * 100) / 100;
 	};
 
 	return (
@@ -165,21 +165,6 @@ function HackerApplicantsList() {
 						id: "uid",
 						header: "UID",
 						content: ({ _id }) => _id,
-					},
-					{
-						id: "school",
-						header: "School",
-						content: ({ application_data }) => application_data.school,
-					},
-					{
-						id: "status",
-						header: "Status",
-						content: ApplicantStatus,
-					},
-					{
-						id: "resume_reviewed",
-						header: "Resume Reviewed Status",
-						content: ResumeReviewedStatus,
 					},
 					{
 						id: "reviewers",
@@ -298,11 +283,5 @@ const CardHeader = ({
 
 const DecisionStatus = ({ decision }: HackerApplicantSummary) =>
 	decision ? <ApplicantStatus status={decision} /> : "-";
-
-const ResumeReviewedStatus = ({ resume_reviewed }: HackerApplicantSummary) => (
-	<ApplicantStatus
-		status={resume_reviewed ? Status.Reviewed : Status.Pending}
-	/>
-);
 
 export default HackerApplicantsList;

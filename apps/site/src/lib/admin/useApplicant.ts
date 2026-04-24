@@ -3,7 +3,10 @@ import useSWR from "swr";
 
 import { ParticipantRole, Status, Uid, Score } from "@/lib/userRecord";
 
-export type Review = [string, Uid, Score];
+export type Review =
+	| [string, Uid, Score]
+	| [string, Uid, Score, string | null]
+	| [string, Uid, Score, string | null, boolean];
 
 // The application responses submitted by an applicant
 interface BaseApplicationData {
@@ -139,12 +142,18 @@ function useApplicant(
 		mutate();
 	}
 
-	async function submitDetailedReview(uid: Uid, scores: object) {
+	async function submitDetailedReview(
+		uid: Uid,
+		scores: object,
+		notes: string | null = null,
+		isExperienced: boolean = false,
+	) {
 		await axios.post("/api/admin/detailed-review", {
 			applicant: uid,
 			scores: scores,
+			notes: notes?.trim() || null,
+			is_experienced: isExperienced,
 		});
-		// TODO: provide success status to display in alert
 		mutate();
 	}
 
@@ -158,6 +167,11 @@ function useApplicant(
 }
 
 export type submitReview = (uid: Uid, score: number) => Promise<void>;
-export type submitDetailedReview = (uid: Uid, scores: object) => Promise<void>;
+export type submitDetailedReview = (
+	uid: Uid,
+	scores: object,
+	notes?: string | null,
+	isExperienced?: boolean,
+) => Promise<void>;
 
 export default useApplicant;
