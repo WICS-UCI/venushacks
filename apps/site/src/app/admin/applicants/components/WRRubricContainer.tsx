@@ -117,11 +117,11 @@ export default function WRRubricContainer({
 
     useEffect(() => {
         onScoreChange(Object.values(criterionScores).reduce((sum, v) => sum + v, 0));
-    }, [criterionScores]);
-
+    }, [criterionScores, onScoreChange]);
+    
     useEffect(() => {
         onFilledChange?.(Object.values(filledCriteria).every(Boolean));
-    }, [filledCriteria]);
+    }, [filledCriteria, onFilledChange]);
 
     const wordCount = applicantResponse
         ? applicantResponse.trim().split(/\s+/).filter(Boolean).length

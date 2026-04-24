@@ -50,8 +50,11 @@ function ApplicationReviews({ reviews, isHacker }: ApplicationReviewsProps) {
 						<SpaceBetween direction="horizontal" size="xxxs">
 							<span>{formatUid(reviewer)}</span>
 							{isHacker && score === OVERQUALIFIED_SCORE ? (
-								<span> marked this applicant{" "}
-								<Box color="text-status-error">OVERQUALIFIED</Box></span>
+								<span>
+									{" "}
+									marked this applicant{" "}
+									<Box color="text-status-error">OVERQUALIFIED</Box>
+								</span>
 							) : (
 								<span> reviewed this application </span>
 							)}

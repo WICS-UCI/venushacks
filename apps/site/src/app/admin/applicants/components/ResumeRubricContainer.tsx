@@ -34,29 +34,40 @@ export default function ResumeRubricContainer({
 	onIsExperiencedChange,
 }: ResumeRubricContainerProps) {
 	const activeRubric = useMemo(
-		() => isExperienced ? experiencedRubric : inexperiencedRubric,
-		[isExperienced, experiencedRubric, inexperiencedRubric]
+		() => (isExperienced ? experiencedRubric : inexperiencedRubric),
+		[isExperienced, experiencedRubric, inexperiencedRubric],
 	);
 
-	const [criterionScores, setCriterionScores] = useState<Record<string, number>>(
-		Object.fromEntries(activeRubric.map((r) => [r.criterion, 0]))
-	);
+	const [criterionScores, setCriterionScores] = useState<
+		Record<string, number>
+	>(Object.fromEntries(activeRubric.map((r) => [r.criterion, 0])));
+
 	const [filledCriteria, setFilledCriteria] = useState<Record<string, boolean>>(
 		Object.fromEntries(activeRubric.map((r) => [r.criterion, false]))
 	);
 
 	useEffect(() => {
-		setCriterionScores(Object.fromEntries(activeRubric.map((r) => [r.criterion, 0])));
-		setFilledCriteria(Object.fromEntries(activeRubric.map((r) => [r.criterion, false])));
+		setCriterionScores(
+			Object.fromEntries(activeRubric.map((r) => [r.criterion, 0])),
+		);
+		setFilledCriteria(
+			Object.fromEntries(activeRubric.map((r) => [r.criterion, false])),
+		);
 	}, [activeRubric]);
 
-	const handleValueChange = (criterion: string, value: number, filled: boolean) => {
+	const handleValueChange = (
+		criterion: string,
+		value: number,
+		filled: boolean,
+	) => {
 		setCriterionScores((prev) => ({ ...prev, [criterion]: value }));
 		setFilledCriteria((prev) => ({ ...prev, [criterion]: filled }));
 	};
 
 	useEffect(() => {
-		onScoreChange(Object.values(criterionScores).reduce((sum, v) => sum + v, 0));
+		onScoreChange(
+			Object.values(criterionScores).reduce((sum, v) => sum + v, 0),
+		);
 	}, [criterionScores]);
 
 	useEffect(() => {
@@ -83,18 +94,40 @@ export default function ResumeRubricContainer({
 
 				<SpaceBetween direction="vertical" size="s">
 					<Grid gridDefinition={[{ colspan: 3 }, { colspan: 7 }, { colspan: 2 }]}>
-						<Box fontWeight="bold" color="text-body-secondary">Criterion</Box>
-						<Box fontWeight="bold" color="text-body-secondary">Descriptors</Box>
-						<Box fontWeight="bold" color="text-body-secondary">Score</Box>
+						<Box fontWeight="bold" color="text-body-secondary">
+							Criterion
+						</Box>
+						<Box fontWeight="bold" color="text-body-secondary">
+							Descriptors
+						</Box>
+						<Box fontWeight="bold" color="text-body-secondary">
+							Score
+						</Box>
 					</Grid>
 
-					<hr style={{ border: "none", borderTop: "1px solid var(--color-border-divider-default)", margin: 0 }} />
+					<hr
+						style={{
+							border: "none",
+							borderTop: "1px solid var(--color-border-divider-default)",
+							margin: 0,
+						}}
+					/>
 
 					{activeRubric.map((row, i) => (
 						<React.Fragment key={row.criterion}>
-							<RubricRow row={row} namePrefix={namePrefix} onValueChange={handleValueChange} />
+							<RubricRow
+								row={row}
+								namePrefix={namePrefix}
+								onValueChange={handleValueChange}
+							/>
 							{i < activeRubric.length - 1 && (
-								<hr style={{ border: "none", borderTop: "1px solid var(--color-border-divider-default)", margin: 0 }} />
+								<hr
+									style={{
+										border: "none",
+										borderTop: "1px solid var(--color-border-divider-default)",
+										margin: 0,
+									}}
+								/>
 							)}
 						</React.Fragment>
 					))}

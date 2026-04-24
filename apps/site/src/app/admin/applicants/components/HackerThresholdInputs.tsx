@@ -45,67 +45,67 @@ function HackerThresholdInputs() {
 		if (!acceptValue) return true;
 
 		const sentAcceptValue = parseFloat(acceptValue);
-	
+
 		if (!thresholds) {
 			if (!waitlistValue) return true;
-	
+
 			const sentWaitlistValue = parseFloat(waitlistValue);
-	
+
 			if (
 				sentAcceptValue < sentWaitlistValue ||
 				sentAcceptValue < 0 ||
 				sentAcceptValue > 100
 			)
 				return false;
-	
+
 			return true;
 		}
-	
+
 		const sentWaitlistValue = waitlistValue
 			? parseFloat(waitlistValue)
 			: thresholds.waitlist;
-	
+
 		if (
 			sentAcceptValue < 0 ||
 			sentAcceptValue > 100 ||
 			sentAcceptValue < sentWaitlistValue
 		)
 			return false;
-	
+
 		return true;
 	};
-	
+
 	const isValidWaitlist = () => {
 		if (!waitlistValue) return true;
-	
+
 		const sentWaitlistValue = parseFloat(waitlistValue);
-	
+
 		if (!thresholds) {
 			if (!acceptValue) return true;
-	
+
 			const sentAcceptValue = parseFloat(acceptValue);
-	
+
 			if (
 				sentAcceptValue < sentWaitlistValue ||
 				sentWaitlistValue < 0 ||
 				sentWaitlistValue > 100
 			)
 				return false;
-	
+
 			return true;
 		}
-	
+
 		const sentAcceptValue = acceptValue
 			? parseFloat(acceptValue)
 			: thresholds.accept;
-	
+
 		if (
 			sentWaitlistValue < 0 ||
 			sentWaitlistValue > 100 ||
 			sentAcceptValue < sentWaitlistValue
 		)
 			return false;
-	
+
 		return true;
 	};
 	return (
