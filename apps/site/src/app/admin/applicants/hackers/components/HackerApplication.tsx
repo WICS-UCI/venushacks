@@ -275,7 +275,7 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 	const allFilled = Object.values(filled).every(Boolean);
 
 	const onSubmit: ButtonProps["onClick"] = async (
-		e: CustomEvent<ButtonProps.ClickDetail>
+		e: CustomEvent<ButtonProps.ClickDetail>,
 	) => {
 		e.preventDefault();
 		setSubmitting(true);
@@ -289,23 +289,23 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 			);
 			setNotes("");
 			setFlashMessages([
-					{
+				{
 					type: "success",
 					content: "Review submitted successfully!",
 					dismissible: true,
 					onDismiss: () => setFlashMessages([]),
 					id: "submit-success",
-				}
+				},
 			]);
 		} catch (err) {
 			setFlashMessages([
-					{
+				{
 					type: "error",
 					content: "Failed to submit review. Please try again.",
 					dismissible: true,
 					onDismiss: () => setFlashMessages([]),
 					id: "submit-error",
-				}
+				},
 			]);
 		} finally {
 			setSubmitting(false);
