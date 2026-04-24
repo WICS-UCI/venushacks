@@ -2,8 +2,7 @@ from datetime import datetime
 from typing import Any
 from unittest.mock import ANY, AsyncMock, patch
 
-import pytest
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 
 from auth import user_identity
 from auth.user_identity import NativeUser, UserTestClient

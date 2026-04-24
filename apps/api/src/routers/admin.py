@@ -523,5 +523,5 @@ async def _handle_venushacks_detailed_scores_review(
         },
         err_msg=f"{reviewer} could not submit review for {applicant}",
     )
-    
+
     log.info("%s reviewed hacker %s", reviewer, applicant)

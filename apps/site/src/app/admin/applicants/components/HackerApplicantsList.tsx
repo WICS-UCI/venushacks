@@ -122,8 +122,6 @@ function HackerApplicantsList() {
 
 	const items = top400 ? filteredApplicants400 : filteredApplicants;
 
-	console.log(items)
-
 	const counter =
 		selectedStatuses.length > 0 ||
 		selectedDecisions.length > 0 ||
@@ -285,11 +283,5 @@ const CardHeader = ({
 
 const DecisionStatus = ({ decision }: HackerApplicantSummary) =>
 	decision ? <ApplicantStatus status={decision} /> : "-";
-
-const ResumeReviewedStatus = ({ resume_reviewed }: HackerApplicantSummary) => (
-	<ApplicantStatus
-		status={resume_reviewed ? Status.Reviewed : Status.Pending}
-	/>
-);
 
 export default HackerApplicantsList;

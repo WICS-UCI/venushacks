@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import {
 	ExpandableSection,
 	SpaceBetween,
@@ -12,7 +12,6 @@ import useApplicant, {
 	HackerApplicationQuestion,
 	HackerApplicationData,
 } from "@/lib/admin/useApplicant";
-import UserContext from "@/lib/admin/UserContext";
 import HackerApplicationSection from "@/app/admin/applicants/hackers/components/HackerApplicationSection";
 import WRRubricContainer, { RubricRow } from "../../components/WRRubricContainer";
 import ResumeRubricContainer from "../../components/ResumeRubricContainer";
@@ -238,13 +237,10 @@ interface HackerApplicationProps {
 
 function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 	const {
-		applicant,
 		loading,
 		error,
 		submitDetailedReview,
 	} = useApplicant(uid, "hacker");
-
-	const { uid: reviewer_uid } = useContext(UserContext);
 
 	const [filled, setFilled] = useState({
 		experience: false,
@@ -376,7 +372,6 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				notes={notes}
 				onNotesChange={setNotes}
 				reviews={application_data.reviews}
-				reviewerId={reviewer_uid}
 			/>
 			<ScoreSummary
 				sections={[

@@ -9,13 +9,11 @@ import {
 	Box,
 } from "@cloudscape-design/components";
 import { Review } from "@/lib/admin/useApplicant";
-import { Uid } from "@/lib/userRecord";
 
 interface ReviewerNotesProps {
 	notes: string;
 	onNotesChange: (notes: string) => void;
 	reviews?: Review[];
-	reviewerId: Uid | null;
 }
 
 interface ReviewWithOriginalIdx {
@@ -27,7 +25,6 @@ export default function ReviewerNotes({
 	notes,
 	onNotesChange,
 	reviews,
-	reviewerId,
 }: ReviewerNotesProps) {
 	const reviewsWithNotes: ReviewWithOriginalIdx[] = (reviews ?? [])
 		.map((review, originalIdx) => ({ review, originalIdx }))

@@ -43,7 +43,7 @@ function HackerThresholdInputs() {
 
 	const isValidAccept = () => {
 		if (!acceptValue) return true;
-	
+
 		const sentAcceptValue = parseFloat(acceptValue);
 	
 		if (!thresholds) {

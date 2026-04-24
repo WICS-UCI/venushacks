@@ -28,6 +28,7 @@ Review = Union[
     tuple[datetime, str, float, Optional[str], bool],
 ]
 
+
 def make_empty_none(val: Union[str, None]) -> Union[str, None]:
     """Browser will send empty strings for unspecified form inputs."""
     if val == "":

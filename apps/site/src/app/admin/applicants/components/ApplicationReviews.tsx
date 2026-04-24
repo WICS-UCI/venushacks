@@ -32,8 +32,10 @@ function ApplicationReviews({ reviews, isHacker }: ApplicationReviewsProps) {
 						{isHacker ? (
 							<>
 								You scored this applicant a{" "}
-								{score === OVERQUALIFIED_SCORE ? "OVERQUALIFIED" : Math.round(score * 100) / 100} on{" "}
-								{formatDate(date)}
+								{score === OVERQUALIFIED_SCORE
+									? "OVERQUALIFIED"
+									: Math.round(score * 100) / 100}{" "}
+								on {formatDate(date)}
 							</>
 						) : (
 							<>
@@ -48,7 +50,8 @@ function ApplicationReviews({ reviews, isHacker }: ApplicationReviewsProps) {
 						<SpaceBetween direction="horizontal" size="xxxs">
 							<span>{formatUid(reviewer)}</span>
 							{isHacker && score === OVERQUALIFIED_SCORE ? (
-								<span> marked this applicant <Box color="text-status-error">OVERQUALIFIED</Box></span>
+								<span> marked this applicant{" "}
+								<Box color="text-status-error">OVERQUALIFIED</Box></span>
 							) : (
 								<span> reviewed this application </span>
 							)}
