@@ -24,7 +24,7 @@ export default defineConfig({
 									"resourceCategoryOrder",
 									"resourceCategory",
 									"resource",
-									"zothacksScoringGuidelines",
+									"vhHackerScoringGuidelines",
 								].includes(listItem.getId()!),
 						),
 						S.divider(),
@@ -51,11 +51,11 @@ export default defineConfig({
 							.child(S.documentTypeList("resource").title("Resources")),
 						S.divider(),
 						S.listItem()
-							.title("Zothacks Scoring Guidelines")
+							.title("VenusHacks 2026 Scoring Guidelines")
 							.icon(Newspaper)
 							.child(
-								S.documentTypeList("zothacksScoringGuidelines").title(
-									"Zothacks Scoring Guidelines",
+								S.documentTypeList("vhHackerScoringGuidelines").title(
+									"VenusHacks 2026 Scoring Guidelines",
 								),
 							),
 					]),

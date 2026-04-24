@@ -6,7 +6,7 @@ import resourceCategory from "./resourceCategory";
 import resourceCategoryOrder from "./resourceCategoryOrder";
 import sponsors from "./sponsors";
 import organizers from "./organizers";
-import zothacksScoringGuidelines from "./zothacksScoringGuidelines";
+import vhScoringGuidelines from "./vhScoringGuidelines";
 
 export const schemaTypes = [
 	faqs,
@@ -17,5 +17,5 @@ export const schemaTypes = [
 	resourceCategoryOrder,
 	sponsors,
 	organizers,
-	zothacksScoringGuidelines,
+	vhScoringGuidelines,
 ];
