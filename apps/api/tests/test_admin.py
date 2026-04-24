@@ -355,26 +355,28 @@ def test_hacker_applicants_returns_correct_applicants(
                 ],
                 "review_breakdown": {
                     "alicia": {
-                        "resume": 15,
-                        "elevator_pitch_saq": 6,
-                        "tech_experience_saq": 6,
-                        "learn_about_self_saq": 8,
-                        "pixel_art_saq": 16,
-                        "hackathon_experience": -1000,
+                        "frq_project": 5,
+                        "frq_diversity": 8,
+                        "frq_picnic": 2,
                     },
                     "alicia2": {
-                        "resume": 15,
-                        "elevator_pitch_saq": 10,
-                        "tech_experience_saq": 10,
-                        "learn_about_self_saq": 10,
-                        "pixel_art_saq": 10,
-                        "hackathon_experience": 5,
+                        "frq_project": 6,
+                        "frq_diversity": 9,
+                        "frq_picnic": 2,
                     },
                 },
-                "global_field_scores": {"resume": 15, "hackathon_experience": 5},
+                "global_field_scores": {"experience": 1},
             },
         }
     ]
+
+    # Calculation:
+    # global: 2 * 1 = 2
+    # alicia (excludes experience): 5 + 8 + 2 = 15
+    # alicia2 (excludes experience): 6 + 9 + 2 = 17
+    # total = 2 + 15 + 17 = 34
+    # avg = 34 / 2 = 17
+    # scaled = (17 / 30) * 100 = 56.666...
 
     expected_records = [
         {
@@ -383,8 +385,8 @@ def test_hacker_applicants_returns_correct_applicants(
             "last_name": "unknown",
             "resume_reviewed": True,
             "status": "REVIEWED",
-            "decision": "ACCEPTED",
-            "avg_score": 58.0,
+            "decision": "ACCEPTED",  # 56.67 >= accept threshold 50
+            "avg_score": 56.666666666666664,
             "reviewers": ["edu.uci.alicia", "edu.uci.alicia2"],
             "application_data": {
                 "school": "Hamburger University",
@@ -393,7 +395,7 @@ def test_hacker_applicants_returns_correct_applicants(
         },
     ]
 
-    returned_thresholds: dict[str, object] = {"accept": 12, "waitlist": 5}
+    returned_thresholds: dict[str, object] = {"accept": 50, "waitlist": 30}
 
     mock_mongodb_handler_retrieve.return_value = returned_records
     mock_mongodb_handler_retrieve_one.side_effect = [

@@ -33,43 +33,34 @@ export default function ReviewerNotes({
 	return (
 		<Container header={<Header variant="h2">Reviewer Notes</Header>}>
 			<SpaceBetween direction="vertical" size="s">
-				{reviewsWithNotes.length > 0 && (
-					<TextContent>
-						Past Notes
-						<ul>
-							{reviewsWithNotes.map(
-								({ review: [, reviewer, , note], originalIdx }) => {
-									return (
-										<li
-											key={originalIdx}
-											style={{
-												marginBottom: "0.5rem",
-											}}
-										>
-											<div
-												style={{
-													display: "flex",
-													alignItems: "center",
-													justifyContent: "space-between",
-												}}
-											>
-												<Box fontWeight="bold">{reviewer}</Box>
-											</div>
-											<Box>
-												{note?.split("\n").map((line, i, arr) => (
-													<span key={i}>
-														{line}
-														{i !== arr.length - 1 && <br />}
-													</span>
-												))}
-											</Box>
-										</li>
-									);
-								},
-							)}
-						</ul>
-					</TextContent>
-				)}
+				{reviewsWithNotes.map(({ review, originalIdx }) => {
+					const reviewer = review[1];
+					const note = review[3];
+					return (
+						<li
+							key={originalIdx}
+							style={{ marginBottom: "0.5rem" }}
+						>
+							<div
+								style={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "space-between",
+								}}
+							>
+								<Box fontWeight="bold">{reviewer}</Box>
+							</div>
+							<Box>
+								{note?.split("\n").map((line, i, arr) => (
+									<span key={i}>
+										{line}
+										{i !== arr.length - 1 && <br />}
+									</span>
+								))}
+							</Box>
+						</li>
+					);
+				})}
 				<Textarea
 					placeholder="Leave any comments for other leads to read in case there's anything of note!"
 					value={notes}
