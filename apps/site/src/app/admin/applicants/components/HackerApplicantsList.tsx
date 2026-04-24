@@ -122,6 +122,8 @@ function HackerApplicantsList() {
 
 	const items = top400 ? filteredApplicants400 : filteredApplicants;
 
+	console.log(items)
+
 	const counter =
 		selectedStatuses.length > 0 ||
 		selectedDecisions.length > 0 ||
@@ -149,11 +151,11 @@ function HackerApplicantsList() {
 		/>
 	);
 
-	const avgScore = ({ avg_score }: { avg_score: number }) => {
+	const avgScore = ({ avg_score }: HackerApplicantSummary) => {
 		if (avg_score === -1) return "-";
 		if (avg_score === OVERQUALIFIED_SCORE)
 			return <Box color="text-status-error">OVERQUALIFIED</Box>;
-		return avg_score;
+		return Math.round(avg_score * 100) / 100;
 	};
 
 	return (
@@ -165,21 +167,6 @@ function HackerApplicantsList() {
 						id: "uid",
 						header: "UID",
 						content: ({ _id }) => _id,
-					},
-					{
-						id: "school",
-						header: "School",
-						content: ({ application_data }) => application_data.school,
-					},
-					{
-						id: "status",
-						header: "Status",
-						content: ApplicantStatus,
-					},
-					{
-						id: "resume_reviewed",
-						header: "Resume Reviewed Status",
-						content: ResumeReviewedStatus,
 					},
 					{
 						id: "reviewers",

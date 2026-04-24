@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
 	ExpandableSection,
 	SpaceBetween,
 	ButtonProps,
+	Spinner,
+	Alert,
+	Flashbar,
 } from "@cloudscape-design/components";
 
-import { HackerApplicationQuestion, HackerApplicationData } from "@/lib/admin/useApplicant";
+import useApplicant, {
+	HackerApplicationQuestion,
+	HackerApplicationData,
+} from "@/lib/admin/useApplicant";
+import UserContext from "@/lib/admin/UserContext";
 import HackerApplicationSection from "@/app/admin/applicants/hackers/components/HackerApplicationSection";
 import WRRubricContainer, { RubricRow } from "../../components/WRRubricContainer";
 import ResumeRubricContainer from "../../components/ResumeRubricContainer";
+import ReviewerNotes from "../../components/ReviewerNotes";
 import ScoreSummary from "../../components/ScoreSummary";
 
 interface HackerApplicationSections {
@@ -225,24 +233,35 @@ const WR3_RUBRIC: RubricRow[] = [
 
 interface HackerApplicationProps {
 	application_data: HackerApplicationData;
+	uid: string;
 }
 
-function HackerApplication({ application_data }: HackerApplicationProps) {
-	const inexperienced = ["high school", "first-year-undergrad", "second-year-undergrad"].includes(application_data.year);
+function HackerApplication({ application_data, uid }: HackerApplicationProps) {
+	const {
+		applicant,
+		loading,
+		error,
+		submitDetailedReview,
+	} = useApplicant(uid, "hacker");
+
+	const { uid: reviewer_uid } = useContext(UserContext);
 
 	const [filled, setFilled] = useState({
-		resume: false,
+		experience: false,
 		frq_project: false,
 		frq_diversity: false,
 		frq_picnic: false,
 	});
-
 	const [scores, setScores] = useState({
-		resume: 0,
+		experience: 0,
 		frq_project: 0,
 		frq_diversity: 0,
 		frq_picnic: 0,
 	});
+	const [isExperienced, setIsExperienced] = useState(false);
+	const [notes, setNotes] = useState("");
+	const [submitting, setSubmitting] = useState(false);
+	const [flashMessages, setFlashMessages] = useState<React.ComponentProps<typeof Flashbar>["items"]>([]);
 
 	const handleFilledChange = (key: keyof typeof filled) => (isFilled: boolean) => {
 		setFilled((prev) => ({ ...prev, [key]: isFilled }));
@@ -252,17 +271,53 @@ function HackerApplication({ application_data }: HackerApplicationProps) {
 		setScores((prev) => ({ ...prev, [key]: score }));
 	};
 
-	const total = Object.values(scores).reduce((sum, v) => sum + v, 0);
-
 	const allFilled = Object.values(filled).every(Boolean);
 
-	const onSubmit: ButtonProps['onClick'] = (e: CustomEvent<ButtonProps.ClickDetail>) => {
+	const onSubmit: ButtonProps["onClick"] = async (e: CustomEvent<ButtonProps.ClickDetail>) => {
 		e.preventDefault();
-		console.log(total);
+		setSubmitting(true);
+		setFlashMessages([]);
+		try {
+			await submitDetailedReview(uid, scores, notes.trim() || null, isExperienced);
+			setNotes("");
+			setFlashMessages([{
+				type: "success",
+				content: "Review submitted successfully!",
+				dismissible: true,
+				onDismiss: () => setFlashMessages([]),
+				id: "submit-success",
+			}]);
+		} catch (err) {
+			setFlashMessages([{
+				type: "error",
+				content: "Failed to submit review. Please try again.",
+				dismissible: true,
+				onDismiss: () => setFlashMessages([]),
+				id: "submit-error",
+			}]);
+		} finally {
+			setSubmitting(false);
+		}
 	};
+
+	if (loading) {
+		return <Spinner variant="inverted" />;
+	}
+
+	if (error) {
+		return (
+			<Alert type="error" header="Failed to load applicant">
+				Could not load applicant data. Please refresh the page.
+			</Alert>
+		);
+	}
 
 	return (
 		<SpaceBetween direction="vertical" size="m">
+			<div style={{ position: "fixed", bottom: "1rem", right: "1rem", zIndex: 1000, width: "400px" }}>
+				<Flashbar items={flashMessages ?? []} />
+			</div>
+
 			<ExpandableSection
 				variant="container"
 				headerText="Hacker Application Information"
@@ -281,11 +336,14 @@ function HackerApplication({ application_data }: HackerApplicationProps) {
 
 			<ResumeRubricContainer
 				title="Resume — 2 points"
-				rubric={inexperienced ? RESUME_INEXPERIENCED_RUBRIC : RESUME_EXPERIENCED_RUBRIC}
-				namePrefix="resume"
+				inexperiencedRubric={RESUME_INEXPERIENCED_RUBRIC}
+				experiencedRubric={RESUME_EXPERIENCED_RUBRIC}
+				namePrefix="experience"
+				isExperienced={isExperienced}
 				resumeUrl={application_data.resume_url}
-				onScoreChange={handleScoreChange("resume")}
-				onFilledChange={handleFilledChange("resume")}
+				onScoreChange={handleScoreChange("experience")}
+				onFilledChange={handleFilledChange("experience")}
+				onIsExperiencedChange={setIsExperienced}
 			/>
 			<WRRubricContainer
 				title="Written Response 1 — 10 points"
@@ -314,17 +372,23 @@ function HackerApplication({ application_data }: HackerApplicationProps) {
 				onScoreChange={handleScoreChange("frq_picnic")}
 				onFilledChange={handleFilledChange("frq_picnic")}
 			/>
+			<ReviewerNotes
+				notes={notes}
+				onNotesChange={setNotes}
+				reviews={application_data.reviews}
+				reviewerId={reviewer_uid}
+			/>
 			<ScoreSummary
 				sections={[
-					{ label: "Resume", score: scores.resume, maxPoints: 2 },
+					{ label: "Resume", score: scores.experience, maxPoints: 2 },
 					{ label: "Written Response 1", score: scores.frq_project, maxPoints: 10 },
 					{ label: "Written Response 2", score: scores.frq_diversity, maxPoints: 15 },
 					{ label: "Written Response 3", score: scores.frq_picnic, maxPoints: 3 },
 				]}
 				onSubmit={onSubmit}
-				disabled={!allFilled}
+				disabled={!allFilled || submitting}
+				loading={submitting}
 			/>
-
 		</SpaceBetween>
 	);
 }

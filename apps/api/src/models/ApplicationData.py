@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import Enum
-from typing import Annotated, Any, Literal, Union
+from typing import Annotated, Any, Literal, Union, Optional
 
 from fastapi import UploadFile
 from pydantic import (
@@ -22,8 +22,11 @@ class Decision(str, Enum):
     REJECTED = "REJECTED"
 
 
-Review = tuple[datetime, str, float]
-
+Review = Union[
+    tuple[datetime, str, float],
+    tuple[datetime, str, float, Optional[str]],
+    tuple[datetime, str, float, Optional[str], bool],
+]
 
 def make_empty_none(val: Union[str, None]) -> Union[str, None]:
     """Browser will send empty strings for unspecified form inputs."""

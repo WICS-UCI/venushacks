@@ -80,14 +80,18 @@ class ReviewRequest(BaseModel):
     score: float
 
 
-class GlobalScores(BaseModel):
-    resume: int
-    hackathon_experience: int
+class VenusHacksHackerDetailedScores(BaseModel):
+    frq_project: float
+    frq_diversity: float
+    frq_picnic: float
+    experience: float
 
 
 class DetailedReviewRequest(BaseModel):
     applicant: str
-    scores: GlobalScores
+    scores: VenusHacksHackerDetailedScores
+    notes: Optional[str] = None
+    is_experienced: bool = False
 
 
 async def mentor_volunteer_applicants(
@@ -313,8 +317,12 @@ async def submit_detailed_review(
     reviewer: User = Depends(require_reviewer),
 ) -> None:
     """Submit a review decision from the reviewer for the given hacker applicant."""
-    await _handle_global_only_review(
-        applicant_review.applicant, applicant_review.scores, reviewer
+    await _handle_venushacks_detailed_scores_review(
+        applicant_review.applicant,
+        applicant_review.scores,
+        reviewer,
+        applicant_review.notes,
+        applicant_review.is_experienced,
     )
 
 
@@ -437,22 +445,6 @@ async def retrieve_thresholds() -> Optional[dict[str, Any]]:
     )
 
 
-async def _handle_global_only_review(
-    applicant: str, scores: GlobalScores, reviewer: User
-) -> None:
-    """Handle resume-only review submission."""
-    # Check if user has LEAD role for resume-only reviews
-    await require_lead(reviewer)
-
-    # Update the user record with global field scores
-    await mongodb_handler.update_one(
-        Collection.USERS,
-        {"_id": applicant},
-        {"application_data.global_field_scores": scores.model_dump()},
-        upsert=True,
-    )
-
-
 async def _try_update_applicant_with_query(
     applicant: str,
     *,
@@ -468,3 +460,68 @@ async def _try_update_applicant_with_query(
     except RuntimeError:
         log.error(err_msg)
         raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+async def _handle_venushacks_detailed_scores_review(
+    applicant: str,
+    scores: VenusHacksHackerDetailedScores,
+    reviewer: User,
+    notes: Optional[str] = None,
+    is_experienced: bool = False,
+) -> None:
+    """Handle detailed scores review submission for VenusHacks."""
+    score_breakdown = scores.model_dump(exclude_none=True)
+
+    MAX_SCORE = 30.0  # 10 + 15 + 3 + 2
+
+    total_score = sum(score_breakdown.values())
+    total_score = (total_score / MAX_SCORE) * 100.0
+    total_score = max(total_score, -3.0)
+
+    if total_score < -1000.0 or total_score > 100.0:
+        log.error("Invalid calculated review score: %f", total_score)
+        raise HTTPException(status.HTTP_400_BAD_REQUEST)
+
+    review: Review = (utc_now(), reviewer.uid, total_score, notes, is_experienced)
+
+    applicant_record = await mongodb_handler.retrieve_one(
+        Collection.USERS,
+        {"_id": applicant},
+        ["_id", "application_data.reviews", "roles"],
+    )
+    if not applicant_record:
+        log.error("Could not retrieve applicant after submitting review")
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    unique_reviewers = applicant_review_processor.get_unique_reviewers(applicant_record)
+
+    if len(unique_reviewers) >= 2 and reviewer.uid not in unique_reviewers:
+        log.error(
+            "%s tried to submit a review, but %s already has two reviewers",
+            reviewer,
+            applicant,
+        )
+        raise HTTPException(status.HTTP_403_FORBIDDEN)
+
+    update_query: dict[str, object] = {"$push": {"application_data.reviews": review}}
+    if len(unique_reviewers | {reviewer.uid}) >= 2:
+        update_query.update({"$set": {"status": "REVIEWED"}})
+
+    await _try_update_applicant_with_query(
+        applicant,
+        update_query={"$push": {"application_data.reviews": review}},
+        err_msg=f"{reviewer} could not submit review for {applicant}",
+    )
+
+    uid_no_domain = reviewer.uid.split(".")[-1]
+    await _try_update_applicant_with_query(
+        applicant,
+        update_query={
+            "$set": {
+                f"application_data.review_breakdown.{uid_no_domain}": score_breakdown,
+            }
+        },
+        err_msg=f"{reviewer} could not submit review for {applicant}",
+    )
+    
+    log.info("%s reviewed hacker %s", reviewer, applicant)

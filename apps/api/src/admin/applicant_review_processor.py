@@ -4,6 +4,7 @@ from models.ApplicationData import Decision
 
 OVERQUALIFIED = -3
 NOT_FULLY_REVIEWED = -1
+MAX_SCORE = 30
 
 scores_to_decisions: dict[Optional[int], Decision] = {
     100: Decision.ACCEPTED,
@@ -100,7 +101,7 @@ def _get_avg_score_with_globals_and_breakdown(
 
             total_score += score
 
-    return total_score / 2
+    return (total_score / 2) / MAX_SCORE * 100
 
 
 def _include_decision_based_on_threshold(

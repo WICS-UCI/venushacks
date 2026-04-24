@@ -26,13 +26,13 @@ function ApplicationReviews({ reviews, isHacker }: ApplicationReviewsProps) {
 
 	return (
 		<ul>
-			{reviews.map(([date, reviewer, score]) =>
+			{reviews.map(([date, reviewer, score], index) =>
 				reviewer === uid ? (
-					<li key={date}>
+					<li key={`${date}-${index}`}>
 						{isHacker ? (
 							<>
 								You scored this applicant a{" "}
-								{score === OVERQUALIFIED_SCORE ? "OVERQUALIFIED" : score} on{" "}
+								{score === OVERQUALIFIED_SCORE ? "OVERQUALIFIED" : Math.round(score * 100) / 100} on{" "}
 								{formatDate(date)}
 							</>
 						) : (
@@ -44,19 +44,15 @@ function ApplicationReviews({ reviews, isHacker }: ApplicationReviewsProps) {
 						)}
 					</li>
 				) : (
-					<li key={date}>
+					<li key={`${date}-${index}`}>
 						<SpaceBetween direction="horizontal" size="xxxs">
-							{formatUid(reviewer)}
+							<span>{formatUid(reviewer)}</span>
 							{isHacker && score === OVERQUALIFIED_SCORE ? (
-								<>
-									{" "}
-									marked this applicant{" "}
-									<Box color="text-status-error">OVERQUALIFIED</Box>
-								</>
+								<span> marked this applicant <Box color="text-status-error">OVERQUALIFIED</Box></span>
 							) : (
-								<> reviewed this application </>
+								<span> reviewed this application </span>
 							)}
-							on {formatDate(date)}
+							<span>on {formatDate(date)}</span>
 						</SpaceBetween>
 					</li>
 				),

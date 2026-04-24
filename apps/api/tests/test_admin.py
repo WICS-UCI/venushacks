@@ -9,10 +9,6 @@ from auth import user_identity
 from auth.user_identity import NativeUser, UserTestClient
 from models.ApplicationData import Decision
 from routers import admin
-from routers.admin import (
-    _handle_global_only_review,
-    GlobalScores,
-)
 from services.mongodb_handler import Collection
 from services.sendgrid_handler import Template
 
@@ -472,51 +468,3 @@ def test_error_on_hacker_invalid_value(
     res = reviewer_client.post("/review", json=post_data)
 
     assert res.status_code == 400
-
-
-@patch("routers.admin.require_lead", autospec=True)
-@patch("services.mongodb_handler.update_one", autospec=True)
-async def test_handle_global_only_review_success(
-    mock_mongodb_handler_update_one: AsyncMock,
-    mock_require_lead: AsyncMock,
-) -> None:
-    """Test successful resume-only review submission."""
-    applicant = "edu.uci.test"
-    scores = GlobalScores(resume=8, hackathon_experience=10)
-    reviewer = USER_REVIEWER
-
-    mock_require_lead.return_value = None
-    mock_mongodb_handler_update_one.return_value = True
-
-    await _handle_global_only_review(applicant, scores, reviewer)
-
-    mock_require_lead.assert_awaited_once_with(reviewer)
-    mock_mongodb_handler_update_one.assert_awaited_once_with(
-        Collection.USERS,
-        {"_id": applicant},
-        {
-            "application_data.global_field_scores": {
-                "resume": 8,
-                "hackathon_experience": 10,
-            }
-        },
-        upsert=True,
-    )
-
-
-@patch("routers.admin.require_lead", autospec=True)
-async def test_handle_global_only_review_forbidden(
-    mock_require_lead: AsyncMock,
-) -> None:
-    """Test resume-only review submission fails without LEAD role."""
-    applicant = "edu.uci.test"
-    scores = GlobalScores(resume=8, hackathon_experience=10)
-    reviewer = USER_REVIEWER
-
-    mock_require_lead.side_effect = HTTPException(status_code=403, detail="Forbidden")
-
-    with pytest.raises(HTTPException) as exc_info:
-        await _handle_global_only_review(applicant, scores, reviewer)
-
-    assert exc_info.value.status_code == 403
-    mock_require_lead.assert_awaited_once_with(reviewer)

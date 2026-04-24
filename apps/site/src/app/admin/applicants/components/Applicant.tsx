@@ -26,10 +26,11 @@ interface ApplicantProps {
 }
 
 function Applicant({ uid, applicationType }: ApplicantProps) {
-	const { applicant, loading, submitReview } = useApplicant(
-		uid,
-		applicationType,
-	);
+	const {
+		applicant,
+		loading,
+		submitReview,
+	} = useApplicant(uid, applicationType);
 
 	if (loading || !applicant) {
 		return (
@@ -71,6 +72,7 @@ function Applicant({ uid, applicationType }: ApplicantProps) {
 				{applicant.roles.includes(ParticipantRole.Hacker) ? (
 					<HackerApplication
 						application_data={application_data as HackerApplicationData}
+						uid={uid}
 					/>
 				) : applicant.roles.includes(ParticipantRole.Mentor) ? (
 					<MentorApplication

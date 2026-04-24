@@ -17,6 +17,7 @@ interface ScoreSummaryProps {
 	sections: SectionScore[];
 	onSubmit: ButtonProps['onClick'];
 	disabled?: boolean;
+	loading?: boolean;
 }
 
 const HR = () => (
@@ -35,7 +36,12 @@ const BoldHR = () => (
 	}} />
 );
 
-export default function ScoreSummary({ sections, onSubmit, disabled }: ScoreSummaryProps) {
+export default function ScoreSummary({
+	sections,
+	onSubmit,
+	disabled,
+	loading,
+}: ScoreSummaryProps) {
 	const total = sections.reduce((sum, s) => sum + s.score, 0);
 	const totalMax = sections.reduce((sum, s) => sum + s.maxPoints, 0);
 
@@ -73,7 +79,7 @@ export default function ScoreSummary({ sections, onSubmit, disabled }: ScoreSumm
 				</ColumnLayout>
 
 				<SpaceBetween direction="horizontal" size="xs" alignItems="center">
-					<Button variant="primary" onClick={onSubmit} disabled={disabled}>Submit</Button>
+					<Button variant="primary" onClick={onSubmit} disabled={disabled} loading={loading}>Submit</Button>
 					{disabled && (
 						<Box fontSize="body-s">
 							Fill out all fields before submitting.
