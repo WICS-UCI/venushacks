@@ -63,7 +63,7 @@ const RESUME_REVIEW_OPTIONS: Options = [
 
 const STATUS_OPTIONS = Object.values(ReviewStatus)
 	.map(statusOption)
-	.concat(RESUME_REVIEW_OPTIONS);
+	// .concat(RESUME_REVIEW_OPTIONS);
 
 const DECISION_OPTIONS = Object.values(Decision).map(statusOption);
 

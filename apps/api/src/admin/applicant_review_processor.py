@@ -79,29 +79,56 @@ def _get_avg_score(
     return (last_score + last_score2) / 2
 
 
+# def _get_avg_score_with_globals_and_breakdown(
+#     review_breakdowns: dict[str, dict[str, int]], global_field_scores: dict[str, int]
+# ) -> float:
+#     # Check global_field_scores first - if any value is less than 0,
+#     # return OVERQUALIFIED
+#     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
+#         return OVERQUALIFIED
+
+#     if len(review_breakdowns) < 2:
+#         return NOT_FULLY_REVIEWED
+
+#     # Review breakdowns should be the most recent scores
+#     total_score = 2 * sum(global_field_scores.values())
+#     for breakdown in review_breakdowns.values():
+#         for field, score in breakdown.items():
+#             # TODO: Fields from global_field_scores should not be in breakdowns
+#             # This check should be removed once breakdown models remove global fields
+#             if field in global_field_scores:
+#                 continue
+
+#             total_score += score
+
+#     return (total_score / 2) / MAX_SCORE * 100
+
+# For the purposes of VenusHacks 2026, we'll only consider the review that was submitted
+# last. For instance, If three reviewers each submitted their own review of a hacker
+# application, only the most recent one will be considered in the "average value".
+#
+# To revert this back to the average of all the reviews, remove the definition for  
+# _get_avg_score_with_globals_and_breakdown below and uncomment the old definition
+# above. Then, update expected_records.avg_score with the corrected average in
+# test_admin.py::test_hacker_applicants_returns_correct_applicants()
 def _get_avg_score_with_globals_and_breakdown(
     review_breakdowns: dict[str, dict[str, int]], global_field_scores: dict[str, int]
 ) -> float:
-    # Check global_field_scores first - if any value is less than 0,
-    # return OVERQUALIFIED
     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
         return OVERQUALIFIED
 
     if len(review_breakdowns) < 2:
         return NOT_FULLY_REVIEWED
 
-    # Review breakdowns should be the most recent scores
-    total_score = 2 * sum(global_field_scores.values())
-    for breakdown in review_breakdowns.values():
-        for field, score in breakdown.items():
-            # TODO: Fields from global_field_scores should not be in breakdowns
-            # This check should be removed once breakdown models remove global fields
-            if field in global_field_scores:
-                continue
+    last_breakdown = list(review_breakdowns.values())[-1]
 
-            total_score += score
+    total_score = sum(global_field_scores.values())
+    for field, score in last_breakdown.items():
+        if field in global_field_scores:
+            continue
+        total_score += score
 
-    return (total_score / 2) / MAX_SCORE * 100
+    return total_score / MAX_SCORE * 100
 
 
 def _include_decision_based_on_threshold(

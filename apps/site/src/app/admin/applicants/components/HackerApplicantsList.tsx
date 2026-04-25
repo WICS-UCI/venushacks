@@ -217,7 +217,7 @@ function HackerApplicantsList() {
 						},
 						{
 							id: "avg_score",
-							header: "Averaged Score",
+							header: "Applicant Score",
 							content: avgScore,
 						},
 						{
