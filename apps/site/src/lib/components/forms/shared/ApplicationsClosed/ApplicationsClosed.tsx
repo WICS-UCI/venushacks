@@ -24,7 +24,10 @@ async function ApplicationsClosed({ identity }: ApplicationsClosedProps) {
 			)}
 			<p className="text-lg">
 				If you have any other questions or concerns, feel free to contact us at{" "}
-				<a href="mailto:venushacks.uci@gmail.com" className="text-blue-600 underline">
+				<a
+					href="mailto:venushacks.uci@gmail.com"
+					className="text-blue-600 underline"
+				>
 					venushacks.uci@gmail.com
 				</a>
 				.

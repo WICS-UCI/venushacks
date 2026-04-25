@@ -1,12 +1,15 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Box from "@cloudscape-design/components/box";
-import Cards from "@cloudscape-design/components/cards";
-import Header from "@cloudscape-design/components/header";
-import Link from "@cloudscape-design/components/link";
-import Checkbox from "@cloudscape-design/components/checkbox";
+import { useSearchParams, useRouter } from "next/navigation";
+import {
+	Flashbar,
+	Box,
+	Cards,
+	Header,
+	Link,
+	Checkbox,
+} from "@cloudscape-design/components";
 
 import { useFollowWithNextLink } from "@/app/admin/layout/common";
 import ApplicantFilters, {
@@ -38,6 +41,11 @@ function HackerApplicantsList() {
 
 	const isUserDirector = isDirector(roles);
 
+	const searchParams = useSearchParams();
+	const [flashMessages, setFlashMessages] = useState<
+		React.ComponentProps<typeof Flashbar>["items"]
+	>([]);
+
 	const [selectedStatuses, setSelectedStatuses] = useState<Options>([]);
 	const [selectedDecisions, setSelectedDecisions] = useState<Options>([]);
 	const [uciNetIDFilter, setUCINetIDFilter] = useState<Options>([]);
@@ -64,6 +72,22 @@ function HackerApplicantsList() {
 			setSelectedDecisions([]);
 		}
 	}, [top400]);
+
+	useEffect(() => {
+		const success = searchParams.get("success");
+		if (success === "true") {
+			setFlashMessages([
+				{
+					type: "success",
+					content: "Review submitted successfully!",
+					dismissible: true,
+					onDismiss: () => setFlashMessages([]),
+					id: "submit-success",
+				},
+			]);
+			router.replace("/admin/applicants/hackers");
+		}
+	}, [searchParams, router]);
 
 	const filteredApplicants = applicantList.filter((applicant) => {
 		if (
@@ -157,104 +181,120 @@ function HackerApplicantsList() {
 	};
 
 	return (
-		<Cards
-			cardDefinition={{
-				header: header,
-				sections: [
-					{
-						id: "uid",
-						header: "UID",
-						content: ({ _id }) => _id,
-					},
-					{
-						id: "reviewers",
-						header: "",
-						content: ApplicantReviewerIndicator,
-					},
-					{
-						id: "submission_time",
-						header: "Applied",
-						content: ({ application_data }) =>
-							new Date(application_data.submission_time).toLocaleDateString(),
-					},
-					{
-						id: "avg_score",
-						header: "Averaged Score",
-						content: avgScore,
-					},
-					{
-						id: "decision",
-						header: "Decision",
-						content: DecisionStatus,
-					},
-				],
-			}}
-			loading={loading}
-			loadingText="Loading applicants"
-			items={items}
-			trackBy="_id"
-			variant="full-page"
-			filter={
-				<ApplicantFilters
-					selectedStatuses={selectedStatuses}
-					setSelectedStatuses={setSelectedStatuses}
-					selectedDecisions={selectedDecisions}
-					setSelectedDecisions={setSelectedDecisions}
-					uciNetIDFilter={uciNetIDFilter}
-					setUCINetIDFilter={setUCINetIDFilter}
-					applicantType={ParticipantRole.Hacker}
-				/>
-			}
-			empty={emptyContent}
-			header={
-				<div>
-					<Header actions={isUserDirector && <HackerThresholdInputs />}>
-						Hacker Applicants {counter}
-						<div
-							style={{
-								fontSize: "0.875rem",
-								color: "#5f6b7a",
-								marginTop: "4px",
-							}}
-						>
-							{acceptedCount} applicants with &quot;accepted&quot; status
-						</div>
-						<div
-							style={{
-								fontSize: "0.875rem",
-								color: "#5f6b7a",
-								marginTop: "4px",
-							}}
-						>
-							{waitlistedCount} applicants with &quot;waitlisted&quot; status
-						</div>
-						<div
-							style={{
-								fontSize: "0.875rem",
-								color: "#5f6b7a",
-								marginTop: "4px",
-							}}
-						>
-							{rejectedCount} applicants with &quot;rejected&quot; status
-						</div>
-					</Header>
-					<Checkbox
-						checked={top400}
-						onChange={({ detail }) => setTop400(detail.checked)}
-					>
-						Show Top 400 Scores
-					</Checkbox>
-					<span>
-						{top400 && "Highest score: " + filteredApplicants400[0]?.avg_score}
-						<br />
-						{top400 &&
-							"Lowest score: " +
-								filteredApplicants400[filteredApplicants400.length - 1]
-									?.avg_score}
-					</span>
+		<>
+			{flashMessages && flashMessages.length > 0 && (
+				<div
+					style={{
+						position: "fixed",
+						top: "1rem",
+						right: "1rem",
+						zIndex: 1000,
+						width: "400px",
+					}}
+				>
+					<Flashbar items={flashMessages} />
 				</div>
-			}
-		/>
+			)}
+			<Cards
+				cardDefinition={{
+					header: header,
+					sections: [
+						{
+							id: "uid",
+							header: "UID",
+							content: ({ _id }) => _id,
+						},
+						{
+							id: "reviewers",
+							header: "",
+							content: ApplicantReviewerIndicator,
+						},
+						{
+							id: "submission_time",
+							header: "Applied",
+							content: ({ application_data }) =>
+								new Date(application_data.submission_time).toLocaleDateString(),
+						},
+						{
+							id: "avg_score",
+							header: "Averaged Score",
+							content: avgScore,
+						},
+						{
+							id: "decision",
+							header: "Decision",
+							content: DecisionStatus,
+						},
+					],
+				}}
+				loading={loading}
+				loadingText="Loading applicants"
+				items={items}
+				trackBy="_id"
+				variant="full-page"
+				filter={
+					<ApplicantFilters
+						selectedStatuses={selectedStatuses}
+						setSelectedStatuses={setSelectedStatuses}
+						selectedDecisions={selectedDecisions}
+						setSelectedDecisions={setSelectedDecisions}
+						uciNetIDFilter={uciNetIDFilter}
+						setUCINetIDFilter={setUCINetIDFilter}
+						applicantType={ParticipantRole.Hacker}
+					/>
+				}
+				empty={emptyContent}
+				header={
+					<div>
+						<Header actions={isUserDirector && <HackerThresholdInputs />}>
+							Hacker Applicants {counter}
+							<div
+								style={{
+									fontSize: "0.875rem",
+									color: "#5f6b7a",
+									marginTop: "4px",
+								}}
+							>
+								{acceptedCount} applicants with &quot;accepted&quot; status
+							</div>
+							<div
+								style={{
+									fontSize: "0.875rem",
+									color: "#5f6b7a",
+									marginTop: "4px",
+								}}
+							>
+								{waitlistedCount} applicants with &quot;waitlisted&quot; status
+							</div>
+							<div
+								style={{
+									fontSize: "0.875rem",
+									color: "#5f6b7a",
+									marginTop: "4px",
+								}}
+							>
+								{rejectedCount} applicants with &quot;rejected&quot; status
+							</div>
+						</Header>
+						<Checkbox
+							checked={top400}
+							onChange={({ detail }) => setTop400(detail.checked)}
+						>
+							Show Top 400 Scores
+						</Checkbox>
+						<span>
+							{top400 &&
+								"Highest score: " + filteredApplicants400[0]?.avg_score}
+							<br />
+							{top400 &&
+								"Lowest score: " +
+									filteredApplicants400[filteredApplicants400.length - 1]
+										?.avg_score}
+						</span>
+					</div>
+				}
+			/>
+		</>
 	);
 }
 
