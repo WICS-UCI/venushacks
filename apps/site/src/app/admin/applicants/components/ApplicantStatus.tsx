@@ -5,15 +5,15 @@ import StatusIndicator, {
 import { Status } from "@/lib/userRecord";
 
 export const StatusLabels = {
-	[Status.Accepted]: "accepted",
-	[Status.Rejected]: "rejected",
-	[Status.Waitlisted]: "waitlisted",
-	[Status.Pending]: "needs review",
-	[Status.Reviewed]: "reviewed",
-	[Status.Signed]: "waiver signed",
-	[Status.Confirmed]: "confirmed",
-	[Status.Attending]: "attending",
-	[Status.Void]: "void",
+	[Status.Accepted]: "Accepted",
+	[Status.Rejected]: "Rejected",
+	[Status.Waitlisted]: "Waitlisted",
+	[Status.Pending]: "Needs review",
+	[Status.Reviewed]: "Reviewed",
+	[Status.Signed]: "Waiver signed",
+	[Status.Confirmed]: "Confirmed",
+	[Status.Attending]: "Attending",
+	[Status.Void]: "Void",
 };
 
 const StatusTypes: Record<Status, StatusIndicatorProps.Type> = {
@@ -34,13 +34,20 @@ interface ApplicantStatusProps {
 
 function ApplicantStatus({ status }: ApplicantStatusProps) {
 	return (
-		<StatusIndicator
-			type={StatusTypes[status]}
-			colorOverride={status === Status.Signed ? "blue" : undefined}
+		<span
+			style={{
+				display: "inline-flex",
+				overflow: "visible",
+				padding: "4px",
+			}}
 		>
-			{StatusLabels[status]}
-		</StatusIndicator>
+			<StatusIndicator
+				type={StatusTypes[status]}
+				colorOverride={status === Status.Signed ? "blue" : undefined}
+			>
+				{StatusLabels[status]}
+			</StatusIndicator>
+		</span>
 	);
 }
-
 export default ApplicantStatus;

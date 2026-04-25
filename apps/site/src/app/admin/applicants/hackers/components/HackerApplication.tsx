@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import {
 	ExpandableSection,
 	SpaceBetween,
@@ -228,9 +229,9 @@ const WR3_RUBRIC: RubricRow[] = [
 		maxPoints: 3,
 		descriptors: [
 			{
-				points: "7-8",
+				points: "3",
 				description:
-					"Each must-have should be unique, fun, cutesy, and a genuine MUST have item at a picnic.",
+					"Each must-have should be unique, fun, cutesy, and a genuine MUST have item at a picnic. +1 point awarded for each item.",
 			},
 		],
 	},
@@ -242,6 +243,8 @@ interface HackerApplicationProps {
 }
 
 function HackerApplication({ application_data, uid }: HackerApplicationProps) {
+	const router = useRouter();
+
 	const { loading, error, submitDetailedReview } = useApplicant(uid, "hacker");
 
 	const [filled, setFilled] = useState({
@@ -263,14 +266,15 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 		React.ComponentProps<typeof Flashbar>["items"]
 	>([]);
 
-	const handleFilledChange =
-		(key: keyof typeof filled) => (isFilled: boolean) => {
-			setFilled((prev) => ({ ...prev, [key]: isFilled }));
-		};
+	const handleExperienceScore = useCallback((score: number) => setScores(prev => ({ ...prev, experience: score })), []);
+	const handleFrqProjectScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_project: score })), []);
+	const handleFrqDiversityScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_diversity: score })), []);
+	const handleFrqPicnicScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_picnic: score })), []);
 
-	const handleScoreChange = (key: keyof typeof scores) => (score: number) => {
-		setScores((prev) => ({ ...prev, [key]: score }));
-	};
+	const handleExperienceFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, experience: filled })), []);
+	const handleFrqProjectFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, frq_project: filled })), []);
+	const handleFrqDiversityFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, frq_diversity: filled })), []);
+	const handleFrqPicnicFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, frq_picnic: filled })), []);
 
 	const allFilled = Object.values(filled).every(Boolean);
 
@@ -288,15 +292,7 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				isExperienced,
 			);
 			setNotes("");
-			setFlashMessages([
-				{
-					type: "success",
-					content: "Review submitted successfully!",
-					dismissible: true,
-					onDismiss: () => setFlashMessages([]),
-					id: "submit-success",
-				},
-			]);
+			router.push("/admin/applicants/hackers?success=true");
 		} catch (err) {
 			setFlashMessages([
 				{
@@ -363,8 +359,8 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				namePrefix="experience"
 				isExperienced={isExperienced}
 				resumeUrl={application_data.resume_url}
-				onScoreChange={handleScoreChange("experience")}
-				onFilledChange={handleFilledChange("experience")}
+				onScoreChange={handleExperienceScore}
+				onFilledChange={handleExperienceFilled}
 				onIsExperiencedChange={setIsExperienced}
 			/>
 			<WRRubricContainer
@@ -373,8 +369,8 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				rubric={WR1_RUBRIC}
 				applicantResponse={application_data.frq_project}
 				namePrefix="frq_project"
-				onScoreChange={handleScoreChange("frq_project")}
-				onFilledChange={handleFilledChange("frq_project")}
+				onScoreChange={handleFrqProjectScore}
+				onFilledChange={handleFrqProjectFilled}
 			/>
 			<WRRubricContainer
 				title="Written Response 2 — 15 points"
@@ -382,8 +378,8 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				rubric={WR2_RUBRIC}
 				applicantResponse={application_data.frq_diversity}
 				namePrefix="frq_diversity"
-				onScoreChange={handleScoreChange("frq_diversity")}
-				onFilledChange={handleFilledChange("frq_diversity")}
+				onScoreChange={handleFrqDiversityScore}
+				onFilledChange={handleFrqDiversityFilled}
 			/>
 			<WRRubricContainer
 				title="Written Response 3 — 3 points"
@@ -391,8 +387,8 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				rubric={WR3_RUBRIC}
 				applicantResponse={application_data.frq_picnic}
 				namePrefix="frq_picnic"
-				onScoreChange={handleScoreChange("frq_picnic")}
-				onFilledChange={handleFilledChange("frq_picnic")}
+				onScoreChange={handleFrqPicnicScore}
+				onFilledChange={handleFrqPicnicFilled}
 			/>
 			<ReviewerNotes
 				notes={notes}
