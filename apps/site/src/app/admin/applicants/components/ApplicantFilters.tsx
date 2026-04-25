@@ -61,7 +61,7 @@ const statusOption = (status: Status): MultiselectProps.Option => ({
 // 	},
 // ];
 
-const STATUS_OPTIONS = Object.values(ReviewStatus).map(statusOption)
+const STATUS_OPTIONS = Object.values(ReviewStatus).map(statusOption);
 // .concat(RESUME_REVIEW_OPTIONS);
 
 const DECISION_OPTIONS = Object.values(Decision).map(statusOption);
