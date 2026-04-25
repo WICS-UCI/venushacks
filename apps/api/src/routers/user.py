@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from logging import getLogger
 from typing import Annotated, Any, Union
 from urllib.parse import urlencode
@@ -39,7 +39,8 @@ log = getLogger(__name__)
 
 router = APIRouter()
 
-DEADLINE = datetime(2026, 4, 24, 23, 59, tzinfo=timezone.utc)
+PDT = timezone(timedelta(hours=-7))
+DEADLINE = datetime(2026, 5, 3, 23, 59, tzinfo=PDT)
 
 HACKATHON_EXPERIENCE_SCORE_MAP = {
     "first_time": 5,
