@@ -84,7 +84,8 @@ def _get_avg_score(
 # ) -> float:
 #     # Check global_field_scores first - if any value is less than 0,
 #     # return OVERQUALIFIED
-#     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
+#     if global_field_scores
+#             and any(score < 0 for score in global_field_scores.values()):
 #         return OVERQUALIFIED
 
 #     if len(review_breakdowns) < 2:
@@ -103,11 +104,12 @@ def _get_avg_score(
 
 #     return (total_score / 2) / MAX_SCORE * 100
 
+
 # For the purposes of VenusHacks 2026, we'll only consider the review that was submitted
 # last. For instance, If three reviewers each submitted their own review of a hacker
 # application, only the most recent one will be considered in the "average value".
 #
-# To revert this back to the average of all the reviews, remove the definition for  
+# To revert this back to the average of all the reviews, remove the definition for
 # _get_avg_score_with_globals_and_breakdown below and uncomment the old definition
 # above. Then, update expected_records.avg_score with the corrected average in
 # test_admin.py::test_hacker_applicants_returns_correct_applicants()

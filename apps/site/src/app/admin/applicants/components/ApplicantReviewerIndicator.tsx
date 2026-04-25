@@ -1,4 +1,3 @@
-import { Uid } from "@/lib/userRecord";
 import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
@@ -7,14 +6,10 @@ interface IndicatorContainerProps {
 	reviewer: string;
 }
 
-const IndicatorContainer = ({
-	reviewer,
-}: IndicatorContainerProps) => {
+const IndicatorContainer = ({ reviewer }: IndicatorContainerProps) => {
 	return (
 		<>
-			<Box variant="awsui-key-label">
-				Reviewer: {reviewer}
-			</Box>
+			<Box variant="awsui-key-label">Reviewer: {reviewer}</Box>
 			{reviewer ? (
 				<StatusIndicator>Reviewed</StatusIndicator>
 			) : (
@@ -35,9 +30,7 @@ function ApplicantReviewerIndicator({
 
 	return (
 		<SpaceBetween size="l">
-			<IndicatorContainer
-				reviewer={formatUid(reviewers.at(-1))}
-			/>
+			<IndicatorContainer reviewer={formatUid(reviewers.at(-1))} />
 		</SpaceBetween>
 	);
 }

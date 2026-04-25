@@ -48,22 +48,21 @@ const statusOption = (status: Status): MultiselectProps.Option => ({
 	iconName: StatusIcons[status],
 });
 
-const RESUME_REVIEW_OPTIONS: Options = [
-	{
-		label: "Resume Reviewed",
-		value: "RESUME_REVIEWED",
-		iconName: "status-positive",
-	},
-	{
-		label: "Resume Not Reviewed",
-		value: "RESUME_NOT_REVIEWED",
-		iconName: "status-pending",
-	},
-];
+// const RESUME_REVIEW_OPTIONS: Options = [
+// 	{
+// 		label: "Resume Reviewed",
+// 		value: "RESUME_REVIEWED",
+// 		iconName: "status-positive",
+// 	},
+// 	{
+// 		label: "Resume Not Reviewed",
+// 		value: "RESUME_NOT_REVIEWED",
+// 		iconName: "status-pending",
+// 	},
+// ];
 
-const STATUS_OPTIONS = Object.values(ReviewStatus)
-	.map(statusOption)
-	// .concat(RESUME_REVIEW_OPTIONS);
+const STATUS_OPTIONS = Object.values(ReviewStatus).map(statusOption)
+// .concat(RESUME_REVIEW_OPTIONS);
 
 const DECISION_OPTIONS = Object.values(Decision).map(statusOption);
 
