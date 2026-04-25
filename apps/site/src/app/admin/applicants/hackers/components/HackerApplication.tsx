@@ -271,10 +271,24 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 	const handleFrqDiversityScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_diversity: score })), []);
 	const handleFrqPicnicScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_picnic: score })), []);
 
-	const handleExperienceFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, experience: filled })), []);
-	const handleFrqProjectFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, frq_project: filled })), []);
-	const handleFrqDiversityFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, frq_diversity: filled })), []);
-	const handleFrqPicnicFilled = useCallback((filled: boolean) => setFilled(prev => ({ ...prev, frq_picnic: filled })), []);
+	const handleExperienceFilled = useCallback(
+		(filled: boolean) => setFilled((prev) => ({ ...prev, experience: filled })),
+		[],
+	);
+	const handleFrqProjectFilled = useCallback(
+		(filled: boolean) =>
+			setFilled((prev) => ({ ...prev, frq_project: filled })),
+		[],
+	);
+	const handleFrqDiversityFilled = useCallback(
+		(filled: boolean) =>
+			setFilled((prev) => ({ ...prev, frq_diversity: filled })),
+		[],
+	);
+	const handleFrqPicnicFilled = useCallback(
+		(filled: boolean) => setFilled((prev) => ({ ...prev, frq_picnic: filled })),
+		[],
+	);
 
 	const allFilled = Object.values(filled).every(Boolean);
 
