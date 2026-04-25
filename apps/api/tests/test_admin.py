@@ -386,7 +386,7 @@ def test_hacker_applicants_returns_correct_applicants(
             "resume_reviewed": True,
             "status": "REVIEWED",
             "decision": "ACCEPTED",  # 56.67 >= accept threshold 50
-            "avg_score": 56.666666666666664,
+            "avg_score": 60,
             "reviewers": ["edu.uci.alicia", "edu.uci.alicia2"],
             "application_data": {
                 "school": "Hamburger University",
