@@ -83,7 +83,7 @@ function HackerApplicantsList() {
 					dismissible: true,
 					onDismiss: () => setFlashMessages([]),
 					id: "submit-success",
-				}
+				},
 			]);
 			router.replace("/admin/applicants/hackers");
 		}
