@@ -42,8 +42,9 @@ function HackerApplicantsList() {
 	const isUserDirector = isDirector(roles);
 
 	const searchParams = useSearchParams();
-	const [flashMessages, setFlashMessages] = useState<React.ComponentProps<typeof Flashbar>["items"]>([]);
-
+	const [flashMessages, setFlashMessages] = useState<
+		React.ComponentProps<typeof Flashbar>["items"]
+	>([]);
 
 	const [selectedStatuses, setSelectedStatuses] = useState<Options>([]);
 	const [selectedDecisions, setSelectedDecisions] = useState<Options>([]);
@@ -75,16 +76,18 @@ function HackerApplicantsList() {
 	useEffect(() => {
 		const success = searchParams.get("success");
 		if (success === "true") {
-			setFlashMessages([{
-				type: "success",
-				content: "Review submitted successfully!",
-				dismissible: true,
-				onDismiss: () => setFlashMessages([]),
-				id: "submit-success",
-			}]);
+			setFlashMessages([
+				{
+					type: "success",
+					content: "Review submitted successfully!",
+					dismissible: true,
+					onDismiss: () => setFlashMessages([]),
+					id: "submit-success",
+				}
+			]);
 			router.replace("/admin/applicants/hackers");
 		}
-	}, [searchParams]);
+	}, [searchParams, router]);
 
 	const filteredApplicants = applicantList.filter((applicant) => {
 		if (
@@ -145,8 +148,8 @@ function HackerApplicantsList() {
 
 	const counter =
 		selectedStatuses.length > 0 ||
-			selectedDecisions.length > 0 ||
-			uciNetIDFilter.length > 0
+		selectedDecisions.length > 0 ||
+		uciNetIDFilter.length > 0
 			? `(${items.length}/${applicantList.length})`
 			: `(${applicantList.length})`;
 
@@ -180,7 +183,15 @@ function HackerApplicantsList() {
 	return (
 		<>
 			{flashMessages && flashMessages.length > 0 && (
-				<div style={{ position: "fixed", top: "1rem", right: "1rem", zIndex: 1000, width: "400px" }}>
+				<div
+					style={{
+						position: "fixed",
+						top: "1rem",
+						right: "1rem",
+						zIndex: 1000,
+						width: "400px",
+					}}
+				>
 					<Flashbar items={flashMessages} />
 				</div>
 			)}
@@ -272,12 +283,13 @@ function HackerApplicantsList() {
 							Show Top 400 Scores
 						</Checkbox>
 						<span>
-							{top400 && "Highest score: " + filteredApplicants400[0]?.avg_score}
+							{top400 &&
+								"Highest score: " + filteredApplicants400[0]?.avg_score}
 							<br />
 							{top400 &&
 								"Lowest score: " +
-								filteredApplicants400[filteredApplicants400.length - 1]
-									?.avg_score}
+									filteredApplicants400[filteredApplicants400.length - 1]
+										?.avg_score}
 						</span>
 					</div>
 				}
