@@ -266,10 +266,22 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 		React.ComponentProps<typeof Flashbar>["items"]
 	>([]);
 
-	const handleExperienceScore = useCallback((score: number) => setScores(prev => ({ ...prev, experience: score })), []);
-	const handleFrqProjectScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_project: score })), []);
-	const handleFrqDiversityScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_diversity: score })), []);
-	const handleFrqPicnicScore = useCallback((score: number) => setScores(prev => ({ ...prev, frq_picnic: score })), []);
+	const handleExperienceScore = useCallback(
+		(score: number) => setScores((prev) => ({ ...prev, experience: score })),
+		[],
+	);
+	const handleFrqProjectScore = useCallback(
+		(score: number) => setScores((prev) => ({ ...prev, frq_project: score })),
+		[],
+	);
+	const handleFrqDiversityScore = useCallback(
+		(score: number) => setScores((prev) => ({ ...prev, frq_diversity: score })),
+		[],
+	);
+	const handleFrqPicnicScore = useCallback(
+		(score: number) => setScores((prev) => ({ ...prev, frq_picnic: score })),
+		[],
+	);
 
 	const handleExperienceFilled = useCallback(
 		(filled: boolean) => setFilled((prev) => ({ ...prev, experience: filled })),
