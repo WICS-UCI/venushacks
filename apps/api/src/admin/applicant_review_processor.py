@@ -119,7 +119,7 @@ def _get_avg_score_with_globals_and_breakdown(
     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
         return OVERQUALIFIED
 
-    if len(review_breakdowns) < 2:
+    if len(review_breakdowns) < 1:
         return NOT_FULLY_REVIEWED
 
     last_breakdown = list(review_breakdowns.values())[-1]
