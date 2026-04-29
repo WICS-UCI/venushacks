@@ -6,7 +6,6 @@ import {
 	Grid,
 	Box,
 	Input,
-	Textarea,
 } from "@cloudscape-design/components";
 
 export interface RubricDescriptor {
@@ -171,12 +170,21 @@ export default function WRRubricContainer({
 			}
 		>
 			<SpaceBetween direction="vertical" size="m">
-				<div {...{ inert: "" }}>
-					<Textarea
-						value={applicantResponse || "No response provided."}
-						readOnly
-						rows={5}
-					/>
+				<div
+					style={{
+						whiteSpace: "pre-wrap",
+						wordBreak: "break-word",
+						padding: "8px",
+						backgroundColor: "var(--color-background-input-default)",
+						color: "var(--color-text-body-default)",
+						border: "1px solid var(--color-border-input-default)",
+						borderRadius: "var(--border-radius-input)",
+						minHeight: "100px",
+						fontFamily: "inherit",
+						fontSize: "inherit",
+					}}
+				>
+					{applicantResponse || "No response provided."}
 				</div>
 				<Box color="text-body-secondary" fontSize="body-s">
 					{wordCount} {wordCount === 1 ? "word" : "words"}
