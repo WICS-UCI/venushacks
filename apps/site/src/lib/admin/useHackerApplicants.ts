@@ -20,6 +20,12 @@ export interface HackerApplicantSummary {
 		extra_points?: number;
 		email: string;
 		resume_url: string;
+		review_breakdown?: Record<string, {
+			frq_project: number;
+			frq_diversity: number;
+			frq_picnic: number;
+			experience: number;
+		}>;
 	};
 }
 

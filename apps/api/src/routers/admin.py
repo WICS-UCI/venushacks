@@ -14,7 +14,7 @@ from admin.score_normalizing_handler import (
 )
 from auth.authorization import require_role
 from auth.user_identity import User, utc_now
-from models.ApplicationData import Decision, Review
+from models.ApplicationData import Decision, Review, ReviewBreakdown
 from models.user_record import Applicant, ApplicantStatus, Role
 from services import mongodb_handler
 from services.mongodb_handler import BaseRecord, Collection
@@ -54,6 +54,7 @@ require_organizer = require_role({Role.ORGANIZER})
 class ApplicationDataSummary(BaseModel):
     school: Optional[str] = None
     submission_time: datetime
+    review_breakdown: Optional[dict[str, ReviewBreakdown]] = None
 
 
 class ApplicantSummary(BaseRecord):
