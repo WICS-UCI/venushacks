@@ -128,14 +128,14 @@ export default function WRRubricContainer({
 	const [criterionScores, setCriterionScores] = useState<
 		Record<string, number>
 	>(Object.fromEntries(rubric.map((r) => [r.criterion, 0])));
-	const [filledCriteria, setFilledCriteria] = useState<
-		Record<string, boolean>
-	>(Object.fromEntries(rubric.map((r) => [r.criterion, false])));
+	const [filledCriteria, setFilledCriteria] = useState<Record<string, boolean>>(
+		Object.fromEntries(rubric.map((r) => [r.criterion, false])),
+	);
 
 	const handleValueChange = (
 		criterion: string,
 		value: number,
-		filled: boolean
+		filled: boolean,
 	) => {
 		setCriterionScores((prev) => ({ ...prev, [criterion]: value }));
 		setFilledCriteria((prev) => ({ ...prev, [criterion]: filled }));

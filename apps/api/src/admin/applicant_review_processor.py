@@ -4,7 +4,7 @@ from models.ApplicationData import Decision
 
 OVERQUALIFIED = -3
 NOT_FULLY_REVIEWED = -1
-MAX_SCORE = 30
+MAX_SCORE = 30.0
 
 scores_to_decisions: dict[Optional[int], Decision] = {
     100: Decision.ACCEPTED,
@@ -106,12 +106,12 @@ def _get_avg_score(
 
 
 def _flatten_values(d: dict[str, object]) -> list[float]:
-    values = []
+    values: list[float] = []
     for v in d.values():
         if isinstance(v, dict):
             values.extend(_flatten_values(v))
         else:
-            values.append(v)
+            values.append(float(v))  # type: ignore[arg-type]
     return values
 
 
@@ -134,12 +134,12 @@ def _get_avg_score_with_globals_and_breakdown(
 
     last_breakdown = list(review_breakdowns.values())[-1]
 
-    total_score = sum(global_field_scores.values())
+    total_score: float = sum(global_field_scores.values())
     for field, score in last_breakdown.items():
         if field in global_field_scores:
             continue
         if isinstance(score, dict):
-            total_score: float = sum(global_field_scores.values())
+            total_score = sum(global_field_scores.values())
         else:
             total_score += float(score)  # type: ignore[arg-type]
 
