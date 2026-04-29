@@ -14,7 +14,14 @@ from admin.score_normalizing_handler import (
 )
 from auth.authorization import require_role
 from auth.user_identity import User, utc_now
-from models.ApplicationData import Decision, Review, ReviewBreakdown, WR1Scores, WR2Scores, WR3Scores
+from models.ApplicationData import (
+    Decision,
+    Review,
+    ReviewBreakdown,
+    WR1Scores,
+    WR2Scores,
+    WR3Scores,
+)
 from models.user_record import Applicant, ApplicantStatus, Role
 from services import mongodb_handler
 from services.mongodb_handler import BaseRecord, Collection

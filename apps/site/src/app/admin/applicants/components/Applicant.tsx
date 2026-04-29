@@ -17,7 +17,6 @@ import VolunteerApplication from "@/app/admin/applicants/volunteers/components/V
 
 import ApplicantActions from "./ApplicantActions";
 import ApplicantOverview from "./ApplicantOverview";
-import HackerApplicantActions from "./HackerApplicantActions";
 import { ParticipantRole } from "@/lib/userRecord";
 
 interface ApplicantProps {

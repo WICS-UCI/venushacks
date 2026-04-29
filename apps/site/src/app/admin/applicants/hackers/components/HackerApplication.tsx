@@ -476,9 +476,15 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 							maxPoints: 10,
 							breakdown: WR1_RUBRIC.map((r) => ({
 								label: r.criterion,
-								score: breakdowns.frq_project[
-									r.criterion.toLowerCase().replace(/-/g, "_").replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "").replace(/_+/g, "_")
-								] ?? 0,
+								score:
+									breakdowns.frq_project[
+										r.criterion
+											.toLowerCase()
+											.replace(/-/g, "_")
+											.replace(/\s+/g, "_")
+											.replace(/[^a-z0-9_]/g, "")
+											.replace(/_+/g, "_")
+									] ?? 0,
 								maxPoints: r.maxPoints,
 							})),
 						},
@@ -488,9 +494,15 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 							maxPoints: 15,
 							breakdown: WR2_RUBRIC.map((r) => ({
 								label: r.criterion,
-								score: breakdowns.frq_diversity[
-									r.criterion.toLowerCase().replace(/-/g, "_").replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "").replace(/_+/g, "_")
-								] ?? 0,
+								score:
+									breakdowns.frq_diversity[
+										r.criterion
+											.toLowerCase()
+											.replace(/-/g, "_")
+											.replace(/\s+/g, "_")
+											.replace(/[^a-z0-9_]/g, "")
+											.replace(/_+/g, "_")
+									] ?? 0,
 								maxPoints: r.maxPoints,
 							})),
 						},
@@ -500,9 +512,15 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 							maxPoints: 3,
 							breakdown: WR3_RUBRIC.map((r) => ({
 								label: r.criterion,
-								score: breakdowns.frq_picnic[
-									r.criterion.toLowerCase().replace(/-/g, "_").replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "").replace(/_+/g, "_")
-								] ?? 0,
+								score:
+									breakdowns.frq_picnic[
+										r.criterion
+											.toLowerCase()
+											.replace(/-/g, "_")
+											.replace(/\s+/g, "_")
+											.replace(/[^a-z0-9_]/g, "")
+											.replace(/_+/g, "_")
+									] ?? 0,
 								maxPoints: r.maxPoints,
 							})),
 						},

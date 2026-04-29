@@ -15,6 +15,7 @@ from pydantic import (
     field_serializer,
 )
 
+
 class Decision(str, Enum):
     ACCEPTED = "ACCEPTED"
     WAITLISTED = "WAITLISTED"

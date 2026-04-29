@@ -105,10 +105,19 @@ export default function ReviewBreakdownPanel({
 				<ScoreRow label="Resume" score={breakdown.experience} maxPoints={2} />
 
 				{frqSections.map((section) => {
-					const sectionScores = breakdown[section] as unknown as Record<string, number>;
+					const sectionScores = breakdown[section] as unknown as Record<
+						string,
+						number
+					>;
 					const sectionMax = MAX_POINTS[section];
-					const sectionTotal = Object.values(sectionScores).reduce((sum, v) => sum + v, 0);
-					const sectionMaxTotal = Object.values(sectionMax).reduce((sum, v) => sum + v, 0);
+					const sectionTotal = Object.values(sectionScores).reduce(
+						(sum, v) => sum + v,
+						0,
+					);
+					const sectionMaxTotal = Object.values(sectionMax).reduce(
+						(sum, v) => sum + v,
+						0,
+					);
 
 					return (
 						<SpaceBetween key={section} direction="vertical" size="xs">

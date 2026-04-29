@@ -105,7 +105,7 @@ def _get_avg_score(
 #     return (total_score / 2) / MAX_SCORE * 100
 
 
-def _flatten_values(d: dict) -> list[float]:
+def _flatten_values(d: dict[str, object]) -> list[float]:
     values = []
     for v in d.values():
         if isinstance(v, dict):
@@ -139,9 +139,9 @@ def _get_avg_score_with_globals_and_breakdown(
         if field in global_field_scores:
             continue
         if isinstance(score, dict):
-            total_score += sum(_flatten_values(score))
+            total_score: float = sum(global_field_scores.values())
         else:
-            total_score += score
+            total_score += float(score)  # type: ignore[arg-type]
 
     return total_score / MAX_SCORE * 100
 

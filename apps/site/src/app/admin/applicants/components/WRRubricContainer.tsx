@@ -34,7 +34,7 @@ export interface WRRubricContainerProps {
 const toCriterionKey = (criterion: string) =>
 	criterion
 		.toLowerCase()
-		.replace(/-/g, "_")          // convert hyphens to underscores
+		.replace(/-/g, "_")
 		.replace(/\s+/g, "_")
 		.replace(/[^a-z0-9_]/g, "")
 		.replace(/_+/g, "_");
@@ -125,14 +125,18 @@ export default function WRRubricContainer({
 	onScoreBreakdownChange,
 	onFilledChange,
 }: WRRubricContainerProps) {
-	const [criterionScores, setCriterionScores] = useState<Record<string, number>>(
-		Object.fromEntries(rubric.map((r) => [r.criterion, 0])),
-	);
-	const [filledCriteria, setFilledCriteria] = useState<Record<string, boolean>>(
-		Object.fromEntries(rubric.map((r) => [r.criterion, false])),
-	);
+	const [criterionScores, setCriterionScores] = useState<
+		Record<string, number>
+	>(Object.fromEntries(rubric.map((r) => [r.criterion, 0])));
+	const [filledCriteria, setFilledCriteria] = useState<
+		Record<string, boolean>
+	>(Object.fromEntries(rubric.map((r) => [r.criterion, false])));
 
-	const handleValueChange = (criterion: string, value: number, filled: boolean) => {
+	const handleValueChange = (
+		criterion: string,
+		value: number,
+		filled: boolean
+	) => {
 		setCriterionScores((prev) => ({ ...prev, [criterion]: value }));
 		setFilledCriteria((prev) => ({ ...prev, [criterion]: filled }));
 	};

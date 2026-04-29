@@ -395,8 +395,8 @@ def test_hacker_applicants_returns_correct_applicants(
             "last_name": "unknown",
             "resume_reviewed": True,
             "status": "REVIEWED",
-            "decision": "ACCEPTED",  # 58.0 >= accept threshold 50
-            "avg_score": 60.0,
+            "decision": "ACCEPTED",  # 73.33 >= accept threshold 50
+            "avg_score": 73.33333333333333,
             "reviewers": ["edu.uci.alicia", "edu.uci.alicia2"],
             "application_data": {
                 "school": "Hamburger University",
@@ -404,31 +404,31 @@ def test_hacker_applicants_returns_correct_applicants(
                 "review_breakdown": {
                     "alicia": {
                         "frq_project": {
-                            "content_relevance": 2,
-                            "experience": 2,
-                            "effort": 3,
+                            "content_relevance": 2.0,
+                            "experience": 2.0,
+                            "effort": 3.0,
                         },
                         "frq_diversity": {
-                            "diversity_inclusion": 5,
-                            "experience": 2,
-                            "effort": 3,
+                            "diversity_inclusion": 5.0,
+                            "experience": 2.0,
+                            "effort": 3.0,
                         },
-                        "frq_picnic": {"picnic_must_haves": 2},
-                        "experience": 0,
+                        "frq_picnic": {"picnic_must_haves": 2.0},
+                        "experience": 0.0,
                     },
                     "alicia2": {
                         "frq_project": {
-                            "content_relevance": 2,
-                            "experience": 3,
-                            "effort": 3,
+                            "content_relevance": 2.0,
+                            "experience": 3.0,
+                            "effort": 3.0,
                         },
                         "frq_diversity": {
-                            "diversity_inclusion": 6,
-                            "experience": 2,
-                            "effort": 3,
+                            "diversity_inclusion": 6.0,
+                            "experience": 2.0,
+                            "effort": 3.0,
                         },
-                        "frq_picnic": {"picnic_must_haves": 2},
-                        "experience": 0,
+                        "frq_picnic": {"picnic_must_haves": 2.0},
+                        "experience": 0.0,
                     },
                 },
             },
