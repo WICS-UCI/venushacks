@@ -93,11 +93,9 @@ function HackerApplicantsList() {
 	const filteredApplicants = applicantList.filter((applicant) => {
 		const hasReviews =
 			Object.keys(applicant.application_data.review_breakdown ?? {}).length > 0;
-	
 		const reviewStatusSelected =
 			selectedStatusValues.includes(ReviewStatus.Reviewed) ||
 			selectedStatusValues.includes(ReviewStatus.Pending);
-	
 		const passesReviewFilter =
 			!reviewStatusSelected ||
 			(selectedStatusValues.includes(ReviewStatus.Reviewed) && hasReviews) ||
