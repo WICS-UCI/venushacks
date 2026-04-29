@@ -16,6 +16,7 @@ import ApplicantFilters, {
 	Options,
 } from "@/app/admin/applicants/components/ApplicantFilters";
 import ApplicantStatus from "@/app/admin/applicants/components/ApplicantStatus";
+import { ReviewStatus } from "@/lib/userRecord";
 
 import UserContext from "@/lib/admin/UserContext";
 import { isDirector, isHackerReviewer } from "@/lib/admin/authorization";
@@ -26,7 +27,7 @@ import useHackerThresholds from "@/lib/admin/useHackerThresholds";
 import useHackerApplicants, {
 	HackerApplicantSummary,
 } from "@/lib/admin/useHackerApplicants";
-import { ParticipantRole, Status } from "@/lib/userRecord";
+import { ParticipantRole } from "@/lib/userRecord";
 import { OVERQUALIFIED_SCORE } from "@/lib/decisionScores";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Badge from "@cloudscape-design/components/badge";
@@ -90,25 +91,17 @@ function HackerApplicantsList() {
 	}, [searchParams, router]);
 
 	const filteredApplicants = applicantList.filter((applicant) => {
-		if (
-			selectedStatusValues.includes(Status.Pending) &&
-			applicant.avg_score === OVERQUALIFIED_SCORE
-		)
-			return false;
-
-		if (
-			selectedStatusValues.length !== 0 &&
-			((selectedStatusValues.includes("RESUME_REVIEWED") &&
-				applicant.resume_reviewed) ||
-				(selectedStatusValues.includes("RESUME_NOT_REVIEWED") &&
-					!applicant.resume_reviewed))
-		) {
-			return true;
-		}
-
+		const hasReviews =
+			Object.keys(applicant.application_data.review_breakdown ?? {}).length > 0;
+		const reviewStatusSelected =
+			selectedStatusValues.includes(ReviewStatus.Reviewed) ||
+			selectedStatusValues.includes(ReviewStatus.Pending);
+		const passesReviewFilter =
+			!reviewStatusSelected ||
+			(selectedStatusValues.includes(ReviewStatus.Reviewed) && hasReviews) ||
+			(selectedStatusValues.includes(ReviewStatus.Pending) && !hasReviews);
 		return (
-			(selectedStatuses.length === 0 ||
-				selectedStatusValues.includes(applicant.status)) &&
+			passesReviewFilter &&
 			(selectedDecisions.length === 0 ||
 				selectedDecisionValues.includes(applicant.decision || "-")) &&
 			(uciNetIDFilter.length === 0 ||

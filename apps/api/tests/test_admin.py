@@ -358,11 +358,13 @@ def test_hacker_applicants_returns_correct_applicants(
                         "frq_project": 5,
                         "frq_diversity": 8,
                         "frq_picnic": 2,
+                        "experience": 0,
                     },
                     "alicia2": {
                         "frq_project": 6,
                         "frq_diversity": 9,
                         "frq_picnic": 2,
+                        "experience": 0,
                     },
                 },
                 "global_field_scores": {"resume": 1},
@@ -386,11 +388,25 @@ def test_hacker_applicants_returns_correct_applicants(
             "resume_reviewed": True,
             "status": "REVIEWED",
             "decision": "ACCEPTED",  # 56.67 >= accept threshold 50
-            "avg_score": 60,
+            "avg_score": 60.0,
             "reviewers": ["edu.uci.alicia", "edu.uci.alicia2"],
             "application_data": {
                 "school": "Hamburger University",
                 "submission_time": "2023-01-12T09:00:00",
+                "review_breakdown": {
+                    "alicia": {
+                        "frq_project": 5,
+                        "frq_diversity": 8,
+                        "frq_picnic": 2,
+                        "experience": 0,
+                    },
+                    "alicia2": {
+                        "frq_project": 6,
+                        "frq_diversity": 9,
+                        "frq_picnic": 2,
+                        "experience": 0,
+                    },
+                },
             },
         },
     ]

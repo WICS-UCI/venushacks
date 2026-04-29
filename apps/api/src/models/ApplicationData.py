@@ -22,6 +22,13 @@ class Decision(str, Enum):
     REJECTED = "REJECTED"
 
 
+class ReviewBreakdown(BaseModel):
+    frq_project: int
+    frq_diversity: int
+    frq_picnic: int
+    experience: int
+
+
 Review = Union[
     tuple[datetime, str, float],
     tuple[datetime, str, float, Optional[str]],
@@ -196,6 +203,7 @@ class ProcessedHackerApplicationData(BaseApplicationData):
     resume_url: Union[HttpUrl, None] = None
     submission_time: datetime
     reviews: list[Review] = []
+    review_breakdown: dict[str, ReviewBreakdown] = {}
 
     @field_serializer("resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
