@@ -91,16 +91,17 @@ function HackerApplicantsList() {
 	}, [searchParams, router]);
 
 	const filteredApplicants = applicantList.filter((applicant) => {
-		const hasReviews = Object.keys(applicant.application_data.review_breakdown ?? {}).length > 0;
+		const hasReviews =
+			Object.keys(applicant.application_data.review_breakdown ?? {}).length > 0;
 	
 		const reviewStatusSelected =
 			selectedStatusValues.includes(ReviewStatus.Reviewed) ||
 			selectedStatusValues.includes(ReviewStatus.Pending);
 	
-		const passesReviewFilter = !reviewStatusSelected ||
+		const passesReviewFilter =
+			!reviewStatusSelected ||
 			(selectedStatusValues.includes(ReviewStatus.Reviewed) && hasReviews) ||
 			(selectedStatusValues.includes(ReviewStatus.Pending) && !hasReviews);
-	
 		return (
 			passesReviewFilter &&
 			(selectedDecisions.length === 0 ||

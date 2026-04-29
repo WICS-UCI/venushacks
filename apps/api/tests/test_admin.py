@@ -358,11 +358,13 @@ def test_hacker_applicants_returns_correct_applicants(
                         "frq_project": 5,
                         "frq_diversity": 8,
                         "frq_picnic": 2,
+                        "experience": 2,
                     },
                     "alicia2": {
                         "frq_project": 6,
                         "frq_diversity": 9,
                         "frq_picnic": 2,
+                        "experience": 2,
                     },
                 },
                 "global_field_scores": {"resume": 1},
@@ -391,6 +393,20 @@ def test_hacker_applicants_returns_correct_applicants(
             "application_data": {
                 "school": "Hamburger University",
                 "submission_time": "2023-01-12T09:00:00",
+                "review_breakdown": {
+                    "alicia": {
+                        "frq_project": 5,
+                        "frq_diversity": 8,
+                        "frq_picnic": 2,
+                        "experience": 2,
+                    },
+                    "alicia2": {
+                        "frq_project": 6,
+                        "frq_diversity": 9,
+                        "frq_picnic": 2,
+                        "experience": 2,
+                    },
+                },
             },
         },
     ]
