@@ -5,12 +5,20 @@ import {
 	Container,
 	SpaceBetween,
 	ButtonProps,
+	Header,
 } from "@cloudscape-design/components";
+
+interface CriterionScore {
+	label: string;
+	score: number;
+	maxPoints: number;
+}
 
 interface SectionScore {
 	label: string;
 	score: number;
 	maxPoints: number;
+	breakdown?: CriterionScore[];
 }
 
 interface ScoreSummaryProps {
@@ -50,7 +58,7 @@ export default function ScoreSummary({
 	const totalMax = sections.reduce((sum, s) => sum + s.maxPoints, 0);
 
 	return (
-		<Container>
+		<Container header={<Header variant="h2">Score Summary</Header>}>
 			<SpaceBetween direction="vertical" size="xs">
 				<ColumnLayout columns={2} variant="text-grid">
 					<Box fontWeight="bold" color="text-body-secondary" fontSize="body-s">
@@ -66,11 +74,27 @@ export default function ScoreSummary({
 				{sections.map((s, i) => (
 					<SpaceBetween key={s.label} direction="vertical" size="xs">
 						<ColumnLayout columns={2} variant="text-grid">
-							<Box>{s.label}</Box>
-							<Box color="text-body-secondary">
+							<Box fontWeight="bold">{s.label}</Box>
+							<Box fontWeight="bold">
 								{s.score} / {s.maxPoints}
 							</Box>
 						</ColumnLayout>
+
+						{s.breakdown?.map((c) => (
+							<ColumnLayout key={c.label} columns={2} variant="text-grid">
+								<Box
+									color="text-body-secondary"
+									fontSize="body-s"
+									padding={{ left: "l" }}
+								>
+									{c.label}
+								</Box>
+								<Box color="text-body-secondary" fontSize="body-s">
+									{c.score} / {c.maxPoints}
+								</Box>
+							</ColumnLayout>
+						))}
+
 						{i < sections.length - 1 && <HR />}
 					</SpaceBetween>
 				))}
@@ -78,11 +102,9 @@ export default function ScoreSummary({
 				<BoldHR />
 
 				<ColumnLayout columns={2} variant="text-grid">
-					<SpaceBetween direction="horizontal" size="xxl" alignItems="center">
-						<Box fontWeight="bold" fontSize="heading-s">
-							Total
-						</Box>
-					</SpaceBetween>
+					<Box fontWeight="bold" fontSize="heading-s">
+						Total
+					</Box>
 					<Box fontWeight="bold" fontSize="heading-s">
 						{total} / {totalMax}
 					</Box>

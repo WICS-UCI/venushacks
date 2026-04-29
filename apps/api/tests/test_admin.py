@@ -355,15 +355,31 @@ def test_hacker_applicants_returns_correct_applicants(
                 ],
                 "review_breakdown": {
                     "alicia": {
-                        "frq_project": 5,
-                        "frq_diversity": 8,
-                        "frq_picnic": 2,
+                        "frq_project": {
+                            "content_relevance": 2,
+                            "experience": 2,
+                            "effort": 3,
+                        },
+                        "frq_diversity": {
+                            "diversity_inclusion": 5,
+                            "experience": 2,
+                            "effort": 3,
+                        },
+                        "frq_picnic": {"picnic_must_haves": 2},
                         "experience": 0,
                     },
                     "alicia2": {
-                        "frq_project": 6,
-                        "frq_diversity": 9,
-                        "frq_picnic": 2,
+                        "frq_project": {
+                            "content_relevance": 2,
+                            "experience": 3,
+                            "effort": 3,
+                        },
+                        "frq_diversity": {
+                            "diversity_inclusion": 6,
+                            "experience": 2,
+                            "effort": 3,
+                        },
+                        "frq_picnic": {"picnic_must_haves": 2},
                         "experience": 0,
                     },
                 },
@@ -372,14 +388,6 @@ def test_hacker_applicants_returns_correct_applicants(
         }
     ]
 
-    # Calculation:
-    # global: 2 * 1 = 2
-    # alicia (excludes experience): 5 + 8 + 2 = 15
-    # alicia2 (excludes experience): 6 + 9 + 2 = 17
-    # total = 2 + 15 + 17 = 34
-    # avg = 34 / 2 = 17
-    # scaled = (17 / 30) * 100 = 56.666...
-
     expected_records = [
         {
             "_id": "edu.uci.sydnee",
@@ -387,7 +395,7 @@ def test_hacker_applicants_returns_correct_applicants(
             "last_name": "unknown",
             "resume_reviewed": True,
             "status": "REVIEWED",
-            "decision": "ACCEPTED",  # 56.67 >= accept threshold 50
+            "decision": "ACCEPTED",  # 58.0 >= accept threshold 50
             "avg_score": 60.0,
             "reviewers": ["edu.uci.alicia", "edu.uci.alicia2"],
             "application_data": {
@@ -395,15 +403,31 @@ def test_hacker_applicants_returns_correct_applicants(
                 "submission_time": "2023-01-12T09:00:00",
                 "review_breakdown": {
                     "alicia": {
-                        "frq_project": 5,
-                        "frq_diversity": 8,
-                        "frq_picnic": 2,
+                        "frq_project": {
+                            "content_relevance": 2,
+                            "experience": 2,
+                            "effort": 3,
+                        },
+                        "frq_diversity": {
+                            "diversity_inclusion": 5,
+                            "experience": 2,
+                            "effort": 3,
+                        },
+                        "frq_picnic": {"picnic_must_haves": 2},
                         "experience": 0,
                     },
                     "alicia2": {
-                        "frq_project": 6,
-                        "frq_diversity": 9,
-                        "frq_picnic": 2,
+                        "frq_project": {
+                            "content_relevance": 2,
+                            "experience": 3,
+                            "effort": 3,
+                        },
+                        "frq_diversity": {
+                            "diversity_inclusion": 6,
+                            "experience": 2,
+                            "effort": 3,
+                        },
+                        "frq_picnic": {"picnic_must_haves": 2},
                         "experience": 0,
                     },
                 },

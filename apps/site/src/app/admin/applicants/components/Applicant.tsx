@@ -48,13 +48,7 @@ function Applicant({ uid, applicationType }: ApplicantProps) {
 					variant="h1"
 					description="Applicant"
 					actions={
-						applicant.roles.includes(ParticipantRole.Hacker) ? (
-							<HackerApplicantActions
-								applicant={applicant._id}
-								reviews={application_data.reviews}
-								submitReview={submitReview}
-							/>
-						) : (
+						!applicant.roles.includes(ParticipantRole.Hacker) && (
 							<ApplicantActions
 								applicant={applicant._id}
 								submitReview={submitReview}

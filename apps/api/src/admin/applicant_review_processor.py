@@ -105,6 +105,16 @@ def _get_avg_score(
 #     return (total_score / 2) / MAX_SCORE * 100
 
 
+def _flatten_values(d: dict) -> list[float]:
+    values = []
+    for v in d.values():
+        if isinstance(v, dict):
+            values.extend(_flatten_values(v))
+        else:
+            values.append(v)
+    return values
+
+
 # For the purposes of VenusHacks 2026, we'll only consider the review that was submitted
 # last. For instance, If three reviewers each submitted their own review of a hacker
 # application, only the most recent one will be considered in the "average value".
@@ -114,7 +124,7 @@ def _get_avg_score(
 # above. Then, update expected_records.avg_score with the corrected average in
 # test_admin.py::test_hacker_applicants_returns_correct_applicants()
 def _get_avg_score_with_globals_and_breakdown(
-    review_breakdowns: dict[str, dict[str, int]], global_field_scores: dict[str, int]
+    review_breakdowns: dict[str, dict[str, object]], global_field_scores: dict[str, int]
 ) -> float:
     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
         return OVERQUALIFIED
@@ -128,7 +138,10 @@ def _get_avg_score_with_globals_and_breakdown(
     for field, score in last_breakdown.items():
         if field in global_field_scores:
             continue
-        total_score += score
+        if isinstance(score, dict):
+            total_score += sum(_flatten_values(score))
+        else:
+            total_score += score
 
     return total_score / MAX_SCORE * 100
 
