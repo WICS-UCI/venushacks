@@ -27,8 +27,17 @@ export interface WRRubricContainerProps {
 	namePrefix: string;
 	applicantResponse: string;
 	onScoreChange: (score: number) => void;
+	onScoreBreakdownChange?: (breakdown: Record<string, number>) => void;
 	onFilledChange?: (filled: boolean) => void;
 }
+
+const toCriterionKey = (criterion: string) =>
+	criterion
+		.toLowerCase()
+		.replace(/-/g, "_")
+		.replace(/\s+/g, "_")
+		.replace(/[^a-z0-9_]/g, "")
+		.replace(/_+/g, "_");
 
 export function RubricRow({
 	row,
@@ -113,6 +122,7 @@ export default function WRRubricContainer({
 	namePrefix,
 	applicantResponse,
 	onScoreChange,
+	onScoreBreakdownChange,
 	onFilledChange,
 }: WRRubricContainerProps) {
 	const [criterionScores, setCriterionScores] = useState<
@@ -132,10 +142,17 @@ export default function WRRubricContainer({
 	};
 
 	useEffect(() => {
-		onScoreChange(
-			Object.values(criterionScores).reduce((sum, v) => sum + v, 0),
+		const total = Object.values(criterionScores).reduce((sum, v) => sum + v, 0);
+		onScoreChange(total);
+
+		const breakdown = Object.fromEntries(
+			Object.entries(criterionScores).map(([criterion, score]) => [
+				toCriterionKey(criterion),
+				score,
+			]),
 		);
-	}, [criterionScores, onScoreChange]);
+		onScoreBreakdownChange?.(breakdown);
+	}, [criterionScores, onScoreChange, onScoreBreakdownChange]);
 
 	useEffect(() => {
 		onFilledChange?.(Object.values(filledCriteria).every(Boolean));
@@ -154,11 +171,13 @@ export default function WRRubricContainer({
 			}
 		>
 			<SpaceBetween direction="vertical" size="m">
-				<Textarea
-					value={applicantResponse || "No response provided."}
-					readOnly
-					rows={5}
-				/>
+				<div {...{ inert: "" }}>
+					<Textarea
+						value={applicantResponse || "No response provided."}
+						readOnly
+						rows={5}
+					/>
+				</div>
 				<Box color="text-body-secondary" fontSize="body-s">
 					{wordCount} {wordCount === 1 ? "word" : "words"}
 				</Box>

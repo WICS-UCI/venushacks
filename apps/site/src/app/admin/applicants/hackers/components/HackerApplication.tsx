@@ -17,6 +17,7 @@ import HackerApplicationSection from "@/app/admin/applicants/hackers/components/
 import WRRubricContainer, {
 	RubricRow,
 } from "../../components/WRRubricContainer";
+import ReviewBreakdownPanel from "../../components/ReviewerBreakdownPanel";
 import ResumeRubricContainer from "../../components/ResumeRubricContainer";
 import ReviewerNotes from "../../components/ReviewerNotes";
 import ScoreSummary from "../../components/ScoreSummary";
@@ -245,6 +246,12 @@ interface HackerApplicationProps {
 function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 	const router = useRouter();
 
+	const hasReviewBreakdown =
+		Object.keys(application_data.review_breakdown ?? {}).length > 0;
+
+	const lastReview = application_data.reviews.at(-1);
+	const reviewerNotes = lastReview?.[3] ?? null;
+
 	const { loading, error, submitDetailedReview } = useApplicant(uid, "hacker");
 
 	const [filled, setFilled] = useState({
@@ -258,6 +265,15 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 		frq_project: 0,
 		frq_diversity: 0,
 		frq_picnic: 0,
+	});
+	const [breakdowns, setBreakdowns] = useState<{
+		frq_project: Record<string, number>;
+		frq_diversity: Record<string, number>;
+		frq_picnic: Record<string, number>;
+	}>({
+		frq_project: {},
+		frq_diversity: {},
+		frq_picnic: {},
 	});
 	const [isExperienced, setIsExperienced] = useState(false);
 	const [notes, setNotes] = useState("");
@@ -280,6 +296,22 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 	);
 	const handleFrqPicnicScore = useCallback(
 		(score: number) => setScores((prev) => ({ ...prev, frq_picnic: score })),
+		[],
+	);
+
+	const handleFrqProjectBreakdown = useCallback(
+		(breakdown: Record<string, number>) =>
+			setBreakdowns((prev) => ({ ...prev, frq_project: breakdown })),
+		[],
+	);
+	const handleFrqDiversityBreakdown = useCallback(
+		(breakdown: Record<string, number>) =>
+			setBreakdowns((prev) => ({ ...prev, frq_diversity: breakdown })),
+		[],
+	);
+	const handleFrqPicnicBreakdown = useCallback(
+		(breakdown: Record<string, number>) =>
+			setBreakdowns((prev) => ({ ...prev, frq_picnic: breakdown })),
 		[],
 	);
 
@@ -313,7 +345,12 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 		try {
 			await submitDetailedReview(
 				uid,
-				scores,
+				{
+					experience: scores.experience,
+					frq_project: breakdowns.frq_project,
+					frq_diversity: breakdowns.frq_diversity,
+					frq_picnic: breakdowns.frq_picnic,
+				},
 				notes.trim() || null,
 				isExperienced,
 			);
@@ -391,20 +428,22 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 			/>
 			<WRRubricContainer
 				title="Written Response 1 — 10 points"
-				description="Describe a project you are passionate about that you've worked on in the past or are currently working on. It can be technical or non-technical! (150 words)"
+				description="Describe a project you are passionate about..."
 				rubric={WR1_RUBRIC}
 				applicantResponse={application_data.frq_project}
 				namePrefix="frq_project"
 				onScoreChange={handleFrqProjectScore}
+				onScoreBreakdownChange={handleFrqProjectBreakdown}
 				onFilledChange={handleFrqProjectFilled}
 			/>
 			<WRRubricContainer
 				title="Written Response 2 — 15 points"
-				description="How have your past experiences shaped your definition of diversity and inclusivity? (150 words)"
+				description="How have your past experiences shaped your definition of diversity..."
 				rubric={WR2_RUBRIC}
 				applicantResponse={application_data.frq_diversity}
 				namePrefix="frq_diversity"
 				onScoreChange={handleFrqDiversityScore}
+				onScoreBreakdownChange={handleFrqDiversityBreakdown}
 				onFilledChange={handleFrqDiversityFilled}
 			/>
 			<WRRubricContainer
@@ -414,6 +453,7 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				applicantResponse={application_data.frq_picnic}
 				namePrefix="frq_picnic"
 				onScoreChange={handleFrqPicnicScore}
+				onScoreBreakdownChange={handleFrqPicnicBreakdown}
 				onFilledChange={handleFrqPicnicFilled}
 			/>
 			<ReviewerNotes
@@ -421,29 +461,75 @@ function HackerApplication({ application_data, uid }: HackerApplicationProps) {
 				onNotesChange={setNotes}
 				reviews={application_data.reviews}
 			/>
-			<ScoreSummary
-				sections={[
-					{ label: "Resume", score: scores.experience, maxPoints: 2 },
-					{
-						label: "Written Response 1",
-						score: scores.frq_project,
-						maxPoints: 10,
-					},
-					{
-						label: "Written Response 2",
-						score: scores.frq_diversity,
-						maxPoints: 15,
-					},
-					{
-						label: "Written Response 3",
-						score: scores.frq_picnic,
-						maxPoints: 3,
-					},
-				]}
-				onSubmit={onSubmit}
-				disabled={!allFilled || submitting}
-				loading={submitting}
-			/>
+			{hasReviewBreakdown ? (
+				<ReviewBreakdownPanel
+					review_breakdown={application_data.review_breakdown!}
+					notes={reviewerNotes}
+				/>
+			) : (
+				<ScoreSummary
+					sections={[
+						{ label: "Resume", score: scores.experience, maxPoints: 2 },
+						{
+							label: "Written Response 1",
+							score: scores.frq_project,
+							maxPoints: 10,
+							breakdown: WR1_RUBRIC.map((r) => ({
+								label: r.criterion,
+								score:
+									breakdowns.frq_project[
+										r.criterion
+											.toLowerCase()
+											.replace(/-/g, "_")
+											.replace(/\s+/g, "_")
+											.replace(/[^a-z0-9_]/g, "")
+											.replace(/_+/g, "_")
+									] ?? 0,
+								maxPoints: r.maxPoints,
+							})),
+						},
+						{
+							label: "Written Response 2",
+							score: scores.frq_diversity,
+							maxPoints: 15,
+							breakdown: WR2_RUBRIC.map((r) => ({
+								label: r.criterion,
+								score:
+									breakdowns.frq_diversity[
+										r.criterion
+											.toLowerCase()
+											.replace(/-/g, "_")
+											.replace(/\s+/g, "_")
+											.replace(/[^a-z0-9_]/g, "")
+											.replace(/_+/g, "_")
+									] ?? 0,
+								maxPoints: r.maxPoints,
+							})),
+						},
+						{
+							label: "Written Response 3",
+							score: scores.frq_picnic,
+							maxPoints: 3,
+							breakdown: WR3_RUBRIC.map((r) => ({
+								label: r.criterion,
+								score:
+									breakdowns.frq_picnic[
+										r.criterion
+											.toLowerCase()
+											.replace(/-/g, "_")
+											.replace(/\s+/g, "_")
+											.replace(/[^a-z0-9_]/g, "")
+											.replace(/_+/g, "_")
+									] ?? 0,
+								maxPoints: r.maxPoints,
+							})),
+						},
+					]}
+					onSubmit={onSubmit}
+					disabled={!allFilled || submitting}
+					loading={submitting}
+				/>
+			)}
 		</SpaceBetween>
 	);
 }

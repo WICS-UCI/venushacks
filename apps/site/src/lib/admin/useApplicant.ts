@@ -20,6 +20,29 @@ interface BaseApplicationData {
 
 export type HackathonExperience = "first_time" | "some_experience" | "veteran";
 
+export interface WR1Scores {
+	content_relevance: number;
+	experience: number;
+	effort: number;
+}
+
+export interface WR2Scores {
+	diversity_inclusion: number;
+	experience: number;
+	effort: number;
+}
+
+export interface WR3Scores {
+	picnic_must_haves: number;
+}
+
+export interface HackerReviewBreakdown {
+	frq_project: WR1Scores;
+	frq_diversity: WR2Scores;
+	frq_picnic: WR3Scores;
+	experience: number;
+}
+
 export interface HackerApplicationData extends BaseApplicationData {
 	how_did_you_hear_about_us: string;
 	share_resume_with_sponsors: boolean;
@@ -32,6 +55,7 @@ export interface HackerApplicationData extends BaseApplicationData {
 	resume_url: string;
 	submission_time: string;
 	reviews: Review[];
+	review_breakdown?: Record<string, HackerReviewBreakdown>;
 }
 
 export interface MentorApplicationData extends BaseApplicationData {

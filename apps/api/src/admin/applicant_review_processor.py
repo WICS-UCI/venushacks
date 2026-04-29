@@ -4,7 +4,7 @@ from models.ApplicationData import Decision
 
 OVERQUALIFIED = -3
 NOT_FULLY_REVIEWED = -1
-MAX_SCORE = 30
+MAX_SCORE = 30.0
 
 scores_to_decisions: dict[Optional[int], Decision] = {
     100: Decision.ACCEPTED,
@@ -105,6 +105,16 @@ def _get_avg_score(
 #     return (total_score / 2) / MAX_SCORE * 100
 
 
+def _flatten_values(d: dict[str, object]) -> list[float]:
+    values: list[float] = []
+    for v in d.values():
+        if isinstance(v, dict):
+            values.extend(_flatten_values(v))
+        else:
+            values.append(float(v))  # type: ignore[arg-type]
+    return values
+
+
 # For the purposes of VenusHacks 2026, we'll only consider the review that was submitted
 # last. For instance, If three reviewers each submitted their own review of a hacker
 # application, only the most recent one will be considered in the "average value".
@@ -114,7 +124,7 @@ def _get_avg_score(
 # above. Then, update expected_records.avg_score with the corrected average in
 # test_admin.py::test_hacker_applicants_returns_correct_applicants()
 def _get_avg_score_with_globals_and_breakdown(
-    review_breakdowns: dict[str, dict[str, int]], global_field_scores: dict[str, int]
+    review_breakdowns: dict[str, dict[str, object]], global_field_scores: dict[str, int]
 ) -> float:
     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
         return OVERQUALIFIED
@@ -124,11 +134,14 @@ def _get_avg_score_with_globals_and_breakdown(
 
     last_breakdown = list(review_breakdowns.values())[-1]
 
-    total_score = sum(global_field_scores.values())
+    total_score: float = sum(global_field_scores.values())
     for field, score in last_breakdown.items():
         if field in global_field_scores:
             continue
-        total_score += score
+        if isinstance(score, dict):
+            total_score += sum(_flatten_values(score))
+        else:
+            total_score += float(score)  # type: ignore[arg-type]
 
     return total_score / MAX_SCORE * 100
 

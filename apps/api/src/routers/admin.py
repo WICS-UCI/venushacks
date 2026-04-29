@@ -3,7 +3,7 @@ from logging import getLogger
 from typing import Annotated, Any, Literal, Mapping, Optional
 
 from fastapi import APIRouter, Body, Depends, HTTPException, status
-from pydantic import BaseModel, TypeAdapter, ValidationError
+from pydantic import BaseModel, TypeAdapter, ValidationError, Field
 from typing_extensions import assert_never
 from pymongo import DESCENDING
 
@@ -14,7 +14,14 @@ from admin.score_normalizing_handler import (
 )
 from auth.authorization import require_role
 from auth.user_identity import User, utc_now
-from models.ApplicationData import Decision, Review, ReviewBreakdown
+from models.ApplicationData import (
+    Decision,
+    Review,
+    ReviewBreakdown,
+    WR1Scores,
+    WR2Scores,
+    WR3Scores,
+)
 from models.user_record import Applicant, ApplicantStatus, Role
 from services import mongodb_handler
 from services.mongodb_handler import BaseRecord, Collection
@@ -82,10 +89,10 @@ class ReviewRequest(BaseModel):
 
 
 class VenusHacksHackerDetailedScores(BaseModel):
-    frq_project: float
-    frq_diversity: float
-    frq_picnic: float
-    experience: float
+    frq_project: WR1Scores
+    frq_diversity: WR2Scores
+    frq_picnic: WR3Scores
+    experience: float = Field(ge=0, le=2)
 
 
 class DetailedReviewRequest(BaseModel):
@@ -475,7 +482,7 @@ async def _handle_venushacks_detailed_scores_review(
 
     MAX_SCORE = 30.0  # 10 + 15 + 3 + 2
 
-    total_score = sum(score_breakdown.values())
+    total_score = sum(applicant_review_processor._flatten_values(score_breakdown))
     total_score = (total_score / MAX_SCORE) * 100.0
     total_score = max(total_score, -3.0)
 
@@ -496,21 +503,21 @@ async def _handle_venushacks_detailed_scores_review(
 
     unique_reviewers = applicant_review_processor.get_unique_reviewers(applicant_record)
 
-    if len(unique_reviewers) >= 2 and reviewer.uid not in unique_reviewers:
+    if len(unique_reviewers) >= 1 and reviewer.uid not in unique_reviewers:
         log.error(
-            "%s tried to submit a review, but %s already has two reviewers",
+            "%s tried to submit a review, but %s already has a reviewer",
             reviewer,
             applicant,
         )
         raise HTTPException(status.HTTP_403_FORBIDDEN)
 
     update_query: dict[str, object] = {"$push": {"application_data.reviews": review}}
-    if len(unique_reviewers | {reviewer.uid}) >= 2:
+    if len(unique_reviewers | {reviewer.uid}) >= 1:
         update_query.update({"$set": {"status": "REVIEWED"}})
 
     await _try_update_applicant_with_query(
         applicant,
-        update_query={"$push": {"application_data.reviews": review}},
+        update_query=update_query,
         err_msg=f"{reviewer} could not submit review for {applicant}",
     )
 

@@ -22,11 +22,27 @@ class Decision(str, Enum):
     REJECTED = "REJECTED"
 
 
+class WR1Scores(BaseModel):
+    content_relevance: float = Field(ge=0, le=3)
+    experience: float = Field(ge=0, le=3)
+    effort: float = Field(ge=0, le=4)
+
+
+class WR2Scores(BaseModel):
+    diversity_inclusion: float = Field(ge=0, le=8)
+    experience: float = Field(ge=0, le=3)
+    effort: float = Field(ge=0, le=4)
+
+
+class WR3Scores(BaseModel):
+    picnic_must_haves: float = Field(ge=0, le=3)
+
+
 class ReviewBreakdown(BaseModel):
-    frq_project: int
-    frq_diversity: int
-    frq_picnic: int
-    experience: int
+    frq_project: WR1Scores
+    frq_diversity: WR2Scores
+    frq_picnic: WR3Scores
+    experience: float
 
 
 Review = Union[
