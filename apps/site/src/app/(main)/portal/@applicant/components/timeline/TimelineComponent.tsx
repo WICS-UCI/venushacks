@@ -38,7 +38,12 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 					{text}
 				</span>
 				{href ? (
-					<a href={href} target="_blank" rel="noopener noreferrer" className="shrink-0 text-neutral-400 hover:text-neutral-600 transition-colors flex items-center">
+					<a
+						href={href}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="shrink-0 text-neutral-400 hover:text-neutral-600 transition-colors flex items-center"
+					>
 						<ExternalLink size={25} strokeWidth={1.75} />
 					</a>
 				) : (
