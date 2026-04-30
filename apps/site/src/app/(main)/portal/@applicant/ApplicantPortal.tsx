@@ -49,6 +49,8 @@ function Portal() {
 				return "Accepted";
 			case Status.Rejected:
 				return "Rejected";
+			case Status.Waitlisted:
+				return "Waitlisted";
 			case Status.Signed:
 				return "Waiver Signed";
 			case Status.Confirmed:
@@ -65,15 +67,17 @@ function Portal() {
 	const getStatusColor = () => {
 		switch (status) {
 			case Status.Accepted:
-				return "bg-green-200 text-green-900";
+				return "bg-[#95E396] text-black";
 			case Status.Rejected:
-				return "bg-red-200 text-red-900";
+				return "bg-[#F68A8A] text-black";
+			case Status.Waitlisted:
+				return "bg-[#FFF6A2] text-black";
 			case Status.Signed:
 			case Status.Confirmed:
 			case Status.Attending:
-				return "bg-blue-200 text-blue-900";
+				return "bg-blue-200 text-black";
 			default:
-				return "bg-[#9EC7F5] text-neutral-900";
+				return "bg-[#9EC7F5] text-black";
 		}
 	};
 
@@ -103,7 +107,7 @@ function Portal() {
 				</h1>
 
 				<div className="flex flex-1 flex-col items-center gap-4 min-h-0 md:mt-8 md:gap-6">
-					<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4">
+					<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-8 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4">
 						<div>
 							<p className="font-semibold md:text-lg mb-1">
 								VenusHacks 2026 {roleToDisplay} Application
@@ -112,7 +116,7 @@ function Portal() {
 						</div>
 
 						<span
-							className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold md:px-5 ${statusColor}`}
+							className={`shrink-0 rounded-full px-6 py-3 text-sm font-semibold ${statusColor}`}
 						>
 							{statusLabel}
 						</span>
