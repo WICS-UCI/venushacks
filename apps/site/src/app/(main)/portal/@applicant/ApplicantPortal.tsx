@@ -112,7 +112,9 @@ function Portal() {
 							<p className="font-semibold md:text-lg mb-1">
 								VenusHacks 2026 {roleToDisplay} Application
 							</p>
-							<p className="text-sm text-neutral-400">Submitted {submissionDate ? submissionDate: '-'}</p>
+							<p className="text-sm text-neutral-400">
+								Submitted {submissionDate ? submissionDate : "-"}
+							</p>
 						</div>
 
 						<span
