@@ -217,4 +217,5 @@ async def send_email(
             log.error(response.headers)
     except HTTPStatusError as e:
         log.exception("During SendGrid processing: %s", e)
+        log.error("SendGrid response body: %s", e.response.text)
         raise RuntimeError("Could not send email with SendGrid")
