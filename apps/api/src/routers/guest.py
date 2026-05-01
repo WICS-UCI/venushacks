@@ -9,6 +9,8 @@ from pydantic import EmailStr
 
 from auth import guest_auth, user_identity
 
+import os
+
 log = getLogger(__name__)
 
 router = APIRouter()
@@ -36,6 +38,10 @@ def guest_email(email: Annotated[EmailStr, Form()]) -> EmailStr:
 async def guest_login(
     email: Annotated[EmailStr, Depends(guest_email)], return_to: str = "/portal"
 ) -> RedirectResponse:
+
+    SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+    log.info("SendGrid key prefix: %s", SENDGRID_API_KEY[:10] if SENDGRID_API_KEY else "NOT FOUND")
+    
     """Generate login passphrase and set cookie with confirmation token.
     The initiation will send an email with the passphrase."""
     try:

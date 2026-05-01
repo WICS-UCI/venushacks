@@ -7,7 +7,7 @@ from typing import Iterable, Literal, Tuple, TypedDict, Union, overload
 
 import aiosendgrid
 from httpx import HTTPStatusError
-from sendgrid.helpers.mail import Email, Mail, Personalization
+from sendgrid.helpers.mail import Mail, Personalization, Email, ReplyTo
 from typing_extensions import TypeAlias
 
 log = getLogger(__name__)
@@ -206,7 +206,7 @@ async def send_email(
             email_message.add_personalization(p)
 
         if reply_to is not None:
-            email_message.reply_to = reply_to
+            email_message.reply_to = ReplyTo(email=reply_to[0], name=reply_to[1])
 
         email_message.from_email = sender_email
         email_message.template_id = template_id

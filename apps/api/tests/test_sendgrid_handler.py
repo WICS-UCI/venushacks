@@ -66,7 +66,7 @@ async def test_send_single_email_with_reply_to(mock_AsyncClient: AsyncMock) -> N
         Template.CONFIRMATION_EMAIL,
         SAMPLE_SENDER,
         recipient_data,
-        reply_to=SAMPLE_SENDER,
+        reply_to=ReplyTo(email=SAMPLE_SENDER[0], name=SAMPLE_SENDER[1])
     )
     mock_client.send_mail_v3.assert_awaited_once_with(
         body={
