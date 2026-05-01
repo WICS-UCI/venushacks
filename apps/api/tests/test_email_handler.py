@@ -4,7 +4,7 @@ from models.ApplicationData import Decision
 from models.user_record import Role
 from services.sendgrid_handler import ApplicationUpdatePersonalization, Template
 from utils import email_handler
-from utils.email_handler import VH_SENDER
+from utils.email_handler import VH_SENDER, VH_REPLY_TO
 
 
 @patch("services.sendgrid_handler.send_email")
@@ -25,7 +25,11 @@ async def test_send_hacker_decision_email(
     await email_handler.send_decision_email(users, Decision.ACCEPTED, Role.HACKER)
 
     mock_sendgrid_handler_send_email.assert_called_once_with(
-        Template.HACKER_ACCEPTED_EMAIL, VH_SENDER, expected_personalizations, True
+        Template.HACKER_ACCEPTED_EMAIL,
+        VH_SENDER,
+        expected_personalizations,
+        True,
+        VH_REPLY_TO,
     )
 
 
@@ -47,7 +51,11 @@ async def test_send_mentor_decision_email(
     await email_handler.send_decision_email(users, Decision.REJECTED, Role.MENTOR)
 
     mock_sendgrid_handler_send_email.assert_called_once_with(
-        Template.MENTOR_REJECTED_EMAIL, VH_SENDER, expected_personalizations, True
+        Template.MENTOR_REJECTED_EMAIL,
+        VH_SENDER,
+        expected_personalizations,
+        True,
+        VH_REPLY_TO,
     )
 
 
@@ -69,5 +77,9 @@ async def test_send_volunteer_decision_email(
     await email_handler.send_decision_email(users, Decision.REJECTED, Role.VOLUNTEER)
 
     mock_sendgrid_handler_send_email.assert_called_once_with(
-        Template.VOLUNTEER_REJECTED_EMAIL, VH_SENDER, expected_personalizations, True
+        Template.VOLUNTEER_REJECTED_EMAIL,
+        VH_SENDER,
+        expected_personalizations,
+        True,
+        VH_REPLY_TO,
     )
