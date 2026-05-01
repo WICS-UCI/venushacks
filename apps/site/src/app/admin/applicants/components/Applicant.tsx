@@ -17,7 +17,6 @@ import VolunteerApplication from "@/app/admin/applicants/volunteers/components/V
 
 import ApplicantActions from "./ApplicantActions";
 import ApplicantOverview from "./ApplicantOverview";
-import HackerApplicantActions from "./HackerApplicantActions";
 import { ParticipantRole } from "@/lib/userRecord";
 
 interface ApplicantProps {
@@ -48,13 +47,7 @@ function Applicant({ uid, applicationType }: ApplicantProps) {
 					variant="h1"
 					description="Applicant"
 					actions={
-						applicant.roles.includes(ParticipantRole.Hacker) ? (
-							<HackerApplicantActions
-								applicant={applicant._id}
-								reviews={application_data.reviews}
-								submitReview={submitReview}
-							/>
-						) : (
+						!applicant.roles.includes(ParticipantRole.Hacker) && (
 							<ApplicantActions
 								applicant={applicant._id}
 								submitReview={submitReview}
@@ -71,6 +64,7 @@ function Applicant({ uid, applicationType }: ApplicantProps) {
 				{applicant.roles.includes(ParticipantRole.Hacker) ? (
 					<HackerApplication
 						application_data={application_data as HackerApplicationData}
+						uid={uid}
 					/>
 				) : applicant.roles.includes(ParticipantRole.Mentor) ? (
 					<MentorApplication

@@ -71,11 +71,6 @@ function VolunteerApplicants() {
 						content: ({ _id }) => _id,
 					},
 					{
-						id: "school",
-						header: "School",
-						content: ({ application_data }) => application_data.school,
-					},
-					{
 						id: "status",
 						header: "Status",
 						content: ApplicantStatus,

@@ -53,8 +53,8 @@ function HackerThresholdInputs() {
 
 			if (
 				sentAcceptValue < sentWaitlistValue ||
-				sentAcceptValue < -1 ||
-				sentAcceptValue > 10
+				sentAcceptValue < 0 ||
+				sentAcceptValue > 100
 			)
 				return false;
 
@@ -66,8 +66,8 @@ function HackerThresholdInputs() {
 			: thresholds.waitlist;
 
 		if (
-			sentAcceptValue < -1 ||
-			sentAcceptValue > 10 ||
+			sentAcceptValue < 0 ||
+			sentAcceptValue > 100 ||
 			sentAcceptValue < sentWaitlistValue
 		)
 			return false;
@@ -87,8 +87,8 @@ function HackerThresholdInputs() {
 
 			if (
 				sentAcceptValue < sentWaitlistValue ||
-				sentWaitlistValue < -1 ||
-				sentWaitlistValue > 10
+				sentWaitlistValue < 0 ||
+				sentWaitlistValue > 100
 			)
 				return false;
 
@@ -100,15 +100,14 @@ function HackerThresholdInputs() {
 			: thresholds.accept;
 
 		if (
-			sentWaitlistValue < -1 ||
-			sentWaitlistValue > 10 ||
+			sentWaitlistValue < 0 ||
+			sentWaitlistValue > 100 ||
 			sentAcceptValue < sentWaitlistValue
 		)
 			return false;
 
 		return true;
 	};
-
 	return (
 		<SpaceBetween direction="vertical" size="xs">
 			{thresholds && (

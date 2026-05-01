@@ -3,7 +3,7 @@
 import HackerApplicantsList from "@/app/admin/applicants/components/HackerApplicantsList";
 
 function HackerApplicants() {
-	return <HackerApplicantsList hackathonName="irvinehacks" />;
+	return <HackerApplicantsList />;
 }
 
 export default HackerApplicants;

@@ -4,14 +4,17 @@ import Box from "@cloudscape-design/components/box";
 import useApplicationsSummary from "./useApplicationsSummary";
 
 const TIME_SPEC = "T00:00:00-08:00";
-const START_DAY = new Date("2024-12-11" + TIME_SPEC);
-const END_DAY = new Date("2025-01-11" + TIME_SPEC);
+const START_DAY = new Date("2026-04-06" + TIME_SPEC);
+const END_DAY = new Date("2026-05-06" + TIME_SPEC);
 
 // In reverse of desired order
 const KNOWN_SCHOOLS = [
+	"UC Santa Barbara",
+	"UC Berkeley",
 	"UC San Diego",
 	"UCLA",
 	"UC Riverside",
+	"Cal Poly Pomona",
 	"Cal State Fullerton",
 	"Cal State Long Beach",
 	"Orange Coast College",
@@ -41,7 +44,7 @@ function ApplicationsBySchoolChart() {
 
 	const xDomain = [];
 	for (let d = new Date(START_DAY); d <= end; d.setDate(d.getDate() + 1)) {
-		xDomain.push(new Date(d));
+		xDomain.push(d.toISOString().slice(0, 10));
 	}
 
 	return (
@@ -49,14 +52,18 @@ function ApplicationsBySchoolChart() {
 			series={sortedBySchool.map(([school, events]) => ({
 				title: school,
 				type: "bar",
-				data: Object.entries(events).map(([d, count]) => {
-					return { x: new Date(d + TIME_SPEC), y: count };
-				}),
+				data: Object.entries(events).map(([d, count]) => ({
+					x: d, // already "2026-03-31"
+					y: count,
+				})),
 			}))}
 			xDomain={xDomain}
 			i18nStrings={{
 				xTickFormatter: (e) =>
-					e.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+					new Date(e + TIME_SPEC).toLocaleDateString("en-US", {
+						month: "short",
+						day: "numeric",
+					}),
 			}}
 			ariaLabel="Stacked bar chart."
 			errorText="Error loading data."

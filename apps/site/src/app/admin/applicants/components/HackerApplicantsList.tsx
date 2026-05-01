@@ -1,18 +1,22 @@
 "use client";
 
-import { ReactNode, useContext, useEffect, useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import Box from "@cloudscape-design/components/box";
-import Cards from "@cloudscape-design/components/cards";
-import Header from "@cloudscape-design/components/header";
-import Link from "@cloudscape-design/components/link";
-import Checkbox from "@cloudscape-design/components/checkbox";
+import { useContext, useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import {
+	Flashbar,
+	Box,
+	Cards,
+	Header,
+	Link,
+	Checkbox,
+} from "@cloudscape-design/components";
 
 import { useFollowWithNextLink } from "@/app/admin/layout/common";
 import ApplicantFilters, {
 	Options,
 } from "@/app/admin/applicants/components/ApplicantFilters";
 import ApplicantStatus from "@/app/admin/applicants/components/ApplicantStatus";
+import { ReviewStatus } from "@/lib/userRecord";
 
 import UserContext from "@/lib/admin/UserContext";
 import { isDirector, isHackerReviewer } from "@/lib/admin/authorization";
@@ -23,22 +27,12 @@ import useHackerThresholds from "@/lib/admin/useHackerThresholds";
 import useHackerApplicants, {
 	HackerApplicantSummary,
 } from "@/lib/admin/useHackerApplicants";
-import { ParticipantRole, Status } from "@/lib/userRecord";
+import { ParticipantRole } from "@/lib/userRecord";
 import { OVERQUALIFIED_SCORE } from "@/lib/decisionScores";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Badge from "@cloudscape-design/components/badge";
 
-type ColumnDef = {
-	id: string;
-	header: string;
-	content: (applicant: HackerApplicantSummary) => ReactNode;
-};
-
-interface HackerApplicantsListProps {
-	hackathonName: "irvinehacks" | "zothacks";
-}
-
-function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
+function HackerApplicantsList() {
 	const router = useRouter();
 	const { roles } = useContext(UserContext);
 
@@ -47,6 +41,11 @@ function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
 	}
 
 	const isUserDirector = isDirector(roles);
+
+	const searchParams = useSearchParams();
+	const [flashMessages, setFlashMessages] = useState<
+		React.ComponentProps<typeof Flashbar>["items"]
+	>([]);
 
 	const [selectedStatuses, setSelectedStatuses] = useState<Options>([]);
 	const [selectedDecisions, setSelectedDecisions] = useState<Options>([]);
@@ -75,26 +74,34 @@ function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
 		}
 	}, [top400]);
 
-	const filteredApplicants = applicantList.filter((applicant) => {
-		if (
-			selectedStatusValues.includes(Status.Pending) &&
-			applicant.avg_score === OVERQUALIFIED_SCORE
-		)
-			return false;
-
-		if (
-			selectedStatusValues.length !== 0 &&
-			((selectedStatusValues.includes("RESUME_REVIEWED") &&
-				applicant.resume_reviewed) ||
-				(selectedStatusValues.includes("RESUME_NOT_REVIEWED") &&
-					!applicant.resume_reviewed))
-		) {
-			return true;
+	useEffect(() => {
+		const success = searchParams.get("success");
+		if (success === "true") {
+			setFlashMessages([
+				{
+					type: "success",
+					content: "Review submitted successfully!",
+					dismissible: true,
+					onDismiss: () => setFlashMessages([]),
+					id: "submit-success",
+				},
+			]);
+			router.replace("/admin/applicants/hackers");
 		}
+	}, [searchParams, router]);
 
+	const filteredApplicants = applicantList.filter((applicant) => {
+		const hasReviews =
+			Object.keys(applicant.application_data.review_breakdown ?? {}).length > 0;
+		const reviewStatusSelected =
+			selectedStatusValues.includes(ReviewStatus.Reviewed) ||
+			selectedStatusValues.includes(ReviewStatus.Pending);
+		const passesReviewFilter =
+			!reviewStatusSelected ||
+			(selectedStatusValues.includes(ReviewStatus.Reviewed) && hasReviews) ||
+			(selectedStatusValues.includes(ReviewStatus.Pending) && !hasReviews);
 		return (
-			(selectedStatuses.length === 0 ||
-				selectedStatusValues.includes(applicant.status)) &&
+			passesReviewFilter &&
 			(selectedDecisions.length === 0 ||
 				selectedDecisionValues.includes(applicant.decision || "-")) &&
 			(uciNetIDFilter.length === 0 ||
@@ -145,151 +152,142 @@ function HackerApplicantsList({ hackathonName }: HackerApplicantsListProps) {
 		</Box>
 	);
 
-	const zothacksExtraColumn: ColumnDef = {
-		id: "year",
-		header: "Year",
-		content: ({ application_data }) => application_data.school_year,
-	};
-
-	const irvinehacksExtraColumn: ColumnDef = {
-		id: "school",
-		header: "School",
-		content: ({ application_data }) => application_data.school,
-	};
-
-	const extraColumn =
-		hackathonName === "zothacks" ? zothacksExtraColumn : irvinehacksExtraColumn;
-
-	const renderHeader = useCallback(
-		({ _id, first_name, last_name, avg_score }: HackerApplicantSummary) => (
-			<CardHeader
-				_id={_id}
-				first_name={first_name}
-				last_name={last_name}
-				hackathonName={hackathonName}
-				avg_score={avg_score}
-			/>
-		),
-		[hackathonName],
+	const header = ({
+		_id,
+		first_name,
+		last_name,
+		avg_score,
+	}: HackerApplicantSummary) => (
+		<CardHeader
+			_id={_id}
+			first_name={first_name}
+			last_name={last_name}
+			avg_score={avg_score}
+		/>
 	);
 
-	const avgScore = ({ avg_score }: { avg_score: number }) => {
+	const avgScore = ({ avg_score }: HackerApplicantSummary) => {
 		if (avg_score === -1) return "-";
 		if (avg_score === OVERQUALIFIED_SCORE)
 			return <Box color="text-status-error">OVERQUALIFIED</Box>;
-		return avg_score;
+		return Math.round(avg_score * 100) / 100;
 	};
 
 	return (
-		<Cards
-			cardDefinition={{
-				header: renderHeader,
-				sections: [
-					{
-						id: "uid",
-						header: "UID",
-						content: ({ _id }) => _id,
-					},
-					extraColumn,
-					{
-						id: "status",
-						header: "Status",
-						content: ApplicantStatus,
-					},
-					{
-						id: "resume_reviewed",
-						header: "Resume Reviewed Status",
-						content: ResumeReviewedStatus,
-					},
-					{
-						id: "reviewers",
-						header: "",
-						content: ApplicantReviewerIndicator,
-					},
-					{
-						id: "submission_time",
-						header: "Applied",
-						content: ({ application_data }) =>
-							new Date(application_data.submission_time).toLocaleDateString(),
-					},
-					{
-						id: "avg_score",
-						header: "Averaged Score",
-						content: avgScore,
-					},
-					{
-						id: "decision",
-						header: "Decision",
-						content: DecisionStatus,
-					},
-				],
-			}}
-			loading={loading}
-			loadingText="Loading applicants"
-			items={items}
-			trackBy="_id"
-			variant="full-page"
-			filter={
-				<ApplicantFilters
-					selectedStatuses={selectedStatuses}
-					setSelectedStatuses={setSelectedStatuses}
-					selectedDecisions={selectedDecisions}
-					setSelectedDecisions={setSelectedDecisions}
-					uciNetIDFilter={uciNetIDFilter}
-					setUCINetIDFilter={setUCINetIDFilter}
-					applicantType={ParticipantRole.Hacker}
-				/>
-			}
-			empty={emptyContent}
-			header={
-				<div>
-					<Header actions={isUserDirector && <HackerThresholdInputs />}>
-						Hacker Applicants {counter}
-						<div
-							style={{
-								fontSize: "0.875rem",
-								color: "#5f6b7a",
-								marginTop: "4px",
-							}}
-						>
-							{acceptedCount} applicants with &quot;accepted&quot; status
-						</div>
-						<div
-							style={{
-								fontSize: "0.875rem",
-								color: "#5f6b7a",
-								marginTop: "4px",
-							}}
-						>
-							{waitlistedCount} applicants with &quot;waitlisted&quot; status
-						</div>
-						<div
-							style={{
-								fontSize: "0.875rem",
-								color: "#5f6b7a",
-								marginTop: "4px",
-							}}
-						>
-							{rejectedCount} applicants with &quot;rejected&quot; status
-						</div>
-					</Header>
-					<Checkbox
-						checked={top400}
-						onChange={({ detail }) => setTop400(detail.checked)}
-					>
-						Show Top 400 Scores
-					</Checkbox>
-					<span>
-						{top400 && "Highest score: " + filteredApplicants400[0]?.avg_score}
-						<br />
-						{top400 &&
-							"Lowest score: " +
-								filteredApplicants400[filteredApplicants400.length - 1]
-									?.avg_score}
-					</span>
+		<>
+			{flashMessages && flashMessages.length > 0 && (
+				<div
+					style={{
+						position: "fixed",
+						top: "1rem",
+						right: "1rem",
+						zIndex: 1000,
+						width: "400px",
+					}}
+				>
+					<Flashbar items={flashMessages} />
 				</div>
-			}
-		/>
+			)}
+			<Cards
+				cardDefinition={{
+					header: header,
+					sections: [
+						{
+							id: "uid",
+							header: "UID",
+							content: ({ _id }) => _id,
+						},
+						{
+							id: "reviewers",
+							header: "",
+							content: ApplicantReviewerIndicator,
+						},
+						{
+							id: "submission_time",
+							header: "Applied",
+							content: ({ application_data }) =>
+								new Date(application_data.submission_time).toLocaleDateString(),
+						},
+						{
+							id: "avg_score",
+							header: "Applicant Score",
+							content: avgScore,
+						},
+						{
+							id: "decision",
+							header: "Decision",
+							content: DecisionStatus,
+						},
+					],
+				}}
+				loading={loading}
+				loadingText="Loading applicants"
+				items={items}
+				trackBy="_id"
+				variant="full-page"
+				filter={
+					<ApplicantFilters
+						selectedStatuses={selectedStatuses}
+						setSelectedStatuses={setSelectedStatuses}
+						selectedDecisions={selectedDecisions}
+						setSelectedDecisions={setSelectedDecisions}
+						uciNetIDFilter={uciNetIDFilter}
+						setUCINetIDFilter={setUCINetIDFilter}
+						applicantType={ParticipantRole.Hacker}
+					/>
+				}
+				empty={emptyContent}
+				header={
+					<div>
+						<Header actions={isUserDirector && <HackerThresholdInputs />}>
+							Hacker Applicants {counter}
+							<div
+								style={{
+									fontSize: "0.875rem",
+									color: "#5f6b7a",
+									marginTop: "4px",
+								}}
+							>
+								{acceptedCount} applicants with &quot;accepted&quot; status
+							</div>
+							<div
+								style={{
+									fontSize: "0.875rem",
+									color: "#5f6b7a",
+									marginTop: "4px",
+								}}
+							>
+								{waitlistedCount} applicants with &quot;waitlisted&quot; status
+							</div>
+							<div
+								style={{
+									fontSize: "0.875rem",
+									color: "#5f6b7a",
+									marginTop: "4px",
+								}}
+							>
+								{rejectedCount} applicants with &quot;rejected&quot; status
+							</div>
+						</Header>
+						<Checkbox
+							checked={top400}
+							onChange={({ detail }) => setTop400(detail.checked)}
+						>
+							Show Top 400 Scores
+						</Checkbox>
+						<span>
+							{top400 &&
+								"Highest score: " + filteredApplicants400[0]?.avg_score}
+							<br />
+							{top400 &&
+								"Lowest score: " +
+									filteredApplicants400[filteredApplicants400.length - 1]
+										?.avg_score}
+						</span>
+					</div>
+				}
+			/>
+		</>
 	);
 }
 
@@ -297,19 +295,13 @@ const CardHeader = ({
 	_id,
 	first_name,
 	last_name,
-	hackathonName,
 	avg_score,
 }: Pick<
 	HackerApplicantSummary,
 	"_id" | "first_name" | "last_name" | "avg_score"
-> & {
-	hackathonName: "irvinehacks" | "zothacks";
-}) => {
+>) => {
 	const followWithNextLink = useFollowWithNextLink();
-	const href =
-		hackathonName === "zothacks"
-			? `/admin/applicants/zothacks-hackers/${_id}`
-			: `/admin/applicants/hackers/${_id}`;
+	const href = `/admin/applicants/hackers/${_id}`;
 	return (
 		<SpaceBetween direction="horizontal" size="s">
 			<Link href={href} fontSize="inherit" onFollow={followWithNextLink}>
@@ -324,11 +316,5 @@ const CardHeader = ({
 
 const DecisionStatus = ({ decision }: HackerApplicantSummary) =>
 	decision ? <ApplicantStatus status={decision} /> : "-";
-
-const ResumeReviewedStatus = ({ resume_reviewed }: HackerApplicantSummary) => (
-	<ApplicantStatus
-		status={resume_reviewed ? Status.Reviewed : Status.Pending}
-	/>
-);
 
 export default HackerApplicantsList;

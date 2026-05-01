@@ -20,7 +20,6 @@ const pathTitles: PathTitles = {
 	directors: "Directors",
 	organizers: "Organizers",
 	"email-sender": "Email Sender",
-	"zothacks-hackers": "ZotHacks Hacker Applications",
 	scores: "Scores",
 };
 

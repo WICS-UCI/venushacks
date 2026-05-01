@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import Enum
-from typing import Annotated, Any, Literal, Union
+from typing import Annotated, Any, Literal, Union, Optional
 
 from fastapi import UploadFile
 from pydantic import (
@@ -22,7 +22,34 @@ class Decision(str, Enum):
     REJECTED = "REJECTED"
 
 
-Review = tuple[datetime, str, float]
+class WR1Scores(BaseModel):
+    content_relevance: float = Field(ge=0, le=3)
+    experience: float = Field(ge=0, le=3)
+    effort: float = Field(ge=0, le=4)
+
+
+class WR2Scores(BaseModel):
+    diversity_inclusion: float = Field(ge=0, le=8)
+    experience: float = Field(ge=0, le=3)
+    effort: float = Field(ge=0, le=4)
+
+
+class WR3Scores(BaseModel):
+    picnic_must_haves: float = Field(ge=0, le=3)
+
+
+class ReviewBreakdown(BaseModel):
+    frq_project: WR1Scores
+    frq_diversity: WR2Scores
+    frq_picnic: WR3Scores
+    experience: float
+
+
+Review = Union[
+    tuple[datetime, str, float],
+    tuple[datetime, str, float, Optional[str]],
+    tuple[datetime, str, float, Optional[str], bool],
+]
 
 
 def make_empty_none(val: Union[str, None]) -> Union[str, None]:
@@ -192,6 +219,7 @@ class ProcessedHackerApplicationData(BaseApplicationData):
     resume_url: Union[HttpUrl, None] = None
     submission_time: datetime
     reviews: list[Review] = []
+    review_breakdown: dict[str, ReviewBreakdown] = {}
 
     @field_serializer("resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:

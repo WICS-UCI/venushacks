@@ -4,7 +4,7 @@ interface ApplicantProps {
 	params: { uid: string };
 }
 
-function HackerApplicant({ params }: ApplicantProps) {
+async function HackerApplicant({ params }: ApplicantProps) {
 	const { uid } = params;
 
 	return <Applicant uid={uid} applicationType="hacker" />;

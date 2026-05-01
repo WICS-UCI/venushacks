@@ -24,7 +24,6 @@ export default defineConfig({
 									"resourceCategoryOrder",
 									"resourceCategory",
 									"resource",
-									"zothacksScoringGuidelines",
 								].includes(listItem.getId()!),
 						),
 						S.divider(),
@@ -49,15 +48,6 @@ export default defineConfig({
 							.title("Resources")
 							.icon(Globe)
 							.child(S.documentTypeList("resource").title("Resources")),
-						S.divider(),
-						S.listItem()
-							.title("Zothacks Scoring Guidelines")
-							.icon(Newspaper)
-							.child(
-								S.documentTypeList("zothacksScoringGuidelines").title(
-									"Zothacks Scoring Guidelines",
-								),
-							),
 					]),
 		}),
 		visionTool(),

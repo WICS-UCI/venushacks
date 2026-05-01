@@ -10,7 +10,6 @@ export type Score = number;
 export enum ParticipantRole {
 	Applicant = "Applicant",
 	Hacker = "Hacker",
-	ZotHacks_Hacker = "zothacks_hacker",
 	Mentor = "Mentor",
 	Volunteer = "Volunteer",
 	Sponsor = "Sponsor",
