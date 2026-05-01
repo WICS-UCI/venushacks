@@ -6,7 +6,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import hackerSprite from "@/assets/images/volunteer_sprite.png";
 import { getOrganizers } from "./getOrganizers";
 import OrganizerCard from "./OrganizerCard";
-import { type OrganizerData, DUMMY_ORGANIZERS } from "./OrganizerData";
+import { type OrganizerData } from "./OrganizerData";
 import flower from "./assets/flower.svg";
 import grass from "./assets/grass.svg";
 
@@ -24,7 +24,7 @@ type Department = (typeof DEPARTMENTS)[number];
 
 export default function Organizers() {
 	const [organizers, setOrganizers] =
-		useState<OrganizerData[]>(DUMMY_ORGANIZERS);
+		useState<OrganizerData[]>([]);
 	const [activeTab, setActiveTab] = useState<Department>("Board");
 	const [isLoading, setIsLoading] = useState(true);
 
