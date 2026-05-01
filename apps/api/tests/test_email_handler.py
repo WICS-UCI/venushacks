@@ -29,7 +29,7 @@ async def test_send_hacker_decision_email(
         VH_SENDER,
         expected_personalizations,
         True,
-        VH_REPLY_TO,
+        reply_to=VH_REPLY_TO,
     )
 
 
@@ -55,7 +55,7 @@ async def test_send_mentor_decision_email(
         VH_SENDER,
         expected_personalizations,
         True,
-        VH_REPLY_TO,
+        reply_to=VH_REPLY_TO,
     )
 
 
@@ -81,5 +81,5 @@ async def test_send_volunteer_decision_email(
         VH_SENDER,
         expected_personalizations,
         True,
-        VH_REPLY_TO,
+        reply_to=VH_REPLY_TO,
     )
