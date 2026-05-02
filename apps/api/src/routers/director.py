@@ -21,7 +21,7 @@ from services.sendgrid_handler import (
 )
 from routers.admin import retrieve_thresholds
 from utils import email_handler
-from utils.email_handler import VH_SENDER, recover_email_from_uid
+from utils.email_handler import VH_SENDER, VH_REPLY_TO, recover_email_from_uid
 from utils.batched import batched
 
 log = getLogger(__name__)
@@ -232,6 +232,7 @@ async def apply_reminder(user: Annotated[User, Depends(require_director)]) -> No
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 
@@ -272,6 +273,7 @@ async def _rsvp_reminder(
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 
@@ -464,6 +466,7 @@ async def waitlist_logistics_emails() -> None:
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 
@@ -504,6 +507,7 @@ async def waitlist_transfer() -> None:
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 

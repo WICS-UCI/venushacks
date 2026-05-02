@@ -213,8 +213,9 @@ async def send_email(
 
         async with aiosendgrid.AsyncSendGridClient(api_key=SENDGRID_API_KEY) as client:
             response = await client.send_mail_v3(body=email_message.get())
-            log.debug(response.status_code)
-            log.debug(response.headers)
+            log.error(response.status_code)
+            log.error(response.headers)
     except HTTPStatusError as e:
         log.exception("During SendGrid processing: %s", e)
+        log.error("SendGrid response body: %s", e.response.text)
         raise RuntimeError("Could not send email with SendGrid")
