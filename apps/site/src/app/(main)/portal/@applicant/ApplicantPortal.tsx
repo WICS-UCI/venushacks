@@ -135,7 +135,6 @@ function Portal() {
 						</div>
 
 						{submittedWaiver && <ConfirmAttendance status={status as Status} />}
-						{rejected && <ReturnHome />}
 					</section>
 				</div>
 			</div>
