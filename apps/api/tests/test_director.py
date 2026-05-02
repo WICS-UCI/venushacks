@@ -10,7 +10,7 @@ from models.user_record import Role, Status
 from routers import director
 from services.mongodb_handler import Collection
 from services.sendgrid_handler import Template
-from utils.email_handler import VH_SENDER
+from utils.email_handler import VH_SENDER, VH_REPLY_TO
 
 
 USER_REVIEWER = NativeUser(
@@ -151,6 +151,7 @@ def test_apply_reminder_emails(
             {"email": "albert@uci.edu"},
         ],
         True,
+        VH_REPLY_TO,
     )
 
 

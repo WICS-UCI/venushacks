@@ -13,6 +13,7 @@ from services.sendgrid_handler import (
 )
 
 VH_SENDER = ("info@venushacks.com", "VenusHacks 2026 Applications")
+VH_REPLY_TO = ("replies@venushacks.com", "VenusHacks")
 
 DECISION_TEMPLATES: dict[Role, dict[Decision, ApplicationUpdateTemplates]] = {
     Role.HACKER: {
@@ -57,6 +58,7 @@ async def send_application_confirmation_email(
             "last_name": user.last_name,
             "application_type": application_type,
         },
+        reply_to=VH_REPLY_TO,
     )
 
 
@@ -69,6 +71,7 @@ async def send_guest_login_email(email: EmailStr, passphrase: str) -> None:
             "email": email,
             "passphrase": passphrase,
         },
+        reply_to=VH_REPLY_TO,
     )
 
 
@@ -84,7 +87,13 @@ async def send_decision_email(
     ]
 
     template = DECISION_TEMPLATES[application_type][decision]
-    await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True)
+    await sendgrid_handler.send_email(
+        template,
+        VH_SENDER,
+        personalizations,
+        True,
+        reply_to=VH_REPLY_TO
+    )
 
 
 async def send_waitlist_release_email(first_name: str, email: EmailStr) -> None:
@@ -98,6 +107,7 @@ async def send_waitlist_release_email(first_name: str, email: EmailStr) -> None:
         VH_SENDER,
         personalization,
         send_to_multiple=False,
+        reply_to=VH_REPLY_TO,
     )
 
 
@@ -122,7 +132,7 @@ async def send_logistics_email(
 
     template = LOGISTICS_TEMPLATES[application_type]
     if len(records) > 0:
-        await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True)
+        await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True, reply_to=VH_REPLY_TO)
 
 
 def recover_email_from_uid(uid: str) -> str:
