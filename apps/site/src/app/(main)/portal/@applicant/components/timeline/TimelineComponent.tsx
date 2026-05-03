@@ -30,7 +30,6 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 				className,
 			].join(" ")}
 		>
-			{/* Left: label + link icon */}
 			<div className="min-w-0 flex items-center gap-2">
 				<span
 					className={`truncate font-normal text-neutral-900 leading-none ${textSize}`}
@@ -52,8 +51,7 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 					</span>
 				)}
 			</div>
-{/* shrink-0 rounded-full px-6 py-3 text-md font-semibold for pill */}
-			{/* Right: status pill */}
+
 			<div className="ml-4 flex items-center shrink-0">
 				<span
 					className={[
