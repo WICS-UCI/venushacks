@@ -1,10 +1,11 @@
 import React from "react";
-// import { StatusImage } from "./StatusImage";
+import { ExternalLink } from "lucide-react";
 
 interface TimelineComponentProps {
 	text: string;
 	finished: boolean;
 	statusIcon: "Accepted" | "Rejected" | "Pending";
+	href?: string;
 	size?: "compact" | "default";
 	className?: string;
 }
@@ -12,11 +13,11 @@ interface TimelineComponentProps {
 export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 	text,
 	finished,
-	// statusIcon,
+	href,
 	size = "default",
 	className = "",
 }) => {
-	const padding = size === "compact" ? "px-4 py-3" : "px-5 py-4 sm:px-6";
+	const padding = size === "compact" ? "px-4 py-3" : "px-5 py-5 sm:px-7";
 	const textSize =
 		size === "compact" ? "text-sm sm:text-base" : "text-base sm:text-lg";
 
@@ -24,28 +25,40 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 		<div
 			className={[
 				"flex items-center justify-between",
-				"rounded-2xl border border-neutral-200 bg-neutral-50",
+				"rounded-[20px] border-[3px] border-[#EFEFEF] bg-white",
 				padding,
 				className,
 			].join(" ")}
 		>
-			{/* Left: label */}
-			<div className="min-w-0">
-				<p
-					className={`truncate font-semibold text-neutral-900 leading-tight ${textSize}`}
+			<div className="min-w-0 flex items-center gap-2">
+				<span
+					className={`truncate font-normal text-neutral-900 leading-none ${textSize}`}
 				>
 					{text}
-				</p>
+				</span>
+				{href ? (
+					<a
+						href={href}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="shrink-0 text-neutral-400 hover:text-neutral-600 transition-colors flex items-center"
+					>
+						<ExternalLink size={25} strokeWidth={1.75} />
+					</a>
+				) : (
+					<span className="shrink-0 text-neutral-400 flex items-center">
+						<ExternalLink size={25} strokeWidth={1.75} />
+					</span>
+				)}
 			</div>
 
-			{/* Right: status icon + pill */}
-			<div className="ml-4 flex items-center gap-3 shrink-0">
+			<div className="ml-4 flex items-center shrink-0">
 				<span
 					className={[
-						"rounded-full px-4 py-2 text-sm font-semibold",
+						"shrink-0 rounded-full px-6 py-3 text-md font-semibold",
 						finished
-							? "bg-green-200 text-green-900"
-							: "bg-red-200 text-red-900",
+							? "bg-green-400 text-neutral-900"
+							: "bg-red-300 text-neutral-900",
 					].join(" ")}
 				>
 					{finished ? "Complete" : "Incomplete"}
