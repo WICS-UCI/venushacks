@@ -9,7 +9,6 @@ import { Status } from "@/lib/userRecord";
 import ConfirmAttendance from "./components/ConfirmAttendance";
 import Message from "./components/Message";
 // import SignWaiver from "./components/SignWaiver";
-import ReturnHome from "./components/ReturnHome";
 import VerticalTimeline from "./components/timeline/VerticalTimeline";
 import FloatingBubble from "@/lib/components/forms/FloatingBubble";
 
@@ -41,7 +40,6 @@ function Portal() {
 		status === Status.Attending;
 
 	// const needsToSignWaiver = status === Status.Accepted;
-	const rejected = status === Status.Rejected;
 
 	const getStatusLabel = () => {
 		switch (status) {
