@@ -52,15 +52,15 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 					</span>
 				)}
 			</div>
-
+{/* shrink-0 rounded-full px-6 py-3 text-md font-semibold for pill */}
 			{/* Right: status pill */}
 			<div className="ml-4 flex items-center shrink-0">
 				<span
 					className={[
-						"rounded-full px-6 py-3 text-sm font-bold",
+						"shrink-0 rounded-full px-6 py-3 text-md font-semibold",
 						finished
 							? "bg-green-400 text-neutral-900"
-							: "bg-red-400 text-neutral-900",
+							: "bg-red-300 text-neutral-900",
 					].join(" ")}
 				>
 					{finished ? "Complete" : "Incomplete"}

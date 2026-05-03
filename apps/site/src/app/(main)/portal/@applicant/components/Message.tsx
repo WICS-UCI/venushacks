@@ -85,7 +85,7 @@ function Message({ status, role }: MessageProps) {
 	}
 
 	return (
-		<div className="font-body text-neutral-900 text-sm sm:text-base md:text-lg leading-relaxed px-3 sm:px- m5d:px-16">
+		<div className="font-body text-neutral-900 text-sm sm:text-base md:text-lg leading-relaxed">
 			{message}
 		</div>
 	);

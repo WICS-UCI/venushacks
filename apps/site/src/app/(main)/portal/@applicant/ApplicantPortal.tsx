@@ -22,7 +22,7 @@ function Portal() {
 	const identity = useUserIdentity();
 
 	if (!identity) {
-		return <div className="font-display text-4xl mt-5">Loading...</div>;
+		return <div className="mt-5 text-4xl font-display">Loading...</div>;
 	}
 
 	const status = identity.status;
@@ -99,26 +99,26 @@ function Portal() {
 	return (
 		<>
 			<ApplicantPortalBackground />
-			<div className="font-figtree mx-auto items-center w-full px-4 min-h-screen flex flex-col sm:px-6 md:px-8 pb-6">
+			<div className="flex flex-col items-center w-full min-h-screen px-4 pb-6 mx-auto font-figtree sm:px-6 md:px-8">
 				<FloatingBubble navText="Application" />
 
-				<h1 className="font-sniglet text-center text-3xl leading-tight md:text-5xl mt-12 mb-8">
+				<h1 className="mt-12 mb-8 text-3xl leading-tight text-center font-sniglet md:text-5xl">
 					Applicant Dashboard
 				</h1>
 
-				<div className="flex flex-1 flex-col items-center gap-4 min-h-0 md:mt-8 md:gap-6">
-					<section className="relative z-10 max-w-sm p-8 bg-white shadow-2xl md:p-8 md:max-w-2xl rounded-3xl flex w-full items-center justify-between gap-4">
+				<div className="flex flex-col items-center flex-1 min-h-0 gap-4 md:mt-8 md:gap-6">
+					<section className="relative z-10 flex items-center justify-between w-full max-w-sm gap-4 p-8 bg-white shadow-2xl md:p-12 md:max-w-2xl rounded-3xl">
 						<div>
-							<p className="font-semibold md:text-lg mb-1">
+							<p className="mb-1 font-medium md:text-lg">
 								VenusHacks 2026 {roleToDisplay} Application
 							</p>
-							<p className="text-sm text-neutral-400">
+							<p className="mb-0 italic text-md text-neutral-400">
 								Submitted {submissionDate ? submissionDate : "-"}
 							</p>
 						</div>
 
 						<span
-							className={`shrink-0 rounded-full px-6 py-3 text-sm font-semibold ${statusColor}`}
+							className={`shrink-0 rounded-full px-6 py-3 text-md font-semibold ${statusColor}`}
 						>
 							{statusLabel}
 						</span>
@@ -130,7 +130,7 @@ function Portal() {
 							role={roleToDisplay as "Hacker" | "Mentor" | "Volunteer"}
 						/>
 						<VerticalTimeline status={status as Status} />
-						<div className="w-full flex justify-center mt-8">
+						<div className="flex justify-center w-full mt-8">
 							<Image src={picnicSceneImg} alt="Picnic scene" />
 						</div>
 
