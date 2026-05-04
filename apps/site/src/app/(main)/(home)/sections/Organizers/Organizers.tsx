@@ -82,16 +82,7 @@ export default function Organizers() {
 					}}
 				>
 					{/* Title */}
-					<h2
-						className="text-center text-[28px] sm:text-[38px] lg:text-[55.58px]"
-						style={{
-							fontFamily: "'Torus Pro', sans-serif",
-							fontWeight: 700,
-							lineHeight: 1.15,
-							letterSpacing: "0.15em",
-							color: "#2F3248",
-						}}
-					>
+					<h2 className="font-torus text-[#2f3152] text-5xl md:text-6xl text-center mb-10 tracking-[20%] font-bold">
 						Meet the team
 					</h2>
 

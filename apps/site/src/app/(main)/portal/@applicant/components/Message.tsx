@@ -17,9 +17,9 @@ function Message({ status, role }: MessageProps) {
 		case Status.Reviewed: {
 			message = (
 				<p className="font-figtree font-medium leading-tight">
-					Thank you for submitting your VenusHacks 2026 application! We’re still
-					looking through applications, but keep an eye out for an email from{" "}
-					<span className="underline">venushacks.uci@gmail.com</span>.
+					Thank you for submitting your VenusHacks 2026 application! We&apos;re
+					still looking through applications, but keep an eye out for an email
+					from <span className="underline">venushacks.uci@gmail.com</span>.
 				</p>
 			);
 			break;
@@ -27,11 +27,11 @@ function Message({ status, role }: MessageProps) {
 
 		case Status.Rejected: {
 			message = (
-				<p className="mt-4">
-					Thank you for applying to VenusHacks 2026. After careful review, we’re
-					unable to offer you a spot this year. We truly appreciate the time and
-					effort you put into your application, and we encourage you to apply
-					again in the future.
+				<p className="font-figtree font-medium leading-tight">
+					Thank you for your application to be a {roleText} at VenusHacks 2026.
+					We truly appreciate the time and effort you put into your application.
+					Unfortunately, we have received an overwhelming number of applications
+					and we are unable to accommodate you this year.
 				</p>
 			);
 			break;
@@ -39,10 +39,11 @@ function Message({ status, role }: MessageProps) {
 
 		case Status.Waitlisted: {
 			message = (
-				<p className="mt-4">
-					Thank you for applying to VenusHacks 2026. We’re able to offer you a
-					spot on the waitlist. Please check your email for more information
-					about the waitlist and next steps.
+				<p className="font-figtree font-medium leading-tight">
+					Thank you for your application to be a {roleText} at VenusHacks 2026.
+					We truly appreciate the time and effort you put into your application.
+					At this time, we have placed you on our waitlist. We will reach out
+					immediately if a spot becomes available.
 				</p>
 			);
 			break;
@@ -50,11 +51,11 @@ function Message({ status, role }: MessageProps) {
 
 		case Status.Accepted: {
 			message = (
-				<p className="mt-4">
-					Congratulations! You’ve been accepted as a {roleText} at VenusHacks
-					2026! We truly appreciate the time and effort you put into your
-					application. Please read through and sign the waiver, and confirm your
-					attendance below.
+				<p className="font-figtree font-medium leading-tight">
+					Congratulations! You&apos;ve been accepted as a {roleText} at
+					VenusHacks 2026! We truly appreciate the time and effort you put into
+					your application. Please read through and sign the waiver, as well as
+					confirm your attendance below.
 				</p>
 			);
 			break;
@@ -68,7 +69,7 @@ function Message({ status, role }: MessageProps) {
 
 		case Status.Void: {
 			message = (
-				<p className="mt-4">
+				<p className="font-figtree font-medium leading-tight">
 					Unfortunately, you are not able to RSVP for VenusHacks at this time
 					and will not be able to come to the event. However, we would love to
 					see you apply again next year!
@@ -84,7 +85,7 @@ function Message({ status, role }: MessageProps) {
 	}
 
 	return (
-		<div className="font-body text-neutral-900 text-sm sm:text-base md:text-lg leading-relaxed px-3 sm:px- m5d:px-16">
+		<div className="font-body text-neutral-900 text-sm sm:text-base md:text-lg leading-relaxed">
 			{message}
 		</div>
 	);
