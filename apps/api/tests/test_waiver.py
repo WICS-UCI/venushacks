@@ -64,7 +64,7 @@ def test_submit_waiver_success(
     mock_process_waiver_completion.return_value = None
     mock_send_email.return_value = None
 
-    res = applicant_client.post("/waiver", json=VALID_WAIVER_BODY)
+    res = applicant_client.post("/", json=VALID_WAIVER_BODY)
 
     assert res.status_code == 200
 
@@ -117,7 +117,7 @@ def test_submit_waiver_updates_user_status(
     mock_update_one.return_value = True
     mock_send_email.return_value = None
 
-    res = applicant_client.post("/waiver", json=VALID_WAIVER_BODY)
+    res = applicant_client.post("/", json=VALID_WAIVER_BODY)
 
     assert res.status_code == 200
 
@@ -153,7 +153,7 @@ def test_duplicate_waiver_submission_is_allowed(
     mock_process_waiver_completion.return_value = None
     mock_send_email.return_value = None
 
-    res = applicant_client.post("/waiver", json=VALID_WAIVER_BODY)
+    res = applicant_client.post("/", json=VALID_WAIVER_BODY)
 
     assert res.status_code == 200
     mock_insert.assert_awaited_once()
@@ -163,7 +163,7 @@ def test_duplicate_waiver_submission_is_allowed(
 def test_empty_signature_is_rejected(mock_retrieve_one: AsyncMock) -> None:
     mock_retrieve_one.return_value = APPLICANT_IDENTITY
     res = applicant_client.post(
-        "/waiver", json={**VALID_WAIVER_BODY, "full_signature": ""}
+        "/", json={**VALID_WAIVER_BODY, "full_signature": ""}
     )
     assert res.status_code == 422
 
@@ -172,7 +172,7 @@ def test_empty_signature_is_rejected(mock_retrieve_one: AsyncMock) -> None:
 def test_whitespace_only_signature_is_rejected(mock_retrieve_one: AsyncMock) -> None:
     mock_retrieve_one.return_value = APPLICANT_IDENTITY
     res = applicant_client.post(
-        "/waiver", json={**VALID_WAIVER_BODY, "full_signature": "     "}
+        "/", json={**VALID_WAIVER_BODY, "full_signature": "     "}
     )
     assert res.status_code == 422
 
@@ -183,7 +183,7 @@ def test_special_characters_only_signature_is_rejected(
 ) -> None:
     mock_retrieve_one.return_value = APPLICANT_IDENTITY
     res = applicant_client.post(
-        "/waiver", json={**VALID_WAIVER_BODY, "full_signature": "12345!@#$%"}
+        "/", json={**VALID_WAIVER_BODY, "full_signature": "12345!@#$%"}
     )
     assert res.status_code == 422
 
@@ -192,7 +192,7 @@ def test_special_characters_only_signature_is_rejected(
 def test_extremely_long_signature_is_rejected(mock_retrieve_one: AsyncMock) -> None:
     mock_retrieve_one.return_value = APPLICANT_IDENTITY
     res = applicant_client.post(
-        "/waiver", json={**VALID_WAIVER_BODY, "full_signature": "A" * 10_000}
+        "/", json={**VALID_WAIVER_BODY, "full_signature": "A" * 10_000}
     )
     assert res.status_code == 422
 
@@ -202,6 +202,33 @@ def test_unacknowledged_waiver_is_rejected(mock_retrieve_one: AsyncMock) -> None
     """A submission without acknowledged=True should be rejected."""
     mock_retrieve_one.return_value = APPLICANT_IDENTITY
     res = applicant_client.post(
-        "/waiver", json={**VALID_WAIVER_BODY, "acknowledged": False}
+        "/", json={**VALID_WAIVER_BODY, "acknowledged": False}
     )
     assert res.status_code == 400
+
+
+@patch("services.mongodb_handler.retrieve_one", autospec=True)
+def test_get_waiver_document(mock_retrieve_one: AsyncMock) -> None:
+    """Getting a waiver document by version returns the document."""
+    mock_retrieve_one.return_value = WAIVER_DOCUMENT
+
+    res = applicant_client.get("/", params={"version": "v-2026-a"})
+
+    assert res.status_code == 200
+    assert res.json() == WAIVER_DOCUMENT
+    mock_retrieve_one.assert_awaited_once_with(
+        Collection.WAIVER_DOCUMENTS,
+        {"version": "v-2026-a"},
+        ["version", "text"],
+    )
+
+
+@patch("services.mongodb_handler.retrieve_one", autospec=True)
+def test_get_waiver_document_not_found(mock_retrieve_one: AsyncMock) -> None:
+    """Getting a waiver document for an unknown version returns 404."""
+    mock_retrieve_one.return_value = None
+
+    res = applicant_client.get("/", params={"version": "v-does-not-exist"})
+
+    assert res.status_code == 404
+    mock_retrieve_one.assert_awaited_once()
