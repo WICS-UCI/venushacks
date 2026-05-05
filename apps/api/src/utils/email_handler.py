@@ -142,3 +142,27 @@ def recover_email_from_uid(uid: str) -> str:
     local = local.replace("\n", ".")
     domain = ".".join(reversed(reversed_domain))
     return f"{local}@{domain}"
+
+
+async def send_waiver_confirmation_email(
+    email: EmailStr,
+    first_name: str,
+    last_name: str,
+    full_signature: str,
+    timestamp: datetime,
+    waiver_text: str,
+) -> None:
+    """Send a waiver signature confirmation email to the user."""
+    await sendgrid_handler.send_email(
+        Template.WAIVER_SIGNATURE_CONFIRMATION_EMAIL,
+        VH_SENDER,
+        sendgrid_handler.WaiverConfirmationPersonalization(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            full_signature=full_signature,
+            timestamp=timestamp.strftime("%B %-d, %Y at %-I:%M %p UTC"),
+            waiver_text=waiver_text,
+        ),
+        reply_to=VH_REPLY_TO,
+    )

@@ -7,13 +7,6 @@ const LOCAL_API_URL = "http://localhost:8000";
 // but Vercel somehow steps in and makes the Serverless Function visible
 const VERCEL_API_PATH = "/api/";
 
-const DOCUSIGN_FORM_URL =
-	"https://na3.docusign.net/Member/PowerFormSigning.aspx?" +
-	"PowerFormId=155a2cee-437f-4aa4-bc58-bd1cb01cde20" +
-	"&env=na3" +
-	"&acct=e6262c0d-c7c1-444b-99b1-e5c6ceaa4b40" +
-	"&v=2";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	rewrites: async () => {
@@ -29,11 +22,6 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
-			{
-				source: "/waiver",
-				destination: DOCUSIGN_FORM_URL,
-				permanent: true,
-			},
 			{
 				source: "/incident",
 				destination:
