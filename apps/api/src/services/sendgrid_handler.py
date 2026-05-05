@@ -61,7 +61,7 @@ class ApplicationUpdatePersonalization(PersonalizationData):
 class WaiverConfirmationPersonalization(PersonalizationData):
     first_name: str
     last_name: str
-    full_name: str
+    full_signature: str
     timestamp: str
     waiver_text: str
 

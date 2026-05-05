@@ -1,17 +1,18 @@
-from datetime import datetime
 from logging import getLogger
-from typing import Annotated, Optional
+from typing import Annotated
 import hashlib
+import re
 
-from fastapi import APIRouter, Body, Depends, HTTPException, Request, status
-from pydantic import BaseModel
+from fastapi import APIRouter, Depends, HTTPException, Request, status
+from pydantic import BaseModel, field_validator
 
 from auth.authorization import require_role
 from auth.user_identity import User, utc_now
 from models.user_record import Role
-from services import mongodb_handler, email_handler
+from services import mongodb_handler
 from services.mongodb_handler import Collection
-from utils.email_handler import recover_email_from_uid
+from utils.email_handler import recover_email_from_uid, send_waiver_confirmation_email
+from utils.waiver_handler import process_waiver_completion
 
 log = getLogger(__name__)
 
@@ -23,6 +24,18 @@ class WaiverSignatureRequest(BaseModel):
     acknowledged: bool
     waiver_version: str
     waiver_text: str
+
+    @field_validator("full_signature")
+    @classmethod
+    def validate_signature(cls, v: str) -> str:
+        v = v.strip()
+        if not v:
+            raise ValueError("Signature must not be empty or whitespace.")
+        if not re.search(r"[a-zA-Z]", v):
+            raise ValueError("Signature must contain at least one letter.")
+        if len(v) > 200:
+            raise ValueError("Signature is too long.")
+        return v
 
 
 @router.post("/waiver")
@@ -38,6 +51,15 @@ async def submit_waiver(
             status.HTTP_400_BAD_REQUEST,
             detail="Waiver must be acknowledged."
         )
+
+    user_record = await mongodb_handler.retrieve_one(
+        Collection.USERS,
+        {"_id": user.uid},
+        ["first_name", "last_name"],
+    )
+    if not user_record:
+        log.error("Could not retrieve user record for %s", user.uid)
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # Pull canonical waiver text from the waivers collection
     waiver_record = await mongodb_handler.retrieve_one(
@@ -66,24 +88,14 @@ async def submit_waiver(
             detail="Waiver text does not match expected version."
         )
 
-    # Prevent duplicate submissions
-    existing = await mongodb_handler.retrieve_one(
-        Collection.WAIVER_ACCEPTANCES,
-        {"user_id": user.uid, "waiver_version": body.waiver_version},
-    )
-    if existing:
-        raise HTTPException(
-            status.HTTP_409_CONFLICT,
-            detail="Waiver already signed for this version."
-        )
-
     # Hash the canonical waiver text for the audit trail
     waiver_text_hash = hashlib.sha256(canonical_waiver_text.encode()).hexdigest()
 
-    # Resolve signer IP, x-forwarded-for can be comma-separated if behind multiple proxies
+    # Resolve signer IP. With a single trusted proxy, the real client IP is the
+    # last entry in x-forwarded-for — earlier entries can be spoofed by the client.
     forwarded_for = request.headers.get("x-forwarded-for")
     signer_ip = (
-        forwarded_for.split(",")[0].strip()
+        forwarded_for.split(",")[-1].strip()
         if forwarded_for
         else (request.client.host if request.client else "unknown")
     )
@@ -102,19 +114,24 @@ async def submit_waiver(
     }
 
     try:
-        await mongodb_handler.insert(Collection.WAIVER_ACCEPTANCES, record)
+        await mongodb_handler.insert(Collection.WAIVER_SIGNATURES, record)
     except RuntimeError:
         log.error("Could not save waiver acceptance for %s", user.uid)
         raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     log.info("%s signed waiver version %s", user, body.waiver_version)
 
+    await process_waiver_completion(
+        uid=user.uid,
+        email=recover_email_from_uid(user.uid),
+    )
+
     try:
-        await email_handler.send_waiver_confirmation_email(
+        await send_waiver_confirmation_email(
             email=recover_email_from_uid(user.uid),
-            first_name=body.first_name,
-            last_name=body.last_name,
-            full_signature=body.full_signature
+            first_name=user_record["first_name"],
+            last_name=user_record["last_name"],
+            full_signature=body.full_signature,
             timestamp=timestamp,
             waiver_text=canonical_waiver_text,
         )
