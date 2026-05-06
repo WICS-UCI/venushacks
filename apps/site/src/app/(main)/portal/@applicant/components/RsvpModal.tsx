@@ -56,13 +56,13 @@ export default function RsvpModal({
 		try {
 			const body = isUnrsvp
 				? {}
-				: {
-					demographic_info: {
-						pronouns: pronouns === "other" ? pronounsOther.trim() : pronouns,
-						ethnicity,
-						race,
-					},
-				};
+					: {
+						demographic_info: {
+							pronouns: pronouns === "other" ? pronounsOther.trim() : pronouns,
+							ethnicity,
+							race,
+						},
+					};
 
 			const res = await fetch("/api/user/rsvp", {
 				method: "POST",
@@ -78,11 +78,15 @@ export default function RsvpModal({
 			const message = isUnrsvp
 				? "Your RSVP has been cancelled."
 				: "RSVP confirmed! See you at VenusHacks 2026.";
-			window.location.href = `/portal?status=success&message=${encodeURIComponent(message)}`;
+			window.location.href = `/portal?status=success&message=${encodeURIComponent(
+				message,
+			)}`;
 		} catch (err) {
 			const message =
 				err instanceof Error ? err.message : "An unexpected error occurred.";
-			window.location.href = `/portal?status=error&message=${encodeURIComponent(message)}`;
+			window.location.href = `/portal?status=error&message=${encodeURIComponent(
+				message,
+			)}`;
 		}
 	}
 
@@ -110,12 +114,18 @@ export default function RsvpModal({
 					{isUnrsvp ? (
 						<div className="flex flex-col gap-3 text-gray-700 leading-[160%] tracking-[0.03em]">
 							<p>
-								Are you sure you want to cancel your attendance at VenusHacks 2026?
+								Are you sure you want to cancel your attendance at VenusHacks
+								2026?
 							</p>
 							<ul className="list-disc list-inside text-sm space-y-1">
 								<li>You will be permanently removed from the attendee list.</li>
 								<li>Your spot will be forfeited and cannot be reclaimed.</li>
-								<li>This action <span className="font-semibold underline">cannot be undone</span>.</li>
+								<li>This action{" "}
+									<span className="font-semibold underline">
+										cannot be undone
+									</span>
+									.
+								</li>
 							</ul>
 						</div>
 					) : (
@@ -129,10 +139,11 @@ export default function RsvpModal({
 				{!isUnrsvp && (
 					<div className="flex flex-col gap-5 overflow-y-auto max-h-[40vh] pr-2">
 						<p className="text-sm text-gray-500 italic">
-							We collect the following demographic information to better understand and support our community. All fields are required, but you may select &quot;Prefer not to say&quot; for any question.
+							We collect the following demographic information to better
+							understand and support our community. All fields are required, but
+							you may select &quot;Prefer not to say&quot; for any question.
 						</p>
 
-						{/* Pronouns */}
 						<div className="flex flex-col gap-1">
 							<label className="font-semibold text-sm text-slate-800">
 								Pronouns <span className="text-red-500">*</span>
@@ -145,7 +156,10 @@ export default function RsvpModal({
 									{ value: "other", label: "Other:" },
 									{ value: "prefer_not_to_say", label: "Prefer not to say" },
 								].map(({ value, label }) => (
-									<label key={value} className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+									<label
+										key={value}
+										className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer"
+									>
 										<input
 											type="radio"
 											name="pronouns"
@@ -172,7 +186,8 @@ export default function RsvpModal({
 						{/* Race */}
 						<div className="flex flex-col gap-1">
 							<label className="font-semibold text-sm text-slate-800">
-								Race (select all that apply) <span className="text-red-500">*</span>
+								Race (select all that apply){" "}
+								<span className="text-red-500">*</span>
 							</label>
 							<div className="flex flex-col gap-2">
 								{[

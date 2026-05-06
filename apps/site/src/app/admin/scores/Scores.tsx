@@ -105,13 +105,10 @@ function Scores() {
         rowIndex: index + 1,
     }));
 
-	console.log(sorted)
-
 	const handleClick = () => {
 		axios
 			.get("/api/admin/normalize-detailed-scores")
 			.then(() => {
-				console.log("normalize success");
 				const successMessage: FlashbarProps.MessageDefinition = {
 					type: "success",
 					content: "Successfully normalized scores!",
@@ -130,7 +127,6 @@ function Scores() {
 				refetch();
 			})
 			.catch((error) => {
-				console.error("normalize error", error);
 				const errorMessage: FlashbarProps.MessageDefinition = {
 					type: "error",
 					content: `Request failed: ${error.message}`,
