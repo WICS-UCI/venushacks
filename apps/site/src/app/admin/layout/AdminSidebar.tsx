@@ -87,10 +87,15 @@ function AdminSidebar() {
 					text: "Organizers",
 					href: "/admin/directors/organizers",
 				},
+				// {
+				// 	type: "link",
+				// 	text: "Email Sender",
+				// 	href: "/admin/directors/email-sender",
+				// },
 				{
 					type: "link",
-					text: "Email Sender",
-					href: "/admin/directors/email-sender",
+					text: "Decision Sender",
+					href: "/admin/directors/decision-sender",
 				},
 			],
 		});

@@ -220,6 +220,7 @@ class ProcessedHackerApplicationData(BaseApplicationData):
     submission_time: datetime
     reviews: list[Review] = []
     review_breakdown: dict[str, ReviewBreakdown] = {}
+    normalized_scores: dict[str, float] = {}
 
     @field_serializer("resume_url")
     def url2str(self, val: Union[HttpUrl, None]) -> Union[str, None]:
