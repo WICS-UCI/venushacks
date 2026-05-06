@@ -25,15 +25,18 @@ def _apply_email_styles(html: str) -> str:
     replacements = [
         (
             r"<h1>",
-            '<h1 style="font-size:16px;font-weight:bold;margin-bottom:12px;margin-top:4px;">',
+            '<h1 style="font-size:16px;font-weight:bold;margin-bottom:12px; \
+                margin-top:4px;">',
         ),
         (
             r"<h2>",
-            '<h2 style="font-size:14px;font-weight:bold;margin-bottom:8px;margin-top:16px;">',
+            '<h2 style="font-size:14px;font-weight:bold;margin-bottom:8px; \
+                margin-top:16px;">',
         ),
         (
             r"<h3>",
-            '<h3 style="font-size:13px;font-weight:bold;margin-bottom:4px;margin-top:12px;">',
+            '<h3 style="font-size:13px;font-weight:bold;margin-bottom:4px; \
+                margin-top:12px;">',
         ),
         (r"<p>", '<p style="margin-bottom:12px;">'),
         (
@@ -42,11 +45,13 @@ def _apply_email_styles(html: str) -> str:
         ),
         (
             r"<ul>",
-            '<ul style="list-style-type:disc;list-style-position:inside;margin-bottom:12px;">',
+            '<ul style="list-style-type:disc;list-style-position:inside; \
+                margin-bottom:12px;">',
         ),
         (
             r"<ol>",
-            '<ol style="list-style-type:decimal;list-style-position:inside;margin-bottom:12px;">',
+            '<ol style="list-style-type:decimal;list-style-position:inside; \
+                margin-bottom:12px;">',
         ),
         (r"<li>", '<li style="margin-bottom:4px;">'),
         (r"<strong>", '<strong style="font-weight:600;">'),
