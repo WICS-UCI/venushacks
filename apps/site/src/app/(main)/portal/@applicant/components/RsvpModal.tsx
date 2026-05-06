@@ -108,10 +108,16 @@ export default function RsvpModal({
 
 				<div className="leading-[160%] tracking-[0.03em] text-gray-700">
 					{isUnrsvp ? (
-						<p>
-							Are you sure you want to cancel your attendance at VenusHacks
-							2026? You will no longer be counted as attending.
-						</p>
+						<div className="flex flex-col gap-3 text-gray-700 leading-[160%] tracking-[0.03em]">
+							<p>
+								Are you sure you want to cancel your attendance at VenusHacks 2026?
+							</p>
+							<ul className="list-disc list-inside text-sm space-y-1">
+								<li>You will be permanently removed from the attendee list.</li>
+								<li>Your spot will be forfeited and cannot be reclaimed.</li>
+								<li>This action <span className="font-semibold underline">cannot be undone</span>.</li>
+							</ul>
+						</div>
 					) : (
 						<p>
 							By confirming, you are letting us know you plan to attend
