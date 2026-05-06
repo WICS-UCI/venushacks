@@ -23,13 +23,31 @@ router = APIRouter()
 def _apply_email_styles(html: str) -> str:
     """Translate component styles to inline CSS for email clients."""
     replacements = [
-        (r"<h1>", '<h1 style="font-size:16px;font-weight:bold;margin-bottom:12px;margin-top:4px;">'),
-        (r"<h2>", '<h2 style="font-size:14px;font-weight:bold;margin-bottom:8px;margin-top:16px;">'),
-        (r"<h3>", '<h3 style="font-size:13px;font-weight:bold;margin-bottom:4px;margin-top:12px;">'),
-        (r"<p>",  '<p style="margin-bottom:12px;">'),
-        (r"<hr\s*/?>", '<hr style="margin-top:16px;margin-bottom:16px;border-color:#d1d5db;">'),
-        (r"<ul>", '<ul style="list-style-type:disc;list-style-position:inside;margin-bottom:12px;">'),
-        (r"<ol>", '<ol style="list-style-type:decimal;list-style-position:inside;margin-bottom:12px;">'),
+        (
+            r"<h1>",
+            '<h1 style="font-size:16px;font-weight:bold;margin-bottom:12px;margin-top:4px;">',
+        ),
+        (
+            r"<h2>",
+            '<h2 style="font-size:14px;font-weight:bold;margin-bottom:8px;margin-top:16px;">',
+        ),
+        (
+            r"<h3>",
+            '<h3 style="font-size:13px;font-weight:bold;margin-bottom:4px;margin-top:12px;">',
+        ),
+        (r"<p>", '<p style="margin-bottom:12px;">'),
+        (
+            r"<hr\s*/?>",
+            '<hr style="margin-top:16px;margin-bottom:16px;border-color:#d1d5db;">',
+        ),
+        (
+            r"<ul>",
+            '<ul style="list-style-type:disc;list-style-position:inside;margin-bottom:12px;">',
+        ),
+        (
+            r"<ol>",
+            '<ol style="list-style-type:decimal;list-style-position:inside;margin-bottom:12px;">',
+        ),
         (r"<li>", '<li style="margin-bottom:4px;">'),
         (r"<strong>", '<strong style="font-weight:600;">'),
         (r'<a ',  '<a style="text-decoration:underline;" '),
