@@ -308,9 +308,7 @@ def test_release_hacker_decisions_works(
             "_id": "edu.uci.low",
             "first_name": "Low",
             "application_data": {
-                "review_breakdown": {
-                    "reviewer1": {"experience": 2}
-                },
+                "review_breakdown": {"reviewer1": {"experience": 2}},
             },
         },
         {
@@ -319,7 +317,11 @@ def test_release_hacker_decisions_works(
             "application_data": {
                 "review_breakdown": {
                     "reviewer1": {
-                        "frq_project": {"content_relevance": 3, "experience": 3, "effort": 4},
+                        "frq_project": {
+                            "content_relevance": 3,
+                            "experience": 3,
+                            "effort": 4,
+                        },
                         "experience": 2,
                     }
                 },
@@ -329,9 +331,7 @@ def test_release_hacker_decisions_works(
             "_id": "edu.uci.mid",
             "first_name": "Mid",
             "application_data": {
-                "review_breakdown": {
-                    "reviewer1": {"experience": 5}
-                },
+                "review_breakdown": {"reviewer1": {"experience": 5}},
             },
         },
     ]

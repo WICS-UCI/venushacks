@@ -349,9 +349,7 @@ async def rsvp(
     if body.demographic_info:
         update["demographic_info"] = body.demographic_info.model_dump()
 
-    await mongodb_handler.update_one(
-        Collection.USERS, {"_id": user.uid}, update
-    )
+    await mongodb_handler.update_one(Collection.USERS, {"_id": user.uid}, update)
 
     old_status = user_record["status"]
     log.info(f"User {user.uid} changed status from {old_status} to {new_status}.")

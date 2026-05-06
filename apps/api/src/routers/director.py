@@ -409,7 +409,7 @@ async def release_mentor_volunteer_decisions() -> None:
 @router.post("/release/hackers", dependencies=[Depends(require_director)])
 async def release_hacker_decisions(body: HackerDecisionRequest) -> None:
     """Update hacker applicant status based on decision and send decision emails."""
-    records = await mongodb_handler.retrieve(
+    records: list[dict[str, Any]] = await mongodb_handler.retrieve(
         Collection.USERS,
         {"roles": {"$in": [Role.HACKER]}},
         ["_id", "application_data.review_breakdown", "first_name"],
