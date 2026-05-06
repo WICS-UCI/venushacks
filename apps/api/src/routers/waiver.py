@@ -153,3 +153,16 @@ async def submit_waiver(
         )
     except RuntimeError:
         log.error("Could not send waiver confirmation email to %s", user.uid)
+
+
+@router.get("/status")
+async def get_waiver_status(
+    user: Annotated[User, Depends(require_role({Role.APPLICANT}))],
+) -> dict[str, bool]:
+    """Check whether the authenticated user has signed a waiver."""
+    signature_record = await mongodb_handler.retrieve_one(
+        Collection.WAIVER_SIGNATURES,
+        {"user_id": user.uid},
+        ["user_id"],
+    )
+    return {"signed": signature_record is not None}
