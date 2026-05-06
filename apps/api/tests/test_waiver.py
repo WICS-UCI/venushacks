@@ -1,6 +1,7 @@
 from unittest.mock import ANY, AsyncMock, patch
 
 from fastapi import FastAPI
+import markdown
 
 from auth import user_identity
 from auth.user_identity import NativeUser, UserTestClient
@@ -93,7 +94,7 @@ def test_submit_waiver_success(
         last_name="User",
         full_signature="Apply User",
         timestamp=ANY,
-        waiver_text=WAIVER_DOCUMENT["text"],
+        waiver_text=markdown.markdown(WAIVER_DOCUMENT["text"]),
     )
 
 
