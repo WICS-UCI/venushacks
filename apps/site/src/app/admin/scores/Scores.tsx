@@ -99,12 +99,11 @@ function Scores() {
 		[applicantList],
 	);
 
-	const sorted = sortApplicantsByNormalizedScore(filteredApplicants).map(
-		(item, index) => ({
-			...item,
-			rowIndex: index + 1,
-		}),
-	);
+	const sorted: (HackerApplicantSummary & { rowIndex: number })[] =
+    sortApplicantsByNormalizedScore(filteredApplicants).map((item, index) => ({
+        ...item,
+        rowIndex: index + 1,
+    }));
 
 	console.log(sorted)
 
@@ -158,7 +157,7 @@ function Scores() {
 					{
 						id: "index",
 						header: "#",
-						cell: (item) => item.rowIndex,
+						cell: (item) => (item as HackerApplicantSummary & { rowIndex: number }).rowIndex,
 						width: 40,
 					},
 					{
