@@ -50,7 +50,7 @@ def _apply_email_styles(html: str) -> str:
         ),
         (r"<li>", '<li style="margin-bottom:4px;">'),
         (r"<strong>", '<strong style="font-weight:600;">'),
-        (r'<a ',  '<a style="text-decoration:underline;" '),
+        (r"<a ", '<a style="text-decoration:underline;" '),
     ]
     for pattern, replacement in replacements:
         html = re.sub(pattern, replacement, html)
