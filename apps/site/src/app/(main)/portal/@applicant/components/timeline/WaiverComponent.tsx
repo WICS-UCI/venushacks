@@ -46,9 +46,7 @@ export const WaiverComponent = ({ status }: { status: Status }) => {
 				/>
 			</button>
 
-			{modalOpen && (
-				<WaiverModal onClose={handleClose} />
-			)}
+			{modalOpen && <WaiverModal onClose={handleClose} />}
 		</>
 	);
 };

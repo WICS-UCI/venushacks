@@ -5,7 +5,9 @@ import ReactMarkdown from "react-markdown";
 
 const WAIVER_VERSION = "v-2026-a";
 
-const MARKDOWN_COMPONENTS: React.ComponentProps<typeof ReactMarkdown>["components"] = {
+const MARKDOWN_COMPONENTS: React.ComponentProps<
+	typeof ReactMarkdown
+>["components"] = {
 	h1: ({ children }) => (
 		<h1 className="text-[16px] font-bold mb-3 mt-1">{children}</h1>
 	),
@@ -127,7 +129,8 @@ export default function WaiverModal({ onClose }: WaiverModalProps) {
 
 	const inlineSignatureError =
 		signature !== "" ? validateSignature(signature) : "";
-	const canSubmit = acknowledged && hasScrolled && validateSignature(signature) === "";
+	const canSubmit =
+		acknowledged && hasScrolled && validateSignature(signature) === "";
 
 	useEffect(() => {
 		async function fetchWaiver() {

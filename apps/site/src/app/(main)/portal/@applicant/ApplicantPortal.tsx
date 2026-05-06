@@ -108,10 +108,11 @@ function Portal() {
 		<>
 			{toast && (
 				<div
-					className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 rounded-full shadow-lg font-figtree text-[14px] font-semibold tracking-[0.03em] ${toast.type === "success"
+					className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 rounded-full shadow-lg font-figtree text-[14px] font-semibold tracking-[0.03em] ${
+						toast.type === "success"
 							? "bg-[#95E396] text-black"
 							: "bg-[#F68A8A] text-black"
-						}`}
+					}`}
 				>
 					{toast.message}
 				</div>

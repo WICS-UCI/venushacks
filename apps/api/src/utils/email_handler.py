@@ -133,7 +133,12 @@ async def send_logistics_email(
 
     template = LOGISTICS_TEMPLATES[application_type]
     if len(records) > 0:
-        await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True, reply_to=VH_REPLY_TO)
+        await sendgrid_handler.send_email(
+            template, VH_SENDER,
+            personalizations,
+            True,
+            reply_to=VH_REPLY_TO,
+        )
 
 
 def recover_email_from_uid(uid: str) -> str:
