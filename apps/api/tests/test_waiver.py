@@ -8,6 +8,7 @@ from auth.user_identity import NativeUser, UserTestClient
 from models.ApplicationData import Decision
 from models.user_record import Role, Status
 from routers import waiver
+from routers.waiver import _apply_email_styles
 from services.mongodb_handler import Collection
 
 user_identity.JWT_SECRET = "not a good idea"
@@ -94,7 +95,7 @@ def test_submit_waiver_success(
         last_name="User",
         full_signature="Apply User",
         timestamp=ANY,
-        waiver_text=markdown.markdown(WAIVER_DOCUMENT["text"]),
+        waiver_text=_apply_email_styles(markdown.markdown(WAIVER_DOCUMENT["text"])),
     )
 
 
