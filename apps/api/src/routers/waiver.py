@@ -168,7 +168,7 @@ async def submit_waiver(
             last_name=user_record["last_name"],
             full_signature=body.full_signature,
             timestamp=timestamp,
-            waiver_text=waiver_text=_apply_email_styles(markdown.markdown(canonical_waiver_text)),
+            waiver_text=_apply_email_styles(markdown.markdown(canonical_waiver_text)),
         )
     except RuntimeError:
         log.error("Could not send waiver confirmation email to %s", user.uid)
