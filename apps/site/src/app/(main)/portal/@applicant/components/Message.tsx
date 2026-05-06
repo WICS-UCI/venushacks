@@ -49,7 +49,10 @@ function Message({ status, role }: MessageProps) {
 			break;
 		}
 
-		case Status.Accepted: {
+		case Status.Accepted: 
+		case Status.Signed:
+		case Status.Confirmed:
+		case Status.Attending: {
 			message = (
 				<p className="font-figtree font-medium leading-tight">
 					Congratulations! You&apos;ve been accepted as a {roleText} at
@@ -58,12 +61,6 @@ function Message({ status, role }: MessageProps) {
 					confirm your attendance below.
 				</p>
 			);
-			break;
-		}
-		case Status.Signed:
-		case Status.Confirmed:
-		case Status.Attending: {
-			message = <></>;
 			break;
 		}
 

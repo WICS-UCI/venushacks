@@ -14,7 +14,7 @@ from services.sendgrid_handler import (
 )
 
 VH_SENDER = ("info@venushacks.com", "VenusHacks 2026 Applications")
-VH_REPLY_TO = ("replies@venushacks.com", "VenusHacks")
+VH_REPLY_TO = ("venushacks.uci@gmail.com", "VenusHacks")
 
 DECISION_TEMPLATES: dict[Role, dict[Decision, ApplicationUpdateTemplates]] = {
     Role.HACKER: {

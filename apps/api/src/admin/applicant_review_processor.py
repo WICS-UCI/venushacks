@@ -63,20 +63,17 @@ def _get_last_score(reviewer: str, reviews: list[tuple[str, str, float]]) -> flo
 def _get_avg_score(
     reviews: list[tuple[str, str, float]], global_field_scores: dict[str, Any]
 ) -> float:
-    # Check global_field_scores first - if any value is less than 0,
-    # return OVERQUALIFIED
     if global_field_scores and any(score < 0 for score in global_field_scores.values()):
         return OVERQUALIFIED
 
     unique_reviewers = {t[1] for t in reviews}
-    if len(unique_reviewers) < 2:
+    if len(unique_reviewers) < 1:
         return NOT_FULLY_REVIEWED
 
     last_score = _get_last_score(unique_reviewers.pop(), reviews)
-    last_score2 = _get_last_score(unique_reviewers.pop(), reviews)
-    if any([last_score == OVERQUALIFIED, last_score2 == OVERQUALIFIED]):
+    if last_score == OVERQUALIFIED:
         return OVERQUALIFIED
-    return (last_score + last_score2) / 2
+    return last_score
 
 
 # def _get_avg_score_with_globals_and_breakdown(

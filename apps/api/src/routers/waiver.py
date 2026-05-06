@@ -38,7 +38,7 @@ class WaiverSignatureRequest(BaseModel):
         return v
 
 
-@router.get("/")
+@router.get("")
 async def get_waiver(version: str) -> dict[str, str]:
     """Retrieve the canonical waiver document for a given version."""
     waiver_record = await mongodb_handler.retrieve_one(
@@ -51,10 +51,11 @@ async def get_waiver(version: str) -> dict[str, str]:
             status.HTTP_404_NOT_FOUND,
             detail="Waiver version not found.",
         )
+    waiver_record.pop("_id", None)
     return waiver_record
 
 
-@router.post("/")
+@router.post("")
 async def submit_waiver(
     request: Request,
     body: WaiverSignatureRequest,

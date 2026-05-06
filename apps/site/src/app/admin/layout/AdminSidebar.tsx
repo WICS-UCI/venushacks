@@ -28,7 +28,7 @@ function AdminSidebar() {
 	const navigationItems: SideNavigationProps.Item[] = [
 		{ type: "link", text: "Dashboard", href: "/admin/dashboard" },
 		{ type: "link", text: "Participants", href: "/admin/participants" },
-		{ type: "link", text: "Events", href: "/admin/events" },
+		// { type: "link", text: "Events", href: "/admin/events" },
 		{ type: "divider" },
 		{ type: "link", text: "Back to main site", href: "/" },
 	];
