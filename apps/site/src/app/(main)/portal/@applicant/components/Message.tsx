@@ -42,8 +42,9 @@ function Message({ status, role }: MessageProps) {
 				<p className="font-figtree font-medium leading-tight">
 					Thank you for your application to be a {roleText} at VenusHacks 2026.
 					We truly appreciate the time and effort you put into your application.
-					At this time, we have placed you on our waitlist. We will reach out
-					immediately if a spot becomes available.
+					At this time, we have placed you on our waitlist. If a spot becomes
+					available, we will reach out immediately — please note that waitlist
+					admission requires you to be present in person on a stand-by basis.
 				</p>
 			);
 			break;
