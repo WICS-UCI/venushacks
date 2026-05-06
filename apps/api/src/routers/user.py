@@ -8,7 +8,6 @@ from fastapi import (
     APIRouter,
     Depends,
     Form,
-    Header,
     HTTPException,
     Request,
     status,
@@ -18,7 +17,6 @@ from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, EmailStr, TypeAdapter, ValidationError
 
 from auth import user_identity
-from auth.authorization import require_accepted_applicant
 from auth.user_identity import User, require_user_identity, use_user_identity
 from models.ApplicationData import (
     FIELDS_SUPPORTING_OTHER,
@@ -29,7 +27,7 @@ from models.ApplicationData import (
     get_raw_hacker_discriminator_value,
     get_raw_mentor_discriminator_value,
 )
-from models.user_record import Applicant, BareApplicant, Role, Status
+from models.user_record import Applicant, Role, Status
 from services import mongodb_handler
 from services.mongodb_handler import Collection
 from utils import email_handler, resume_handler
@@ -99,7 +97,7 @@ async def me(
 
     if not user_record:
         return IdentityResponse(uid=user.uid)
-    
+
     submission_time = None
 
     app_data = user_record.get("application_data")

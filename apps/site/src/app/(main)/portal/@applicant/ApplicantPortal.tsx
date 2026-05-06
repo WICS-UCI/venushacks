@@ -21,19 +21,22 @@ function Portal() {
 	const identity = useUserIdentity();
 	const searchParams = useSearchParams();
 
-	const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
+	const [toast, setToast] = useState<{
+		type: "success" | "error";
+		message: string;
+	} | null>(null);
 
 	useEffect(() => {
-        const status = searchParams.get("status");
-        const message = searchParams.get("message");
-        if ((status === "success" || status === "error") && message) {
-            setToast({ type: status, message });
-            window.history.replaceState(null, "", "/portal");
-            const timer = setTimeout(() => setToast(null), 5000);
-            return () => clearTimeout(timer);
-        }
-    }, [searchParams]);
-	
+		const status = searchParams.get("status");
+		const message = searchParams.get("message");
+		if ((status === "success" || status === "error") && message) {
+			setToast({ type: status, message });
+			window.history.replaceState(null, "", "/portal");
+			const timer = setTimeout(() => setToast(null), 5000);
+			return () => clearTimeout(timer);
+		}
+	}, [searchParams]);
+
 	if (!identity) {
 		return <div className="mt-5 text-4xl font-display">Loading...</div>;
 	}
@@ -105,11 +108,10 @@ function Portal() {
 		<>
 			{toast && (
 				<div
-					className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 rounded-full shadow-lg font-figtree text-[14px] font-semibold tracking-[0.03em] ${
-						toast.type === "success"
+					className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 rounded-full shadow-lg font-figtree text-[14px] font-semibold tracking-[0.03em] ${toast.type === "success"
 							? "bg-[#95E396] text-black"
 							: "bg-[#F68A8A] text-black"
-					}`}
+						}`}
 				>
 					{toast.message}
 				</div>

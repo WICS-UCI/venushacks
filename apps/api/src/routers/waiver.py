@@ -65,8 +65,7 @@ async def submit_waiver(
 
     if not body.acknowledged:
         raise HTTPException(
-            status.HTTP_400_BAD_REQUEST,
-            detail="Waiver must be acknowledged."
+            status.HTTP_400_BAD_REQUEST, detail="Waiver must be acknowledged."
         )
 
     user_record = await mongodb_handler.retrieve_one(
@@ -87,8 +86,7 @@ async def submit_waiver(
     if not waiver_record:
         log.error("Waiver version %s not found in database", body.waiver_version)
         raise HTTPException(
-            status.HTTP_400_BAD_REQUEST,
-            detail="Invalid waiver version."
+            status.HTTP_400_BAD_REQUEST, detail="Invalid waiver version."
         )
 
     canonical_waiver_text: str = waiver_record["text"]
@@ -102,7 +100,7 @@ async def submit_waiver(
         )
         raise HTTPException(
             status.HTTP_400_BAD_REQUEST,
-            detail="Waiver text does not match expected version."
+            detail="Waiver text does not match expected version.",
         )
 
     # Hash the canonical waiver text for the audit trail

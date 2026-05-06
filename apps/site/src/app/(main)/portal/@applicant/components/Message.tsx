@@ -49,7 +49,7 @@ function Message({ status, role }: MessageProps) {
 			break;
 		}
 
-		case Status.Accepted: 
+		case Status.Accepted:
 		case Status.Signed:
 		case Status.Confirmed:
 		case Status.Attending: {

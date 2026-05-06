@@ -35,10 +35,15 @@ export default function RsvpModal({
 			const message = isUnrsvp
 				? "Your RSVP has been cancelled."
 				: "RSVP confirmed! See you at VenusHacks 2026.";
-			window.location.href = `/portal?status=success&message=${encodeURIComponent(message)}`;
+			window.location.href = `/portal?status=success&message=${encodeURIComponent(
+				message,
+			)}`;
 		} catch (err) {
-			const message = err instanceof Error ? err.message : "An unexpected error occurred.";
-			window.location.href = `/portal?status=error&message=${encodeURIComponent(message)}`;
+			const message =
+				err instanceof Error ? err.message : "An unexpected error occurred.";
+			window.location.href = `/portal?status=error&message=${encodeURIComponent(
+				message,
+			)}`;
 		}
 	}
 
@@ -48,8 +53,6 @@ export default function RsvpModal({
 			onClick={handleBackdropClick}
 		>
 			<div className="w-full max-w-[659px] bg-white rounded-[30px] shadow-xl p-6 md:p-[40px] flex flex-col gap-6 font-figtree">
-
-				{/* Header */}
 				<div className="flex items-start justify-between">
 					<h2 className="font-sniglet text-[26px] leading-[100%] tracking-[0.05em] font-normal text-black">
 						{isUnrsvp ? "Cancel Attendance" : "Confirm Attendance"}
@@ -64,7 +67,6 @@ export default function RsvpModal({
 					</button>
 				</div>
 
-				{/* Body */}
 				<div className="leading-[160%] tracking-[0.03em] text-gray-700">
 					{isUnrsvp ? (
 						<p>
@@ -79,7 +81,6 @@ export default function RsvpModal({
 					)}
 				</div>
 
-				{/* Irreversibility warning */}
 				{showWarning && (
 					<p
 						className="text-[13px] text-center font-semibold tracking-[0.03em]"
@@ -90,7 +91,6 @@ export default function RsvpModal({
 					</p>
 				)}
 
-				{/* Action buttons */}
 				<div className="flex flex-col md:flex-row gap-4 w-full">
 					<button
 						type="button"
