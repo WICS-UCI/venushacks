@@ -1,6 +1,6 @@
 from datetime import datetime, timezone, timedelta
 from logging import getLogger
-from typing import Annotated, Any, Union
+from typing import Annotated, Any, Union, Optional
 from urllib.parse import urlencode
 import traceback
 
@@ -51,6 +51,16 @@ class IdentityResponse(BaseModel):
     status: Union[str, None] = None
     roles: list[Role] = []
     submission_time: Union[datetime, None] = None
+
+
+class DemographicInfo(BaseModel):
+    pronouns: str
+    ethnicity: str
+    race: list[str]
+
+
+class RSVPRequest(BaseModel):
+    demographic_info: Optional[DemographicInfo] = None
 
 
 def _is_past_deadline(now: datetime) -> bool:
@@ -310,7 +320,8 @@ async def _apply_flow(
 @router.post("/rsvp")
 async def rsvp(
     user: Annotated[User, Depends(require_user_identity)],
-) -> RedirectResponse:
+    body: RSVPRequest = RSVPRequest(),
+) -> None:
     """Change user status for RSVP"""
     user_record = await mongodb_handler.retrieve_one(
         Collection.USERS, {"_id": user.uid}, ["status"]
@@ -333,14 +344,15 @@ async def rsvp(
             "Waiver must be signed before being able to RSVP.",
         )
 
-    await mongodb_handler.update_one(
-        Collection.USERS, {"_id": user.uid}, {"status": new_status}
-    )
+    update: dict[str, object] = {"status": new_status}
+
+    if body.demographic_info:
+        update["demographic_info"] = body.demographic_info.model_dump()
+
+    await mongodb_handler.update_one(Collection.USERS, {"_id": user.uid}, update)
 
     old_status = user_record["status"]
     log.info(f"User {user.uid} changed status from {old_status} to {new_status}.")
-
-    return RedirectResponse("/portal", status.HTTP_303_SEE_OTHER)
 
 
 def _parsed_form(form: FormData) -> dict[str, Any]:

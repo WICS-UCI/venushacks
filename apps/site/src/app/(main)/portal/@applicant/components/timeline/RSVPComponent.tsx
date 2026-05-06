@@ -38,7 +38,7 @@ export const RSVPComponent = ({ status }: { status: Status }) => {
 
 	if (!verdict) return null;
 
-	const isUnrsvp = status === Status.Confirmed || status === Status.Attending;
+	const isUnrsvp = status === Status.Attending;
 	const isClickable = status === Status.Signed || isUnrsvp;
 
 	return (
