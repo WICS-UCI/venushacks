@@ -16,7 +16,7 @@ export const WaiverComponent = ({ status }: { status: Status }) => {
 	let verdict: { text: string; finished: boolean; statusIcon: string } | null =
 		null;
 
-	if (status === Status.Accepted) {
+	if (status === Status.Accepted || status === Status.Waitlisted) {
 		verdict = { text: "Sign Waiver", finished: false, statusIcon: "Pending" };
 	} else if (
 		status === Status.Signed ||
@@ -28,7 +28,7 @@ export const WaiverComponent = ({ status }: { status: Status }) => {
 
 	if (!verdict) return null;
 
-	const isClickable = status === Status.Accepted;
+	const isClickable = status === Status.Accepted || status === Status.Waitlisted;
 
 	return (
 		<>
