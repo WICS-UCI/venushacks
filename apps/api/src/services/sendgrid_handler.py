@@ -19,6 +19,8 @@ class Template(str, Enum):
     CONFIRMATION_EMAIL = "d-927a7d6d706b448b94e81da9a16bee2a"
 
     GUEST_TOKEN = "d-4bc24f16c94d47ff88548e59da89981c"  # for venushacks 2026
+    WAIVER_SIGNATURE_CONFIRMATION_EMAIL = "d-3a659cf488504de9b63e39864f92be49"
+
     HACKER_ACCEPTED_EMAIL = "d-c549f962d8784a0b83a0206c7e4d6b3b"
     HACKER_WAITLISTED_EMAIL = "d-f86fc8e1e4d94c9dad5909a3ee7c4e6d"
     HACKER_REJECTED_EMAIL = "d-f10dc807d5894a48a7baa0f1bd3f61ce"
@@ -54,6 +56,14 @@ class GuestTokenPersonalization(PersonalizationData):
 
 class ApplicationUpdatePersonalization(PersonalizationData):
     first_name: str
+
+
+class WaiverConfirmationPersonalization(PersonalizationData):
+    first_name: str
+    last_name: str
+    full_signature: str
+    timestamp: str
+    waiver_text: str
 
 
 ApplicationUpdateTemplates: TypeAlias = Literal[
@@ -165,6 +175,16 @@ async def send_email(
     sender_email: Tuple[str, str],
     receiver_data: Iterable[ApplicationUpdatePersonalization],
     send_to_multiple: Literal[True],
+    reply_to: Union[Tuple[str, str], None] = None,
+) -> None: ...
+
+
+@overload
+async def send_email(
+    template_id: Literal[Template.WAIVER_SIGNATURE_CONFIRMATION_EMAIL],
+    sender_email: Tuple[str, str],
+    receiver_data: WaiverConfirmationPersonalization,
+    send_to_multiple: Literal[False] = False,
     reply_to: Union[Tuple[str, str], None] = None,
 ) -> None: ...
 

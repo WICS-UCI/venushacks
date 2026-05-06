@@ -43,6 +43,8 @@ class Collection(str, Enum):
     EMAILS = "emails"
     CODES = "codes"
     MAILING_LIST = "mailing_list"
+    WAIVER_SIGNATURES = "waiver_signatures"
+    WAIVER_DOCUMENTS = "waiver_documents"
 
 
 def get_database() -> AgnosticDatabase[Any]:

@@ -34,6 +34,7 @@ async def mock_send_email(
     sender_email: tuple[str, str],
     receiver_data: Union[dict[str, str], Iterable[dict[str, str]]],
     send_to_multiple: bool = False,
+    reply_to: Union[tuple[str, str], None] = None,
 ) -> None:
     """Mock sending of email through SendGrid."""
     if send_to_multiple:

@@ -8,7 +8,6 @@ from fastapi import (
     APIRouter,
     Depends,
     Form,
-    Header,
     HTTPException,
     Request,
     status,
@@ -18,7 +17,6 @@ from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, EmailStr, TypeAdapter, ValidationError
 
 from auth import user_identity
-from auth.authorization import require_accepted_applicant
 from auth.user_identity import User, require_user_identity, use_user_identity
 from models.ApplicationData import (
     FIELDS_SUPPORTING_OTHER,
@@ -29,9 +27,8 @@ from models.ApplicationData import (
     get_raw_hacker_discriminator_value,
     get_raw_mentor_discriminator_value,
 )
-from models.user_record import Applicant, BareApplicant, Role, Status
-from services import docusign_handler, mongodb_handler
-from services.docusign_handler import WebhookPayload
+from models.user_record import Applicant, Role, Status
+from services import mongodb_handler
 from services.mongodb_handler import Collection
 from utils import email_handler, resume_handler
 
@@ -100,7 +97,7 @@ async def me(
 
     if not user_record:
         return IdentityResponse(uid=user.uid)
-    
+
     submission_time = None
 
     app_data = user_record.get("application_data")
@@ -308,51 +305,6 @@ async def _apply_flow(
         "Thank you for submitting an application to VenusHacks 2026! Please "
         + "visit https://venushacks.com/portal to see your application status."
     )
-
-
-@router.get("/waiver")
-async def request_waiver(
-    user: Annotated[tuple[User, BareApplicant], Depends(require_accepted_applicant)],
-) -> RedirectResponse:
-    """Request to sign the participant waiver through DocuSign."""
-    # TODO: non-applicants might also want to request a waiver
-    user_data, applicant = user
-
-    if applicant.status in (Status.WAIVER_SIGNED, Status.CONFIRMED, Status.ATTENDING):
-        raise HTTPException(status.HTTP_403_FORBIDDEN, "Already submitted a waiver.")
-
-    user_name = f"{applicant.first_name} {applicant.last_name}"
-
-    # TODO: email may not match UCInetID format from `docusign_handler._acquire_uid`
-    form_url = docusign_handler.waiver_form_url(user_data.email, user_name)
-    return RedirectResponse(form_url, status.HTTP_303_SEE_OTHER)
-
-
-@router.post("/waiver")
-async def waiver_webhook(
-    request: Request,
-    x_docusign_signature_1: Annotated[str, Header()],
-    payload: WebhookPayload,
-) -> None:
-    """Process webhook from DocuSign Connect."""
-    # Note: in practice there can be multiple keys to generate multiple signatures
-    # We assume there is only one key and thus pick the first signature
-    is_valid_signature = docusign_handler.verify_webhook_signature(
-        await request.body(), x_docusign_signature_1
-    )
-
-    if payload.event != "envelope-completed":
-        raise HTTPException(status.HTTP_404_NOT_FOUND, "Unable to process event type.")
-
-    if not is_valid_signature:
-        log.error("Waiver Webhook received invalid signature.")
-        raise HTTPException(status.HTTP_400_BAD_REQUEST, "Invalid signature")
-
-    try:
-        await docusign_handler.process_webhook_event(payload)
-    except ValueError as err:
-        log.exception("During waiver webhook processing: %s", err)
-        raise HTTPException(status.HTTP_400_BAD_REQUEST, "Invalid payload content.")
 
 
 @router.post("/rsvp")

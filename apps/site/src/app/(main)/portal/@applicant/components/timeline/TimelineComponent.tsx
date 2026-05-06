@@ -1,5 +1,4 @@
 import React from "react";
-import { ExternalLink } from "lucide-react";
 
 interface TimelineComponentProps {
 	text: string;
@@ -13,7 +12,6 @@ interface TimelineComponentProps {
 export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 	text,
 	finished,
-	href,
 	size = "default",
 	className = "",
 }) => {
@@ -36,20 +34,6 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({
 				>
 					{text}
 				</span>
-				{href ? (
-					<a
-						href={href}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="shrink-0 text-neutral-400 hover:text-neutral-600 transition-colors flex items-center"
-					>
-						<ExternalLink size={25} strokeWidth={1.75} />
-					</a>
-				) : (
-					<span className="shrink-0 text-neutral-400 flex items-center">
-						<ExternalLink size={25} strokeWidth={1.75} />
-					</span>
-				)}
 			</div>
 
 			<div className="ml-4 flex items-center shrink-0">
