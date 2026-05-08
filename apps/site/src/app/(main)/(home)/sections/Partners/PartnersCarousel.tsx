@@ -7,6 +7,7 @@ import ArrowButton from "@/assets/partner-icons/ArrowButton.svg";
 import PartnersBackground from "@/assets/partner-icons/PartnersBackground.svg";
 import { urlFor } from "@/lib/sanity/image";
 import type { PartnerItem } from "./getPartners";
+import styles from "./Partners.module.scss";
 
 type PartnersCarouselProps = {
 	partners: PartnerItem[];
@@ -22,7 +23,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 	const total = partners.length;
 
 	const handlePrev = () => {
-		if (isAnimating) return; 
+		if (isAnimating) return;
 		setDirection("right");
 		setIsAnimating(true);
 		setActiveIndex((i) => (i - 1 + total) % total);
@@ -44,7 +45,6 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 			return () => clearTimeout(timer);
 		}
 	}, [isAnimating, activeIndex]);
-
 
 	const handleTouchStart = (event: TouchEvent) => {
 		touchStartX.current = event.touches[0].clientX;
@@ -75,10 +75,10 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 	// Animation class for center card entrance
 	const centerAnimClass =
 		isAnimating && direction === "left"
-			? "animate-slide-in-from-right"
+			? styles.slideInFromRight
 			: isAnimating && direction === "right"
-				? "animate-slide-in-from-left"
-				: "";
+			? styles.slideInFromLeft
+			: "";
 
 	const renderPartnerCard = (
 		partner: PartnerItem,
@@ -94,24 +94,24 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 			? {
 					fontSize: "30px",
 					lineHeight: "30px",
-				}
+			}
 			: {
 					fontSize: "40px",
 					lineHeight: "40px",
-				};
+			};
 		const descriptionStyle = compact
 			? {
 					width: "220px",
 					height: "66px",
 					fontSize: "11px",
 					lineHeight: "17px",
-				}
+			}
 			: {
 					width: "355.96px",
 					height: "100px",
 					fontSize: "14.17px",
 					lineHeight: "24.79px",
-				};
+			};
 		return (
 			<div className={`relative ${cardSize}`}>
 				<Image
@@ -176,11 +176,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				aria-label="Previous partner"
 				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<Image
-					src={ArrowButton}
-					alt=""
-					className="w-8 md:w-[80%] rotate-180"
-				/>
+				<Image src={ArrowButton} alt="" className="w-8 md:w-[80%] rotate-180" />
 			</button>
 
 			<div

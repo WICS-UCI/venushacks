@@ -1,3 +1,21 @@
 .title {
 	text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
 }
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(calc(-50% + 60px)); }
+  to   { opacity: 1; transform: translateX(-50%); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(calc(-50% - 60px)); }
+  to   { opacity: 1; transform: translateX(-50%); }
+}
+
+.slideInFromRight {
+  animation: slideInFromRight 0.35s ease-out forwards;
+}
+
+.slideInFromLeft {
+  animation: slideInFromLeft 0.35s ease-out forwards;
+}
