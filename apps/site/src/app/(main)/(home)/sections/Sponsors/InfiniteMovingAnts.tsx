@@ -9,7 +9,7 @@ import orange from "./assets/orange_ant.svg";
 import pineapple from "./assets/pineapple_ant.svg";
 import { urlFor } from "@/lib/sanity/image";
 
-const sponsorGraphics = [apple, blueberry, melon, orange, pineapple];
+const sponsorGraphics = [apple, blueberry, melon, pineapple, orange];
 
 export const InfiniteMovingAnts = ({
 	items,

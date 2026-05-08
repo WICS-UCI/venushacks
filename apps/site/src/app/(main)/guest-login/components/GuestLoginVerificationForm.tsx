@@ -73,7 +73,7 @@ export default function GuestLoginVerificationForm({
 								A login passphrase was sent to your email. Please enter the
 								passphrase. If you cannot find the passphrase, please check your
 								spam. If the email is still missing, try again later, use a
-								different email, or contact us at contact@venushacks.com for
+								different email, or contact us at venushacks.uci@gmail.com for
 								assistance.
 							</small>
 							<p

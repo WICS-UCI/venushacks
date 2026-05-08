@@ -19,35 +19,24 @@ import {
 } from "@cloudscape-design/components";
 
 function sortApplicantsByNormalizedScore(applicants: HackerApplicantSummary[]) {
-	return applicants
-		.map((applicant) => {
-			const scores = applicant.application_data.normalized_scores;
-			if (!scores || Object.keys(scores).length === 0)
-				return { ...applicant, avgNormalizedScore: 0 };
-
-			const total = Object.values(scores).reduce((sum, val) => sum + val, 0);
-			let avg = total / Object.keys(scores).length;
-			if (applicant.application_data.extra_points)
-				avg += applicant.application_data.extra_points;
-
-			return { ...applicant, avgNormalizedScore: avg };
-		})
-		.sort((a, b) => b.avgNormalizedScore - a.avgNormalizedScore);
+	return [...applicants].sort((a, b) => {
+		const aScore = Object.values(a.application_data.normalized_scores ?? {})[0] ?? 0;
+		const bScore = Object.values(b.application_data.normalized_scores ?? {})[0] ?? 0;
+		return bScore - aScore;
+	});
 }
 
-const downloadCSV = (
-	data: (HackerApplicantSummary & {
-		avgNormalizedScore: number;
-		extraPoints?: number;
-	})[],
-) => {
-	const headers = ["Name", "Email", "Resume URL", "Average Normalized Score"];
-	const rows = data.map((a) => [
-		`${a.first_name} ${a.last_name}`,
-		a.application_data.email,
-		a.application_data.resume_url,
-		a.avgNormalizedScore.toFixed(2),
-	]);
+const downloadCSV = (data: HackerApplicantSummary[]) => {
+	const headers = ["Name", "Email", "Resume URL", "Normalized Score"];
+	const rows = data.map((a) => {
+		const score = Object.values(a.application_data.normalized_scores ?? {})[0] ?? 0;
+		return [
+			`${a.first_name} ${a.last_name}`,
+			a.application_data.email,
+			a.application_data.resume_url,
+			score.toFixed(2),
+		];
+	});
 
 	const csvContent =
 		"data:text/csv;charset=utf-8," +
@@ -62,12 +51,7 @@ const downloadCSV = (
 	document.body.removeChild(link);
 };
 
-const ResumeModalButton = (
-	item: HackerApplicantSummary & {
-		avgNormalizedScore: number;
-		extraPoints?: number;
-	},
-) => {
+const ResumeModalButton = (item: HackerApplicantSummary) => {
 	const [showResume, setShowResume] = useState(false);
 
 	return (
@@ -115,12 +99,11 @@ function Scores() {
 		[applicantList],
 	);
 
-	const sorted = sortApplicantsByNormalizedScore(filteredApplicants).map(
-		(item, index) => ({
-			...item,
-			rowIndex: index + 1,
-		}),
-	);
+	const sorted: (HackerApplicantSummary & { rowIndex: number })[] =
+    sortApplicantsByNormalizedScore(filteredApplicants).map((item, index) => ({
+        ...item,
+        rowIndex: index + 1,
+    }));
 
 	const handleClick = () => {
 		axios
@@ -170,7 +153,7 @@ function Scores() {
 					{
 						id: "index",
 						header: "#",
-						cell: (item) => item.rowIndex,
+						cell: (item) => (item as HackerApplicantSummary & { rowIndex: number }).rowIndex,
 						width: 40,
 					},
 					{
@@ -190,9 +173,12 @@ function Scores() {
 						minWidth: 350,
 					},
 					{
-						id: "avgScore",
-						header: "Average Normalized Score",
-						cell: (item) => item.avgNormalizedScore.toFixed(2),
+						id: "normalizedScore",
+						header: "Normalized Score",
+						cell: (item) => {
+							const score = Object.values(item.application_data.normalized_scores ?? {})[0] ?? 0;
+							return score.toFixed(2);
+						},
 					},
 				]}
 				items={sorted}

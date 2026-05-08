@@ -28,7 +28,7 @@ function AdminSidebar() {
 	const navigationItems: SideNavigationProps.Item[] = [
 		{ type: "link", text: "Dashboard", href: "/admin/dashboard" },
 		{ type: "link", text: "Participants", href: "/admin/participants" },
-		{ type: "link", text: "Events", href: "/admin/events" },
+		// { type: "link", text: "Events", href: "/admin/events" },
 		{ type: "divider" },
 		{ type: "link", text: "Back to main site", href: "/" },
 	];
@@ -87,10 +87,15 @@ function AdminSidebar() {
 					text: "Organizers",
 					href: "/admin/directors/organizers",
 				},
+				// {
+				// 	type: "link",
+				// 	text: "Email Sender",
+				// 	href: "/admin/directors/email-sender",
+				// },
 				{
 					type: "link",
-					text: "Email Sender",
-					href: "/admin/directors/email-sender",
+					text: "Decision Sender",
+					href: "/admin/directors/decision-sender",
 				},
 			],
 		});

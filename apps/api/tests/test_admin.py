@@ -257,6 +257,7 @@ def test_waitlisted_applicant_can_be_released(
         ANY,
         {"email": "petr@uci.edu", "first_name": "Peter"},
         False,
+        ANY,
     )
 
 
@@ -401,6 +402,9 @@ def test_hacker_applicants_returns_correct_applicants(
             "application_data": {
                 "school": "Hamburger University",
                 "submission_time": "2023-01-12T09:00:00",
+                "email": None,
+                "resume_url": None,
+                "normalized_scores": None,
                 "review_breakdown": {
                     "alicia": {
                         "frq_project": {
