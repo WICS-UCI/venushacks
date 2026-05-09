@@ -2,7 +2,6 @@
  * Headshots live in `public/headshots/` as lowercase slugs:
  *   `{firstname}-{lastname}.jpg`
  * Uses the **first and last** word of the display name so middle initials/names
- * (e.g. "Kaelyn M Sung") still match `kaelyn-sung.jpg`.
  *
  * For typos vs filenames, see SLUG_ALIASES.
  */
