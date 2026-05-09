@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import LinkedInImage from "@/assets/images/linkedin.png";
 import hackerSprite from "@/assets/images/volunteer_sprite.png";
@@ -28,6 +31,19 @@ export default function OrganizerCard({
 }: OrganizerCardProps) {
 	const [line1, line2] = splitName(name);
 	const labelDept = displayDepartment ?? department;
+	const [headshotBroken, setHeadshotBroken] = useState(false);
+
+	useEffect(() => {
+		setHeadshotBroken(false);
+	}, [image]);
+
+	const primarySrc = image ?? hackerSprite;
+	const displaySrc = headshotBroken ? hackerSprite : primarySrc;
+	const useHeadshotFill =
+		typeof displaySrc === "string" &&
+		displaySrc.startsWith("/headshots/") &&
+		!headshotBroken;
+
 	const roleLabel =
 		role === "Co-President" ? "Co-President" : `${role} – ${labelDept}`;
 
@@ -46,10 +62,13 @@ export default function OrganizerCard({
 			{/* Circular photo — scales from 80px on mobile to 168px on desktop */}
 			<div className="relative w-[80px] h-[80px] sm:w-[120px] sm:h-[120px] lg:w-[168px] lg:h-[168px] rounded-full border-[2px] sm:border-[3px] lg:border-[3.63px] border-[#CF6868] overflow-hidden flex-shrink-0">
 				<Image
-					src={image ?? hackerSprite}
+					src={displaySrc}
 					alt={name}
 					fill
-					className="object-contain"
+					sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 168px"
+					unoptimized={useHeadshotFill}
+					onError={() => setHeadshotBroken(true)}
+					className={useHeadshotFill ? "object-cover" : "object-contain"}
 				/>
 			</div>
 
