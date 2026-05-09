@@ -118,9 +118,7 @@ export default function Organizers() {
 								role={organizer.role}
 								department={organizer.department}
 								displayDepartment={organizer.displayDepartment}
-								image={
-									resolveHeadshotUrl(organizer.name) ?? organizer.image
-								}
+								image={resolveHeadshotUrl(organizer.name) ?? organizer.image}
 								link={organizer.link}
 							/>
 						))}
