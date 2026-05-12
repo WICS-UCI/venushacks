@@ -77,8 +77,8 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 		isAnimating && direction === "left"
 			? styles.slideInFromRight
 			: isAnimating && direction === "right"
-			  ? styles.slideInFromLeft
-			  : "";
+			? styles.slideInFromLeft
+			: "";
 
 	const renderPartnerCard = (
 		partner: PartnerItem,
@@ -94,24 +94,24 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 			? {
 					fontSize: "30px",
 					lineHeight: "30px",
-			  }
+			}
 			: {
 					fontSize: "40px",
 					lineHeight: "40px",
-			  };
+			};
 		const descriptionStyle = compact
 			? {
 					width: "220px",
 					height: "66px",
 					fontSize: "11px",
 					lineHeight: "17px",
-			  }
+			}
 			: {
 					width: "355.96px",
 					height: "100px",
 					fontSize: "14.17px",
 					lineHeight: "24.79px",
-			  };
+			};
 		return (
 			<div className={`relative ${cardSize}`}>
 				<Image
