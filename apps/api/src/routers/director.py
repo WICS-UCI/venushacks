@@ -5,7 +5,7 @@ from logging import getLogger
 from typing import Annotated, Any, Literal, Optional, Sequence, Union
 
 from fastapi import APIRouter, Body, Depends, HTTPException, status
-from pydantic import BaseModel, EmailStr, TypeAdapter, ValidationError
+from pydantic import BaseModel, EmailStr, TypeAdapter, ValidationError, Field
 
 from admin import applicant_review_processor
 from auth.authorization import require_role
@@ -21,7 +21,7 @@ from services.sendgrid_handler import (
 )
 from routers.admin import retrieve_thresholds
 from utils import email_handler
-from utils.email_handler import VH_SENDER, recover_email_from_uid
+from utils.email_handler import VH_SENDER, VH_REPLY_TO, recover_email_from_uid
 from utils.batched import batched
 
 log = getLogger(__name__)
@@ -66,6 +66,11 @@ class RawOrganizerData(BaseModel):
     first_name: str
     last_name: str
     roles: list[Role]
+
+
+class HackerDecisionRequest(BaseModel):
+    accept_count: int = Field(ge=0)
+    waitlist_count: int = Field(ge=0)
 
 
 def uci_scoped_uid(email: EmailStr) -> str:
@@ -232,6 +237,7 @@ async def apply_reminder(user: Annotated[User, Depends(require_director)]) -> No
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 
@@ -272,6 +278,7 @@ async def _rsvp_reminder(
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 
@@ -400,24 +407,38 @@ async def release_mentor_volunteer_decisions() -> None:
 
 
 @router.post("/release/hackers", dependencies=[Depends(require_director)])
-async def release_hacker_decisions() -> None:
+async def release_hacker_decisions(body: HackerDecisionRequest) -> None:
     """Update hacker applicant status based on decision and send decision emails."""
-    records = await mongodb_handler.retrieve(
+    records: list[dict[str, Any]] = await mongodb_handler.retrieve(
         Collection.USERS,
-        {"status": Status.REVIEWED, "roles": {"$in": [Role.HACKER]}},
-        ["_id", "application_data.reviews", "first_name"],
+        {"roles": {"$in": [Role.HACKER]}},
+        ["_id", "application_data.review_breakdown", "first_name"],
     )
 
-    thresholds: Optional[dict[str, float]] = await retrieve_thresholds()
-
-    if not thresholds:
-        log.error("Could not retrieve thresholds")
-        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR)
-
     for record in records:
-        applicant_review_processor.include_hacker_app_fields(
-            record, thresholds["accept"], thresholds["waitlist"]
-        )
+        if not record.get("application_data", {}).get("review_breakdown"):
+            log.error("Record %s is missing review_breakdown", record["_id"])
+            raise HTTPException(
+                status.HTTP_400_BAD_REQUEST,
+                detail=f"Applicant {record['_id']} has not been reviewed yet.",
+            )
+
+    def get_raw_score(record: dict[str, Any]) -> float:
+        breakdown = record.get("application_data", {}).get("review_breakdown", {})
+        if not breakdown:
+            return 0.0
+        scores_dict = next(iter(breakdown.values()))
+        return sum(applicant_review_processor._flatten_values(scores_dict))
+
+    records.sort(key=get_raw_score, reverse=True)
+
+    for i, record in enumerate(records):
+        if i < body.accept_count:
+            record["decision"] = Decision.ACCEPTED
+        elif i < body.accept_count + body.waitlist_count:
+            record["decision"] = Decision.WAITLISTED
+        else:
+            record["decision"] = Decision.REJECTED
 
     await _process_records_in_batches(records, Role.HACKER)
 
@@ -464,6 +485,7 @@ async def waitlist_logistics_emails() -> None:
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 
@@ -504,6 +526,7 @@ async def waitlist_transfer() -> None:
             VH_SENDER,
             personalizations,
             True,
+            reply_to=VH_REPLY_TO,
         )
 
 

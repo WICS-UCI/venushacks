@@ -111,7 +111,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 					height: "100px",
 					fontSize: "14.17px",
 					lineHeight: "24.79px",
-			};
+			  };
 		return (
 			<div className={`relative ${cardSize}`}>
 				<Image
@@ -174,7 +174,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				type="button"
 				onClick={handlePrev}
 				aria-label="Previous partner"
-				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+				className="hidden md:block hover:opacity-70 transition-opacity"
 			>
 				<Image src={ArrowButton} alt="" className="w-8 md:w-[80%] rotate-180" />
 			</button>
@@ -201,17 +201,15 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				</div>
 
 				<div className="hidden md:flex relative items-center justify-center w-full h-full">
-					{leftPartner && (
-						<div
-							className="absolute transition-all duration-300 ease-in-out"
-							style={{
-								left: "30px",
-								zIndex: 10,
-							}}
-						>
-							{renderPartnerCard(leftPartner, { compact: true, faded: true })}
-						</div>
-					)}
+					<div
+						className="absolute transition-all duration-300 ease-in-out"
+						style={{
+							left: "30px",
+							zIndex: 10,
+						}}
+					>
+						{renderPartnerCard(partners[prevIndex], { compact: true, faded: true })}
+					</div>
 
 					<div
 						key={activeIndex}
@@ -236,17 +234,15 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 						)}
 					</div>
 
-					{rightPartner && (
-						<div
-							className="absolute transition-all duration-300 ease-in-out"
-							style={{
-								right: "30px",
-								zIndex: 10,
-							}}
-						>
-							{renderPartnerCard(rightPartner, { compact: true, faded: true })}
-						</div>
-					)}
+					<div
+						className="absolute transition-all duration-300 ease-in-out"
+						style={{
+							right: "30px",
+							zIndex: 10,
+						}}
+					>
+						{renderPartnerCard(partners[nextIndex], { compact: true, faded: true })}
+					</div>
 				</div>
 			</div>
 
@@ -254,7 +250,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				type="button"
 				onClick={handleNext}
 				aria-label="Next partner"
-				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+				className="hidden md:block hover:opacity-70 transition-opacity"
 			>
 				<Image src={ArrowButton} alt="" className="w-8 md:w-[80%]" />
 			</button>

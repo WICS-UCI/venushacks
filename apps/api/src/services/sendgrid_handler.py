@@ -19,13 +19,15 @@ class Template(str, Enum):
     CONFIRMATION_EMAIL = "d-927a7d6d706b448b94e81da9a16bee2a"
 
     GUEST_TOKEN = "d-4bc24f16c94d47ff88548e59da89981c"  # for venushacks 2026
-    HACKER_ACCEPTED_EMAIL = ""
-    HACKER_WAITLISTED_EMAIL = ""
-    HACKER_REJECTED_EMAIL = ""
-    MENTOR_ACCEPTED_EMAIL = ""
-    MENTOR_REJECTED_EMAIL = ""
-    VOLUNTEER_ACCEPTED_EMAIL = ""
-    VOLUNTEER_REJECTED_EMAIL = ""
+    WAIVER_SIGNATURE_CONFIRMATION_EMAIL = "d-3a659cf488504de9b63e39864f92be49"
+
+    HACKER_ACCEPTED_EMAIL = "d-c549f962d8784a0b83a0206c7e4d6b3b"
+    HACKER_WAITLISTED_EMAIL = "d-f86fc8e1e4d94c9dad5909a3ee7c4e6d"
+    HACKER_REJECTED_EMAIL = "d-f10dc807d5894a48a7baa0f1bd3f61ce"
+    MENTOR_ACCEPTED_EMAIL = "d-40639ae7ad234fa895acfe5e6f850c3c"
+    MENTOR_REJECTED_EMAIL = "d-a66fa263714d4c82bf48ecdd71712c90"
+    VOLUNTEER_ACCEPTED_EMAIL = "d-8ba0868796424ceab0c6aad7a992bdc2"
+    VOLUNTEER_REJECTED_EMAIL = "d-a7f4f0e9c9784837a7855a1afba2011c"
     APPLY_REMINDER = ""
     HACKER_RSVP_REMINDER = ""
     MENTOR_RSVP_REMINDER = ""
@@ -54,6 +56,14 @@ class GuestTokenPersonalization(PersonalizationData):
 
 class ApplicationUpdatePersonalization(PersonalizationData):
     first_name: str
+
+
+class WaiverConfirmationPersonalization(PersonalizationData):
+    first_name: str
+    last_name: str
+    full_signature: str
+    timestamp: str
+    waiver_text: str
 
 
 ApplicationUpdateTemplates: TypeAlias = Literal[
@@ -169,6 +179,16 @@ async def send_email(
 ) -> None: ...
 
 
+@overload
+async def send_email(
+    template_id: Literal[Template.WAIVER_SIGNATURE_CONFIRMATION_EMAIL],
+    sender_email: Tuple[str, str],
+    receiver_data: WaiverConfirmationPersonalization,
+    send_to_multiple: Literal[False] = False,
+    reply_to: Union[Tuple[str, str], None] = None,
+) -> None: ...
+
+
 async def send_email(
     template_id: Template,
     sender_email: Tuple[str, str],
@@ -213,8 +233,9 @@ async def send_email(
 
         async with aiosendgrid.AsyncSendGridClient(api_key=SENDGRID_API_KEY) as client:
             response = await client.send_mail_v3(body=email_message.get())
-            log.debug(response.status_code)
-            log.debug(response.headers)
+            log.error(response.status_code)
+            log.error(response.headers)
     except HTTPStatusError as e:
         log.exception("During SendGrid processing: %s", e)
+        log.error("SendGrid response body: %s", e.response.text)
         raise RuntimeError("Could not send email with SendGrid")

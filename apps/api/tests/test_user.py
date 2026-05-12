@@ -14,16 +14,6 @@ app.include_router(user.router)
 
 client = TestClient(app, follow_redirects=False)
 
-# def test_login_as_uci_redirects_to_saml() -> None:
-#     """Tests that logging in with UCI email redirects to SAML for UCI SSO"""
-#     res = client.post(
-#         "/login",
-#         data={"email": "hack@uci.edu"},
-#         follow_redirects=False,
-#     )
-#     assert res.status_code == status.HTTP_303_SEE_OTHER
-#     assert res.headers["location"] == "/api/saml/login?return_to=%2Fportal"
-
 
 def test_login_as_non_uci_redirects_to_guest_login() -> None:
     """Test that logging in with a non-UCI email redirects to guest login endpoint."""
@@ -61,10 +51,17 @@ def test_plain_identity_when_no_user_record(
     res = client.get("/me")
 
     mock_mongodb_handler_retrieve_one.assert_awaited_once_with(
-        Collection.USERS, {"_id": "edu.stanford.tree"}, ["roles", "status", "application_data"], 
+        Collection.USERS,
+        {"_id": "edu.stanford.tree"},
+        ["roles", "status", "application_data"],
     )
     data = res.json()
-    assert data == {"uid": "edu.stanford.tree", "status": None, "roles": [], "submission_time": None}
+    assert data == {
+        "uid": "edu.stanford.tree",
+        "status": None,
+        "roles": [],
+        "submission_time": None,
+    }
 
 
 @patch("services.mongodb_handler.update_one", autospec=True)
@@ -77,13 +74,13 @@ def test_user_with_status_waiver_signed_rsvp_changes_status_to_confirmed(
     mock_mongodb_handler_retrieve_one.return_value = {"status": Status.WAIVER_SIGNED}
 
     client = UserTestClient(GuestUser(email="tree@stanford.edu"), app)
-    res = client.post("/rsvp", follow_redirects=False)
+    res = client.post("/rsvp")
 
     mock_mongodb_handler_update_one.assert_awaited_once_with(
         Collection.USERS, {"_id": "edu.stanford.tree"}, {"status": Status.CONFIRMED}
     )
 
-    assert res.status_code == 303
+    assert res.status_code == 200
 
 
 @patch("services.mongodb_handler.update_one", autospec=True)
@@ -92,17 +89,19 @@ def test_user_with_status_confirmed_un_rsvp_changes_status_to_waiver_signed(
     mock_mongodb_handler_retrieve_one: AsyncMock,
     mock_mongodb_handler_update_one: AsyncMock,
 ) -> None:
-    """Test user with WAIVER_SIGNED status has new status of CONFIRMED after RSVP."""
+    """Test user with CONFIRMED status has new status of WAIVER_SIGNED after un-RSVP."""
     mock_mongodb_handler_retrieve_one.return_value = {"status": Status.CONFIRMED}
 
     client = UserTestClient(GuestUser(email="tree@stanford.edu"), app)
-    res = client.post("/rsvp", follow_redirects=False)
+    res = client.post("/rsvp")
 
     mock_mongodb_handler_update_one.assert_awaited_once_with(
-        Collection.USERS, {"_id": "edu.stanford.tree"}, {"status": Status.WAIVER_SIGNED}
+        Collection.USERS,
+        {"_id": "edu.stanford.tree"},
+        {"status": Status.WAIVER_SIGNED},
     )
 
-    assert res.status_code == 303
+    assert res.status_code == 200
 
 
 @patch("services.mongodb_handler.update_one", autospec=True)
@@ -115,13 +114,13 @@ def test_user_with_status_attending_un_rsvp_changes_status_to_void(
     mock_mongodb_handler_retrieve_one.return_value = {"status": Status.ATTENDING}
 
     client = UserTestClient(GuestUser(email="tree@stanford.edu"), app)
-    res = client.post("/rsvp", follow_redirects=False)
+    res = client.post("/rsvp")
 
     mock_mongodb_handler_update_one.assert_awaited_once_with(
         Collection.USERS, {"_id": "edu.stanford.tree"}, {"status": Status.VOID}
     )
 
-    assert res.status_code == 303
+    assert res.status_code == 200
 
 
 @patch("services.mongodb_handler.update_one", autospec=True)
@@ -134,11 +133,48 @@ def test_user_with_status_accepted_un_rsvp_returns_403(
     mock_mongodb_handler_retrieve_one.return_value = {"status": Decision.ACCEPTED}
 
     client = UserTestClient(GuestUser(email="tree@stanford.edu"), app)
-    res = client.post("/rsvp", follow_redirects=False)
+    res = client.post("/rsvp")
 
     mock_mongodb_handler_update_one.assert_not_awaited()
 
     assert res.status_code == 403
+
+
+@patch("services.mongodb_handler.update_one", autospec=True)
+@patch("services.mongodb_handler.retrieve_one", autospec=True)
+def test_rsvp_with_demographic_info_updates_document(
+    mock_mongodb_handler_retrieve_one: AsyncMock,
+    mock_mongodb_handler_update_one: AsyncMock,
+) -> None:
+    """Test that demographic info is saved to user document when provided."""
+    mock_mongodb_handler_retrieve_one.return_value = {"status": Status.WAIVER_SIGNED}
+
+    client = UserTestClient(GuestUser(email="tree@stanford.edu"), app)
+    res = client.post(
+        "/rsvp",
+        json={
+            "demographic_info": {
+                "pronouns": "she/her",
+                "ethnicity": "Not Hispanic or Latino",
+                "race": ["Asian"],
+            }
+        },
+    )
+
+    mock_mongodb_handler_update_one.assert_awaited_once_with(
+        Collection.USERS,
+        {"_id": "edu.stanford.tree"},
+        {
+            "status": Status.CONFIRMED,
+            "demographic_info": {
+                "pronouns": "she/her",
+                "ethnicity": "Not Hispanic or Latino",
+                "race": ["Asian"],
+            },
+        },
+    )
+
+    assert res.status_code == 200
 
 
 @patch("services.mongodb_handler.retrieve_one", autospec=True)

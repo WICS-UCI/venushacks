@@ -10,7 +10,7 @@ from models.user_record import Role, Status
 from routers import director
 from services.mongodb_handler import Collection
 from services.sendgrid_handler import Template
-from utils.email_handler import VH_SENDER
+from utils.email_handler import VH_SENDER, VH_REPLY_TO
 
 
 USER_REVIEWER = NativeUser(
@@ -151,6 +151,7 @@ def test_apply_reminder_emails(
             {"email": "albert@uci.edu"},
         ],
         True,
+        VH_REPLY_TO,
     )
 
 
@@ -297,34 +298,86 @@ def test_organizer_set_thresholds_forbidden(
 @patch("services.mongodb_handler.retrieve", autospec=True)
 @patch("services.mongodb_handler.retrieve_one", autospec=True)
 def test_release_hacker_decisions_works(
-    mock_mongodb_handler_retrieve_one: AsyncMock,
-    mock_mongodb_handler_retrieve: AsyncMock,
-    mock_admin_process_records_in_batches: AsyncMock,
+    mock_retrieve_one: AsyncMock,
+    mock_retrieve: AsyncMock,
+    mock_process_records_in_batches: AsyncMock,
 ) -> None:
-    """Test that the /release/hackers route works"""
+    """Test that /release/hackers correctly assigns decisions by raw score rank."""
     returned_records: list[dict[str, Any]] = [
         {
-            "_id": "edu.uci.sydnee",
-            "first_name": "sydnee",
+            "_id": "edu.uci.low",
+            "first_name": "Low",
             "application_data": {
-                "reviews": [
-                    [datetime(2023, 1, 19), "edu.uci.alicia", 100],
-                    [datetime(2023, 1, 19), "edu.uci.alicia2", 300],
-                ]
+                "review_breakdown": {"reviewer1": {"experience": 2}},
             },
-        }
+        },
+        {
+            "_id": "edu.uci.high",
+            "first_name": "High",
+            "application_data": {
+                "review_breakdown": {
+                    "reviewer1": {
+                        "frq_project": {
+                            "content_relevance": 3,
+                            "experience": 3,
+                            "effort": 4,
+                        },
+                        "experience": 2,
+                    }
+                },
+            },
+        },
+        {
+            "_id": "edu.uci.mid",
+            "first_name": "Mid",
+            "application_data": {
+                "review_breakdown": {"reviewer1": {"experience": 5}},
+            },
+        },
     ]
 
-    threshold_record: dict[str, Any] = {"accept": 10, "waitlist": 5}
+    mock_retrieve_one.return_value = DIRECTOR_IDENTITY
+    mock_retrieve.return_value = returned_records
+    mock_process_records_in_batches.return_value = None
 
-    mock_mongodb_handler_retrieve_one.side_effect = [
-        DIRECTOR_IDENTITY,
-        threshold_record,
-    ]
-    mock_mongodb_handler_retrieve.return_value = returned_records
-    mock_admin_process_records_in_batches.return_value = None
-
-    res = director_client.post("/release/hackers")
+    res = director_client.post(
+        "/release/hackers",
+        json={"accept_count": 1, "waitlist_count": 1},
+    )
 
     assert res.status_code == 200
-    assert returned_records[0]["decision"] == Decision.ACCEPTED
+
+    decisions = {r["_id"]: r["decision"] for r in returned_records}
+    assert decisions["edu.uci.high"] == Decision.ACCEPTED
+    assert decisions["edu.uci.mid"] == Decision.WAITLISTED
+    assert decisions["edu.uci.low"] == Decision.REJECTED
+
+    mock_process_records_in_batches.assert_awaited_once_with(
+        returned_records, Role.HACKER
+    )
+
+
+@patch("services.mongodb_handler.retrieve", autospec=True)
+@patch("services.mongodb_handler.retrieve_one", autospec=True)
+def test_release_hacker_decisions_fails_without_review_breakdown(
+    mock_retrieve_one: AsyncMock,
+    mock_retrieve: AsyncMock,
+) -> None:
+    """Test that /release/hackers returns 400 if any record lacks review_breakdown."""
+    returned_records: list[dict[str, Any]] = [
+        {
+            "_id": "edu.uci.nobreakdown",
+            "first_name": "No",
+            "application_data": {},
+        },
+    ]
+
+    mock_retrieve_one.return_value = DIRECTOR_IDENTITY
+    mock_retrieve.return_value = returned_records
+
+    res = director_client.post(
+        "/release/hackers",
+        json={"accept_count": 1, "waitlist_count": 0},
+    )
+
+    assert res.status_code == 400
