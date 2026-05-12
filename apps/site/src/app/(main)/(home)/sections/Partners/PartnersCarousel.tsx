@@ -111,7 +111,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 					height: "100px",
 					fontSize: "14.17px",
 					lineHeight: "24.79px",
-			  };
+			};
 		return (
 			<div className={`relative ${cardSize}`}>
 				<Image
@@ -208,7 +208,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 							zIndex: 10,
 						}}
 					>
-						{renderPartnerCard(partners[prevIndex], { compact: true, faded: true })}
+						{renderPartnerCard(leftPartner, { compact: true, faded: true })}
 					</div>
 
 					<div
@@ -241,7 +241,7 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 							zIndex: 10,
 						}}
 					>
-						{renderPartnerCard(partners[nextIndex], { compact: true, faded: true })}
+						{renderPartnerCard(rightPartner, { compact: true, faded: true })}
 					</div>
 				</div>
 			</div>
