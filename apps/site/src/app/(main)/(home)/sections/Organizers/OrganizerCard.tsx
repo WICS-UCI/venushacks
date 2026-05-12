@@ -31,21 +31,21 @@ export default function OrganizerCard({
 }: OrganizerCardProps) {
 	const [line1, line2] = splitName(name);
 	const labelDept = displayDepartment ?? department;
-	const [headshotBroken, setHeadshotBroken] = useState(false);
+	const roleLabel =
+		role === "Co-President" ? "Co-President" : `${role} – ${labelDept}`;
+
+	const [imageFailed, setImageFailed] = useState(false);
 
 	useEffect(() => {
-		setHeadshotBroken(false);
+		setImageFailed(false);
 	}, [image]);
 
 	const primarySrc = image ?? hackerSprite;
-	const displaySrc = headshotBroken ? hackerSprite : primarySrc;
-	const useHeadshotFill =
-		typeof displaySrc === "string" &&
-		displaySrc.startsWith("/headshots/") &&
-		!headshotBroken;
+	const displaySrc = imageFailed ? hackerSprite : primarySrc;
 
-	const roleLabel =
-		role === "Co-President" ? "Co-President" : `${role} – ${labelDept}`;
+	const isStringSrc = typeof displaySrc === "string";
+	const isLocalHeadshot = isStringSrc && displaySrc.startsWith("/headshots/");
+	const useCover = isStringSrc;
 
 	const linkedInIcon = (
 		<Image
@@ -66,9 +66,13 @@ export default function OrganizerCard({
 					alt={name}
 					fill
 					sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 168px"
-					unoptimized={useHeadshotFill}
-					onError={() => setHeadshotBroken(true)}
-					className={useHeadshotFill ? "object-cover" : "object-contain"}
+					unoptimized={isLocalHeadshot}
+					onError={() => {
+						if (image) setImageFailed(true);
+					}}
+					className={
+						useCover ? "object-cover object-center" : "object-contain object-center"
+					}
 				/>
 			</div>
 
