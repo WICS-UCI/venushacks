@@ -75,9 +75,7 @@ function DecisionSender() {
         })),
         [sorted, accept, waitlist]
     );
-
-	const acceptedList = preview.filter((a) => a.bucket === "accept");
-	const waitlistedList = preview.filter((a) => a.bucket === "waitlist");
+	
 	const rejectedList = preview.filter((a) => a.bucket === "reject");
 
 	const isValid = accept > 0 && waitlist >= 0 && accept + waitlist <= sorted.length;
