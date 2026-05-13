@@ -2,8 +2,6 @@ import Image from "next/image";
 
 import LandingBackgroundGrass from "@/assets/backgrounds/coming-soon-background-grass.svg";
 
-import styles from "../(home)/sections/Landing/Landing.module.css";
-
 export default function CountdownGrass() {
 	return (
 		<div className="fixed relative min-h-screen md:h-screen overflow-hidden ">
