@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import ApplicantPortalGrass from "@/assets/applicant-portal/applicant-portal-grass.png";
 import CloudGroup from "@/assets/backgrounds/coming-soon-clouds.svg";
 import styles from "@/lib/components/ApplicantPortalBackground/ApplicantPortalBackground.module.css";
 

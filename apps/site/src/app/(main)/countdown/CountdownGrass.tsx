@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import LandingBackgroundGrass from "@/assets/backgrounds/coming-soon-background-grass.svg";
-import CloudGroup from "@/assets/backgrounds/coming-soon-clouds.svg";
 
 import styles from "../(home)/sections/Landing/Landing.module.css";
 
