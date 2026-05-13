@@ -1,7 +1,9 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import ComingSoonBackground from "../(home)/sections/Landing/ComingSoonBackground";
 import ApplicantPortalBackground from "@/lib/components/ApplicantPortalBackground/ApplicantPortalBackground";
+import logo from "./assets/vh-logo.png";
 
 function countdown(deadline: Date) {
     const deadlineTime = deadline.getTime();
@@ -29,12 +31,15 @@ export default function Countdown(){
 
   return(
     <>
-        <div className="absolute z-10 left-[50%] top-[15%] -translate-x-1/2 -translate-y-1/2
-                        bg-[#D77676] py-2 px-24 rounded-full border-[#B25B5B] border-4">
-            <h2 className="font-torus text-[48px] text-white text-center tracking-[10%]">Hacking ends in...</h2>
+        <div className="absolute z-10 right-5 top-5">
+            <Image src={logo} alt="logo" width="100" height="100"/>
         </div>
-        <div className="absolute z-10 left-[50%] top-[35%] -translate-x-1/2 -translate-y-1/2">
-            <h2 className="font-torus font-bold text-[220px] text-[#2F3248]">
+        <div className="absolute z-10 left-[50%] top-[15%] -translate-x-1/2 -translate-y-1/2
+                        bg-[#D77676] py-2 px-16 rounded-full border-[#B25B5B] border-4">
+            <h2 className="font-torus text-[40px] text-white text-center tracking-[10%]">Hacking ends in...</h2>
+        </div>
+        <div className="absolute z-10 left-[50%] top-[37%] -translate-x-1/2 -translate-y-1/2">
+            <h2 className="font-sniglet font-bold text-[200px] text-[#2F3248]">
                 {time}
             </h2>
         </div>
