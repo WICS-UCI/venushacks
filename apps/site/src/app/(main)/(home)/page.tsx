@@ -46,7 +46,7 @@ export default function Home() {
 			</section>
 			<section id="partners">
 				<Partners />
-			</section> */}
+			</section>
 			<section id="prizes">
 				<PrizeTracks />
 			</section>
