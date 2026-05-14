@@ -47,7 +47,7 @@ export default function Home() {
 			{/* <section id="partners">
 				<Partners />
 			</section> */}
-			<section id="prize-tracks">
+			<section id="prizes">
 				<PrizeTracks />
 			</section>
 			<section id="team">
