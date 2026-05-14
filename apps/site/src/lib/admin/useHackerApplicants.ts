@@ -22,12 +22,7 @@ export interface HackerApplicantSummary {
 		resume_url: string;
 		review_breakdown?: Record<
 			string,
-			{
-				frq_project: number;
-				frq_diversity: number;
-				frq_picnic: number;
-				experience: number;
-			}
+			Record<string, Record<string, number> | number>
 		>;
 	};
 }

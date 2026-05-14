@@ -7,6 +7,7 @@ from pymongo import UpdateOne
 from models.user_record import Role
 from services import mongodb_handler
 from services.mongodb_handler import Collection
+from admin import applicant_review_processor
 
 GLOBAL_FIELDS = {"resume", "hackathon_experience"}
 
@@ -27,76 +28,52 @@ async def get_all_hacker_apps() -> list[dict[str, object]]:
         Collection.USERS,
         {
             "roles": Role.HACKER,
-            "application_data.global_field_scores.resume": {"$gte": 0},
-            "application_data.global_field_scores.hackathon_experience": {"$gte": 0},
+            "application_data.reviews": {"$exists": True, "$not": {"$size": 0}},
         },
         [
             "_id",
             "status",
             "application_data.review_breakdown",
-            "application_data.global_field_scores",
+            "application_data.normalized_scores",
         ],
     )
 
 
 def get_reviewer_stats(all_apps: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
-    """Compute mean and std for each reviewer across all applications."""
     reviewer_totals: dict[str, list[float]] = defaultdict(list)
 
     for app in all_apps:
         breakdown = app.get("application_data", {}).get("review_breakdown", {})
         for reviewer, scores_dict in breakdown.items():
-            total_score = sum(
-                [
-                    score
-                    for field, score in scores_dict.items()
-                    if field not in GLOBAL_FIELDS
-                ]
-            )
+            total_score = sum(applicant_review_processor._flatten_values(scores_dict))
             reviewer_totals[reviewer].append(total_score)
 
-    reviewer_stats = {
+    return {
         reviewer: {
             "mean": mean(scores),
-            "std": pstdev(scores) or 1.0,  # avoid divide-by-zero if all same
+            "std": pstdev(scores) or 1.0,
         }
         for reviewer, scores in reviewer_totals.items()
     }
-
-    return reviewer_stats
 
 
 def get_normalized_scores_for_hacker_applicants(
     all_apps: list[dict[str, Any]], reviewer_stats: dict[str, dict[str, float]]
 ) -> dict[str, dict[str, float]]:
-    """
-    Compute normalized scores for each applicant and return a dict in the format:
-    {
-        "app1": {"ian": 0.5, "bob": -0.3},
-        "app2": {"ian": 1.2}
-    }
-
-    - all_apps: list of applicant dicts
-    - reviewer_stats: dict of reviewer mean/std
-    """
     result: dict[str, dict[str, float]] = {}
 
     for app in all_apps:
         app_id = app["_id"]
         breakdown = app.get("application_data", {}).get("review_breakdown", {})
-        normalized_scores: dict[str, float] = {}
+        if not breakdown:
+            continue
 
-        for reviewer, scores_dict in breakdown.items():
-            total_score = sum(
-                score
-                for field, score in scores_dict.items()
-                if field not in GLOBAL_FIELDS  # exclude global fields if needed
-            )
-            stats = reviewer_stats.get(reviewer, {"mean": 0, "std": 1})
-            normalized = (total_score - stats["mean"]) / stats["std"]
-            normalized_scores[reviewer] = normalized
+        reviewer, scores_dict = next(iter(breakdown.items()))
+        total_score = sum(applicant_review_processor._flatten_values(scores_dict))
+        stats = reviewer_stats.get(reviewer, {"mean": 0, "std": 1})
+        normalized = (total_score - stats["mean"]) / stats["std"]
 
-        result[app_id] = normalized_scores
+        result[app_id] = {reviewer: normalized}
 
     return result
 

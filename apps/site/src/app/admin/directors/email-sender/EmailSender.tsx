@@ -9,11 +9,11 @@ import Header from "@cloudscape-design/components/header";
 
 import UserContext from "@/lib/admin/UserContext";
 import { isDirector } from "@/lib/admin/authorization";
-import ApplyReminder from "./components/ApplyReminder";
+// import ApplyReminder from "./components/ApplyReminder";
 import ReleaseNonHackerDecisions from "./components/ReleaseDecisions";
 import ReleaseHackerDecisions from "./components/ReleaseHackerDecisions";
-import RSVPReminder from "./components/RSVPReminder";
-import Logistics from "./components/Logistics";
+// import RSVPReminder from "./components/RSVPReminder";
+// import Logistics from "./components/Logistics";
 
 function EmailSender() {
 	const router = useRouter();
@@ -29,10 +29,10 @@ function EmailSender() {
 			<Header>Email Sender</Header>
 			<ReleaseNonHackerDecisions />
 			<ReleaseHackerDecisions />
-			<RSVPReminder />
+			{/* <RSVPReminder />
 			<ApplyReminder />
 			<Header>Logistics Emails</Header>
-			<Logistics />
+			<Logistics /> */}
 		</SpaceBetween>
 	);
 }

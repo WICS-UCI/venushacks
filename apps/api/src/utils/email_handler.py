@@ -1,4 +1,5 @@
 from typing import Any, Iterable, Literal, Protocol
+from datetime import datetime
 
 from pydantic import EmailStr
 
@@ -13,7 +14,7 @@ from services.sendgrid_handler import (
 )
 
 VH_SENDER = ("info@venushacks.com", "VenusHacks 2026 Applications")
-VH_REPLY_TO = ("replies@venushacks.com", "VenusHacks")
+VH_REPLY_TO = ("venushacks.uci@gmail.com", "VenusHacks")
 
 DECISION_TEMPLATES: dict[Role, dict[Decision, ApplicationUpdateTemplates]] = {
     Role.HACKER: {
@@ -132,7 +133,13 @@ async def send_logistics_email(
 
     template = LOGISTICS_TEMPLATES[application_type]
     if len(records) > 0:
-        await sendgrid_handler.send_email(template, VH_SENDER, personalizations, True, reply_to=VH_REPLY_TO)
+        await sendgrid_handler.send_email(
+            template,
+            VH_SENDER,
+            personalizations,
+            True,
+            reply_to=VH_REPLY_TO,
+        )
 
 
 def recover_email_from_uid(uid: str) -> str:
@@ -142,3 +149,27 @@ def recover_email_from_uid(uid: str) -> str:
     local = local.replace("\n", ".")
     domain = ".".join(reversed(reversed_domain))
     return f"{local}@{domain}"
+
+
+async def send_waiver_confirmation_email(
+    email: EmailStr,
+    first_name: str,
+    last_name: str,
+    full_signature: str,
+    timestamp: datetime,
+    waiver_text: str,
+) -> None:
+    """Send a waiver signature confirmation email to the user."""
+    await sendgrid_handler.send_email(
+        Template.WAIVER_SIGNATURE_CONFIRMATION_EMAIL,
+        VH_SENDER,
+        sendgrid_handler.WaiverConfirmationPersonalization(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            full_signature=full_signature,
+            timestamp=timestamp.strftime("%B %-d, %Y at %-I:%M %p UTC"),
+            waiver_text=waiver_text,
+        ),
+        reply_to=VH_REPLY_TO,
+    )

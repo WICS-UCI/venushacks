@@ -19,17 +19,13 @@ export default async function Partners() {
 				<Image src={flower} alt="flower" />
 			</div>
 			<h2
-				className="mx-auto mb-16 flex items-center justify-center text-center"
+				className="mx-auto mb-16 flex items-center justify-center text-center font-torus text-[#2f3152] text-5xl md:text-6xl tracking-[20%]"
 				style={{
 					width: "min(100%, 1201.67px)",
 					height: "88px",
-					fontFamily: "Torus Pro",
 					fontWeight: 700,
 					fontStyle: "normal",
-					fontSize: "78px",
 					lineHeight: "86px",
-					letterSpacing: "0.2em",
-					color: "#2F3248",
 				}}
 			>
 				Partners

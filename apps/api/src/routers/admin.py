@@ -62,6 +62,9 @@ class ApplicationDataSummary(BaseModel):
     school: Optional[str] = None
     submission_time: datetime
     review_breakdown: Optional[dict[str, ReviewBreakdown]] = None
+    email: Optional[str] = None
+    resume_url: Optional[str] = None
+    normalized_scores: Optional[dict[str, float]] = None
 
 
 class ApplicantSummary(BaseRecord):
@@ -181,7 +184,8 @@ async def hacker_applicants(
 
     try:
         return TypeAdapter(list[HackerApplicantSummary]).validate_python(records)
-    except ValidationError:
+    except ValidationError as e:
+        log.error("Could not parse applicant data: %s", e)
         raise RuntimeError("Could not parse applicant data.")
 
 
@@ -189,10 +193,12 @@ async def applicant(
     uid: str, application_type: Literal["Hacker", "Mentor", "Volunteer"]
 ) -> Applicant:
     """Get record of an applicant by uid."""
+    log.info("Querying for uid=%s application_type=%s", uid, application_type)
     record: Optional[dict[str, object]] = await mongodb_handler.retrieve_one(
         Collection.USERS,
         {"_id": uid, "roles": [Role.APPLICANT, Role(application_type)]},
     )
+    log.info("Record found: %s", record)
 
     if not record:
         raise HTTPException(status.HTTP_404_NOT_FOUND)

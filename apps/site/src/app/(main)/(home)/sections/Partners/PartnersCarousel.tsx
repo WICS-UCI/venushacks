@@ -2,11 +2,12 @@
 
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import { useRef, useState, type TouchEvent } from "react";
+import { useRef, useState, useEffect, type TouchEvent } from "react";
 import ArrowButton from "@/assets/partner-icons/ArrowButton.svg";
 import PartnersBackground from "@/assets/partner-icons/PartnersBackground.svg";
 import { urlFor } from "@/lib/sanity/image";
 import type { PartnerItem } from "./getPartners";
+import styles from "./Partners.module.scss";
 
 type PartnersCarouselProps = {
 	partners: PartnerItem[];
@@ -14,20 +15,36 @@ type PartnersCarouselProps = {
 
 export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [direction, setDirection] = useState<"left" | "right" | null>(null);
+	const [isAnimating, setIsAnimating] = useState(false);
 	const touchStartX = useRef(0);
 	const touchEndX = useRef(0);
 
+	const total = partners.length;
+
 	const handlePrev = () => {
-		if (activeIndex > 0) {
-			setActiveIndex((prevIndex) => prevIndex - 1);
-		}
+		if (isAnimating) return;
+		setDirection("right");
+		setIsAnimating(true);
+		setActiveIndex((i) => (i - 1 + total) % total);
 	};
 
 	const handleNext = () => {
-		if (activeIndex < partners.length - 1) {
-			setActiveIndex((prevIndex) => prevIndex + 1);
-		}
+		if (isAnimating) return;
+		setDirection("left");
+		setIsAnimating(true);
+		setActiveIndex((i) => (i + 1) % total);
 	};
+
+	useEffect(() => {
+		if (isAnimating) {
+			const timer = setTimeout(() => {
+				setIsAnimating(false);
+				setDirection(null);
+			}, 350);
+			return () => clearTimeout(timer);
+		}
+	}, [isAnimating, activeIndex]);
 
 	const handleTouchStart = (event: TouchEvent) => {
 		touchStartX.current = event.touches[0].clientX;
@@ -52,8 +69,16 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 	};
 
 	const activePartner = partners[activeIndex];
-	const leftPartner = partners[activeIndex - 1];
-	const rightPartner = partners[activeIndex + 1];
+	const leftPartner = partners[(activeIndex - 1 + total) % total];
+	const rightPartner = partners[(activeIndex + 1) % total];
+
+	// Animation class for center card entrance
+	const centerAnimClass =
+		isAnimating && direction === "left"
+			? styles.slideInFromRight
+			: isAnimating && direction === "right"
+			? styles.slideInFromLeft
+			: "";
 
 	const renderPartnerCard = (
 		partner: PartnerItem,
@@ -69,24 +94,24 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 			? {
 					fontSize: "30px",
 					lineHeight: "30px",
-				}
+			}
 			: {
 					fontSize: "40px",
 					lineHeight: "40px",
-				};
+			};
 		const descriptionStyle = compact
 			? {
 					width: "220px",
 					height: "66px",
 					fontSize: "11px",
 					lineHeight: "17px",
-				}
+			}
 			: {
 					width: "355.96px",
 					height: "100px",
 					fontSize: "14.17px",
 					lineHeight: "24.79px",
-				};
+			};
 		return (
 			<div className={`relative ${cardSize}`}>
 				<Image
@@ -148,15 +173,10 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 			<button
 				type="button"
 				onClick={handlePrev}
-				disabled={activeIndex === 0}
 				aria-label="Previous partner"
-				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+				className="hidden md:block hover:opacity-70 transition-opacity"
 			>
-				<Image
-					src={ArrowButton}
-					alt=""
-					className="w-8 md:w-[80%] rotate-180"
-				/>
+				<Image src={ArrowButton} alt="" className="w-8 md:w-[80%] rotate-180" />
 			</button>
 
 			<div
@@ -181,20 +201,19 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 				</div>
 
 				<div className="hidden md:flex relative items-center justify-center w-full h-full">
-					{leftPartner && (
-						<div
-							className="absolute transition-all duration-300 ease-in-out"
-							style={{
-								left: "30px",
-								zIndex: 10,
-							}}
-						>
-							{renderPartnerCard(leftPartner, { compact: true, faded: true })}
-						</div>
-					)}
-
 					<div
 						className="absolute transition-all duration-300 ease-in-out"
+						style={{
+							left: "30px",
+							zIndex: 10,
+						}}
+					>
+						{renderPartnerCard(leftPartner, { compact: true, faded: true })}
+					</div>
+
+					<div
+						key={activeIndex}
+						className={`absolute transition-all duration-300 ease-in-out ${centerAnimClass}`}
 						style={{
 							left: "50%",
 							transform: "translateX(-50%)",
@@ -215,26 +234,23 @@ export default function PartnersCarousel({ partners }: PartnersCarouselProps) {
 						)}
 					</div>
 
-					{rightPartner && (
-						<div
-							className="absolute transition-all duration-300 ease-in-out"
-							style={{
-								right: "30px",
-								zIndex: 10,
-							}}
-						>
-							{renderPartnerCard(rightPartner, { compact: true, faded: true })}
-						</div>
-					)}
+					<div
+						className="absolute transition-all duration-300 ease-in-out"
+						style={{
+							right: "30px",
+							zIndex: 10,
+						}}
+					>
+						{renderPartnerCard(rightPartner, { compact: true, faded: true })}
+					</div>
 				</div>
 			</div>
 
 			<button
 				type="button"
 				onClick={handleNext}
-				disabled={activeIndex === partners.length - 1}
 				aria-label="Next partner"
-				className="hidden md:block hover:opacity-70 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+				className="hidden md:block hover:opacity-70 transition-opacity"
 			>
 				<Image src={ArrowButton} alt="" className="w-8 md:w-[80%]" />
 			</button>
