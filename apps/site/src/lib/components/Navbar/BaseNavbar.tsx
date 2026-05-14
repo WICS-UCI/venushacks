@@ -19,6 +19,7 @@ export default function BaseNavbar({ children }: PropsWithChildren) {
 						<NavLinkItem href="/#faqs">FAQs</NavLinkItem>
 						<NavLinkItem href="/#sponsors">Sponsors</NavLinkItem>
 						<NavLinkItem href="/#partners">Partners</NavLinkItem>
+						<NavLinkItem href="/#prizes">Prizes</NavLinkItem>
 						<NavLinkItem href="/#team">Team</NavLinkItem>
 					</NavMenu.List>
 					<NavMenu.Indicator className={styles.navMenuIndicator} />

@@ -6,3 +6,4 @@ export { default as Organizers } from "./Organizers/Organizers";
 export { default as Footer } from "@/lib/components/Footer/Footer";
 export { default as FooterGraphic } from "./FooterGraphic/FooterGraphic";
 export { default as About } from "./Landing/About/About";
+export { default as PrizeTracks } from "./PrizeTracks/PrizeTracks";
