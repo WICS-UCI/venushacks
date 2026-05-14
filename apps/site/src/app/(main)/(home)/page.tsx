@@ -13,6 +13,7 @@ import {
 	// Partners,
 	Organizers,
 	Footer,
+	PrizeTracks,
 } from "./sections";
 
 export const revalidate = 60;
@@ -46,6 +47,9 @@ export default function Home() {
 			{/* <section id="partners">
 				<Partners />
 			</section> */}
+			<section id="prize-tracks">
+				<PrizeTracks />
+			</section>
 			<section id="team">
 				<Organizers />
 			</section>
