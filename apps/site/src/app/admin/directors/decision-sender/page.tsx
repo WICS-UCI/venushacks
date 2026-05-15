@@ -25,17 +25,21 @@ import UserContext from "@/lib/admin/UserContext";
 import ReleaseNonHackerDecisions from "../email-sender/components/ReleaseDecisions";
 
 function getRawScore(applicant: HackerApplicantSummary): number {
-    const breakdown = applicant.application_data.review_breakdown ?? {};
-    const scores = Object.values(breakdown)[0] ?? {};
-    return Object.values(scores).reduce<number>((sum, val) => {
-        if (typeof val === "number") return sum + val;
-        return sum + Object.values(val).reduce<number>((s, v) => s + v, 0);
-    }, 0);
+	const breakdown = applicant.application_data.review_breakdown ?? {};
+	const scores = Object.values(breakdown)[0] ?? {};
+	return Object.values(scores).reduce<number>((sum, val) => {
+		if (typeof val === "number") return sum + val;
+		return sum + Object.values(val).reduce<number>((s, v) => s + v, 0);
+	}, 0);
 }
 
 type DecisionBucket = "accept" | "waitlist" | "reject";
 
-function assignDecision(index: number, acceptCount: number, waitlistCount: number): DecisionBucket {
+function assignDecision(
+	index: number,
+	acceptCount: number,
+	waitlistCount: number,
+): DecisionBucket {
 	if (index < acceptCount) return "accept";
 	if (index < acceptCount + waitlistCount) return "waitlist";
 	return "reject";
@@ -55,47 +59,62 @@ function DecisionSender() {
 	const [waitlistCount, setWaitlistCount] = useState("");
 	const [confirmVisible, setConfirmVisible] = useState(false);
 	const [sending, setSending] = useState(false);
-	const [result, setResult] = useState<{ type: "success" | "error"; message: string } | null>(null);
+	const [result, setResult] = useState<{
+		type: "success" | "error";
+		message: string;
+	} | null>(null);
 
-    const sorted = useMemo(() =>
-        [...applicantList]
-            .filter((a) => Object.keys(a.application_data.review_breakdown ?? {}).length > 0)
-            .sort((a, b) => getRawScore(b) - getRawScore(a)),
-        [applicantList]
-    );
+	const sorted = useMemo(
+		() =>
+			[...applicantList]
+				.filter(
+					(a) =>
+						Object.keys(a.application_data.review_breakdown ?? {}).length > 0,
+				)
+				.sort((a, b) => getRawScore(b) - getRawScore(a)),
+		[applicantList],
+	);
 
 	const accept = parseInt(acceptCount) || 0;
 	const waitlist = parseInt(waitlistCount) || 0;
 
-    const preview = useMemo(() =>
-        sorted.map((applicant, i) => ({
-            ...applicant,
-            rawScore: getRawScore(applicant),
-            bucket: assignDecision(i, accept, waitlist),
-        })),
-        [sorted, accept, waitlist]
-    );
-	
+	const preview = useMemo(
+		() =>
+			sorted.map((applicant, i) => ({
+				...applicant,
+				rawScore: getRawScore(applicant),
+				bucket: assignDecision(i, accept, waitlist),
+			})),
+		[sorted, accept, waitlist],
+	);
+
 	const rejectedList = preview.filter((a) => a.bucket === "reject");
 
-	const isValid = accept > 0 && waitlist >= 0 && accept + waitlist <= sorted.length;
+	const isValid =
+		accept > 0 && waitlist >= 0 && accept + waitlist <= sorted.length;
 
-    const handleSend = async () => {
-        setSending(true);
-        setConfirmVisible(false);
-        try {
-            await axios.post("/api/director/release/hackers", {
-                accept_count: accept,
-                waitlist_count: waitlist,
-            });
-            setResult({ type: "success", message: `Emails sent: ${accept} accepted, ${waitlist} waitlisted, ${rejectedList.length} rejected.` });
-        } catch (e) {
-            const message = e instanceof Error ? e.message : "Unknown error";
-            setResult({ type: "error", message: `Failed to send emails: ${message}` });
-        } finally {
-            setSending(false);
-        }
-    };
+	const handleSend = async () => {
+		setSending(true);
+		setConfirmVisible(false);
+		try {
+			await axios.post("/api/director/release/hackers", {
+				accept_count: accept,
+				waitlist_count: waitlist,
+			});
+			setResult({
+				type: "success",
+				message: `Emails sent: ${accept} accepted, ${waitlist} waitlisted, ${rejectedList.length} rejected.`,
+			});
+		} catch (e) {
+			const message = e instanceof Error ? e.message : "Unknown error";
+			setResult({
+				type: "error",
+				message: `Failed to send emails: ${message}`,
+			});
+		} finally {
+			setSending(false);
+		}
+	};
 
 	const bucketBadge = (bucket: DecisionBucket) => {
 		if (bucket === "accept") return <Badge color="green">Accept</Badge>;
@@ -108,11 +127,7 @@ function DecisionSender() {
 			<Header variant="h1">Decision email sender</Header>
 
 			{result && (
-				<Alert
-					type={result.type}
-					dismissible
-					onDismiss={() => setResult(null)}
-				>
+				<Alert type={result.type} dismissible onDismiss={() => setResult(null)}>
 					{result.message}
 				</Alert>
 			)}
@@ -135,7 +150,10 @@ function DecisionSender() {
 					/>
 				</FormField>
 				<FormField label="Reject remaining">
-					<Input value={String(Math.max(0, sorted.length - accept - waitlist))} disabled />
+					<Input
+						value={String(Math.max(0, sorted.length - accept - waitlist))}
+						disabled
+					/>
 				</FormField>
 			</ColumnLayout>
 
@@ -143,11 +161,11 @@ function DecisionSender() {
 				loading={loading}
 				columnDefinitions={[
 					{
-                        id: "rank",
-                        header: "#",
-                        cell: (item) => preview.indexOf(item) + 1,
-                        width: 50,
-                    },
+						id: "rank",
+						header: "#",
+						cell: (item) => preview.indexOf(item) + 1,
+						width: 50,
+					},
 					{
 						id: "name",
 						header: "Name",
@@ -161,7 +179,7 @@ function DecisionSender() {
 					{
 						id: "score",
 						header: "Raw score",
-                        cell: (item) => (item.rawScore * 100 / 30).toFixed(2),
+						cell: (item) => ((item.rawScore * 100) / 30).toFixed(2),
 					},
 					{
 						id: "decision",
@@ -208,11 +226,20 @@ function DecisionSender() {
 				}
 			>
 				<SpaceBetween size="s">
-					<p>This will send decision emails to all {preview.length} applicants. This action cannot be undone.</p>
+					<p>
+						This will send decision emails to all {preview.length} applicants.
+						This action cannot be undone.
+					</p>
 					<ColumnLayout columns={3}>
-						<div><strong>{accept}</strong> accepted</div>
-						<div><strong>{waitlist}</strong> waitlisted</div>
-						<div><strong>{rejectedList.length}</strong> rejected</div>
+						<div>
+							<strong>{accept}</strong> accepted
+						</div>
+						<div>
+							<strong>{waitlist}</strong> waitlisted
+						</div>
+						<div>
+							<strong>{rejectedList.length}</strong> rejected
+						</div>
 					</ColumnLayout>
 				</SpaceBetween>
 			</Modal>
