@@ -14,21 +14,32 @@ export default function Navbar({ identity }: NavbarProps) {
 	return (
 		<div className="w-full flex justify-center">
 			<BaseNavbar>
-				{isLoggedIn ? (
+				<div className="flex flex-row gap-4">
 					<Button
-						text="Portal"
-						href="/portal"
+						text="Schedule"
+						href="/schedule"
 						usePrefetch={false}
 						isNavButton
+						className="!border-[#D77676] !bg-[#F9C4C4] !text-[#D77676]"
 					/>
-				) : (
-					<Button
-						text="Apply"
-						href="/choose-role"
-						usePrefetch={false}
-						isNavButton
-					/>
-				)}
+					
+					{isLoggedIn ? (
+						<Button
+							text="Portal"
+							href="/portal"
+							usePrefetch={false}
+							isNavButton
+						/>
+					) : (
+						<Button
+							text="Apply"
+							href="/choose-role"
+							usePrefetch={false}
+							isNavButton
+						/>
+					)}
+				</div>
+				
 			</BaseNavbar>
 
 			<div className="fixed top-4 right-4 z-40 md:hidden">
