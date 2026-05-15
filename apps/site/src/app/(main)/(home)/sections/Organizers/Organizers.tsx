@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { client } from "@/lib/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
-import hackerSprite from "@/assets/images/volunteer_sprite.png";
 import { getOrganizers } from "./getOrganizers";
 import OrganizerCard from "./OrganizerCard";
 import { type OrganizerData, DUMMY_ORGANIZERS } from "./OrganizerData";
+import { resolveHeadshotUrl } from "./resolveHeadshot";
 import flower from "./assets/flower.svg";
 import grass from "./assets/grass.svg";
 
@@ -46,7 +46,7 @@ export default function Organizers() {
 							role: organizer.role,
 							image: organizer.image
 								? builder.image(organizer.image).format("webp").url()
-								: hackerSprite.src,
+								: undefined,
 							link: organizer.link,
 						})),
 					);
@@ -118,7 +118,7 @@ export default function Organizers() {
 								role={organizer.role}
 								department={organizer.department}
 								displayDepartment={organizer.displayDepartment}
-								image={organizer.image}
+								image={resolveHeadshotUrl(organizer.name) ?? organizer.image}
 								link={organizer.link}
 							/>
 						))}
