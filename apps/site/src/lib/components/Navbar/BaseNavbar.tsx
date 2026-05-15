@@ -8,9 +8,7 @@ import NavLinkItem from "./NavbarHelpers";
 
 export default function BaseNavbar({ children }: PropsWithChildren) {
 	return (
-		<NavMenu.Root
-			className={`hidden md:flex fixed top-6 z-40 justify-between`}
-		>
+		<NavMenu.Root className={`hidden md:flex fixed top-6 z-40 justify-between`}>
 			<div className="flex w-full items-center px-6 gap-8">
 				<div className={styles.navMenuListWrapper}>
 					<NavMenu.List className={styles.navMenuList}>
@@ -30,5 +28,3 @@ export default function BaseNavbar({ children }: PropsWithChildren) {
 		</NavMenu.Root>
 	);
 }
-
-

@@ -22,7 +22,7 @@ export default function Navbar({ identity }: NavbarProps) {
 						isNavButton
 						className="!border-[#D77676] !bg-[#F9C4C4] !text-[#D77676]"
 					/>
-					
+
 					{isLoggedIn ? (
 						<Button
 							text="Portal"
@@ -39,7 +39,6 @@ export default function Navbar({ identity }: NavbarProps) {
 						/>
 					)}
 				</div>
-				
 			</BaseNavbar>
 
 			<div className="fixed top-4 right-4 z-40 md:hidden">
