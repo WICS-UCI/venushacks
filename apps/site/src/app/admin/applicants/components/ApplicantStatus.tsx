@@ -41,9 +41,7 @@ function ApplicantStatus({ status }: ApplicantStatusProps) {
 				padding: "4px",
 			}}
 		>
-			<StatusIndicator
-				type={StatusTypes[status]}
-			>
+			<StatusIndicator type={StatusTypes[status]}>
 				{StatusLabels[status]}
 			</StatusIndicator>
 		</span>

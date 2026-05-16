@@ -173,7 +173,12 @@ function ParticipantsTable({
 				initiateConfirmHacker={initiateConfirmHacker}
 			/>
 		),
-		[initiateCheckIn, initiatePromotion, initiateConfirm, initiateConfirmHacker],
+		[
+			initiateCheckIn,
+			initiatePromotion,
+			initiateConfirm,
+			initiateConfirmHacker,
+		],
 	);
 
 	const columnDefinitions: StrictColumnDefinition[] = [
@@ -277,7 +282,7 @@ function ParticipantsTable({
 				header={
 					<Header
 						counter={`(${participants.length})`}
-					// actions={<Button onClick={openScanner}>Scan Badge</Button>}
+						// actions={<Button onClick={openScanner}>Scan Badge</Button>}
 					>
 						Participants
 					</Header>

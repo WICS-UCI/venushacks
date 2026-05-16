@@ -6,7 +6,11 @@ import TextContent from "@cloudscape-design/components/text-content";
 
 import { ActionModalProps } from "./CheckInModal";
 
-function ConfirmAttendanceModal({ onDismiss, onConfirm, participant }: ActionModalProps) {
+function ConfirmAttendanceModal({
+	onDismiss,
+	onConfirm,
+	participant,
+}: ActionModalProps) {
 	if (participant === null) {
 		return <Modal visible={false} />;
 	}
@@ -31,7 +35,10 @@ function ConfirmAttendanceModal({ onDismiss, onConfirm, participant }: ActionMod
 		>
 			<SpaceBetween size="m">
 				<TextContent>
-					<p>This action will update the participant&apos;s status from accepted to confirmed. The participant will be able to check into the event moving forward.</p>
+					<p>
+						This action will update the participant&apos;s status from accepted
+						to confirmed. The participant will be able to check into the event
+						moving forward.</p>
 				</TextContent>
 			</SpaceBetween>
 		</Modal>

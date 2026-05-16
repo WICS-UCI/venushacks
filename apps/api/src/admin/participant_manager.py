@@ -47,7 +47,7 @@ async def get_participants() -> list[Participant]:
     status of ATTENDING, WAIVER_SIGNED, CONFIRMED, or WAITLISTED."""
     records: list[dict[str, Any]] = await mongodb_handler.retrieve(
         Collection.USERS,
-                {
+        {
             "$or": [
                 {"roles": {"$in": [Role.SPONSOR, Role.JUDGE, Role.WORKSHOP_LEAD]}},
                 {

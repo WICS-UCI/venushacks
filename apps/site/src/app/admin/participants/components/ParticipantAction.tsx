@@ -96,8 +96,7 @@ function ParticipantAction({
 				id: "promote",
 				text: "Promote",
 				disabled: !canPromote,
-				disabledReason:
-					"Only check-in leads are allowed to promote walk-ins.",
+				disabledReason: "Only check-in leads are allowed to promote walk-ins.",
 			},
 		];
 	} else if (hackerMentorVolunteer && (isWaiverSigned || isAccepted)) {
@@ -118,8 +117,7 @@ function ParticipantAction({
 					id: "confirm",
 					text: "Confirm",
 					disabled: !canPromote,
-					disabledReason:
-						"Only check-in leads can confirm workshop leads.",
+					disabledReason: "Only check-in leads can confirm workshop leads.",
 				},
 			];
 		} else if (!canPromote || participant.status === ReviewStatus.Reviewed) {
