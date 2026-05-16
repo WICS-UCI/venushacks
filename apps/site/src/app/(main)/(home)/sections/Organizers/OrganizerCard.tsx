@@ -49,7 +49,10 @@ export default function OrganizerCard({
 					src={image ?? hackerSprite}
 					alt={name}
 					fill
-					className="object-contain"
+					className="object-cover"
+					sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 168px"
+					loading="lazy"
+					style={{ objectPosition: "50% 30%" }}
 				/>
 			</div>
 
