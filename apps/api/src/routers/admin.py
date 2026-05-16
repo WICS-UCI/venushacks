@@ -26,7 +26,6 @@ from models.user_record import Applicant, ApplicantStatus, Role, Status
 
 from services import mongodb_handler
 from services.mongodb_handler import BaseRecord, Collection
-from utils import email_handler
 
 
 log = getLogger(__name__)

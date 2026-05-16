@@ -9,7 +9,6 @@ from auth.user_identity import NativeUser, UserTestClient
 from models.ApplicationData import Decision
 from routers import admin
 from services.mongodb_handler import Collection
-from services.sendgrid_handler import Template
 
 user_identity.JWT_SECRET = "not a good idea"
 
