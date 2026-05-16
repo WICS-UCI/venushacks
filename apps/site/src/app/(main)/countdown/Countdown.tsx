@@ -21,7 +21,7 @@ function countdown(deadline: Date) {
 }
 
 export default function Countdown() {
-	const DEADLINE = new Date("May 17, 2026 13:00:00");
+	const DEADLINE = new Date("May 16, 2026 11:00:00");
 	const [time, setTime] = useState<string | null>(null);
 
 	useEffect(() => {
