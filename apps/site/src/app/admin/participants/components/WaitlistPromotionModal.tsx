@@ -38,9 +38,7 @@ function WaitlistPromotionModal({
 					<ul>
 						{/* TODO: actual instructions for check-in leads */}
 						<li>Ask for a photo ID and verify name is under waitlist.</li>
-						<li>
-							Have participant log into the portal and sign the waiver.
-						</li>
+						<li>Have participant log into the portal and sign the waiver.</li>
 					</ul>
 				</TextContent>
 				{/* TODO: badge barcode input */}
