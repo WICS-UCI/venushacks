@@ -19,7 +19,7 @@ const tracks = [
 		icon: tech_field_logo,
 		front:
 			"This track is about breaking down structural barriers in tech and expanding access to education, careers, communities for underrepresented and nontraditional groups.",
-		back: "4x Sony Headphones",
+		back: "4x Sennheiser Headphones",
 		prize: headphones,
 		prizeClassName: "w-52 h-auto mt-5",
 		prizeStyle: {},
@@ -41,7 +41,7 @@ const tracks = [
 		icon: heart_health_logo,
 		front:
 			"This track is about creating solutions that use pregnancy and postpartum care as opportunities to improve and protect women's long-term heart health.",
-		back: "4x iPad + $100 Amazon Gift Cards",
+		back: "4x iPad + $25 Amazon Gift Cards",
 		prize: ipad_amazon,
 		prizeClassName: "w-64 h-auto mt-5",
 		prizeStyle: {},
