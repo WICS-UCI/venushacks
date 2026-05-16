@@ -233,7 +233,7 @@ def test_submit_hacker_review_with_three_reviewers_fails(
 def test_waitlisted_applicant_can_be_released(
     mock_mongodb_handler_retrieve_one: AsyncMock,
     mock_mongodb_handler_update_one: AsyncMock,
-    mock_sendgrid_handler_send_email: AsyncMock,
+    # mock_sendgrid_handler_send_email: AsyncMock,
 ) -> None:
     """Test waitlisted applicant can be promoted to accepted."""
     mock_mongodb_handler_retrieve_one.side_effect = [
