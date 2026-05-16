@@ -8,6 +8,7 @@ import NotificationContext from "@/lib/admin/NotificationContext";
 import CheckInModal from "./components/CheckInModal";
 import ParticipantsTable from "./components/ParticipantsTable";
 import WaitlistPromotionModal from "./components/WaitlistPromotionModal";
+import ConfirmAttendanceModal from "./components/ConfirmAttendanceModal";
 
 function Participants() {
 	const {
@@ -16,10 +17,13 @@ function Participants() {
 		checkInParticipant,
 		releaseParticipantFromWaitlist,
 		confirmOutsideParticipants,
+		confirmHackerAttendance,
 	} = useParticipants();
 	const [checkinParticipant, setCheckinParticipant] =
 		useState<Participant | null>(null);
 	const [promoteParticipant, setPromoteParticipant] =
+		useState<Participant | null>(null);
+	const [confirmHackerParticipant, setConfirmHackerParticipant] =
 		useState<Participant | null>(null);
 
 	const { setNotifications } = useContext(NotificationContext);
@@ -122,6 +126,50 @@ function Participants() {
 		}
 	};
 
+	const initiateConfirmHacker = (participant: Participant): void => {
+		setConfirmHackerParticipant(participant);
+	};
+
+	const sendConfirmHacker = async (participant: Participant): Promise<void> => {
+		try {
+			await confirmHackerAttendance(participant);
+			setConfirmHackerParticipant(null);
+			if (setNotifications) {
+				setNotifications((oldNotifications) => [
+					{
+						type: "success",
+						content: `Successfully confirmed attendance for ${participant.first_name} ${participant.last_name} (${participant._id})!`,
+						dismissible: true,
+						dismissLabel: "Dismiss message",
+						id: participant._id,
+						onDismiss: () =>
+							setNotifications((notifications) =>
+								notifications.filter((n) => n.id !== participant._id),
+							),
+					},
+					...oldNotifications,
+				]);
+			}
+		} catch (error) {
+			if (setNotifications) {
+				setNotifications((oldNotifications) => [
+					{
+						type: "error",
+						content: `Failed to confirm attendance for ${participant.first_name} ${participant.last_name} (${participant._id})!`,
+						dismissible: true,
+						dismissLabel: "Dismiss message",
+						id: participant._id,
+						onDismiss: () =>
+							setNotifications((notifications) =>
+								notifications.filter((n) => n.id !== participant._id),
+							),
+					},
+					...oldNotifications,
+				]);
+			}
+		}
+	};
+
 	return (
 		<>
 			<ParticipantsTable
@@ -130,6 +178,7 @@ function Participants() {
 				initiateCheckIn={initiateCheckIn}
 				initiatePromotion={initiatePromotion}
 				initiateConfirm={confirmOutsideParticipants}
+				initiateConfirmHacker={initiateConfirmHacker}
 			/>
 			<CheckInModal
 				onDismiss={() => setCheckinParticipant(null)}
@@ -140,6 +189,11 @@ function Participants() {
 				onDismiss={() => setPromoteParticipant(null)}
 				onConfirm={sendWaitlistPromote}
 				participant={promoteParticipant}
+			/>
+			<ConfirmAttendanceModal
+				onDismiss={() => setConfirmHackerParticipant(null)}
+				onConfirm={sendConfirmHacker}
+				participant={confirmHackerParticipant}
 			/>
 		</>
 	);

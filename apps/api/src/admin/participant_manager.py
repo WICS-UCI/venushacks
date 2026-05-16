@@ -27,6 +27,7 @@ class Participant(UserRecord):
     checkins: list[Checkin] = []
     status: Union[Status, Decision] = Status.REVIEWED
     badge_number: Union[str, None] = None
+    waiver_signed: bool = False
 
 
 PARTICIPANT_FIELDS = [
@@ -37,6 +38,7 @@ PARTICIPANT_FIELDS = [
     "status",
     "checkins",
     "badge_number",
+    "waiver_signed",
 ]
 
 
@@ -45,25 +47,11 @@ async def get_participants() -> list[Participant]:
     status of ATTENDING, WAIVER_SIGNED, CONFIRMED, or WAITLISTED."""
     records: list[dict[str, Any]] = await mongodb_handler.retrieve(
         Collection.USERS,
-        {
+                {
             "$or": [
+                {"roles": {"$in": [Role.SPONSOR, Role.JUDGE, Role.WORKSHOP_LEAD]}},
                 {
-                    "roles": {
-                        "$in": [
-                            Role.SPONSOR,
-                            Role.JUDGE,
-                            Role.WORKSHOP_LEAD,
-                        ]
-                    }
-                },
-                {
-                    "roles": {
-                        "$in": [
-                            Role.HACKER,
-                            Role.MENTOR,
-                            Role.VOLUNTEER,
-                        ]
-                    },
+                    "roles": {"$in": [Role.HACKER, Role.MENTOR, Role.VOLUNTEER]},
                     "status": {
                         "$in": [
                             Status.ATTENDING,
@@ -79,7 +67,20 @@ async def get_participants() -> list[Participant]:
         PARTICIPANT_FIELDS,
     )
 
-    return [Participant(**user) for user in records]
+    # Fetch all signed user IDs in one query
+    waiver_records: list[dict[str, Any]] = await mongodb_handler.retrieve(
+        Collection.WAIVER_SIGNATURES,
+        {},
+        ["user_id"],
+    )
+    signed_uids = {r["user_id"] for r in waiver_records}
+
+    participants = []
+    for user in records:
+        user["waiver_signed"] = user["_id"] in signed_uids
+        participants.append(Participant(**user))
+
+    return participants
 
 
 async def check_in_participant(uid: str, associate: User) -> None:

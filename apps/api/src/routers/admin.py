@@ -22,7 +22,8 @@ from models.ApplicationData import (
     WR2Scores,
     WR3Scores,
 )
-from models.user_record import Applicant, ApplicantStatus, Role
+from models.user_record import Applicant, ApplicantStatus, Role, Status
+
 from services import mongodb_handler
 from services.mongodb_handler import BaseRecord, Collection
 from utils import email_handler
@@ -377,6 +378,7 @@ async def waitlist_release(
     ok = await mongodb_handler.update_one(
         Collection.USERS, {"_id": uid}, {"status": Decision.ACCEPTED}
     )
+    # nice lol - noah
     if not ok:
         raise RuntimeError("gg wp")
 
@@ -384,6 +386,52 @@ async def waitlist_release(
     await email_handler.send_waitlist_release_email(
         record["first_name"], email_handler.recover_email_from_uid(uid)
     )
+
+
+@router.post("/confirm-attendance/{uid}")
+async def confirm_attendance(
+    uid: str,
+    associate: Annotated[User, Depends(require_checkin_lead)],
+) -> None:
+    """Confirm attendance for a hacker who has signed the waiver."""
+    record = await mongodb_handler.retrieve_one(
+        Collection.USERS,
+        {"_id": uid},
+        ["status", "roles", "first_name"],
+    )
+    if not record:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
+
+    if Role.HACKER not in record.get("roles", []):
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Participant is not a hacker.",
+        )
+
+    if record.get("status") not in (Status.WAIVER_SIGNED, Decision.ACCEPTED):
+        raise HTTPException(
+            status.HTTP_409_CONFLICT,
+            detail="Participant is not in an acceptable status for confirmation.",
+        )
+
+    waiver = await mongodb_handler.retrieve_one(
+        Collection.WAIVER_SIGNATURES,
+        {"user_id": uid},
+        ["user_id"],
+    )
+    if not waiver:
+        raise HTTPException(
+            status.HTTP_412_PRECONDITION_FAILED,
+            detail="Participant has not signed the waiver.",
+        )
+
+    ok = await mongodb_handler.update_one(
+        Collection.USERS, {"_id": uid}, {"status": Status.CONFIRMED}
+    )
+    if not ok:
+        raise RuntimeError(f"Could not confirm attendance for {uid}.")
+
+    log.info("%s confirmed attendance for %s", associate, uid)
 
 
 @router.get("/participants", dependencies=[Depends(require_organizer)])

@@ -11,6 +11,7 @@ import SpaceBetween from "@cloudscape-design/components/space-between";
 import Table, { TableProps } from "@cloudscape-design/components/table";
 
 import ApplicantStatus from "@/app/admin/applicants/components/ApplicantStatus";
+import WaiverStatus from "@/app/admin/applicants/components/WaiverStatus";
 import { Participant } from "@/lib/admin/useParticipants";
 import { ParticipantRole } from "@/lib/userRecord";
 
@@ -18,11 +19,10 @@ import CheckinDayIcon from "./CheckinDayIcon";
 import ParticipantAction from "./ParticipantAction";
 import ParticipantsFilters from "./ParticipantsFilters";
 import RoleBadge from "./RoleBadge";
-import SearchScannerModal from "./SearchScannerModal";
+// import SearchScannerModal from "./SearchScannerModal";
 
-const FRIDAY = new Date("2025-01-24T12:00:00");
-const SATURDAY = new Date("2025-01-25T12:00:00");
-const SUNDAY = new Date("2025-01-26T12:00:00");
+const SATURDAY = new Date("2026-05-16T07:00:00Z");
+const SUNDAY = new Date("2026-05-17T07:00:00Z");
 
 interface EmptyStateProps {
 	title: string;
@@ -36,6 +36,7 @@ interface ParticipantsTableProps {
 	initiateCheckIn: (participant: Participant) => void;
 	initiatePromotion: (participant: Participant) => void;
 	initiateConfirm: (participant: Participant) => void;
+	initiateConfirmHacker: (participant: Participant) => void;
 }
 
 export type Options = ReadonlyArray<MultiselectProps.Option>;
@@ -81,6 +82,7 @@ function ParticipantsTable({
 	initiateCheckIn,
 	initiatePromotion,
 	initiateConfirm,
+	initiateConfirmHacker,
 }: ParticipantsTableProps) {
 	const [preferences, setPreferences] = useState({
 		pageSize: 20,
@@ -90,7 +92,7 @@ function ParticipantsTable({
 			"lastName",
 			"roles",
 			"status",
-			"friday",
+			"waiver",
 			"saturday",
 			"sunday",
 			"action",
@@ -168,9 +170,10 @@ function ParticipantsTable({
 				initiateCheckIn={initiateCheckIn}
 				initiatePromotion={initiatePromotion}
 				initiateConfirm={initiateConfirm}
+				initiateConfirmHacker={initiateConfirmHacker}
 			/>
 		),
-		[initiateCheckIn, initiatePromotion, initiateConfirm],
+		[initiateCheckIn, initiatePromotion, initiateConfirm, initiateConfirmHacker],
 	);
 
 	const columnDefinitions: StrictColumnDefinition[] = [
@@ -211,10 +214,11 @@ function ParticipantsTable({
 			sortingField: "status",
 		},
 		{
-			id: "friday",
-			header: "Fri",
-			cell: FridayCheckin,
-			sortingField: "friday",
+			id: "waiver",
+			header: "Waiver",
+			cell: WaiverStatus,
+			ariaLabel: createLabelFunction("Waiver signed"),
+			sortingField: "waiver_signed",
 		},
 		{
 			id: "saturday",
@@ -244,34 +248,36 @@ function ParticipantsTable({
 		</Box>
 	);
 
-	const [showScanner, setShowScanner] = useState(false);
+	// Uncomment code to enable badge scanner functionality
 
-	const openScanner = () => {
-		setShowScanner(true);
-	};
+	// const [showScanner, setShowScanner] = useState(false);
 
-	const cancelScanner = () => {
-		setShowScanner(false);
-	};
+	// const openScanner = () => {
+	// 	setShowScanner(true);
+	// };
 
-	const useScannerValue = (value: string) => {
-		actions.setFiltering(value);
-		setShowScanner(false);
-	};
+	// const cancelScanner = () => {
+	// 	setShowScanner(false);
+	// };
+
+	// const useScannerValue = (value: string) => {
+	// 	actions.setFiltering(value);
+	// 	setShowScanner(false);
+	// };
 
 	return (
 		<>
-			<SearchScannerModal
+			{/* <SearchScannerModal
 				onDismiss={cancelScanner}
 				onConfirm={useScannerValue}
 				show={showScanner}
-			/>
+			/> */}
 			<Table
 				{...collectionProps}
 				header={
 					<Header
 						counter={`(${participants.length})`}
-						actions={<Button onClick={openScanner}>Scan Badge</Button>}
+					// actions={<Button onClick={openScanner}>Scan Badge</Button>}
 					>
 						Participants
 					</Header>
@@ -344,10 +350,6 @@ function ParticipantsTable({
 		</>
 	);
 }
-
-const FridayCheckin = ({ checkins }: Participant) => (
-	<CheckinDayIcon checkins={checkins} date={FRIDAY} />
-);
 
 const SaturdayCheckin = ({ checkins }: Participant) => (
 	<CheckinDayIcon checkins={checkins} date={SATURDAY} />
