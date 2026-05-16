@@ -382,10 +382,10 @@ async def waitlist_release(
     if not ok:
         raise RuntimeError("gg wp")
 
-    log.info("%s accepted %s off the waitlist. Sending email.", associate, uid)
-    await email_handler.send_waitlist_release_email(
-        record["first_name"], email_handler.recover_email_from_uid(uid)
-    )
+    # log.info("%s accepted %s off the waitlist. Sending email.", associate, uid)
+    # await email_handler.send_waitlist_release_email(
+    #     record["first_name"], email_handler.recover_email_from_uid(uid)
+    # )
 
 
 @router.post("/confirm-attendance/{uid}")
