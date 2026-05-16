@@ -49,7 +49,7 @@ export default function Countdown() {
                         w-[80vw] lg:w-[40%] landscape:max-md:w-[60vw] "
 			>
 				<h2 className="font-torus text-[20px] md:text-[40px] text-white text-center tracking-[10%]">
-					Hacking starts in...
+					Hacking ends in...
 				</h2>
 			</div>
 			<div className="absolute z-10 left-[50%] top-[50%] lg:top-[37%] -translate-x-1/2 -translate-y-1/2">
