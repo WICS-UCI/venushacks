@@ -41,7 +41,7 @@ const tracks = [
 		icon: heart_health_logo,
 		front:
 			"This track is about creating solutions that use pregnancy and postpartum care as opportunities to improve and protect women's long-term heart health.",
-		back: "4x iPad + $100 Amazon Gift Cards",
+		back: "4x iPad + $25 Amazon Gift Cards",
 		prize: ipad_amazon,
 		prizeClassName: "w-64 h-auto mt-5",
 		prizeStyle: {},
