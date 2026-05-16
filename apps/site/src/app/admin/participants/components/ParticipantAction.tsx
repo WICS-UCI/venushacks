@@ -105,9 +105,8 @@ function ParticipantAction({
 				id: "checkin",
 				text: "Check In",
 				disabled: true,
-				disabledReason: isWaiverSigned
-					? "Must confirm attendance in portal first"
-					: "Must sign waiver and confirm attendance in portal",
+				disabledReason:
+					"Must sign waiver in portal and be confirmed by check-in lead.",
 			},
 		];
 	} else if (!hackerMentorVolunteer && workshopLead) {
