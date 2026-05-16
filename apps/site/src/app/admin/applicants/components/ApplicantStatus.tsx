@@ -10,7 +10,7 @@ export const StatusLabels = {
 	[Status.Waitlisted]: "Waitlisted",
 	[Status.Pending]: "Needs review",
 	[Status.Reviewed]: "Reviewed",
-	[Status.Signed]: "Waiver signed",
+	[Status.Signed]: "Accepted",
 	[Status.Confirmed]: "Confirmed",
 	[Status.Attending]: "Attending",
 	[Status.Void]: "Void",
@@ -22,7 +22,7 @@ const StatusTypes: Record<Status, StatusIndicatorProps.Type> = {
 	[Status.Waitlisted]: "pending",
 	[Status.Pending]: "pending",
 	[Status.Reviewed]: "in-progress",
-	[Status.Signed]: "in-progress",
+	[Status.Signed]: "success",
 	[Status.Confirmed]: "info",
 	[Status.Attending]: "success",
 	[Status.Void]: "stopped",
@@ -41,10 +41,7 @@ function ApplicantStatus({ status }: ApplicantStatusProps) {
 				padding: "4px",
 			}}
 		>
-			<StatusIndicator
-				type={StatusTypes[status]}
-				colorOverride={status === Status.Signed ? "blue" : undefined}
-			>
+			<StatusIndicator type={StatusTypes[status]}>
 				{StatusLabels[status]}
 			</StatusIndicator>
 		</span>

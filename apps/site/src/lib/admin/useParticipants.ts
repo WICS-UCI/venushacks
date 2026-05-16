@@ -13,6 +13,7 @@ export interface Participant {
 	checkins: Checkin[];
 	status: Status;
 	badge_number: string | null;
+	waiver_signed: boolean;
 }
 
 const fetcher = async (url: string) => {
@@ -48,6 +49,12 @@ function useParticipants() {
 		mutate();
 	};
 
+	const confirmHackerAttendance = async (participant: Participant) => {
+		console.log("Confirmed attendance for hacker", participant);
+		await axios.post(`/api/admin/confirm-attendance/${participant._id}`);
+		mutate();
+	};
+
 	return {
 		participants: data ?? [],
 		loading: isLoading,
@@ -55,6 +62,7 @@ function useParticipants() {
 		checkInParticipant,
 		releaseParticipantFromWaitlist,
 		confirmOutsideParticipants,
+		confirmHackerAttendance,
 	};
 }
 

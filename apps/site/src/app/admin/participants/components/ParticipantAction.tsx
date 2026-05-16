@@ -1,13 +1,11 @@
 import { useContext } from "react";
 
-import Button from "@cloudscape-design/components/button";
+import ButtonDropdown from "@cloudscape-design/components/button-dropdown";
 
 import { isCheckInLead } from "@/lib/admin/authorization";
 import UserContext from "@/lib/admin/UserContext";
 import { Participant } from "@/lib/admin/useParticipants";
 import { ParticipantRole, ReviewStatus, Status } from "@/lib/userRecord";
-
-import ParticipantActionPopover from "./ParticipantActionPopover";
 
 const JUDGE_SPONSOR_ROLES = [ParticipantRole.Judge, ParticipantRole.Sponsor];
 const HACKER_MENTOR_VOLUNTEER_ROLES = [
@@ -26,6 +24,10 @@ function isWorkshopLead(roles: ReadonlyArray<ParticipantRole>) {
 	return roles.includes(ParticipantRole.WorkshopLead);
 }
 
+function isHacker(roles: ReadonlyArray<ParticipantRole>) {
+	return roles.includes(ParticipantRole.Hacker);
+}
+
 function isHackerMentorVolunteer(roles: ReadonlyArray<ParticipantRole>) {
 	return roles.some((role) => HACKER_MENTOR_VOLUNTEER_ROLES.includes(role));
 }
@@ -35,6 +37,7 @@ interface ParticipantActionProps {
 	initiateCheckIn: (participant: Participant) => void;
 	initiatePromotion: (participant: Participant) => void;
 	initiateConfirm: (participant: Participant) => void;
+	initiateConfirmHacker: (participant: Participant) => void;
 }
 
 function ParticipantAction({
@@ -42,6 +45,7 @@ function ParticipantAction({
 	initiateCheckIn,
 	initiatePromotion,
 	initiateConfirm,
+	initiateConfirmHacker,
 }: ParticipantActionProps) {
 	const { roles } = useContext(UserContext);
 
@@ -52,88 +56,121 @@ function ParticipantAction({
 	const hackerMentorVolunteer = isHackerMentorVolunteer(participant.roles);
 	const workshopLead = isWorkshopLead(participant.roles);
 
-	const promoteButton = (
-		<Button
-			variant="inline-link"
-			ariaLabel={`Promote ${participant._id} off waitlist`}
-			onClick={() => initiatePromotion(participant)}
-			disabled={!canPromote}
-		>
-			Promote
-		</Button>
-	);
+	type Item = {
+		id: string;
+		text: string;
+		disabled?: boolean;
+		disabledReason?: string;
+	};
 
-	const checkinButton = (
-		<Button
-			variant="inline-link"
-			ariaLabel={`Check in ${participant._id}`}
-			onClick={() => initiateCheckIn(participant)}
-			disabled={isWaiverSigned || isAccepted}
-		>
-			Check In
-		</Button>
-	);
-
-	const confirmButton = (
-		<Button
-			variant="inline-link"
-			ariaLabel={`Confirm attendance for ${participant._id}`}
-			onClick={() => initiateConfirm(participant)}
-			disabled={!canPromote}
-		>
-			Confirm
-		</Button>
-	);
+	let items: Item[] = [];
 
 	if (judgeSponsorParticipant) {
-		const content = !canPromote
-			? "Only check-in leads can confirm judges and sponsors."
-			: "Must sign waiver first.";
-		if (!canPromote || participant.status === ReviewStatus.Reviewed) {
-			return (
-				<ParticipantActionPopover content={content}>
-					{confirmButton}
-				</ParticipantActionPopover>
-			);
-		} else if (participant.status === Status.Signed) {
-			return confirmButton;
+		if (participant.status === Status.Signed) {
+			items = [
+				{
+					id: "confirm",
+					text: "Confirm",
+					disabled: !canPromote,
+					disabledReason:
+						"Only check-in leads can confirm judges and sponsors.",
+				},
+			];
+		} else if (!canPromote || participant.status === ReviewStatus.Reviewed) {
+			items = [
+				{
+					id: "confirm",
+					text: "Confirm",
+					disabled: true,
+					disabledReason: !canPromote
+						? "Only check-in leads can confirm judges and sponsors."
+						: "Must sign waiver first.",
+				},
+			];
+		} else {
+			items = [{ id: "checkin", text: "Check In" }];
 		}
-		return checkinButton;
 	} else if (participant.status === Status.Waitlisted) {
-		if (!canPromote) {
-			return (
-				<ParticipantActionPopover content="Only check-in leads are allowed to promote walk-ins.">
-					{promoteButton}
-				</ParticipantActionPopover>
-			);
-		}
-		return promoteButton;
+		items = [
+			{
+				id: "promote",
+				text: "Promote",
+				disabled: !canPromote,
+				disabledReason: "Only check-in leads are allowed to promote walk-ins.",
+			},
+		];
 	} else if (hackerMentorVolunteer && (isWaiverSigned || isAccepted)) {
-		const content = isWaiverSigned
-			? "Must confirm attendance in portal first"
-			: "Must sign waiver and confirm attendance in portal";
-		return (
-			<ParticipantActionPopover content={content}>
-				{checkinButton}
-			</ParticipantActionPopover>
-		);
+		items = [
+			{
+				id: "checkin",
+				text: "Check In",
+				disabled: true,
+				disabledReason: isWaiverSigned
+					? "Must confirm attendance in portal first"
+					: "Must sign waiver and confirm attendance in portal",
+			},
+		];
 	} else if (!hackerMentorVolunteer && workshopLead) {
-		// participants that are just workshop leads
-		const content = !canPromote
-			? "Only check-in leads can confirm workshop leads without any other roles."
-			: "Must sign waiver first.";
-		if (!canPromote || participant.status === ReviewStatus.Reviewed) {
-			return (
-				<ParticipantActionPopover content={content}>
-					{confirmButton}
-				</ParticipantActionPopover>
-			);
-		} else if (participant.status === Status.Signed) {
-			return confirmButton;
+		if (participant.status === Status.Signed) {
+			items = [
+				{
+					id: "confirm",
+					text: "Confirm",
+					disabled: !canPromote,
+					disabledReason: "Only check-in leads can confirm workshop leads.",
+				},
+			];
+		} else if (!canPromote || participant.status === ReviewStatus.Reviewed) {
+			items = [
+				{
+					id: "confirm",
+					text: "Confirm",
+					disabled: true,
+					disabledReason: !canPromote
+						? "Only check-in leads can confirm workshop leads without any other roles."
+						: "Must sign waiver first.",
+				},
+			];
+		} else {
+			items = [{ id: "checkin", text: "Check In" }];
 		}
-		return checkinButton;
+	} else {
+		items = [{ id: "checkin", text: "Check In" }];
 	}
-	return checkinButton;
+
+	if (
+		isHacker(participant.roles) &&
+		participant.waiver_signed &&
+		(participant.status === Status.Accepted ||
+			participant.status === Status.Signed)
+	) {
+		items = [...items, { id: "confirm-hacker", text: "Confirm Attendance" }];
+	}
+
+	return (
+		<ButtonDropdown
+			items={items}
+			expandToViewport
+			onItemClick={({ detail }) => {
+				switch (detail.id) {
+					case "checkin":
+						initiateCheckIn(participant);
+						break;
+					case "confirm":
+						initiateConfirm(participant);
+						break;
+					case "promote":
+						initiatePromotion(participant);
+						break;
+					case "confirm-hacker":
+						initiateConfirmHacker(participant);
+						break;
+				}
+			}}
+		>
+			Actions
+		</ButtonDropdown>
+	);
 }
 
 export default ParticipantAction;

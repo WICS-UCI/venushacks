@@ -10,5 +10,9 @@
 	"mypy-type-checker.cwd": "${workspaceFolder}/apps/api",
 	"flake8.cwd": "${workspaceFolder}/apps/api",
 	"isort.args": ["--settings-path", "apps/api/pyproject.toml"],
-	"python.testing.pytestArgs": ["--rootdir", "apps/api"]
+	"python.testing.pytestArgs": ["--rootdir", "apps/api"],
+
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.prettierPath": "./node_modules/prettier"
 }
