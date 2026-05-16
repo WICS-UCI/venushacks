@@ -45,7 +45,12 @@ export default function Organizers() {
 							department: organizer.department,
 							role: organizer.role,
 							image: organizer.image
-								? builder.image(organizer.image).format("webp").url()
+								? builder
+										.image(organizer.image)
+										.format("webp")
+										.width(336)
+										.quality(80)
+										.url()
 								: hackerSprite.src,
 							link: organizer.link,
 						})),
