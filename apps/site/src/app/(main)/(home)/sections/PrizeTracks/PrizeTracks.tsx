@@ -19,7 +19,7 @@ const tracks = [
 		icon: tech_field_logo,
 		front:
 			"This track is about breaking down structural barriers in tech and expanding access to education, careers, communities for underrepresented and nontraditional groups.",
-		back: "4x Sony Headphones",
+		back: "4x Sennheiser Headphones",
 		prize: headphones,
 		prizeClassName: "w-52 h-auto mt-5",
 		prizeStyle: {},
