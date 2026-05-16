@@ -38,7 +38,8 @@ function ConfirmAttendanceModal({
 					<p>
 						This action will update the participant&apos;s status from accepted
 						to confirmed. The participant will be able to check into the event
-						moving forward.</p>
+						moving forward.
+					</p>
 				</TextContent>
 			</SpaceBetween>
 		</Modal>
